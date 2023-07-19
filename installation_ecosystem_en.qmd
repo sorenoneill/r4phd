@@ -1,0 +1,52 @@
+---
+title: "The R ecosystem"
+description: |
+  ...nice to know about the _R-ecosystem_.
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: today
+output:
+  distill::distill_article:
+    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+categories:
+  - Installation
+creative_commons: CC BY
+format: html
+editor: source
+---
+
+## The R ecosystem
+
+The R-ecosystem consists of *a lot* of separate programs which can be downloaded fromthe internet and dynamically combined to provide extra functionality: This encompasses everything from simple data manipulation to the creation of dynamic websites, graphical animations and much more.
+
+We will only be using three elements:
+
+-   **R** itself, which is a development environment (coding language) for  data-science and statistics
+-   **RStudio** which is a graphical interface with which to work in R code
+-   A smaller sample of **R** packages with extra functionality
+
+In the following pages, I will guide you to the installation of these three eleents - one at a time.
+
+## A note about "Free and Open Source Software" (FOSS)
+
+The R-ecosystem is developed and released as *Free and Open Source Software* and as such it is freely available to download from the internet at no monetary cost.
+
+That is a good thing! Not just because of the price tag (free as in 'free beer'), but most definitely also on principle (free as in 'free speech') ... principles, which ought to be of particular importance to researcher ... and you are herewith urged to read more below:
+
+::: {.callout-tip collapse="true"}
+## More about FOSS? Click here!
+
+Free and Open Source software is developed according to the same principles as the scietific proces; knowledge (software) is developed and released in an open and transparent manner, which allows everyone to examine, criticize and improve on the results, and to develope it further.
+
+This is in contrast to closed and proprietary development processes where knowledge (software) is kept hidden behind closed formats which prevent external review, but allows for a profitable business.
+
+If you want to know more, you can easily find a lot information about it on the internet ... that is, the _internet_ which runs almost exclusively on *open source* software. 
+
+If you have funds set aside within your research budget for software and computer equipment, you might consider donating an amount that you find appropriate to e.g. the [R projektet](https://www.r-project.org/foundation/donations.html).
+:::
+
+

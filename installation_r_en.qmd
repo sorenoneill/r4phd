@@ -1,0 +1,145 @@
+---
+title: "Installation of R"
+description: |
+  How to install R on your computer.
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: '`r Sys.Date()`'
+output:
+  distill::distill_article:
+    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+#categories:
+#  - Installation
+creative_commons: CC BY
+format: html
+editor: source
+---
+
+
+## Installation
+
+::: panel-tabset
+
+## SDU
+
+If your computer was issued by the SDU IT department, you can install R via SDUs _Software Center_.
+
+**LINK?**
+
+## Windows
+
+R can be downloaded from the internet via this link [CRAN](https://cran.r-project.org/):
+
+-   Near the top, you will find the link **Download R for Windows**.
+-   Click the link and download hte file
+-   Once the file is downloaded, install as per usual procedure
+
+## MacOS
+
+R can be downloaded from the internet via this link [CRAN](https://cran.r-project.org/):
+
+-   Near the top, you will find the link **Download R for MacOS**.
+-   Click the link and download hte file
+-   Once the file is downloaded, install as per usual procedure
+
+## Linux
+
+R is, in all probablity, already part of your preferred Linux distributions software repositories. If you use a Debian based distribution, it should be as simple as::
+
+```{bash}
+#| echo: true
+#| eval: false
+
+user@linux$ sudo apt install r-base
+
+```
+
+If you want to generate literature references (pandoc) and/or generate PDF output (texlive), you probably also want the following software installed:
+
+```{bash}
+#| echo: true
+#| eval: false
+
+user@linux$ sudo apt install pandoc pandoc-citeproc texlive-base texlive-extra-utils texlive-font-utils texlive-fonts-recommended texlive-fonts-extra texlive-latex-base texlive-latex-extra texlive-latex-recommended texlive-pictures texlive-pstricks texlive-xetex lmodern texlive-lang-european g++ libxml2-dev libcurl4-openssl-dev libssl-dev 
+
+```
+
+If you are using another distribution (Arch, Red Hat, etc) you simply need to install the same software using their package managers (yum, rpm, etc)
+:::
+
+## Check that R is installed and working
+
+If the installation process completed as expected, you should now have a working R environment on your computer -- before we go any further, it is a good idea to confirm that:
+
+::: panel-tabset
+
+## Windows
+
+To confirm that R is installed and working, first open a *Terminal* on your Windows computer:
+
+Open the *Run window* dialogue by holding the *Windows* key and pressing *R*, in the window 'Execute' in the field 'Open' type *wt* (for Windows Terminal) and click *OK*.
+
+In the *Windows Terminal* type the following:
+
+```{bash}
+#| echo: true
+#| eval: false
+
+...SKAF BILLEDE FRA EN WINDOWS
+```
+
+## MacOS
+
+To confirm that R was installed and working on your MacOS, first open a *Terminal*:
+
+You cna find the *Terminal* in *Utilities* under *Applications* or your can hold down the *Command* key while pressing *space* to open *Spotlight* and enter "Terminal" -- then double click the appropriate search result.
+
+In the MacOS *Terminal* type:
+
+```{bash}
+#| echo: true
+#| eval: false
+
+...SKAF BILLEDE FRA EN MAC
+```
+
+## Linux
+
+Open your favorite *command-line interface* and try this:
+
+```{bash}
+#| echo: true
+#| eval: false
+
+user@linux: R
+```
+
+The output should look something like this:
+
+```{r}
+#| echo: true
+#| eval: false
+
+R version 4.1.2 (2021-11-01) -- "Bird Hippie"
+Copyright (C) 2021 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+```
+:::

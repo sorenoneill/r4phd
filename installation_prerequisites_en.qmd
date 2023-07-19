@@ -1,0 +1,131 @@
+---
+title: "Prerequisites"
+description: "...things that need to be in place _before_ the R course."
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: today
+output:
+  distill::distill_article:
+    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+#categories:
+#  - English
+#  - Installation
+creative_commons: CC BY
+format: html
+editor: source
+---
+
+## Prerequisites
+
+You'r going to need a computer ...
+
+-   A *somewhat* modern computer
+    -   Sufficient storage (+500 Mb) on your harddisk for the installation
+    -   Sufficient memory (+1 Gb) - the more, the better
+-   A *somehwat* modern operating system
+    -   Linux (Ubuntu 18+, Debian 9+, OpenSuse 15+, Fedora 19+, Redhat 7+, etc)
+    -   Windows 10+
+    -   MacOS10.15+
+-   A working internet connection
+
+:::{.callout-note collapse=true}
+
+## How to find the information about your computer
+
+::: panel-tabset
+### Windows
+
+[Windows 10](https://support.microsoft.com/en-us/windows/view-your-system-info-a965a8f2-0773-1d65-472a-1e747c9ebe00)
+
+[Windows 10](https://youtu.be/5SXXGHKJ8I4)
+
+### MacOS
+
+...MacOS specific content
+
+### Linux
+
+#### Debian based distributions
+
+Run the following in a terminal, to get information about your operating system (uname), your hardware (lscpu) and disk space (df):
+
+```
+$ uname -a
+$ lscpu
+$ df -h
+```
+
+#### Red Hat based distributions
+
+Run the following in a terminal, to get information about your operating system (hostnamectl), your hardware (lscpu) and disk space (df):
+
+```{} 
+$ hostnamectl
+$ lscpu
+$ df -h
+
+```
+
+:::
+
+:::
+
+::: {.callout-important  collapse="true"}
+## Is you computer an older model?
+
+If your computer is an older model, we recomment that you get someone to help you install R well in time _before_ the R-course.
+
+Otherwise, you risk spending all your class time wrangling your computer instead of playing with R.
+
+The R-ecosystem is constantly developing and new functionality is added all the time, which may be unavailable to you with an older R installation.
+
+Your computer doesn't have to be brand spanking new, but if in doubt, contact the teachers _before_ the R course starts.
+
+At the time of writting (summer 2022) we reommend you use R version4.x.x and RStudio version 2022.x.x
+
+:::
+
+::: {.callout-important  collapse="true"}
+## Was your computer supplied by SDU?
+
+Be aware that the local IT department on the Regional Hospitals and the Universiy may impose certain restrictions on your ability to install software on your computer:
+
+-   Access to some webpages (e.g. CRAN) may be restricted, as may access to download some files from the internet.
+-   Installation of software may require particular administrative rights which you do not have as standard.
+
+If this is the case, it will impede and slow down your installation of R.
+
+It is therefor a good idea, to get all of this sorted out _before_ the start of classes. Again, otherwise you risk spending all your class time wrnagling your computer rather than playing with R.
+
+...and we (the teacher) will gladly help you with the R-ecosystem, but not necessarily your computer or your operating system.
+
+:::
+
+::: {.callout-important  collapse="true"}
+
+## Was your computer supplied by SLB?
+
+Be aware that the local IT department on the Regional Hospitals and the Universiy may impose certain restrictions on your ability to install software on your computer:
+
+-   Access to some webpages (e.g. CRAN) may be restricted, as may access to download some files from the internet.
+-   Installation of software may require particular administrative rights which you do not have as standard.
+
+If this is the case, it will impede and slow down your installation of R.
+
+It is therefor a good idea, to get all of this sorted out _before_ the start of classes. Again, otherwise you risk spending all your class time wrnagling your computer rather than playing with R.
+
+...and we (the teacher) will gladly help you with the R-ecosystem, but not necessarily your computer or your operating system.
+
+:::
+
+::: {.callout-important  collapse="true"}
+## Was your computer supplied by OUH?
+
+text
+
+:::
+

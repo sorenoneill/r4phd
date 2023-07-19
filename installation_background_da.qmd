@@ -1,0 +1,56 @@
+---
+title: "Hvad er det vi installerer?"
+description: |
+  Hvad er R ift RStudio og R-økosystemet.
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: '`r Sys.Date()`'
+output:
+  distill::distill_article:
+    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+#categories:
+#  - Installation
+creative_commons: CC BY
+format: html
+editor: source
+---
+
+## R mig her og R mig der...
+
+### Hvad er R?
+
+Selve _R_ er et kodesprog og udviklingsmiljø som er særligt velegnet til statistik og data-science.
+
+R kode ser eksempelvis sådan her ud:
+
+```{r}
+#| echo: true
+#| eval: false
+
+mine_nye_data <- read.csv("data_mappe/min_data_fil.csv")
+mine_nye_data <- mine_nye_data %>%
+  select(-cpr_nummer)
+antal_observationer <- mine_nye_data %>% nrow()
+min_fine_graf <- mine_nye_data %>% ggplot() + geom_histogram()
+```
+
+R er med andre ord det kode sprog du bruger til indlæse og rense dine data, definere dine analyser, generere dine tabeller og grafer, osv, osv.
+
+### Hvad er RStudio?
+
+Derimod er RStudio et grafisk program som *'bare'* gør det nemmere at arbejde med R. Det er egentligt ikke nødvendigt at bruge RStudio, men der er en god grund til at næste alle R-brugere gør det.
+
+RStudio ser *eksempelvis* sådan her ud:
+
+![Screenshot af RStudio som det så ud mens jeg sad og skrev denne webside ... det kan man nemlig også bruge R-økosystemet til :-)](gfx/screenshot_rstudio.png)
+
+### Hvad er R økosystemet?
+
+R økosystemet er et veritabelt overflødighedshorn af ekstra funktionalitet som kan lægges over på selve R. Det kommer først og fremmest i form af R _pakker_, som der findes mange tusinde af, men det er også vejledninger, youTube videoer, chat-fora og meget andet. Uanset hvilke problemer du kommer ud for på din R rejse, kan du være næste 100% sikker på at nogen allerede har beskrevet løsningen ... den ligger allerede klar til dig derude i R økosystemet.
+
+Men før vi kaster os over alt det, så skal vi altså først have installeret R.
+

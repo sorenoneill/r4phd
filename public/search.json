@@ -1,0 +1,275 @@
+[
+  {
+    "objectID": "installation_r_pakker.html",
+    "href": "installation_r_pakker.html",
+    "title": "Installation af en R pakke",
+    "section": "",
+    "text": "En fungerende installation af R"
+  },
+  {
+    "objectID": "installation_r_pakker.html#forudsætninger",
+    "href": "installation_r_pakker.html#forudsætninger",
+    "title": "Installation af en R pakke",
+    "section": "",
+    "text": "En fungerende installation af R"
+  },
+  {
+    "objectID": "installation_r_pakker.html#hvad-er-en-r-pakke",
+    "href": "installation_r_pakker.html#hvad-er-en-r-pakke",
+    "title": "Installation af en R pakke",
+    "section": "2 Hvad er en R-pakke?",
+    "text": "2 Hvad er en R-pakke?\nStandard installationen af R består af et sæt ‘kerne’ funktioner. I tillæg dertil er det muligt at installere en meget lang række af pakker med ekstra funktioner. Disse pakker udvikles både af firmaet bag RStudio (Posit), af andre firmaer, universiteter og af R brugerne … måske en dag vil du også udvikle og offentliggøre en R pakke?\nNogle af disse pakker er udviklet med et meget specifikt og snævert formål for øje – f.eks Steen Harsteds pakke til at håndtere motion capture data kaldet RMoCap. Andre pakker er mere alment anvendelige og nogle af dem vil du stifte bekendtskab med i undervisningen. Det gælder f.eks:\n\ntidyverse – en meta-pakke der gør det nemmere at arbejde med R syntaksen – f.eks brugen af pipes.\nggplot2 – en pakke til at konstruere grafer og plots\nggpubr – en pakke som bygger på ggplot2 pakken med det formål at gøre det nemme at producere grafer som er klar til publikation\n\nDer er et par tekniske ting du skal forstå ift R pakker:\n\n2.1 Versioner\nR pakker kan være specifikke ift den underliggende R version – når der kommer en ny version af R kan det med andre ord tage lidt tid for pakke-udviklerne at opdatere deres pakker. Det er ikke altid en fordel at bruge den absolut nyeste version af R – specielt ikke hvis du også bruger nogle niché pakker.\n\n\n2.2 Installation og indhentning af pakker\nHvis du vil bruge en R pakke skal den både installeres og indlæses før du kan bruge den.\n\nNår du installerer pakken, hentes den ned og gemmes lokalt på din computer.\nNår du indlæser pakker, læser du den ind i computerens hukommelse.\n\nFørst når pakken er indlæst i computerens hukommelse vil dens funktioner være tilgængelig for brug i din kode.\n\n\n2.3 Der er flere måder at installere en pakke\nLangt de fleste pakker du kan tænkes at få brug for er tilgængelige på internettet fra the Comprehensive R Archive Network – CRAN.\nSkal du installere en sådan pakke kan du vælge at gøre det via RStudios grafiske brugerflade eller via en R kommando i konsollen. Umiddelbart vil vi anbefale at bruge konsollen da det kan give nogle nyttige informationer hvis installationen fejler.\n\n\n\n\n\n\nVideo : Installation af R pakker\n\n\n\n\n\n\n\nVideo\nEksempel på installation af en R pakke"
+  },
+  {
+    "objectID": "installation_background_da.html",
+    "href": "installation_background_da.html",
+    "title": "Hvad er det vi installerer?",
+    "section": "",
+    "text": "Selve R er et kodesprog og udviklingsmiljø som er særligt velegnet til statistik og data-science.\nR kode ser eksempelvis sådan her ud:\n\nmine_nye_data &lt;- read.csv(\"data_mappe/min_data_fil.csv\")\nmine_nye_data &lt;- mine_nye_data %&gt;%\n  select(-cpr_nummer)\nantal_observationer &lt;- mine_nye_data %&gt;% nrow()\nmin_fine_graf &lt;- mine_nye_data %&gt;% ggplot() + geom_histogram()\n\nR er med andre ord det kode sprog du bruger til indlæse og rense dine data, definere dine analyser, generere dine tabeller og grafer, osv, osv.\n\n\n\nDerimod er RStudio et grafisk program som ‘bare’ gør det nemmere at arbejde med R. Det er egentligt ikke nødvendigt at bruge RStudio, men der er en god grund til at næste alle R-brugere gør det.\nRStudio ser eksempelvis sådan her ud:\n\n\n\nScreenshot af RStudio som det så ud mens jeg sad og skrev denne webside … det kan man nemlig også bruge R-økosystemet til :-)\n\n\n\n\n\nR økosystemet er et veritabelt overflødighedshorn af ekstra funktionalitet som kan lægges over på selve R. Det kommer først og fremmest i form af R pakker, som der findes mange tusinde af, men det er også vejledninger, youTube videoer, chat-fora og meget andet. Uanset hvilke problemer du kommer ud for på din R rejse, kan du være næste 100% sikker på at nogen allerede har beskrevet løsningen … den ligger allerede klar til dig derude i R økosystemet.\nMen før vi kaster os over alt det, så skal vi altså først have installeret R."
+  },
+  {
+    "objectID": "installation_background_da.html#r-mig-her-og-r-mig-der",
+    "href": "installation_background_da.html#r-mig-her-og-r-mig-der",
+    "title": "Hvad er det vi installerer?",
+    "section": "",
+    "text": "Selve R er et kodesprog og udviklingsmiljø som er særligt velegnet til statistik og data-science.\nR kode ser eksempelvis sådan her ud:\n\nmine_nye_data &lt;- read.csv(\"data_mappe/min_data_fil.csv\")\nmine_nye_data &lt;- mine_nye_data %&gt;%\n  select(-cpr_nummer)\nantal_observationer &lt;- mine_nye_data %&gt;% nrow()\nmin_fine_graf &lt;- mine_nye_data %&gt;% ggplot() + geom_histogram()\n\nR er med andre ord det kode sprog du bruger til indlæse og rense dine data, definere dine analyser, generere dine tabeller og grafer, osv, osv.\n\n\n\nDerimod er RStudio et grafisk program som ‘bare’ gør det nemmere at arbejde med R. Det er egentligt ikke nødvendigt at bruge RStudio, men der er en god grund til at næste alle R-brugere gør det.\nRStudio ser eksempelvis sådan her ud:\n\n\n\nScreenshot af RStudio som det så ud mens jeg sad og skrev denne webside … det kan man nemlig også bruge R-økosystemet til :-)\n\n\n\n\n\nR økosystemet er et veritabelt overflødighedshorn af ekstra funktionalitet som kan lægges over på selve R. Det kommer først og fremmest i form af R pakker, som der findes mange tusinde af, men det er også vejledninger, youTube videoer, chat-fora og meget andet. Uanset hvilke problemer du kommer ud for på din R rejse, kan du være næste 100% sikker på at nogen allerede har beskrevet løsningen … den ligger allerede klar til dig derude i R økosystemet.\nMen før vi kaster os over alt det, så skal vi altså først have installeret R."
+  },
+  {
+    "objectID": "installation_prerequisites_en.html",
+    "href": "installation_prerequisites_en.html",
+    "title": "Prerequisites",
+    "section": "",
+    "text": "You’r going to need a computer …\n\nA somewhat modern computer\n\nSufficient storage (+500 Mb) on your harddisk for the installation\nSufficient memory (+1 Gb) - the more, the better\n\nA somehwat modern operating system\n\nLinux (Ubuntu 18+, Debian 9+, OpenSuse 15+, Fedora 19+, Redhat 7+, etc)\nWindows 10+\nMacOS10.15+\n\nA working internet connection\n\n\n\n\n\n\n\nHow to find the information about your computer\n\n\n\n\n\n\nWindowsMacOSLinux\n\n\nWindows 10\nWindows 10\n\n\n…MacOS specific content\n\n\n\n\nRun the following in a terminal, to get information about your operating system (uname), your hardware (lscpu) and disk space (df):\n$ uname -a\n$ lscpu\n$ df -h\n\n\n\nRun the following in a terminal, to get information about your operating system (hostnamectl), your hardware (lscpu) and disk space (df):\n$ hostnamectl\n$ lscpu\n$ df -h\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIs you computer an older model?\n\n\n\n\n\nIf your computer is an older model, we recomment that you get someone to help you install R well in time before the R-course.\nOtherwise, you risk spending all your class time wrangling your computer instead of playing with R.\nThe R-ecosystem is constantly developing and new functionality is added all the time, which may be unavailable to you with an older R installation.\nYour computer doesn’t have to be brand spanking new, but if in doubt, contact the teachers before the R course starts.\nAt the time of writting (summer 2022) we reommend you use R version4.x.x and RStudio version 2022.x.x\n\n\n\n\n\n\n\n\n\nWas your computer supplied by SDU?\n\n\n\n\n\nBe aware that the local IT department on the Regional Hospitals and the Universiy may impose certain restrictions on your ability to install software on your computer:\n\nAccess to some webpages (e.g. CRAN) may be restricted, as may access to download some files from the internet.\nInstallation of software may require particular administrative rights which you do not have as standard.\n\nIf this is the case, it will impede and slow down your installation of R.\nIt is therefor a good idea, to get all of this sorted out before the start of classes. Again, otherwise you risk spending all your class time wrnagling your computer rather than playing with R.\n…and we (the teacher) will gladly help you with the R-ecosystem, but not necessarily your computer or your operating system.\n\n\n\n\n\n\n\n\n\nWas your computer supplied by SLB?\n\n\n\n\n\nBe aware that the local IT department on the Regional Hospitals and the Universiy may impose certain restrictions on your ability to install software on your computer:\n\nAccess to some webpages (e.g. CRAN) may be restricted, as may access to download some files from the internet.\nInstallation of software may require particular administrative rights which you do not have as standard.\n\nIf this is the case, it will impede and slow down your installation of R.\nIt is therefor a good idea, to get all of this sorted out before the start of classes. Again, otherwise you risk spending all your class time wrnagling your computer rather than playing with R.\n…and we (the teacher) will gladly help you with the R-ecosystem, but not necessarily your computer or your operating system.\n\n\n\n\n\n\n\n\n\nWas your computer supplied by OUH?\n\n\n\n\n\ntext"
+  },
+  {
+    "objectID": "installation_prerequisites_en.html#prerequisites",
+    "href": "installation_prerequisites_en.html#prerequisites",
+    "title": "Prerequisites",
+    "section": "",
+    "text": "You’r going to need a computer …\n\nA somewhat modern computer\n\nSufficient storage (+500 Mb) on your harddisk for the installation\nSufficient memory (+1 Gb) - the more, the better\n\nA somehwat modern operating system\n\nLinux (Ubuntu 18+, Debian 9+, OpenSuse 15+, Fedora 19+, Redhat 7+, etc)\nWindows 10+\nMacOS10.15+\n\nA working internet connection\n\n\n\n\n\n\n\nHow to find the information about your computer\n\n\n\n\n\n\nWindowsMacOSLinux\n\n\nWindows 10\nWindows 10\n\n\n…MacOS specific content\n\n\n\n\nRun the following in a terminal, to get information about your operating system (uname), your hardware (lscpu) and disk space (df):\n$ uname -a\n$ lscpu\n$ df -h\n\n\n\nRun the following in a terminal, to get information about your operating system (hostnamectl), your hardware (lscpu) and disk space (df):\n$ hostnamectl\n$ lscpu\n$ df -h\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIs you computer an older model?\n\n\n\n\n\nIf your computer is an older model, we recomment that you get someone to help you install R well in time before the R-course.\nOtherwise, you risk spending all your class time wrangling your computer instead of playing with R.\nThe R-ecosystem is constantly developing and new functionality is added all the time, which may be unavailable to you with an older R installation.\nYour computer doesn’t have to be brand spanking new, but if in doubt, contact the teachers before the R course starts.\nAt the time of writting (summer 2022) we reommend you use R version4.x.x and RStudio version 2022.x.x\n\n\n\n\n\n\n\n\n\nWas your computer supplied by SDU?\n\n\n\n\n\nBe aware that the local IT department on the Regional Hospitals and the Universiy may impose certain restrictions on your ability to install software on your computer:\n\nAccess to some webpages (e.g. CRAN) may be restricted, as may access to download some files from the internet.\nInstallation of software may require particular administrative rights which you do not have as standard.\n\nIf this is the case, it will impede and slow down your installation of R.\nIt is therefor a good idea, to get all of this sorted out before the start of classes. Again, otherwise you risk spending all your class time wrnagling your computer rather than playing with R.\n…and we (the teacher) will gladly help you with the R-ecosystem, but not necessarily your computer or your operating system.\n\n\n\n\n\n\n\n\n\nWas your computer supplied by SLB?\n\n\n\n\n\nBe aware that the local IT department on the Regional Hospitals and the Universiy may impose certain restrictions on your ability to install software on your computer:\n\nAccess to some webpages (e.g. CRAN) may be restricted, as may access to download some files from the internet.\nInstallation of software may require particular administrative rights which you do not have as standard.\n\nIf this is the case, it will impede and slow down your installation of R.\nIt is therefor a good idea, to get all of this sorted out before the start of classes. Again, otherwise you risk spending all your class time wrnagling your computer rather than playing with R.\n…and we (the teacher) will gladly help you with the R-ecosystem, but not necessarily your computer or your operating system.\n\n\n\n\n\n\n\n\n\nWas your computer supplied by OUH?\n\n\n\n\n\ntext"
+  },
+  {
+    "objectID": "installation_ecosystem_en.html",
+    "href": "installation_ecosystem_en.html",
+    "title": "The R ecosystem",
+    "section": "",
+    "text": "The R-ecosystem consists of a lot of separate programs which can be downloaded fromthe internet and dynamically combined to provide extra functionality: This encompasses everything from simple data manipulation to the creation of dynamic websites, graphical animations and much more.\nWe will only be using three elements:\n\nR itself, which is a development environment (coding language) for data-science and statistics\nRStudio which is a graphical interface with which to work in R code\nA smaller sample of R packages with extra functionality\n\nIn the following pages, I will guide you to the installation of these three eleents - one at a time."
+  },
+  {
+    "objectID": "installation_ecosystem_en.html#the-r-ecosystem",
+    "href": "installation_ecosystem_en.html#the-r-ecosystem",
+    "title": "The R ecosystem",
+    "section": "",
+    "text": "The R-ecosystem consists of a lot of separate programs which can be downloaded fromthe internet and dynamically combined to provide extra functionality: This encompasses everything from simple data manipulation to the creation of dynamic websites, graphical animations and much more.\nWe will only be using three elements:\n\nR itself, which is a development environment (coding language) for data-science and statistics\nRStudio which is a graphical interface with which to work in R code\nA smaller sample of R packages with extra functionality\n\nIn the following pages, I will guide you to the installation of these three eleents - one at a time."
+  },
+  {
+    "objectID": "installation_ecosystem_en.html#a-note-about-free-and-open-source-software-foss",
+    "href": "installation_ecosystem_en.html#a-note-about-free-and-open-source-software-foss",
+    "title": "The R ecosystem",
+    "section": "2 A note about “Free and Open Source Software” (FOSS)",
+    "text": "2 A note about “Free and Open Source Software” (FOSS)\nThe R-ecosystem is developed and released as Free and Open Source Software and as such it is freely available to download from the internet at no monetary cost.\nThat is a good thing! Not just because of the price tag (free as in ‘free beer’), but most definitely also on principle (free as in ‘free speech’) … principles, which ought to be of particular importance to researcher … and you are herewith urged to read more below:\n\n\n\n\n\n\nMore about FOSS? Click here!\n\n\n\n\n\nFree and Open Source software is developed according to the same principles as the scietific proces; knowledge (software) is developed and released in an open and transparent manner, which allows everyone to examine, criticize and improve on the results, and to develope it further.\nThis is in contrast to closed and proprietary development processes where knowledge (software) is kept hidden behind closed formats which prevent external review, but allows for a profitable business.\nIf you want to know more, you can easily find a lot information about it on the internet … that is, the internet which runs almost exclusively on open source software.\nIf you have funds set aside within your research budget for software and computer equipment, you might consider donating an amount that you find appropriate to e.g. the R projektet."
+  },
+  {
+    "objectID": "index.html#velkommen-til-r4phd",
+    "href": "index.html#velkommen-til-r4phd",
+    "title": "R4phd",
+    "section": "1 Velkommen til R4phd",
+    "text": "1 Velkommen til R4phd\nDet var tanken med denne webside at danne basis for almindelig ‘klasseværelses’ undervisning i brugen af R, RStudio og resten af R-økosystemet. Mest med tanke for PhD kurser og med udgangspunktet i Sundhedsvidenskab på Syddansk universitet i Odense.\nDer findes i forvejen et overflødighedshorn af vejledninger, eksempler, videoer, FAQ’s og mere rundt omkring på internettet, men det kan være svært at finde rundt i og det er overvejende på Engelsk.\n\nDu kan starte ved at kigge i indholdsfortegnelsen i fold-ud menuen (øverst til venstre).\n\n\n\n\n\n\nSådan bruger du hjemmesiden\n\n\n\n\n\n\n2 Styresystem – Windows, MacOS eller Linux?\nUndervisningsmaterialet her på siden er lavet på en Linux computer.\nHvis du bruger Microsoft Windows eller Apple MacOS må du derfor forvente at mine video eksempler ser lidt anderledes ud end de gør på din egen skærm.\nDet burde ikke give anledning til problemer da R og RStudio fungerer fint og næsten ens på alle tre styresystemer, men der hvor jeg er bekendt med forskelle mellem styresystemerne vil jeg gøre opmærksom på det med tre forskellige faneblade på denne måde (klik på den relevante fane):\n\nWindowsMacOSLinux\n\n\n…Windows specifikt indhold\n\n\n…MacOS specifikt indhold\n\n\n…Linux specifikt indhold\n\n\n\n\n\n3 Øvelser\nNogle steder vil du finde små øvelser placeret i fold-ud bokse som denne her.\nKlik på fold-ud boksen herunder:\n\n\n\n\n\n\nØvelse #1\n\n\n\n\n\nHvis der er forskelle mellem Windows, MacOS og Linux, vil du kunne finde den relevante information:\n\nI et seperat vindue markeret med advarselstrekant\nPå et af tre faneblade markeret med styresystemet\nPå et postkort på køleskabet i kantinen\n\n\n\n\n… og løsningen placeret i tilsvarende fold-ud bokse.\n\n\n\n\n\n\nLøsning øvelse #1\n\n\n\n\n\n\nI et seperat vindue markeret med advarselstrekant\nPå et af tre faneblade markeret med styresystemet\nPå et postkort på køleskabet i kantinen\n\n\n\n\n\n\n4 Navigation\nDer er flere muligheder for at navigere mellem siderne:\n\nI venstre side findes et indeks over afsnit og underordnede sider\nPå hver side i et afsnit, vil der nederst være links til forrige og næste side\nEn søge funktion er tilgængelig i øverste højre hjørne\n\n\n\n5 Kommentarer og spørgsmål\nVi har (indtil videre) besluttet, at bruge Stack Overflow for Teams som platform for kommentarer og spørgsmål.\nDet er muligt at oprette en konto ved Stack Overflow, eller at logge ind med en Google, Github eller Facebook konto, hvis man har sådan én i forvejen."
+  },
+  {
+    "objectID": "index.html#styresystem-windows-macos-eller-linux",
+    "href": "index.html#styresystem-windows-macos-eller-linux",
+    "title": "R4phd",
+    "section": "2 Styresystem – Windows, MacOS eller Linux?",
+    "text": "2 Styresystem – Windows, MacOS eller Linux?\nUndervisningsmaterialet her på siden er lavet på en Linux computer.\nHvis du bruger Microsoft Windows eller Apple MacOS må du derfor forvente at mine video eksempler ser lidt anderledes ud end de gør på din egen skærm.\nDet burde ikke give anledning til problemer da R og RStudio fungerer fint og næsten ens på alle tre styresystemer, men der hvor jeg er bekendt med forskelle mellem styresystemerne vil jeg gøre opmærksom på det med tre forskellige faneblade på denne måde (klik på den relevante fane):\n\nWindowsMacOSLinux\n\n\n…Windows specifikt indhold\n\n\n…MacOS specifikt indhold\n\n\n…Linux specifikt indhold"
+  },
+  {
+    "objectID": "index.html#øvelser",
+    "href": "index.html#øvelser",
+    "title": "R4phd",
+    "section": "3 Øvelser",
+    "text": "3 Øvelser\nNogle steder vil du finde små øvelser placeret i fold-ud bokse som denne her.\nKlik på fold-ud boksen herunder:\n\n\n\n\n\n\nØvelse #1\n\n\n\n\n\nHvis der er forskelle mellem Windows, MacOS og Linux, vil du kunne finde den relevante information:\n\nI et seperat vindue markeret med advarselstrekant\nPå et af tre faneblade markeret med styresystemet\nPå et postkort på køleskabet i kantinen\n\n\n\n\n… og løsningen placeret i tilsvarende fold-ud bokse.\n\n\n\n\n\n\nLøsning øvelse #1\n\n\n\n\n\n\nI et seperat vindue markeret med advarselstrekant\nPå et af tre faneblade markeret med styresystemet\nPå et postkort på køleskabet i kantinen"
+  },
+  {
+    "objectID": "index.html#navigation",
+    "href": "index.html#navigation",
+    "title": "R4phd",
+    "section": "4 Navigation",
+    "text": "4 Navigation\nDer er flere muligheder for at navigere mellem siderne:\n\nI venstre side findes et indeks over afsnit og underordnede sider\nPå hver side i et afsnit, vil der nederst være links til forrige og næste side\nEn søge funktion er tilgængelig i øverste højre hjørne"
+  },
+  {
+    "objectID": "index.html#kommentarer-og-spørgsmål",
+    "href": "index.html#kommentarer-og-spørgsmål",
+    "title": "R4phd",
+    "section": "5 Kommentarer og spørgsmål",
+    "text": "5 Kommentarer og spørgsmål\nVi har (indtil videre) besluttet, at bruge Stack Overflow for Teams som platform for kommentarer og spørgsmål.\nDet er muligt at oprette en konto ved Stack Overflow, eller at logge ind med en Google, Github eller Facebook konto, hvis man har sådan én i forvejen."
+  },
+  {
+    "objectID": "index_en.html#welcome-to-r4phd",
+    "href": "index_en.html#welcome-to-r4phd",
+    "title": "R4phd",
+    "section": "1 Welcome to R4phd",
+    "text": "1 Welcome to R4phd\nThe idea behind this webpage was to form the basis for regular classroom teaching of R, RStudio and the R ecosystem. Primarily with Ph.D. courses based at the University of Southern Denmak in mind.\nYou will find a plethora of guides, examples, videos and FAWs on the internet, but it can be difficult to naviagte and it is not structured for classroom teaching.\n\nYou can start by looking at the table of content in the collapsable menu (top-left hand corner).\n\n\n\n\n\n\nHow to use this website\n\n\n\n\n\n\n2 Operating system – Windows, MacOS or Linux?\nThe teaching material on this site was prepared mainly on a Linux computer.\nIf you use Microsoft Windows or Apple MacOS you should expect things to look sightly different here, from how they appear on your own screen.\nIt should not give rise to any important issues however, as R and RStudio work very well and almost identically on all three operating systems. None-the-less, where I am aware of any real differences between the operating systems, I will illustrate it using three tabs in the following way (click the relevant tab):\n\nWindowsMacOSLinux\n\n\n…Windows specific content\n\n\n…MacOS specific content\n\n\n…Linux specific content\n\n\n\n\n\n3 Exercises\nOn occasion you will find small exercises in collapsible boxes, like this:\n(Click the collapsible box below):\n\n\n\n\n\n\nExercise #1\n\n\n\n\n\nIf there are important differences between Windows, MacOS and Linux, you can find the information relevant to you:\n\nIn a separate window marked by a warning-triangle\nIn one of three tabs marked with the operating system\nOn a postcard on the fridge in the canteen\n\n\n\n\n… and similarly, the solution will be found in a collapsable box:\n\n\n\n\n\n\nSolution to exercise #1\n\n\n\n\n\n\nIn a separate window marked by a warning-triangle\nIn one of three tabs marked with the operating system\nOn a postcard on the fridge in the canteen\n\n\n\n\n\n\n4 Navigation\nThere are several ways to navigate between pages:\n\nIn the left-hand side, you will find a table of content of pages by category\nAt the end of every page in a section, you will find links to the preceding and following pages.\nA search function is available in the top-right hand corner\n\n\n\n5 Comments and questions\nFor now, we have chosen to use Stack Overflow for Teams as our platform for comments and questions.\nIt is possible to create an account with Stack Overflow, or to log in with a Google, Github or Facebook account, if you have one already."
+  },
+  {
+    "objectID": "index_en.html#operating-system-windows-macos-or-linux",
+    "href": "index_en.html#operating-system-windows-macos-or-linux",
+    "title": "R4phd",
+    "section": "2 Operating system – Windows, MacOS or Linux?",
+    "text": "2 Operating system – Windows, MacOS or Linux?\nThe teaching material on this site was prepared mainly on a Linux computer.\nIf you use Microsoft Windows or Apple MacOS you should expect things to look sightly different here, from how they appear on your own screen.\nIt should not give rise to any important issues however, as R and RStudio work very well and almost identically on all three operating systems. None-the-less, where I am aware of any real differences between the operating systems, I will illustrate it using three tabs in the following way (click the relevant tab):\n\nWindowsMacOSLinux\n\n\n…Windows specific content\n\n\n…MacOS specific content\n\n\n…Linux specific content"
+  },
+  {
+    "objectID": "index_en.html#exercises",
+    "href": "index_en.html#exercises",
+    "title": "R4phd",
+    "section": "3 Exercises",
+    "text": "3 Exercises\nOn occasion you will find small exercises in collapsible boxes, like this:\n(Click the collapsible box below):\n\n\n\n\n\n\nExercise #1\n\n\n\n\n\nIf there are important differences between Windows, MacOS and Linux, you can find the information relevant to you:\n\nIn a separate window marked by a warning-triangle\nIn one of three tabs marked with the operating system\nOn a postcard on the fridge in the canteen\n\n\n\n\n… and similarly, the solution will be found in a collapsable box:\n\n\n\n\n\n\nSolution to exercise #1\n\n\n\n\n\n\nIn a separate window marked by a warning-triangle\nIn one of three tabs marked with the operating system\nOn a postcard on the fridge in the canteen"
+  },
+  {
+    "objectID": "index_en.html#navigation",
+    "href": "index_en.html#navigation",
+    "title": "R4phd",
+    "section": "4 Navigation",
+    "text": "4 Navigation\nThere are several ways to navigate between pages:\n\nIn the left-hand side, you will find a table of content of pages by category\nAt the end of every page in a section, you will find links to the preceding and following pages.\nA search function is available in the top-right hand corner"
+  },
+  {
+    "objectID": "index_en.html#comments-and-questions",
+    "href": "index_en.html#comments-and-questions",
+    "title": "R4phd",
+    "section": "5 Comments and questions",
+    "text": "5 Comments and questions\nFor now, we have chosen to use Stack Overflow for Teams as our platform for comments and questions.\nIt is possible to create an account with Stack Overflow, or to log in with a Google, Github or Facebook account, if you have one already."
+  },
+  {
+    "objectID": "installation_ecosystem_da.html",
+    "href": "installation_ecosystem_da.html",
+    "title": "R økosystemet",
+    "section": "",
+    "text": "R-økosystemet består af rigtigt mange separate programmer der på dynamisk vis kan hentes ned fra internettet og kombineres for at give nye funktioner: Alt fra simpel data manipulation til dynamiske hjemmesider, grafiske animationer og meget mere.\nVi får kun brug for tre af disse elementer:\n\nSelve R som er et udviklingsmiljø (kodesprog) til data-science og statistik\nRStudio som er et grafisk program til at arbejde med R kode\nEn mindre gruppe af R pakker med ekstra funktionalitet\n\nPå de næste sider vil jeg gennemgå hvordan elementerne installeres, et ad gangen."
+  },
+  {
+    "objectID": "installation_ecosystem_da.html#r-økosystemet",
+    "href": "installation_ecosystem_da.html#r-økosystemet",
+    "title": "R økosystemet",
+    "section": "",
+    "text": "R-økosystemet består af rigtigt mange separate programmer der på dynamisk vis kan hentes ned fra internettet og kombineres for at give nye funktioner: Alt fra simpel data manipulation til dynamiske hjemmesider, grafiske animationer og meget mere.\nVi får kun brug for tre af disse elementer:\n\nSelve R som er et udviklingsmiljø (kodesprog) til data-science og statistik\nRStudio som er et grafisk program til at arbejde med R kode\nEn mindre gruppe af R pakker med ekstra funktionalitet\n\nPå de næste sider vil jeg gennemgå hvordan elementerne installeres, et ad gangen."
+  },
+  {
+    "objectID": "installation_ecosystem_da.html#en-bemærkning-om-free-and-open-source-software-foss",
+    "href": "installation_ecosystem_da.html#en-bemærkning-om-free-and-open-source-software-foss",
+    "title": "R økosystemet",
+    "section": "2 En bemærkning om “Free and Open Source Software” (FOSS)",
+    "text": "2 En bemærkning om “Free and Open Source Software” (FOSS)\nR-økosystemet er udviklet og frigivet som Free and Open Source Software og er som sådan frit og gratis tilgængeligt på internettet.\nDet er en kæmpe fordel. Ikke bare på grund af prisen (gratis), men i høj grad også af principielle årsager … principper som burde være af særlig betydning for en forsker … og det opfordres du hermed til at læse lidt mere her:\n\n\n\n\n\n\nMere om FOSS? Klik her!\n\n\n\n\n\nFree and Open Source software udvikles efter de samme grundlæggende principper som den videnskabelige proces: viden (software) udvikles og offentliggøres på en åben og gennemsigtig måde, som gør det muligt for alle at undersøge, kritisere og forbedre resultatet, og at videre-udvikle derpå.\nDet står i kontrast til lukkede og proprietære udviklingsprocesser hvor viden (software) holdes skjult i lukkede formater der forhindrer uafhængig kritisk gennemsyn, men til gengæld understøtter en lukrativ forretningsmodel.\nHvis du vil vide mere, kan du nemt finde information derom på internettet … altså det internet som næsten udelukkende er baseret open source software.\nHvis du i dit forskningsbudget har afsat midler til indkøb af IT udstyr og software, kan du jo overveje at donere et beløb du finder passende til f.eks R projektet."
+  },
+  {
+    "objectID": "installation_rstudio.html",
+    "href": "installation_rstudio.html",
+    "title": "Installation af RStudio",
+    "section": "",
+    "text": "En fungerende installation af R"
+  },
+  {
+    "objectID": "installation_rstudio.html#forudsætninger",
+    "href": "installation_rstudio.html#forudsætninger",
+    "title": "Installation af RStudio",
+    "section": "",
+    "text": "En fungerende installation af R"
+  },
+  {
+    "objectID": "installation_rstudio.html#hent-og-installer-rstudio",
+    "href": "installation_rstudio.html#hent-og-installer-rstudio",
+    "title": "Installation af RStudio",
+    "section": "2 Hent og installer RStudio",
+    "text": "2 Hent og installer RStudio\n\nSDUAndre\n\n\nInstallér RStudio via SDU ITs Software Center.\n\n\nDu finder RStudio installations programmet til dit styre system på RStudios hjemmeside\n\n2.0.1 Trin 1\nDer er fire forskellige programmer du kan hente ned til din computer – sørg for at du henter den som hedder RStudio Desktop Open Source License Free. Klik på den blå ‘DOWNLOAD’ knap.\nIllustration af download link’et fra RStudios hjemmeside:\n\n\n\nDette er en illustration og ikke et aktivt link til download – følg i stedet linket herover.\n\n\n\n\n\n\n\n\nVigtigt\n\n\n\nVælg det rigtige link: yderst til venstre ‘RStudio Desktop Open Source License Free’.\n\n\n\n\n2.0.2 Trin 2\nDu bliver nu præsenteret for flere muligheder programmer – sørg for at vælge det program som passer til dit styresystem (klik på det blå tekst link i kolonnen ‘Download’).\nIllustration af download link’et fra RStudios hjemmeside:\n\n\n\nDette er en illustration og ikke et aktivt link til download – følg i stedet linket herover.\n\n\n\n\n\n\n\n\nVigtigt\n\n\n\nVælg det rigtige link i kolonnen ’Download: Windows, MacOS eller Linux.\n\n\nInstallér derpå programmet som vanligt for dit styresystem."
+  },
+  {
+    "objectID": "installation_background_en.html",
+    "href": "installation_background_en.html",
+    "title": "What are we installing?",
+    "section": "",
+    "text": "R itself is a coding language and development environment which is particularly well suited for statistical analyses and data science.\nR code might for example look like this:\n\nmy_new_data &lt;- read.csv(\"data_folder/my_data_file.csv\")\nmy_new_data &lt;- my_new_data %&gt;%\n  select(-cpr_nummer)\nnumber_of_observations &lt;- my_new_data %&gt;% nrow()\nmy_fancy_plot &lt;- my_new_data %&gt;% ggplot() + geom_histogram()\n\nIn other words, R is the code you use to read data, clean and wrangle data, define analyses, generate plots and tables, etc.\n\n\n\nRStudio, on the other hand, is ‘just’ a graphical user interface which makes it easier to work in R. It is, in fact, perfectly possible to do without RStudio, but there are good reasons why most R users use it.\nRStudio might for instance look like this:\n\n\n\nScreenshot of RStudio as it appeared when I was creating this website … you see, it is possible to that in the R ecosystem as well :-)\n\n\n\n\n\nThe R ecosystem, is a veritable plethora of extra functionality that can be added on to of R itself. This is first and foremost in the form of R packages, of which there are many thousands, but it also includes online guides, youTube videos, chat-forums, etc. No matter what problems you encounter on your R journey, you can be almost 100% certain that some has found a solution already … it is already prepared for you, out there in the R ecosystem.\nBut before we get started with all of that, we have to install R."
+  },
+  {
+    "objectID": "installation_background_en.html#r-here-there-and-everywhere",
+    "href": "installation_background_en.html#r-here-there-and-everywhere",
+    "title": "What are we installing?",
+    "section": "",
+    "text": "R itself is a coding language and development environment which is particularly well suited for statistical analyses and data science.\nR code might for example look like this:\n\nmy_new_data &lt;- read.csv(\"data_folder/my_data_file.csv\")\nmy_new_data &lt;- my_new_data %&gt;%\n  select(-cpr_nummer)\nnumber_of_observations &lt;- my_new_data %&gt;% nrow()\nmy_fancy_plot &lt;- my_new_data %&gt;% ggplot() + geom_histogram()\n\nIn other words, R is the code you use to read data, clean and wrangle data, define analyses, generate plots and tables, etc.\n\n\n\nRStudio, on the other hand, is ‘just’ a graphical user interface which makes it easier to work in R. It is, in fact, perfectly possible to do without RStudio, but there are good reasons why most R users use it.\nRStudio might for instance look like this:\n\n\n\nScreenshot of RStudio as it appeared when I was creating this website … you see, it is possible to that in the R ecosystem as well :-)\n\n\n\n\n\nThe R ecosystem, is a veritable plethora of extra functionality that can be added on to of R itself. This is first and foremost in the form of R packages, of which there are many thousands, but it also includes online guides, youTube videos, chat-forums, etc. No matter what problems you encounter on your R journey, you can be almost 100% certain that some has found a solution already … it is already prepared for you, out there in the R ecosystem.\nBut before we get started with all of that, we have to install R."
+  },
+  {
+    "objectID": "installation_cloud.html",
+    "href": "installation_cloud.html",
+    "title": "Posit Cloud",
+    "section": "",
+    "text": "En computer med internetforbindelse\n\n\n\n\n\n\n\nVIGTIGT\n\n\n\nFirmaet Posit som står bag RStudio (og rigtigt mange R pakker), tilbyder også en online version af RStudio og R økosystemet, som hedder Posit Cloud.\n\nPosit Cloud (formerly RStudio Cloud) lets you access Posit’s powerful set of data science tools right in your browser – no installation or complex configuration required.\n\nDe tilbyder endda en gratis version med visse begrænsninger. Men i udgangspunktet anbefaler vi at du installerer R, RStudio, etc på din egen computer med mindre der er helt særlige grunde til at vælge cloud løsningen."
+  },
+  {
+    "objectID": "installation_cloud.html#forudsætninger",
+    "href": "installation_cloud.html#forudsætninger",
+    "title": "Posit Cloud",
+    "section": "",
+    "text": "En computer med internetforbindelse\n\n\n\n\n\n\n\nVIGTIGT\n\n\n\nFirmaet Posit som står bag RStudio (og rigtigt mange R pakker), tilbyder også en online version af RStudio og R økosystemet, som hedder Posit Cloud.\n\nPosit Cloud (formerly RStudio Cloud) lets you access Posit’s powerful set of data science tools right in your browser – no installation or complex configuration required.\n\nDe tilbyder endda en gratis version med visse begrænsninger. Men i udgangspunktet anbefaler vi at du installerer R, RStudio, etc på din egen computer med mindre der er helt særlige grunde til at vælge cloud løsningen."
+  },
+  {
+    "objectID": "installation_r.html",
+    "href": "installation_r.html",
+    "title": "Installation af R",
+    "section": "",
+    "text": "SDUWindowsMacOSLinux\n\n\nHvis din computer er udleveret af SDU IT kan R kan installeres via SDUs Software Center.\n\n\nR kan hentes på internettet fra dette link til CRAN:\n\nNær toppen finder du linket Download R for Windows.\nKlik på linket og download filen.\nNår filen er hentet ned installeres på vanlig vis.\n\n\n\nR kan hentes på internettet fra dette link til CRAN:\n\nNær toppen finder du linket Download R for macOS.\nKlik på linket og download filen.\nNår filen er hentet ned installeres på vanlig vis.\n\n\n\nR er med al sandsynlighed en del af din foretrukne Linux distributions standard software repositorie. Bruger du en Debian baseret distribution, vil det derfor formentligt være så simpelt som:\n\nuser@linux$ sudo apt install r-base\n\nDerforuden kan du med fordel installere følgende andre pakker hvis du vil bruge R til at generere litteratur referencer (pandoc) og/eller PDF filer (texlive) som output.\n\nuser@linux$ sudo apt install pandoc pandoc-citeproc texlive-base texlive-extra-utils texlive-font-utils texlive-fonts-recommended texlive-fonts-extra texlive-latex-base texlive-latex-extra texlive-latex-recommended texlive-pictures texlive-pstricks texlive-xetex lmodern texlive-lang-european g++ libxml2-dev libcurl4-openssl-dev libssl-dev \n\nBruger du en anden distribution, som ikke er baseret på Debian (f.eks Arch eller Fedora) skal du installere tilsvarende pakker fra deres repositorier med deres pakke håndterings funktioner (yum, rpm, etc)"
+  },
+  {
+    "objectID": "installation_r.html#installation",
+    "href": "installation_r.html#installation",
+    "title": "Installation af R",
+    "section": "",
+    "text": "SDUWindowsMacOSLinux\n\n\nHvis din computer er udleveret af SDU IT kan R kan installeres via SDUs Software Center.\n\n\nR kan hentes på internettet fra dette link til CRAN:\n\nNær toppen finder du linket Download R for Windows.\nKlik på linket og download filen.\nNår filen er hentet ned installeres på vanlig vis.\n\n\n\nR kan hentes på internettet fra dette link til CRAN:\n\nNær toppen finder du linket Download R for macOS.\nKlik på linket og download filen.\nNår filen er hentet ned installeres på vanlig vis.\n\n\n\nR er med al sandsynlighed en del af din foretrukne Linux distributions standard software repositorie. Bruger du en Debian baseret distribution, vil det derfor formentligt være så simpelt som:\n\nuser@linux$ sudo apt install r-base\n\nDerforuden kan du med fordel installere følgende andre pakker hvis du vil bruge R til at generere litteratur referencer (pandoc) og/eller PDF filer (texlive) som output.\n\nuser@linux$ sudo apt install pandoc pandoc-citeproc texlive-base texlive-extra-utils texlive-font-utils texlive-fonts-recommended texlive-fonts-extra texlive-latex-base texlive-latex-extra texlive-latex-recommended texlive-pictures texlive-pstricks texlive-xetex lmodern texlive-lang-european g++ libxml2-dev libcurl4-openssl-dev libssl-dev \n\nBruger du en anden distribution, som ikke er baseret på Debian (f.eks Arch eller Fedora) skal du installere tilsvarende pakker fra deres repositorier med deres pakke håndterings funktioner (yum, rpm, etc)"
+  },
+  {
+    "objectID": "installation_r.html#tjek-at-r-er-installeret-og-fungerer",
+    "href": "installation_r.html#tjek-at-r-er-installeret-og-fungerer",
+    "title": "Installation af R",
+    "section": "2 Tjek at R er installeret og fungerer",
+    "text": "2 Tjek at R er installeret og fungerer\nHvis installationsprocessen forløb som forventet burde du nu have R installeret på din computer – før vi går videre til at installere RStudio, er det en god ide lige at kontrollere at du nu også har et fungerende R udviklingsmiljø på plads:\n\nWindowsMacOSLinux\n\n\nFor at tjekke om R er installeret skal du først åbne Terminal programmet på din Windows computer:\nÅben Run window dialogen ved at trykke på tasterne Windows + R, i ‘Åben’ feltet i ‘Kør’ vinduet taster du wt (for Windows Terminal) og klikker på OK.\nI Windows Terminal indtaster du nu:\n\n...SKAF BILLEDE FRA EN WINDOWS\n\n\n\nFor at tjekke om R er installeret skal du først åbne Terminal programmet på din Mac computer:\nTerminal kan findes i Utilities under Applications eller du kan trykke Command-space for at åbne Spotlight og indtaste “Terminal” og derpå dobbelt klikke på søge resultatet.\nI MacOS Terminalen indtaster du nu:\n\n...SKAF BILLEDE FRA EN MAC\n\n\n\nÅbn dit favorit command-line interface og afprøve følgende:\n\nuser@linux: R\n\nDit output skulle gerne være noget i stil med:\n\nR version 4.1.2 (2021-11-01) -- \"Bird Hippie\"\nCopyright (C) 2021 The R Foundation for Statistical Computing\nPlatform: x86_64-pc-linux-gnu (64-bit)\n\nR is free software and comes with ABSOLUTELY NO WARRANTY.\nYou are welcome to redistribute it under certain conditions.\nType 'license()' or 'licence()' for distribution details.\n\n  Natural language support but running in an English locale\n\nR is a collaborative project with many contributors.\nType 'contributors()' for more information and\n'citation()' on how to cite R or R packages in publications.\n\nType 'demo()' for some demos, 'help()' for on-line help, or\n'help.start()' for an HTML browser interface to help.\nType 'q()' to quit R."
+  },
+  {
+    "objectID": "installation_prerequisites_da.html",
+    "href": "installation_prerequisites_da.html",
+    "title": "Forudsætninger",
+    "section": "",
+    "text": "…du får brug for en computer, ja du gør.\n\nEn nogenlunde moderne computer\n\nTilstrækkeligt med plads (+500 Mb) på din harddisk til installationen\nTilstrækkeligt med RAM (+1 Gb) - jo mere, jo bedre\n\nEt nogenlunde moderne styresystem\n\nLinux (Ubuntu 18+, Debian 9+, OpenSuse 15+, Fedora 19+, Redhat 7+, etc)\nWindows 10+\nMacOS10.15+\n\nEn fungerende internetforbindelse\n\n\n\n\n\n\n\nSådan kan du finde information om din computer\n\n\n\n\n\n\nWindowsMacOSLinux\n\n\nWindows 10\nWindows 10\n\n\n…MacOS specifikt indhold\n\n\n\n\nRun the following in a terminal, to get information about your operating system (uname), your hardware (lscpu) and disk space (df):\n$ uname -a\n$ lscpu\n$ df -h\n\n\n\nRun the following in a terminal, to get information about your operating system (hostnamectl), your hardware (lscpu) and disk space (df):\n$ hostnamectl\n$ lscpu\n$ df -h\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nEr din computer gammel?\n\n\n\n\n\nHvis din computer er af ældre dato, vil det absolut være tilrådeligt at sikre dig personlig hjælp til installation i god tid før du deltager i et R-kursus.\nEllers risikerer du at bruge al din undervisningstid på at kæmpe med computeren i stedet for at lege med R.\nR-økosystemet er konstant i udvikling og der kommer hele tiden nye funktioner til som du vil gå glip af med en ældre installation.\nIkke fordi din computer absolut skal være sprit ny, men er du i tvivl, så kontakt underviserne i god tid og spørg dem til råds.\nAktuelt (sommeren 2022) vil jeg anbefale at du bruger R version 4.x.x og RStudio version 2022.x.x\n\n\n\n\n\n\n\n\n\nEr din computer en SDU-computer?\n\n\n\n\n\nVær særligt opmærksom på at den lokale IT afdeling på regionens sygehuse og universiteterne kan have lagt begrænsinger på dine muligheder for at installere programmer på din arbejdscomputer:\n\nEr der spærret for adgangen til hjemmesider eller download af programfiler?\nKræver det særlige rettigheder at installere programmer på din computer?\n\nHvis det er tilfældet kan det gøre det sværere at installere eksempelvis R på din computer.\nDet er en god idé at få styr på det før du sidder til undervisning. Igen fordi du ellers risikerer du at bruge al din undervisningstid på at kæmpe med computeren i stedet for at lege med R.\n…og vi (underviserne) kan hjælpe dig med R-økosystemet, men ikke nødvendigvis med din computer eller dit styresystem.\n\n\n\n\n\n\n\n\n\nEr din computer en SLB-computer?\n\n\n\n\n\nVær særligt opmærksom på at den lokale IT afdeling på regionens sygehuse og universiteterne kan have lagt begrænsinger på dine muligheder for at installere programmer på din arbejdscomputer:\n\nEr der spærret for adgangen til hjemmesider eller download af programfiler?\nKræver det særlige rettigheder at installere programmer på din computer?\n\nHvis det er tilfældet kan det gøre det sværere at installere eksempelvis R på din computer.\nDet er en god idé at få styr på det før du sidder til undervisning. Igen fordi du ellers risikerer du at bruge al din undervisningstid på at kæmpe med computeren i stedet for at lege med R.\n…og vi (underviserne) kan hjælpe dig med R-økosystemet, men ikke nødvendigvis med din computer eller dit styresystem.\n\n\n\n\n\n\n\n\n\nEr din computer en OUH-computer?\n\n\n\n\n\ntekst"
+  },
+  {
+    "objectID": "installation_prerequisites_da.html#forudsætninger",
+    "href": "installation_prerequisites_da.html#forudsætninger",
+    "title": "Forudsætninger",
+    "section": "",
+    "text": "…du får brug for en computer, ja du gør.\n\nEn nogenlunde moderne computer\n\nTilstrækkeligt med plads (+500 Mb) på din harddisk til installationen\nTilstrækkeligt med RAM (+1 Gb) - jo mere, jo bedre\n\nEt nogenlunde moderne styresystem\n\nLinux (Ubuntu 18+, Debian 9+, OpenSuse 15+, Fedora 19+, Redhat 7+, etc)\nWindows 10+\nMacOS10.15+\n\nEn fungerende internetforbindelse\n\n\n\n\n\n\n\nSådan kan du finde information om din computer\n\n\n\n\n\n\nWindowsMacOSLinux\n\n\nWindows 10\nWindows 10\n\n\n…MacOS specifikt indhold\n\n\n\n\nRun the following in a terminal, to get information about your operating system (uname), your hardware (lscpu) and disk space (df):\n$ uname -a\n$ lscpu\n$ df -h\n\n\n\nRun the following in a terminal, to get information about your operating system (hostnamectl), your hardware (lscpu) and disk space (df):\n$ hostnamectl\n$ lscpu\n$ df -h\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nEr din computer gammel?\n\n\n\n\n\nHvis din computer er af ældre dato, vil det absolut være tilrådeligt at sikre dig personlig hjælp til installation i god tid før du deltager i et R-kursus.\nEllers risikerer du at bruge al din undervisningstid på at kæmpe med computeren i stedet for at lege med R.\nR-økosystemet er konstant i udvikling og der kommer hele tiden nye funktioner til som du vil gå glip af med en ældre installation.\nIkke fordi din computer absolut skal være sprit ny, men er du i tvivl, så kontakt underviserne i god tid og spørg dem til råds.\nAktuelt (sommeren 2022) vil jeg anbefale at du bruger R version 4.x.x og RStudio version 2022.x.x\n\n\n\n\n\n\n\n\n\nEr din computer en SDU-computer?\n\n\n\n\n\nVær særligt opmærksom på at den lokale IT afdeling på regionens sygehuse og universiteterne kan have lagt begrænsinger på dine muligheder for at installere programmer på din arbejdscomputer:\n\nEr der spærret for adgangen til hjemmesider eller download af programfiler?\nKræver det særlige rettigheder at installere programmer på din computer?\n\nHvis det er tilfældet kan det gøre det sværere at installere eksempelvis R på din computer.\nDet er en god idé at få styr på det før du sidder til undervisning. Igen fordi du ellers risikerer du at bruge al din undervisningstid på at kæmpe med computeren i stedet for at lege med R.\n…og vi (underviserne) kan hjælpe dig med R-økosystemet, men ikke nødvendigvis med din computer eller dit styresystem.\n\n\n\n\n\n\n\n\n\nEr din computer en SLB-computer?\n\n\n\n\n\nVær særligt opmærksom på at den lokale IT afdeling på regionens sygehuse og universiteterne kan have lagt begrænsinger på dine muligheder for at installere programmer på din arbejdscomputer:\n\nEr der spærret for adgangen til hjemmesider eller download af programfiler?\nKræver det særlige rettigheder at installere programmer på din computer?\n\nHvis det er tilfældet kan det gøre det sværere at installere eksempelvis R på din computer.\nDet er en god idé at få styr på det før du sidder til undervisning. Igen fordi du ellers risikerer du at bruge al din undervisningstid på at kæmpe med computeren i stedet for at lege med R.\n…og vi (underviserne) kan hjælpe dig med R-økosystemet, men ikke nødvendigvis med din computer eller dit styresystem.\n\n\n\n\n\n\n\n\n\nEr din computer en OUH-computer?\n\n\n\n\n\ntekst"
+  },
+  {
+    "objectID": "rstudio_introduktion_brugerflade_1.html",
+    "href": "rstudio_introduktion_brugerflade_1.html",
+    "title": "RStudios brugerflade #1",
+    "section": "",
+    "text": "En fungerende installation af R udviklingsmiljøet\nEn fungerende installation af RStudio"
+  },
+  {
+    "objectID": "rstudio_introduktion_brugerflade_1.html#forudsætninger",
+    "href": "rstudio_introduktion_brugerflade_1.html#forudsætninger",
+    "title": "RStudios brugerflade #1",
+    "section": "",
+    "text": "En fungerende installation af R udviklingsmiljøet\nEn fungerende installation af RStudio"
+  },
+  {
+    "objectID": "rstudio_introduktion_brugerflade_1.html#et-første-gangs-overblik-over-rstudios-brugerflade",
+    "href": "rstudio_introduktion_brugerflade_1.html#et-første-gangs-overblik-over-rstudios-brugerflade",
+    "title": "RStudios brugerflade #1",
+    "section": "2 Et første-gangs overblik over RStudios brugerflade",
+    "text": "2 Et første-gangs overblik over RStudios brugerflade\n\n\n\n\n\n\nVideo : RStudio #1\n\n\n\n\n\n\n\nVideo\nEt hurtigt første overblik over RStudio"
+  },
+  {
+    "objectID": "rstudio_introduktion_brugerflade_1.html#basal-arbejdsgang-i-rstudio-tekst-editor-vs-r-konsol",
+    "href": "rstudio_introduktion_brugerflade_1.html#basal-arbejdsgang-i-rstudio-tekst-editor-vs-r-konsol",
+    "title": "RStudios brugerflade #1",
+    "section": "3 Basal arbejdsgang i RStudio – tekst editor vs R konsol",
+    "text": "3 Basal arbejdsgang i RStudio – tekst editor vs R konsol\n\n\n\n\n\n\nVideo : RStudio #2\n\n\n\n\n\n\n\nVideo\nForstå forskellen på din tekst editor og din R konsol og hvordan de kombineres til en effektiv basal arbejdsgang i RStudio"
+  }
+]

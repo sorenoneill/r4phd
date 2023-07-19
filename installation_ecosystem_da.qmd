@@ -1,0 +1,52 @@
+---
+title: "R økosystemet"
+description: |
+  ...godt at vide om _R-økosystemet_.
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: today
+output:
+  distill::distill_article:
+    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+categories:
+  - Installation
+creative_commons: CC BY
+format: html
+editor: source
+---
+
+## R økosystemet
+
+R-økosystemet består af *rigtigt* mange separate programmer der på dynamisk vis kan hentes ned fra internettet og kombineres for at give nye funktioner: Alt fra simpel data manipulation til dynamiske hjemmesider, grafiske animationer og meget mere.
+
+Vi får kun brug for tre af disse elementer:
+
+-   Selve **R** som er et udviklingsmiljø (kodesprog) til data-science og statistik
+-   **RStudio** som er et grafisk program til at arbejde med R kode
+-   En mindre gruppe af **R** pakker med ekstra funktionalitet
+
+På de næste sider vil jeg gennemgå hvordan elementerne installeres, et ad gangen.
+
+## En bemærkning om "Free and Open Source Software" (FOSS)
+
+R-økosystemet er udviklet og frigivet som *Free and Open Source Software* og er som sådan frit og gratis tilgængeligt på internettet.
+
+Det er en kæmpe fordel. Ikke bare på grund af prisen (gratis), men i høj grad også af principielle årsager ... principper som burde være af særlig betydning for en forsker ... og det opfordres du hermed til at læse lidt mere her:
+
+::: {.callout-tip collapse="true"}
+## Mere om FOSS? Klik her!
+
+Free and Open Source software udvikles efter de samme grundlæggende principper som den videnskabelige proces: viden (software) udvikles og offentliggøres på en åben og gennemsigtig måde, som gør det muligt for alle at undersøge, kritisere og forbedre resultatet, og at videre-udvikle derpå.
+
+Det står i kontrast til lukkede og proprietære udviklingsprocesser hvor viden (software) holdes skjult i lukkede formater der forhindrer uafhængig kritisk gennemsyn, men til gengæld understøtter en lukrativ forretningsmodel.
+
+Hvis du vil vide mere, kan du nemt finde information derom på internettet ... altså det internet som næsten udelukkende er baseret *open source* software. 
+
+Hvis du i dit forskningsbudget har afsat midler til indkøb af IT udstyr og software, kan du jo overveje at donere et beløb du finder passende til f.eks [R projektet](https://www.r-project.org/foundation/donations.html).
+:::
+
+

@@ -1,0 +1,105 @@
+---
+title: "R4phd"
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: "05-31-2022"
+output:
+  distill::distill_article:
+    self_contained: false
+#categories:
+#  - English
+creative_commons: CC BY
+format: html
+editor: source
+---
+
+[![](gfx/dannebrog.png)](index.qmd){fig-align="left"}
+
+> Dette web sted er tilgængelig på både dansk og engelsk. <br> Læg venligst mærke til, at _Indholdsfortegnelsen_ i venstre side, hvor du finder siderne organiseret under 'Dansk' og 'English'. 
+
+## Welcome to R4phd
+
+The idea behind this webpage was to form the basis for regular classroom teaching of R, RStudio and the R ecosystem. Primarily with Ph.D. courses based at the University of Southern Denmak in mind.
+
+You will find a plethora of guides, examples, videos and FAWs on the internet, but it can be difficult to naviagte and it is not structured for classroom teaching.
+
+<hr>
+
+You can start by looking at the table of content in the collapsable menu (top-left hand corner).
+
+::: {.callout-note collapse=true}
+
+## How to use this website
+
+## Operating system -- Windows, MacOS or Linux?
+
+The teaching material on this site was prepared mainly on a Linux computer.
+
+If you use Microsoft Windows or Apple MacOS you should expect things to look sightly different here, from how they appear on your own screen.
+
+It should not give rise to any important issues however, as R and RStudio work very well and almost identically on all three operating systems. None-the-less, where I am aware of any real differences between the operating systems, I will illustrate it using three tabs in the following way (click the relevant tab):
+
+::: panel-tabset
+
+### Windows
+
+...Windows specific content
+
+### MacOS
+
+...MacOS specific content
+
+### Linux
+
+...Linux specific content
+
+::: 
+
+## Exercises
+
+On occasion you will find small exercises in collapsible boxes, like this:
+
+(Click the collapsible box below):
+
+:::{.callout-note collapse=true}
+
+### Exercise #1
+
+**If there are important differences between Windows, MacOS and Linux, you can find the information relevant to you:**
+
+* In a separate window marked by a warning-triangle
+* In one of three tabs marked with the operating system
+* On a postcard on the fridge in the canteen
+
+:::
+
+... and similarly, the solution will be found in a collapsable box:
+
+:::{.callout-note collapse=true}
+
+### Solution to exercise #1
+
+* ~~In a separate window marked by a warning-triangle~~
+* **In one of three tabs marked with the operating system**
+* ~~On a postcard on the fridge in the canteen~~
+
+:::
+
+## Navigation
+
+There are several ways to navigate between pages:
+
+* In the left-hand side, you will find a table of content of pages by category
+* At the end of every page in a section, you will find links to the preceding and following pages.
+* A search function is available in the top-right hand corner
+
+## Comments and questions
+
+For now, we have chosen to use [Stack Overflow for Teams](https://stackoverflowteams.com/c/r4phd/questions) as our platform for comments and questions.
+
+It is possible to create an account with Stack Overflow, or to log in with a Google, Github or Facebook account, if you have one already.
+
+:::
+
+
