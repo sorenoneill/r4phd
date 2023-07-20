@@ -14,7 +14,7 @@ format: html
 editor: source
 ---
 
-[![](gfx/union_jack.png)](index_en.qmd){fig-align="left"}
+[![Switch to English](gfx/union_jack.png)](index_en.qmd){fig-align="left"}
 
 > This website is available in Danish and in English.<br> Please pay attention to the _Table of content_ on the left hand side, where you will find pages organized under 'Dansk' and 'English'. 
 

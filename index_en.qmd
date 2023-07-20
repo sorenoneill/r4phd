@@ -14,15 +14,15 @@ format: html
 editor: source
 ---
 
-[![](gfx/dannebrog.png)](index.qmd){fig-align="left"}
+[![Skift til dansk](gfx/dannebrog.png)](index.qmd){fig-align="left"}
 
-> Dette web sted er tilgængelig på både dansk og engelsk. <br> Læg venligst mærke til, at _Indholdsfortegnelsen_ i venstre side, hvor du finder siderne organiseret under 'Dansk' og 'English'. 
+> Dette web sted er tilgængelig på både dansk og engelsk. <br> Læg venligst mærke til _Indholdsfortegnelsen_ i venstre side, hvor du finder siderne organiseret under 'Dansk' og 'English'. 
 
 ## Welcome to R4phd
 
 The idea behind this webpage was to form the basis for regular classroom teaching of R, RStudio and the R ecosystem. Primarily with Ph.D. courses based at the University of Southern Denmak in mind.
 
-You will find a plethora of guides, examples, videos and FAWs on the internet, but it can be difficult to naviagte and it is not structured for classroom teaching.
+You will find a plethora of guides, examples, videos and FAQs on the internet, but it can be difficult to naviagte and it is not structured for classroom teaching.
 
 <hr>
 
