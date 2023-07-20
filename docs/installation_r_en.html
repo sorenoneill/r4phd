@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Søren O’Neill">
-<meta name="dcterms.date" content="2022-10-21">
-<meta name="description" content="Sådan installerer du en R pakke på din computer">
+<meta name="dcterms.date" content="2023-07-20">
+<meta name="description" content="How to install R on your computer.">
 
-<title>R4phd - Installation af en R pakke</title>
+<title>R4phd - Installation of R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,6 +23,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -33,8 +67,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./installation_cloud.html" rel="next">
-<link href="./installation_rstudio.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -100,7 +132,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Dansk</li><li class="breadcrumb-item"><a href="./installation_prerequisites_da.html">Installation</a></li><li class="breadcrumb-item"><a href="./installation_r_pakker.html">Installation af en R pakke</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Installation of R</li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -131,13 +163,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
  <span class="menu-text">Installation</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./installation_prerequisites_da.html" class="sidebar-item-text sidebar-link">
@@ -170,7 +202,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./installation_r_pakker.html" class="sidebar-item-text sidebar-link active">
+  <a href="./installation_r_pakker.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Installation af en R pakke</span></a>
   </div>
 </li>
@@ -268,13 +300,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#forudsætninger" id="toc-forudsætninger" class="nav-link active" data-scroll-target="#forudsætninger"><span class="header-section-number">1</span> Forudsætninger</a></li>
-  <li><a href="#hvad-er-en-r-pakke" id="toc-hvad-er-en-r-pakke" class="nav-link" data-scroll-target="#hvad-er-en-r-pakke"><span class="header-section-number">2</span> Hvad er en R-pakke?</a>
-  <ul class="collapse">
-  <li><a href="#versioner" id="toc-versioner" class="nav-link" data-scroll-target="#versioner"><span class="header-section-number">2.1</span> Versioner</a></li>
-  <li><a href="#installation-og-indhentning-af-pakker" id="toc-installation-og-indhentning-af-pakker" class="nav-link" data-scroll-target="#installation-og-indhentning-af-pakker"><span class="header-section-number">2.2</span> Installation og indhentning af pakker</a></li>
-  <li><a href="#der-er-flere-måder-at-installere-en-pakke" id="toc-der-er-flere-måder-at-installere-en-pakke" class="nav-link" data-scroll-target="#der-er-flere-måder-at-installere-en-pakke"><span class="header-section-number">2.3</span> Der er flere måder at installere en pakke</a></li>
-  </ul></li>
+  <li><a href="#installation" id="toc-installation" class="nav-link active" data-scroll-target="#installation"><span class="header-section-number">1</span> Installation</a></li>
+  <li><a href="#check-that-r-is-installed-and-working" id="toc-check-that-r-is-installed-and-working" class="nav-link" data-scroll-target="#check-that-r-is-installed-and-working"><span class="header-section-number">2</span> Check that R is installed and working</a></li>
   </ul>
 </nav>
     </div>
@@ -283,16 +310,12 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Installation af en R pakke</h1>
-<p class="subtitle lead">Eksempel: tidyverse</p>
-  <div class="quarto-categories">
-    <div class="quarto-category">Installation</div>
-  </div>
-  </div>
+<h1 class="title">Installation of R</h1>
+</div>
 
 <div>
   <div class="description">
-    <p>Sådan installerer du en R pakke på din computer</p>
+    <p>How to install R on your computer.</p>
   </div>
 </div>
 
@@ -309,7 +332,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 21, 2022</p>
+      <p class="date">July 20, 2023</p>
     </div>
   </div>
   
@@ -319,63 +342,97 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="forudsætninger" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="forudsætninger"><span class="header-section-number">1</span> Forudsætninger</h2>
-<ul>
-<li>En fungerende installation af R</li>
-</ul>
-</section>
-<section id="hvad-er-en-r-pakke" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="hvad-er-en-r-pakke"><span class="header-section-number">2</span> Hvad er en R-pakke?</h2>
-<p>Standard installationen af R består af et sæt ‘kerne’ funktioner. I tillæg dertil er det muligt at installere en meget lang række af <em>pakker</em> med ekstra funktioner. Disse pakker udvikles både af firmaet bag RStudio (Posit), af andre firmaer, universiteter og af R brugerne … måske en dag vil du også udvikle og offentliggøre en R pakke?</p>
-<p>Nogle af disse pakker er udviklet med et meget specifikt og snævert formål for øje – f.eks Steen Harsteds pakke til at håndtere <em>motion capture</em> data kaldet <a href="&quot;https://github.com/steenharsted/RMoCap&quot;">RMoCap</a>. Andre pakker er mere alment anvendelige og nogle af dem vil du stifte bekendtskab med i undervisningen. Det gælder f.eks:</p>
-<ul>
-<li>tidyverse – en meta-pakke der gør det nemmere at arbejde med R syntaksen – f.eks brugen af <abbr title="En pipe skrives som: A %>% B. Det er en nem og letforståelig måde at kæde forskellige R funktioner sammen sådan at resultatet af en funktion A bruges som input til den næste funktion B."><em>pipes</em></abbr>.</li>
-<li>ggplot2 – en pakke til at konstruere grafer og plots</li>
-<li>ggpubr – en pakke som bygger på ggplot2 pakken med det formål at gøre det nemme at producere grafer som er klar til publikation</li>
-</ul>
-<p>Der er et par tekniske ting du skal forstå ift R pakker:</p>
-<section id="versioner" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="versioner"><span class="header-section-number">2.1</span> Versioner</h3>
-<p>R pakker kan være specifikke ift den underliggende R version – når der kommer en ny version af R kan det med andre ord tage lidt tid for pakke-udviklerne at opdatere deres pakker. Det er ikke altid en fordel at bruge den absolut nyeste version af R – specielt ikke hvis du også bruger nogle niché pakker.</p>
-</section>
-<section id="installation-og-indhentning-af-pakker" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="installation-og-indhentning-af-pakker"><span class="header-section-number">2.2</span> Installation og indhentning af pakker</h3>
-<p>Hvis du vil bruge en R pakke skal den både installeres og indlæses før du kan bruge den.</p>
-<ul>
-<li>Når du installerer pakken, hentes den ned og gemmes lokalt på din computer.</li>
-<li>Når du indlæser pakker, læser du den ind i computerens hukommelse.</li>
-</ul>
-<p>Først når pakken er indlæst i computerens hukommelse vil dens funktioner være tilgængelig for brug i din kode.</p>
-</section>
-<section id="der-er-flere-måder-at-installere-en-pakke" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="der-er-flere-måder-at-installere-en-pakke"><span class="header-section-number">2.3</span> Der er flere måder at installere en pakke</h3>
-<p>Langt de fleste pakker du kan tænkes at få brug for er tilgængelige på internettet fra <a href="https://cran.r-project.org/">the Comprehensive R Archive Network</a> – CRAN.</p>
-<p>Skal du installere en sådan pakke kan du vælge at gøre det via RStudios grafiske brugerflade eller via en R kommando i konsollen. Umiddelbart vil vi anbefale at bruge konsollen da det kan give nogle nyttige informationer hvis installationen fejler.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<section id="installation" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="installation"><span class="header-section-number">1</span> Installation</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">SDU</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Windows</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">MacOS</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Linux</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>If your computer was issued by the SDU IT department, you can install R via SDUs <em>Software Center</em>.</p>
+<p><strong>LINK?</strong></p>
 </div>
-<div class="callout-title-container flex-fill">
-Video : Installation af R pakker
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>R can be downloaded from the internet via this link <a href="https://cran.r-project.org/">CRAN</a>:</p>
+<ul>
+<li>Near the top, you will find the link <strong>Download R for Windows</strong>.</li>
+<li>Click the link and download hte file</li>
+<li>Once the file is downloaded, install as per usual procedure</li>
+</ul>
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>R can be downloaded from the internet via this link <a href="https://cran.r-project.org/">CRAN</a>:</p>
+<ul>
+<li>Near the top, you will find the link <strong>Download R for MacOS</strong>.</li>
+<li>Click the link and download hte file</li>
+<li>Once the file is downloaded, install as per usual procedure</li>
+</ul>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><video src="video/install_packages_easy.webm" class="img-fluid" controls=""><a href="video/install_packages_easy.webm">Video</a></video></p>
-<figcaption class="figure-caption">Eksempel på installation af en R pakke</figcaption>
-</figure>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<p>R is, in all probablity, already part of your preferred Linux distributions software repositories. If you use a Debian based distribution, it should be as simple as::</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">user@linux$</span> sudo apt install r-base</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If you want to generate literature references (pandoc) and/or generate PDF output (texlive), you probably also want the following software installed:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">user@linux$</span> sudo apt install pandoc pandoc-citeproc texlive-base texlive-extra-utils texlive-font-utils texlive-fonts-recommended texlive-fonts-extra texlive-latex-base texlive-latex-extra texlive-latex-recommended texlive-pictures texlive-pstricks texlive-xetex lmodern texlive-lang-european g++ libxml2-dev libcurl4-openssl-dev libssl-dev </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If you are using another distribution (Arch, Red Hat, etc) you simply need to install the same software using their package managers (yum, rpm, etc)</p>
+</div>
+</div>
+</div>
+</section>
+<section id="check-that-r-is-installed-and-working" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="check-that-r-is-installed-and-working"><span class="header-section-number">2</span> Check that R is installed and working</h2>
+<p>If the installation process completed as expected, you should now have a working R environment on your computer – before we go any further, it is a good idea to confirm that:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Windows</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">MacOS</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Linux</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>To confirm that R is installed and working, first open a <em>Terminal</em> on your Windows computer:</p>
+<p>Open the <em>Run window</em> dialogue by holding the <em>Windows</em> key and pressing <em>R</em>, in the window ‘Execute’ in the field ‘Open’ type <em>wt</em> (for Windows Terminal) and click <em>OK</em>.</p>
+<p>In the <em>Windows Terminal</em> type the following:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">...SKAF</span> BILLEDE FRA EN WINDOWS</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>To confirm that R was installed and working on your MacOS, first open a <em>Terminal</em>:</p>
+<p>You cna find the <em>Terminal</em> in <em>Utilities</em> under <em>Applications</em> or your can hold down the <em>Command</em> key while pressing <em>space</em> to open <em>Spotlight</em> and enter “Terminal” – then double click the appropriate search result.</p>
+<p>In the MacOS <em>Terminal</em> type:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">...SKAF</span> BILLEDE FRA EN MAC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<p>Open your favorite <em>command-line interface</em> and try this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">user@linux:</span> R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The output should look something like this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>R version <span class="dv">4</span>.<span class="fl">1.2</span> (<span class="dv">2021-11-01</span>) <span class="sc">--</span> <span class="st">"Bird Hippie"</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Copyright</span> (C) <span class="dv">2021</span> The R Foundation <span class="cf">for</span> Statistical Computing</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>Platform<span class="sc">:</span> x86_64<span class="sc">-</span>pc<span class="sc">-</span>linux<span class="sc">-</span><span class="fu">gnu</span> (<span class="dv">64</span><span class="sc">-</span>bit)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>R is free software and comes with ABSOLUTELY NO WARRANTY.</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>You are welcome to redistribute it under certain conditions.</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>Type <span class="st">'license()'</span> or <span class="st">'licence()'</span> <span class="cf">for</span> distribution details.</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  Natural language support but running <span class="cf">in</span> an English locale</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>R is a collaborative project with many contributors.</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>Type <span class="st">'contributors()'</span> <span class="cf">for</span> more information and</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="st">'citation()'</span> on how to cite R or R packages <span class="cf">in</span> publications.</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>Type <span class="st">'demo()'</span> <span class="cf">for</span> some demos, <span class="st">'help()'</span> <span class="cf">for</span> on<span class="sc">-</span>line help, or</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="st">'help.start()'</span> <span class="cf">for</span> an HTML browser interface to help.</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>Type <span class="st">'q()'</span> to quit R.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -612,18 +669,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="./installation_rstudio.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Installation af RStudio</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./installation_cloud.html" class="pagination-link">
-        <span class="nav-page-text">Posit Cloud</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 
