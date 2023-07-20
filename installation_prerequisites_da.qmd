@@ -1,5 +1,5 @@
 ---
-title: "Forudsætninger"
+title: "Forudsæt"
 description: "...ting der bare _skal_ være på plads før du deltager i R-kurset."
 author:
   - name: Søren O'Neill
@@ -134,9 +134,9 @@ tekst
         data-category="Announcements"
         data-category-id="DIC_kwDOJ9etDc4CYApF"
         data-mapping="specific"
-        data-term="giscus-a1"
+        data-term="g-prerequisites"
         data-strict="0"
-        data-reactions-enabled="1"
+        data-reactions-enabled="0s"
         data-emit-metadata="0"
         data-input-position="bottom"
         data-theme="cobalt"
