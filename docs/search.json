@@ -35,6 +35,27 @@
     "text": "Selve R er et kodesprog og udviklingsmiljø som er særligt velegnet til statistik og data-science.\nR kode ser eksempelvis sådan her ud:\n\nmine_nye_data &lt;- read.csv(\"data_mappe/min_data_fil.csv\")\nmine_nye_data &lt;- mine_nye_data %&gt;%\n  select(-cpr_nummer)\nantal_observationer &lt;- mine_nye_data %&gt;% nrow()\nmin_fine_graf &lt;- mine_nye_data %&gt;% ggplot() + geom_histogram()\n\nR er med andre ord det kode sprog du bruger til indlæse og rense dine data, definere dine analyser, generere dine tabeller og grafer, osv, osv.\n\n\n\nDerimod er RStudio et grafisk program som ‘bare’ gør det nemmere at arbejde med R. Det er egentligt ikke nødvendigt at bruge RStudio, men der er en god grund til at næste alle R-brugere gør det.\nRStudio ser eksempelvis sådan her ud:\n\n\n\nScreenshot af RStudio som det så ud mens jeg sad og skrev denne webside … det kan man nemlig også bruge R-økosystemet til :-)\n\n\n\n\n\nR økosystemet er et veritabelt overflødighedshorn af ekstra funktionalitet som kan lægges over på selve R. Det kommer først og fremmest i form af R pakker, som der findes mange tusinde af, men det er også vejledninger, youTube videoer, chat-fora og meget andet. Uanset hvilke problemer du kommer ud for på din R rejse, kan du være næste 100% sikker på at nogen allerede har beskrevet løsningen … den ligger allerede klar til dig derude i R økosystemet.\nMen før vi kaster os over alt det, så skal vi altså først have installeret R."
   },
   {
+    "objectID": "installation_r_en.html",
+    "href": "installation_r_en.html",
+    "title": "Installation of R",
+    "section": "",
+    "text": "SDUWindowsMacOSLinux\n\n\nIf your computer was issued by the SDU IT department, you can install R via SDUs Software Center.\nLINK?\n\n\nR can be downloaded from the internet via this link CRAN:\n\nNear the top, you will find the link Download R for Windows.\nClick the link and download hte file\nOnce the file is downloaded, install as per usual procedure\n\n\n\nR can be downloaded from the internet via this link CRAN:\n\nNear the top, you will find the link Download R for MacOS.\nClick the link and download hte file\nOnce the file is downloaded, install as per usual procedure\n\n\n\nR is, in all probablity, already part of your preferred Linux distributions software repositories. If you use a Debian based distribution, it should be as simple as::\n\nuser@linux$ sudo apt install r-base\n\nIf you want to generate literature references (pandoc) and/or generate PDF output (texlive), you probably also want the following software installed:\n\nuser@linux$ sudo apt install pandoc pandoc-citeproc texlive-base texlive-extra-utils texlive-font-utils texlive-fonts-recommended texlive-fonts-extra texlive-latex-base texlive-latex-extra texlive-latex-recommended texlive-pictures texlive-pstricks texlive-xetex lmodern texlive-lang-european g++ libxml2-dev libcurl4-openssl-dev libssl-dev \n\nIf you are using another distribution (Arch, Red Hat, etc) you simply need to install the same software using their package managers (yum, rpm, etc)\n\n\n\nYou will find a video guide to R installation"
+  },
+  {
+    "objectID": "installation_r_en.html#installation",
+    "href": "installation_r_en.html#installation",
+    "title": "Installation of R",
+    "section": "",
+    "text": "SDUWindowsMacOSLinux\n\n\nIf your computer was issued by the SDU IT department, you can install R via SDUs Software Center.\nLINK?\n\n\nR can be downloaded from the internet via this link CRAN:\n\nNear the top, you will find the link Download R for Windows.\nClick the link and download hte file\nOnce the file is downloaded, install as per usual procedure\n\n\n\nR can be downloaded from the internet via this link CRAN:\n\nNear the top, you will find the link Download R for MacOS.\nClick the link and download hte file\nOnce the file is downloaded, install as per usual procedure\n\n\n\nR is, in all probablity, already part of your preferred Linux distributions software repositories. If you use a Debian based distribution, it should be as simple as::\n\nuser@linux$ sudo apt install r-base\n\nIf you want to generate literature references (pandoc) and/or generate PDF output (texlive), you probably also want the following software installed:\n\nuser@linux$ sudo apt install pandoc pandoc-citeproc texlive-base texlive-extra-utils texlive-font-utils texlive-fonts-recommended texlive-fonts-extra texlive-latex-base texlive-latex-extra texlive-latex-recommended texlive-pictures texlive-pstricks texlive-xetex lmodern texlive-lang-european g++ libxml2-dev libcurl4-openssl-dev libssl-dev \n\nIf you are using another distribution (Arch, Red Hat, etc) you simply need to install the same software using their package managers (yum, rpm, etc)\n\n\n\nYou will find a video guide to R installation"
+  },
+  {
+    "objectID": "installation_r_en.html#check-that-r-is-installed-and-working",
+    "href": "installation_r_en.html#check-that-r-is-installed-and-working",
+    "title": "Installation of R",
+    "section": "2 Check that R is installed and working",
+    "text": "2 Check that R is installed and working\nIf the installation process completed as expected, you should now have a working R environment on your computer – before we go any further, it is a good idea to confirm that:\n\nWindowsMacOSLinux\n\n\nTo confirm that R is installed and working, first open a Terminal on your Windows computer:\nOpen the Run window dialogue by holding the Windows key and pressing R, in the window ‘Execute’ in the field ‘Open’ type wt (for Windows Terminal) and click OK.\nIn the Windows Terminal type the following:\n\n...SKAF BILLEDE FRA EN WINDOWS\n\n\n\nTo confirm that R was installed and working on your MacOS, first open a Terminal:\nYou cna find the Terminal in Utilities under Applications or your can hold down the Command key while pressing space to open Spotlight and enter “Terminal” – then double click the appropriate search result.\nIn the MacOS Terminal type:\n\n...SKAF BILLEDE FRA EN MAC\n\n\n\nOpen your favorite command-line interface and try this:\n\nuser@linux: R\n\nThe output should look something like this:\n\nR version 4.1.2 (2021-11-01) -- \"Bird Hippie\"\nCopyright (C) 2021 The R Foundation for Statistical Computing\nPlatform: x86_64-pc-linux-gnu (64-bit)\n\nR is free software and comes with ABSOLUTELY NO WARRANTY.\nYou are welcome to redistribute it under certain conditions.\nType 'license()' or 'licence()' for distribution details.\n\n  Natural language support but running in an English locale\n\nR is a collaborative project with many contributors.\nType 'contributors()' for more information and\n'citation()' on how to cite R or R packages in publications.\n\nType 'demo()' for some demos, 'help()' for on-line help, or\n'help.start()' for an HTML browser interface to help.\nType 'q()' to quit R."
+  },
+  {
     "objectID": "installation_prerequisites_en.html",
     "href": "installation_prerequisites_en.html",
     "title": "Prerequisites",
@@ -70,6 +91,13 @@
     "text": "2 A note about “Free and Open Source Software” (FOSS)\nThe R-ecosystem is developed and released as Free and Open Source Software and as such it is freely available to download from the internet at no monetary cost.\nThat is a good thing! Not just because of the price tag (free as in ‘free beer’), but most definitely also on principle (free as in ‘free speech’) … principles, which ought to be of particular importance to researcher … and you are herewith urged to read more below:\n\n\n\n\n\n\nMore about FOSS? Click here!\n\n\n\n\n\nFree and Open Source software is developed according to the same principles as the scietific proces; knowledge (software) is developed and released in an open and transparent manner, which allows everyone to examine, criticize and improve on the results, and to develope it further.\nThis is in contrast to closed and proprietary development processes where knowledge (software) is kept hidden behind closed formats which prevent external review, but allows for a profitable business.\nIf you want to know more, you can easily find a lot information about it on the internet … that is, the internet which runs almost exclusively on open source software.\nIf you have funds set aside within your research budget for software and computer equipment, you might consider donating an amount that you find appropriate to e.g. the R projektet."
   },
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "R4phd",
+    "section": "",
+    "text": "Switch to English"
+  },
+  {
     "objectID": "index.html#velkommen-til-r4phd",
     "href": "index.html#velkommen-til-r4phd",
     "title": "R4phd",
@@ -103,6 +131,13 @@
     "title": "R4phd",
     "section": "5 Kommentarer og spørgsmål",
     "text": "5 Kommentarer og spørgsmål\nVi har (indtil videre) besluttet, at bruge Stack Overflow for Teams som platform for kommentarer og spørgsmål.\nDet er muligt at oprette en konto ved Stack Overflow, eller at logge ind med en Google, Github eller Facebook konto, hvis man har sådan én i forvejen."
+  },
+  {
+    "objectID": "index_en.html",
+    "href": "index_en.html",
+    "title": "R4phd",
+    "section": "",
+    "text": "Skift til dansk"
   },
   {
     "objectID": "index_en.html#welcome-to-r4phd",
@@ -161,6 +196,27 @@
     "text": "2 En bemærkning om “Free and Open Source Software” (FOSS)\nR-økosystemet er udviklet og frigivet som Free and Open Source Software og er som sådan frit og gratis tilgængeligt på internettet.\nDet er en kæmpe fordel. Ikke bare på grund af prisen (gratis), men i høj grad også af principielle årsager … principper som burde være af særlig betydning for en forsker … og det opfordres du hermed til at læse lidt mere her:\n\n\n\n\n\n\nMere om FOSS? Klik her!\n\n\n\n\n\nFree and Open Source software udvikles efter de samme grundlæggende principper som den videnskabelige proces: viden (software) udvikles og offentliggøres på en åben og gennemsigtig måde, som gør det muligt for alle at undersøge, kritisere og forbedre resultatet, og at videre-udvikle derpå.\nDet står i kontrast til lukkede og proprietære udviklingsprocesser hvor viden (software) holdes skjult i lukkede formater der forhindrer uafhængig kritisk gennemsyn, men til gengæld understøtter en lukrativ forretningsmodel.\nHvis du vil vide mere, kan du nemt finde information derom på internettet … altså det internet som næsten udelukkende er baseret open source software.\nHvis du i dit forskningsbudget har afsat midler til indkøb af IT udstyr og software, kan du jo overveje at donere et beløb du finder passende til f.eks R projektet."
   },
   {
+    "objectID": "installation_r_da.html",
+    "href": "installation_r_da.html",
+    "title": "Installation af R",
+    "section": "",
+    "text": "SDUWindowsMacOSLinux\n\n\nHvis din computer er udleveret af SDU IT, anbefales det at du installerer R via SDUs Software Center.\nLINK?\n\n\nR kan hentes på internettet fra dette link til CRAN:\n\nNær toppen finder du linket Download R for Windows.\nKlik på linket og download filen.\nNår filen er hentet ned installeres på vanlig vis.\n\n\n\nR kan hentes på internettet fra dette link til CRAN:\n\nNær toppen finder du linket Download R for macOS.\nKlik på linket og download filen.\nNår filen er hentet ned installeres på vanlig vis.\n\n\n\nR er med al sandsynlighed en del af din foretrukne Linux distributions standard software repositorie. Bruger du en Debian baseret distribution, vil det derfor formentligt være så simpelt som:\n\nuser@linux$ sudo apt install r-base\n\nDerforuden kan du med fordel installere følgende andre pakker hvis du vil bruge R til at generere litteratur referencer (pandoc) og/eller PDF filer (texlive) som output.\n\nuser@linux$ sudo apt install pandoc pandoc-citeproc texlive-base texlive-extra-utils texlive-font-utils texlive-fonts-recommended texlive-fonts-extra texlive-latex-base texlive-latex-extra texlive-latex-recommended texlive-pictures texlive-pstricks texlive-xetex lmodern texlive-lang-european g++ libxml2-dev libcurl4-openssl-dev libssl-dev \n\nBruger du en anden distribution, som ikke er baseret på Debian (f.eks Arch eller Fedora) skal du installere tilsvarende pakker fra deres repositorier med deres pakke håndterings funktioner (yum, rpm, etc)"
+  },
+  {
+    "objectID": "installation_r_da.html#installation",
+    "href": "installation_r_da.html#installation",
+    "title": "Installation af R",
+    "section": "",
+    "text": "SDUWindowsMacOSLinux\n\n\nHvis din computer er udleveret af SDU IT, anbefales det at du installerer R via SDUs Software Center.\nLINK?\n\n\nR kan hentes på internettet fra dette link til CRAN:\n\nNær toppen finder du linket Download R for Windows.\nKlik på linket og download filen.\nNår filen er hentet ned installeres på vanlig vis.\n\n\n\nR kan hentes på internettet fra dette link til CRAN:\n\nNær toppen finder du linket Download R for macOS.\nKlik på linket og download filen.\nNår filen er hentet ned installeres på vanlig vis.\n\n\n\nR er med al sandsynlighed en del af din foretrukne Linux distributions standard software repositorie. Bruger du en Debian baseret distribution, vil det derfor formentligt være så simpelt som:\n\nuser@linux$ sudo apt install r-base\n\nDerforuden kan du med fordel installere følgende andre pakker hvis du vil bruge R til at generere litteratur referencer (pandoc) og/eller PDF filer (texlive) som output.\n\nuser@linux$ sudo apt install pandoc pandoc-citeproc texlive-base texlive-extra-utils texlive-font-utils texlive-fonts-recommended texlive-fonts-extra texlive-latex-base texlive-latex-extra texlive-latex-recommended texlive-pictures texlive-pstricks texlive-xetex lmodern texlive-lang-european g++ libxml2-dev libcurl4-openssl-dev libssl-dev \n\nBruger du en anden distribution, som ikke er baseret på Debian (f.eks Arch eller Fedora) skal du installere tilsvarende pakker fra deres repositorier med deres pakke håndterings funktioner (yum, rpm, etc)"
+  },
+  {
+    "objectID": "installation_r_da.html#tjek-at-r-er-installeret-og-fungerer",
+    "href": "installation_r_da.html#tjek-at-r-er-installeret-og-fungerer",
+    "title": "Installation af R",
+    "section": "2 Tjek at R er installeret og fungerer",
+    "text": "2 Tjek at R er installeret og fungerer\nHvis installationsprocessen forløb som forventet burde du nu have R installeret på din computer – før vi går videre til at installere RStudio, er det en god ide lige at kontrollere at du nu også har et fungerende R udviklingsmiljø på plads:\n\nWindowsMacOSLinux\n\n\nFor at tjekke om R er installeret skal du først åbne Terminal programmet på din Windows computer:\nÅben Run window dialogen ved at trykke på tasterne Windows + R, i ‘Åben’ feltet i ‘Kør’ vinduet taster du wt (for Windows Terminal) og klikker på OK.\nI Windows Terminal indtaster du nu:\n\n...SKAF BILLEDE FRA EN WINDOWS\n\n\n\nFor at tjekke om R er installeret skal du først åbne Terminal programmet på din Mac computer:\nTerminal kan findes i Utilities under Applications eller du kan trykke Command-space for at åbne Spotlight og indtaste “Terminal” og derpå dobbelt klikke på søge resultatet.\nI MacOS Terminalen indtaster du nu:\n\n...SKAF BILLEDE FRA EN MAC\n\n\n\nÅbn dit favorit command-line interface og afprøve følgende:\n\nuser@linux: R\n\nDit output skulle gerne være noget i stil med:\n\nR version 4.1.2 (2021-11-01) -- \"Bird Hippie\"\nCopyright (C) 2021 The R Foundation for Statistical Computing\nPlatform: x86_64-pc-linux-gnu (64-bit)\n\nR is free software and comes with ABSOLUTELY NO WARRANTY.\nYou are welcome to redistribute it under certain conditions.\nType 'license()' or 'licence()' for distribution details.\n\n  Natural language support but running in an English locale\n\nR is a collaborative project with many contributors.\nType 'contributors()' for more information and\n'citation()' on how to cite R or R packages in publications.\n\nType 'demo()' for some demos, 'help()' for on-line help, or\n'help.start()' for an HTML browser interface to help.\nType 'q()' to quit R."
+  },
+  {
     "objectID": "installation_rstudio.html",
     "href": "installation_rstudio.html",
     "title": "Installation af RStudio",
@@ -210,27 +266,6 @@
     "text": "En computer med internetforbindelse\n\n\n\n\n\n\n\nVIGTIGT\n\n\n\nFirmaet Posit som står bag RStudio (og rigtigt mange R pakker), tilbyder også en online version af RStudio og R økosystemet, som hedder Posit Cloud.\n\nPosit Cloud (formerly RStudio Cloud) lets you access Posit’s powerful set of data science tools right in your browser – no installation or complex configuration required.\n\nDe tilbyder endda en gratis version med visse begrænsninger. Men i udgangspunktet anbefaler vi at du installerer R, RStudio, etc på din egen computer med mindre der er helt særlige grunde til at vælge cloud løsningen."
   },
   {
-    "objectID": "installation_r.html",
-    "href": "installation_r.html",
-    "title": "Installation af R",
-    "section": "",
-    "text": "SDUWindowsMacOSLinux\n\n\nHvis din computer er udleveret af SDU IT kan R kan installeres via SDUs Software Center.\n\n\nR kan hentes på internettet fra dette link til CRAN:\n\nNær toppen finder du linket Download R for Windows.\nKlik på linket og download filen.\nNår filen er hentet ned installeres på vanlig vis.\n\n\n\nR kan hentes på internettet fra dette link til CRAN:\n\nNær toppen finder du linket Download R for macOS.\nKlik på linket og download filen.\nNår filen er hentet ned installeres på vanlig vis.\n\n\n\nR er med al sandsynlighed en del af din foretrukne Linux distributions standard software repositorie. Bruger du en Debian baseret distribution, vil det derfor formentligt være så simpelt som:\n\nuser@linux$ sudo apt install r-base\n\nDerforuden kan du med fordel installere følgende andre pakker hvis du vil bruge R til at generere litteratur referencer (pandoc) og/eller PDF filer (texlive) som output.\n\nuser@linux$ sudo apt install pandoc pandoc-citeproc texlive-base texlive-extra-utils texlive-font-utils texlive-fonts-recommended texlive-fonts-extra texlive-latex-base texlive-latex-extra texlive-latex-recommended texlive-pictures texlive-pstricks texlive-xetex lmodern texlive-lang-european g++ libxml2-dev libcurl4-openssl-dev libssl-dev \n\nBruger du en anden distribution, som ikke er baseret på Debian (f.eks Arch eller Fedora) skal du installere tilsvarende pakker fra deres repositorier med deres pakke håndterings funktioner (yum, rpm, etc)"
-  },
-  {
-    "objectID": "installation_r.html#installation",
-    "href": "installation_r.html#installation",
-    "title": "Installation af R",
-    "section": "",
-    "text": "SDUWindowsMacOSLinux\n\n\nHvis din computer er udleveret af SDU IT kan R kan installeres via SDUs Software Center.\n\n\nR kan hentes på internettet fra dette link til CRAN:\n\nNær toppen finder du linket Download R for Windows.\nKlik på linket og download filen.\nNår filen er hentet ned installeres på vanlig vis.\n\n\n\nR kan hentes på internettet fra dette link til CRAN:\n\nNær toppen finder du linket Download R for macOS.\nKlik på linket og download filen.\nNår filen er hentet ned installeres på vanlig vis.\n\n\n\nR er med al sandsynlighed en del af din foretrukne Linux distributions standard software repositorie. Bruger du en Debian baseret distribution, vil det derfor formentligt være så simpelt som:\n\nuser@linux$ sudo apt install r-base\n\nDerforuden kan du med fordel installere følgende andre pakker hvis du vil bruge R til at generere litteratur referencer (pandoc) og/eller PDF filer (texlive) som output.\n\nuser@linux$ sudo apt install pandoc pandoc-citeproc texlive-base texlive-extra-utils texlive-font-utils texlive-fonts-recommended texlive-fonts-extra texlive-latex-base texlive-latex-extra texlive-latex-recommended texlive-pictures texlive-pstricks texlive-xetex lmodern texlive-lang-european g++ libxml2-dev libcurl4-openssl-dev libssl-dev \n\nBruger du en anden distribution, som ikke er baseret på Debian (f.eks Arch eller Fedora) skal du installere tilsvarende pakker fra deres repositorier med deres pakke håndterings funktioner (yum, rpm, etc)"
-  },
-  {
-    "objectID": "installation_r.html#tjek-at-r-er-installeret-og-fungerer",
-    "href": "installation_r.html#tjek-at-r-er-installeret-og-fungerer",
-    "title": "Installation af R",
-    "section": "2 Tjek at R er installeret og fungerer",
-    "text": "2 Tjek at R er installeret og fungerer\nHvis installationsprocessen forløb som forventet burde du nu have R installeret på din computer – før vi går videre til at installere RStudio, er det en god ide lige at kontrollere at du nu også har et fungerende R udviklingsmiljø på plads:\n\nWindowsMacOSLinux\n\n\nFor at tjekke om R er installeret skal du først åbne Terminal programmet på din Windows computer:\nÅben Run window dialogen ved at trykke på tasterne Windows + R, i ‘Åben’ feltet i ‘Kør’ vinduet taster du wt (for Windows Terminal) og klikker på OK.\nI Windows Terminal indtaster du nu:\n\n...SKAF BILLEDE FRA EN WINDOWS\n\n\n\nFor at tjekke om R er installeret skal du først åbne Terminal programmet på din Mac computer:\nTerminal kan findes i Utilities under Applications eller du kan trykke Command-space for at åbne Spotlight og indtaste “Terminal” og derpå dobbelt klikke på søge resultatet.\nI MacOS Terminalen indtaster du nu:\n\n...SKAF BILLEDE FRA EN MAC\n\n\n\nÅbn dit favorit command-line interface og afprøve følgende:\n\nuser@linux: R\n\nDit output skulle gerne være noget i stil med:\n\nR version 4.1.2 (2021-11-01) -- \"Bird Hippie\"\nCopyright (C) 2021 The R Foundation for Statistical Computing\nPlatform: x86_64-pc-linux-gnu (64-bit)\n\nR is free software and comes with ABSOLUTELY NO WARRANTY.\nYou are welcome to redistribute it under certain conditions.\nType 'license()' or 'licence()' for distribution details.\n\n  Natural language support but running in an English locale\n\nR is a collaborative project with many contributors.\nType 'contributors()' for more information and\n'citation()' on how to cite R or R packages in publications.\n\nType 'demo()' for some demos, 'help()' for on-line help, or\n'help.start()' for an HTML browser interface to help.\nType 'q()' to quit R."
-  },
-  {
     "objectID": "installation_prerequisites_da.html",
     "href": "installation_prerequisites_da.html",
     "title": "Forudsætninger",
@@ -271,61 +306,5 @@
     "title": "RStudios brugerflade #1",
     "section": "3 Basal arbejdsgang i RStudio – tekst editor vs R konsol",
     "text": "3 Basal arbejdsgang i RStudio – tekst editor vs R konsol\n\n\n\n\n\n\nVideo : RStudio #2\n\n\n\n\n\n\n\nVideo\nForstå forskellen på din tekst editor og din R konsol og hvordan de kombineres til en effektiv basal arbejdsgang i RStudio"
-  },
-  {
-    "objectID": "index_en.html",
-    "href": "index_en.html",
-    "title": "R4phd",
-    "section": "",
-    "text": "Skift til dansk"
-  },
-  {
-    "objectID": "installation_r_en.html",
-    "href": "installation_r_en.html",
-    "title": "Installation of R",
-    "section": "",
-    "text": "SDUWindowsMacOSLinux\n\n\nIf your computer was issued by the SDU IT department, you can install R via SDUs Software Center.\nLINK?\n\n\nR can be downloaded from the internet via this link CRAN:\n\nNear the top, you will find the link Download R for Windows.\nClick the link and download hte file\nOnce the file is downloaded, install as per usual procedure\n\n\n\nR can be downloaded from the internet via this link CRAN:\n\nNear the top, you will find the link Download R for MacOS.\nClick the link and download hte file\nOnce the file is downloaded, install as per usual procedure\n\n\n\nR is, in all probablity, already part of your preferred Linux distributions software repositories. If you use a Debian based distribution, it should be as simple as::\n\nuser@linux$ sudo apt install r-base\n\nIf you want to generate literature references (pandoc) and/or generate PDF output (texlive), you probably also want the following software installed:\n\nuser@linux$ sudo apt install pandoc pandoc-citeproc texlive-base texlive-extra-utils texlive-font-utils texlive-fonts-recommended texlive-fonts-extra texlive-latex-base texlive-latex-extra texlive-latex-recommended texlive-pictures texlive-pstricks texlive-xetex lmodern texlive-lang-european g++ libxml2-dev libcurl4-openssl-dev libssl-dev \n\nIf you are using another distribution (Arch, Red Hat, etc) you simply need to install the same software using their package managers (yum, rpm, etc)"
-  },
-  {
-    "objectID": "installation_r_en.html#installation",
-    "href": "installation_r_en.html#installation",
-    "title": "Installation of R",
-    "section": "",
-    "text": "SDUWindowsMacOSLinux\n\n\nIf your computer was issued by the SDU IT department, you can install R via SDUs Software Center.\nLINK?\n\n\nR can be downloaded from the internet via this link CRAN:\n\nNear the top, you will find the link Download R for Windows.\nClick the link and download hte file\nOnce the file is downloaded, install as per usual procedure\n\n\n\nR can be downloaded from the internet via this link CRAN:\n\nNear the top, you will find the link Download R for MacOS.\nClick the link and download hte file\nOnce the file is downloaded, install as per usual procedure\n\n\n\nR is, in all probablity, already part of your preferred Linux distributions software repositories. If you use a Debian based distribution, it should be as simple as::\n\nuser@linux$ sudo apt install r-base\n\nIf you want to generate literature references (pandoc) and/or generate PDF output (texlive), you probably also want the following software installed:\n\nuser@linux$ sudo apt install pandoc pandoc-citeproc texlive-base texlive-extra-utils texlive-font-utils texlive-fonts-recommended texlive-fonts-extra texlive-latex-base texlive-latex-extra texlive-latex-recommended texlive-pictures texlive-pstricks texlive-xetex lmodern texlive-lang-european g++ libxml2-dev libcurl4-openssl-dev libssl-dev \n\nIf you are using another distribution (Arch, Red Hat, etc) you simply need to install the same software using their package managers (yum, rpm, etc)"
-  },
-  {
-    "objectID": "installation_r_en.html#check-that-r-is-installed-and-working",
-    "href": "installation_r_en.html#check-that-r-is-installed-and-working",
-    "title": "Installation of R",
-    "section": "2 Check that R is installed and working",
-    "text": "2 Check that R is installed and working\nIf the installation process completed as expected, you should now have a working R environment on your computer – before we go any further, it is a good idea to confirm that:\n\nWindowsMacOSLinux\n\n\nTo confirm that R is installed and working, first open a Terminal on your Windows computer:\nOpen the Run window dialogue by holding the Windows key and pressing R, in the window ‘Execute’ in the field ‘Open’ type wt (for Windows Terminal) and click OK.\nIn the Windows Terminal type the following:\n\n...SKAF BILLEDE FRA EN WINDOWS\n\n\n\nTo confirm that R was installed and working on your MacOS, first open a Terminal:\nYou cna find the Terminal in Utilities under Applications or your can hold down the Command key while pressing space to open Spotlight and enter “Terminal” – then double click the appropriate search result.\nIn the MacOS Terminal type:\n\n...SKAF BILLEDE FRA EN MAC\n\n\n\nOpen your favorite command-line interface and try this:\n\nuser@linux: R\n\nThe output should look something like this:\n\nR version 4.1.2 (2021-11-01) -- \"Bird Hippie\"\nCopyright (C) 2021 The R Foundation for Statistical Computing\nPlatform: x86_64-pc-linux-gnu (64-bit)\n\nR is free software and comes with ABSOLUTELY NO WARRANTY.\nYou are welcome to redistribute it under certain conditions.\nType 'license()' or 'licence()' for distribution details.\n\n  Natural language support but running in an English locale\n\nR is a collaborative project with many contributors.\nType 'contributors()' for more information and\n'citation()' on how to cite R or R packages in publications.\n\nType 'demo()' for some demos, 'help()' for on-line help, or\n'help.start()' for an HTML browser interface to help.\nType 'q()' to quit R."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "R4phd",
-    "section": "",
-    "text": "Switch to English"
-  },
-  {
-    "objectID": "installation_r_da.html",
-    "href": "installation_r_da.html",
-    "title": "Installation af R",
-    "section": "",
-    "text": "SDUWindowsMacOSLinux\n\n\nHvis din computer er udleveret af SDU IT kan R kan installeres via SDUs Software Center.\nLINK?\n\n\nR kan hentes på internettet fra dette link til CRAN:\n\nNær toppen finder du linket Download R for Windows.\nKlik på linket og download filen.\nNår filen er hentet ned installeres på vanlig vis.\n\n\n\nR kan hentes på internettet fra dette link til CRAN:\n\nNær toppen finder du linket Download R for macOS.\nKlik på linket og download filen.\nNår filen er hentet ned installeres på vanlig vis.\n\n\n\nR er med al sandsynlighed en del af din foretrukne Linux distributions standard software repositorie. Bruger du en Debian baseret distribution, vil det derfor formentligt være så simpelt som:\n\nuser@linux$ sudo apt install r-base\n\nDerforuden kan du med fordel installere følgende andre pakker hvis du vil bruge R til at generere litteratur referencer (pandoc) og/eller PDF filer (texlive) som output.\n\nuser@linux$ sudo apt install pandoc pandoc-citeproc texlive-base texlive-extra-utils texlive-font-utils texlive-fonts-recommended texlive-fonts-extra texlive-latex-base texlive-latex-extra texlive-latex-recommended texlive-pictures texlive-pstricks texlive-xetex lmodern texlive-lang-european g++ libxml2-dev libcurl4-openssl-dev libssl-dev \n\nBruger du en anden distribution, som ikke er baseret på Debian (f.eks Arch eller Fedora) skal du installere tilsvarende pakker fra deres repositorier med deres pakke håndterings funktioner (yum, rpm, etc)"
-  },
-  {
-    "objectID": "installation_r_da.html#installation",
-    "href": "installation_r_da.html#installation",
-    "title": "Installation af R",
-    "section": "",
-    "text": "SDUWindowsMacOSLinux\n\n\nHvis din computer er udleveret af SDU IT kan R kan installeres via SDUs Software Center.\nLINK?\n\n\nR kan hentes på internettet fra dette link til CRAN:\n\nNær toppen finder du linket Download R for Windows.\nKlik på linket og download filen.\nNår filen er hentet ned installeres på vanlig vis.\n\n\n\nR kan hentes på internettet fra dette link til CRAN:\n\nNær toppen finder du linket Download R for macOS.\nKlik på linket og download filen.\nNår filen er hentet ned installeres på vanlig vis.\n\n\n\nR er med al sandsynlighed en del af din foretrukne Linux distributions standard software repositorie. Bruger du en Debian baseret distribution, vil det derfor formentligt være så simpelt som:\n\nuser@linux$ sudo apt install r-base\n\nDerforuden kan du med fordel installere følgende andre pakker hvis du vil bruge R til at generere litteratur referencer (pandoc) og/eller PDF filer (texlive) som output.\n\nuser@linux$ sudo apt install pandoc pandoc-citeproc texlive-base texlive-extra-utils texlive-font-utils texlive-fonts-recommended texlive-fonts-extra texlive-latex-base texlive-latex-extra texlive-latex-recommended texlive-pictures texlive-pstricks texlive-xetex lmodern texlive-lang-european g++ libxml2-dev libcurl4-openssl-dev libssl-dev \n\nBruger du en anden distribution, som ikke er baseret på Debian (f.eks Arch eller Fedora) skal du installere tilsvarende pakker fra deres repositorier med deres pakke håndterings funktioner (yum, rpm, etc)"
-  },
-  {
-    "objectID": "installation_r_da.html#tjek-at-r-er-installeret-og-fungerer",
-    "href": "installation_r_da.html#tjek-at-r-er-installeret-og-fungerer",
-    "title": "Installation af R",
-    "section": "2 Tjek at R er installeret og fungerer",
-    "text": "2 Tjek at R er installeret og fungerer\nHvis installationsprocessen forløb som forventet burde du nu have R installeret på din computer – før vi går videre til at installere RStudio, er det en god ide lige at kontrollere at du nu også har et fungerende R udviklingsmiljø på plads:\n\nWindowsMacOSLinux\n\n\nFor at tjekke om R er installeret skal du først åbne Terminal programmet på din Windows computer:\nÅben Run window dialogen ved at trykke på tasterne Windows + R, i ‘Åben’ feltet i ‘Kør’ vinduet taster du wt (for Windows Terminal) og klikker på OK.\nI Windows Terminal indtaster du nu:\n\n...SKAF BILLEDE FRA EN WINDOWS\n\n\n\nFor at tjekke om R er installeret skal du først åbne Terminal programmet på din Mac computer:\nTerminal kan findes i Utilities under Applications eller du kan trykke Command-space for at åbne Spotlight og indtaste “Terminal” og derpå dobbelt klikke på søge resultatet.\nI MacOS Terminalen indtaster du nu:\n\n...SKAF BILLEDE FRA EN MAC\n\n\n\nÅbn dit favorit command-line interface og afprøve følgende:\n\nuser@linux: R\n\nDit output skulle gerne være noget i stil med:\n\nR version 4.1.2 (2021-11-01) -- \"Bird Hippie\"\nCopyright (C) 2021 The R Foundation for Statistical Computing\nPlatform: x86_64-pc-linux-gnu (64-bit)\n\nR is free software and comes with ABSOLUTELY NO WARRANTY.\nYou are welcome to redistribute it under certain conditions.\nType 'license()' or 'licence()' for distribution details.\n\n  Natural language support but running in an English locale\n\nR is a collaborative project with many contributors.\nType 'contributors()' for more information and\n'citation()' on how to cite R or R packages in publications.\n\nType 'demo()' for some demos, 'help()' for on-line help, or\n'help.start()' for an HTML browser interface to help.\nType 'q()' to quit R."
   }
 ]

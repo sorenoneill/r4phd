@@ -51,3 +51,7 @@ format:
 toc: true
 number-sections: true
 # bibliography: references.bib  
+
+comments:
+  giscus:
+    repo: sorenoneill/r4phd

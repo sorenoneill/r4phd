@@ -26,7 +26,7 @@ editor: source
 
 ## SDU
 
-Hvis din computer er udleveret af SDU IT kan R kan installeres via SDUs _Software Center_.
+Hvis din computer er udleveret af SDU IT, anbefales det at du installerer R via SDUs _Software Center_.
 
 **LINK?**
 
@@ -76,6 +76,8 @@ Bruger du en anden distribution, som ikke er baseret på Debian (f.eks Arch elle
 Hvis installationsprocessen forløb som forventet burde du nu have R installeret på din computer -- før vi går videre til at installere RStudio, er det en god ide lige at kontrollere at du nu også har et fungerende R udviklingsmiljø på plads:
 
 ::: panel-tabset
+
+Du finder en engelsk-sproget video installations vejledning ![her](https://learnr-examples.shinyapps.io/ex-setup-r/#section-install-r)
 
 ## Windows
 
