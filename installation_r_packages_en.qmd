@@ -1,0 +1,75 @@
+---
+title: "R package installation"
+subtitle: "Example: tidyverse"
+description: |
+  How to install an R package on your computer
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: "10-21-2022"
+output:
+  distill::distill_article:
+    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+categories:
+  - Installation
+creative_commons: CC BY
+format: html
+editor: source
+---
+
+## What is an R package
+
+The standard installation of R consists of a set of 'core' functions. In addition to those, it is possible to install a large variety of _packages_ with extra functionality. These packages are developed by the company behind RStudio (Posit), by other companies, universities and by R users ... perhaps, some day you will write and publish an R package too?
+
+Some of these packages have a very specific and narrow forus -- e.g. Steen Harsteds packages for handling _motion capture_ data called [RMoCap]("https://github.com/steenharsted/RMoCap"). Other packages er more generic and you will get to know some of them during the course. For instance:
+
+* tidyverse -- en meta-pakckage which makes it easier to work with the R syntax -- e.g. by using <abbr title="A pipe is written as: A %>% B. It is an easy and intuitive way to combine different R functions in a chain where the output of function A is used as input for the function B.">_pipes_</abbr>.
+* ggplot2 -- a package for constructing graphs or plots.
+* ggpubr -- a package which extends ggplot2, aiming to make it easier to produce publication ready plots.
+
+There are just a few technicalities about R packages, that you need to understand:
+
+### Versions
+
+R packages are specific to the underlying version of R -- when a new version of R is published it may take some time for package developers to update their packages. In other words, depending on the packages you make use of, it is not always a good idea to run the absolute latest release of R, but this is mostly an issue if you used 'niche' packages.
+
+### Installating and loading packages
+
+If you want to make use of an R package, you need to _install_ and _load_ it before it is available.
+
+* When you install a package, it is downloaded from the internet and stored on your harddrive.
+* When you load the package, it is read into your computeres RAM memory.
+
+
+Not until the package is in your computers RAM memory will it be available to your code.
+
+### More than one way to install a package
+
+By far the majority of packages are available online through [the Comprehensive R Archive Network](https://cran.r-project.org/) -- CRAN.
+
+If you want to install a CRAN package you can choose to do so via RStudios graphical user interface or via R in an R console. When installing via the R console, you may get some useful information about the installation process, especially if it fails.
+
+::: {.callout-note collapse="true"}
+## Video : Installation of R pakker
+
+![Example installation of an R package](video/install_packages_easy.webm)
+:::
+
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>

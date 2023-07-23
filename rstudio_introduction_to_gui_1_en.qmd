@@ -1,0 +1,97 @@
+---
+title: "RStudios GUI #1"
+description: |
+  A quick overview of RStudios graphical user interface (GUI)
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: '`r Sys.Date()`'
+output:
+  distill::distill_article:
+    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+categories:
+  - RStudio
+creative_commons: CC BY
+format: html
+editor: source
+---
+
+## A first time overview of RStudios GUI
+
+![A first time overview of RStudios GUI](gfx/rstudio_panels.png)
+
+By default, the RStudio GUI is divided into four panes (the different colors added here are for illustration). This layout can be changed to your liking, but for now stick with the standard as illustrated above.
+
+::: {.callout-caution collapse="true"}
+
+### If your layout does not look like that ... click here.
+
+If the _text editor_ field is missing, it is probably just because you do not have any text files open for editing -- try clicking _File_ / _New file_ / _R script_ (CTRL+SHIFT+n).
+
+If you have accidentally hidden one or more panes, try clicking _View_ / _Panes_ / _Show all panes_ (CTRL+SHIFT+o).
+
+:::
+
+## Resizing panes
+
+Click and drag...
+
+![Resizing panes in RStudio with click-and-drag](gfx/rstudio_pane_resizing.gif)
+
+Also, note the _minimize_ and _maximize_ icons in the top-right hand corner of each pane: 
+![](gfx/pane_min_max.png)
+
+## RStudio layout
+
+Want to change the layout (different colors, fonts, text size, etc) of RStudio? Click: _Tools_ / _Global options_ / _Appearance_ ... for now, do not mess with the settings in _General_, _Code_, etc.
+
+## Multiple tabs in panes
+
+Each _pane_ in RStudio can, and often will, contain more than a single _tab_. For instance, in the image above, the 'Output' pane contains **Files**, **Plots**, **Packages**, **Help**, **Viewer** and **Presentation**.
+
+Note, that the tabs presented in a pane will depend on the type of document you are working with. For instance, if you are working on a presentation, the available tabs will be different to those of preparing a website. Similarly, some extra functionality such as Git version control, will be available through tabs, _if_ they are used. 
+
+:::{.callout-note collapse=true}
+
+### Exercise #1
+
+**Try to complete the following:**
+
+1. Create three panes in the 'Text editor' pane.
+2. Use the help functionality to find out how to determine the version of R on your computer.
+3. Find your R console. type: `a <- 5` (press enter) -- what happened in your **Environment**?
+4. Change the layout of RStudio to a _dark_ color scheme.
+
+:::
+
+:::{.callout-note collapse=true}
+
+### Solution to exercise #1
+
+1. Simply create three new files: _File_ / _New file_ / _R script_ (CTRL+SHIFT+n).
+2. Note there are two search boxes in the help tab of the output pane -- use the one on the right hand side to learn about the R.Version base function.
+3. In the Environment tab of the Environment pane, you should see a list of 'Values' with 'a' being '5'.
+4. In _Tools_ / _Global options_ / _Appearance_, choose e.g. 'Cobalt' in the _Editor theme_ dialog.
+
+:::
+
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+

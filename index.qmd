@@ -14,7 +14,8 @@ format: html
 editor: source
 ---
 
-[![Switch to English](gfx/union_jack.png)](index_en.qmd){fig-align="left"}
+[![](gfx/union_jack.png)](index_en.qmd){fig-align="left"}
+[![](gfx/dannebrog.png)](index.qmd){fig-align="left"}
 
 > This website is available in Danish and in English.<br> Please pay attention to the _Table of content_ on the left hand side, where you will find pages organized under 'Dansk' and 'English'. 
 
@@ -96,10 +97,33 @@ Der er flere muligheder for at navigere mellem siderne:
 
 ## Kommentarer og spørgsmål
 
+Det er muligt at efterlade kommentarer, forslag og spørgsmål nederst på hver side -- hjælp venligst med til at forbedre indholdet på R4PhD i kommentar felterne:
+
+* Du skal bruge en [github](GitHub) konto, som kan oprettes gratis og som formentligt vil vise sig nyttig i fremtiden.
+* Bemærk også, at da siderne her på R4PhD er skrevet parvist på dansk og engelsk, vil kommentarer vises på begge sider -- hvis det er muligt så skriv derfor alle kommentarer på engelsk.
+
+Vi anbefaler også at bruge [Stack Overflow](https://stackoverflow.com/) som indgangspunkt til R's internet samfund (online community) når du får brug for hjælp. Vi har oprettet en [Stack Overflow for Teams](https://stackoverflowteams.com/c/r4phd/questions) gruppe specifikt til denne undervisning, men brug bare det overordnede Stack Overflow. Du vil opdage at du nok skal få hjælp dér, _meget_ hurtigt hvis du kan formulere dine spørgsmål klart og tydeligt.
+
+Det er muligt at oprette en separat konto ved Stack Overflow, men du kan også logge ind dér med den GitHub konto du netop (?) har oprettet. Alternativt kan du også logge en med en Google eller Facebook konto.
+
 Vi har (indtil videre) besluttet, at bruge [Stack Overflow for Teams](https://stackoverflowteams.com/c/r4phd/questions) som platform for kommentarer og spørgsmål.
 
 Det er muligt at oprette en konto ved Stack Overflow, eller at logge ind med en Google, Github eller Facebook konto, hvis man har sådan én i forvejen.
 
 :::
 
-
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>

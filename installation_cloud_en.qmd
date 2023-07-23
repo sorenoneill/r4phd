@@ -1,0 +1,47 @@
+---
+title: "Posit Cloud"
+description: |
+  If you need to avoid installing RStudio on your computer
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: "01-08-2023"
+output:
+  distill::distill_article:
+    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+categories:
+  - Installation
+creative_commons: CC BY
+format: html
+editor: source
+---
+
+::: callout-important
+## Important
+
+The company Posit which develops RStudio (and a great many R packages), also offer an online version of RStudio and the R ecosystem, called _Posit Cloud_.
+
+> Posit Cloud (formerly RStudio Cloud) lets you access Posit’s powerful set of data science tools right in your browser – no installation or complex configuration required.
+
+They even offer a free (as in free beer) version with some limitations. However, we recommend you install R, RStudio, etc on your own computer unless there are very specific reasons to choose a cloud hosted solution.
+
+:::
+
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
