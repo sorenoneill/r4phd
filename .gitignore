@@ -1,6 +1,8 @@
 .Rproj.user
 .Rhistory
+.RappHistory
 .RData
+.RDataTmp
 .Ruserdata
 
 /.quarto/
