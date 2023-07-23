@@ -1,5 +1,5 @@
 ---
-title: "Hvad er det vi installerer?"
+title: "R versus RStudio"
 description: |
   Hvad er R ift RStudio og R-økosystemet.
 author:
