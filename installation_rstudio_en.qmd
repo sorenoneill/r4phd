@@ -1,0 +1,82 @@
+---
+title: "RStudio installation"
+description: |
+  How to install RStudio on your computer
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: "05-31-2022"
+output:
+  distill::distill_article:
+    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+categories:
+  - Installation
+creative_commons: CC BY
+format: html
+editor: source
+---
+
+## Hent og installer RStudio 
+
+::: panel-tabset
+
+### SDU
+
+Install RStudio via SDU ITs Software Center.
+
+### Others
+
+You will find the RStudio installation program for your operating system on [RStudios website](https://www.rstudio.com/products/rstudio/download/)
+
+#### Step 1
+
+There are four different programs, that you can download for your computer -- make sure, yoiu download the one entitled **RStudio Desktop Open Source License Free**. Click the blue 'DOWNLOAD' button.
+
+Illustration of the download link from [RStudios website](https://www.rstudio.com/products/rstudio/download/):
+
+![This is an illustration and not an active download link -- follow the link provided above to download.](gfx/download_rstudio_choose_version.png)
+
+:::{.callout-important}
+
+## Important
+
+CHoose the right link now: far left hand side 'RStudio Desktop Open Source License Free'.
+
+:::
+
+#### Step 2
+
+You will now be presented with several download options -- make sure yoiu choose the download appropriate for your operating system (click the blue text link in the columnd 'Download').
+
+Illustration of download links from [RStudios website](https://www.rstudio.com/products/rstudio/download/):
+
+![This is an illustration and not an active download link -- follow the link provided above to download.](gfx/download_rstudio_choose_installer.png)
+
+:::{.callout-important}
+## Important
+
+Choose the right link in the column now 'Download: Windows, MacOS or your Linux distribution.
+:::
+
+Install the programme as per usual procedure for your operating system.
+
+:::
+
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>

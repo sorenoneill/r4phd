@@ -1,0 +1,95 @@
+---
+title: "RStudios GUI #1"
+description: |
+  Et hurtigt overblik over RStudios brugerflade
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: '`r Sys.Date()`'
+output:
+  distill::distill_article:
+    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+categories:
+  - RStudio
+creative_commons: CC BY
+format: html
+editor: source
+---
+
+## Et første overblik over RStudios GUI
+
+![Et første overblik over RStudios GUI](gfx/rstudio_panels.png)
+
+I udgangspunktet er RStudio inddelt i 4 paneler (de forskellige farver herover er tilføjet for illustrere). Dette layout kan tilpasses som du måtte ønske det, men indtil videre, så lad den være som i udgangspunktet og i illustrationen herover.
+
+::: {.callout-caution collapse="true"}
+
+### Hvis dit layout ikke ser ligedan ud ... klik her.
+
+Hvis _text editor_ feltet mangler, er det sandsynligvis bare fordi du ikke har noget dokument åben til at redigere i -- prøv at klikke _File_ / _New file_ / _R script_ (CTRL+SHIFT+n).
+
+Hvis du ved et uheld har fået skjult et eller flere paneler, så prøv at klikke _View_ / _Panes_ / _Show all panes_ (CTRL+SHIFT+o).
+
+:::
+
+## Ændre størrelse på panelerne
+
+Klik og træk..
+
+![Ændring af panel størrelserne med klik-og-træk](gfx/rstudio_pane_resizing.gif)
+
+Bemærk også _minimize_ og _maximize_ ikonerne øverst til højre i hvert panel: 
+![](gfx/pane_min_max.png)
+
+## RStudio layout
+
+Ønsker du at ændre layout (forskellige farver, skrifttyper, tekst størrelse, osv) i RSudio? Klik: _Tools_ / _Global options_ / _Appearance_ ... men indtil videre, lad de andre indstillinger være i fred, f.eks _General_, _Code_, etc.
+
+## Flere faneblade i hvert panel
+
+Hvert _panel_ i RStudio har som regel adskillige fanebalde. For eksempel, i billedet herover, indeholder 'Output' panel fanebladene **Files**, **Plots**, **Packages**, **Help**, **Viewer** og **Presentation**.
+
+Bemærk, at de faneblade som ses vil variere afhængigt hvad type dokument du arbejder med. For eksempel om du arbejder på en præsentation eller en hjemmeside. Tilsvarende vil visse ekstra funktioner, som eksempelvis Git versionerings kontrol, være tilgængelig på et faneblade _hvis_ altså den er i brug. 
+
+:::{.callout-note collapse=true}
+
+### Øvelse #1
+
+**Prøv at gennemføre følgende:**
+
+1. Lav tre faneblade i 'Text editor' panelet.
+2. Brug hjælpefunktionen til at afgøre hvordan du kan bruge R til at finde ud af hvilken version af R du har installeret på din computer.
+3. Find din R konsol. Tast: `a <- 5` (tryk enter) -- hvad skete der i dit **Environment**?
+4. Skift dit RSudio layout til et _dark_ farve skema.
+
+:::
+
+:::{.callout-note collapse=true}
+
+### Svar på øvelse #1
+
+1. Lav blot tre nye tomme dokumenter at redigere: _File_ / _New file_ / _R script_ (CTRL+SHIFT+n).
+2. Bemærk, at der er to søgefelter på 'help' fanebladet i 'Output' panelet -- brug den til højre til at lære mere om (base)funktionen R.Version.
+3. I Environment fanebladet i Environment panelet, skulle du se en liste af 'Values' hvor 'a' er '5'.
+4. I _Tools_ / _Global options_ / _Appearance_, vælg f.eks 'Cobalt' i _Editor theme_ dialogen.
+
+:::
+
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>

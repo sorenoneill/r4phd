@@ -1,5 +1,5 @@
 ---
-title: "R økosystemet"
+title: "The R ecosystem"
 description: |
   ...godt at vide om _R-økosystemet_.
 author:
