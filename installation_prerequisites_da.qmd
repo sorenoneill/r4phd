@@ -1,5 +1,5 @@
 ---
-title: "Forudsæt"
+title: "Forudsætninger"
 description: "...ting der bare _skal_ være på plads før du deltager i R-kurset."
 author:
   - name: Søren O'Neill
