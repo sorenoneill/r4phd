@@ -44,15 +44,21 @@ Klik og træk..
 Bemærk også _minimize_ og _maximize_ ikonerne øverst til højre i hvert panel: 
 ![](gfx/pane_min_max.png)
 
+![Minimizing and maximizing panes in RStudio](gfx/rstudio_pane_min_max.gif)
+
 ## RStudio layout
 
 Ønsker du at ændre layout (forskellige farver, skrifttyper, tekst størrelse, osv) i RSudio? Klik: _Tools_ / _Global options_ / _Appearance_ ... men indtil videre, lad de andre indstillinger være i fred, f.eks _General_, _Code_, etc.
 
+![Changing the RStudio appearance](gfx/rstudio_appearance.gif)
+
 ## Flere faneblade i hvert panel
 
-Hvert _panel_ i RStudio har som regel adskillige fanebalde. For eksempel, i billedet herover, indeholder 'Output' panel fanebladene **Files**, **Plots**, **Packages**, **Help**, **Viewer** og **Presentation**.
+Hvert _panel_ i RStudio har som regel adskillige fanebalde. For eksempel, i billedet herunder, indeholder 'Output' panel fanebladene **Files**, **Plots**, **Packages**, **Help**, **Viewer** og **Presentation**.
 
-Bemærk, at de faneblade som ses vil variere afhængigt hvad type dokument du arbejder med. For eksempel om du arbejder på en præsentation eller en hjemmeside. Tilsvarende vil visse ekstra funktioner, som eksempelvis Git versionerings kontrol, være tilgængelig på et faneblade _hvis_ altså den er i brug. 
+![Multiple tabs in each RStudio pane](gfx/rstudio_tabs.gif)
+
+Bemærk, at de faneblade som ses vil variere afhængigt hvad type dokument du arbejder med. Visse ekstra funktioner, som eksempelvis Git versionerings kontrol, vil også ændre på hvilke faneblade der præsenteres. 
 
 :::{.callout-note collapse=true}
 

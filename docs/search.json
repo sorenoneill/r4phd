@@ -116,21 +116,21 @@
     "href": "rstudio_introduction_to_gui_1_da.html#ændre-størrelse-på-panelerne",
     "title": "RStudios GUI #1",
     "section": "2 Ændre størrelse på panelerne",
-    "text": "2 Ændre størrelse på panelerne\nKlik og træk..\n\n\n\nÆndring af panel størrelserne med klik-og-træk\n\n\nBemærk også minimize og maximize ikonerne øverst til højre i hvert panel:"
+    "text": "2 Ændre størrelse på panelerne\nKlik og træk..\n\n\n\nÆndring af panel størrelserne med klik-og-træk\n\n\nBemærk også minimize og maximize ikonerne øverst til højre i hvert panel: \n\n\n\nMinimizing and maximizing panes in RStudio"
   },
   {
     "objectID": "rstudio_introduction_to_gui_1_da.html#rstudio-layout",
     "href": "rstudio_introduction_to_gui_1_da.html#rstudio-layout",
     "title": "RStudios GUI #1",
     "section": "3 RStudio layout",
-    "text": "3 RStudio layout\nØnsker du at ændre layout (forskellige farver, skrifttyper, tekst størrelse, osv) i RSudio? Klik: Tools / Global options / Appearance … men indtil videre, lad de andre indstillinger være i fred, f.eks General, Code, etc."
+    "text": "3 RStudio layout\nØnsker du at ændre layout (forskellige farver, skrifttyper, tekst størrelse, osv) i RSudio? Klik: Tools / Global options / Appearance … men indtil videre, lad de andre indstillinger være i fred, f.eks General, Code, etc.\n\n\n\nChanging the RStudio appearance"
   },
   {
     "objectID": "rstudio_introduction_to_gui_1_da.html#flere-faneblade-i-hvert-panel",
     "href": "rstudio_introduction_to_gui_1_da.html#flere-faneblade-i-hvert-panel",
     "title": "RStudios GUI #1",
     "section": "4 Flere faneblade i hvert panel",
-    "text": "4 Flere faneblade i hvert panel\nHvert panel i RStudio har som regel adskillige fanebalde. For eksempel, i billedet herover, indeholder ‘Output’ panel fanebladene Files, Plots, Packages, Help, Viewer og Presentation.\nBemærk, at de faneblade som ses vil variere afhængigt hvad type dokument du arbejder med. For eksempel om du arbejder på en præsentation eller en hjemmeside. Tilsvarende vil visse ekstra funktioner, som eksempelvis Git versionerings kontrol, være tilgængelig på et faneblade hvis altså den er i brug.\n\n\n\n\n\n\nØvelse #1\n\n\n\n\n\nPrøv at gennemføre følgende:\n\nLav tre faneblade i ‘Text editor’ panelet.\nBrug hjælpefunktionen til at afgøre hvordan du kan bruge R til at finde ud af hvilken version af R du har installeret på din computer.\nFind din R konsol. Tast: a &lt;- 5 (tryk enter) – hvad skete der i dit Environment?\nSkift dit RSudio layout til et dark farve skema.\n\n\n\n\n\n\n\n\n\n\nSvar på øvelse #1\n\n\n\n\n\n\nLav blot tre nye tomme dokumenter at redigere: File / New file / R script (CTRL+SHIFT+n).\nBemærk, at der er to søgefelter på ‘help’ fanebladet i ‘Output’ panelet – brug den til højre til at lære mere om (base)funktionen R.Version.\nI Environment fanebladet i Environment panelet, skulle du se en liste af ‘Values’ hvor ‘a’ er ‘5’.\nI Tools / Global options / Appearance, vælg f.eks ‘Cobalt’ i Editor theme dialogen."
+    "text": "4 Flere faneblade i hvert panel\nHvert panel i RStudio har som regel adskillige fanebalde. For eksempel, i billedet herunder, indeholder ‘Output’ panel fanebladene Files, Plots, Packages, Help, Viewer og Presentation.\n\n\n\nMultiple tabs in each RStudio pane\n\n\nBemærk, at de faneblade som ses vil variere afhængigt hvad type dokument du arbejder med. Visse ekstra funktioner, som eksempelvis Git versionerings kontrol, vil også ændre på hvilke faneblade der præsenteres.\n\n\n\n\n\n\nØvelse #1\n\n\n\n\n\nPrøv at gennemføre følgende:\n\nLav tre faneblade i ‘Text editor’ panelet.\nBrug hjælpefunktionen til at afgøre hvordan du kan bruge R til at finde ud af hvilken version af R du har installeret på din computer.\nFind din R konsol. Tast: a &lt;- 5 (tryk enter) – hvad skete der i dit Environment?\nSkift dit RSudio layout til et dark farve skema.\n\n\n\n\n\n\n\n\n\n\nSvar på øvelse #1\n\n\n\n\n\n\nLav blot tre nye tomme dokumenter at redigere: File / New file / R script (CTRL+SHIFT+n).\nBemærk, at der er to søgefelter på ‘help’ fanebladet i ‘Output’ panelet – brug den til højre til at lære mere om (base)funktionen R.Version.\nI Environment fanebladet i Environment panelet, skulle du se en liste af ‘Values’ hvor ‘a’ er ‘5’.\nI Tools / Global options / Appearance, vælg f.eks ‘Cobalt’ i Editor theme dialogen."
   },
   {
     "objectID": "installation_r_en.html",
@@ -298,21 +298,21 @@
     "href": "rstudio_introduction_to_gui_1_en.html#resizing-panes",
     "title": "RStudios GUI #1",
     "section": "2 Resizing panes",
-    "text": "2 Resizing panes\nClick and drag…\n\n\n\nResizing panes in RStudio with click-and-drag\n\n\nAlso, note the minimize and maximize icons in the top-right hand corner of each pane:"
+    "text": "2 Resizing panes\nClick and drag…\n\n\n\nResizing panes in RStudio with click-and-drag\n\n\nAlso, note the minimize and maximize icons in the top-right hand corner of each pane: \n\n\n\nMinimizing and maximizing panes in RStudio"
   },
   {
     "objectID": "rstudio_introduction_to_gui_1_en.html#rstudio-layout",
     "href": "rstudio_introduction_to_gui_1_en.html#rstudio-layout",
     "title": "RStudios GUI #1",
     "section": "3 RStudio layout",
-    "text": "3 RStudio layout\nWant to change the layout (different colors, fonts, text size, etc) of RStudio? Click: Tools / Global options / Appearance … for now, do not mess with the settings in General, Code, etc."
+    "text": "3 RStudio layout\nWant to change the layout (different colors, fonts, text size, etc) of RStudio? Click: Tools / Global options / Appearance … for now, do not mess with the settings in General, Code, etc.\n\n\n\nChanging the RStudio appearance"
   },
   {
     "objectID": "rstudio_introduction_to_gui_1_en.html#multiple-tabs-in-panes",
     "href": "rstudio_introduction_to_gui_1_en.html#multiple-tabs-in-panes",
     "title": "RStudios GUI #1",
     "section": "4 Multiple tabs in panes",
-    "text": "4 Multiple tabs in panes\nEach pane in RStudio can, and often will, contain more than a single tab. For instance, in the image above, the ‘Output’ pane contains Files, Plots, Packages, Help, Viewer and Presentation.\nNote, that the tabs presented in a pane will depend on the type of document you are working with. For instance, if you are working on a presentation, the available tabs will be different to those of preparing a website. Similarly, some extra functionality such as Git version control, will be available through tabs, if they are used.\n\n\n\n\n\n\nExercise #1\n\n\n\n\n\nTry to complete the following:\n\nCreate three panes in the ‘Text editor’ pane.\nUse the help functionality to find out how to determine the version of R on your computer.\nFind your R console. type: a &lt;- 5 (press enter) – what happened in your Environment?\nChange the layout of RStudio to a dark color scheme.\n\n\n\n\n\n\n\n\n\n\nSolution to exercise #1\n\n\n\n\n\n\nSimply create three new files: File / New file / R script (CTRL+SHIFT+n).\nNote there are two search boxes in the help tab of the output pane – use the one on the right hand side to learn about the R.Version base function.\nIn the Environment tab of the Environment pane, you should see a list of ‘Values’ with ‘a’ being ‘5’.\nIn Tools / Global options / Appearance, choose e.g. ‘Cobalt’ in the Editor theme dialog."
+    "text": "4 Multiple tabs in panes\nEach pane in RStudio can, and often will, contain more than a single tab. For instance, in the image below, the ‘Output’ pane contains Files, Plots, Packages, Help, Viewer and Presentation.\n\n\n\nMultiple tabs in each RStudio pane\n\n\nNote, that the tabs presented in a pane may depend on the type of document you are working with. Also some extra functionality, such as Git version control, will change the available tabs.\n\n\n\n\n\n\nExercise #1\n\n\n\n\n\nTry to complete the following:\n\nCreate three panes in the ‘Text editor’ pane.\nUse the help functionality to find out how to determine the version of R on your computer.\nFind your R console. type: a &lt;- 5 (press enter) – what happened in your Environment?\nChange the layout of RStudio to a dark color scheme.\n\n\n\n\n\n\n\n\n\n\nSolution to exercise #1\n\n\n\n\n\n\nSimply create three new files: File / New file / R script (CTRL+SHIFT+n).\nNote there are two search boxes in the help tab of the output pane – use the one on the right hand side to learn about the R.Version base function.\nIn the Environment tab of the Environment pane, you should see a list of ‘Values’ with ‘a’ being ‘5’.\nIn Tools / Global options / Appearance, choose e.g. ‘Cobalt’ in the Editor theme dialog."
   },
   {
     "objectID": "installation_cloud_da.html",

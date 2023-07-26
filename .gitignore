@@ -4,6 +4,7 @@
 .RData
 .RDataTmp
 .Ruserdata
+.seafile-ignore.txt
 
 /.quarto/
 danskr.Rproj

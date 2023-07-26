@@ -44,15 +44,22 @@ Click and drag...
 Also, note the _minimize_ and _maximize_ icons in the top-right hand corner of each pane: 
 ![](gfx/pane_min_max.png)
 
+![Minimizing and maximizing panes in RStudio](gfx/rstudio_pane_min_max.gif)
+
+
 ## RStudio layout
 
 Want to change the layout (different colors, fonts, text size, etc) of RStudio? Click: _Tools_ / _Global options_ / _Appearance_ ... for now, do not mess with the settings in _General_, _Code_, etc.
 
+![Changing the RStudio appearance](gfx/rstudio_appearance.gif)
+
 ## Multiple tabs in panes
 
-Each _pane_ in RStudio can, and often will, contain more than a single _tab_. For instance, in the image above, the 'Output' pane contains **Files**, **Plots**, **Packages**, **Help**, **Viewer** and **Presentation**.
+Each _pane_ in RStudio can, and often will, contain more than a single _tab_. For instance, in the image below, the 'Output' pane contains **Files**, **Plots**, **Packages**, **Help**, **Viewer** and **Presentation**.
 
-Note, that the tabs presented in a pane will depend on the type of document you are working with. For instance, if you are working on a presentation, the available tabs will be different to those of preparing a website. Similarly, some extra functionality such as Git version control, will be available through tabs, _if_ they are used. 
+![Multiple tabs in each RStudio pane](gfx/rstudio_tabs.gif)
+
+Note, that the tabs presented in a pane may depend on the type of document you are working with. Also some extra functionality, such as Git version control, will change the available tabs. 
 
 :::{.callout-note collapse=true}
 
