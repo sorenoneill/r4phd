@@ -14,6 +14,20 @@
     "text": "Selve R er et kodesprog og udviklingsmiljø som er særligt velegnet til statistik og data-science.\nR kode ser eksempelvis sådan her ud:\n\nmine_nye_data &lt;- read.csv(\"data_mappe/min_data_fil.csv\")\nmine_nye_data &lt;- mine_nye_data %&gt;%\n  select(-cpr_nummer)\nantal_observationer &lt;- mine_nye_data %&gt;% nrow()\nmin_fine_graf &lt;- mine_nye_data %&gt;% ggplot() + geom_histogram()\n\nR er med andre ord det kode sprog du bruger til indlæse og rense dine data, definere dine analyser, generere dine tabeller og grafer, osv, osv.\n\n\n\nDerimod er RStudio et grafisk program som ‘bare’ gør det nemmere at arbejde med R. Det er egentligt ikke nødvendigt at bruge RStudio, men der er en god grund til at næste alle R-brugere gør det.\nRStudio ser eksempelvis sådan her ud:\n\n\n\nScreenshot af RStudio som det så ud mens jeg sad og skrev denne webside … det kan man nemlig også bruge R-økosystemet til :-)\n\n\n\n\n\nR økosystemet er et veritabelt overflødighedshorn af ekstra funktionalitet som kan lægges over på selve R. Det kommer først og fremmest i form af R pakker, som der findes mange tusinde af, men det er også vejledninger, youTube videoer, chat-fora og meget andet. Uanset hvilke problemer du kommer ud for på din R rejse, kan du være næste 100% sikker på at nogen allerede har beskrevet løsningen … den ligger allerede klar til dig derude i R økosystemet.\nMen før vi kaster os over alt det, så skal vi altså først have installeret R."
   },
   {
+    "objectID": "installation_quick_preparation_en.html",
+    "href": "installation_quick_preparation_en.html",
+    "title": "Getting ready for your R course",
+    "section": "",
+    "text": "A suitable computer\nA working installation of R\nA working installation of RStudio\nA number of R packages\n\nIn the following pages, we will guide your through each of these steps."
+  },
+  {
+    "objectID": "installation_quick_preparation_en.html#what-you-will-need",
+    "href": "installation_quick_preparation_en.html#what-you-will-need",
+    "title": "Getting ready for your R course",
+    "section": "",
+    "text": "A suitable computer\nA working installation of R\nA working installation of RStudio\nA number of R packages\n\nIn the following pages, we will guide your through each of these steps."
+  },
+  {
     "objectID": "installation_rstudio_en.html",
     "href": "installation_rstudio_en.html",
     "title": "RStudio installation",
@@ -334,6 +348,20 @@
     "title": "R package installation",
     "section": "",
     "text": "Standard installationen af R består af et sæt ‘kerne’ funktioner. I tillæg dertil er det muligt at installere en meget lang række af pakker med ekstra funktioner. Disse pakker udvikles både af firmaet bag RStudio (Posit), af andre firmaer, universiteter og af R brugerne … måske en dag vil du også udvikle og offentliggøre en R pakke?\nNogle af disse pakker er udviklet med et meget specifikt og snævert formål for øje – f.eks Steen Harsteds pakke til at håndtere motion capture data kaldet RMoCap. Andre pakker er mere alment anvendelige og nogle af dem vil du stifte bekendtskab med i undervisningen. Det gælder f.eks:\n\ntidyverse – en meta-pakke der gør det nemmere at arbejde med R syntaksen – f.eks brugen af pipes.\nggplot2 – en pakke til at konstruere grafer og plots\nggpubr – en pakke som bygger på ggplot2 pakken med det formål at gøre det nemme at producere grafer som er klar til publikation\n\nDer er et par tekniske ting du skal forstå ift R pakker:\n\n\nR pakker kan være specifikke ift den underliggende R version – når der kommer en ny version af R kan det med andre ord tage lidt tid for pakke-udviklerne at opdatere deres pakker. Det er ikke altid en fordel at bruge den absolut nyeste version af R – specielt ikke hvis du også bruger nogle niché pakker.\n\n\n\nHvis du vil bruge en R pakke skal den både installeres og indlæses før du kan bruge den.\n\nNår du installerer pakken, hentes den ned og gemmes lokalt på din computer.\nNår du indlæser pakker, læser du den ind i computerens hukommelse.\n\nFørst når pakken er indlæst i computerens hukommelse vil dens funktioner være tilgængelig for brug i din kode.\n\n\n\nLangt de fleste pakker du kan tænkes at få brug for er tilgængelige på internettet fra the Comprehensive R Archive Network – CRAN.\nSkal du installere en sådan pakke kan du vælge at gøre det via RStudios grafiske brugerflade eller via en R kommando i konsollen. Umiddelbart vil vi anbefale at bruge konsollen da det kan give nogle nyttige informationer hvis installationen fejler.\n\n\n\n\n\n\nVideo : Installation af R pakker\n\n\n\n\n\n\n\nVideo\nEksempel på installation af en R pakke"
+  },
+  {
+    "objectID": "installation_quick_preparation_da.html",
+    "href": "installation_quick_preparation_da.html",
+    "title": "Getting ready for your R course",
+    "section": "",
+    "text": "En egnet computer\nEn fungerende installation af R\nEn fungerende installation af RStudio\nEt antal R pakker installeret\n\nPå de næste sider, hjælper vi dig igennem punkterne, et af gangen."
+  },
+  {
+    "objectID": "installation_quick_preparation_da.html#du-får-brug-for-følgende",
+    "href": "installation_quick_preparation_da.html#du-får-brug-for-følgende",
+    "title": "Getting ready for your R course",
+    "section": "",
+    "text": "En egnet computer\nEn fungerende installation af R\nEn fungerende installation af RStudio\nEt antal R pakker installeret\n\nPå de næste sider, hjælper vi dig igennem punkterne, et af gangen."
   },
   {
     "objectID": "installation_prerequisites_en.html",

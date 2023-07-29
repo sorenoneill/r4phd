@@ -21,6 +21,8 @@ website:
         contents:
           - section: "Installation"
             contents:
+              - href: installation_quick_preparation_da.qmd
+                text: "Kom i gang"
               - href: installation_prerequisites_da.qmd
                 text: "Forudsætninger"
               - installation_ecosystem_da.qmd
@@ -37,6 +39,8 @@ website:
         contents:
           - section: "Installation"
             contents:
+              - href: installation_quick_preparation_en.qmd
+                text: "Getting started"
               - installation_prerequisites_en.qmd
               - installation_ecosystem_en.qmd
               - installation_background_en.qmd
