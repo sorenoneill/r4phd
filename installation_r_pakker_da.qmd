@@ -24,7 +24,7 @@ editor: source
 
 Standard installationen af R består af et sæt 'kerne' funktioner. I tillæg dertil er det muligt at installere en meget lang række af _pakker_ med ekstra funktioner. Disse pakker udvikles både af firmaet bag RStudio (Posit), af andre firmaer, universiteter og af R brugerne ... måske en dag vil du også udvikle og offentliggøre en R pakke?
 
-Nogle af disse pakker er udviklet med et meget specifikt og snævert formål for øje -- f.eks Steen Harsteds pakke til at håndtere _motion capture_ data kaldet [RMoCap]("https://github.com/steenharsted/RMoCap"). Andre pakker er mere alment anvendelige og nogle af dem vil du stifte bekendtskab med i undervisningen. Det gælder f.eks:
+Nogle af disse pakker er udviklet med et meget specifikt og snævert formål for øje -- f.eks Steen Harsteds pakke til at håndtere _motion capture_ data kaldet [mocapr](https://github.com/steenharsted/mocapr). Andre pakker er mere alment anvendelige og nogle af dem vil du stifte bekendtskab med i undervisningen. Det gælder f.eks:
 
 * tidyverse -- en meta-pakke der gør det nemmere at arbejde med R syntaksen -- f.eks brugen af <abbr title="En pipe skrives som: A %>% B. Det er en nem og letforståelig måde at kæde forskellige R funktioner sammen sådan at resultatet af en funktion A bruges som input til den næste funktion B.">_pipes_</abbr>.
 * ggplot2 -- en pakke til at konstruere grafer og plots

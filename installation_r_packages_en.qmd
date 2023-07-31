@@ -24,7 +24,7 @@ editor: source
 
 The standard installation of R consists of a set of 'core' functions. In addition to those, it is possible to install a large variety of _packages_ with extra functionality. These packages are developed by the company behind RStudio (Posit), by other companies, universities and by R users ... perhaps, some day you will write and publish an R package too?
 
-Some of these packages have a very specific and narrow forus -- e.g. Steen Harsteds packages for handling _motion capture_ data called [RMoCap]("https://github.com/steenharsted/RMoCap"). Other packages er more generic and you will get to know some of them during the course. For instance:
+Some of these packages have a very specific and narrow forus -- e.g. Steen Harsteds packages for handling _motion capture_ data called [mocapr](https://github.com/steenharsted/mocapr). Other packages er more generic and you will get to know some of them during the course. For instance:
 
 * tidyverse -- en meta-pakckage which makes it easier to work with the R syntax -- e.g. by using <abbr title="A pipe is written as: A %>% B. It is an easy and intuitive way to combine different R functions in a chain where the output of function A is used as input for the function B.">_pipes_</abbr>.
 * ggplot2 -- a package for constructing graphs or plots.
