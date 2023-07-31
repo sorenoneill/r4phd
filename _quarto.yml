@@ -53,7 +53,9 @@ website:
               - rstudio_introduction_to_gui_1_en.qmd
           - section: "R course days"
             contents: 
-              - day_1_basics_exercise.qmd
+              - section: "Day 1"
+                contents: 
+                  - day_1_basics_exercise.qmd
 
 format:
   html:
