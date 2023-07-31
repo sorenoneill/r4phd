@@ -1,0 +1,127 @@
+---
+title: "quarto documents"
+author: "Steen Flammild Harsted"
+date: '`r Sys.Date()`'
+output:
+  distill::distill_article:
+    self_contained: false
+creative_commons: CC BY
+format:
+  html: 
+    code-fold: true
+    code-summary: "Show me the code"
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    number-depth: 2
+editor: 
+  mode: source
+execute: 
+  output: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+
+\ \ \ 
+
+# quarto documents
+
+<br><br>
+
+### Start a new .qmd document
+ File ->  
+ New File ->  
+ Quarto Document ->  
+ * Make sure the settings are set to "Document" and "HTML" (both are default settings), 
+ * Uncheck 'Use visual markdown editor'
+ * press "Create" 
+ 
+ The document contains both R and Markdown code.   
+ Save your file  (Important: file_name_matters)
+ Pres "Render" and see what happens.
+
+    
+ <br><br>
+
+### Markdown Code
+[Markdown code basics](https://quarto.org/docs/authoring/markdown-basics.html)
+    
+### Headlines
+Headlines are made using one or more # signs followed by a space  
+\# Largest headline  
+\## Second largest headline  
+\### Third largest headline  
+\##### Smallest headline possible.   
+
+* Practice making different headlines.  
+
+<br><br>
+
+### **Bold** and *Italic*
+\*text\*  becomes *text*  
+\*\*text\*\*  becomes **text**  
+\*\*\*text\*\*\*  becomes ***text***  
+
+* Practice writing something in *italics* and **bold**  
+
+<br><br>
+  
+### New lines
+To break a line in R Markdown and have it appear in your output, use two trailing spaces and then hit return.  
+If you want a hard line break end your lines with a `\`
+
+* Practice making line-breaks.
+  
+<br><br>
+  
+### Code chunk
+Insert a code chunk in your document (Default `CTRL+Alt+I`)  
+If pressing CTRL+Alt+I doesn't work click Tools -> Command Palette -> and type "Chunk" in the search field  
+  
+What you write inside the codechunk will be evaluated as R code.
+
+Write 2+2 inside the Code chunk you just created, and Knit the document.
+  
+2+2 equals
+```{r}
+2+2
+```
+  
+<br><br>
+  
+### Run Code chunk
+You don't need to Knit your document in order to see the output of your code.  
+Place the cursor inside the code chunk you just made and Click the green triangle (play-sign) in the right side of the code chunk.  
+Notice the output in the console.  
+  
+R comes with many inbuilt datasets, one of them is the `iris` dataset.  
+Plot the `iris` dataset.  
+Insert a codechunk, and write `plot(iris)` inside the codechunk.  
+Click the green triangle.  
+ 
+**Lifehack:**   
+pressing `ALT+Enter` will run the current line or selection.  
+pressing `CTRL+Enter` will run the current line or selection and jump to next line.  
+pressing `CTRL+ALT+C` will run the current code chunk (instead of just the current line).  
+
+
+  
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>

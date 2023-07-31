@@ -51,11 +51,14 @@ website:
           - section: "Getting to know RStudio"
             contents:
               - rstudio_introduction_to_gui_1_en.qmd
-          - section: "R course days"
+          - section: "R course exercises"
             contents: 
               - section: "Day 1"
                 contents: 
-                  - day_1_basics_exercise.qmd
+                  - day_1_basics_of_Rstudio.qmd
+                  - day_1_basics_of_R_code.qmd
+                  - day_1_settting_up_your_course_project.qmd
+                  - day_1_quarto_documents.qmd
 
 format:
   html:

@@ -9,7 +9,7 @@
 <meta name="author" content="Steen Flammild Harsted">
 <meta name="dcterms.date" content="2023-07-31">
 
-<title>R4phd - Basics</title>
+<title>R4phd - Basics of R code</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -95,7 +95,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./rstudio_introduction_to_gui_1_en.html" rel="prev">
+<link href="./day_1_settting_up_your_course_project.html" rel="next">
+<link href="./day_1_basics_of_Rstudio.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -145,7 +146,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Basics</h1>
+      <h1 class="quarto-secondary-nav-title">Basics of R code</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -313,7 +314,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">R course days</a>
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">R course exercises</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -329,7 +330,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth3 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./day_1_basics_exercise.html" class="sidebar-item-text sidebar-link active">Basics</a>
+  <a href="./day_1_basics_of_Rstudio.html" class="sidebar-item-text sidebar-link">Basics of Rstudio</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./day_1_basics_of_R_code.html" class="sidebar-item-text sidebar-link active">Basics of R code</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./day_1_settting_up_your_course_project.html" class="sidebar-item-text sidebar-link">Setting up your course project</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./day_1_quarto_documents.html" class="sidebar-item-text sidebar-link">quarto documents</a>
   </div>
 </li>
       </ul>
@@ -347,12 +363,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#basics" id="toc-basics" class="nav-link active" data-scroll-target="#basics">Basics</a></li>
-  <li><a href="#rstudio" id="toc-rstudio" class="nav-link" data-scroll-target="#rstudio"><span class="toc-section-number">1</span>  Rstudio</a></li>
-  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions"><span class="toc-section-number">2</span>  Functions</a></li>
-  <li><a href="#sec-setup" id="toc-sec-setup" class="nav-link" data-scroll-target="#sec-setup"><span class="toc-section-number">3</span>  Setting up your course project</a></li>
-  <li><a href="#setting-up-your-course-project-continued" id="toc-setting-up-your-course-project-continued" class="nav-link" data-scroll-target="#setting-up-your-course-project-continued"><span class="toc-section-number">4</span>  Setting up your course project (continued)</a></li>
-  <li><a href="#quarto-documents" id="toc-quarto-documents" class="nav-link" data-scroll-target="#quarto-documents"><span class="toc-section-number">5</span>  quarto documents</a></li>
+  <li><a href="#functions" id="toc-functions" class="nav-link active" data-scroll-target="#functions"><span class="toc-section-number">1</span>  Functions</a></li>
+  <li><a href="#quarto-documents" id="toc-quarto-documents" class="nav-link" data-scroll-target="#quarto-documents"><span class="toc-section-number">2</span>  quarto documents</a></li>
   </ul>
 </nav>
     </div>
@@ -361,7 +373,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Basics</h1>
+<h1 class="title d-none d-lg-block">Basics of R code</h1>
 </div>
 
 
@@ -388,29 +400,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="basics" class="level1 unnumbered">
-<h1 class="unnumbered">Basics</h1>
 <p>&nbsp;&nbsp;&nbsp;</p>
-</section>
-<section id="rstudio" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Rstudio</h1>
-<p>Together in groups of two or three explain the following to each other:</p>
-<ul>
-<li>What and where is the Console?</li>
-<li>What and where is the Script?</li>
-<li>What is the difference between writing <code>2+2</code>in the console and the script?</li>
-<li>What happens if you write a # in the script??</li>
-<li>When and why can comments in your code be useful?</li>
-<li>What and where is the Environment Pane?</li>
-<li>What and where is the “Files, Help, Plots, Packages, and Viewer” Pane?</li>
-<li>What does F1 and ?[some_function] do?</li>
-<li>What is an R Project, and why is it a good idea to use?</li>
-</ul>
-<p><br></p>
-<p>&nbsp;&nbsp;&nbsp;</p>
-</section>
-<section id="functions" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Functions</h1>
+<section id="functions" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Functions</h1>
 <section id="section" class="level3">
 <h3 class="anchored" data-anchor-id="section"><code>&lt;-</code></h3>
 <ul>
@@ -653,84 +645,8 @@ This function combines values into a vector or list. For now you can think of a 
 <p><br><br><br><br><br><br><br><br></p>
 </section>
 </section>
-<section id="sec-setup" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Setting up your course project</h1>
-<p>Follow these instructions step by step:</p>
-<ol type="1">
-<li>Start a new project. Think about the name and where you place the project. You are going to be using this project a lot. (Important: project_and_folder_names_matter)</li>
-<li>Create a folder in the project called <code>raw_data</code><br>
-</li>
-<li>Create a folder in the project called <code>clean_data</code><br>
-</li>
-<li>Create a folder in the project called <code>scripts</code><br>
-</li>
-<li>Place the <code>ANSUR_II.csv</code> file from ItsLearning in the <code>raw_data</code> folder<br>
-</li>
-<li>Create an R script (File -&gt; New File -&gt; R script), save it in the <code>scripts</code> folder and call it <code>01_import.R</code><br>
-</li>
-<li>Close the R script you just created and leave it for now.<br>
-<br>
-This file and folder structure is a basic setup that will work for most projects. We will return to this later today, and on day 4 you will learn how to improve this setup even further.<br>
-</li>
-</ol>
-<ul>
-<li>Discuss with you neighbor what the meaning of this madness can be about?<br>
-</li>
-</ul>
-<p><br><br><br><br><br><br><br><br></p>
-</section>
-<section id="setting-up-your-course-project-continued" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Setting up your course project (continued)</h1>
-<p>Have you completed the wrangling exercises for <code>select()</code>, <code>filter()</code>, <code>summarise()</code>, <code>group_by()</code>, <code>arrange()</code>, and <code>mutate()</code> ?</p>
-<p><br>
-</p>
-<p>Great - now you have the skills to continue the work we started in <a href="#sec-setup">Section&nbsp;3</a>.<br>
-This coming task is important for the rest of your course.<br>
-<br>
-As you have noticed the <code>ANSUR_II</code> dataset is not perfect when we load it, e.g., Height is measured in inches, Weightkg is measured in Kg*10, etc..<br>
-Therefore, we need to change a few things in the raw dataframe before we can start our work. It is essential in datascience and research that this process is documented, reproducible, and easy to repeat.<br>
-<br>
-</p>
-<ul>
-<li>Open the R script <code>01_import.R</code> that you created in <a href="#sec-setup">Section&nbsp;3</a>.<br>
-</li>
-<li>For the rest of this section you are going to work in this R script.</li>
-<li>Try to explain the code you write in this script with comments (A hashtag # followed by explanations of code and choices you make)</li>
-</ul>
-<section id="write-the-necessary-code-to-import-the-ansur_ii.csv-file-and-update-the-data" class="level3">
-<h3 class="anchored" data-anchor-id="write-the-necessary-code-to-import-the-ansur_ii.csv-file-and-update-the-data">Write the necessary code to import the <code>ANSUR_II.csv</code> file and update the data</h3>
-<ul>
-<li>add <code>heightcm</code> (height in cm)</li>
-<li>fix <code>weightkg</code></li>
-<li>add <code>BMI</code></li>
-<li>add <code>category</code> (level of BMI)</li>
-<li>add <code>race</code> - Base the values in race on the description below</li>
-<li>remove <code>Heightin</code></li>
-<li>place the variables in an order that you like (use <code>relocate()</code>)</li>
-<li>make sure that all changes are assigned to <code>ANSUR_II</code></li>
-</ul>
-<div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-<code>race</code> in <code>ANSUR_II</code>
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body" data-apperance="simple">
-<p><code>DODRace</code> is a variable in the <code>ANSUR_II</code> dataset. The description is given below:&nbsp;</p>
-<p><code>DODRace</code> – Department of Defense Race; a single digit indicating a subject’s self-reported preferred single race where selecting multiple races is not an option. This variable is intended to be comparable to the Defense Manpower Data Center demographic data. Where 1 = White, 2 = Black, 3 = Hispanic, 4 = Asian, 5 = Native American, 6 = Pacific Islander, 8 = Other</p>
-</div>
-</div>
-</div>
-<p><br><br><br><br><br><br><br><br></p>
-</section>
-</section>
-<section id="quarto-documents" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> quarto documents</h1>
+<section id="quarto-documents" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> quarto documents</h1>
 <p><br><br></p>
 <section id="start-a-new-.qmd-document" class="level3">
 <h3 class="anchored" data-anchor-id="start-a-new-.qmd-document">Start a new .qmd document</h3>
@@ -950,11 +866,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./rstudio_introduction_to_gui_1_en.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">RStudios GUI #1</span>
+      <a href="./day_1_basics_of_Rstudio.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Basics of Rstudio</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./day_1_settting_up_your_course_project.html" class="pagination-link">
+        <span class="nav-page-text">Setting up your course project</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

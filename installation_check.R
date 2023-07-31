@@ -16,7 +16,7 @@ if (sys_name %in% c("Linux", "MacOS", "Windows")) {
 
 ### CPU architecture
 
-if (sys_machine %in% c("x86_64", "amd64", "arm64")) {
+if (sys_machine %in% c("x86_64", "amd64", "arm64", "x86-64")) {
   print("[OK] You computer has a 64 bit CPU")
 } else if (sys_machine %in% c("i386", "i586", "i686")) {
   print("[WARNING] You computer has an older 32 bit CPU")

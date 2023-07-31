@@ -1,0 +1,63 @@
+---
+title: "Basics of Rstudio"
+author: "Steen Flammild Harsted"
+date: '`r Sys.Date()`'
+output:
+  distill::distill_article:
+    self_contained: false
+creative_commons: CC BY
+format:
+  html: 
+    code-fold: true
+    code-summary: "Show me the code"
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    number-depth: 2
+editor: 
+  mode: source
+execute: 
+  output: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+\ \ \ 
+
+# Rstudio
+Together in groups of two or three explain the following to each other:
+
+* What and where is the Console? 
+* What and where is the Script?
+* What is the difference between writing `2+2`in the console and the script?
+* What happens if you write a # in the script??
+* When and why can comments in your code be useful? 
+* What and where is the Environment Pane?
+* What and where is the "Files, Help, Plots, Packages, and Viewer" Pane?
+* What does F1 and ?[some_function] do?
+* What is an R Project, and why is it a good idea to use?
+
+<br>
+
+
+\ \ \ 
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
