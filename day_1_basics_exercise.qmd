@@ -1,0 +1,409 @@
+---
+title: "Basics"
+author: "Steen Flammild Harsted"
+date: '`r Sys.Date()`'
+output:
+  distill::distill_article:
+    self_contained: false
+creative_commons: CC BY
+format:
+  html: 
+    code-fold: true
+    code-summary: "Show me the code"
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    number-depth: 2
+editor: 
+  mode: source
+execute: 
+  output: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+
+# Basics {.unnumbered}
+
+\ \ \ 
+
+# Rstudio
+Together in groups of two or three explain the following to each other:
+
+* What and where is the Console? 
+* What and where is the Script?
+* What is the difference between writing `2+2`in the console and the script?
+* What happens if you write a # in the script??
+* When and why can comments in your code be useful? 
+* What and where is the Environment Pane?
+* What and where is the "Files, Help, Plots, Packages, and Viewer" Pane?
+* What does F1 and ?[some_function] do?
+* What is an R Project, and why is it a good idea to use?
+
+<br>
+
+
+\ \ \ 
+
+# Functions 
+
+### `<-`
+
+* Do you have a short cut for the assignment operator? (Tools -> Show Command Palette -> and type “assignment”)
+* What does the assign operator `<-` do?
+
+<br>
+
+### Assign the inbuilt datset `iris` to an object called `my_data`
+`iris` is available to you when you load R. It´s an inbuilt dataset. So it is available to you even though you cant find it in the Environment pane. Just type `iris`.
+```{r}
+my_data <- iris
+```
+
+<br>
+
+### print `my_data`
+```{r}
+#| results: false
+my_data
+```
+
+\ \
+
+### `c()`
+The c is short for [concatenate](https://www.merriam-webster.com/dictionary/concatenate), and means to link together.  
+This function combines values into a vector or list. For now you can think of a vector as a sequence of values.
+The values are seperated by a `,`
+
+<br>  
+  
+* Use `c()` to create a sequence of numbers from 0 to 4
+```{r}
+c(0, 1, 2, 3, 4)
+```
+  
+* Use `c()` to create a sequence of numbers from 0 to 4 in steps of 2
+```{r}
+c(0, 2, 4)
+```
+  
+* Use `c()` to create a sequence of numbers from 0 to 12 in 4 steps
+```{r}
+c(0, 4, 8, 12)
+```
+
+\ \
+
+### `seq()` 
+Of course, such predictable operations can be done with ease in a more reliable way. 
+We will use the function `seq()` as an example. The output of this function is a sequence of numbers. The sequence of numbers is dictated by the arguments that you provide.
+
+Read the arguments section on help page for `seq()`
+type `?seq()` in the console or type `seq()`and pres F1 while the cursor stands on the on the letters.
+
+<br>  
+  
+* Make a sequence of numbers that goes from 0 to 100
+```{r}
+#| results: false
+seq(from = 0,
+    to = 100)
+
+# This simple operation can also be done by just writing 0:100
+```
+
+<br>  
+  
+* Make a sequence of numbers that goes from 0 to 100 in steps of 2
+```{r}
+#| results: false
+seq(from = 0,
+    to = 100,
+    by = 2)
+```
+  
+\ \
+
+### `sample()`
+
+* Using `sample()`, take a sample of 5 random numbers between 1 and 100
+```{r}
+sample(1:100, 5)
+```
+* What does the argument `replace` do? What is the default value?
+
+\ \ 
+
+
+### `mean()`
+Another function we can use is `mean()`. This function gives you the mean value of a sequence of numbers.
+Read the arguments section of the help page for `mean()`
+
+<br>
+
+* What type of input does the first arguments of the `mean()` function require?
+```{r}
+# It requires a vector. 
+# You can still think of this as a sequence of numbers
+# c()
+```
+
+<br>
+
+* Using `c()`, take the mean of the numbers 5, 3, 1, and 10
+```{r}
+mean(c(5, 3, 1, 10))
+```
+
+<br>  
+
+* Take the mean of this vector `c(2, 4, 6, NA)`
+
+
+```{r}
+mean(c(2, 4, 6, NA))
+```
+
+<br>
+
+* Take the mean of this vector `c(2, 4, 6, NA)`, disregarding `NA` values
+```{r}
+mean(c(2, 4, 6, NA),
+     na.rm = TRUE)
+```
+
+\ \
+
+### `%>%`
+
+* What is your keyboard shortcut to write the pipe `%>%` ?
+(Pres CTRL+SHIFT+P and type **pipe** in the search field).  
+
+#### Load the `tidyverse`
+Why? The `%<%` is a part of the tidyverse, and is not included in Base R
+```{r}
+#| code-fold: false
+library(tidyverse)
+```
+
+<br>
+
+* **Using the pipe,** create a sequence of numbers going from 0 til 100 and then take the mean of the sequence.
+```{r}
+seq(from = 0,
+    to = 100) %>%
+  mean()
+```
+
+<br>
+
+* **Using the pipe,** create a sequence of numbers going from 1 to 20 in 39 steps, and then sample 10 random numbers from the sequence
+```{r}
+seq(from = 1,
+    to = 20,
+    length.out = 39) %>% 
+  sample(10)
+```
+
+<br>
+
+* Rewrite this code to use the pipe instead
+```{r}
+#| code-fold: false
+sort(
+  sample(seq(1:100),
+         10,
+         replace = TRUE)
+  )
+```
+
+```{r}
+seq(1:100) %>% 
+  sample(10,
+         replace = TRUE) %>% 
+  sort()
+```
+
+
+\ \ 
+
+### Explore
+Investigate the following functions that we may need later on in this course.  
+
+* `quantile()`
+* `rnorm()`
+* `median()`  
+* `cumsum()`
+* `min()`  
+* `max()`  
+* `n()`
+* `set.seed()`
+
+
+
+\ \ \
+
+
+<br><br><br><br><br><br><br><br>
+
+# Setting up your course project {#sec-setup}
+Follow these instructions step by step: 
+
+1. Start a new project. Think about the name and where you place the project. You are going to be using this project a lot. (Important: project_and_folder_names_matter)
+1. Create a folder in the project called `raw_data`  
+1. Create a folder in the project called `clean_data`  
+1. Create a folder in the project called `scripts`  
+1. Place the `ANSUR_II.csv` file from ItsLearning in the `raw_data` folder  
+1. Create an R script (File -> New File -> R script), save it in the `scripts` folder and call it `01_import.R`  
+1. Close the R script you just created and leave it for now.  
+\
+This file and folder structure is a basic setup that will work for most projects. We will return to this later today, and on day 4 you will learn how to improve this setup even further.
+\
+*  Discuss with you neighbor what the meaning of this madness can be about?
+\
+
+<br><br><br><br><br><br><br><br>
+
+# Setting up your course project (continued)
+
+Have you completed the wrangling exercises for `select()`, `filter()`, `summarise()`, `group_by()`, `arrange()`, and `mutate()` ?
+
+\
+
+Great - now you have the skills to continue the work we started in @sec-setup.\
+This coming task is important for the rest of your course.\
+\
+As you have noticed the `ANSUR_II` dataset is not perfect when we load it, e.g., Height is measured in inches, Weightkg is measured in Kg\*10, etc..\
+Therefore, we need to change a few things in the raw dataframe before we can start our work. It is essential in datascience and research that this process is documented, reproducible, and easy to repeat.\
+\
+
+* Open the R script `01_import.R` that you created in @sec-setup.\
+* For the rest of this section you are going to work in this R script. 
+* Try to explain the code you write in this script with comments (A hashtag # followed by explanations of code and choices you make)
+
+### Write the necessary code to import the `ANSUR_II.csv` file and update the data
+
+* add `heightcm` (height in cm)
+* fix `weightkg`
+* add `BMI`
+* add `category` (level of BMI)
+* add `race` - Base the values in race on the description below
+* remove `Heightin`
+* place the variables in an order that you like (use `relocate()`)
+* make sure that all changes are assigned to `ANSUR_II`
+
+::: {.callout-note collapse="true" apperance="simple"}
+
+## `race` in `ANSUR_II`
+
+`DODRace` is a variable in the `ANSUR_II` dataset. The description is given below:\ 
+
+`DODRace` – Department of Defense Race; a single digit indicating a subject’s
+self-reported preferred single race where selecting multiple races is not an option.
+This variable is intended to be comparable to the Defense Manpower Data Center
+demographic data. Where 1 = White, 2 = Black, 3 = Hispanic, 4 = Asian,
+5 = Native American, 6 = Pacific Islander, 8 = Other
+:::
+
+<br><br><br><br><br><br><br><br>
+
+# quarto documents
+
+<br><br>
+
+### Start a new .qmd document
+ File ->  
+ New File ->  
+ Quarto Document ->  
+ * Make sure the settings are set to "Document" and "HTML" (both are default settings), 
+ * Uncheck 'Use visual markdown editor'
+ * press "Create" 
+ 
+ The document contains both R and Markdown code.   
+ Save your file  (Important: file_name_matters)
+ Pres "Render" and see what happens.
+
+    
+ <br><br>
+
+### Markdown Code
+[Markdown code basics](https://quarto.org/docs/authoring/markdown-basics.html)
+    
+### Headlines
+Headlines are made using one or more # signs followed by a space  
+\# Largest headline  
+\## Second largest headline  
+\### Third largest headline  
+\##### Smallest headline possible.   
+
+* Practice making different headlines.  
+
+<br><br>
+
+### **Bold** and *Italic*
+\*text\*  becomes *text*  
+\*\*text\*\*  becomes **text**  
+\*\*\*text\*\*\*  becomes ***text***  
+
+* Practice writing something in *italics* and **bold**  
+
+<br><br>
+  
+### New lines
+To break a line in R Markdown and have it appear in your output, use two trailing spaces and then hit return.  
+If you want a hard line break end your lines with a `\`
+
+* Practice making line-breaks.
+  
+<br><br>
+  
+### Code chunk
+Insert a code chunk in your document (Default `CTRL+Alt+I`)  
+If pressing CTRL+Alt+I doesn't work click Tools -> Command Palette -> and type "Chunk" in the search field  
+  
+What you write inside the codechunk will be evaluated as R code.
+
+Write 2+2 inside the Code chunk you just created, and Knit the document.
+  
+2+2 equals
+```{r}
+2+2
+```
+  
+<br><br>
+  
+### Run Code chunk
+You don't need to Knit your document in order to see the output of your code.  
+Place the cursor inside the code chunk you just made and Click the green triangle (play-sign) in the right side of the code chunk.  
+Notice the output in the console.  
+  
+R comes with many inbuilt datasets, one of them is the `iris` dataset.  
+Plot the `iris` dataset.  
+Insert a codechunk, and write `plot(iris)` inside the codechunk.  
+Click the green triangle.  
+ 
+**Lifehack:**   
+pressing `ALT+Enter` will run the current line or selection.  
+pressing `CTRL+Enter` will run the current line or selection and jump to next line.  
+pressing `CTRL+ALT+C` will run the current code chunk (instead of just the current line).  
+
+
+  
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>

@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.475">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Steen Flammild Harsted">
+<meta name="dcterms.date" content="2023-07-31">
+
+<title>R4phd - Basics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./rstudio_introduction_to_gui_1_en.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">R4phd</span>
+    </a>
+  </div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Basics</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Dansk</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">Installation</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./installation_quick_preparation_da.html" class="sidebar-item-text sidebar-link">Kom i gang</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./installation_prerequisites_da.html" class="sidebar-item-text sidebar-link">Forudsætninger</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./installation_ecosystem_da.html" class="sidebar-item-text sidebar-link">The R ecosystem</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./installation_background_da.html" class="sidebar-item-text sidebar-link">R versus RStudio</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./installation_r_da.html" class="sidebar-item-text sidebar-link">R installation</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./installation_rstudio_da.html" class="sidebar-item-text sidebar-link">RStudio installation</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./installation_r_pakker_da.html" class="sidebar-item-text sidebar-link">Installation af pakker</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./installation_cloud_da.html" class="sidebar-item-text sidebar-link">Posit Cloud</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">Lær RStudio at kende</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./rstudio_introduction_to_gui_1_da.html" class="sidebar-item-text sidebar-link">RStudios GUI #1</a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">English</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">Installation</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./installation_quick_preparation_en.html" class="sidebar-item-text sidebar-link">Getting started</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./installation_prerequisites_en.html" class="sidebar-item-text sidebar-link">Prerequisites</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./installation_ecosystem_en.html" class="sidebar-item-text sidebar-link">The R ecosystem</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./installation_background_en.html" class="sidebar-item-text sidebar-link">R versus RStudio</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./installation_r_en.html" class="sidebar-item-text sidebar-link">R installation</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./installation_rstudio_en.html" class="sidebar-item-text sidebar-link">RStudio installation</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./installation_r_packages_en.html" class="sidebar-item-text sidebar-link">R package installation</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./installation_cloud_en.html" class="sidebar-item-text sidebar-link">Posit Cloud</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">Getting to know RStudio</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./rstudio_introduction_to_gui_1_en.html" class="sidebar-item-text sidebar-link">RStudios GUI #1</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">R course days</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./day_1_basics_exercise.html" class="sidebar-item-text sidebar-link active">Basics</a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#basics" id="toc-basics" class="nav-link active" data-scroll-target="#basics">Basics</a></li>
+  <li><a href="#rstudio" id="toc-rstudio" class="nav-link" data-scroll-target="#rstudio"><span class="toc-section-number">1</span>  Rstudio</a></li>
+  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions"><span class="toc-section-number">2</span>  Functions</a></li>
+  <li><a href="#sec-setup" id="toc-sec-setup" class="nav-link" data-scroll-target="#sec-setup"><span class="toc-section-number">3</span>  Setting up your course project</a></li>
+  <li><a href="#setting-up-your-course-project-continued" id="toc-setting-up-your-course-project-continued" class="nav-link" data-scroll-target="#setting-up-your-course-project-continued"><span class="toc-section-number">4</span>  Setting up your course project (continued)</a></li>
+  <li><a href="#quarto-documents" id="toc-quarto-documents" class="nav-link" data-scroll-target="#quarto-documents"><span class="toc-section-number">5</span>  quarto documents</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Basics</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Steen Flammild Harsted </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 31, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="basics" class="level1 unnumbered">
+<h1 class="unnumbered">Basics</h1>
+<p>&nbsp;&nbsp;&nbsp;</p>
+</section>
+<section id="rstudio" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Rstudio</h1>
+<p>Together in groups of two or three explain the following to each other:</p>
+<ul>
+<li>What and where is the Console?</li>
+<li>What and where is the Script?</li>
+<li>What is the difference between writing <code>2+2</code>in the console and the script?</li>
+<li>What happens if you write a # in the script??</li>
+<li>When and why can comments in your code be useful?</li>
+<li>What and where is the Environment Pane?</li>
+<li>What and where is the “Files, Help, Plots, Packages, and Viewer” Pane?</li>
+<li>What does F1 and ?[some_function] do?</li>
+<li>What is an R Project, and why is it a good idea to use?</li>
+</ul>
+<p><br></p>
+<p>&nbsp;&nbsp;&nbsp;</p>
+</section>
+<section id="functions" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Functions</h1>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section"><code>&lt;-</code></h3>
+<ul>
+<li>Do you have a short cut for the assignment operator? (Tools -&gt; Show Command Palette -&gt; and type “assignment”)</li>
+<li>What does the assign operator <code>&lt;-</code> do?</li>
+</ul>
+<p><br></p>
+</section>
+<section id="assign-the-inbuilt-datset-iris-to-an-object-called-my_data" class="level3">
+<h3 class="anchored" data-anchor-id="assign-the-inbuilt-datset-iris-to-an-object-called-my_data">Assign the inbuilt datset <code>iris</code> to an object called <code>my_data</code></h3>
+<p><code>iris</code> is available to you when you load R. It´s an inbuilt dataset. So it is available to you even though you cant find it in the Environment pane. Just type <code>iris</code>.</p>
+<div class="cell">
+<details>
+<summary>Show me the code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> iris</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><br></p>
+</section>
+<section id="print-my_data" class="level3">
+<h3 class="anchored" data-anchor-id="print-my_data">print <code>my_data</code></h3>
+<div class="cell">
+<details>
+<summary>Show me the code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>my_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>&nbsp;<br>
+</p>
+</section>
+<section id="c" class="level3">
+<h3 class="anchored" data-anchor-id="c"><code>c()</code></h3>
+<p>The c is short for <a href="https://www.merriam-webster.com/dictionary/concatenate">concatenate</a>, and means to link together.<br>
+This function combines values into a vector or list. For now you can think of a vector as a sequence of values. The values are seperated by a <code>,</code></p>
+<p><br></p>
+<ul>
+<li>Use <code>c()</code> to create a sequence of numbers from 0 to 4</li>
+</ul>
+<div class="cell">
+<details>
+<summary>Show me the code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ul>
+<li>Use <code>c()</code> to create a sequence of numbers from 0 to 4 in steps of 2</li>
+</ul>
+<div class="cell">
+<details>
+<summary>Show me the code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ul>
+<li>Use <code>c()</code> to create a sequence of numbers from 0 to 12 in 4 steps</li>
+</ul>
+<div class="cell">
+<details>
+<summary>Show me the code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>&nbsp;<br>
+</p>
+</section>
+<section id="seq" class="level3">
+<h3 class="anchored" data-anchor-id="seq"><code>seq()</code></h3>
+<p>Of course, such predictable operations can be done with ease in a more reliable way. We will use the function <code>seq()</code> as an example. The output of this function is a sequence of numbers. The sequence of numbers is dictated by the arguments that you provide.</p>
+<p>Read the arguments section on help page for <code>seq()</code> type <code>?seq()</code> in the console or type <code>seq()</code>and pres F1 while the cursor stands on the on the letters.</p>
+<p><br></p>
+<ul>
+<li>Make a sequence of numbers that goes from 0 to 100</li>
+</ul>
+<div class="cell">
+<details>
+<summary>Show me the code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>,</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">to =</span> <span class="dv">100</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># This simple operation can also be done by just writing 0:100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><br></p>
+<ul>
+<li>Make a sequence of numbers that goes from 0 to 100 in steps of 2</li>
+</ul>
+<div class="cell">
+<details>
+<summary>Show me the code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>,</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">to =</span> <span class="dv">100</span>,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>&nbsp;<br>
+</p>
+</section>
+<section id="sample" class="level3">
+<h3 class="anchored" data-anchor-id="sample"><code>sample()</code></h3>
+<ul>
+<li>Using <code>sample()</code>, take a sample of 5 random numbers between 1 and 100</li>
+</ul>
+<div class="cell">
+<details>
+<summary>Show me the code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ul>
+<li>What does the argument <code>replace</code> do? What is the default value?</li>
+</ul>
+<p>&nbsp;&nbsp;</p>
+</section>
+<section id="mean" class="level3">
+<h3 class="anchored" data-anchor-id="mean"><code>mean()</code></h3>
+<p>Another function we can use is <code>mean()</code>. This function gives you the mean value of a sequence of numbers. Read the arguments section of the help page for <code>mean()</code></p>
+<p><br></p>
+<ul>
+<li>What type of input does the first arguments of the <code>mean()</code> function require?</li>
+</ul>
+<div class="cell">
+<details>
+<summary>Show me the code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># It requires a vector. </span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># You can still think of this as a sequence of numbers</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># c()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><br></p>
+<ul>
+<li>Using <code>c()</code>, take the mean of the numbers 5, 3, 1, and 10</li>
+</ul>
+<div class="cell">
+<details>
+<summary>Show me the code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><br></p>
+<ul>
+<li>Take the mean of this vector <code>c(2, 4, 6, NA)</code></li>
+</ul>
+<div class="cell">
+<details>
+<summary>Show me the code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="cn">NA</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><br></p>
+<ul>
+<li>Take the mean of this vector <code>c(2, 4, 6, NA)</code>, disregarding <code>NA</code> values</li>
+</ul>
+<div class="cell">
+<details>
+<summary>Show me the code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="cn">NA</span>),</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>&nbsp;<br>
+</p>
+</section>
+<section id="section-1" class="level3">
+<h3 class="anchored" data-anchor-id="section-1"><code>%&gt;%</code></h3>
+<ul>
+<li>What is your keyboard shortcut to write the pipe <code>%&gt;%</code> ? (Pres CTRL+SHIFT+P and type <strong>pipe</strong> in the search field).</li>
+</ul>
+<section id="load-the-tidyverse" class="level4">
+<h4 class="anchored" data-anchor-id="load-the-tidyverse">Load the <code>tidyverse</code></h4>
+<p>Why? The <code>%&lt;%</code> is a part of the tidyverse, and is not included in Base R</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<ul>
+<li><strong>Using the pipe,</strong> create a sequence of numbers going from 0 til 100 and then take the mean of the sequence.</li>
+</ul>
+<div class="cell">
+<details>
+<summary>Show me the code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>,</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">to =</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><br></p>
+<ul>
+<li><strong>Using the pipe,</strong> create a sequence of numbers going from 1 to 20 in 39 steps, and then sample 10 random numbers from the sequence</li>
+</ul>
+<div class="cell">
+<details>
+<summary>Show me the code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>,</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">to =</span> <span class="dv">20</span>,</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">length.out =</span> <span class="dv">39</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><br></p>
+<ul>
+<li>Rewrite this code to use the pipe instead</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample</span>(<span class="fu">seq</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>),</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>         <span class="dv">10</span>,</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<details>
+<summary>Show me the code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample</span>(<span class="dv">10</span>,</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sort</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>&nbsp;&nbsp;</p>
+</section>
+</section>
+<section id="explore" class="level3">
+<h3 class="anchored" data-anchor-id="explore">Explore</h3>
+<p>Investigate the following functions that we may need later on in this course.</p>
+<ul>
+<li><code>quantile()</code></li>
+<li><code>rnorm()</code></li>
+<li><code>median()</code><br>
+</li>
+<li><code>cumsum()</code></li>
+<li><code>min()</code><br>
+</li>
+<li><code>max()</code><br>
+</li>
+<li><code>n()</code></li>
+<li><code>set.seed()</code></li>
+</ul>
+<p>&nbsp;&nbsp;<br>
+</p>
+<p><br><br><br><br><br><br><br><br></p>
+</section>
+</section>
+<section id="sec-setup" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Setting up your course project</h1>
+<p>Follow these instructions step by step:</p>
+<ol type="1">
+<li>Start a new project. Think about the name and where you place the project. You are going to be using this project a lot. (Important: project_and_folder_names_matter)</li>
+<li>Create a folder in the project called <code>raw_data</code><br>
+</li>
+<li>Create a folder in the project called <code>clean_data</code><br>
+</li>
+<li>Create a folder in the project called <code>scripts</code><br>
+</li>
+<li>Place the <code>ANSUR_II.csv</code> file from ItsLearning in the <code>raw_data</code> folder<br>
+</li>
+<li>Create an R script (File -&gt; New File -&gt; R script), save it in the <code>scripts</code> folder and call it <code>01_import.R</code><br>
+</li>
+<li>Close the R script you just created and leave it for now.<br>
+<br>
+This file and folder structure is a basic setup that will work for most projects. We will return to this later today, and on day 4 you will learn how to improve this setup even further.<br>
+</li>
+</ol>
+<ul>
+<li>Discuss with you neighbor what the meaning of this madness can be about?<br>
+</li>
+</ul>
+<p><br><br><br><br><br><br><br><br></p>
+</section>
+<section id="setting-up-your-course-project-continued" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Setting up your course project (continued)</h1>
+<p>Have you completed the wrangling exercises for <code>select()</code>, <code>filter()</code>, <code>summarise()</code>, <code>group_by()</code>, <code>arrange()</code>, and <code>mutate()</code> ?</p>
+<p><br>
+</p>
+<p>Great - now you have the skills to continue the work we started in <a href="#sec-setup">Section&nbsp;3</a>.<br>
+This coming task is important for the rest of your course.<br>
+<br>
+As you have noticed the <code>ANSUR_II</code> dataset is not perfect when we load it, e.g., Height is measured in inches, Weightkg is measured in Kg*10, etc..<br>
+Therefore, we need to change a few things in the raw dataframe before we can start our work. It is essential in datascience and research that this process is documented, reproducible, and easy to repeat.<br>
+<br>
+</p>
+<ul>
+<li>Open the R script <code>01_import.R</code> that you created in <a href="#sec-setup">Section&nbsp;3</a>.<br>
+</li>
+<li>For the rest of this section you are going to work in this R script.</li>
+<li>Try to explain the code you write in this script with comments (A hashtag # followed by explanations of code and choices you make)</li>
+</ul>
+<section id="write-the-necessary-code-to-import-the-ansur_ii.csv-file-and-update-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="write-the-necessary-code-to-import-the-ansur_ii.csv-file-and-update-the-data">Write the necessary code to import the <code>ANSUR_II.csv</code> file and update the data</h3>
+<ul>
+<li>add <code>heightcm</code> (height in cm)</li>
+<li>fix <code>weightkg</code></li>
+<li>add <code>BMI</code></li>
+<li>add <code>category</code> (level of BMI)</li>
+<li>add <code>race</code> - Base the values in race on the description below</li>
+<li>remove <code>Heightin</code></li>
+<li>place the variables in an order that you like (use <code>relocate()</code>)</li>
+<li>make sure that all changes are assigned to <code>ANSUR_II</code></li>
+</ul>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+<code>race</code> in <code>ANSUR_II</code>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body" data-apperance="simple">
+<p><code>DODRace</code> is a variable in the <code>ANSUR_II</code> dataset. The description is given below:&nbsp;</p>
+<p><code>DODRace</code> – Department of Defense Race; a single digit indicating a subject’s self-reported preferred single race where selecting multiple races is not an option. This variable is intended to be comparable to the Defense Manpower Data Center demographic data. Where 1 = White, 2 = Black, 3 = Hispanic, 4 = Asian, 5 = Native American, 6 = Pacific Islander, 8 = Other</p>
+</div>
+</div>
+</div>
+<p><br><br><br><br><br><br><br><br></p>
+</section>
+</section>
+<section id="quarto-documents" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> quarto documents</h1>
+<p><br><br></p>
+<section id="start-a-new-.qmd-document" class="level3">
+<h3 class="anchored" data-anchor-id="start-a-new-.qmd-document">Start a new .qmd document</h3>
+<p>File -&gt;<br>
+New File -&gt;<br>
+Quarto Document -&gt;<br>
+* Make sure the settings are set to “Document” and “HTML” (both are default settings), * Uncheck ‘Use visual markdown editor’ * press “Create”</p>
+<p>The document contains both R and Markdown code.<br>
+Save your file (Important: file_name_matters) Pres “Render” and see what happens.</p>
+<p><br><br></p>
+</section>
+<section id="markdown-code" class="level3">
+<h3 class="anchored" data-anchor-id="markdown-code">Markdown Code</h3>
+<p><a href="https://quarto.org/docs/authoring/markdown-basics.html">Markdown code basics</a></p>
+</section>
+<section id="headlines" class="level3">
+<h3 class="anchored" data-anchor-id="headlines">Headlines</h3>
+<p>Headlines are made using one or more # signs followed by a space<br>
+# Largest headline<br>
+## Second largest headline<br>
+### Third largest headline<br>
+##### Smallest headline possible.</p>
+<ul>
+<li>Practice making different headlines.</li>
+</ul>
+<p><br><br></p>
+</section>
+<section id="bold-and-italic" class="level3">
+<h3 class="anchored" data-anchor-id="bold-and-italic"><strong>Bold</strong> and <em>Italic</em></h3>
+<p>*text* becomes <em>text</em><br>
+**text** becomes <strong>text</strong><br>
+***text*** becomes <strong><em>text</em></strong></p>
+<ul>
+<li>Practice writing something in <em>italics</em> and <strong>bold</strong></li>
+</ul>
+<p><br><br></p>
+</section>
+<section id="new-lines" class="level3">
+<h3 class="anchored" data-anchor-id="new-lines">New lines</h3>
+<p>To break a line in R Markdown and have it appear in your output, use two trailing spaces and then hit return.<br>
+If you want a hard line break end your lines with a <code>\</code></p>
+<ul>
+<li>Practice making line-breaks.</li>
+</ul>
+<p><br><br></p>
+</section>
+<section id="code-chunk" class="level3">
+<h3 class="anchored" data-anchor-id="code-chunk">Code chunk</h3>
+<p>Insert a code chunk in your document (Default <code>CTRL+Alt+I</code>)<br>
+If pressing CTRL+Alt+I doesn’t work click Tools -&gt; Command Palette -&gt; and type “Chunk” in the search field</p>
+<p>What you write inside the codechunk will be evaluated as R code.</p>
+<p>Write 2+2 inside the Code chunk you just created, and Knit the document.</p>
+<p>2+2 equals</p>
+<div class="cell">
+<details>
+<summary>Show me the code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">+</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><br><br></p>
+</section>
+<section id="run-code-chunk" class="level3">
+<h3 class="anchored" data-anchor-id="run-code-chunk">Run Code chunk</h3>
+<p>You don’t need to Knit your document in order to see the output of your code.<br>
+Place the cursor inside the code chunk you just made and Click the green triangle (play-sign) in the right side of the code chunk.<br>
+Notice the output in the console.</p>
+<p>R comes with many inbuilt datasets, one of them is the <code>iris</code> dataset.<br>
+Plot the <code>iris</code> dataset.<br>
+Insert a codechunk, and write <code>plot(iris)</code> inside the codechunk.<br>
+Click the green triangle.</p>
+<p><strong>Lifehack:</strong><br>
+pressing <code>ALT+Enter</code> will run the current line or selection.<br>
+pressing <code>CTRL+Enter</code> will run the current line or selection and jump to next line.<br>
+pressing <code>CTRL+ALT+C</code> will run the current code chunk (instead of just the current line).</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="sorenoneill/r4phd" data-repo-id="R_kgDOJ9etDQ" data-category="General" data-category-id="DIC_kwDOJ9etDc4CYApG" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./rstudio_introduction_to_gui_1_en.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">RStudios GUI #1</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
