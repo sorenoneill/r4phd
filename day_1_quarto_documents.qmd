@@ -18,10 +18,11 @@ editor:
   mode: source
 execute: 
   output: false
+  echo: true
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r setup}
+#| include: false
 library(tidyverse)
 ```
 

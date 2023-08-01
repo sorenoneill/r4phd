@@ -1,0 +1,1015 @@
+---
+title: "Basic data science skills for health researchers using R and the tidyverse"
+subtitle: "`dplyr` practice"
+date: today
+format: 
+  html:
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    number-depth: 2
+    embed-resources: true
+    self-contained: true
+    code-fold: true
+    code-summary: "Show the code"
+    code-tools: true
+
+execute:
+  cache: true
+  message: false
+  warning: false
+---
+
+<br><br><br><br><br><br><br><br>
+
+## Getting started for now
+### Load the `tidyverse` and the `here` package
+```{r}
+library(tidyverse)
+library(here)
+```
+
+\ 
+
+### Try out the `here()` function
+* What happens if you write `here()` ? 
+* What happens if you write `here("raw_data")` ?  
+* Compare your output with your neighbors and discuss if and how the `here()`function could ever be of any use to anybody
+
+\
+
+### Load the ANSUR_II dataset
+Use the function `read_csv2()` \
+The `file` argument should be `here("raw_data", "ANSUR_II.csv")` 
+```{r}
+#| eval: false
+read_csv2(here("raw_data", "ANSUR_II.csv"))
+```
+
+\
+
+### Assign the ANSUR_II dataset to an object
+Great, now read the data again and assign it (remember `<-`) to an object called `ANSUR_II`
+
+```{r}
+ANSUR_II <- read_csv2(here("raw_data", "ANSUR_II.csv"))
+```
+
+\
+
+### Explore the `ANSUR_II` dataset
+The `skim()` function from the `skimr`package provides an exellent overview
+Load the `skimr` package and use the `skim()` function to get an impression of the `ANSUR_II` dataset
+
+Discuss with your neighbor:
+
+* Nr of rows?
+* Nr of columns?
+* Missing values?
+* Types of variables?
+* Any fake data? *(hint: Yes, for educational purposes I have added some fake data)*
+
+```{r}
+#| eval: false
+library(skimr)
+skim(ANSUR_II)
+```
+
+<br><br><br><br><br><br><br><br>
+
+## `select()`
+
+### select the columns `subjectid`, `sex`, `age`
+```{r}
+#| eval: false
+ANSUR_II %>% 
+  select(subjectid, sex, age)
+```
+
+\
+
+### select the columns 1, 3, 5:7
+
+```{r}
+#| eval: false
+ANSUR_II %>% 
+  select(1,3,5:7)
+```
+
+\
+
+### remove the columns 3:5
+
+```{r}
+#| eval: false
+ANSUR_II %>% 
+  select(-(3:5))
+```
+
+\
+
+### select all columns that contains the word "circumference"
+
+<details><summary>**Hint**</summary>
+
+**HINT**: Use one of the [tidyselect](https://tidyselect.r-lib.org/reference/language.html) helper functions.
+
+</details>
+
+```{r ANSUR_II_6}
+#| eval: false
+ANSUR_II %>% 
+  select(contains("circumference"))
+```
+
+<br>
+
+### remove all columns containing the letter "c"
+
+<details><summary>**Hint**</summary>
+
+**Hint** Use one of the [tidyselect](https://tidyselect.r-lib.org/reference/language.html) helper functions.  
+**HINT**: Use a minus sign.  
+</details>
+
+```{r ANSUR_II_7}
+#| eval: false
+ANSUR_II %>% 
+  select(-contains("c"))
+```
+
+<br>
+
+### select all columns that contains a "c" OR "x" OR "y" OR "z"
+
+<details><summary>**Hint**</summary>
+
+**HINT**: In R(and many other programming languages) the \| sign is used as a logical operator for OR.
+
+</details>
+
+```{r}
+#| eval: false
+ANSUR_II %>% 
+  select(contains("c") | contains("x") | contains("y") | contains("z"))
+```
+
+<br>
+
+### select all columns that contains a "c" OR "x" OR "y" OR "z"
+
+This time use the [tidyselect](https://tidyselect.r-lib.org/reference/language.html) helper function called `matches()`\
+`matches()` allows you to use logical operators inside the function. E.g., `matches("this|that")`
+
+```{r ANSUR_II_8}
+#| eval: false
+ANSUR_II %>% 
+  select(matches("c|x|y|z"))
+```
+
+<br>
+
+### Challenge: Why not always use `matches()`?
+
+Use the preloaded `iris` data-set. (just write `iris`)\
+Try to use `matches()` to select all columns containing a "."
+
+```{r}
+#| eval: false
+iris %>% 
+  select(matches(".")) %>% 
+  head() # This line is just there to prevent a very long output.
+```
+
+<br>
+
+Why did we select the `Species` column?\
+What happens if we use `contains()` instead
+
+```{r}
+#| eval: false
+iris %>% 
+  select(contains(".")) %>% 
+  head() # This line is just there to prevent a very long output.
+```
+
+<br>
+
+What is the difference in the output? Why is it different?
+
+<details><summary>ANSWER</summary>
+
+`contains()`: Contains a literal string.\
+`matches()`: Matches a [regular expression](https://en.wikipedia.org/wiki/Regular_expression).\
+In regular expressions `.` is a wildcard.
+
+> The wildcard . matches any character. For example, a.b matches any string that contains an "a", and then any character and then "b"; and a.\*b matches any string that contains an "a", and then the character "b" at some later point.\
+> [*https://en.wikipedia.org/wiki/Regular_expression*](https://en.wikipedia.org/wiki/Regular_expression){.uri}
+
+</details>
+
+<br><br><br><br><br><br><br><br>
+
+## `filter()`
+
+Start a new session.\
+Load the `tidyverse` and the `here` package
+
+```{r}
+library(tidyverse)
+library(here)
+```
+\
+Load the `ANSUR_II `data and assign it to an object called `ANSUR_II`
+```{r}
+ANSUR_II <- read_csv2(here("raw_data", "ANSUR_II.csv"))
+```
+
+\
+
+### Keep all rows where `sex` is Female:
+
+<details><summary>HINT</summary>
+`???? == "Female"`
+</details>
+
+```{r}
+#| eval: false
+ANSUR_II %>% filter(sex == "Female")
+```
+
+<br>
+
+### Keep all rows where `weightkg` is missing (NA value)
+
+<details><summary>HINT</summary>
+**HINT:** use the `is.na()` function
+</details>
+
+```{r}
+#| eval: false
+ANSUR_II %>% 
+  filter(is.na(weightkg))
+```
+
+<br>
+
+### Keep all rows where `WritingPreference` is "Left hand" AND `sex` is "Female"
+
+```{r}
+#| eval: false
+ANSUR_II %>% 
+  filter(WritingPreference == "Left hand" ,  sex == "Female")  # you can use & instead of a ,
+```
+
+<br>
+
+### Keep all rows where `WritingPreference` is "Left hand" OR `sex` is "Female"
+
+```{r}
+#| eval: false
+ANSUR_II %>% 
+  filter(WritingPreference == "Left hand" |  sex == "Female")  
+```
+
+<br>
+
+### What is going wrong in this code?
+
+```{r}
+#| eval: false
+#| code-fold: false
+ANSUR_II %>% 
+  select(1:5) %>% 
+  filter(WritingPreference == "Left hand" |  sex == "Female")  
+```
+
+```{r}
+#| eval: false
+#| code-fold: false
+The error message is:
+Error in `filter()`:
+ℹ In argument: `WritingPreference == "Left hand" | sex == "Female"`.
+Caused by error:
+! object 'WritingPreference' not found
+Run `rlang::last_error()` to see where the error occurred.
+```
+
+```{r}
+#| eval: false
+#| code-summary: "ANSWER"
+The variable WritingPreference was not selected in the first line.
+```
+
+
+<br>
+
+
+### Keep all rows where `age` is above 30 and the `weightkg` is below 600
+```{r}
+#| eval: false
+ANSUR_II %>% 
+  filter(age > 30, weightkg < 600)
+```
+
+\
+
+### Keep all rows where `Ethnicity` is either "Mexican" OR "Filipino"
+
+<details><summary>HINT</summary>
+you need to use `%in%` and `c()`
+</details>
+
+```{r}
+#| eval: false
+ANSUR_II %>% 
+  filter(Ethnicity %in% c("Mexican", "Filipino"))
+```
+
+<br><br><br><br><br><br><br><br>
+
+## `summarise()`
+
+Start a new session.\
+Load the `tidyverse` and the `here` package
+
+```{r}
+library(tidyverse)
+library(here)
+```
+\
+Load the `ANSUR_II `data and assign it to an object called `ANSUR_II`
+```{r}
+ANSUR_II <- read_csv2(here("raw_data", "ANSUR_II.csv"))
+```
+
+\
+
+### Calculate the mean and standard deviation of `footlength`
+
+```{r}
+#| eval: false
+ANSUR_II %>% summarise(
+  footlength_avg = mean(footlength),
+  footlength_sd = sd(footlength))
+```
+
+<br>
+
+### Calculate the median and interquartile range of `earlength`
+
+<details><summary>HINT</summary>
+use the `IQR()` function
+</details>
+
+```{r}
+#| eval: false
+ANSUR_II %>% 
+  summarise(
+    earlength_median = median(earlength),
+    earlength_iqr = IQR(earlength))
+```
+
+<br>
+
+### Count the number of rows where `WritingPreference` is equal to "Right hand"
+
+```{r}
+#| eval: false
+ANSUR_II %>%  
+  summarise(
+    n_righthanded = sum(WritingPreference == "Right hand"))
+```
+
+\
+
+### How old is the oldest soldier?
+<details>
+
+<summary>
+
+HINT if you can't work out why get an `NA` value
+
+</summary>
+
+Many Base R functions, including `mean()`, does not ignore NA values by default. This means that if the vector contains an `NA` value the result will be `NA`. Is this a good or bad thing?\
+You can set the argument `na.rm = TRUE`, to ignore missing values.
+
+</details>
+
+```{r}
+#| eval: false
+ANSUR_II %>% 
+  summarise(
+    age_max = max(age, na.rm = TRUE))
+```
+
+\
+
+### Calculate the mean weight of the Females
+
+<details>
+
+<summary>
+
+HINT if you can't work out why get an `NA` value
+
+</summary>
+
+Many Base R functions, including `mean()`, does not ignore NA values by default. This means that if the vector contains an `NA` value the result will be `NA`. Is this a good or bad thing?\
+You can set the argument `na.rm = TRUE`, to ignore missing values.
+
+</details>
+
+```{r}
+#| eval: false
+ANSUR_II %>% 
+  filter(sex == "Female") %>% 
+  summarise(
+    weight_avg = mean(weightkg, na.rm = TRUE))
+```
+
+<br>
+
+### Calculate the range in weight (max-min) within Males
+
+```{r}
+#| eval: false
+ANSUR_II %>% 
+  filter(sex == "Male") %>% 
+  summarise(
+    weight_range = max(weightkg, na.rm = TRUE)-min(weightkg, na.rm = TRUE))
+```
+
+
+<br><br><br><br><br><br><br><br>
+
+## `group_by()` and `arrange()`
+
+Start a new session.\
+Load the `tidyverse` and the `here` package
+
+```{r}
+library(tidyverse)
+library(here)
+```
+\
+Load the `ANSUR_II `data and assign it to an object called `ANSUR_II`
+```{r}
+ANSUR_II <- read_csv2(here("raw_data", "ANSUR_II.csv"))
+```
+
+\
+
+### Calculate the mean and sd of `weightkg` and `age` for all `Installation`s
+
+```{r}
+#| eval: false
+ANSUR_II %>% 
+  group_by(Installation) %>% 
+  summarise(weight_avg = mean(weightkg, na.rm = TRUE),
+            weight_sd = sd(weightkg, na.rm = TRUE),
+            age_avg = mean(age, na.rm = TRUE),
+            age_sd = sd(age, na.rm = TRUE))
+```
+
+<br>
+
+### Calculate the mean and sd of `weightkg` and `age` for all `Installation`s for both `sex`es
+
+```{r}
+#| eval: false
+ANSUR_II %>% 
+  group_by(Installation, sex) %>% 
+  summarise(weight_avg = mean(weightkg, na.rm = TRUE),
+            weight_sd = sd(weightkg, na.rm = TRUE),
+            age_avg = mean(age, na.rm = TRUE),
+            age_sd = sd(age, na.rm = TRUE))
+```
+
+<br>
+
+### Calcualate the average height for each `Installation` and count the number of missing values within each `Installation`
+
+<details>
+
+<summary>
+
+HINT
+
+</summary>
+
+Use the functions `sum()` and `is.na()`
+
+</details>
+
+```{r}
+#| eval: false
+ANSUR_II %>% 
+  group_by(Installation) %>% 
+  summarise(height_avg = mean(Heightin, na.rm = TRUE),
+            height_n_miss = sum(is.na(Heightin)))
+```
+
+<br>
+
+### As before, but now also add the number of observations (rows) within each `Installation`
+
+<details>
+
+<summary>
+
+HINT
+
+</summary>
+
+Use `n()`
+
+</details>
+
+```{r}
+#| eval: false
+ANSUR_II %>% 
+  group_by(Installation) %>% 
+  summarise(height_avg = mean(Heightin, na.rm = TRUE),
+            height_n_miss = sum(is.na(Heightin)),
+            n = n())
+```
+
+<br>
+
+### As before, but now arrange the output after number of soldiers at each `Installation` in descending order.
+
+```{r}
+#| eval: false
+ANSUR_II %>% 
+  group_by(Installation) %>% 
+  summarise(height_avg = mean(Heightin, na.rm = TRUE),
+            height_n_miss = sum(is.na(Heightin)),
+            n = n()) %>% 
+  arrange(desc(n))
+```
+
+<br><br><br><br><br><br><br><br>
+
+## `mutate()`
+
+Start a new session.\
+Load the `tidyverse` and the `here` package
+
+```{r}
+library(tidyverse)
+library(here)
+```
+\
+Load the `ANSUR_II `data and assign it to an object called `ANSUR_II`
+```{r}
+ANSUR_II <- read_csv2(here("raw_data", "ANSUR_II.csv"))
+```
+
+\
+
+### Add a column called `heightcm` with the height of the soldiers in cm
+* Update the `ANSUR_II` dataset to with the new variable
+* place the new variable after `Heightin`
+```{r}
+#| output: false
+ANSUR_II <- ANSUR_II %>% 
+  mutate(
+    heightcm = Heightin * 2.54,
+    .after = Heightin)
+```
+
+\
+
+### Update the `weightkg` column to kg instead of kg*10
+* Update the `ANSUR_II` dataset to with the new variable
+* place the new variable after `weightkg`
+```{r}
+#| output: false
+ANSUR_II <- ANSUR_II %>% 
+  mutate(
+    weightkg = weightkg/10,
+    .after = weightkg)
+```
+
+\
+
+### Add a column called `BMI` with the Body mass index (BMI) of the soldiers
+[BMI](https://en.wikipedia.org/wiki/Body_mass_index)
+* Update the `ANSUR_II` dataset to with the new variable
+* place the new variable after `weightkg`
+```{r}
+#| output: false
+ANSUR_II <- ANSUR_II %>% 
+  mutate(BMI = weightkg/(heightcm/100)^2,
+         .after = weightkg)
+```
+
+\
+
+### Add a column called `obese` that contains the value TRUE if BMI is > 30
+```{r}
+#| eval: false
+ANSUR_II %>% 
+  mutate(
+    obese = if_else(BMI > 30, TRUE, FALSE),
+    .before = 1 # This line code just places the variable at the front
+  )
+```
+
+\
+
+### Inspect the below table from [Wikipedia](https://en.wikipedia.org/wiki/Body_mass_index) {#sec-BMI}
+
+```{r}
+#| echo: false
+tibble::tribble(                          ~Category, ~`BMI (kg/m^2^)`, 
+    "Underweight (Severe thinness)",          "< 16.0", 
+  "Underweight (Moderate thinness)",     "16.0 – 16.9", 
+      "Underweight (Mild thinness)",     "17.0 – 18.4", 
+                     "Normal range",     "18.5 – 24.9", 
+           "Overweight (Pre-obese)",     "25.0 – 29.9", 
+                  "Obese (Class I)",     "30.0 – 34.9", 
+                 "Obese (Class II)",     "35.0 – 39.9", 
+                "Obese (Class III)",          ">= 40.0", 
+  ) %>%   knitr::kable()
+```
+
+\
+
+### Create the variable `category` that tells us whether the soldiers are "Underweight", "Normal range", "Overweight", or "Obese"
+* Update the `ANSUR_II` dataset to with the new variable
+* place the new variable after `BMI`\
+
+<details><summary>HINT 1</summary>
+Use `case_when()`
+</details>
+
+<details><summary>HINT 2</summary>
+Hint: See the code to get you started
+
+```{r}
+#| eval: false
+#| code-fold: false
+ANSUR_II %>% 
+  mutate(
+    category = ????
+    )
+```
+</details>
+
+<details><summary>HINT 3</summary>
+See more code to get you started
+
+```{r}
+#| eval: false
+#| code-fold: false
+ANSUR_II %>% 
+  mutate(
+    category = case_when(
+      #TEST HERE ~ OUTPUT, 
+      #TEST HERE ~ OUTPUT,
+      #TEST HERE ~ OUTPUT,
+      #TRUE ~ OUTPUT
+    )
+    )
+```
+
+</details>
+
+```{r}
+#| output: false
+ANSUR_II <- ANSUR_II %>% 
+  mutate(
+    category = case_when(
+      BMI < 18.5 ~ "Underweight",
+      BMI < 25   ~ "Normal range",
+      BMI < 30   ~ "Overweight",
+      BMI >= 30  ~ "Obese",
+      TRUE ~ NA_character_),
+    .after = BMI
+    )
+```
+
+<br><br><br><br><br><br><br><br>
+
+## `count()`
+
+For simple counting `count()` is faster than `summarise(n = n())` or `mutate(n = n())`
+
+<br><br>
+
+#### What is this code equivalent to?
+```{r}
+#| eval: false
+#| code-fold: false
+diamonds %>% 
+  count()
+```
+
+<details><summary>ANSWER</summary>
+`count()` works like `summarise(n = n())`
+</details>
+
+<br><br>
+
+#### What is this code equivalent to?
+```{r}
+#| eval: false
+#| code-fold: false
+diamonds %>% 
+  count(cut)
+```
+
+<details><summary>ANSWER</summary>
+`count(cut)` works like `group_by(cut) %>% summarise(n = n())`
+</details>
+
+<br><br>
+
+#### What is this code equivalent to?
+```{r}
+#| eval: false
+#| code-fold: false
+diamonds %>% 
+  count(cut, color)
+```
+
+<details><summary>ANSWER</summary>
+`count(cut)` works like `group_by(cut, color) %>% summarise(n = n())`
+</details>
+
+<br><br>
+
+#### What is this code equivalent to?
+```{r}
+#| eval: false
+#| code-fold: false
+diamonds %>% 
+  add_count()
+```
+
+<details><summary>ANSWER</summary>
+`add_count()` works like `mutate(n = n())`
+</details>
+
+<br><br><br><br><br><br><br><br>
+
+## `_join()`
+
+Run this code to get example data
+```{r}
+#| code-fold: false
+set.seed(1)
+A <- tibble(id = c(1:5, 7:8),
+            sex = sample(c("Male", "Female"), 7, replace = TRUE),
+            nr_of_orders = sample(5:10, 7, replace = TRUE))
+B <- tibble(id = 1:6,
+            age = sample(25:75, 6),
+            total_order_value = sample(5:50, 6)*100)
+
+```
+
+<br>
+
+#### What rows doesnt match between A and B
+```{r}
+#| eval: false
+anti_join(A, B)
+anti_join(B, A)
+```
+
+<br>
+
+#### What will be the results of the below code
+```{r}
+#| eval: false
+#| code-fold: false
+semi_join(A, B)
+```
+
+<br>
+
+#### Keep all rows in A and all columns from A and B
+```{r}
+#| eval: false
+left_join(A, B)
+```
+
+<br>
+
+#### Keep all rows and all columns from both A and B, and sort by id
+```{r}
+#| eval: false
+full_join(A,B) %>% 
+  arrange(id)
+```
+
+<br>
+
+#### Calculate the average order value
+```{r}
+#| eval: false
+full_join(A,B) %>% 
+  mutate(
+    avg_order_value = total_order_value/nr_of_orders) 
+```
+
+<br>
+
+#### Calculate the mean of the average order value for males and females
+```{r}
+#| eval: false
+full_join(A,B) %>% 
+  mutate(
+    avg_order_value = total_order_value/nr_of_orders) %>% 
+  group_by(sex) %>% 
+  summarise(
+    mean_avg_order_value = mean(avg_order_value, na.rm = TRUE)
+  )
+```
+
+<br><br><br><br><br><br><br><br>
+
+## `pivot_`
+
+<br>
+
+#### Tidy the simple tibble below. 
+Change it into three variables:
+
+*  `sex` (“female”, “male”)
+*  `pregnant` (“yes”, “no”)
+*  `count`, which is a non-negative integer representing the number of observations.
+```{r}
+#| code-fold: false
+#| output: false
+preg <- tribble(
+  ~pregnant, ~male, ~female,
+  "yes", NA, 10,
+  "no", 20, 12
+)
+preg
+```
+
+```{r}
+#| output: false
+preg %>%
+  pivot_longer(c(male, female), names_to = "sex", values_to = "count")
+```
+
+\
+
+#### Use `table2` for this exercise
+`table2` displays the number of TB cases documented by the World Health Organization in Afghanistan, Brazil, and China between 1999 and 2000. The data contains values associated with four variables (country, year, cases, and population).
+
+Change `table2` into the output below:
+```{r}
+#| eval: true
+table2 %>% 
+  pivot_wider(names_from = type,
+              values_from = count)
+```
+
+<br>
+
+
+#### What happens if you try to widen this data? why?
+```{r}
+#| code-fold: false
+people2 <- tribble(
+  ~name, ~key, ~value,
+  #-----------------|--------|------
+  "Phillip Woods",  "age", 45,
+  "Phillip Woods", "height", 186,
+  "Phillip Woods", "age", 50,
+  "Jessica Cordero", "age", 37,
+  "Jessica Cordero", "height", 156
+)
+```
+```{r}
+people2 %>% 
+  pivot_wider()
+```
+<details><summary>ANSWER</summary>
+Widening this data frame using `pivot_wider()` produces columns that are lists of numeric vectors because the `name` and `key` columns do not uniquely identify rows. In particular, there are two rows with values for the `age` of `“Phillip Woods”`.
+</details>
+
+
+<br>
+
+#### CHALLENGE: Carefully consider the following example:
+Why are `pivot_longer()` and `pivot_wider()` not perfectly symmetrical?  
+In other words, why are the two outputs below not identical?
+<details><summary>HINT</summary>
+**Hint:** Notice the column types
+</details>
+
+```{r}
+#| code-fold: false
+stocks <- tibble(
+  year   = c(2015, 2015, 2016, 2016),
+  half  = c(   1,    2,     1,    2),
+  return = c(1.88, 0.59, 0.92, 0.17)
+)
+stocks
+
+stocks %>% 
+  pivot_wider(names_from = year, values_from = return) %>% 
+  pivot_longer(`2015`:`2016`, names_to = "year", values_to = "return")
+```
+
+<details><summary>ANSWER</summary>
+The functions `pivot_longer()` and `pivot_wider()` are not perfectly symmetrical because column type information is lost when a data frame is converted from wide to long.  
+`pivot_longer()` stacks multiple columns which may have had multiple data types into a single column with a single data type. This transformation throws away the individual data types of the original columns. `pivot_wider()` creates new column names from values in a column. These new column names will always be treated as character values by `pivot_longer()` so if the original variable used to create the column names did not have a character data type, then the round-trip will not reproduce the same dataset.
+</details>
+
+
+
+<br><br><br><br><br><br><br><br>
+
+## Test Exam
+
+This is a test Exam from [Data Science in a Box](https://datasciencebox.org/)
+
+**Packages** In addition to tidyverse , you will need the `nycflights13` package for the data. You will first need to install these packages and then load them.
+
+**The data** The `nycflights13` package contains information about all flights that departed from NYC (e.g. EWR, JFK and LGA) in 2013. The main data is in the flights data frame, but there are additional data sets which may help understand what causes delays, specifically:  
+
+`weather:` hourly meteorological data for each airport.  
+`planes:` construction information about each plane.  
+`airports:` airport names and locations.  
+`airlines:` translation between two letter carrier codes and names.  
+
+
+### Question 1 (5 points)
+
+What are the ten most common destinations for flights from NYC airports in 2013? Make a table that lists these in descending order of frequency and shows the number of flights heading to each airport.
+
+### Question 2 (5 points)
+
+Which airlines have the most flights departing from NYC airports in 2013? Make a table that lists these in descending order of frequency and shows the number of flights for each airline. In your narrative mention the names of the airlines as well.  
+*Hint:* You can use the `airlines` data-set to look up the airline name based on `carrier` code.
+
+### Question 3 (10 points)
+
+Consider only flights that have non-missing arrival delay information. Your answer should include the name of the carrier in addition to the carrier code and the values asked.  
+a. Which carrier had the highest mean arrival delay?  
+b. Which carrier had the lowest mean arrival delay?  
+
+### Question 4 (10 points)
+
+What was the mean temperature at the origin airport on the day with the highest departure delay? Your answer should include the name of origin airport, the date with the highest departure delay, and the mean temperature on that day.
+
+### Question 5 (15 points)
+
+Consider breaking the day into four time intervals: 12:01am-6am, 6:01am-12pm, 12:01pm-6pm, 6:01pm-12am. a. Calculate the proportion of flights that are delayed at departure at each of these time intervals. b. Comment on how the likelihood of being delayed change throughout the day?
+
+### Question 6 (15 points)
+
+Find the flight with the longest air time. a. How long is this flight? b. What city did it fly to? c. How many seats does the plane that flew this flight have?
+
+### Question 7 (15 pts)
+
+The `airports` data frame contains information on a large number of primarily American airports. These data include location information for these airports in the form of latitude and longitude coordinates. In this question we limit our focus to the [Contiguous United States](https://en.wikipedia.org/wiki/Contiguous_United_States). Visualize and describe the distribution of the longitudes of airports in the Contiguous United States. What does this tell you about the geographical distribution of these airports?  
+*Hint:*  You will first need to limit your analysis to the Contiguous United States. [This Wikipedia article](https://en.wikipedia.org/wiki/List_of_extreme_points_of_the_United_States) can help, but you're welcomed to use other resources as well. Make sure to cite whatever resource you use.
+
+### Question 8 (15 pts)
+
+Recreate the plot included below using the `flights` data. Once you have created the visualization, in no more than one paragraph, describe what you think the point of this visualization might be.  
+*Hint:* The visualization uses the variable `arrival`, which is not included in the `flights` data frame. You will have to create `arrival` yourself, it is a categorical variable that is equal to `"ontime"` when `arr_delay <= 0` and `"delayed"` when `arr_delay > 0`.
+
+```{r arrival_plot}
+library(lubridate) #for interval() and ymd()
+
+# Data
+nycflights13::flights %>% 
+  mutate(
+    arrival = case_when(
+      arr_delay <= 0 ~ "ontime",
+      arr_delay > 0 ~ "delayed",
+      TRUE ~ "Unknown")
+      ) %>% 
+  filter(arrival != "Unknown") %>% 
+  filter(dest %in% c("PHL", "RDU")) %>% 
+  filter(time_hour > "2013-12-01" & time_hour <"2014-01-01") %>% 
+  ggplot(aes(x = arrival, y = dep_delay, color = dest))+
+  geom_boxplot() +
+  facet_grid(rows = vars(dest), cols = vars(origin)) +
+  labs(
+    title = "On time performance of NYC flights",
+    subtitle = "December 2013",
+    y = "Departure delay",
+    x = "Arrival",
+    color = "Destination"
+    
+  )
+```
+
+
+### Extra Credit (5 pts)
+
+Create a visualization that effectively shows if there is a relationship between the average daily departure delay and the average daily temperature for all three New York city airports. Your answer must be given in a single pipe. (You should only spend time on this question once you have finished answering the others)
+
+
