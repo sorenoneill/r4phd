@@ -59,6 +59,8 @@ website:
                   - day_1_basics_of_R_code.qmd
                   - day_1_settting_up_your_course_project.qmd
                   - day_1_quarto_documents.qmd
+                  - day_1_dplyr.qmd
+                  - day_1_other.qmd
 
 format:
   html:

@@ -1,0 +1,324 @@
+---
+title: "dplyr"
+subtitle: "and the here package"
+date: today
+format: 
+  html:
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    number-depth: 2
+    embed-resources: true
+    self-contained: true
+    code-fold: true
+    code-summary: "Show the code"
+    code-tools: true
+
+execute:
+  cache: true
+  message: false
+  warning: false
+---
+
+# Other important functions for data wrangling.
+
+In this section we will explore a few other functions that you most likely are going to need.
+
+-   `_join()`
+-   `pivot_wider()` and `pivot_longer()`
+
+<br><br><br><br><br><br><br><br>
+
+## Getting started for now
+
+### Restart R and load the `tidyverse` and the `here` package
+
+```{r}
+library(tidyverse)
+library(here)
+```
+
+<br><br><br><br><br><br><br><br>
+
+## Wide and Long data formats
+
+In the realm of data science, it's common to encounter data in what we call a "wide" format. To visualize this, imagine that each measurement of the same attribute is spread across multiple columns instead of being listed down in rows. Consider a scenario where we record a person's weight at different intervals; in the wide format, we might see individual columns dedicated to each time point, like weightkg_week0, weightkg_week10 and so forth. Essentially, the column labels often carry dual information: the attribute (in this case, 'weight') and the condition or time (like 'week0' or 'week10').
+
+Often, data is inputted in this wide format for convenience, as it visually follows the chronological order of data collection or event occurrence. However, in the practice of data science, it's generally more efficient to work with data in what we call a "long" format.
+
+In long format, the data is structured such that each row is a unique observation or instance, and each column represents a unique variable or attribute. Continuing with the weight example, instead of having separate columns for each week's weight (weightkg_week0, weightkg_week10), we would have separate rows for each weight measurement, with a column for the weight (weightkg) and another column for the time point (week).
+
+The long format, also known as "tidy" data, provides a systematic and consistent structure, allowing us to work with data more effectively. Plus, many functions and packages in R, such as the popular ggplot2 for data visualization, are designed to work optimally with this long format.
+
+But how do we move from wide format to long format? And vice versa? This is where the `pivot_longer()` and `pivot_wider()` functions from the tidyverse in R come into play.
+
+### Run the code below and explore the dataset that it creates
+
+The code creates a made-up data set. You dont need to understand the code.
+
+-   Is the data frame in a wide or long format? How can you tell?
+
+```{r}
+#| code-fold: false
+#| output: false
+set.seed(1)
+
+weight_data <- tibble(
+  id = 1:100,
+  sex = sample(c("Male", "Female"), size = 100, replace = TRUE),
+  weightkg_week0 = rnorm(100, mean = 95, sd = 5)) %>% 
+  
+  # Mean wiegh more than women
+  mutate(
+    weightkg_week0 = if_else(
+      sex == "Male", weightkg_week0 * rnorm(100, mean = 1.15, sd = 0.3),
+      weightkg_week0
+    )
+  ) %>% 
+  
+  # Weight change over weeks
+  mutate(
+    weightkg_week1 = rnorm(100, mean = weightkg_week0*0.96, sd = 0.5), 
+    weightkg_week2 = rnorm(100, mean = weightkg_week1*0.97, sd = 0.5),
+    weightkg_week3 = rnorm(100, mean = weightkg_week2*0.98, sd = 0.5), 
+    weightkg_week4 = rnorm(100, mean = weightkg_week3*0.99, sd = 0.5),
+    weightkg_week5 = rnorm(100, mean = weightkg_week4, sd = 0.5))
+  
+
+weight_data
+```
+
+### What is the mean weight of men and women at the different time-points?
+
+***This exercise is only here to show you how troublesome it can be to work with data in a wide format. You don't need to write all the code.***
+
+```{r}
+#| output: false
+weight_data %>% 
+  group_by(sex) %>% 
+  summarise(week0 = mean(weightkg_week0),
+            week1 = mean(weightkg_week1),
+            # etc. etc.
+            )
+```
+
+## `pivot_longer`
+
+The `pivot_longer()` function takes wide format data and makes it longer by increasing the number of rows and decreasing the number of columns. For example, it can take our weight data from multiple columns (weightkg_week0, weightkg_week10) and collapse them into two columns: one for weight and one for timepoint.
+
+### Read the help file for `pivot_longer()`
+
+```{r}
+#| output: false
+#| eval: false
+
+?pivot_longer
+```
+
+-   What does this line in the help file mean?
+
+    *cols \<tidy-select\> Columns to pivot into longer format.*
+    
+-   What does the `names_to` and `values_to` arguments do?
+
+```{r}
+#| output: false
+#| eval: false
+# This means that you use all the functions that you also use with select() when you tell R what columns you to pivot into a longer format.
+```
+
+<br>
+
+### Create a long version of `weight_data` called `weight_data_long`
+```{r}
+#| output: false
+weight_data_long <- weight_data %>% 
+  pivot_longer(cols = starts_with("weight"))
+
+weight_data_long
+```
+
+### Try again, but this time use the names_to and values_to arguments to make names for the new columns
+
+```{r}
+#| output: false
+weight_data_long <- weight_data %>% 
+  pivot_longer(cols = starts_with("weight"),
+               names_to = "week",
+               values_to = "weightkg")
+weight_data_long
+```
+
+We will fix the values in the `week` column later. For now we are happy with the long data format.
+
+### What is the mean and standard deviation of weight of men and women at the different time-points?
+* assign you results to an object called `weight_data_long_sum`
+```{r}
+#| output: false
+weight_data_long_sum <- weight_data_long %>% 
+  group_by(sex, week) %>% 
+  summarise(mean = mean(weightkg))
+
+weight_data_long_sum
+```
+
+## `pivot_wider()`
+
+The `pivot_wider()` function takes long format data and makes it wider by decreasing the number of rows and increasing the number of columns. For instance, it can spread our long format weight data back into multiple columns for each week's weight.
+
+
+### Read the help file for `pivot_wider()`
+
+```{r}
+#| output: false
+#| eval: false
+
+?pivot_wider
+```
+
+### Make `weight_data_long_sum` wider using the `week` variable
+
+```{r}
+weight_data_long_sum %>% 
+  pivot_wider(names_from = "week",
+              values_from = mean)
+```
+
+
+### Make `weight_data_long_sum` wider using the `sex` variable
+
+```{r}
+weight_data_long_sum %>% 
+  pivot_wider(names_from = "sex",
+              values_from = mean)
+```
+
+
+## More examples of `pivot_wider()` and `pivot_longer()`
+
+### Tidy the simple tibble below.
+
+Change it into three variables:
+
+-   `sex` ("female", "male")
+-   `pregnant` ("yes", "no")
+-   `count`, which is a non-negative integer representing the number of observations.
+
+```{r}
+#| code-fold: false
+#| output: false
+preg <- tribble(
+  ~pregnant, ~male, ~female,
+  "yes", NA, 10,
+  "no", 20, 12
+)
+preg
+```
+
+```{r}
+#| output: false
+preg %>%
+  pivot_longer(c(male, female), names_to = "sex", values_to = "count")
+```
+
+\
+
+### Use `table2` for this exercise
+
+`table2` is a dataset that is load with the `tidyverse`. Try to type `table2` in the console.   
+
+`table2` displays the number of TB cases documented by the World Health Organization in Afghanistan, Brazil, and China between 1999 and 2000. The data contains values associated with four variables (country, year, cases, and population).
+
+Change `table2` into the output below:
+
+```{r}
+#| eval: true
+table2 %>% 
+  pivot_wider(names_from = type,
+              values_from = count)
+```
+
+
+
+## `_join()`
+
+Run this code to get example data
+
+```{r}
+#| code-fold: false
+set.seed(1)
+A <- tibble(id = c(1:5, 7:8),
+            sex = sample(c("Male", "Female"), 7, replace = TRUE),
+            nr_of_orders = sample(5:10, 7, replace = TRUE))
+B <- tibble(id = 1:6,
+            age = sample(25:75, 6),
+            total_order_value = sample(5:50, 6)*100)
+
+```
+
+<br>
+
+#### What rows doesnt match between A and B
+
+```{r}
+#| eval: false
+anti_join(A, B)
+anti_join(B, A)
+```
+
+<br>
+
+#### What will be the results of the below code
+
+```{r}
+#| eval: false
+#| code-fold: false
+semi_join(A, B)
+```
+
+<br>
+
+#### Keep all rows in A and all columns from A and B
+
+```{r}
+#| eval: false
+left_join(A, B)
+```
+
+<br>
+
+#### Keep all rows and all columns from both A and B, and sort by id
+
+```{r}
+#| eval: false
+full_join(A,B) %>% 
+  arrange(id)
+```
+
+<br>
+
+#### Calculate the average order value
+
+```{r}
+#| eval: false
+full_join(A,B) %>% 
+  mutate(
+    avg_order_value = total_order_value/nr_of_orders) 
+```
+
+<br>
+
+#### Calculate the mean of the average order value for males and females
+
+```{r}
+#| eval: false
+full_join(A,B) %>% 
+  mutate(
+    avg_order_value = total_order_value/nr_of_orders) %>% 
+  group_by(sex) %>% 
+  summarise(
+    mean_avg_order_value = mean(avg_order_value, na.rm = TRUE)
+  )
+```
+
+<br><br><br><br><br><br><br><br>

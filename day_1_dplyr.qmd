@@ -1,6 +1,6 @@
 ---
-title: "Basic data science skills for health researchers using R and the tidyverse"
-subtitle: "`dplyr` practice"
+title: "dplyr"
+subtitle: "and the here package"
 date: today
 format: 
   html:
@@ -19,6 +19,17 @@ execute:
   message: false
   warning: false
 ---
+
+# The main functions of dplyr  
+
+*  `select()`
+*  `filter()`
+*  `summarise()`
+*  `group_by()` 
+*  `arrange()`
+*  `mutate()`
+*  `count()`
+
 
 <br><br><br><br><br><br><br><br>
 
@@ -212,7 +223,7 @@ In regular expressions `.` is a wildcard.
 
 ## `filter()`
 
-Start a new session.\
+Restart R.\
 Load the `tidyverse` and the `here` package
 
 ```{r}
@@ -330,7 +341,7 @@ ANSUR_II %>%
 
 ## `summarise()`
 
-Start a new session.\
+Restart R.\
 Load the `tidyverse` and the `here` package
 
 ```{r}
@@ -446,7 +457,7 @@ ANSUR_II %>%
 
 ## `group_by()` and `arrange()`
 
-Start a new session.\
+Restart R.\
 Load the `tidyverse` and the `here` package
 
 ```{r}
@@ -554,7 +565,7 @@ ANSUR_II %>%
 
 ## `mutate()`
 
-Start a new session.\
+Restart R.\
 Load the `tidyverse` and the `here` package
 
 ```{r}
@@ -639,7 +650,7 @@ tibble::tribble(                          ~Category, ~`BMI (kg/m^2^)`,
 \
 
 ### Create the variable `category` that tells us whether the soldiers are "Underweight", "Normal range", "Overweight", or "Obese"
-* Update the `ANSUR_II` dataset to with the new variable
+* Update the `ANSUR_II` dataset with the new variable
 * place the new variable after `BMI`\
 
 <details><summary>HINT 1</summary>
