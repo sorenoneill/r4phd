@@ -19,21 +19,12 @@ execute:
   warning: false
 ---
 
-# The main functions of dplyr  
+<br><br>
 
-*  `select()`
-*  `filter()`
-*  `summarise()`
-*  `group_by()` 
-*  `arrange()`
-*  `mutate()`
-*  `count()`
+# Getting started
 
+## Load the `tidyverse` and the `here` package {.unnumbered}
 
-<br><br><br><br><br><br><br><br>
-
-## Getting started for now
-### Load the `tidyverse` and the `here` package
 ```{r}
 library(tidyverse)
 library(here)
@@ -41,16 +32,20 @@ library(here)
 
 \ 
 
+## `here()`
+
 ### Try out the `here()` function
 * What happens if you write `here()` ? 
 * What happens if you write `here("raw_data")` ?  
-* Compare your output with your neighbors and discuss if and how the `here()`function could ever be of any use to anybody
+* Compare your output with your neighbors. 
+* Compare your output with someone who has a different operating system (Windows, Mac, Linux) than you. (Hint: look for \\ /) 
+* Discuss if and how the `here()`function could ever be of any use to anybody
 
 \
 
-### Load the soldiers dataset
+### Load the `soldiers` dataset
 Use the function `read_csv2()` \
-The `file` argument should be `here("raw_data", "soldiers.csv")` 
+The `file` argument should be `here("raw_data", "soldiers.csv")`
 ```{r}
 #| eval: false
 read_csv2(here("raw_data", "soldiers.csv"))
@@ -58,7 +53,7 @@ read_csv2(here("raw_data", "soldiers.csv"))
 
 \
 
-### Assign the soldiers dataset to an object
+### Assign the `soldiers` dataset to an object called `soldiers`
 Great, now read the data again and assign it (remember `<-`) to an object called `soldiers`
 
 ```{r}
@@ -67,9 +62,11 @@ soldiers <- read_csv2(here("raw_data", "soldiers.csv"))
 
 \
 
-### Explore the `soldiers` dataset
-The `skim()` function from the `skimr`package provides an exellent overview
-Load the `skimr` package and use the `skim()` function to get an impression of the `soldiers` dataset
+## `skim()` 
+There are many ways to explore a dataframe. In this course we will take a shortcut and use the `skim()` function from the `skimr` package.
+The `skim()` function provides an exellent overview of a dataframe.  
+
+Load the `skimr` package and use the `skim()` function to get an impression of the `soldiers` dataset.  
 
 Discuss with your neighbor:
 
@@ -77,6 +74,7 @@ Discuss with your neighbor:
 * Nr of columns?
 * Missing values?
 * Types of variables?
+* How many unique values does the different character variables have?  
 * Any fake data? *(hint: Yes, for educational purposes I have added some fake data)*
 
 ```{r}
@@ -86,6 +84,20 @@ skim(soldiers)
 ```
 
 <br><br><br><br><br><br><br><br>
+
+# `dplyr`
+
+The main functions of dplyr that you will practice today are:
+
+*  `select()`
+*  `filter()`
+*  `summarise()`
+*  `group_by()` 
+*  `arrange()`
+*  `mutate()`
+*  `count()`
+
+<br><br>
 
 ## `select()`
 
@@ -120,11 +132,10 @@ soldiers %>%
 
 ### select all columns that contains the word "circumference"
 
-<details><summary>**Hint**</summary>
-
-**HINT**: Use one of the [tidyselect](https://tidyselect.r-lib.org/reference/language.html) helper functions.
-
-</details>
+::: {.callout-tip collapse=true}
+#### HINT
+Use one of the [tidyselect](https://tidyselect.r-lib.org/reference/language.html) helper functions.
+:::
 
 ```{r soldiers_6}
 #| eval: false
@@ -136,11 +147,11 @@ soldiers %>%
 
 ### remove all columns containing the letter "c"
 
-<details><summary>**Hint**</summary>
-
-**Hint** Use one of the [tidyselect](https://tidyselect.r-lib.org/reference/language.html) helper functions.  
-**HINT**: Use a minus sign.  
-</details>
+::: {.callout-tip collapse=true}
+#### HINT
+Use one of the [tidyselect](https://tidyselect.r-lib.org/reference/language.html) helper functions.  
+Use a minus sign.  
+:::
 
 ```{r soldiers_7}
 #| eval: false
@@ -152,11 +163,11 @@ soldiers %>%
 
 ### select all columns that contains a "c" OR "x" OR "y" OR "z"
 
-<details><summary>**Hint**</summary>
+::: {.callout-tip collapse=true}
+#### HINT
+In R(and many other programming languages) the \| sign is used as a logical operator for OR.
+:::
 
-**HINT**: In R(and many other programming languages) the \| sign is used as a logical operator for OR.
-
-</details>
 
 ```{r}
 #| eval: false
@@ -188,7 +199,7 @@ Try to use `matches()` to select all columns containing a "."
 #| eval: false
 iris %>% 
   select(matches(".")) %>% 
-  head() # This line is just there to prevent a very long output.
+  head() # This line is just to prevent a very long output.
 ```
 
 <br>
@@ -200,7 +211,7 @@ What happens if we use `contains()` instead
 #| eval: false
 iris %>% 
   select(contains(".")) %>% 
-  head() # This line is just there to prevent a very long output.
+  head() # This line is just to prevent a very long output.
 ```
 
 <br>
@@ -239,9 +250,10 @@ soldiers <- read_csv2(here("raw_data", "soldiers.csv"))
 
 ### Keep all rows where `sex` is Female:
 
-<details><summary>HINT</summary>
+::: {.callout-tip collapse=true}
+#### Hint
 `???? == "Female"`
-</details>
+:::
 
 ```{r}
 #| eval: false
@@ -252,9 +264,10 @@ soldiers %>% filter(sex == "Female")
 
 ### Keep all rows where `weightkg` is missing (NA value)
 
-<details><summary>HINT</summary>
-**HINT:** use the `is.na()` function
-</details>
+::: {.callout-tip collapse=true}
+#### Hint
+use the `is.na()` function
+:::
 
 ```{r}
 #| eval: false
@@ -294,10 +307,10 @@ soldiers %>%
   filter(WritingPreference == "Left hand" |  sex == "Female")  
 ```
 
+The error message is:
 ```{r}
 #| eval: false
 #| code-fold: false
-The error message is:
 Error in `filter()`:
 ℹ In argument: `WritingPreference == "Left hand" | sex == "Female"`.
 Caused by error:
@@ -324,17 +337,63 @@ soldiers %>%
 
 \
 
-### Keep all rows where `Ethnicity` is either "Mexican" OR "Filipino"
+### Keep all rows where `Ethnicity` is either "Mexican" OR "Filipino" OR "Caribbean Islander"
 
-<details><summary>HINT</summary>
+::: {.callout-tip collapse=true}
+#### Hint
 you need to use `%in%` and `c()`
-</details>
+:::
 
 ```{r}
 #| eval: false
 soldiers %>% 
-  filter(Ethnicity %in% c("Mexican", "Filipino"))
+  filter(Ethnicity %in% c("Mexican", "Filipino", "Caribbean Islander"))
 ```
+
+::: {.callout-caution collapse=true}
+#### Difference between `==` and `%in%`
+
+tldr - Use `%in%` instead of `==` when you want to filter for multiple values.  
+  
+Read on if you want to understand why.  (You don't have to)
+
+The code `filter(Ethnicity == c("Mexican", "Filipino"))` is likely not doing what you expect. The '==' operator does an element-wise comparison, which means it compares the first element of 'Ethnicity' to the first element of the vector ("Mexican"), the second element of 'Ethnicity' to the second element of the vector ("Filipino"). The short vector is then recycled so now the third element of 'Ethnicity' is compared to the first element of the vector ("Mexican"), the fourth element of 'Ethnicity' to the second element of the vector ("Filipino"), and so on.
+
+Inspect the differences in how may rows these lines of code produce
+
+```{r}
+#| code-fold: false
+#| eval: false
+soldiers %>% 
+  filter(Ethnicity %in% c("Mexican", "Filipino"))
+
+soldiers %>% 
+  filter(Ethnicity == c("Mexican", "Filipino"))
+```
+
+Run this code chunk line by line. Inspect the differences. 
+
+```{r}
+#| code-fold: false
+#| eval: false
+
+# Create a data frame
+df <- data.frame(
+  Ethnicity = c("Mexican", "Filipino", "Italian", "Mexican", "Italian", "Filipino"),
+  Name = c("John", "Maria", "Luigi", "Carlos", "Francesco", "Jose"),
+  stringsAsFactors = FALSE
+)
+
+# Investigate the data frame
+df
+
+# Filter using %in%
+df %>% filter(Ethnicity %in% c("Mexican", "Filipino"))
+
+# Filter using ==
+df %>% filter(Ethnicity == c("Mexican", "Filipino"))
+```
+:::
 
 <br><br><br><br><br><br><br><br>
 
