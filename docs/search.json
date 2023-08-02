@@ -572,5 +572,530 @@
     "title": "RStudios GUI #1",
     "section": "4 Multiple tabs in panes",
     "text": "4 Multiple tabs in panes\nEach pane in RStudio can, and often will, contain more than a single tab. For instance, in the image below, the ‘Output’ pane contains Files, Plots, Packages, Help, Viewer and Presentation.\n\n\n\nMultiple tabs in each RStudio pane\n\n\nNote, that the tabs presented in a pane may depend on the type of document you are working with. Also some extra functionality, such as Git version control, will change the available tabs.\n\n\n\n\n\n\nExercise #1\n\n\n\n\n\nTry to complete the following:\n\nCreate three panes in the ‘Text editor’ pane.\nUse the help functionality to find out how to determine the version of R on your computer.\nFind your R console. type: a &lt;- 5 (press enter) – what happened in your Environment?\nChange the layout of RStudio to a dark color scheme.\n\n\n\n\n\n\n\n\n\n\nSolution to exercise #1\n\n\n\n\n\n\nSimply create three new files: File / New file / R script (CTRL+SHIFT+n).\nNote there are two search boxes in the help tab of the output pane – use the one on the right hand side to learn about the R.Version base function.\nIn the Environment tab of the Environment pane, you should see a list of ‘Values’ with ‘a’ being ‘5’.\nIn Tools / Global options / Appearance, choose e.g. ‘Cobalt’ in the Editor theme dialog."
+  },
+  {
+    "objectID": "reproducible_research_basics_en.html",
+    "href": "reproducible_research_basics_en.html",
+    "title": "Basics of RRR",
+    "section": "",
+    "text": "One of the core ideas of R and Quarto MarkDown is to make the code human readable – a concept known as literal programming. R+Quarto code is certainly more readable than classic programming languages, but it is unlikely that you are able to write code that is entirely self-explanatory to a human reader … you will need to add comments for future readers (yourself!) to understand the code.\nR code\nIn R code, you can add a comment using the hashtag #, like this:\n\n# This is a single-line comment in R code\n# ...and there are no multi-line comments: You must add an # for each line\nx &lt;- 2 + 2 # ...but inline comments are okay\n\nQuarto\n\n&lt;!-- This is a single-line comment in markdown --&gt;\n&lt;!--\nThis is a multi-line \ncomment in markdown\n--&gt;\n..and inline &lt;!-- comments are okay too --&gt;\n\n\n\n\n\n\n\nNote! … the hashtag # has different meaning in R code and in quarto code!\n\n\n\n\n\nAs you have just seen, the hashtag # is used to add comments in R code, but in quarto markdown, the hashtag # is used to add level 1 headings, like this:\n\n# This is a level 1 heading\n\n## This is a level 2 heading\n\n\n\n\n\n\n\n\nAre these example R comments okay?Check out the output…Is it good practice\n\n\n\n# this is definitely okay\nx &lt;- 2 + 2\n\n# ...but is the following okay?\ntibble(x=1:10, y=2:11) %&gt;% # ..Is this okay?\n  filter(y&gt;5 & # How about breaking in the middle..\n  x != 9) # ..of a statement like 'filter'?\n\n\n\n\n# this is definitely okay\nx &lt;- 2 + 2\n\n# ...but is the following okay?\ntibble(x=1:10, y=2:11) %&gt;% # ..Is this okay?\n  filter(y&gt;5 & # How about breaking in the middle..\n  x != 9) # ..of a statement like 'filter'?\n\n# A tibble: 5 × 2\n      x     y\n  &lt;int&gt; &lt;int&gt;\n1     5     6\n2     6     7\n3     7     8\n4     8     9\n5    10    11\n\n\n\n\nThese comments were syntactically okay … BUT did they make your code easier for humans to read?\n\n\n\n\n\n\n\n# Comment lines before the code\n# can be multiple lines and does\n# not disturb your reading of the\n# code ... best practice!\n\nx &lt;- 2 + 2 # use inline comments sparringly\ny &lt;- x^2 - c(2, 5, 8, 10:14) # ..they are distracting!\n\n\n\n\nWhat comments would be relevant here?\n\n?!\n\n\nSuggest comments for this code… think ‘what’ and ‘why’\n\n# 1\nd &lt;- read.csv(\"my_data_file.csv\")\n\n# 2\nd &lt;- d %&gt;% filter(id != \"241269-1212\")\n\n# 3\nd &lt;- d %&gt;% \n  mutate(s=factor(c(\"M\", \"F\"))[as.numeric(substr(id,nchar(id),nchar(id))) %% 2])\n\n\n\nSuggestions for meaningful comments\n\n# ?? comments necessary ??\nd &lt;- read.csv(\"my_data_file.csv\")\n\n# excluded as participant entered an invalid CPR number\nd &lt;- d %&gt;% filter(id != \"2321369-1212\")\n\n# set 's' to F(emale) or M(ale) depending on odd/even id number in CPR\nd &lt;- d %&gt;% \n  mutate(s=factor(c(\"M\", \"F\"))[as.numeric(substr(id,nchar(id),nchar(id))) %% 2])\n\n\n\n\n\n\n\nMain points\n\nAlways comment your code\nComments should explain your thinking : ‘why’\nWith good code the ‘how’ is self-evident\n\n..but if your code can not be self-evident: explain in comments\n\n\n\n\n\n\nMarkdownOutputGood practice\n\n\n#| echo: true\n#| eval: false\nIn markdown, there's an important difference\nbetween '_new-line_' and '_empty-line_'.\n\n...white space matters!\n\n\nIn markdown, there’s an important difference between ‘new-line’ and ‘empty-line’.\n…white space matters!\n\n\n\nany number of spaces between words is equal to one space\nany number of empty lines between paragraphs is equal to one empty line\nuse one space to seperate functions, operators, etc a%&gt;%b vs a %&gt;% b\nuse empty line to indicate new paragraph\n\n\n\n\nHint Check out Soft wrap long lines in the Code menu.\n\n\n\nMaintain a README.md file in each project, at the root level\n\nA simple description of the project purpose (the ‘why’)\nPeople involved\nData sources etc\nList most important components (data and files)\n\n\nEspecially important for larger, more complex projects with many data sources, collaborators, etc\n\n\n\n#| eval: false\n#| echo: true\n# Project title\n\nA subtitle that describes your project, e.g., research question\n\n## Motivation\n\nMotivate your research question or business problem. Clearly explain which problem is solved.\n\n## Method and results\n\nFirst, introduce and motivate your chosen method, and explain how it contributes to solving the research \nquestion/business problem.\n\nSecond, summarize your results concisely. Make use of subheaders where appropriate.\n\n\n## Repository overview\n\nProvide an overview of the directory structure and files, for example:\n\n├── README.md\n├── data\n│   ├── my_data.csv  # raw data from CPR register\n│   ├── exp_data.csv # experimental data register\n├── plots\n│   ├── plot_1.png   # Boxplot of age\n│   ├── plot_2.png   # Pi chart of sex\n│   └── plot_3.png   # Bi-plot age vs measurement X\n├── main.R           # all analyses in one place\n└── manuscript1.Rmd  # for J of RR\n\n## Running instructions\n\nExplain to potential users how to run/replicate your workflow. If necessary, touch upon the required input \ndata, which secret credentials are required (and how to obtain them), which software tools are needed \nto run the workflow (including links to the installation instructions), and how to run the workflow.\n\n## More resources\n\nPoint interested users to any related literature and/or documentation.\n\n## About\n\nExplain who has contributed to the repository."
+  },
+  {
+    "objectID": "reproducible_research_basics_en.html#what-it-is",
+    "href": "reproducible_research_basics_en.html#what-it-is",
+    "title": "RR with R",
+    "section": "",
+    "text": "“Facilitate easy and accurate reproducibility of all steps of research: Results, process and comprehension – from raw data to finished output”"
+  },
+  {
+    "objectID": "reproducible_research_basics_en.html#why",
+    "href": "reproducible_research_basics_en.html#why",
+    "title": "RR with R",
+    "section": "",
+    "text": "To help yourself not get lost (or find your way again)\nDocumentation (formal/legal)\nReproducibility (from A-Z)\nReuseability (different outputs)\nRecycling (reassemble for other purposes)"
+  },
+  {
+    "objectID": "reproducible_research_basics_en.html#levels-of-research-reproducibility",
+    "href": "reproducible_research_basics_en.html#levels-of-research-reproducibility",
+    "title": "RR with R",
+    "section": "",
+    "text": "Aim for (**)"
+  },
+  {
+    "objectID": "reproducible_research_basics_en.html#comments-in-r-code-and-markdown",
+    "href": "reproducible_research_basics_en.html#comments-in-r-code-and-markdown",
+    "title": "Basics of RRR",
+    "section": "",
+    "text": "One of the core ideas of R and Quarto MarkDown is to make the code human readable – a concept known as literal programming. R+Quarto code is certainly more readable than classic programming languages, but it is unlikely that you are able to write code that is entirely self-explanatory to a human reader … you will need to add comments for future readers (yourself!) to understand the code.\nR code\nIn R code, you can add a comment using the hashtag #, like this:\n\n# This is a single-line comment in R code\n# ...and there are no multi-line comments: You must add an # for each line\nx &lt;- 2 + 2 # ...but inline comments are okay\n\nQuarto\n\n&lt;!-- This is a single-line comment in markdown --&gt;\n&lt;!--\nThis is a multi-line \ncomment in markdown\n--&gt;\n..and inline &lt;!-- comments are okay too --&gt;\n\n\n\n\n\n\n\nNote! … the hashtag # has different meaning in R code and in quarto code!\n\n\n\n\n\nAs you have just seen, the hashtag # is used to add comments in R code, but in quarto markdown, the hashtag # is used to add level 1 headings, like this:\n\n# This is a level 1 heading\n\n## This is a level 2 heading"
+  },
+  {
+    "objectID": "reproducible_research_basics_en.html#where-to-put-comments",
+    "href": "reproducible_research_basics_en.html#where-to-put-comments",
+    "title": "Basics of RRR",
+    "section": "",
+    "text": "Are these example R comments okay?Check out the output…Is it good practice\n\n\n\n# this is definitely okay\nx &lt;- 2 + 2\n\n# ...but is the following okay?\ntibble(x=1:10, y=2:11) %&gt;% # ..Is this okay?\n  filter(y&gt;5 & # How about breaking in the middle..\n  x != 9) # ..of a statement like 'filter'?\n\n\n\n\n# this is definitely okay\nx &lt;- 2 + 2\n\n# ...but is the following okay?\ntibble(x=1:10, y=2:11) %&gt;% # ..Is this okay?\n  filter(y&gt;5 & # How about breaking in the middle..\n  x != 9) # ..of a statement like 'filter'?\n\n# A tibble: 5 × 2\n      x     y\n  &lt;int&gt; &lt;int&gt;\n1     5     6\n2     6     7\n3     7     8\n4     8     9\n5    10    11\n\n\n\n\nThese comments were syntactically okay … BUT did they make your code easier for humans to read?"
+  },
+  {
+    "objectID": "reproducible_research_basics_en.html#keep-it-simple",
+    "href": "reproducible_research_basics_en.html#keep-it-simple",
+    "title": "Basics of RRR",
+    "section": "",
+    "text": "# Comment lines before the code\n# can be multiple lines and does\n# not disturb your reading of the\n# code ... best practice!\n\nx &lt;- 2 + 2 # use inline comments sparringly\ny &lt;- x^2 - c(2, 5, 8, 10:14) # ..they are distracting!"
+  },
+  {
+    "objectID": "reproducible_research_basics_en.html#meaningful-comments",
+    "href": "reproducible_research_basics_en.html#meaningful-comments",
+    "title": "Basics of RRR",
+    "section": "",
+    "text": "What comments would be relevant here?\n\n?!\n\n\nSuggest comments for this code… think ‘what’ and ‘why’\n\n# 1\nd &lt;- read.csv(\"my_data_file.csv\")\n\n# 2\nd &lt;- d %&gt;% filter(id != \"241269-1212\")\n\n# 3\nd &lt;- d %&gt;% \n  mutate(s=factor(c(\"M\", \"F\"))[as.numeric(substr(id,nchar(id),nchar(id))) %% 2])\n\n\n\nSuggestions for meaningful comments\n\n# ?? comments necessary ??\nd &lt;- read.csv(\"my_data_file.csv\")\n\n# excluded as participant entered an invalid CPR number\nd &lt;- d %&gt;% filter(id != \"2321369-1212\")\n\n# set 's' to F(emale) or M(ale) depending on odd/even id number in CPR\nd &lt;- d %&gt;% \n  mutate(s=factor(c(\"M\", \"F\"))[as.numeric(substr(id,nchar(id),nchar(id))) %% 2])"
+  },
+  {
+    "objectID": "reproducible_research_basics_en.html#commenting-your-code",
+    "href": "reproducible_research_basics_en.html#commenting-your-code",
+    "title": "Basics of RRR",
+    "section": "",
+    "text": "Main points\n\nAlways comment your code\nComments should explain your thinking : ‘why’\nWith good code the ‘how’ is self-evident\n\n..but if your code can not be self-evident: explain in comments"
+  },
+  {
+    "objectID": "reproducible_research_basics_en.html#using-white-space",
+    "href": "reproducible_research_basics_en.html#using-white-space",
+    "title": "Basics of RRR",
+    "section": "",
+    "text": "MarkdownOutputGood practice\n\n\n#| echo: true\n#| eval: false\nIn markdown, there's an important difference\nbetween '_new-line_' and '_empty-line_'.\n\n...white space matters!\n\n\nIn markdown, there’s an important difference between ‘new-line’ and ‘empty-line’.\n…white space matters!\n\n\n\nany number of spaces between words is equal to one space\nany number of empty lines between paragraphs is equal to one empty line\nuse one space to seperate functions, operators, etc a%&gt;%b vs a %&gt;% b\nuse empty line to indicate new paragraph\n\n\n\n\nHint Check out Soft wrap long lines in the Code menu."
+  },
+  {
+    "objectID": "reproducible_research_basics_en.html#commenting-your-project",
+    "href": "reproducible_research_basics_en.html#commenting-your-project",
+    "title": "Basics of RRR",
+    "section": "",
+    "text": "Maintain a README.md file in each project, at the root level\n\nA simple description of the project purpose (the ‘why’)\nPeople involved\nData sources etc\nList most important components (data and files)\n\n\nEspecially important for larger, more complex projects with many data sources, collaborators, etc"
+  },
+  {
+    "objectID": "reproducible_research_basics_en.html#readme.md-template",
+    "href": "reproducible_research_basics_en.html#readme.md-template",
+    "title": "Basics of RRR",
+    "section": "",
+    "text": "#| eval: false\n#| echo: true\n# Project title\n\nA subtitle that describes your project, e.g., research question\n\n## Motivation\n\nMotivate your research question or business problem. Clearly explain which problem is solved.\n\n## Method and results\n\nFirst, introduce and motivate your chosen method, and explain how it contributes to solving the research \nquestion/business problem.\n\nSecond, summarize your results concisely. Make use of subheaders where appropriate.\n\n\n## Repository overview\n\nProvide an overview of the directory structure and files, for example:\n\n├── README.md\n├── data\n│   ├── my_data.csv  # raw data from CPR register\n│   ├── exp_data.csv # experimental data register\n├── plots\n│   ├── plot_1.png   # Boxplot of age\n│   ├── plot_2.png   # Pi chart of sex\n│   └── plot_3.png   # Bi-plot age vs measurement X\n├── main.R           # all analyses in one place\n└── manuscript1.Rmd  # for J of RR\n\n## Running instructions\n\nExplain to potential users how to run/replicate your workflow. If necessary, touch upon the required input \ndata, which secret credentials are required (and how to obtain them), which software tools are needed \nto run the workflow (including links to the installation instructions), and how to run the workflow.\n\n## More resources\n\nPoint interested users to any related literature and/or documentation.\n\n## About\n\nExplain who has contributed to the repository."
+  },
+  {
+    "objectID": "reproducible_research_basics_en.html#meaning",
+    "href": "reproducible_research_basics_en.html#meaning",
+    "title": "Basics of RRR",
+    "section": "2.1 Meaning",
+    "text": "2.1 Meaning\nLet variable, function and file names convey meaning.\n\n# 1 \nd &lt;- d %&gt;% \n  mutate(s=factor(c(\"M\", \"F\"))[as.numeric(substr(id,nchar(id),nchar(id))) %% 2])\n\n# 2 \nmData &lt;- d %&gt;% filter(s==\"M\")\n\nSuggest alternative code and variable names for this code"
+  },
+  {
+    "objectID": "reproducible_research_basics_en.html#meaning-1",
+    "href": "reproducible_research_basics_en.html#meaning-1",
+    "title": "Basics of RRR",
+    "section": "2.2 Meaning",
+    "text": "2.2 Meaning\nLet variable, function and file names convey meaning.\n\n# 1 \ndata &lt;- data %&gt;% \n  mutate(sex=factor(c(\"M\", \"F\"))[as.numeric(substr(id,nchar(id),nchar(id))) %% 2])\n\n# 2 \ndata_males_only &lt;- data %&gt;% filter(sex==\"M\")\nmales_only_data &lt;- data %&gt;% filter(sex==\"M\")"
+  },
+  {
+    "objectID": "reproducible_research_basics_en.html#making-the-meaning-even-clearer",
+    "href": "reproducible_research_basics_en.html#making-the-meaning-even-clearer",
+    "title": "Basics of RRR",
+    "section": "2.3 Making the meaning even clearer…",
+    "text": "2.3 Making the meaning even clearer…\n\ndata &lt;- data %&gt;% \n  mutate(sex=cpr2sex(id))\n\nAlas, the function cpr2sex does not exist in base R or Tidyverse\n\n\n\n\n\n\nTip\n\n\n\n\n\n\n# Requires a custom function like this -- which could be sourced from file\n\ncpr2sex &lt;- function(x) {\n  # This function takes a string (x), presumed to be a valid Danish CPR\n  # and return \"F\", \"M\" or NA depending on the last character in the string\n  # If the last CPR character is an even number, it indicates female sex, and\n  # an odd number indicates male sex.\n  if (str_sub(x, str_length(x), str_length(x)) %in% c(\"0\",\"2\",\"4\",\"6\",\"8\")) {\n    return(\"F\") \n  } else if (str_sub(x, str_length(x), str_length(x)) %in% c(\"1\",\"3\",\"5\",\"7\",\"9\")) {\n    return(\"M\") \n  } \n  return(NA) # Last character in CPR is not a ciffre\n}\n\nWe could hide this away in a separate file and ‘source’ it .. or even make a new package…"
+  },
+  {
+    "objectID": "reproducible_research_basics_en.html#compound-names",
+    "href": "reproducible_research_basics_en.html#compound-names",
+    "title": "Basics of RRR",
+    "section": "2.4 Compound names",
+    "text": "2.4 Compound names\n\n\nDo use under_scores\nDo not use camelCase\nDo not use kebab-case"
+  },
+  {
+    "objectID": "reproducible_research_basics_en.html#nouns-and-verbs",
+    "href": "reproducible_research_basics_en.html#nouns-and-verbs",
+    "title": "Basics of RRR",
+    "section": "2.5 Nouns and verbs",
+    "text": "2.5 Nouns and verbs\n\nmake_larger_by_10 &lt;- function(x) {\n  return(x+10)\n}\n\nten_larger &lt;- make_larger_by_10(112)\n\n# For instance:\n# selected_data &lt;- data %&gt;% select(..)"
+  },
+  {
+    "objectID": "reproducible_research_basics_en.html#names",
+    "href": "reproducible_research_basics_en.html#names",
+    "title": "Basics of RRR",
+    "section": "2.6 Names",
+    "text": "2.6 Names\nMain points\n\nNames should be meaningful\nUse under_scores, not CamelCase, nor kebab-case\nFunction names should be verbs\nVariable names should be nouns"
+  },
+  {
+    "objectID": "reproducible_research_basics_en.html#the-root",
+    "href": "reproducible_research_basics_en.html#the-root",
+    "title": "Basics of RRR",
+    "section": "3.1 The root",
+    "text": "3.1 The root\n\n3.1.1 One root folder for each project\nShould contain\n\nRStudio project (*.RProj)\nREADME.md\nsessionInfo.txt\nYour main R scripts\nYour RMarkdown and quarto scripts\nRelevant subfolders (/custom_functions, /gfx, /data, etc)"
+  },
+  {
+    "objectID": "reproducible_research_basics_en.html#section-2",
+    "href": "reproducible_research_basics_en.html#section-2",
+    "title": "Basics of RRR",
+    "section": "3.2 ",
+    "text": "3.2"
+  },
+  {
+    "objectID": "reproducible_research_basics_en.html#files-and-folders-1",
+    "href": "reproducible_research_basics_en.html#files-and-folders-1",
+    "title": "Basics of RRR",
+    "section": "3.3 Files and folders",
+    "text": "3.3 Files and folders\n\n3.3.1 Make and use your own folder/sub-folder template for new projects"
+  },
+  {
+    "objectID": "reproducible_research_basics_en.html#file-types",
+    "href": "reproducible_research_basics_en.html#file-types",
+    "title": "Basics of RRR",
+    "section": "3.4 File types",
+    "text": "3.4 File types\n\nText always preferable to binary files\nMarkup files (HTML, XML, etc) are human readable, but can be complex\nApplication files (.odt, .docx) are often either binary files or very complex markup files\n\ngfx/prefer_text_files.pdf\ngfx/prefer_text_files.pdf\ngfx/prefer_text_files.xml"
+  },
+  {
+    "objectID": "reproducible_research_basics_en.html#file-types-1",
+    "href": "reproducible_research_basics_en.html#file-types-1",
+    "title": "Basics of RRR",
+    "section": "3.5 File types",
+    "text": "3.5 File types\nStick to simple, human-readable files like R-scripts, markdown, csv files, etc, as far into the process as you can and only generate pdf, word, tiff, jpeg etc files as the final step.\nIf any characters look weird in a simple txt file (it does happen) – it’s probably the character encoding – just stick to UTF8/UTF16\n\n\nBy the way, what do you think the first thing the typesetters at Springer does with your manuscript once accepted?"
+  },
+  {
+    "objectID": "reproducible_research_basics_en.html#files-and-folders-2",
+    "href": "reproducible_research_basics_en.html#files-and-folders-2",
+    "title": "Basics of RRR",
+    "section": "3.6 Files and folders",
+    "text": "3.6 Files and folders\nMain points\n\nUse a strict folder structure you can handle – make a template!\nUse relational folder paths if possible\nUse human-readable files only if possible (txt, md, Rmd, csv, etc)\nOnly use non-human readable files for ‘final output’ (pdf, docx, xlsx, etc)"
+  },
+  {
+    "objectID": "gfx/RR/prefer_text_files.html",
+    "href": "gfx/RR/prefer_text_files.html",
+    "title": "1 Human-readable files",
+    "section": "",
+    "text": "1 Human-readable files\nAre always preferable to binary files\nMarkup files (HTML, XML, etc) are human readable, but complex\nApplication files (.odt, .docx) are often very complex markup files"
+  },
+  {
+    "objectID": "reproducible_research_basics_exercises_en.html",
+    "href": "reproducible_research_basics_exercises_en.html",
+    "title": "RR with R",
+    "section": "",
+    "text": "“Facilitate easy and accurate reproducibility of all steps of research: Results, process and comprehension – from raw data to finished output”\n\n\n\n\n\n\nTo help yourself not get lost\nDocumentation (formal/legal)\nReproducibility (from A-Z)\nReuseability (different outputs)\nRecycling (reassemble for other purposes)\n\n\n\n\n\n\n\n\n\n\nAim for (**)"
+  },
+  {
+    "objectID": "reproducible_research_basics_exercises_en.html#what-it-is",
+    "href": "reproducible_research_basics_exercises_en.html#what-it-is",
+    "title": "RR with R",
+    "section": "",
+    "text": "“Facilitate easy and accurate reproducibility of all steps of research: Results, process and comprehension – from raw data to finished output”"
+  },
+  {
+    "objectID": "reproducible_research_basics_exercises_en.html#why",
+    "href": "reproducible_research_basics_exercises_en.html#why",
+    "title": "RR with R",
+    "section": "",
+    "text": "To help yourself not get lost\nDocumentation (formal/legal)\nReproducibility (from A-Z)\nReuseability (different outputs)\nRecycling (reassemble for other purposes)"
+  },
+  {
+    "objectID": "reproducible_research_basics_exercises_en.html#levels-of-research-reproducibility",
+    "href": "reproducible_research_basics_exercises_en.html#levels-of-research-reproducibility",
+    "title": "RR with R",
+    "section": "",
+    "text": "Aim for (**)"
+  },
+  {
+    "objectID": "reproducible_research_basics_exercises_en.html#comments-in-r-code-and-markdown",
+    "href": "reproducible_research_basics_exercises_en.html#comments-in-r-code-and-markdown",
+    "title": "RR with R",
+    "section": "2.1 Comments in R code and markdown",
+    "text": "2.1 Comments in R code and markdown\nR code\nIn R code, you can add a comment using the hashtag #:\n\n# This is a single-line comment in R code\n# ...there are no multi-line comments\nx &lt;- 2 + 2 # ...but inline comments are okay\n\nQuarto\n\n&lt;!--\nThis is a multi-line comment in markdown\n...there are no single-line comments\n--&gt;\n..and inline &lt;!-- comments are okay too --&gt;\n\n\n\n\n\n\n\nNote! … the hashtag # has different meaning in R code and in quarto code!\n\n\n\n\n\n\nIn R code, the hashtag # is used to add comments as shown above\nIn quarto markdown, the hashtag # is used to add level 1 headings\n\n\n# This is a level 1 heading\n\n## This is a level 2 heading"
+  },
+  {
+    "objectID": "reproducible_research_basics_exercises_en.html#where-to-put-comments",
+    "href": "reproducible_research_basics_exercises_en.html#where-to-put-comments",
+    "title": "RR with R",
+    "section": "2.2 Where to put comments?",
+    "text": "2.2 Where to put comments?\n\nAre these example R comments okay?Check out the output…Is it good practice\n\n\n\n# this is definitely okay\nx &lt;- 2 + 2\n\n# ...but is the following okay?\ntibble(x=1:10, y=2:11) %&gt;% # ..Is this okay?\n  filter(y&gt;5 & # How about breaking in the middle..\n  x != 9) # ..of a statement like 'filter'?\n\n\n\n\n# this is definitely okay\nx &lt;- 2 + 2\n\n# ...but is the following okay?\ntibble(x=1:10, y=2:11) %&gt;% # ..Is this okay?\n  filter(y&gt;5 & # How about breaking in the middle..\n  x != 9) # ..of a statement like 'filter'?\n\n# A tibble: 5 × 2\n      x     y\n  &lt;int&gt; &lt;int&gt;\n1     5     6\n2     6     7\n3     7     8\n4     8     9\n5    10    11\n\n\n\n\nThese comments were syntactically okay … BUT did they make your code easier for humans to read?"
+  },
+  {
+    "objectID": "reproducible_research_basics_exercises_en.html#keep-it-simple",
+    "href": "reproducible_research_basics_exercises_en.html#keep-it-simple",
+    "title": "RR with R",
+    "section": "2.3 Keep it simple!",
+    "text": "2.3 Keep it simple!\n\n# Comment lines before the code\n# can be multiple lines and does\n# not disturb your reading of the\n# code ... best practice!\n\nx &lt;- 2 + 2 # use inline comments sparringly\ny &lt;- x^2 - c(2, 5, 8, 10:14) # ..they are distracting!"
+  },
+  {
+    "objectID": "reproducible_research_basics_exercises_en.html#meaningful-comments",
+    "href": "reproducible_research_basics_exercises_en.html#meaningful-comments",
+    "title": "RR with R",
+    "section": "2.4 Meaningful comments",
+    "text": "2.4 Meaningful comments\nWhat comments would be relevant here?\n\n?!\n\n\nSuggest comments for this code… think ‘what’ and ‘why’\n\n# 1\nd &lt;- read.csv(\"my_data_file.csv\")\n\n# 2\nd &lt;- d %&gt;% filter(id != \"241269-1212\")\n\n# 3\nd &lt;- d %&gt;% \n  mutate(s=factor(c(\"M\", \"F\"))[as.numeric(substr(id,nchar(id),nchar(id))) %% 2])\n\n\n\nSuggestions for meaningful comments\n\n# ?? comments necessary ??\nd &lt;- read.csv(\"my_data_file.csv\")\n\n# excluded as participant entered an invalid CPR number\nd &lt;- d %&gt;% filter(id != \"2321369-1212\")\n\n# set 's' to F(emale) or M(ale) depending on odd/even id number in CPR\nd &lt;- d %&gt;% \n  mutate(s=factor(c(\"M\", \"F\"))[as.numeric(substr(id,nchar(id),nchar(id))) %% 2])"
+  },
+  {
+    "objectID": "reproducible_research_basics_exercises_en.html#commenting-your-code",
+    "href": "reproducible_research_basics_exercises_en.html#commenting-your-code",
+    "title": "RR with R",
+    "section": "2.5 Commenting your code",
+    "text": "2.5 Commenting your code\nMain points\n\nAlways comment your code\nComments should explain your thinking : ‘why’\nWith good code the ‘how’ is self-evident\n\n..but if your code can not be self-evident: explain in comments"
+  },
+  {
+    "objectID": "reproducible_research_basics_exercises_en.html#using-white-space",
+    "href": "reproducible_research_basics_exercises_en.html#using-white-space",
+    "title": "RR with R",
+    "section": "2.6 Using white space",
+    "text": "2.6 Using white space\n\nMarkdownOutputGood practice\n\n\n#| echo: true\n#| eval: false\nIn markdown, there's an important difference\nbetween '_new-line_' and '_empty-line_'.\n\n...white space matters!\n\n\nIn markdown, there’s an important difference between ‘new-line’ and ‘empty-line’.\n…white space matters!\n\n\n\nany number of spaces between words is equal to one space\nany number of empty lines between paragraphs is equal to one empty line\nuse one space to seperate functions, operators, etc a%&gt;%b vs a %&gt;% b\nuse empty line to indicate new paragraph\n\n\n\n\nHint Check out Soft wrap long lines in the Code menu."
+  },
+  {
+    "objectID": "reproducible_research_basics_exercises_en.html#commenting-your-project",
+    "href": "reproducible_research_basics_exercises_en.html#commenting-your-project",
+    "title": "RR with R",
+    "section": "2.7 Commenting your project",
+    "text": "2.7 Commenting your project\nMaintain a README.md file in each project, at the root level\n\nA simple description of the project purpose (the ‘why’)\nPeople involved\nData sources etc\nList most important components (data and files)\n\n\nEspecially important for larger, more complex projects with many data sources, collaborators, etc"
+  },
+  {
+    "objectID": "reproducible_research_basics_exercises_en.html#readme.md-template",
+    "href": "reproducible_research_basics_exercises_en.html#readme.md-template",
+    "title": "RR with R",
+    "section": "2.8 README.md template",
+    "text": "2.8 README.md template\n#| eval: false\n#| echo: true\n# Project title\n\nA subtitle that describes your project, e.g., research question\n\n## Motivation\n\nMotivate your research question or business problem. Clearly explain which problem is solved.\n\n## Method and results\n\nFirst, introduce and motivate your chosen method, and explain how it contributes to solving the research \nquestion/business problem.\n\nSecond, summarize your results concisely. Make use of subheaders where appropriate.\n\n\n## Repository overview\n\nProvide an overview of the directory structure and files, for example:\n\n├── README.md\n├── data\n│   ├── my_data.csv  # raw data from CPR register\n│   ├── exp_data.csv # experimental data register\n├── plots\n│   ├── plot_1.png   # Boxplot of age\n│   ├── plot_2.png   # Pi chart of sex\n│   └── plot_3.png   # Bi-plot age vs measurement X\n├── main.R           # all analyses in one place\n└── manuscript1.Rmd  # for J of RR\n\n## Running instructions\n\nExplain to potential users how to run/replicate your workflow. If necessary, touch upon the required input \ndata, which secret credentials are required (and how to obtain them), which software tools are needed \nto run the workflow (including links to the installation instructions), and how to run the workflow.\n\n## More resources\n\nPoint interested users to any related literature and/or documentation.\n\n## About\n\nExplain who has contributed to the repository."
+  },
+  {
+    "objectID": "reproducible_research_basics_exercises_en.html#meaning",
+    "href": "reproducible_research_basics_exercises_en.html#meaning",
+    "title": "RR with R",
+    "section": "3.1 Meaning",
+    "text": "3.1 Meaning\nLet variable, function and file names convey meaning.\n\n# 1 \nd &lt;- d %&gt;% \n  mutate(s=factor(c(\"M\", \"F\"))[as.numeric(substr(id,nchar(id),nchar(id))) %% 2])\n\n# 2 \nmData &lt;- d %&gt;% filter(s==\"M\")\n\nSuggest alternative code and variable names for this code"
+  },
+  {
+    "objectID": "reproducible_research_basics_exercises_en.html#meaning-1",
+    "href": "reproducible_research_basics_exercises_en.html#meaning-1",
+    "title": "RR with R",
+    "section": "3.2 Meaning",
+    "text": "3.2 Meaning\nLet variable, function and file names convey meaning.\n\n# 1 \ndata &lt;- data %&gt;% \n  mutate(sex=factor(c(\"M\", \"F\"))[as.numeric(substr(id,nchar(id),nchar(id))) %% 2])\n\n# 2 \ndata_males_only &lt;- data %&gt;% filter(sex==\"M\")\nmales_only_data &lt;- data %&gt;% filter(sex==\"M\")"
+  },
+  {
+    "objectID": "reproducible_research_basics_exercises_en.html#making-the-meaning-even-clearer",
+    "href": "reproducible_research_basics_exercises_en.html#making-the-meaning-even-clearer",
+    "title": "RR with R",
+    "section": "3.3 Making the meaning even clearer…",
+    "text": "3.3 Making the meaning even clearer…\n\ndata &lt;- data %&gt;% \n  mutate(sex=cpr2sex(id))\n\nAlas, the function cpr2sex does not exist in base R or Tidyverse\n\n\n\n\n\n\nTip\n\n\n\n\n\n\n# Requires a custom function like this -- which could be sourced from file\n\ncpr2sex &lt;- function(x) {\n  # This function takes a string (x), presumed to be a valid Danish CPR\n  # and return \"F\", \"M\" or NA depending on the last character in the string\n  # If the last CPR character is an even number, it indicates female sex, and\n  # an odd number indicates male sex.\n  if (str_sub(x, str_length(x), str_length(x)) %in% c(\"0\",\"2\",\"4\",\"6\",\"8\")) {\n    return(\"F\") \n  } else if (str_sub(x, str_length(x), str_length(x)) %in% c(\"1\",\"3\",\"5\",\"7\",\"9\")) {\n    return(\"M\") \n  } \n  return(NA) # Last character in CPR is not a ciffre\n}\n\nWe could hide this away in a separate file and ‘source’ it .. or even make a new package…"
+  },
+  {
+    "objectID": "reproducible_research_basics_exercises_en.html#compound-names",
+    "href": "reproducible_research_basics_exercises_en.html#compound-names",
+    "title": "RR with R",
+    "section": "3.4 Compound names",
+    "text": "3.4 Compound names\n\n\nDo use under_scores\nDo not use camelCase\nDo not use kebab-case"
+  },
+  {
+    "objectID": "reproducible_research_basics_exercises_en.html#nouns-and-verbs",
+    "href": "reproducible_research_basics_exercises_en.html#nouns-and-verbs",
+    "title": "RR with R",
+    "section": "3.5 Nouns and verbs",
+    "text": "3.5 Nouns and verbs\n\nmake_larger_by_10 &lt;- function(x) {\n  return(x+10)\n}\n\nten_larger &lt;- make_larger_by_10(112)\n\n# For instance:\n# selected_data &lt;- data %&gt;% select(..)"
+  },
+  {
+    "objectID": "reproducible_research_basics_exercises_en.html#names",
+    "href": "reproducible_research_basics_exercises_en.html#names",
+    "title": "RR with R",
+    "section": "3.6 Names",
+    "text": "3.6 Names\nMain points\n\nNames should be meaningful\nUse under_scores, not CamelCase, nor kebab-case\nFunction names should be verbs\nVariable names should be nouns"
+  },
+  {
+    "objectID": "reproducible_research_basics_exercises_en.html#the-root",
+    "href": "reproducible_research_basics_exercises_en.html#the-root",
+    "title": "RR with R",
+    "section": "4.1 The root",
+    "text": "4.1 The root\n\n4.1.1 One root folder for each project\nShould contain\n\nRStudio project (*.RProj)\nREADME.md\nsessionInfo.txt\nYour main R scripts\nYour RMarkdown and quarto scripts\nRelevant subfolders (/custom_functions, /gfx, /data, etc)"
+  },
+  {
+    "objectID": "reproducible_research_basics_exercises_en.html#section-2",
+    "href": "reproducible_research_basics_exercises_en.html#section-2",
+    "title": "RR with R",
+    "section": "4.2 ",
+    "text": "4.2"
+  },
+  {
+    "objectID": "reproducible_research_basics_exercises_en.html#files-and-folders-1",
+    "href": "reproducible_research_basics_exercises_en.html#files-and-folders-1",
+    "title": "RR with R",
+    "section": "4.3 Files and folders",
+    "text": "4.3 Files and folders\n\n4.3.1 Make and use your own folder/sub-folder template for new projects"
+  },
+  {
+    "objectID": "reproducible_research_basics_exercises_en.html#file-types",
+    "href": "reproducible_research_basics_exercises_en.html#file-types",
+    "title": "RR with R",
+    "section": "4.4 File types",
+    "text": "4.4 File types\n\nText always preferable to binary files\nMarkup files (HTML, XML, etc) are human readable, but can be complex\nApplication files (.odt, .docx) are often either binary files or very complex markup files\n\ngfx/prefer_text_files.pdf\ngfx/prefer_text_files.pdf\ngfx/prefer_text_files.xml"
+  },
+  {
+    "objectID": "reproducible_research_basics_exercises_en.html#file-types-1",
+    "href": "reproducible_research_basics_exercises_en.html#file-types-1",
+    "title": "RR with R",
+    "section": "4.5 File types",
+    "text": "4.5 File types\nStick to simple, human-readable files like R-scripts, markdown, csv files, etc, as far into the process as you can and only generate pdf, word, tiff, jpeg etc files as the final step.\nIf any characters look weird in a simple txt file (it does happen) – it’s probably the character encoding – just stick to UTF8/UTF16\n\n\nBy the way, what do you think the first thing the typesetters at Springer does with your manuscript once accepted?"
+  },
+  {
+    "objectID": "reproducible_research_basics_exercises_en.html#files-and-folders-2",
+    "href": "reproducible_research_basics_exercises_en.html#files-and-folders-2",
+    "title": "RR with R",
+    "section": "4.6 Files and folders",
+    "text": "4.6 Files and folders\nMain points\n\nUse a strict folder structure you can handle – make a template!\nUse relational folder paths if possible\nUse human-readable files only if possible (txt, md, Rmd, csv, etc)\nOnly use non-human readable files for ‘final output’ (pdf, docx, xlsx, etc)"
+  },
+  {
+    "objectID": "reproducible_research_intro_en.html",
+    "href": "reproducible_research_intro_en.html",
+    "title": "Intro to RRR",
+    "section": "",
+    "text": "“Facilitate easy and accurate reproducibility of all steps of research: Results, process and comprehension – from raw data to finished output”\n\n\n\n\n\n\nTo help yourself not get lost (or find your way again)\nDocumentation (formal/legal)\nReproducibility (from A-Z)\nReuseability (different outputs)\nRecycling (reassemble for other purposes)\n\n\n\n\n\n\n\n\n\n\nAim for level four ‘Product documentation’ (**) – Level 5 ‘Process documentation’ can be quite involved is probably only relevant when many authors collaborate on the same code/data: If it is important to know who did what when (who screwed up?)."
+  },
+  {
+    "objectID": "reproducible_research_intro_en.html#what-it-is",
+    "href": "reproducible_research_intro_en.html#what-it-is",
+    "title": "Intro to RRR",
+    "section": "",
+    "text": "“Facilitate easy and accurate reproducibility of all steps of research: Results, process and comprehension – from raw data to finished output”"
+  },
+  {
+    "objectID": "reproducible_research_intro_en.html#why",
+    "href": "reproducible_research_intro_en.html#why",
+    "title": "Intro to RRR",
+    "section": "",
+    "text": "To help yourself not get lost (or find your way again)\nDocumentation (formal/legal)\nReproducibility (from A-Z)\nReuseability (different outputs)\nRecycling (reassemble for other purposes)"
+  },
+  {
+    "objectID": "reproducible_research_intro_en.html#levels-of-research-reproducibility",
+    "href": "reproducible_research_intro_en.html#levels-of-research-reproducibility",
+    "title": "Intro to RRR",
+    "section": "",
+    "text": "Aim for level four ‘Product documentation’ (**) – Level 5 ‘Process documentation’ can be quite involved is probably only relevant when many authors collaborate on the same code/data: If it is important to know who did what when (who screwed up?)."
+  },
+  {
+    "objectID": "reproducible_research_intro_en.html#comments-in-r-code-and-markdown",
+    "href": "reproducible_research_intro_en.html#comments-in-r-code-and-markdown",
+    "title": "RR with R",
+    "section": "2.1 Comments in R code and markdown",
+    "text": "2.1 Comments in R code and markdown\nR code\nIn R code, you can add a comment using the hashtag #:\n\n# This is a single-line comment in R code\n# ...there are no multi-line comments\nx &lt;- 2 + 2 # ...but inline comments are okay\n\nQuarto\n\n&lt;!--\nThis is a multi-line comment in markdown\n...there are no single-line comments\n--&gt;\n..and inline &lt;!-- comments are okay too --&gt;\n\n\n\n\n\n\n\nNote! … the hashtag # has different meaning in R code and in quarto code!\n\n\n\n\n\n\nIn R code, the hashtag # is used to add comments as shown above\nIn quarto markdown, the hashtag # is used to add level 1 headings\n\n\n# This is a level 1 heading\n\n## This is a level 2 heading"
+  },
+  {
+    "objectID": "reproducible_research_intro_en.html#where-to-put-comments",
+    "href": "reproducible_research_intro_en.html#where-to-put-comments",
+    "title": "RR with R",
+    "section": "2.2 Where to put comments?",
+    "text": "2.2 Where to put comments?\n\nAre these example R comments okay?Check out the output…Is it good practice\n\n\n\n# this is definitely okay\nx &lt;- 2 + 2\n\n# ...but is the following okay?\ntibble(x=1:10, y=2:11) %&gt;% # ..Is this okay?\n  filter(y&gt;5 & # How about breaking in the middle..\n  x != 9) # ..of a statement like 'filter'?\n\n\n\n\n# this is definitely okay\nx &lt;- 2 + 2\n\n# ...but is the following okay?\ntibble(x=1:10, y=2:11) %&gt;% # ..Is this okay?\n  filter(y&gt;5 & # How about breaking in the middle..\n  x != 9) # ..of a statement like 'filter'?\n\n# A tibble: 5 × 2\n      x     y\n  &lt;int&gt; &lt;int&gt;\n1     5     6\n2     6     7\n3     7     8\n4     8     9\n5    10    11\n\n\n\n\nThese comments were syntactically okay … BUT did they make your code easier for humans to read?"
+  },
+  {
+    "objectID": "reproducible_research_intro_en.html#keep-it-simple",
+    "href": "reproducible_research_intro_en.html#keep-it-simple",
+    "title": "RR with R",
+    "section": "2.3 Keep it simple!",
+    "text": "2.3 Keep it simple!\n\n# Comment lines before the code\n# can be multiple lines and does\n# not disturb your reading of the\n# code ... best practice!\n\nx &lt;- 2 + 2 # use inline comments sparringly\ny &lt;- x^2 - c(2, 5, 8, 10:14) # ..they are distracting!"
+  },
+  {
+    "objectID": "reproducible_research_intro_en.html#meaningful-comments",
+    "href": "reproducible_research_intro_en.html#meaningful-comments",
+    "title": "RR with R",
+    "section": "2.4 Meaningful comments",
+    "text": "2.4 Meaningful comments\nWhat comments would be relevant here?\n\n?!\n\n\nSuggest comments for this code… think ‘what’ and ‘why’\n\n# 1\nd &lt;- read.csv(\"my_data_file.csv\")\n\n# 2\nd &lt;- d %&gt;% filter(id != \"241269-1212\")\n\n# 3\nd &lt;- d %&gt;% \n  mutate(s=factor(c(\"M\", \"F\"))[as.numeric(substr(id,nchar(id),nchar(id))) %% 2])\n\n\n\nSuggestions for meaningful comments\n\n# ?? comments necessary ??\nd &lt;- read.csv(\"my_data_file.csv\")\n\n# excluded as participant entered an invalid CPR number\nd &lt;- d %&gt;% filter(id != \"2321369-1212\")\n\n# set 's' to F(emale) or M(ale) depending on odd/even id number in CPR\nd &lt;- d %&gt;% \n  mutate(s=factor(c(\"M\", \"F\"))[as.numeric(substr(id,nchar(id),nchar(id))) %% 2])"
+  },
+  {
+    "objectID": "reproducible_research_intro_en.html#commenting-your-code",
+    "href": "reproducible_research_intro_en.html#commenting-your-code",
+    "title": "RR with R",
+    "section": "2.5 Commenting your code",
+    "text": "2.5 Commenting your code\nMain points\n\nAlways comment your code\nComments should explain your thinking : ‘why’\nWith good code the ‘how’ is self-evident\n\n..but if your code can not be self-evident: explain in comments"
+  },
+  {
+    "objectID": "reproducible_research_intro_en.html#using-white-space",
+    "href": "reproducible_research_intro_en.html#using-white-space",
+    "title": "RR with R",
+    "section": "2.6 Using white space",
+    "text": "2.6 Using white space\n\nMarkdownOutputGood practice\n\n\n#| echo: true\n#| eval: false\nIn markdown, there's an important difference\nbetween '_new-line_' and '_empty-line_'.\n\n...white space matters!\n\n\nIn markdown, there’s an important difference between ‘new-line’ and ‘empty-line’.\n…white space matters!\n\n\n\nany number of spaces between words is equal to one space\nany number of empty lines between paragraphs is equal to one empty line\nuse one space to seperate functions, operators, etc a%&gt;%b vs a %&gt;% b\nuse empty line to indicate new paragraph\n\n\n\n\nHint Check out Soft wrap long lines in the Code menu."
+  },
+  {
+    "objectID": "reproducible_research_intro_en.html#commenting-your-project",
+    "href": "reproducible_research_intro_en.html#commenting-your-project",
+    "title": "RR with R",
+    "section": "2.7 Commenting your project",
+    "text": "2.7 Commenting your project\nMaintain a README.md file in each project, at the root level\n\nA simple description of the project purpose (the ‘why’)\nPeople involved\nData sources etc\nList most important components (data and files)\n\n\nEspecially important for larger, more complex projects with many data sources, collaborators, etc"
+  },
+  {
+    "objectID": "reproducible_research_intro_en.html#readme.md-template",
+    "href": "reproducible_research_intro_en.html#readme.md-template",
+    "title": "RR with R",
+    "section": "2.8 README.md template",
+    "text": "2.8 README.md template\n#| eval: false\n#| echo: true\n# Project title\n\nA subtitle that describes your project, e.g., research question\n\n## Motivation\n\nMotivate your research question or business problem. Clearly explain which problem is solved.\n\n## Method and results\n\nFirst, introduce and motivate your chosen method, and explain how it contributes to solving the research \nquestion/business problem.\n\nSecond, summarize your results concisely. Make use of subheaders where appropriate.\n\n\n## Repository overview\n\nProvide an overview of the directory structure and files, for example:\n\n├── README.md\n├── data\n│   ├── my_data.csv  # raw data from CPR register\n│   ├── exp_data.csv # experimental data register\n├── plots\n│   ├── plot_1.png   # Boxplot of age\n│   ├── plot_2.png   # Pi chart of sex\n│   └── plot_3.png   # Bi-plot age vs measurement X\n├── main.R           # all analyses in one place\n└── manuscript1.Rmd  # for J of RR\n\n## Running instructions\n\nExplain to potential users how to run/replicate your workflow. If necessary, touch upon the required input \ndata, which secret credentials are required (and how to obtain them), which software tools are needed \nto run the workflow (including links to the installation instructions), and how to run the workflow.\n\n## More resources\n\nPoint interested users to any related literature and/or documentation.\n\n## About\n\nExplain who has contributed to the repository."
+  },
+  {
+    "objectID": "reproducible_research_intro_en.html#meaning",
+    "href": "reproducible_research_intro_en.html#meaning",
+    "title": "RR with R",
+    "section": "3.1 Meaning",
+    "text": "3.1 Meaning\nLet variable, function and file names convey meaning.\n\n# 1 \nd &lt;- d %&gt;% \n  mutate(s=factor(c(\"M\", \"F\"))[as.numeric(substr(id,nchar(id),nchar(id))) %% 2])\n\n# 2 \nmData &lt;- d %&gt;% filter(s==\"M\")\n\nSuggest alternative code and variable names for this code"
+  },
+  {
+    "objectID": "reproducible_research_intro_en.html#meaning-1",
+    "href": "reproducible_research_intro_en.html#meaning-1",
+    "title": "RR with R",
+    "section": "3.2 Meaning",
+    "text": "3.2 Meaning\nLet variable, function and file names convey meaning.\n\n# 1 \ndata &lt;- data %&gt;% \n  mutate(sex=factor(c(\"M\", \"F\"))[as.numeric(substr(id,nchar(id),nchar(id))) %% 2])\n\n# 2 \ndata_males_only &lt;- data %&gt;% filter(sex==\"M\")\nmales_only_data &lt;- data %&gt;% filter(sex==\"M\")"
+  },
+  {
+    "objectID": "reproducible_research_intro_en.html#making-the-meaning-even-clearer",
+    "href": "reproducible_research_intro_en.html#making-the-meaning-even-clearer",
+    "title": "RR with R",
+    "section": "3.3 Making the meaning even clearer…",
+    "text": "3.3 Making the meaning even clearer…\n\ndata &lt;- data %&gt;% \n  mutate(sex=cpr2sex(id))\n\nAlas, the function cpr2sex does not exist in base R or Tidyverse\n\n\n\n\n\n\nTip\n\n\n\n\n\n\n# Requires a custom function like this -- which could be sourced from file\n\ncpr2sex &lt;- function(x) {\n  # This function takes a string (x), presumed to be a valid Danish CPR\n  # and return \"F\", \"M\" or NA depending on the last character in the string\n  # If the last CPR character is an even number, it indicates female sex, and\n  # an odd number indicates male sex.\n  if (str_sub(x, str_length(x), str_length(x)) %in% c(\"0\",\"2\",\"4\",\"6\",\"8\")) {\n    return(\"F\") \n  } else if (str_sub(x, str_length(x), str_length(x)) %in% c(\"1\",\"3\",\"5\",\"7\",\"9\")) {\n    return(\"M\") \n  } \n  return(NA) # Last character in CPR is not a ciffre\n}\n\nWe could hide this away in a separate file and ‘source’ it .. or even make a new package…"
+  },
+  {
+    "objectID": "reproducible_research_intro_en.html#compound-names",
+    "href": "reproducible_research_intro_en.html#compound-names",
+    "title": "RR with R",
+    "section": "3.4 Compound names",
+    "text": "3.4 Compound names\n\n\nDo use under_scores\nDo not use camelCase\nDo not use kebab-case"
+  },
+  {
+    "objectID": "reproducible_research_intro_en.html#nouns-and-verbs",
+    "href": "reproducible_research_intro_en.html#nouns-and-verbs",
+    "title": "RR with R",
+    "section": "3.5 Nouns and verbs",
+    "text": "3.5 Nouns and verbs\n\nmake_larger_by_10 &lt;- function(x) {\n  return(x+10)\n}\n\nten_larger &lt;- make_larger_by_10(112)\n\n# For instance:\n# selected_data &lt;- data %&gt;% select(..)"
+  },
+  {
+    "objectID": "reproducible_research_intro_en.html#names",
+    "href": "reproducible_research_intro_en.html#names",
+    "title": "RR with R",
+    "section": "3.6 Names",
+    "text": "3.6 Names\nMain points\n\nNames should be meaningful\nUse under_scores, not CamelCase, nor kebab-case\nFunction names should be verbs\nVariable names should be nouns"
+  },
+  {
+    "objectID": "reproducible_research_intro_en.html#the-root",
+    "href": "reproducible_research_intro_en.html#the-root",
+    "title": "RR with R",
+    "section": "4.1 The root",
+    "text": "4.1 The root\n\n4.1.1 One root folder for each project\nShould contain\n\nRStudio project (*.RProj)\nREADME.md\nsessionInfo.txt\nYour main R scripts\nYour RMarkdown and quarto scripts\nRelevant subfolders (/custom_functions, /gfx, /data, etc)"
+  },
+  {
+    "objectID": "reproducible_research_intro_en.html#section-2",
+    "href": "reproducible_research_intro_en.html#section-2",
+    "title": "RR with R",
+    "section": "4.2 ",
+    "text": "4.2"
+  },
+  {
+    "objectID": "reproducible_research_intro_en.html#files-and-folders-1",
+    "href": "reproducible_research_intro_en.html#files-and-folders-1",
+    "title": "RR with R",
+    "section": "4.3 Files and folders",
+    "text": "4.3 Files and folders\n\n4.3.1 Make and use your own folder/sub-folder template for new projects"
+  },
+  {
+    "objectID": "reproducible_research_intro_en.html#file-types",
+    "href": "reproducible_research_intro_en.html#file-types",
+    "title": "RR with R",
+    "section": "4.4 File types",
+    "text": "4.4 File types\n\nText always preferable to binary files\nMarkup files (HTML, XML, etc) are human readable, but can be complex\nApplication files (.odt, .docx) are often either binary files or very complex markup files\n\ngfx/prefer_text_files.pdf\ngfx/prefer_text_files.pdf\ngfx/prefer_text_files.xml"
+  },
+  {
+    "objectID": "reproducible_research_intro_en.html#file-types-1",
+    "href": "reproducible_research_intro_en.html#file-types-1",
+    "title": "RR with R",
+    "section": "4.5 File types",
+    "text": "4.5 File types\nStick to simple, human-readable files like R-scripts, markdown, csv files, etc, as far into the process as you can and only generate pdf, word, tiff, jpeg etc files as the final step.\nIf any characters look weird in a simple txt file (it does happen) – it’s probably the character encoding – just stick to UTF8/UTF16\n\n\nBy the way, what do you think the first thing the typesetters at Springer does with your manuscript once accepted?"
+  },
+  {
+    "objectID": "reproducible_research_intro_en.html#files-and-folders-2",
+    "href": "reproducible_research_intro_en.html#files-and-folders-2",
+    "title": "RR with R",
+    "section": "4.6 Files and folders",
+    "text": "4.6 Files and folders\nMain points\n\nUse a strict folder structure you can handle – make a template!\nUse relational folder paths if possible\nUse human-readable files only if possible (txt, md, Rmd, csv, etc)\nOnly use non-human readable files for ‘final output’ (pdf, docx, xlsx, etc)"
+  },
+  {
+    "objectID": "reproducible_research_basics_en.html#basics",
+    "href": "reproducible_research_basics_en.html#basics",
+    "title": "Basics of RRR",
+    "section": "",
+    "text": "The basics of Reproducible Research with R should be considered obligatory. Skipping this is like skipping PE in school: ‘You’re only cheating yourself, you know’."
+  },
+  {
+    "objectID": "reproducible_research_basics_en.html#comments-in-r-code-and-quarto-markdown",
+    "href": "reproducible_research_basics_en.html#comments-in-r-code-and-quarto-markdown",
+    "title": "Basics of RRR",
+    "section": "",
+    "text": "One of the core ideas of R and Quarto MarkDown is to make the code human readable – a concept known as literal programming. R+Quarto code is certainly more readable than classic programming languages, but it is unlikely that you are able to write code that is entirely self-explanatory to a human reader … you will need to add comments for future readers (yourself!) to understand the code.\nR code\nIn R code, you can add a comment using the hashtag #, like this:\n\n# This is a single-line comment in R code\n# ...and there are no multi-line comments: You must add an # for each line\nx &lt;- 2 + 2 # ...but inline comments are okay\n\nQuarto\n\n&lt;!-- This is a single-line comment in markdown --&gt;\n&lt;!--\nThis is a multi-line \ncomment in markdown\n--&gt;\n..and inline &lt;!-- comments are okay too --&gt;\n\n\n\n\n\n\n\nNote! … the hashtag # has different meaning in R code and in quarto code!\n\n\n\n\n\nAs you have just seen, the hashtag # is used to add comments in R code, but in quarto markdown, the hashtag # is used to add level 1 headings, like this:\n\n# This is a level 1 heading\n\n## This is a level 2 heading"
   }
 ]
