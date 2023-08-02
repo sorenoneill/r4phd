@@ -1,15 +1,15 @@
 ---
-title: "dplyr"
-subtitle: "and the here package"
+title: "Other data wrangling functions"
 date: today
+output:
+  distill::distill_article:
+    self_contained: false
 format: 
   html:
     toc: true
     toc-depth: 2
     number-sections: true
     number-depth: 2
-    embed-resources: true
-    self-contained: true
     code-fold: true
     code-summary: "Show the code"
     code-tools: true

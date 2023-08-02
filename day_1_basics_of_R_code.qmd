@@ -30,7 +30,7 @@ library(tidyverse)
 
 # Functions 
 
-### `<-`
+## `<-`
 
 * Do you have a short cut for the assignment operator? (Tools -> Show Command Palette -> and type “assignment”)
 * What does the assign operator `<-` do?
@@ -53,40 +53,36 @@ my_data
 
 \ \
 
-### `c()`
+## `c()`
 The c is short for [concatenate](https://www.merriam-webster.com/dictionary/concatenate), and means to link together.  
 This function combines values into a vector or list. For now you can think of a vector as a sequence of values.
 The values are seperated by a `,`
 
 <br>  
   
-* Use `c()` to create a sequence of numbers from 0 to 4
+### Use `c()` to create a sequence of numbers from 0 to 4
 ```{r}
 c(0, 1, 2, 3, 4)
 ```
   
-* Use `c()` to create a sequence of numbers from 0 to 4 in steps of 2
+### Use `c()` to create a sequence of numbers from 0 to 4 in steps of 2
 ```{r}
 c(0, 2, 4)
 ```
   
-* Use `c()` to create a sequence of numbers from 0 to 12 in 4 steps
-```{r}
-c(0, 4, 8, 12)
-```
 
 \ \
 
-### `seq()` 
+## `seq()` 
 Of course, such predictable operations can be done with ease in a more reliable way. 
 We will use the function `seq()` as an example. The output of this function is a sequence of numbers. The sequence of numbers is dictated by the arguments that you provide.
 
-Read the arguments section on help page for `seq()`
-type `?seq()` in the console or type `seq()`and pres F1 while the cursor stands on the on the letters.
+Read the arguments section on help page for `seq()`  
+Type `?seq()` in the console or type `seq()`and pres F1 while the cursor stands on the on the letters.
 
 <br>  
   
-* Make a sequence of numbers that goes from 0 to 100
+### Make a sequence of numbers that goes from 0 to 100
 ```{r}
 #| results: false
 seq(from = 0,
@@ -97,7 +93,7 @@ seq(from = 0,
 
 <br>  
   
-* Make a sequence of numbers that goes from 0 to 100 in steps of 2
+### Make a sequence of numbers that goes from 0 to 100 in steps of 2
 ```{r}
 #| results: false
 seq(from = 0,
@@ -107,24 +103,25 @@ seq(from = 0,
   
 \ \
 
-### `sample()`
+## `sample()`
 
-* Using `sample()`, take a sample of 5 random numbers between 1 and 100
+### Using `sample()`, take a sample of 5 random numbers between 1 and 100
 ```{r}
 sample(1:100, 5)
 ```
-* What does the argument `replace` do? What is the default value?
+
+### What does the argument `replace` do? What is the default value?
 
 \ \ 
 
 
-### `mean()`
+## `mean()`
 Another function we can use is `mean()`. This function gives you the mean value of a sequence of numbers.
 Read the arguments section of the help page for `mean()`
 
 <br>
 
-* What type of input does the first arguments of the `mean()` function require?
+### What type of input does the first arguments of the `mean()` function require?
 ```{r}
 # It requires a vector. 
 # You can still think of this as a sequence of numbers
@@ -133,14 +130,14 @@ Read the arguments section of the help page for `mean()`
 
 <br>
 
-* Using `c()`, take the mean of the numbers 5, 3, 1, and 10
+### Using `c()`, take the mean of the numbers 5, 3, 1, and 10
 ```{r}
 mean(c(5, 3, 1, 10))
 ```
 
 <br>  
 
-* Take the mean of this vector `c(2, 4, 6, NA)`
+### Take the mean of this vector `c(2, 4, 6, NA)`
 
 
 ```{r}
@@ -149,20 +146,32 @@ mean(c(2, 4, 6, NA))
 
 <br>
 
-* Take the mean of this vector `c(2, 4, 6, NA)`, disregarding `NA` values
+### Take the mean of this vector `c(2, 4, 6, NA)`, disregarding `NA` values
+
+::: {.callout-tip collapse=true}
+#### Hint
+Read about the `na.rm` argument in the `mean()` function. 
+What is the default value?
+:::
+
 ```{r}
 mean(c(2, 4, 6, NA),
      na.rm = TRUE)
 ```
 
+<br>
+
+### You will find the `na.rm` argument in many functions. It always defaults to FALSE. Discuss if this is a good idea? Is it different from other programs?
+
+
 \ \
 
-### `%>%`
+## `%>%`
 
 * What is your keyboard shortcut to write the pipe `%>%` ?
 (Pres CTRL+SHIFT+P and type **pipe** in the search field).  
 
-#### Load the `tidyverse`
+### Load the `tidyverse`
 Why? The `%<%` is a part of the tidyverse, and is not included in Base R
 ```{r}
 #| code-fold: false
@@ -171,7 +180,7 @@ library(tidyverse)
 
 <br>
 
-* **Using the pipe,** create a sequence of numbers going from 0 til 100 and then take the mean of the sequence.
+### **Using the pipe,** create a sequence of numbers going from 0 til 100 and then take the mean of the sequence.
 ```{r}
 seq(from = 0,
     to = 100) %>%
@@ -180,7 +189,7 @@ seq(from = 0,
 
 <br>
 
-* **Using the pipe,** create a sequence of numbers going from 1 to 20 in 39 steps, and then sample 10 random numbers from the sequence
+### **Using the pipe,** create a sequence of numbers going from 1 to 20 in 39 steps, and then sample 10 random numbers from the sequence
 ```{r}
 seq(from = 1,
     to = 20,
@@ -190,7 +199,7 @@ seq(from = 1,
 
 <br>
 
-* Rewrite this code to use the pipe instead
+### Rewrite this code to use the pipe instead
 ```{r}
 #| code-fold: false
 sort(
@@ -210,7 +219,7 @@ seq(1:100) %>%
 
 \ \ 
 
-### Explore
+## Explore
 Investigate the following functions that we may need later on in this course.  
 
 * `quantile()`
@@ -225,90 +234,6 @@ Investigate the following functions that we may need later on in this course.
 
 
 \ \ \
-
-
-<br><br><br><br><br><br><br><br>
-
-# quarto documents
-
-<br><br>
-
-### Start a new .qmd document
- File ->  
- New File ->  
- Quarto Document ->  
- * Make sure the settings are set to "Document" and "HTML" (both are default settings), 
- * Uncheck 'Use visual markdown editor'
- * press "Create" 
- 
- The document contains both R and Markdown code.   
- Save your file  (Important: file_name_matters)
- Pres "Render" and see what happens.
-
-    
- <br><br>
-
-### Markdown Code
-[Markdown code basics](https://quarto.org/docs/authoring/markdown-basics.html)
-    
-### Headlines
-Headlines are made using one or more # signs followed by a space  
-\# Largest headline  
-\## Second largest headline  
-\### Third largest headline  
-\##### Smallest headline possible.   
-
-* Practice making different headlines.  
-
-<br><br>
-
-### **Bold** and *Italic*
-\*text\*  becomes *text*  
-\*\*text\*\*  becomes **text**  
-\*\*\*text\*\*\*  becomes ***text***  
-
-* Practice writing something in *italics* and **bold**  
-
-<br><br>
-  
-### New lines
-To break a line in R Markdown and have it appear in your output, use two trailing spaces and then hit return.  
-If you want a hard line break end your lines with a `\`
-
-* Practice making line-breaks.
-  
-<br><br>
-  
-### Code chunk
-Insert a code chunk in your document (Default `CTRL+Alt+I`)  
-If pressing CTRL+Alt+I doesn't work click Tools -> Command Palette -> and type "Chunk" in the search field  
-  
-What you write inside the codechunk will be evaluated as R code.
-
-Write 2+2 inside the Code chunk you just created, and Knit the document.
-  
-2+2 equals
-```{r}
-2+2
-```
-  
-<br><br>
-  
-### Run Code chunk
-You don't need to Knit your document in order to see the output of your code.  
-Place the cursor inside the code chunk you just made and Click the green triangle (play-sign) in the right side of the code chunk.  
-Notice the output in the console.  
-  
-R comes with many inbuilt datasets, one of them is the `iris` dataset.  
-Plot the `iris` dataset.  
-Insert a codechunk, and write `plot(iris)` inside the codechunk.  
-Click the green triangle.  
- 
-**Lifehack:**   
-pressing `ALT+Enter` will run the current line or selection.  
-pressing `CTRL+Enter` will run the current line or selection and jump to next line.  
-pressing `CTRL+ALT+C` will run the current code chunk (instead of just the current line).  
-
 
   
 <script src="https://giscus.app/client.js"

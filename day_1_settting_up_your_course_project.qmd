@@ -32,10 +32,10 @@ library(tidyverse)
 Follow these instructions step by step: 
 
 1. Start a new project. Think about the name and where you place the project. You are going to be using this project a lot. (Important: project_and_folder_names_matter)
-1. Create a folder in the project called `raw_data`  
-1. Create a folder in the project called `clean_data`  
-1. Create a folder in the project called `scripts`  
-1. Place the `ANSUR_II.csv` file from ItsLearning in the `raw_data` folder  
+1. Create a folder in your project called `raw_data`  
+1. Create a folder in your project called `clean_data`  
+1. Create a folder in your project called `scripts`  
+1. Place the `soldiers.csv` file from ItsLearning in the `raw_data` folder  
 1. Create an R script (File -> New File -> R script), save it in the `scripts` folder and call it `01_import.R`  
 1. Close the R script you just created and leave it for now.  
 \
@@ -48,39 +48,43 @@ This file and folder structure is a basic setup that will work for most projects
 
 # Setting up your course project (continued)
 
-Have you completed the wrangling exercises for `select()`, `filter()`, `summarise()`, `group_by()`, `arrange()`, and `mutate()` ?
+::: {.callout-important}
+#### Important
+You should not do this before you have completed the wrangling exercises for `select()`, `filter()`, `summarise()`, `group_by()`, `arrange()`, and `mutate()`  
+:::
 
-\
-
-Great - now you have the skills to continue the work we started in @sec-setup.\
+You now have the skills to continue the work we started in @sec-setup.\
 This coming task is important for the rest of your course.\
 \
-As you have noticed the `ANSUR_II` dataset is not perfect when we load it, e.g., `Height` is measured in inches, `Weightkg` is measured in Kg\*10, etc..\
-Therefore, we need to change a few things before we can start our work. It is essential in datascience and research that this process is documented and reproducible.\
+As you have noticed the `soldiers` dataset is not perfect when we load it, e.g., `Height` is measured in inches, `weightkg` is measured in Kg\*10, etc..\
+Therefore, we need to change a few things before we can continue our work with this data.  
+It is essential in datascience and research that this process is documented and reproducible.\
 \
 
 * Open the R script `01_import.R` that you created in @sec-setup.\
 * For the rest of this section you are going to work in this R script. 
 
+\ \
 
-### Write the necessary code to import the `ANSUR_II.csv` file and update the data
+### Write the necessary code to import the `soldiers.csv` file and update the data
 
 **Write comments and explain your code as you solve the steps below**
 
-* add `heightcm` (height in cm)
-* fix `weightkg`
-* add `BMI`
-* add `category` (level of BMI)
-* add `race` - Base the values in race on the description below
-* remove `Heightin`
-* place the variables in an order that you like (use `relocate()`)
-* make sure that all changes are assigned to `ANSUR_II`
+* Add `heightcm` (height in cm)
+* Fix `weightkg`
+* Explore the `sex` variable and fix it
+* Add `BMI`
+* Add `category` (level of BMI)
+* Add `race` - Base the values in race on the description below
+* Remove `Heightin`
+* Place the variables in an order that you like (use `relocate()`)
+* Make sure that all changes are assigned to `soldiers`. Your script should provide you with an updated version of `soldiers` in the environment pane.
 
 ::: {.callout-note collapse="true" apperance="simple"}
 
-## `race` in `ANSUR_II`
+## `race` in `soldiers`
 
-`DODRace` is a variable in the `ANSUR_II` dataset. The description is given below:\ 
+`DODRace` is a variable in the `soldiers` dataset. The description is given below:\ 
 
 `DODRace` – Department of Defense Race; a single digit indicating a subject’s
 self-reported preferred single race where selecting multiple races is not an option.
