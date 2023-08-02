@@ -14,9 +14,7 @@ format:
     code-fold: true
     code-summary: "Show the code"
     code-tools: true
-
 execute:
-  cache: true
   message: false
   warning: false
 ---
