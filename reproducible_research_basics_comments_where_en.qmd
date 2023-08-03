@@ -1,0 +1,105 @@
+---
+title: "Comments - where to"
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: '`r Sys.Date()`'
+output:
+  distill::distill_article:
+    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+#categories:
+#  - Installation
+creative_commons: CC BY
+format: html
+editor: source
+---
+
+```{r include=FALSE}
+#library(vembedr)
+library(tidyverse)
+library(ggplot2)
+library(DiagrammeR)
+```
+
+# Where to add comments in R code and Quarto MarkDown
+
+::: {.callout-note collapse=false}
+# Exercise #1
+
+What do you think about the way these comments have been placed? Will it work?
+
+```{r}
+#| eval: false
+#| echo: true
+
+# this comment definitely okay
+x <- 2 + 2
+
+# ...but is the following okay?
+tibble(x=1:10, y=2:11) %>% # ..is it okay, mid-pipe?
+  filter(y>5 & # and how about breaking in the middle..
+  x != 9) # ..of a statement like 'filter'?
+```
+
+:::
+
+::: {.callout-note collapse=true}
+# Exercise #1 Solution
+
+This is what the output looks like:
+
+```{r, echo=FALSE}
+#|  eval: true
+#|  echo: false
+
+# this comment definitely okay
+x <- 2 + 2
+
+# ...but is the following okay?
+tibble(x=1:10, y=2:11) %>% # ..is it okay, mid-pipe?
+  filter(y>5 & # and how about breaking in the middle..
+  x != 9) # ..of a statement like 'filter'?
+```
+
+...so the code seems to run without fault - R is actually quite tolerant about placing comments here, there and everywhere, but is it good practice, though?
+
+These comments are syntactically okay ... but did they make your code *simpler* for humans to read? No not really. In fact, they made it rather more difficult than it needed to be. So click below to keep it simple:
+
+:::
+
+::: {.callout-note collapse=true}
+## Keep it simple!
+
+```{r}
+#| eval: false
+#| echo: true
+# Comment lines before the code
+# can be multiple lines and does
+# not disturb your reading of the
+# code ... best practice!
+
+x <- 2 + 2 # use inline comments sparringly
+y <- x^2 - c(2, 5, 8, 10:14) # ..they are distracting!
+```
+
+:::
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>

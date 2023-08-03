@@ -69,7 +69,7 @@ digraph boxes_and_circles {
 
 ```
 
-Aim for level four 'Product documentation' (**) -- Level 5 'Process documentation' can be quite involved is probably only relevant when many authors collaborate on the same code/data: If it is important to know who did what when (who screwed up?).
+Aim for level four 'Product documentation' (**) -- Level 5 'Process documentation' can be quite involved and is probably only relevant when many authors collaborate on the same code/data (if it is important to know who did what when, i.e. who screwed up).
     
 <script src="https://giscus.app/client.js"
         data-repo="sorenoneill/r4phd"

@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Søren O’Neill">
-<meta name="dcterms.date" content="2023-08-02">
-<meta name="description" content="Basics of Reproducible Research with R and RStudio.">
+<meta name="dcterms.date" content="2023-08-03">
+<meta name="description" content="Simple exercises about Reproducible Research with R (and RStudio)">
 
-<title>R4phd - RR with R</title>
+<title>R4phd - Thinking about RRR</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,40 +23,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -67,6 +33,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./reproducible_research_intro_en.html" rel="next">
+<link href="./day_1_dplyr.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -95,10 +63,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Submit"
   }
 }</script>
-<script src="site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
-<script src="site_libs/viz-1.8.2/viz.js"></script>
-<link href="site_libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
-<script src="site_libs/grViz-binding-1.0.9/grViz.js"></script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -125,7 +89,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">RR with R</li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">English</li><li class="breadcrumb-item">R course exercises</li><li class="breadcrumb-item">Day 4</li><li class="breadcrumb-item"><a href="./reproducible_research_basics_exercises_en.html">RRR</a></li><li class="breadcrumb-item"><a href="./reproducible_research_basics_exercises_en.html">Thinking about RRR</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -148,7 +112,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Installation</span></a>
+ <span class="menu-text">Dansk</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -157,21 +121,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
- <span class="menu-text">Dansk</span></a>
+ <span class="menu-text">Installation</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
- <span class="menu-text">Installation</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./installation_quick_preparation_da.html" class="sidebar-item-text sidebar-link">
@@ -224,13 +179,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
  <span class="menu-text">Lær RStudio at kende</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth3 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./rstudio_introduction_to_gui_1_da.html" class="sidebar-item-text sidebar-link">
@@ -241,24 +196,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">English</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
- <span class="menu-text">English</span></a>
+ <span class="menu-text">Installation</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
- <span class="menu-text">Installation</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./installation_quick_preparation_en.html" class="sidebar-item-text sidebar-link">
@@ -311,13 +266,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
  <span class="menu-text">Getting to know RStudio</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth3 ">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./rstudio_introduction_to_gui_1_en.html" class="sidebar-item-text sidebar-link">
@@ -326,28 +281,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
-      </ul>
-  </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true">
- <span class="menu-text">R course exercises</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false">
- <span class="menu-text">Day 1</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
+ <span class="menu-text">R course exercises</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false">
+ <span class="menu-text">Day 1</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./day_1_basics_of_Rstudio.html" class="sidebar-item-text sidebar-link">
@@ -378,12 +329,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">dplyr</span></a>
   </div>
 </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true">
+ <span class="menu-text">Day 4</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth3 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="true">
+ <span class="menu-text">RRR</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth4 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./day_1_other.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Other data wrangling functions</span></a>
+  <a href="./reproducible_research_basics_exercises_en.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Thinking about RRR</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reproducible_research_intro_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Intro to RRR</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reproducible_research_basics_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Basics of RRR</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
       </ul>
   </li>
       </ul>
@@ -394,65 +381,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#reproducible-research" id="toc-reproducible-research" class="nav-link active" data-scroll-target="#reproducible-research"><span class="header-section-number">1</span> Reproducible Research</a>
-  <ul class="collapse">
-  <li><a href="#what-it-is" id="toc-what-it-is" class="nav-link" data-scroll-target="#what-it-is"><span class="header-section-number">1.1</span> What it is …</a></li>
-  <li><a href="#why" id="toc-why" class="nav-link" data-scroll-target="#why"><span class="header-section-number">1.2</span> Why</a></li>
-  <li><a href="#levels-of-research-reproducibility" id="toc-levels-of-research-reproducibility" class="nav-link" data-scroll-target="#levels-of-research-reproducibility"><span class="header-section-number">1.3</span> Levels of research reproducibility</a></li>
-  </ul></li>
-  <li><a href="#basics" id="toc-basics" class="nav-link" data-scroll-target="#basics"><span class="header-section-number">2</span> Basics</a>
-  <ul class="collapse">
-  <li><a href="#comments-in-r-code-and-markdown" id="toc-comments-in-r-code-and-markdown" class="nav-link" data-scroll-target="#comments-in-r-code-and-markdown"><span class="header-section-number">2.1</span> Comments in <em>R code</em> and <em>markdown</em></a></li>
-  <li><a href="#where-to-put-comments" id="toc-where-to-put-comments" class="nav-link" data-scroll-target="#where-to-put-comments"><span class="header-section-number">2.2</span> Where to put comments?</a></li>
-  <li><a href="#keep-it-simple" id="toc-keep-it-simple" class="nav-link" data-scroll-target="#keep-it-simple"><span class="header-section-number">2.3</span> Keep it simple!</a></li>
-  <li><a href="#meaningful-comments" id="toc-meaningful-comments" class="nav-link" data-scroll-target="#meaningful-comments"><span class="header-section-number">2.4</span> Meaningful comments</a></li>
-  <li><a href="#commenting-your-code" id="toc-commenting-your-code" class="nav-link" data-scroll-target="#commenting-your-code"><span class="header-section-number">2.5</span> Commenting your code</a></li>
-  <li><a href="#using-white-space" id="toc-using-white-space" class="nav-link" data-scroll-target="#using-white-space"><span class="header-section-number">2.6</span> Using white space</a></li>
-  <li><a href="#commenting-your-project" id="toc-commenting-your-project" class="nav-link" data-scroll-target="#commenting-your-project"><span class="header-section-number">2.7</span> Commenting your <em>project</em></a></li>
-  <li><a href="#readme.md-template" id="toc-readme.md-template" class="nav-link" data-scroll-target="#readme.md-template"><span class="header-section-number">2.8</span> README.md template</a></li>
-  </ul></li>
-  <li><a href="#naming-stuff" id="toc-naming-stuff" class="nav-link" data-scroll-target="#naming-stuff"><span class="header-section-number">3</span> Naming stuff</a>
-  <ul class="collapse">
-  <li><a href="#meaning" id="toc-meaning" class="nav-link" data-scroll-target="#meaning"><span class="header-section-number">3.1</span> Meaning</a></li>
-  <li><a href="#meaning-1" id="toc-meaning-1" class="nav-link" data-scroll-target="#meaning-1"><span class="header-section-number">3.2</span> Meaning</a></li>
-  <li><a href="#making-the-meaning-even-clearer" id="toc-making-the-meaning-even-clearer" class="nav-link" data-scroll-target="#making-the-meaning-even-clearer"><span class="header-section-number">3.3</span> Making the meaning <em>even</em> clearer…</a></li>
-  <li><a href="#compound-names" id="toc-compound-names" class="nav-link" data-scroll-target="#compound-names"><span class="header-section-number">3.4</span> Compound names</a></li>
-  <li><a href="#nouns-and-verbs" id="toc-nouns-and-verbs" class="nav-link" data-scroll-target="#nouns-and-verbs"><span class="header-section-number">3.5</span> Nouns and verbs</a></li>
-  <li><a href="#names" id="toc-names" class="nav-link" data-scroll-target="#names"><span class="header-section-number">3.6</span> Names</a></li>
-  </ul></li>
-  <li><a href="#files-and-folders" id="toc-files-and-folders" class="nav-link" data-scroll-target="#files-and-folders"><span class="header-section-number">4</span> Files and folders</a>
-  <ul class="collapse">
-  <li><a href="#the-root" id="toc-the-root" class="nav-link" data-scroll-target="#the-root"><span class="header-section-number">4.1</span> The <em>root</em></a>
-  <ul class="collapse">
-  <li><a href="#one-root-folder-for-each-project" id="toc-one-root-folder-for-each-project" class="nav-link" data-scroll-target="#one-root-folder-for-each-project"><span class="header-section-number">4.1.1</span> One root folder for each project</a></li>
-  </ul></li>
-  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"><span class="header-section-number">4.2</span> <!-- --></a></li>
-  <li><a href="#files-and-folders-1" id="toc-files-and-folders-1" class="nav-link" data-scroll-target="#files-and-folders-1"><span class="header-section-number">4.3</span> Files and folders</a>
-  <ul class="collapse">
-  <li><a href="#make-and-use-your-own-foldersub-folder-template-for-new-projects" id="toc-make-and-use-your-own-foldersub-folder-template-for-new-projects" class="nav-link" data-scroll-target="#make-and-use-your-own-foldersub-folder-template-for-new-projects"><span class="header-section-number">4.3.1</span> Make and use your own folder/sub-folder template for new projects</a></li>
-  </ul></li>
-  <li><a href="#file-types" id="toc-file-types" class="nav-link" data-scroll-target="#file-types"><span class="header-section-number">4.4</span> File types</a></li>
-  <li><a href="#file-types-1" id="toc-file-types-1" class="nav-link" data-scroll-target="#file-types-1"><span class="header-section-number">4.5</span> File types</a></li>
-  <li><a href="#files-and-folders-2" id="toc-files-and-folders-2" class="nav-link" data-scroll-target="#files-and-folders-2"><span class="header-section-number">4.6</span> Files and folders</a></li>
-  </ul></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">RR with R</h1>
+<h1 class="title">Thinking about RRR</h1>
 </div>
 
 <div>
   <div class="description">
-    <p>Basics of Reproducible Research with R and RStudio.</p>
+    <p>Simple exercises about Reproducible Research with R (and RStudio)</p>
   </div>
 </div>
 
@@ -469,7 +410,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 2, 2023</p>
+      <p class="date">August 3, 2023</p>
     </div>
   </div>
   
@@ -479,443 +420,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="reproducible-research" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Reproducible Research</h1>
-<!-- -->
-<section id="what-it-is" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="what-it-is"><span class="header-section-number">1.1</span> What it is …</h2>
-<blockquote class="blockquote">
-<p>“<em>Facilitate easy and accurate reproducibility of all steps of research: Results, process <strong>and comprehension</strong></em> – from raw data to finished output”</p>
-</blockquote>
-<p><img src="gfx/RR/RR_book.jpeg" class="img-fluid"></p>
-</section>
-<section id="why" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="why"><span class="header-section-number">1.2</span> Why</h2>
-<ul>
-<li>To help <em>yourself</em> not get lost</li>
-<li>Documentation (formal/legal)</li>
-<li>Reproducibility (from A-Z)</li>
-<li>Reuseability (different outputs)</li>
-<li>Recycling (reassemble for other purposes)</li>
-</ul>
-</section>
-<section id="levels-of-research-reproducibility" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="levels-of-research-reproducibility"><span class="header-section-number">1.3</span> Levels of research reproducibility</h2>
-<div class="cell" data-paged.print="false">
-<div class="cell-output-display">
-<div id="htmlwidget-b6b378c552590551d87f" style="width:100%;height:464px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-b6b378c552590551d87f">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10, graph_attrs = \"rankdir = LR\"]\n\n  # several \"node\" statements\n  mm [label = \"Methods and materials\", shape = plaintext, fontcolor=\"Plum\"]\n  basic [label = \"Basic RR\", shape = plaintext, fontcolor=\"Plum\"]\n  workflow [label = \"Workflow RR using R\", shape = plaintext, fontcolor=\"MediumOrchid\"]\n  product [label = \"Product documentation (**)\", shape = plaintext, fontcolor=\"DarkViolet\"]\n  process [label = \"Process documentation\", shape = plaintext, fontcolor=\"Indigo\"]\n\n  # several \"edge\" statements\n  process -> product -> workflow -> basic -> mm [dir = \"back\"]\n  \n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-</div>
-</div>
-<p>Aim for (**)</p>
-</section>
-</section>
-<section id="basics" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Basics</h1>
-<!-- -->
-<section id="comments-in-r-code-and-markdown" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="comments-in-r-code-and-markdown"><span class="header-section-number">2.1</span> Comments in <em>R code</em> and <em>markdown</em></h2>
-<p><strong>R code</strong></p>
-<p>In R code, you can add a comment using the hashtag #:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This is a single-line comment in R code</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ...there are no multi-line comments</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span> <span class="co"># ...but inline comments are okay</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><strong>Quarto</strong></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">This is a multi-line comment in markdown</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">...there are no single-line comments</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">--&gt;</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>..and inline <span class="co">&lt;!-- comments are okay too --&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note! … the hashtag # has different meaning in R code and in quarto code!
+Thinking about reproducibility …
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<p><img src="gfx/think.png" class="img-fluid"></p>
 <ul>
-<li>In R code, the hashtag # is used to add comments as shown above</li>
-<li>In quarto markdown, the hashtag # is used to add level 1 headings</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># This is a level 1 heading</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## This is a level 2 heading</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="where-to-put-comments" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="where-to-put-comments"><span class="header-section-number">2.2</span> Where to put comments?</h2>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Are these example R comments okay?</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Check out the output…</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Is it good practice</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this is definitely okay</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ...but is the following okay?</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">y=</span><span class="dv">2</span><span class="sc">:</span><span class="dv">11</span>) <span class="sc">%&gt;%</span> <span class="co"># ..Is this okay?</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(y<span class="sc">&gt;</span><span class="dv">5</span> <span class="sc">&amp;</span> <span class="co"># How about breaking in the middle..</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">!=</span> <span class="dv">9</span>) <span class="co"># ..of a statement like 'filter'?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this is definitely okay</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ...but is the following okay?</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">y=</span><span class="dv">2</span><span class="sc">:</span><span class="dv">11</span>) <span class="sc">%&gt;%</span> <span class="co"># ..Is this okay?</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(y<span class="sc">&gt;</span><span class="dv">5</span> <span class="sc">&amp;</span> <span class="co"># How about breaking in the middle..</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">!=</span> <span class="dv">9</span>) <span class="co"># ..of a statement like 'filter'?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 5 × 2
-      x     y
-  &lt;int&gt; &lt;int&gt;
-1     5     6
-2     6     7
-3     7     8
-4     8     9
-5    10    11</code></pre>
-</div>
-</div>
-</div>
-<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-<p>These comments were syntactically okay … <strong>BUT</strong> did they make your code <strong>easier</strong> for humans to read?</p>
-</div>
-</div>
-</div>
-</section>
-<section id="keep-it-simple" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="keep-it-simple"><span class="header-section-number">2.3</span> Keep it simple!</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comment lines before the code</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># can be multiple lines and does</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># not disturb your reading of the</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># code ... best practice!</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span> <span class="co"># use inline comments sparringly</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">10</span><span class="sc">:</span><span class="dv">14</span>) <span class="co"># ..they are distracting!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="meaningful-comments" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="meaningful-comments"><span class="header-section-number">2.4</span> Meaningful comments</h2>
-<p>What comments would be relevant here?</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">?</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">!</a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<p><strong>Suggest comments for this code… think ‘what’ and ‘why’</strong></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"my_data_file.csv"</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> d <span class="sc">%&gt;%</span> <span class="fu">filter</span>(id <span class="sc">!=</span> <span class="st">"241269-1212"</span>)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 3</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> d <span class="sc">%&gt;%</span> </span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">s=</span><span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"F"</span>))[<span class="fu">as.numeric</span>(<span class="fu">substr</span>(id,<span class="fu">nchar</span>(id),<span class="fu">nchar</span>(id))) <span class="sc">%%</span> <span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<p><strong>Suggestions for meaningful comments</strong></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ?? comments necessary ??</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"my_data_file.csv"</span>)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># excluded as participant entered an invalid CPR number</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> d <span class="sc">%&gt;%</span> <span class="fu">filter</span>(id <span class="sc">!=</span> <span class="st">"2321369-1212"</span>)</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># set 's' to F(emale) or M(ale) depending on odd/even id number in CPR</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> d <span class="sc">%&gt;%</span> </span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">s=</span><span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"F"</span>))[<span class="fu">as.numeric</span>(<span class="fu">substr</span>(id,<span class="fu">nchar</span>(id),<span class="fu">nchar</span>(id))) <span class="sc">%%</span> <span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="commenting-your-code" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="commenting-your-code"><span class="header-section-number">2.5</span> Commenting your code</h2>
-<p><strong>Main points</strong></p>
-<ul>
-<li><strong>Always</strong> comment your code</li>
-<li>Comments should explain your thinking : ‘why’</li>
-<li>With good code the ‘how’ is self-evident
-<ul>
-<li>..but if your code can not be self-evident: explain in comments</li>
-</ul></li>
-</ul>
-</section>
-<section id="using-white-space" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="using-white-space"><span class="header-section-number">2.6</span> Using white space</h2>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Markdown</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Output</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">Good practice</a></li></ul>
-<div class="tab-content">
-<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
-<pre><code>#| echo: true
-#| eval: false
-In markdown, there's an important difference
-between '_new-line_' and '_empty-line_'.
-
-...white space matters!</code></pre>
-</div>
-<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
-<p>In markdown, there’s an important difference between ‘<em>new-line</em>’ and ‘<em>empty-line</em>’.</p>
-<p>…white space matters!</p>
-</div>
-<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
-<ul>
-<li>any number of spaces between words is equal to one space</li>
-<li>any number of empty lines between paragraphs is equal to one empty line</li>
-<li>use one space to seperate functions, operators, etc a%&gt;%b vs a %&gt;% b</li>
-<li>use empty line to indicate new paragraph</li>
+<li>Why does every scientific paper include a Methods section?</li>
+<li>Is it science, if it isn’t reproducible?</li>
+<li>Is the Method section enough?</li>
+<li>Do you know any public examples of fraudulent science? How was it discovered?</li>
 </ul>
 </div>
 </div>
 </div>
-<p><strong>Hint</strong> Check out <em>Soft wrap long lines</em> in the <em>Code</em> menu.</p>
-</section>
-<section id="commenting-your-project" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="commenting-your-project"><span class="header-section-number">2.7</span> Commenting your <em>project</em></h2>
-<p>Maintain a README.md file in each project, <em>at the root level</em></p>
-<ul>
-<li>A simple description of the project purpose (the ‘why’)</li>
-<li>People involved</li>
-<li>Data sources etc</li>
-<li>List most important components (data and files)</li>
-</ul>
-<hr>
-<p>Especially important for larger, more complex projects with many data sources, collaborators, etc</p>
-</section>
-<section id="readme.md-template" class="level2 smaller" data-number="2.8">
-<h2 class="smaller anchored" data-number="2.8" data-anchor-id="readme.md-template"><span class="header-section-number">2.8</span> README.md template</h2>
-<pre><code>#| eval: false
-#| echo: true
-# Project title
-
-A subtitle that describes your project, e.g., research question
-
-## Motivation
-
-Motivate your research question or business problem. Clearly explain which problem is solved.
-
-## Method and results
-
-First, introduce and motivate your chosen method, and explain how it contributes to solving the research 
-question/business problem.
-
-Second, summarize your results concisely. Make use of subheaders where appropriate.
-
-
-## Repository overview
-
-Provide an overview of the directory structure and files, for example:
-
-├── README.md
-├── data
-│   ├── my_data.csv  # raw data from CPR register
-│   ├── exp_data.csv # experimental data register
-├── plots
-│   ├── plot_1.png   # Boxplot of age
-│   ├── plot_2.png   # Pi chart of sex
-│   └── plot_3.png   # Bi-plot age vs measurement X
-├── main.R           # all analyses in one place
-└── manuscript1.Rmd  # for J of RR
-
-## Running instructions
-
-Explain to potential users how to run/replicate your workflow. If necessary, touch upon the required input 
-data, which secret credentials are required (and how to obtain them), which software tools are needed 
-to run the workflow (including links to the installation instructions), and how to run the workflow.
-
-## More resources
-
-Point interested users to any related literature and/or documentation.
-
-## About
-
-Explain who has contributed to the repository.</code></pre>
-</section>
-</section>
-<section id="naming-stuff" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Naming stuff</h1>
-<section id="meaning" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="meaning"><span class="header-section-number">3.1</span> Meaning</h2>
-<p>Let variable, function and file names convey <em>meaning</em>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1 </span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> d <span class="sc">%&gt;%</span> </span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">s=</span><span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"F"</span>))[<span class="fu">as.numeric</span>(<span class="fu">substr</span>(id,<span class="fu">nchar</span>(id),<span class="fu">nchar</span>(id))) <span class="sc">%%</span> <span class="dv">2</span>])</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 2 </span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>mData <span class="ot">&lt;-</span> d <span class="sc">%&gt;%</span> <span class="fu">filter</span>(s<span class="sc">==</span><span class="st">"M"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><strong>Suggest alternative code and variable names for this code</strong></p>
-</section>
-<section id="meaning-1" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="meaning-1"><span class="header-section-number">3.2</span> Meaning</h2>
-<p>Let variable, function and file names convey <em>meaning</em>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1 </span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex=</span><span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"F"</span>))[<span class="fu">as.numeric</span>(<span class="fu">substr</span>(id,<span class="fu">nchar</span>(id),<span class="fu">nchar</span>(id))) <span class="sc">%%</span> <span class="dv">2</span>])</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 2 </span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>data_males_only <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(sex<span class="sc">==</span><span class="st">"M"</span>)</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>males_only_data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(sex<span class="sc">==</span><span class="st">"M"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="making-the-meaning-even-clearer" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="making-the-meaning-even-clearer"><span class="header-section-number">3.3</span> Making the meaning <em>even</em> clearer…</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex=</span><span class="fu">cpr2sex</span>(id))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Alas, the function cpr2sex does not exist in base R or Tidyverse</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Requires a custom function like this -- which could be sourced from file</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>cpr2sex <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># This function takes a string (x), presumed to be a valid Danish CPR</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># and return "F", "M" or NA depending on the last character in the string</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># If the last CPR character is an even number, it indicates female sex, and</span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># an odd number indicates male sex.</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">str_sub</span>(x, <span class="fu">str_length</span>(x), <span class="fu">str_length</span>(x)) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"0"</span>,<span class="st">"2"</span>,<span class="st">"4"</span>,<span class="st">"6"</span>,<span class="st">"8"</span>)) {</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">"F"</span>) </span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">str_sub</span>(x, <span class="fu">str_length</span>(x), <span class="fu">str_length</span>(x)) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"1"</span>,<span class="st">"3"</span>,<span class="st">"5"</span>,<span class="st">"7"</span>,<span class="st">"9"</span>)) {</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">"M"</span>) </span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  } </span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="cn">NA</span>) <span class="co"># Last character in CPR is not a ciffre</span></span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>We could hide this away in a separate file and ‘<em>source</em>’ it .. or even make a new package…</p>
-</div>
-</div>
-</div>
-</section>
-<section id="compound-names" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="compound-names"><span class="header-section-number">3.4</span> Compound names</h2>
-<p><img src="gfx/var_name_animation.webp" class="img-fluid"></p>
-<ul>
-<li><strong>Do</strong> use under_scores</li>
-<li><strong>Do not</strong> use camelCase</li>
-<li><strong>Do not</strong> use kebab-case</li>
-</ul>
-</section>
-<section id="nouns-and-verbs" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="nouns-and-verbs"><span class="header-section-number">3.5</span> Nouns and verbs</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>make_larger_by_10 <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x<span class="sc">+</span><span class="dv">10</span>)</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>ten_larger <span class="ot">&lt;-</span> <span class="fu">make_larger_by_10</span>(<span class="dv">112</span>)</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># For instance:</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co"># selected_data &lt;- data %&gt;% select(..)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="names" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="names"><span class="header-section-number">3.6</span> Names</h2>
-<p><strong>Main points</strong></p>
-<ul>
-<li>Names should be meaningful</li>
-<li>Use under_scores, not CamelCase, nor kebab-case</li>
-<li>Function names should be verbs</li>
-<li>Variable names should be nouns</li>
-</ul>
-</section>
-</section>
-<section id="files-and-folders" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Files and folders</h1>
-<!-- -->
-<section id="the-root" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="the-root"><span class="header-section-number">4.1</span> The <em>root</em></h2>
-<section id="one-root-folder-for-each-project" class="level3" data-number="4.1.1">
-<h3 data-number="4.1.1" class="anchored" data-anchor-id="one-root-folder-for-each-project"><span class="header-section-number">4.1.1</span> One root folder for each project</h3>
-<p>Should contain</p>
-<ul>
-<li>RStudio project (<em>*.RProj</em>)</li>
-<li>README.md</li>
-<li>sessionInfo.txt</li>
-<li>Your <em>main</em> R scripts</li>
-<li>Your RMarkdown and quarto scripts</li>
-<li>Relevant subfolders (/custom_functions, /gfx, /data, etc)</li>
-</ul>
-</section>
-</section>
-<section id="section-2" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="section-2"><span class="header-section-number">4.2</span> <!-- --></h2>
-<p><img src="gfx/phdcomics.1531.png" style="height:90.0%"></p>
-</section>
-<section id="files-and-folders-1" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="files-and-folders-1"><span class="header-section-number">4.3</span> Files and folders</h2>
-<section id="make-and-use-your-own-foldersub-folder-template-for-new-projects" class="level3" data-number="4.3.1">
-<h3 data-number="4.3.1" class="anchored" data-anchor-id="make-and-use-your-own-foldersub-folder-template-for-new-projects"><span class="header-section-number">4.3.1</span> Make and use your own folder/sub-folder template for new projects</h3>
-<p><img src="gfx/file_structure.png" style="height:100.0%"></p>
-</section>
-</section>
-<section id="file-types" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="file-types"><span class="header-section-number">4.4</span> File types</h2>
-<ul>
-<li>Text always preferable to binary files</li>
-<li>Markup files (HTML, XML, etc) are human readable, but can be complex</li>
-<li>Application files (.odt, .docx) are often either binary files or very complex markup files</li>
-</ul>
-<p>gfx/prefer_text_files.pdf</p>
-<p>gfx/prefer_text_files.pdf</p>
-<p>gfx/prefer_text_files.xml</p>
-</section>
-<section id="file-types-1" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="file-types-1"><span class="header-section-number">4.5</span> File types</h2>
-<p><strong>Stick to simple, human-readable files like R-scripts, markdown, csv files, etc, as far into the process as you can and only generate pdf, word, tiff, jpeg etc files as the final step.</strong></p>
-<p>If any characters look weird in a simple txt file (it <em>does</em> happen) – it’s probably the character encoding – just stick to UTF8/UTF16</p>
-<blockquote class="blockquote">
-<ul>
-<li><em>By the way</em>, what do you think the first thing the typesetters at Springer does with your manuscript once accepted?</li>
-</ul>
-</blockquote>
-</section>
-<section id="files-and-folders-2" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="files-and-folders-2"><span class="header-section-number">4.6</span> Files and folders</h2>
-<p><strong>Main points</strong></p>
-<ul>
-<li>Use a strict folder structure you can handle – make a template!</li>
-<li>Use relational folder paths if possible</li>
-<li>Use human-readable files only if possible (txt, md, Rmd, csv, etc)</li>
-<li>Only use non-human readable files for ‘<em>final output</em>’ (pdf, docx, xlsx, etc)</li>
-</ul>
 <script src="https://giscus.app/client.js" data-repo="sorenoneill/r4phd" data-repo-id="R_kgDOJ9etDQ" data-category="Announcements" data-category-id="DIC_kwDOJ9etDc4CYApF" data-mapping="pathname" data-strict="0" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="bottom" data-theme="cobalt" data-lang="en" crossorigin="anonymous" async="">
 </script>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1153,6 +683,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <script src="https://giscus.app/client.js" data-repo="sorenoneill/r4phd" data-repo-id="R_kgDOJ9etDQ" data-category="General" data-category-id="DIC_kwDOJ9etDc4CYApG" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./day_1_dplyr.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">dplyr</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./reproducible_research_intro_en.html" class="pagination-link">
+        <span class="nav-page-text">Intro to RRR</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 

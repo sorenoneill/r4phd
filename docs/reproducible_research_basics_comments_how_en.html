@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Steen Flammild Harsted">
+<meta name="author" content="Søren O’Neill">
 <meta name="dcterms.date" content="2023-08-03">
 
-<title>R4phd - quarto documents</title>
+<title>R4phd - Comments - how to</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,8 +66,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./day_1_dplyr.html" rel="next">
-<link href="./day_1_settting_up_your_course_project.html" rel="prev">
+<link href="./reproducible_research_basics_comments_where_en.html" rel="next">
+<link href="./reproducible_research_intro_en.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -122,7 +122,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">English</li><li class="breadcrumb-item">R course exercises</li><li class="breadcrumb-item"><a href="./day_1_basics_of_Rstudio.html">Day 1</a></li><li class="breadcrumb-item"><a href="./day_1_quarto_documents.html">quarto documents</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">English</li><li class="breadcrumb-item">R course exercises</li><li class="breadcrumb-item">Day 4</li><li class="breadcrumb-item"><a href="./reproducible_research_basics_exercises_en.html">RRR</a></li><li class="breadcrumb-item"><a href="./reproducible_research_basics_comments_how_en.html">Comments - how to</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -325,13 +325,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false">
  <span class="menu-text">Day 1</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth3 show">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./day_1_basics_of_Rstudio.html" class="sidebar-item-text sidebar-link">
@@ -352,7 +352,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./day_1_quarto_documents.html" class="sidebar-item-text sidebar-link active">
+  <a href="./day_1_quarto_documents.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">quarto documents</span></a>
   </div>
 </li>
@@ -366,16 +366,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true">
  <span class="menu-text">Day 4</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth3 ">  
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth3 show">  
           <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">RRR</span></span>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="true">
+ <span class="menu-text">RRR</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth4 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reproducible_research_basics_exercises_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Thinking about RRR</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reproducible_research_intro_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Intro to RRR</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reproducible_research_basics_comments_how_en.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Comments - how to</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reproducible_research_basics_comments_where_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comments - where to</span></a>
+  </div>
+</li>
+      </ul>
   </li>
       </ul>
   </li>
@@ -392,11 +423,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul class="collapse">
-  <li><a href="#quarto-documents" id="toc-quarto-documents" class="nav-link active" data-scroll-target="#quarto-documents"><span class="header-section-number">1</span> quarto documents</a></li>
-  <li><a href="#yaml-code" id="toc-yaml-code" class="nav-link" data-scroll-target="#yaml-code"><span class="header-section-number">2</span> YAML code</a></li>
-  <li><a href="#markdown-code" id="toc-markdown-code" class="nav-link" data-scroll-target="#markdown-code"><span class="header-section-number">3</span> Markdown code</a></li>
-  <li><a href="#r-code" id="toc-r-code" class="nav-link" data-scroll-target="#r-code"><span class="header-section-number">4</span> R code</a></li>
+  <ul>
+  <li><a href="#how-to-spefify-comments-in-r-code-and-quarto-markdown" id="toc-how-to-spefify-comments-in-r-code-and-quarto-markdown" class="nav-link active" data-scroll-target="#how-to-spefify-comments-in-r-code-and-quarto-markdown"><span class="header-section-number">1</span> How to spefify comments in R code and Quarto MarkDown</a></li>
   </ul>
 </nav>
     </div>
@@ -405,7 +433,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">quarto documents</h1>
+<h1 class="title">Comments - how to</h1>
 </div>
 
 
@@ -415,7 +443,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Steen Flammild Harsted </p>
+             <p><a href="www.oneill.dk">Søren O’Neill</a> </p>
           </div>
   </div>
     
@@ -432,174 +460,103 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>&nbsp;&nbsp;&nbsp;</p>
-<section id="quarto-documents" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="quarto-documents"><span class="header-section-number">1</span> quarto documents</h2>
-<p><br><br></p>
-<section id="start-a-new-.qmd-document" class="level3">
-<h3 class="anchored" data-anchor-id="start-a-new-.qmd-document">Start a new .qmd document</h3>
-<p>File -&gt; New File -&gt; Quarto Document -&gt;</p>
-<ul>
-<li>Make sure the settings are set to “Document” and “HTML” (both are default settings),</li>
-<li>Uncheck ‘Use visual markdown editor’</li>
-<li>press “Create”</li>
-</ul>
-<p>The document contains three types of code YAML, R, and Markdown code. Take a look at the document and see if you can recognize the sections with R code.</p>
-<ul>
-<li>Save your file (Important: file_name_matters).<br>
-</li>
-<li>Pres “Render” and see what happens.</li>
-</ul>
-<p><br><br></p>
-</section>
-</section>
-<section id="yaml-code" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="yaml-code"><span class="header-section-number">2</span> YAML code</h2>
-<p>YAML (Yet Another Markup Language).<br>
-The YAML code is at the very top of the document. It begins with <code>---</code> and ends with <code>---</code>. It gives instructions to your computer on how it should build your document. You will learn about YAML code later. For now - notice that it is there and forget about it.</p>
-<ul>
-<li>Delete everything in the document except the YAML code</li>
-</ul>
-<p><br><br><br></p>
-</section>
-<section id="markdown-code" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="markdown-code"><span class="header-section-number">3</span> Markdown code</h2>
-<p>Markdown is a simple, text-based language used to style text on the web. You control the display of text by adding non-intrusive symbols: headings are made with hashtags (#), bold text with asterisks (*) or underscores (_), links with brackets and parentheses, among others. It’s quick to learn and write.</p>
-<p><br></p>
-<section id="headlines" class="level3">
-<h3 class="anchored" data-anchor-id="headlines">Headlines</h3>
-<p>Headlines are made using one or more # signs followed by a space<br>
-# Largest headline<br>
-## Second largest headline<br>
-### Third largest headline<br>
-##### Smallest headline possible.</p>
-<ul>
-<li>Practice making different headlines.</li>
-</ul>
-<p><br><br></p>
-</section>
-<section id="bold-and-italic" class="level3">
-<h3 class="anchored" data-anchor-id="bold-and-italic"><strong>Bold</strong> and <em>Italic</em></h3>
-<p>*text* becomes <em>text</em><br>
-**text** becomes <strong>text</strong><br>
-***text*** becomes <strong><em>text</em></strong></p>
-<ul>
-<li>Practice writing something in <em>italics</em> and <strong>bold</strong></li>
-</ul>
-<p><br><br></p>
-</section>
-<section id="new-lines" class="level3">
-<h3 class="anchored" data-anchor-id="new-lines">New lines</h3>
-<p>To break a line in R Markdown and have it appear in your output, use two trailing spaces and then hit return.<br>
-If you want a hard line break end your lines with a <code>\</code></p>
-<ul>
-<li>Practice making line-breaks.</li>
-</ul>
-<p><br><br></p>
-</section>
-<section id="markdown-code-1" class="level3">
-<h3 class="anchored" data-anchor-id="markdown-code-1">Markdown Code</h3>
-<p>You can more about Markdown code <a href="https://quarto.org/docs/authoring/markdown-basics.html">here</a></p>
-<p><br><br><br></p>
-</section>
-</section>
-<section id="r-code" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="r-code"><span class="header-section-number">4</span> R code</h2>
-<p><br><br></p>
-<section id="r-code-chunks" class="level3">
-<h3 class="anchored" data-anchor-id="r-code-chunks">R code chunks</h3>
-<p>Insert a code chunk in your document (Default <code>CTRL+Alt+I</code>)<br>
-If pressing CTRL+Alt+I doesn’t work click Tools -&gt; Command Palette -&gt; and type “Chunk” in the search field</p>
-<p>What you write inside the codechunk will be evaluated as R code.</p>
-<p>Write 2+2 inside the Code chunk you just created, and Render the document.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<section id="how-to-spefify-comments-in-r-code-and-quarto-markdown" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> How to spefify comments in R code and Quarto MarkDown</h1>
+<p>One of the core ideas of R and Quarto MarkDown is to make the code <em>human readable</em> – a concept known as literal programming.</p>
+<p>R+Quarto code is certainly more readable than classic programming languages, but it is unlikely that you are able to write code that is entirely self-explanatory to a human reader … you <em>will</em> need to add comments for future readers (probably yourself!) to understand the code.</p>
+<p><strong>R code</strong></p>
+<p>In R code, you can add a comment using the hashtag #, like this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This is a single-line comment in R code</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ...and there are no multi-line comments: You must add an # for each line</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span> <span class="co"># ...but inline comments are okay</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Quarto</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- This is a single-line comment in markdown --&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">This is a multi-line </span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">comment in markdown</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">--&gt;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>..and inline <span class="co">&lt;!-- comments are okay too --&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-solution
+Important! … the hashtag # has different meaning in R code and in quarto code!
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Your code block should look something like this:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>```{r}</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>2+2</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>As you have just seen, the hashtag # is used to add comments in R code, but in quarto markdown, the hashtag # is used to add level 1 headings, like this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># This is a level 1 heading</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## This is a level 2 heading</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
-<p><br><br></p>
-</section>
-<section id="run-code-chunk" class="level3">
-<h3 class="anchored" data-anchor-id="run-code-chunk">Run Code chunk</h3>
-<p>You don’t need to Render your document in order to see the output of your code.<br>
-Place the cursor inside the code chunk you just made and Click the green triangle (play-sign) in the right side of the code chunk.<br>
-Notice the output in the console.</p>
-<p>R comes with many inbuilt datasets, one of them is the <code>iris</code> dataset.<br>
-Plot the <code>iris</code> dataset.<br>
-Insert a codechunk, and write <code>plot(iris)</code> inside the codechunk.<br>
-Click the green triangle.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-solution
+Exercise #1
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Your code block should look something like this:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>```{r}</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>plot(iris)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Lifehack
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>pressing <code>ALT+Enter</code> will run the current line or selection.<br>
-pressing <code>CTRL+Enter</code> will run the current line or selection and jump to next line.<br>
-pressing <code>CTRL+ALT+C</code> will run the current code chunk (instead of just the current line).</p>
-</div>
-</div>
-<p><br><br></p>
-</section>
-<section id="inline-r-code" class="level3">
-<h3 class="anchored" data-anchor-id="inline-r-code">Inline R code</h3>
-<p>Inline R code allows you to incorporate the results of your R code directly into the text of a document. It is useful because it lets you weave the results of your data analysis directly into your written text, making your documents more reproducible and prevents errors if your data changes.</p>
-<p>Inline R code is written within the text and is surrounded by backticks and includes an “r” at the start. <code>`r  3 + 4`</code> will display the result 7 in the rendered document.</p>
+<p>Look at this, admittedly ugly and pointless Quarto MarkDown document:</p>
+<p><img src="gfx/RR/comments_r_vs_quarto.png" class="img-fluid"></p>
+<p>Discuss the following points with your colleague, before looking at the solution below:</p>
 <ul>
-<li>Use the function <code>nrow()</code> and inline R code to write a sentence that says how many rows the <code>iris</code> dataset has</li>
+<li>Can you identify the comments in the document?</li>
+<li>What would you expect the output to look like?</li>
 </ul>
-<div class="callout callout-style-default callout-tip callout-titled">
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-solution
+Exercise #1 Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>The iris dataset contains <code>`r nrow(iris)`</code> rows</p>
-<p>or</p>
-<p>The iris dataset contains <code>`r iris %&gt;%  nrow()`</code> rows</p>
+<p>Firstly, did you notice the red squiggly lines and the warning symbol in the left margin of line 17? <img src="gfx/RR/comments_r_vs_quarto_warning.png" class="img-fluid">.</p>
+<p>This should tell you, there is a problem with the R code and indeed the code will not run to produce output – can you tell what the problem is? …now click below for the full answer.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise #1 ..the full answer.
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Okay so. Line 17 was not valid R code. The line was actually a <em>single-line markdown comment</em> and it belongs in markdown and <strong>not</strong> inside an R code chunk.</p>
+<p>If we comment out that line with a hashtag # as appropriate for valid R code, we get the following output:</p>
+<p><img src="gfx/RR/comments_r_vs_quarto_output.png" class="img-fluid"></p>
+<p>In other words, only lines 10 and 15 were valid comments.</p>
+<p>Bonus question: Explain how line 20 worked to produce the output it did.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -607,7 +564,6 @@ solution
 </script>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -848,13 +804,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./day_1_settting_up_your_course_project.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Setting up your course project</span>
+      <a href="./reproducible_research_intro_en.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Intro to RRR</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./day_1_dplyr.html" class="pagination-link">
-        <span class="nav-page-text">dplyr</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./reproducible_research_basics_comments_where_en.html" class="pagination-link">
+        <span class="nav-page-text">Comments - where to</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

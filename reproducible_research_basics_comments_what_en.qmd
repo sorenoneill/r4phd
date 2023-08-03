@@ -1,7 +1,5 @@
 ---
-title: "Basics of RRR"
-description: |
-  Basics of Reproducible Research with R (and RStudio).
+title: "Comments - what to"
 author:
   - name: Søren O'Neill
     url: www.oneill.dk
@@ -26,123 +24,15 @@ library(ggplot2)
 library(DiagrammeR)
 ```
 
-# Basics of Reproducible Research with R
-
-<!-- -->
-
-## Comments in R code and Quarto MarkDown
-
-One of the core ideas of R and Quarto MarkDown is to make the code _human readable_ -- a concept known as literal programming. R+Quarto code is certainly more readable than classic programming languages, **but** it is unlikely that you are able to write code that is entirely self-explanatory to a human reader ... you _will_ need to add comments for future readers (yourself!) to understand the code.
-
-**R code**
-
-In R code, you can add a comment using the hashtag \#, like this:
-
-```{r}
-#| echo: true
-#| eval: false
-# This is a single-line comment in R code
-# ...and there are no multi-line comments: You must add an # for each line
-x <- 2 + 2 # ...but inline comments are okay
-
-```
-
-**Quarto** 
-
-```{md}
-#| echo: true
-#| eval: false
-<!-- This is a single-line comment in markdown -->
-<!--
-This is a multi-line 
-comment in markdown
--->
-..and inline <!-- comments are okay too -->
-```
-
-::: {.callout-note collapse=true}
-## Note! ... the hashtag # has different meaning in R code and in quarto code!
-
-As you have just seen, the hashtag \# is used to add comments in R code, but in quarto markdown, the hashtag \# is used to add level 1 headings, like this:
-
-```{md}
-#| echo: true
-#| eval: false
-
-# This is a level 1 heading
-
-## This is a level 2 heading
-```
-:::
-
-
-## Where to put comments?
-
-::: panel-tabset
-
-#### Are these example R comments okay?
-
-```{r}
-#| eval: false
-#| echo: true
-
-# this is definitely okay
-x <- 2 + 2
-
-# ...but is the following okay?
-tibble(x=1:10, y=2:11) %>% # ..Is this okay?
-  filter(y>5 & # How about breaking in the middle..
-  x != 9) # ..of a statement like 'filter'?
-```
-
-
-#### Check out the output...
-
-```{r}
-#|  eval: true
-#|  echo: false
-#|  warning: true
-#|  error: true
-#|  output: true
-
-# this is definitely okay
-x <- 2 + 2
-
-# ...but is the following okay?
-tibble(x=1:10, y=2:11) %>% # ..Is this okay?
-  filter(y>5 & # How about breaking in the middle..
-  x != 9) # ..of a statement like 'filter'?
-```
-
-#### Is it good practice
-
-These comments were syntactically okay ... **BUT** did they make your code **easier** for humans to read?
-
-:::
-
-## Keep it simple!
-
-```{r}
-#| eval: false
-#| echo: true
-# Comment lines before the code
-# can be multiple lines and does
-# not disturb your reading of the
-# code ... best practice!
-
-x <- 2 + 2 # use inline comments sparringly
-y <- x^2 - c(2, 5, 8, 10:14) # ..they are distracting!
-```
-
-## Meaningful comments
+# Meaningful comments
 
 What comments would be relevant here?
 
 ::: panel-tabset
 
-#### ?
+# Question
 
-**Suggest comments for this code... think 'what' and 'why'**
+Suggest comments for this code... think 'what' and 'why'
 
 ```{r eval=FALSE, echo=TRUE}
 # 1
@@ -158,9 +48,9 @@ d <- d %>%
 ```
 
 
-#### !
+# Solution
 
-**Suggestions for meaningful comments**
+Suggestions for meaningful comments
 
 ```{r eval=FALSE, echo=TRUE}
 # ?? comments necessary ??

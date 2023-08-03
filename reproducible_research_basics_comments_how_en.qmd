@@ -1,0 +1,127 @@
+---
+title: "Comments - how to"
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: '`r Sys.Date()`'
+output:
+  distill::distill_article:
+    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+#categories:
+#  - Installation
+creative_commons: CC BY
+format: html
+editor: source
+---
+
+```{r include=FALSE}
+#library(vembedr)
+library(tidyverse)
+library(ggplot2)
+library(DiagrammeR)
+```
+
+# How to spefify comments in R code and Quarto MarkDown
+
+One of the core ideas of R and Quarto MarkDown is to make the code _human readable_ -- a concept known as literal programming. 
+
+R+Quarto code is certainly more readable than classic programming languages, but it is unlikely that you are able to write code that is entirely self-explanatory to a human reader ... you _will_ need to add comments for future readers (probably yourself!) to understand the code.
+
+**R code**
+
+In R code, you can add a comment using the hashtag \#, like this:
+
+```{r}
+#| echo: true
+#| eval: false
+# This is a single-line comment in R code
+# ...and there are no multi-line comments: You must add an # for each line
+x <- 2 + 2 # ...but inline comments are okay
+
+```
+
+**Quarto** 
+
+```{md}
+#| echo: true
+#| eval: false
+<!-- This is a single-line comment in markdown -->
+<!--
+This is a multi-line 
+comment in markdown
+-->
+..and inline <!-- comments are okay too -->
+```
+
+::: {.callout-important collapse=true}
+## Important! ... the hashtag # has different meaning in R code and in quarto code!
+
+As you have just seen, the hashtag \# is used to add comments in R code, but in quarto markdown, the hashtag \# is used to add level 1 headings, like this:
+
+```{md}
+#| echo: true
+#| eval: false
+
+# This is a level 1 heading
+
+## This is a level 2 heading
+```
+:::
+
+::: {.callout-note collapse=true}
+# Exercise #1
+
+Look at this, admittedly ugly and pointless Quarto MarkDown document:
+
+![](gfx/RR/comments_r_vs_quarto.png)
+
+Discuss the following points with your colleague, before looking at the solution below:
+
+* Can you identify the comments in the document?
+* What would you expect the output to look like?
+
+:::
+
+::: {.callout-note collapse=true}
+# Exercise #1 Solution
+
+Firstly, did you notice the red squiggly lines and the warning symbol in the left margin of line 17? ![](gfx/RR/comments_r_vs_quarto_warning.png).
+
+This should tell you, there is a problem with the R code and indeed the code will not run to produce output -- can you tell what the problem is? ...now click below for the full answer.
+
+::: {.callout-note collapse=true}
+# Exercise #1 ..the full answer.
+
+Okay so. Line 17 was not valid R code. The line was actually a _single-line markdown comment_ and it belongs in markdown and **not** inside an R code chunk. 
+
+If we comment out that line with a hashtag \# as appropriate for valid R code, we get the following output:
+
+![](gfx/RR/comments_r_vs_quarto_output.png)
+
+In other words, only lines 10 and 15 were valid comments.
+
+Bonus question: Explain how line 20 worked to produce the output it did.
+
+:::
+
+:::
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
