@@ -233,7 +233,7 @@ In regular expressions `.` is a wildcard.
 
 ## `filter()`
 
-Restart R.\
+Restart R. (Click Session -> Restart R)\
 Load the `tidyverse` and the `here` package
 
 ```{r}
@@ -399,7 +399,7 @@ df %>% filter(Ethnicity == c("Mexican", "Filipino"))
 
 ## `summarise()`
 
-Restart R.\
+Restart R. (Click Session -> Restart R)\
 Load the `tidyverse` and the `here` package
 
 ```{r}
@@ -515,7 +515,7 @@ soldiers %>%
 
 ## `group_by()` and `arrange()`
 
-Restart R.\
+Restart R. (Click Session -> Restart R)\
 Load the `tidyverse` and the `here` package
 
 ```{r}
@@ -560,17 +560,11 @@ soldiers %>%
 
 ### Calcualate the average height for each `Installation` and count the number of missing values within each `Installation`
 
-<details>
+::: {.callout-tip collapse=true}
+#### Hint
+To count missings, use the functions `sum()` and `is.na()`
+:::
 
-<summary>
-
-HINT
-
-</summary>
-
-Use the functions `sum()` and `is.na()`
-
-</details>
 
 ```{r}
 #| eval: false
@@ -584,17 +578,10 @@ soldiers %>%
 
 ### As before, but now also add the number of observations (rows) within each `Installation`
 
-<details>
-
-<summary>
-
-HINT
-
-</summary>
-
+::: {.callout-tip collapse=true}
+#### Hint
 Use `n()`
-
-</details>
+:::
 
 ```{r}
 #| eval: false
@@ -623,7 +610,7 @@ soldiers %>%
 
 ## `mutate()`
 
-Restart R.\
+Restart R. (Click Session -> Restart R)\
 Load the `tidyverse` and the `here` package
 
 ```{r}
@@ -639,8 +626,10 @@ soldiers <- read_csv2(here("raw_data", "soldiers.csv"))
 \
 
 ### Add a column called `heightcm` with the height of the soldiers in cm
-* Update the `soldiers` dataset to with the new variable
+
+* Update the `soldiers` dataset with the new variable
 * place the new variable after `Heightin`
+
 ```{r}
 #| output: false
 soldiers <- soldiers %>% 
@@ -652,22 +641,25 @@ soldiers <- soldiers %>%
 \
 
 ### Update the `weightkg` column to kg instead of kg*10
-* Update the `soldiers` dataset to with the new variable
-* place the new variable after `weightkg`
+
+* Update the `soldiers` dataset with the new `weightkg` column
+
 ```{r}
 #| output: false
 soldiers <- soldiers %>% 
   mutate(
-    weightkg = weightkg/10,
-    .after = weightkg)
+    weightkg = weightkg/10
+    )
 ```
 
 \
 
 ### Add a column called `BMI` with the Body mass index (BMI) of the soldiers
 [BMI](https://en.wikipedia.org/wiki/Body_mass_index)
+
 * Update the `soldiers` dataset to with the new variable
 * place the new variable after `weightkg`
+
 ```{r}
 #| output: false
 soldiers <- soldiers %>% 
@@ -683,6 +675,14 @@ soldiers <- soldiers %>%
 soldiers %>% 
   mutate(
     obese = if_else(BMI > 30, TRUE, FALSE),
+    .before = 1 # This line code just places the variable at the front
+  )
+
+# OR
+
+soldiers %>% 
+  mutate(
+    obese = BMI > 30,
     .before = 1 # This line code just places the variable at the front
   )
 ```
@@ -708,15 +708,17 @@ tibble::tribble(                          ~Category, ~`BMI (kg/m^2^)`,
 \
 
 ### Create the variable `category` that tells us whether the soldiers are "Underweight", "Normal range", "Overweight", or "Obese"
+
 * Update the `soldiers` dataset with the new variable
 * place the new variable after `BMI`\
 
-<details><summary>HINT 1</summary>
+::: {.callout-tip collapse=true}
+#### Hint 1
 Use `case_when()`
-</details>
+:::
 
-<details><summary>HINT 2</summary>
-Hint: See the code to get you started
+::: {.callout-tip collapse=true}
+#### Hint 2
 
 ```{r}
 #| eval: false
@@ -726,10 +728,10 @@ soldiers %>%
     category = ????
     )
 ```
-</details>
+:::
 
-<details><summary>HINT 3</summary>
-See more code to get you started
+::: {.callout-tip collapse=true}
+#### Hint 3
 
 ```{r}
 #| eval: false
@@ -740,12 +742,11 @@ soldiers %>%
       #TEST HERE ~ OUTPUT, 
       #TEST HERE ~ OUTPUT,
       #TEST HERE ~ OUTPUT,
-      #TRUE ~ OUTPUT
+      #.default = OUTPUT
     )
     )
 ```
-
-</details>
+:::
 
 ```{r}
 #| output: false
@@ -756,7 +757,7 @@ soldiers <- soldiers %>%
       BMI < 25   ~ "Normal range",
       BMI < 30   ~ "Overweight",
       BMI >= 30  ~ "Obese",
-      TRUE ~ NA_character_),
+      .default = NA),
     .after = BMI
     )
 ```
@@ -769,7 +770,7 @@ For simple counting `count()` is faster than `summarise(n = n())` or `mutate(n =
 
 <br><br>
 
-#### What is this code equivalent to?
+### What is this code equivalent to?
 ```{r}
 #| eval: false
 #| code-fold: false
@@ -783,7 +784,7 @@ diamonds %>%
 
 <br><br>
 
-#### What is this code equivalent to?
+### What is this code equivalent to?
 ```{r}
 #| eval: false
 #| code-fold: false
@@ -797,7 +798,7 @@ diamonds %>%
 
 <br><br>
 
-#### What is this code equivalent to?
+### What is this code equivalent to?
 ```{r}
 #| eval: false
 #| code-fold: false
@@ -811,7 +812,7 @@ diamonds %>%
 
 <br><br>
 
-#### What is this code equivalent to?
+### What is this code equivalent to?
 ```{r}
 #| eval: false
 #| code-fold: false
@@ -822,6 +823,30 @@ diamonds %>%
 <details><summary>ANSWER</summary>
 `add_count()` works like `mutate(n = n())`
 </details>
+
+<br><br>
+
+### Count the number of diamonds within each type of `cut` and calculate the percentage of each cut
+```{r}
+diamonds %>% 
+  count(cut) %>% 
+  mutate(percent = n/sum(n)*100)
+```
+
+
+<br><br>
+
+### Whats wrong with this code?
+```{r}
+#| output: false
+#| code-fold: false
+diamonds %>% 
+  group_by(cut) %>% 
+  count() %>% 
+  mutate(percent = n/sum(n)*100)
+```
+
+
 
 
 

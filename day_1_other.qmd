@@ -20,10 +20,12 @@ execute:
 
 # Other important functions for data wrangling.
 
-In this section we will explore a few other functions that you most likely are going to need.
+In this section we will explore a few other functions that you most likely are going to need. 
 
--   `_join()`
--   `pivot_wider()` and `pivot_longer()`
+
+-  `pivot_wider()` and `pivot_longer()`
+-  `_join()`
+-  `across()`
 
 <br><br><br><br><br><br><br><br>
 
@@ -49,6 +51,8 @@ In long format, the data is structured such that each row is a unique observatio
 The long format, also known as "tidy" data, provides a systematic and consistent structure, allowing us to work with data more effectively. Plus, many functions and packages in R, such as the popular ggplot2 for data visualization, are designed to work optimally with this long format.
 
 But how do we move from wide format to long format? And vice versa? This is where the `pivot_longer()` and `pivot_wider()` functions from the tidyverse in R come into play.
+
+<br>
 
 ### Run the code below and explore the dataset that it creates
 
@@ -86,9 +90,11 @@ weight_data <- tibble(
 weight_data
 ```
 
+<br><br>
+
 ### What is the mean weight of men and women at the different time-points?
 
-***This exercise is only here to show you how troublesome it can be to work with data in a wide format. You don't need to write all the code.***
+*This exercise is only here to show you how troublesome it can be to work with data in a wide format. You don't need to write all the code.*
 
 ```{r}
 #| output: false
@@ -100,9 +106,13 @@ weight_data %>%
             )
 ```
 
+<br><br>
+
 ## `pivot_longer`
 
 The `pivot_longer()` function takes wide format data and makes it longer by increasing the number of rows and decreasing the number of columns. For example, it can take our weight data from multiple columns (weightkg_week0, weightkg_week10) and collapse them into two columns: one for weight and one for timepoint.
+
+<br><br>
 
 ### Read the help file for `pivot_longer()`
 
@@ -116,16 +126,16 @@ The `pivot_longer()` function takes wide format data and makes it longer by incr
 -   What does this line in the help file mean?
 
     *cols \<tidy-select\> Columns to pivot into longer format.*
-    
+::: {.callout collapse=true}
+#### Answer
+This means that you use all the [tidyselect](https://tidyselect.r-lib.org/) functions that you also use with select() when you tell R what columns you to pivot into a longer format.
+:::
+
 -   What does the `names_to` and `values_to` arguments do?
 
-```{r}
-#| output: false
-#| eval: false
-# This means that you use all the functions that you also use with select() when you tell R what columns you to pivot into a longer format.
-```
 
-<br>
+
+<br><br>
 
 ### Create a long version of `weight_data` called `weight_data_long`
 ```{r}
@@ -135,6 +145,8 @@ weight_data_long <- weight_data %>%
 
 weight_data_long
 ```
+
+<br><br>
 
 ### Try again, but this time use the names_to and values_to arguments to make names for the new columns
 
@@ -149,6 +161,8 @@ weight_data_long
 
 We will fix the values in the `week` column later. For now we are happy with the long data format.
 
+<br><br>
+
 ### What is the mean and standard deviation of weight of men and women at the different time-points?
 * assign you results to an object called `weight_data_long_sum`
 ```{r}
@@ -160,10 +174,13 @@ weight_data_long_sum <- weight_data_long %>%
 weight_data_long_sum
 ```
 
+<br><br><br><br>
+
 ## `pivot_wider()`
 
 The `pivot_wider()` function takes long format data and makes it wider by decreasing the number of rows and increasing the number of columns. For instance, it can spread our long format weight data back into multiple columns for each week's weight.
 
+<br><br>
 
 ### Read the help file for `pivot_wider()`
 
@@ -174,6 +191,8 @@ The `pivot_wider()` function takes long format data and makes it wider by decrea
 ?pivot_wider
 ```
 
+<br><br>
+
 ### Make `weight_data_long_sum` wider using the `week` variable
 
 ```{r}
@@ -182,6 +201,7 @@ weight_data_long_sum %>%
               values_from = mean)
 ```
 
+<br><br>
 
 ### Make `weight_data_long_sum` wider using the `sex` variable
 
@@ -191,8 +211,11 @@ weight_data_long_sum %>%
               values_from = mean)
 ```
 
+<br><br>
 
 ## More examples of `pivot_wider()` and `pivot_longer()`
+
+<br><br>
 
 ### Tidy the simple tibble below.
 
@@ -219,7 +242,7 @@ preg %>%
   pivot_longer(c(male, female), names_to = "sex", values_to = "count")
 ```
 
-\
+<br><br>
 
 ### Use `table2` for this exercise
 
@@ -236,9 +259,33 @@ table2 %>%
               values_from = count)
 ```
 
-
+<br><br><br><br>
 
 ## `_join()`
+
+The join functions in the dplyr package in R are used to combine two dataframes based on a shared key (or set of keys). There are several types of joins, each with their own use cases:
+
+*  `inner_join()`: This returns only the rows in which the key exists in both dataframes.
+
+*  `left_join()`: This returns all the rows from the first (left-hand) dataframe, and any rows from the second (right-hand) dataframe that match. If there's no match, the columns for the right-hand dataframe will be filled with NA.
+
+*  `right_join()`: This is the reverse of left_join(). It returns all the rows from the second (right-hand) dataframe, and any rows from the first (left-hand) dataframe that match. If there's no match, the columns for the left-hand dataframe will be filled with NA.
+
+*  `full_join()`: This returns all rows from both dataframes. If there's no match, the columns for the other dataframe will be filled with NA.
+
+*  `semi_join()`: This returns all rows from the first (left-hand) dataframe where there are matching values in the second dataframe, but it doesn't add any columns from the second dataframe.
+
+*  `anti_join()`: This returns all rows from the first (left-hand) dataframe where there are not matching values in the second dataframe. It also doesn't add any columns from the second dataframe.
+
+
+These functions are essential tools for merging and manipulating data in R, allowing you to effectively combine and cross-reference information from multiple dataframes.
+
+<br><br>
+
+Read the slides from Day 1 to see code examples.
+
+<br><br>
+
 
 Run this code to get example data
 
@@ -254,7 +301,7 @@ B <- tibble(id = 1:6,
 
 ```
 
-<br>
+<br><br>
 
 #### What rows doesnt match between A and B
 
@@ -264,7 +311,7 @@ anti_join(A, B)
 anti_join(B, A)
 ```
 
-<br>
+<br><br>
 
 #### What will be the results of the below code
 
@@ -274,7 +321,7 @@ anti_join(B, A)
 semi_join(A, B)
 ```
 
-<br>
+<br><br>
 
 #### Keep all rows in A and all columns from A and B
 
@@ -283,7 +330,7 @@ semi_join(A, B)
 left_join(A, B)
 ```
 
-<br>
+<br><br>
 
 #### Keep all rows and all columns from both A and B, and sort by id
 
@@ -293,7 +340,7 @@ full_join(A,B) %>%
   arrange(id)
 ```
 
-<br>
+<br><br>
 
 #### Calculate the average order value
 
@@ -304,7 +351,7 @@ full_join(A,B) %>%
     avg_order_value = total_order_value/nr_of_orders) 
 ```
 
-<br>
+<br><br>
 
 #### Calculate the mean of the average order value for males and females
 
@@ -320,3 +367,156 @@ full_join(A,B) %>%
 ```
 
 <br><br><br><br><br><br><br><br>
+
+## `across()`
+
+Restart R
+Load the `tidyverse` and the `here` package
+```{r}
+library(tidyverse)
+library(here)
+```
+
+Load the soldiers data set and assign it to an object called soliders
+```{r}
+soldiers <- read_csv2(here("raw_data", "soldiers.csv"))
+```
+
+
+
+The `across()` function is part of the `dplyr` package in R and is used for applying a function (or functions) across multiple columns in a dataframe. 
+
+across() is particularly useful when you want to perform the same operation on multiple columns but don't want to write out each operation individually. It works in combination with mutate() and summarise().  
+
+Very importantly the .cols argument allows you to use the [tidyselect](https://tidyselect.r-lib.org/) functions that you are now familiar with.
+
+Here's a basic example of its usage.
+
+Let's say we want to take the mean of `weightkg` and `earlength` in the `soldiers` dataframe.
+```{r}
+#| code-fold: false
+#| output: false
+soldiers %>% 
+  summarise(across(
+    .cols = c("weightkg", "earlength"),  # What columns to target
+    .fns = mean)                         # What function to apply - Notice that mean is not written round()
+    )
+```
+
+You can see that the mean of `weightkg` is `NA`. This is because is has missings values and `mean()` defaults to `na.rm = FALSE`. If we want to change this, we have to write a slightly more complicated code. In the following code you will find two new things:  
+
+*  `~`  You tell R - "I am going to show you a function"
+*  `.x` You tell R - "Put the column that you have selected here" 
+```{r}
+#| code-fold: false
+#| output: false
+
+soldiers %>% 
+  summarise(across(
+    .cols = c("weightkg", "earlength"),  # What columns to target
+    .fns = ~ mean(.x, na.rm = TRUE))     # What function to apply
+    )
+```
+
+`.x` can also be used outside of a function. Lets say we want to double all the values instead of taking the mean
+
+```{r}
+#| code-fold: false
+#| output: false
+
+soldiers %>% 
+  mutate(across(                         # Notice now we use mutate() instead of summarise()
+    .cols = c("weightkg", "earlength"),  # What columns to target
+    .fns = ~ .x * 2                           
+    )) 
+```
+
+<br><br>
+
+### Change all circumference columns in the `soldiers` dataframe and change their values from cm to inches
+
+```{r}
+soldiers %>% 
+  mutate(across(
+    .cols = contains("circumference"), 
+    .fns = ~.x *0.393701))
+```
+
+
+<br><br>
+
+### `.cols = where(is.[column_type])`
+
+You can also target columns based on their type (logical, double, character, factor, numeric). Using the functions `is.logical()`, `is.double()`, etc.. However, you need to use them inside the function `where()`
+
+In this example, we change all character columns to factors (You will learn about the column types on day 3). `where(is.character)` selects the columns where the condition is true (i.e., the column is character), and `as.factor` is the function that gets applied to these columns. As a result, all character columns get converted to factor.
+
+```{r}
+#| code-fold: false
+#| output: false
+
+soldiers %>% 
+  mutate(across(
+    .cols = where(is.character), # What columns to target - notice is.character is not written is.charater()
+    .fns = as.factor             # What function to apply - notice as.factor is written without ()                           
+    )) 
+```
+
+<br><br>
+ 
+### Target all numeric columns in the `soldiers` dataframe and add 1.5
+```{r}
+soldiers %>% 
+  mutate(
+    across(
+      .cols = where(is.numeric),
+      .fns = ~.x+1.5
+    )
+  )
+```
+
+<br><br>
+
+### Challenge... Standardise all numeric columns in the `soldiers` dataframe
+
+Standardizing a variable is a statistical process that transforms the variable's values to have a mean of 0 and a standard deviation of 1. This is often used often used within machinelearning.
+
+The most common way of standardizing a values is to subtract the mean from each value and divide by the standard deviation. 
+
+The standard score (or z-score) of a value x is calculated as:
+
+$$z = (x - μ) / σ$$
+
+::: {.callout-tip collapse=true}
+#### Hint
+If we would target just a single columns the code could be
+
+```{r}
+#| output: false
+#| code-fold: false
+soldiers %>% 
+  mutate(
+    weightkg = (weightkg-mean(weightkg, na.rm = TRUE))/sd(weightkg, na.rm=TRUE)
+  )
+```
+
+:::
+
+```{r}
+#| output: false
+#| code-fold: true
+#| code-summary: "Show me the code"
+soldiers %>% 
+  mutate(
+    across(
+      .cols = where(is.numeric),
+      .fns = ~(.x - mean(.x, na.rm = TRUE))/sd(.x, na.rm = TRUE)
+    )
+  )
+```
+
+
+<br><br>
+
+### Learn more about `across()`
+`across()` can do much more than this.  For instance, it can invoke multiple functions simultaneously in a single call, like calculating the mean and standard deviation of chosen variables. Or change the names of the newly created columns. Read more [here](https://dplyr.tidyverse.org/reference/across.html)
