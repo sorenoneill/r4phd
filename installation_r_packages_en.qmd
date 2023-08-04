@@ -32,6 +32,12 @@ Some of these packages have a very specific and narrow forus -- e.g. Steen Harst
 
 There are just a few technicalities about R packages, that you need to understand:
 
+### Windows trouble ... RTools
+
+To install certain R packages on Windows operating systems, you need to install a program called _RTools_. You can read more about RTools at (this link)[https://cran.r-project.org/bin/windows/Rtools/rtools42/rtools.html] which includes links to the RTools installer and a more detailed tutorial.
+
+**Please note**, that this has previously presented problems for those using SDU issued computers, thus check to see if RTools is available through the SDU IT Software Center.
+
 ### Versions
 
 R packages are specific to the underlying version of R -- when a new version of R is published it may take some time for package developers to update their packages. In other words, depending on the packages you make use of, it is not always a good idea to run the absolute latest release of R, but this is mostly an issue if you used 'niche' packages.

@@ -1,0 +1,128 @@
+---
+title: "R4phd"
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: "05-31-2022"
+output:
+  distill::distill_article:
+    self_contained: false
+#categories:
+#  - Dansk
+creative_commons: CC BY
+format: html
+editor: source
+---
+
+[![](gfx/union_jack.png)](index_en.qmd){fig-align="left"} Click to switch to English
+
+> Dette web sted er tilgængelig på både dansk og engelsk. <br> Læg venligst mærke til _Indholdsfortegnelsen_ i venstre side, hvor du finder siderne organiseret under 'Dansk' og 'English'. 
+
+## Velkommen til R4phd
+
+Det var tanken med denne webside at danne basis for almindelig '_klasseværelses_' undervisning i brugen af R, RStudio og resten af R-økosystemet. Mest med tanke for PhD kurser og med udgangspunktet i Sundhedsvidenskab på Syddansk universitet i Odense.
+
+Der findes i forvejen et overflødighedshorn af vejledninger, eksempler, videoer, FAQ's og mere rundt omkring på internettet, men det kan være svært at  finde rundt i _og_ det er overvejende på Engelsk.
+
+<hr>
+
+Du kan starte ved at kigge i indholdsfortegnelsen i fold-ud menuen (øverst til venstre).
+
+::: {.callout-note collapse=true}
+
+## Sådan bruger du hjemmesiden
+
+## Styresystem -- Windows, MacOS eller Linux?
+
+Undervisningsmaterialet her på siden er lavet på en Linux computer.
+
+Hvis du bruger Microsoft Windows eller Apple MacOS må du derfor forvente at mine video eksempler ser lidt anderledes ud end de gør på din egen skærm. 
+
+Det burde ikke give anledning til problemer da R og RStudio fungerer fint og næsten ens på alle tre styresystemer, men der hvor jeg er bekendt med forskelle mellem styresystemerne vil jeg gøre opmærksom på det med tre forskellige faneblade på denne måde (klik på den relevante fane):
+
+::: panel-tabset
+
+### Windows
+
+...Windows specifikt indhold
+
+### MacOS
+
+...MacOS specifikt indhold
+
+### Linux
+
+...Linux specifikt indhold
+
+::: 
+
+## Øvelser
+
+Nogle steder vil du finde små øvelser placeret i fold-ud bokse som denne her.
+
+Klik på fold-ud boksen herunder:
+
+:::{.callout-note collapse=true}
+
+### Øvelse #1
+
+**Hvis der er forskelle mellem Windows, MacOS og Linux, vil du kunne finde den relevante information:**
+
+* I et seperat vindue markeret med advarselstrekant 
+* På et af tre faneblade markeret med styresystemet
+* På et postkort på køleskabet i kantinen
+
+:::
+
+... og løsningen placeret i tilsvarende fold-ud bokse.
+
+:::{.callout-note collapse=true}
+
+### Løsning øvelse #1
+
+* ~~I et seperat vindue markeret med advarselstrekant~~
+* **På et af tre faneblade markeret med styresystemet**
+* ~~På et postkort på køleskabet i kantinen~~
+
+:::
+
+## Navigation
+
+Der er flere muligheder for at navigere mellem siderne:
+
+* I venstre side findes et indeks over afsnit og underordnede sider
+* På hver side i et afsnit, vil der nederst være links til forrige og næste side
+* En søge funktion er tilgængelig i øverste højre hjørne
+
+## Kommentarer og spørgsmål
+
+Det er muligt at efterlade kommentarer, forslag og spørgsmål nederst på hver side -- hjælp venligst med til at forbedre indholdet på R4PhD i kommentar felterne:
+
+* Du skal bruge en [github](GitHub) konto, som kan oprettes gratis og som formentligt vil vise sig nyttig i fremtiden.
+* Bemærk også, at da siderne her på R4PhD er skrevet parvist på dansk og engelsk, vil kommentarer vises på begge sider -- hvis det er muligt så skriv derfor alle kommentarer på engelsk.
+
+Vi anbefaler også at bruge [Stack Overflow](https://stackoverflow.com/) som indgangspunkt til R's internet samfund (online community) når du får brug for hjælp. Vi har oprettet en [Stack Overflow for Teams](https://stackoverflowteams.com/c/r4phd/questions) gruppe specifikt til denne undervisning, men brug bare det overordnede Stack Overflow. Du vil opdage at du nok skal få hjælp dér, _meget_ hurtigt hvis du kan formulere dine spørgsmål klart og tydeligt.
+
+Det er muligt at oprette en separat konto ved Stack Overflow, men du kan også logge ind dér med den GitHub konto du netop (?) har oprettet. Alternativt kan du også logge en med en Google eller Facebook konto.
+
+Vi har (indtil videre) besluttet, at bruge [Stack Overflow for Teams](https://stackoverflowteams.com/c/r4phd/questions) som platform for kommentarer og spørgsmål.
+
+Det er muligt at oprette en konto ved Stack Overflow, eller at logge ind med en Google, Github eller Facebook konto, hvis man har sådan én i forvejen.
+
+:::
+
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>

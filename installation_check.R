@@ -53,7 +53,7 @@ if (rstudio_version > "2023") {
 }
 
 all_installed_packages <- .packages(all.available = TRUE)
-recommended_packages <- c("tidyverse", "here", "skimr", "gt", "gtExtras", "gtsummary", "patchwork", "naniar", "reprex", "colourpicker", "colorspace", "ggstatsplot", "easystats", "vroom")
+recommended_packages <- c("tidyverse", "here", "skimr", "gt", "gtExtras", "gtsummary", "patchwork", "naniar", "reprex", "ggstatsplot", "easystats", "vroom")
 
 for (p in recommended_packages) {
   if (p %in% all_installed_packages) {

@@ -1,0 +1,135 @@
+---
+title: "Check all is OK"
+description: "Is everything in place before your R course?"
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: today
+output:
+  distill::distill_article:
+    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+#categories:
+#  - English
+#  - Installation
+creative_commons: CC BY
+format: html
+editor: source
+---
+
+# Check your R installation
+
+Assuming you now have a working installation of R and RStudio, do the following:
+
+::: {.callout-note collapse=true}
+## Show me how to
+
+![](gfx/run_installation_check_script.gif)
+:::
+
+**1. First unfold the call-out box below ('Installation checker')**
+
+**2. Next copy the code presented in the code listing by clicking the clip-board icon in the right hand corner of the code listing filed, which appears on mouse-over**
+
+**3. Close the call-out box again**
+
+::: {.callout-note collapse=true}
+# Installation checker
+
+```{r, echo=TRUE, eval=FALSE}
+# This script is intented to test whether the basic
+# requirements for an R-installation is met, prior
+# to taking part in the R4PHD courses.
+
+### Operating system
+
+sys_name <- Sys.info()[['sysname']]
+sys_version <- Sys.info()[['release']]
+sys_machine <- Sys.info()[['machine']]
+
+if (sys_name %in% c("Linux", "MacOS", "Windows")) {
+  print(paste0("[OK] Your operating system is ", sys_name, " (version ", sys_version,")"))
+} else {
+  print(paste0("[WARNING] Your operating system is reported as '", sys_name, "'. 'Linux', MacOS' or 'Windows' was expected."))
+}
+
+### CPU architecture
+
+if (sys_machine %in% c("x86_64", "amd64", "arm64", "x86-64")) {
+  print("[OK] You computer has a 64 bit CPU")
+} else if (sys_machine %in% c("i386", "i586", "i686")) {
+  print("[WARNING] You computer has an older 32 bit CPU")
+} else {
+  print(paste0("[WARNING] You computer is reported as ",sys_machine," ... not what was expected."))
+}
+
+### R version
+
+r_version_major <- R.Version()[['major']]
+r_version_string <- R.Version()[['version.string']]
+
+if (r_version_major >= "4") {
+  print(paste0("[OK] R installation is: ", r_version_string))
+} else {
+  print(paste0("[WARNING] An R version 4.x.x is recommended. You installation is ", r_version_string))
+}
+
+### RStudio version
+
+rstudio_type <- rstudioapi::versionInfo()$mode
+rstudio_version <- rstudioapi::versionInfo()$version
+
+if (rstudio_type == "desktop") {
+  print("[OK] The RStudio installation is 'desktop'")
+} else {
+  print(paste0("[WARNING] The RStudio installation is '", rstudio_type,"'. Version 'desktop' is recommended!"))
+}
+
+if (rstudio_version > "2023") {
+  print(paste0("[OK] The RStudio version is ",rstudio_version))
+} else {
+  print(paste0("[WARNING] The RStudio version is ",rstudio_version, ". Version 2023+ was expected."))
+}
+
+all_installed_packages <- .packages(all.available = TRUE)
+recommended_packages <- c("tidyverse", "here", "skimr", "gt", "gtExtras", "gtsummary", "patchwork", "naniar", "reprex", "ggstatsplot", "easystats", "vroom")
+
+for (p in recommended_packages) {
+  if (p %in% all_installed_packages) {
+    print(paste0("[OK] '", p, "' (package) is installed."))
+  } else {
+    print(paste0("[WARNING] '", p, "' (package) is NOT installed."))
+  }
+}
+
+
+```
+:::
+
+**4. Open RStudio**
+
+**5. Create a new, empty R Script by keyboard: CTRL-SHIFT-n or menu: File / New File / R Script**
+
+**6. Paste the code into the empty document**
+
+**7. Execute all the code by keyboard: CTRL-SHIFT-s, or menu: Code / Source or mouse: click 'Source' in the top-right hand corner of the text editor panel.**
+
+**8. Examine the output in the Console**
+
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>

@@ -32,8 +32,12 @@ editor: source
     -   MacOS10.15+
 -   En fungerende internetforbindelse
 
+Hvis du er i tvivl _eller_ din computer blev udleveret af SDU, SLB, eller OUH, så se venligst herunder:
+
 :::{.callout-note collapse=true}
 ## Sådan kan du finde information om din computer
+
+Hvis du allerede har en fungerende installation af R kan du bruge [denne R kode](installation_check_da.qmd) til at udskrive al relevant information om din computer og dens software.
 
 ::: panel-tabset
 ### Windows
@@ -44,13 +48,15 @@ editor: source
 
 ### MacOS
 
-...MacOS specifikt indhold
+[MacOS](https://support.apple.com/guide/mac-help/get-system-information-about-your-mac-syspr35536/mac)
 
 ### Linux
 
-#### Debian based distribution
+Hvis du kører Linux ved du garanteret al den slags i forvejen, inklusive din RAMs clock-frekvens og ext4's blok størrelse, men hvis ikke:
 
-Run the following in a terminal, to get information about your operating system (uname), your hardware (lscpu) and disk space (df):
+#### Debian baseret distribution
+
+Kør følgende i en konsol:
 
 ```
 $ uname -a
@@ -58,9 +64,9 @@ $ lscpu
 $ df -h
 ```
 
-#### Red Hat based distribution
+#### Red Hat baseret distribution
 
-Run the following in a terminal, to get information about your operating system (hostnamectl), your hardware (lscpu) and disk space (df):
+Kør følgende i en konsol:
 
 ```{} 
 $ hostnamectl
@@ -68,6 +74,11 @@ $ lscpu
 $ df -h
 
 ```
+
+#### Gentoo, Arch, mm?
+
+Du har helt sikkert ikke brug for hjælp her ...
+
 
 :::
 
@@ -89,6 +100,13 @@ Aktuelt (sommeren 2022) vil jeg anbefale at du bruger R version 4.x.x og RStudio
 :::
 
 ::: {.callout-important  collapse="true"}
+## Er din computer forbundet til et institutions netværk drev?
+
+Bemærk, at hvis din computer er sat op til at bruge din institutions netværks drev (f.eks Microsoft OneDrive) i modsætning til at bruge dens egen lokale harddisk, så vil tingene køre langsommere ... det vil stadigvæk køre, men bare langsommere pga netværks trafikken.
+
+:::
+
+::: {.callout-important  collapse="true"}
 ## Er din computer en SDU-computer?
 
 Vær særligt opmærksom på at den lokale IT afdeling på regionens sygehuse og universiteterne kan have lagt begrænsinger på dine muligheder for at installere programmer på din arbejdscomputer:
@@ -101,6 +119,8 @@ Hvis det er tilfældet kan det gøre det sværere at installere eksempelvis R p�
 Det er en god idé at få styr på det *før* du sidder til undervisning. Igen fordi du ellers risikerer du at bruge al din undervisningstid på at kæmpe med computeren i stedet for at lege med R.
 
 ...og vi (underviserne) kan hjælpe dig med R-økosystemet, men ikke nødvendigvis med din computer eller dit styresystem.
+
+På en SDU computer, er det nemmest hvis du kan installere softwaren via SDU IT Software Center.
 
 :::
 
@@ -119,12 +139,27 @@ Det er en god idé at få styr på det *før* du sidder til undervisning. Igen f
 
 ...og vi (underviserne) kan hjælpe dig med R-økosystemet, men ikke nødvendigvis med din computer eller dit styresystem.
 
+Bemærk, at hvis du er på regionens netværk er der spærret for adgang til en lang række internet ressourcer -- du kan med fordel logge på "Gæstenet" i stedet.
+
 :::
 
 ::: {.callout-important  collapse="true"}
 ## Er din computer en OUH-computer?
 
-tekst
+Enkelte OUH ansatte har tidligere fået anvist adgang til en server-baseret R/RStudio løsning, istedet for installation på din egen computer -- det fungerer **ikke** godt. Vi anbefaler klart, en lokal installation på harddisken.
+
+Vær særligt opmærksom på at den lokale IT afdeling på regionens sygehuse og universiteterne kan have lagt begrænsinger på dine muligheder for at installere programmer på din arbejdscomputer:
+
+-   Er der spærret for adgangen til hjemmesider eller download af programfiler?
+-   Kræver det særlige rettigheder at installere programmer på din computer?
+
+Hvis det er tilfældet kan det gøre det sværere at installere eksempelvis R på din computer.
+
+Det er en god idé at få styr på det *før* du sidder til undervisning. Igen fordi du ellers risikerer du at bruge al din undervisningstid på at kæmpe med computeren i stedet for at lege med R.
+
+...og vi (underviserne) kan hjælpe dig med R-økosystemet, men ikke nødvendigvis med din computer eller dit styresystem.
+
+Bemærk, at hvis du er på regionens netværk er der spærret for adgang til en lang række internet ressourcer -- du kan med fordel logge på "Gæstenet" i stedet.
 
 :::
 

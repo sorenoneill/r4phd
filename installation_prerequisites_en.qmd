@@ -32,9 +32,13 @@ You'r going to need a computer ...
     -   MacOS10.15+
 -   A working internet connection
 
+If you are in doubt _or_ your computer was issues by SDU, SLB, or OUH, please see below:
+
 :::{.callout-note collapse=true}
 
 ## How to find the information about your computer
+
+If you already have a working installation of R, you can use [this script](installation_check_en.qmd)  to list all the relevant information about your computer and its software.
 
 ::: panel-tabset
 ### Windows
@@ -45,11 +49,13 @@ You'r going to need a computer ...
 
 ### MacOS
 
-...MacOS specific content
+[MacOS](https://support.apple.com/guide/mac-help/get-system-information-about-your-mac-syspr35536/mac)
 
 ### Linux
 
 #### Debian based distributions
+
+If you're running Linux, you probably know all this stuff already, down to the clock speed of your RAM and the block size of ext4, but if not:
 
 Run the following in a terminal, to get information about your operating system (uname), your hardware (lscpu) and disk space (df):
 
@@ -69,6 +75,10 @@ $ lscpu
 $ df -h
 
 ```
+
+#### Gentoo, Arch, or similar?
+
+You definitely do not need any assistance here...
 
 :::
 
@@ -90,6 +100,13 @@ At the time of writting (summer 2022) we reommend you use R version4.x.x and RSt
 :::
 
 ::: {.callout-important  collapse="true"}
+## Are you connected to an institutional network drive
+
+Note, that if your computer is set up to use an institutional network drive (such as Microsoft OneDrive) as opposed to its local harddisk, it may slow things down somewhat ... it will still run, but slower due to the net-traffic overhead.
+
+:::
+
+::: {.callout-important  collapse="true"}
 ## Was your computer supplied by SDU?
 
 Be aware that the local IT department on the Regional Hospitals and the Universiy may impose certain restrictions on your ability to install software on your computer:
@@ -102,6 +119,8 @@ If this is the case, it will impede and slow down your installation of R.
 It is therefor a good idea, to get all of this sorted out _before_ the start of classes. Again, otherwise you risk spending all your class time wrnagling your computer rather than playing with R.
 
 ...and we (the teacher) will gladly help you with the R-ecosystem, but not necessarily your computer or your operating system.
+
+On an SDU issued computer, your best bet is to install software via the SDU IT Software Center.
 
 :::
 
@@ -120,12 +139,25 @@ It is therefor a good idea, to get all of this sorted out _before_ the start of 
 
 ...and we (the teacher) will gladly help you with the R-ecosystem, but not necessarily your computer or your operating system.
 
+
+
 :::
 
 ::: {.callout-important  collapse="true"}
 ## Was your computer supplied by OUH?
 
-text
+Some OUH employees in the past, have been advised to use a server-based R/RStudio solution, in place of a local installation on your computer -- that does **not** work well. We highly recommend a local installation on your own harddrive.
+
+Be aware that the local IT department on the Regional Hospitals and the Universiy may impose certain restrictions on your ability to install software on your computer:
+
+-   Access to some webpages (e.g. CRAN) may be restricted, as may access to download some files from the internet.
+-   Installation of software may require particular administrative rights which you do not have as standard.
+
+If this is the case, it will impede and slow down your installation of R.
+
+It is therefor a good idea, to get all of this sorted out _before_ the start of classes. Again, otherwise you risk spending all your class time wrnagling your computer rather than playing with R.
+
+...and we (the teacher) will gladly help you with the R-ecosystem, but not necessarily your computer or your operating system.
 
 :::
 

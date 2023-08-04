@@ -23,7 +23,7 @@ editor: source
 * En fungerende installation af RStudio
 * Et antal R pakker installeret
 
-På de næste sider, hjælper vi dig igennem punkterne, et af gangen.
+På de næste sider, hjælper vi dig igennem punkterne, et af gangen ... bemærkede du linket nederst til højre på denne side? Følg det link for at komme videre i Installations sektionen.
 
 <script src="https://giscus.app/client.js"
         data-repo="sorenoneill/r4phd"

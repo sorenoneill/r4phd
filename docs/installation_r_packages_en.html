@@ -175,6 +175,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Posit Cloud</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./installation_check_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Check all is OK</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -356,7 +362,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./installation_r_pakker_da.html" class="sidebar-item-text sidebar-link">
+  <a href="./installation_r_packages_da.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Installation af pakker</span></a>
   </div>
 </li>
@@ -364,6 +370,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="./installation_cloud_da.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Posit Cloud</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./installation_check_da.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tjek alt OK</span></a>
   </div>
 </li>
       </ul>
@@ -399,9 +411,10 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#what-is-an-r-package" id="toc-what-is-an-r-package" class="nav-link active" data-scroll-target="#what-is-an-r-package"><span class="header-section-number">1</span> What is an R package?</a>
   <ul class="collapse">
-  <li><a href="#versions" id="toc-versions" class="nav-link" data-scroll-target="#versions"><span class="header-section-number">1.1</span> Versions</a></li>
-  <li><a href="#installating-and-loading-packages" id="toc-installating-and-loading-packages" class="nav-link" data-scroll-target="#installating-and-loading-packages"><span class="header-section-number">1.2</span> Installating and loading packages</a></li>
-  <li><a href="#more-than-one-way-to-install-a-package" id="toc-more-than-one-way-to-install-a-package" class="nav-link" data-scroll-target="#more-than-one-way-to-install-a-package"><span class="header-section-number">1.3</span> More than one way to install a package</a></li>
+  <li><a href="#windows-trouble-rtools" id="toc-windows-trouble-rtools" class="nav-link" data-scroll-target="#windows-trouble-rtools"><span class="header-section-number">1.1</span> Windows trouble … RTools</a></li>
+  <li><a href="#versions" id="toc-versions" class="nav-link" data-scroll-target="#versions"><span class="header-section-number">1.2</span> Versions</a></li>
+  <li><a href="#installating-and-loading-packages" id="toc-installating-and-loading-packages" class="nav-link" data-scroll-target="#installating-and-loading-packages"><span class="header-section-number">1.3</span> Installating and loading packages</a></li>
+  <li><a href="#more-than-one-way-to-install-a-package" id="toc-more-than-one-way-to-install-a-package" class="nav-link" data-scroll-target="#more-than-one-way-to-install-a-package"><span class="header-section-number">1.4</span> More than one way to install a package</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -457,12 +470,17 @@ ul.task-list li input[type="checkbox"] {
 <li>ggpubr – a package which extends ggplot2, aiming to make it easier to produce publication ready plots.</li>
 </ul>
 <p>There are just a few technicalities about R packages, that you need to understand:</p>
-<section id="versions" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="versions"><span class="header-section-number">1.1</span> Versions</h3>
+<section id="windows-trouble-rtools" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="windows-trouble-rtools"><span class="header-section-number">1.1</span> Windows trouble … RTools</h3>
+<p>To install certain R packages on Windows operating systems, you need to install a program called <em>RTools</em>. You can read more about RTools at (this link)[https://cran.r-project.org/bin/windows/Rtools/rtools42/rtools.html] which includes links to the RTools installer and a more detailed tutorial.</p>
+<p><strong>Please note</strong>, that this has previously presented problems for those using SDU issued computers, thus check to see if RTools is available through the SDU IT Software Center.</p>
+</section>
+<section id="versions" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="versions"><span class="header-section-number">1.2</span> Versions</h3>
 <p>R packages are specific to the underlying version of R – when a new version of R is published it may take some time for package developers to update their packages. In other words, depending on the packages you make use of, it is not always a good idea to run the absolute latest release of R, but this is mostly an issue if you used ‘niche’ packages.</p>
 </section>
-<section id="installating-and-loading-packages" class="level3" data-number="1.2">
-<h3 data-number="1.2" class="anchored" data-anchor-id="installating-and-loading-packages"><span class="header-section-number">1.2</span> Installating and loading packages</h3>
+<section id="installating-and-loading-packages" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="installating-and-loading-packages"><span class="header-section-number">1.3</span> Installating and loading packages</h3>
 <p>If you want to make use of an R package, you need to <em>install</em> and <em>load</em> it before it is available.</p>
 <ul>
 <li>When you install a package, it is downloaded from the internet and stored on your harddrive.</li>
@@ -470,8 +488,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>Not until the package is in your computers RAM memory will it be available to your code.</p>
 </section>
-<section id="more-than-one-way-to-install-a-package" class="level3" data-number="1.3">
-<h3 data-number="1.3" class="anchored" data-anchor-id="more-than-one-way-to-install-a-package"><span class="header-section-number">1.3</span> More than one way to install a package</h3>
+<section id="more-than-one-way-to-install-a-package" class="level3" data-number="1.4">
+<h3 data-number="1.4" class="anchored" data-anchor-id="more-than-one-way-to-install-a-package"><span class="header-section-number">1.4</span> More than one way to install a package</h3>
 <p>By far the majority of packages are available online through <a href="https://cran.r-project.org/">the Comprehensive R Archive Network</a> – CRAN.</p>
 <p>If you want to install a CRAN package you can choose to do so via RStudios graphical user interface or via R in an R console. When installing via the R console, you may get some useful information about the installation process, especially if it fails.</p>
 <div class="callout callout-style-default callout-note callout-titled">

@@ -30,6 +30,7 @@ website:
               - installation_rstudio_en.qmd
               - installation_r_packages_en.qmd
               - installation_cloud_en.qmd
+              - installation_check_en.qmd
           - section: "Getting to know RStudio"
             contents:
               - rstudio_introduction_to_gui_1_en.qmd
@@ -64,9 +65,11 @@ website:
               - installation_background_da.qmd
               - installation_r_da.qmd
               - installation_rstudio_da.qmd
-              - href: installation_r_pakker_da.qmd
+              - href: installation_r_packages_da.qmd
                 text: "Installation af pakker"
               - installation_cloud_da.qmd
+              - href: installation_check_da.qmd
+                text: "Tjek alt OK"
           - section: "Lær RStudio at kende"
             contents:
               - rstudio_introduction_to_gui_1_da.qmd
