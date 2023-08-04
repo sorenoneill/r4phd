@@ -17,24 +17,6 @@ website:
     style: "docked"
     search: true
     contents: 
-      - section: "Dansk"
-        contents:
-          - section: "Installation"
-            contents:
-              - href: installation_quick_preparation_da.qmd
-                text: "Kom i gang"
-              - href: installation_prerequisites_da.qmd
-                text: "Forudsætninger"
-              - installation_ecosystem_da.qmd
-              - installation_background_da.qmd
-              - installation_r_da.qmd
-              - installation_rstudio_da.qmd
-              - href: installation_r_pakker_da.qmd
-                text: "Installation af pakker"
-              - installation_cloud_da.qmd
-          - section: "Lær RStudio at kende"
-            contents:
-              - rstudio_introduction_to_gui_1_da.qmd
       - section: "English"
         contents:
           - section: "Installation"
@@ -70,6 +52,24 @@ website:
                   - reproducible_research_basics_comments_how_en.qmd
                   - reproducible_research_basics_comments_where_en.qmd
                   - reproducible_research_basics_comments_what_en.qmd
+      - section: "Dansk"
+        contents:
+          - section: "Installation"
+            contents:
+              - href: installation_quick_preparation_da.qmd
+                text: "Kom i gang"
+              - href: installation_prerequisites_da.qmd
+                text: "Forudsætninger"
+              - installation_ecosystem_da.qmd
+              - installation_background_da.qmd
+              - installation_r_da.qmd
+              - installation_rstudio_da.qmd
+              - href: installation_r_pakker_da.qmd
+                text: "Installation af pakker"
+              - installation_cloud_da.qmd
+          - section: "Lær RStudio at kende"
+            contents:
+              - rstudio_introduction_to_gui_1_da.qmd
 format:
   html:
     theme: cosmo
