@@ -792,9 +792,21 @@ diamonds %>%
   count(cut)
 ```
 
-<details><summary>ANSWER</summary>
-`count(cut)` works like `group_by(cut) %>% summarise(n = n())`
-</details>
+
+```{r}
+#| code-fold: true
+#| code-summary: "Answer"
+#| eval: false
+
+# The code is equivalent to:
+diamonds %>% group_by(cut) %>% summarise(n = n())
+
+# OR
+
+diamonds %>% summarise(n = n(), .by = cut)
+
+```
+
 
 <br><br>
 
@@ -806,9 +818,23 @@ diamonds %>%
   count(cut, color)
 ```
 
-<details><summary>ANSWER</summary>
-`count(cut)` works like `group_by(cut, color) %>% summarise(n = n())`
-</details>
+
+```{r}
+#| code-fold: true
+#| code-summary: "Answer"
+#| eval: false
+
+# The code is equivalent to:
+diamonds %>% group_by(cut, color) %>% summarise(n = n())
+
+# OR
+
+diamonds %>% summarise(n = n(), .by = c(cut, color))
+
+
+# However, notice that the first solution returns a grouped tibble
+```
+
 
 <br><br>
 
@@ -828,6 +854,7 @@ diamonds %>%
 
 ### Count the number of diamonds within each type of `cut` and calculate the percentage of each cut
 ```{r}
+#| output: false
 diamonds %>% 
   count(cut) %>% 
   mutate(percent = n/sum(n)*100)
@@ -836,9 +863,8 @@ diamonds %>%
 
 <br><br>
 
-### Whats wrong with this code?
+### Inspect the output of this code. What is going wrong?
 ```{r}
-#| output: false
 #| code-fold: false
 diamonds %>% 
   group_by(cut) %>% 
