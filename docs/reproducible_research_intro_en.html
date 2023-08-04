@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Søren O’Neill">
-<meta name="dcterms.date" content="2023-08-03">
+<meta name="dcterms.date" content="2023-08-04">
 <meta name="description" content="Introduction to Reproducible Research with R (and RStudio).">
 
 <title>R4phd - Intro to RRR</title>
@@ -33,7 +33,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./reproducible_research_basics_en.html" rel="next">
+<link href="./reproducible_research_basics_comments_how_en.html" rel="next">
 <link href="./reproducible_research_basics_exercises_en.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -63,10 +63,10 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
-<script src="site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
 <script src="site_libs/viz-1.8.2/viz.js"></script>
 <link href="site_libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
-<script src="site_libs/grViz-binding-1.0.9/grViz.js"></script>
+<script src="site_libs/grViz-binding-1.0.10/grViz.js"></script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -367,8 +367,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./reproducible_research_basics_en.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Basics of RRR</span></a>
+  <a href="./reproducible_research_basics_comments_how_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comments - how to</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reproducible_research_basics_comments_where_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comments - where to</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reproducible_research_basics_comments_what_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comments - what to</span></a>
   </div>
 </li>
       </ul>
@@ -425,7 +437,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 3, 2023</p>
+      <p class="date">August 4, 2023</p>
     </div>
   </div>
   
@@ -459,8 +471,8 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="1.3" class="anchored" data-anchor-id="levels-of-research-reproducibility"><span class="header-section-number">1.3</span> Levels of research reproducibility</h2>
 <div class="cell" data-paged.print="false">
 <div class="cell-output-display">
-<div id="htmlwidget-a093d6c4e5e72df34f48" style="width:100%;height:464px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-a093d6c4e5e72df34f48">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10, graph_attrs = \"rankdir = LR\"]\n\n  # several \"node\" statements\n  mm [label = \"Methods and materials\", shape = plaintext, fontcolor=\"Plum\"]\n  basic [label = \"Basic RR\", shape = plaintext, fontcolor=\"Plum\"]\n  workflow [label = \"Workflow RR using R\", shape = plaintext, fontcolor=\"MediumOrchid\"]\n  product [label = \"Product documentation (**)\", shape = plaintext, fontcolor=\"DarkViolet\"]\n  process [label = \"Process documentation\", shape = plaintext, fontcolor=\"Indigo\"]\n\n  # several \"edge\" statements\n  process -> product -> workflow -> basic -> mm [dir = \"back\"]\n  \n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-3ab77314813d0dc52246" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-3ab77314813d0dc52246">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10, graph_attrs = \"rankdir = LR\"]\n\n  # several \"node\" statements\n  mm [label = \"Methods and materials\", shape = plaintext, fontcolor=\"Plum\"]\n  basic [label = \"Basic RR\", shape = plaintext, fontcolor=\"Plum\"]\n  workflow [label = \"Workflow RR using R\", shape = plaintext, fontcolor=\"MediumOrchid\"]\n  product [label = \"Product documentation (**)\", shape = plaintext, fontcolor=\"DarkViolet\"]\n  process [label = \"Process documentation\", shape = plaintext, fontcolor=\"Indigo\"]\n\n  # several \"edge\" statements\n  process -> product -> workflow -> basic -> mm [dir = \"back\"]\n  \n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Aim for level four ‘Product documentation’ (**) – Level 5 ‘Process documentation’ can be quite involved and is probably only relevant when many authors collaborate on the same code/data (if it is important to know who did what when, i.e.&nbsp;who screwed up).</p>
@@ -714,8 +726,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./reproducible_research_basics_en.html" class="pagination-link">
-        <span class="nav-page-text">Basics of RRR</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./reproducible_research_basics_comments_how_en.html" class="pagination-link">
+        <span class="nav-page-text">Comments - how to</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

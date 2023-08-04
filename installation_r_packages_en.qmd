@@ -20,7 +20,7 @@ format: html
 editor: source
 ---
 
-## What is an R package
+## What is an R package?
 
 The standard installation of R consists of a set of 'core' functions. In addition to those, it is possible to install a large variety of _packages_ with extra functionality. These packages are developed by the company behind RStudio (Posit), by other companies, universities and by R users ... perhaps, some day you will write and publish an R package too?
 
