@@ -553,43 +553,43 @@
     "text": "2 A note about “Free and Open Source Software” (FOSS)\nThe R-ecosystem is developed and released as Free and Open Source Software and as such it is freely available to download from the internet at no monetary cost.\nThat is a good thing! Not just because of the price tag (free as in ‘free beer’), but most definitely also on principle (free as in ‘free speech’) … principles, which ought to be of particular importance to researcher … and you are herewith urged to read more below:\n\n\n\n\n\n\nMore about FOSS? Click here!\n\n\n\n\n\nFree and Open Source software is developed according to the same principles as the scietific proces; knowledge (software) is developed and released in an open and transparent manner, which allows everyone to examine, criticize and improve on the results, and to develope it further.\nThis is in contrast to closed and proprietary development processes where knowledge (software) is kept hidden behind closed formats which prevent external review, but allows for a profitable business.\nIf you want to know more, you can easily find a lot information about it on the internet … that is, the internet which runs almost exclusively on open source software.\nIf you have funds set aside within your research budget for software and computer equipment, you might consider donating an amount that you find appropriate to e.g. the R projektet."
   },
   {
-    "objectID": "index_en.html",
-    "href": "index_en.html",
+    "objectID": "index.html",
+    "href": "index.html",
     "title": "R4phd",
     "section": "",
     "text": "Klik for at skifte til dansk."
   },
   {
-    "objectID": "index_en.html#welcome-to-r4phd",
-    "href": "index_en.html#welcome-to-r4phd",
+    "objectID": "index.html#welcome-to-r4phd",
+    "href": "index.html#welcome-to-r4phd",
     "title": "R4phd",
     "section": "1 Welcome to R4phd",
     "text": "1 Welcome to R4phd\nThe idea behind this webpage was to form the basis for regular classroom teaching of R, RStudio and the R ecosystem. Primarily with Ph.D. courses based at the University of Southern Denmark in mind.\nYou will find a plethora of guides, examples, videos and FAQs on the internet, but it can be difficult to naviagte and it is not structured for classroom teaching.\n\nYou can start by looking at the table of content in the collapsable menu (top-left hand corner).\n\n\n\n\n\n\nHow to use this website\n\n\n\n\n\n\n2 Operating system – Windows, MacOS or Linux?\nThe teaching material on this site was prepared mainly on a Linux computer.\nIf you use Microsoft Windows or Apple MacOS you should expect things to look sightly different here, from how they appear on your own screen.\nIt should not give rise to any important issues however, as R and RStudio work very well and almost identically on all three operating systems. None-the-less, where I am aware of any real differences between the operating systems, I will illustrate it using three tabs in the following way (click the relevant tab):\n\nWindowsMacOSLinux\n\n\n…Windows specific content\n\n\n…MacOS specific content\n\n\n…Linux specific content\n\n\n\n\n\n3 Exercises\nOn occasion you will find small exercises in collapsible boxes, like this:\n(Click the collapsible box below):\n\n\n\n\n\n\nExercise #1\n\n\n\n\n\nIf there are important differences between Windows, MacOS and Linux, you can find the information relevant to you:\n\nIn a separate window marked by a warning-triangle\nIn one of three tabs marked with the operating system\nOn a postcard on the fridge in the canteen\n\n\n\n\n… and similarly, the solution will be found in a collapsible box:\n\n\n\n\n\n\nSolution to exercise #1\n\n\n\n\n\n\nIn a separate window marked by a warning-triangle\nIn one of three tabs marked with the operating system\nOn a postcard on the fridge in the canteen\n\n\n\n\n\n\n4 Navigation\nThere are several ways to navigate between pages:\n\nIn the left-hand side, you will find a table of content of pages by category\nAt the end of every page in a section, you will find links to the preceding and following pages.\nA search function is available in the top-right hand corner\n\n\n\n5 Comments and questions\nIt is possible to leave comments, suggestions and questions at the end of each page – please help improve the R4PhD content by doing so:\n\nYou will need a github account, which can be created free of charge and which will probably come in handy at later time.\nAlso note, that as pages on the R4PhD site are paired in English and Danish, comments will appear on both pages – stick to English if possible.\n\nWe also recommend using Stack Overflow as great starting point for getting support when you run into trouble. We have created a Stack Overflow for Teams group specifically for this class but, by all means, use the general Stack Overflow community – you will find help is forthcoming very quickly, if you can word your questions succinctly.\nIt is possible to create a separate account in Stack Overflow, or you can just log in using the GitHub account you just created (?) or alternatively a Google or Facebook account."
   },
   {
-    "objectID": "index_en.html#operating-system-windows-macos-or-linux",
-    "href": "index_en.html#operating-system-windows-macos-or-linux",
+    "objectID": "index.html#operating-system-windows-macos-or-linux",
+    "href": "index.html#operating-system-windows-macos-or-linux",
     "title": "R4phd",
     "section": "2 Operating system – Windows, MacOS or Linux?",
     "text": "2 Operating system – Windows, MacOS or Linux?\nThe teaching material on this site was prepared mainly on a Linux computer.\nIf you use Microsoft Windows or Apple MacOS you should expect things to look sightly different here, from how they appear on your own screen.\nIt should not give rise to any important issues however, as R and RStudio work very well and almost identically on all three operating systems. None-the-less, where I am aware of any real differences between the operating systems, I will illustrate it using three tabs in the following way (click the relevant tab):\n\nWindowsMacOSLinux\n\n\n…Windows specific content\n\n\n…MacOS specific content\n\n\n…Linux specific content"
   },
   {
-    "objectID": "index_en.html#exercises",
-    "href": "index_en.html#exercises",
+    "objectID": "index.html#exercises",
+    "href": "index.html#exercises",
     "title": "R4phd",
     "section": "3 Exercises",
     "text": "3 Exercises\nOn occasion you will find small exercises in collapsible boxes, like this:\n(Click the collapsible box below):\n\n\n\n\n\n\nExercise #1\n\n\n\n\n\nIf there are important differences between Windows, MacOS and Linux, you can find the information relevant to you:\n\nIn a separate window marked by a warning-triangle\nIn one of three tabs marked with the operating system\nOn a postcard on the fridge in the canteen\n\n\n\n\n… and similarly, the solution will be found in a collapsible box:\n\n\n\n\n\n\nSolution to exercise #1\n\n\n\n\n\n\nIn a separate window marked by a warning-triangle\nIn one of three tabs marked with the operating system\nOn a postcard on the fridge in the canteen"
   },
   {
-    "objectID": "index_en.html#navigation",
-    "href": "index_en.html#navigation",
+    "objectID": "index.html#navigation",
+    "href": "index.html#navigation",
     "title": "R4phd",
     "section": "4 Navigation",
     "text": "4 Navigation\nThere are several ways to navigate between pages:\n\nIn the left-hand side, you will find a table of content of pages by category\nAt the end of every page in a section, you will find links to the preceding and following pages.\nA search function is available in the top-right hand corner"
   },
   {
-    "objectID": "index_en.html#comments-and-questions",
-    "href": "index_en.html#comments-and-questions",
+    "objectID": "index.html#comments-and-questions",
+    "href": "index.html#comments-and-questions",
     "title": "R4phd",
     "section": "5 Comments and questions",
     "text": "5 Comments and questions\nIt is possible to leave comments, suggestions and questions at the end of each page – please help improve the R4PhD content by doing so:\n\nYou will need a github account, which can be created free of charge and which will probably come in handy at later time.\nAlso note, that as pages on the R4PhD site are paired in English and Danish, comments will appear on both pages – stick to English if possible.\n\nWe also recommend using Stack Overflow as great starting point for getting support when you run into trouble. We have created a Stack Overflow for Teams group specifically for this class but, by all means, use the general Stack Overflow community – you will find help is forthcoming very quickly, if you can word your questions succinctly.\nIt is possible to create a separate account in Stack Overflow, or you can just log in using the GitHub account you just created (?) or alternatively a Google or Facebook account."
