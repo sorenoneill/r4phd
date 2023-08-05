@@ -14,7 +14,7 @@ format: html
 editor: source
 ---
 
-[![](gfx/union_jack.png)](index_en.qmd){fig-align="left"} Click to switch to English
+[![](gfx/union_jack.png)](index.qmd){fig-align="left"} Click to switch to English
 
 > Dette web sted er tilgængelig på både dansk og engelsk. <br> Læg venligst mærke til _Indholdsfortegnelsen_ i venstre side, hvor du finder siderne organiseret under 'Dansk' og 'English'. 
 
