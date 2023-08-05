@@ -47,7 +47,11 @@ library(DiagrammeR)
 
 ## Levels of research reproducibility
 
-```{r flow_dia, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+```{r flow_dia}
+#| eval: false
+#| echo: false
+#| message: false
+#| warning: false
 grViz("
 digraph boxes_and_circles {
 
