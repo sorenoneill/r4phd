@@ -1,0 +1,106 @@
+---
+title: "README.md"
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: '`r Sys.Date()`'
+output:
+  distill::distill_article:
+    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+#categories:
+#  - Installation
+creative_commons: CC BY
+format: html
+editor: source
+---
+
+```{r include=FALSE}
+#library(vembedr)
+library(tidyverse)
+library(ggplot2)
+library(DiagrammeR)
+```
+
+# Commenting your _project_
+
+Maintain a README.md file in each project, _at the root level_
+
+* A simple description of the project purpose (the 'why')
+* People involved
+* Data sources etc
+* List most important components (data and files)
+
+<hr>
+
+Especially important for larger, more complex projects with many data sources, collaborators, etc
+
+## README.md template {.smaller}
+
+```{}
+#| eval: false
+#| echo: true
+# Project title
+
+A subtitle that describes your project, e.g., research question
+
+## Motivation
+
+Motivate your research question or business problem. Clearly explain which problem is solved.
+
+## Method and results
+
+First, introduce and motivate your chosen method, and explain how it contributes to solving the research 
+question/business problem.
+
+Second, summarize your results concisely. Make use of subheaders where appropriate.
+
+
+## Repository overview
+
+Provide an overview of the directory structure and files, for example:
+
+├── README.md
+├── data
+│   ├── my_data.csv  # raw data from CPR register
+│   ├── exp_data.csv # experimental data register
+├── plots
+│   ├── plot_1.png   # Boxplot of age
+│   ├── plot_2.png   # Pi chart of sex
+│   └── plot_3.png   # Bi-plot age vs measurement X
+├── main.R           # all analyses in one place
+└── manuscript1.Rmd  # for J of RR
+
+## Running instructions
+
+Explain to potential users how to run/replicate your workflow. If necessary, touch upon the required input 
+data, which secret credentials are required (and how to obtain them), which software tools are needed 
+to run the workflow (including links to the installation instructions), and how to run the workflow.
+
+## More resources
+
+Point interested users to any related literature and/or documentation.
+
+## About
+
+Explain who has contributed to the repository.
+```
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>

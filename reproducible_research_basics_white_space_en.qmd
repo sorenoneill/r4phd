@@ -1,0 +1,78 @@
+---
+title: "White space"
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: '`r Sys.Date()`'
+output:
+  distill::distill_article:
+    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+#categories:
+#  - Installation
+creative_commons: CC BY
+format: html
+editor: source
+---
+
+```{r include=FALSE}
+#library(vembedr)
+library(tidyverse)
+library(ggplot2)
+library(DiagrammeR)
+```
+
+# Using white space
+
+::: panel-tabset
+
+* in the middle of text, multiple spaces = a single space 
+* at the end of text space + new-line = 2x new-line
+
+## Markdown
+
+```{}
+#| echo: true
+#| eval: false
+In markdown, there's an important difference
+between '_new-line_' and '_empty-line_'.
+
+...white space matters!
+```
+
+## Output
+
+In markdown, there's an important difference
+between '_new-line_' and '_empty-line_'.
+
+...white space matters!
+
+## Good practice
+
+* any number of spaces between words is equal to one space
+* any number of empty lines between paragraphs is equal to one empty line
+* use one space to seperate functions, operators, etc a%>%b vs a %>% b
+* use empty line to indicate new paragraph
+
+:::
+
+**Hint** Check out _Soft wrap long lines_ in the _Code_ menu.
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>

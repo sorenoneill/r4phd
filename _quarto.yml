@@ -53,6 +53,10 @@ website:
                   - reproducible_research_basics_comments_how_en.qmd
                   - reproducible_research_basics_comments_where_en.qmd
                   - reproducible_research_basics_comments_what_en.qmd
+                  - reproducible_research_basics_white_space_en.qmd
+                  - reproducible_research_basics_readme.qmd
+                  - reproducible_research_basics_naming_stuff.qmd
+                  - reproducible_research_basics_file_structure.qmd
       - section: "Dansk"
         contents:
           - section: "Installation"

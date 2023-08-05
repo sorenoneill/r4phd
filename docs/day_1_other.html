@@ -330,6 +330,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Comments - what to</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reproducible_research_basics_white_space_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">White space</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+ <span class="menu-text">reproducible_research_basics_readme.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">reproducible_research_basics_naming_stuff.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">reproducible_research_basics_file_structure.qmd</span>
+  </li>
       </ul>
   </li>
       </ul>
@@ -658,7 +673,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   &lt;chr&gt;           &lt;dbl&gt;          &lt;dbl&gt;          &lt;dbl&gt;          &lt;dbl&gt;
 1 Female           94.7           90.9           88.3           86.4
 2 Male            113.           108.           105.           103. 
-# ℹ 2 more variables: weightkg_week4 &lt;dbl&gt;, weightkg_week5 &lt;dbl&gt;</code></pre>
+# … with 2 more variables: weightkg_week4 &lt;dbl&gt;, weightkg_week5 &lt;dbl&gt;</code></pre>
 </div>
 </div>
 <p><br><br></p>
@@ -730,7 +745,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 4
   country      year  cases population
-  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
+  &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
 1 Afghanistan  1999    745   19987071
 2 Afghanistan  2000   2666   20595360
 3 Brazil       1999  37737  172006362
@@ -898,25 +913,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6,348 × 24
-   subjectid fake_cpr    sex      age Ethnicity        DODRace WritingPreference
-       &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;              &lt;dbl&gt; &lt;chr&gt;            
- 1     10027 151168-2263 Man       41 &lt;NA&gt;                   1 Right hand       
- 2     10032 210475-1945 Male      35 &lt;NA&gt;                   1 Left hand        
- 3     10033 290568-1069 Man       42 &lt;NA&gt;                   2 Left hand        
- 4     10037 121283-0610 Female    26 &lt;NA&gt;                   2 Right hand       
- 5     10038 090189-0422 Female    21 Mexican                3 Right hand       
- 6     10042 020487-3860 Woman     23 &lt;NA&gt;                   1 Right hand       
- 7     10043 041287-8106 Woman     22 Caribbean Islan…       2 Right hand       
- 8     10051 130765-7114 Woman     45 &lt;NA&gt;                   1 Right hand       
- 9     10053 020166-4680 Woman     44 &lt;NA&gt;                   2 Left hand        
-10     10061 101188-3148 Female    21 &lt;NA&gt;                   1 Right hand       
-# ℹ 6,338 more rows
-# ℹ 17 more variables: Installation &lt;chr&gt;, Component &lt;chr&gt;, Branch &lt;chr&gt;,
-#   Heightin &lt;dbl&gt;, weightkg &lt;dbl&gt;, earlength &lt;dbl&gt;, footlength &lt;dbl&gt;,
-#   handlength &lt;dbl&gt;, handbreadth &lt;dbl&gt;, hipbreadth &lt;dbl&gt;, chestbreadth &lt;dbl&gt;,
-#   thighcircumference &lt;dbl&gt;, waistcircumference &lt;dbl&gt;,
-#   anklecircumference &lt;dbl&gt;, bicepscircumference &lt;dbl&gt;,
-#   calfcircumference &lt;dbl&gt;, span &lt;dbl&gt;</code></pre>
+   subjectid fake_cpr    sex      age Ethnicity         DODRace WritingPreferen…
+       &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;           
+ 1     10027 151168-2263 Man       41 &lt;NA&gt;                    1 Right hand      
+ 2     10032 210475-1945 Male      35 &lt;NA&gt;                    1 Left hand       
+ 3     10033 290568-1069 Man       42 &lt;NA&gt;                    2 Left hand       
+ 4     10037 121283-0610 Female    26 &lt;NA&gt;                    2 Right hand      
+ 5     10038 090189-0422 Female    21 Mexican                 3 Right hand      
+ 6     10042 020487-3860 Woman     23 &lt;NA&gt;                    1 Right hand      
+ 7     10043 041287-8106 Woman     22 Caribbean Island…       2 Right hand      
+ 8     10051 130765-7114 Woman     45 &lt;NA&gt;                    1 Right hand      
+ 9     10053 020166-4680 Woman     44 &lt;NA&gt;                    2 Left hand       
+10     10061 101188-3148 Female    21 &lt;NA&gt;                    1 Right hand      
+# … with 6,338 more rows, and 17 more variables: Installation &lt;chr&gt;,
+#   Component &lt;chr&gt;, Branch &lt;chr&gt;, Heightin &lt;dbl&gt;, weightkg &lt;dbl&gt;,
+#   earlength &lt;dbl&gt;, footlength &lt;dbl&gt;, handlength &lt;dbl&gt;, handbreadth &lt;dbl&gt;,
+#   hipbreadth &lt;dbl&gt;, chestbreadth &lt;dbl&gt;, thighcircumference &lt;dbl&gt;,
+#   waistcircumference &lt;dbl&gt;, anklecircumference &lt;dbl&gt;,
+#   bicepscircumference &lt;dbl&gt;, calfcircumference &lt;dbl&gt;, span &lt;dbl&gt;</code></pre>
 </div>
 </div>
 <p><br><br></p>
@@ -949,25 +963,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6,348 × 24
-   subjectid fake_cpr    sex      age Ethnicity        DODRace WritingPreference
-       &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;              &lt;dbl&gt; &lt;chr&gt;            
- 1    10028. 151168-2263 Man     42.5 &lt;NA&gt;                 2.5 Right hand       
- 2    10034. 210475-1945 Male    36.5 &lt;NA&gt;                 2.5 Left hand        
- 3    10034. 290568-1069 Man     43.5 &lt;NA&gt;                 3.5 Left hand        
- 4    10038. 121283-0610 Female  27.5 &lt;NA&gt;                 3.5 Right hand       
- 5    10040. 090189-0422 Female  22.5 Mexican              4.5 Right hand       
- 6    10044. 020487-3860 Woman   24.5 &lt;NA&gt;                 2.5 Right hand       
- 7    10044. 041287-8106 Woman   23.5 Caribbean Islan…     3.5 Right hand       
- 8    10052. 130765-7114 Woman   46.5 &lt;NA&gt;                 2.5 Right hand       
- 9    10054. 020166-4680 Woman   45.5 &lt;NA&gt;                 3.5 Left hand        
-10    10062. 101188-3148 Female  22.5 &lt;NA&gt;                 2.5 Right hand       
-# ℹ 6,338 more rows
-# ℹ 17 more variables: Installation &lt;chr&gt;, Component &lt;chr&gt;, Branch &lt;chr&gt;,
-#   Heightin &lt;dbl&gt;, weightkg &lt;dbl&gt;, earlength &lt;dbl&gt;, footlength &lt;dbl&gt;,
-#   handlength &lt;dbl&gt;, handbreadth &lt;dbl&gt;, hipbreadth &lt;dbl&gt;, chestbreadth &lt;dbl&gt;,
-#   thighcircumference &lt;dbl&gt;, waistcircumference &lt;dbl&gt;,
-#   anklecircumference &lt;dbl&gt;, bicepscircumference &lt;dbl&gt;,
-#   calfcircumference &lt;dbl&gt;, span &lt;dbl&gt;</code></pre>
+   subjectid fake_cpr    sex      age Ethnicity         DODRace WritingPreferen…
+       &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;           
+ 1    10028. 151168-2263 Man     42.5 &lt;NA&gt;                  2.5 Right hand      
+ 2    10034. 210475-1945 Male    36.5 &lt;NA&gt;                  2.5 Left hand       
+ 3    10034. 290568-1069 Man     43.5 &lt;NA&gt;                  3.5 Left hand       
+ 4    10038. 121283-0610 Female  27.5 &lt;NA&gt;                  3.5 Right hand      
+ 5    10040. 090189-0422 Female  22.5 Mexican               4.5 Right hand      
+ 6    10044. 020487-3860 Woman   24.5 &lt;NA&gt;                  2.5 Right hand      
+ 7    10044. 041287-8106 Woman   23.5 Caribbean Island…     3.5 Right hand      
+ 8    10052. 130765-7114 Woman   46.5 &lt;NA&gt;                  2.5 Right hand      
+ 9    10054. 020166-4680 Woman   45.5 &lt;NA&gt;                  3.5 Left hand       
+10    10062. 101188-3148 Female  22.5 &lt;NA&gt;                  2.5 Right hand      
+# … with 6,338 more rows, and 17 more variables: Installation &lt;chr&gt;,
+#   Component &lt;chr&gt;, Branch &lt;chr&gt;, Heightin &lt;dbl&gt;, weightkg &lt;dbl&gt;,
+#   earlength &lt;dbl&gt;, footlength &lt;dbl&gt;, handlength &lt;dbl&gt;, handbreadth &lt;dbl&gt;,
+#   hipbreadth &lt;dbl&gt;, chestbreadth &lt;dbl&gt;, thighcircumference &lt;dbl&gt;,
+#   waistcircumference &lt;dbl&gt;, anklecircumference &lt;dbl&gt;,
+#   bicepscircumference &lt;dbl&gt;, calfcircumference &lt;dbl&gt;, span &lt;dbl&gt;</code></pre>
 </div>
 </div>
 <p><br><br></p>

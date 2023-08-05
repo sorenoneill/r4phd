@@ -46,7 +46,7 @@ library(here)
 ### Load the `soldiers` dataset
 Use the function `read_csv2()` \
 The `file` argument should be `here("raw_data", "soldiers.csv")`
-```{r}
+```{r read_csv}
 #| eval: false
 read_csv2(here("raw_data", "soldiers.csv"))
 ```
