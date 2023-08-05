@@ -52,6 +52,7 @@ library(DiagrammeR)
 #| echo: false
 #| message: false
 #| warning: false
+
 grViz("
 digraph boxes_and_circles {
 

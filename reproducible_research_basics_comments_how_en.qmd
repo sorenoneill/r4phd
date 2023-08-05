@@ -13,7 +13,9 @@ output:
 #categories:
 #  - Installation
 creative_commons: CC BY
-format: html
+format: 
+  html:
+    code-line-numbers: true
 editor: source
 ---
 
@@ -34,9 +36,7 @@ R+Quarto code is certainly more readable than classic programming languages, but
 
 In R code, you can add a comment using the hashtag \#, like this:
 
-```{r}
-#| echo: true
-#| eval: false
+```r
 # This is a single-line comment in R code
 # ...and there are no multi-line comments: You must add an # for each line
 x <- 2 + 2 # ...but inline comments are okay
@@ -45,9 +45,7 @@ x <- 2 + 2 # ...but inline comments are okay
 
 **Quarto** 
 
-```{md}
-#| echo: true
-#| eval: false
+```markdown
 <!-- This is a single-line comment in markdown -->
 <!--
 This is a multi-line 
@@ -61,14 +59,15 @@ comment in markdown
 
 As you have just seen, the hashtag \# is used to add comments in R code, but in quarto markdown, the hashtag \# is used to add level 1 headings, like this:
 
-```{md}
-#| echo: true
-#| eval: false
+````markdown
+---
+title: "My Quarto Markdown document"
+---
 
 # This is a level 1 heading
 
 ## This is a level 2 heading
-```
+````
 :::
 
 ::: {.callout-note collapse=true}
@@ -76,7 +75,30 @@ As you have just seen, the hashtag \# is used to add comments in R code, but in 
 
 Look at this, admittedly ugly and pointless Quarto MarkDown document:
 
-![](gfx/RR/comments_r_vs_quarto.png)
+````markdown
+---
+title: "My ugly Quarto Markdown document"
+author: S. O'Neill
+---
+
+# E <- MC^2
+
+data <- c(2,4,7,12,4)
+
+<!-- c <- sqrt(a^2 + b^2) -->
+
+# # if (3>2) then print("two too small")
+
+```{{r my chunk}}
+# data <- rsample(1:1000, 100, replace=TRUE)
+<!-- data <- NULL ->>
+
+```
+
+# if (pi > 3) then <!-- print("Pi is bigger than 3") -->
+
+````
+
 
 Discuss the following points with your colleague, before looking at the solution below:
 
@@ -86,9 +108,10 @@ Discuss the following points with your colleague, before looking at the solution
 :::
 
 ::: {.callout-note collapse=true}
+
 # Exercise #1 Solution
 
-Firstly, did you notice the red squiggly lines and the warning symbol in the left margin of line 17? ![](gfx/RR/comments_r_vs_quarto_warning.png).
+If you had type the MarkDown document above into Rstudio, you might have noticed red squiggly lines and a the warning symbol in the left margin of line 16? ![](gfx/RR/comments_r_vs_quarto_warning.png).
 
 This should tell you, there is a problem with the R code and indeed the code will not run to produce output -- can you tell what the problem is? ...now click below for the full answer.
 
