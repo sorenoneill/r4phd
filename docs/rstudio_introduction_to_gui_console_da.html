@@ -447,7 +447,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#tips-for-arbejde-i-rstudio-konsolen" id="toc-tips-for-arbejde-i-rstudio-konsolen" class="nav-link active" data-scroll-target="#tips-for-arbejde-i-rstudio-konsolen"><span class="header-section-number">1</span> Tips for arbejde i RStudio konsolen</a></li>
+  <li><a href="#tips-for-arbejde-i-rstudio-konsolen" id="toc-tips-for-arbejde-i-rstudio-konsolen" class="nav-link active" data-scroll-target="#tips-for-arbejde-i-rstudio-konsolen"><span class="header-section-number">1</span> Tips for arbejde i RStudio konsolen</a>
+  <ul class="collapse">
+  <li><a href="#prædiktiv-tekst" id="toc-prædiktiv-tekst" class="nav-link" data-scroll-target="#prædiktiv-tekst"><span class="header-section-number">1.1</span> Prædiktiv tekst</a></li>
+  <li><a href="#prædiktiv-tekst-som-tilpasser-sig" id="toc-prædiktiv-tekst-som-tilpasser-sig" class="nav-link" data-scroll-target="#prædiktiv-tekst-som-tilpasser-sig"><span class="header-section-number">1.2</span> Prædiktiv tekst som tilpasser sig</a></li>
+  <li><a href="#genbrug-tidligere-kommandoer" id="toc-genbrug-tidligere-kommandoer" class="nav-link" data-scroll-target="#genbrug-tidligere-kommandoer"><span class="header-section-number">1.3</span> Genbrug tidligere kommandoer</a></li>
+  <li><a href="#fej-rent" id="toc-fej-rent" class="nav-link" data-scroll-target="#fej-rent"><span class="header-section-number">1.4</span> Fej rent</a></li>
+  <li><a href="#kør-en-kommando-fra-tekst-editoren" id="toc-kør-en-kommando-fra-tekst-editoren" class="nav-link" data-scroll-target="#kør-en-kommando-fra-tekst-editoren"><span class="header-section-number">1.5</span> Kør en kommando fra tekst editoren</a></li>
+  <li><a href="#kør-flere-kommandoer-fra-tekst-editoren" id="toc-kør-flere-kommandoer-fra-tekst-editoren" class="nav-link" data-scroll-target="#kør-flere-kommandoer-fra-tekst-editoren"><span class="header-section-number">1.6</span> Kør flere kommandoer fra tekst editoren</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -495,20 +503,73 @@ ul.task-list li input[type="checkbox"] {
 <h1 data-number="1"><span class="header-section-number">1</span> Tips for arbejde i RStudio konsolen</h1>
 <p>Som nævnt andetsted, lader konsollen dig kommunikere direkte med R fortokeren og du kommer til at bruge en del tid i konsollen med at teste din kode.</p>
 <p>Herunder følger et antal praktiske tips om konsollen:</p>
-<ol type="1">
-<li>Skriv <code>mean</code> i konsollen og vent et kort øjeblik – RStudio vil vise dig en liste over funktioner mm som er i det aktuelle <em>environment</em> som starter med <em>mean</em>. Prøv at rulle gennem listen.</li>
-<li>Skriv <code>meaning_of_life &lt;- 52</code> (ENTER) for at lave en ny variabel – prøv nu tip #1 igen og bemærk, at den nye variable er blevet føjet til listen.</li>
-<li>Men meningen med livet er jo ikke 5, vel?<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Så det skal fikses. I konsollen, i en ny tom linje, trykker du blot på pil-op tasten på tastaturet og din foregående R kommando kommer tilbage, ret den til 42 og tryk så ENTER. Du kan bruge op/ned tasterne til at rulle op/ned i din konsol-historik, for den aktuelle sæssion.</li>
-<li>Øverst i højre hjørne af konsollen: klik på ikonet der ligner en kost. Konsol vinduet bliver fejet rent.</li>
-<li>Prøv at trykke op-pil igen og du vil se, at din konsol-historik ikke er blevet slettet. Det var ku vinduet der blevet renset.</li>
-<li>Åben et nyt tomt R script i tekst editoren og skriv <code>print("copy, paste, execute")</code> (CTRL+ENTER) – denne kommando skulle blive indsat i konsollen og eksekveret med det samme.</li>
-<li>I tekst editoren, tilføj en linje under den første linje: <code>print("with CTRL-ENTER")</code> – denne gang prøv at fremhæve begge linjer (mus klik+træk) før CTRL+ENTER.</li>
-<li>Der er angiveligt ikke nogen tastaturgenvej for at kopiere den anden vej fra konsollen til tekst editoren.</li>
-</ol>
+<section id="prædiktiv-tekst" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="prædiktiv-tekst"><span class="header-section-number">1.1</span> Prædiktiv tekst</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="gfx/gui/mouse_over_list.gif" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Skriv <code>mean</code> i konsollen og vent et kort øjeblik – RStudio vil vise dig en liste over funktioner mm som er i det aktuelle <em>environment</em> som starter med <em>mean</em>. Prøv at rulle gennem listen.</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="prædiktiv-tekst-som-tilpasser-sig" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="prædiktiv-tekst-som-tilpasser-sig"><span class="header-section-number">1.2</span> Prædiktiv tekst som tilpasser sig</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="gfx/gui/mouse_over_list_2.gif" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Skriv <code>meaning_of_life &lt;- 52</code> (ENTER) for at lave en ny variabel – prøv nu tip #1 igen og bemærk, at den nye variable er blevet føjet til listen.</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="genbrug-tidligere-kommandoer" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="genbrug-tidligere-kommandoer"><span class="header-section-number">1.3</span> Genbrug tidligere kommandoer</h2>
+<p>Men meningen med livet er jo ikke 5, vel?<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Så det skal fikses.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="gfx/gui/history_keys.gif" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">I konsollen, i en ny tom linje, trykker du blot på pil-op tasten på tastaturet og din foregående R kommando kommer tilbage, ret den til 42 og tryk så ENTER. Du kan bruge op/ned tasterne til at rulle op/ned i din konsol-historik, for den aktuelle sæssion.</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="fej-rent" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="fej-rent"><span class="header-section-number">1.4</span> Fej rent</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="gfx/gui/clear_console.gif" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Øverst i højre hjørne af konsollen: klik på ikonet der ligner en kost. Konsol vinduet bliver fejet rent, men konsolens historik bevares.</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="kør-en-kommando-fra-tekst-editoren" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="kør-en-kommando-fra-tekst-editoren"><span class="header-section-number">1.5</span> Kør en kommando fra tekst editoren</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="gfx/gui/ctrl-enter.gif" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Åben et nyt tomt R script i tekst editoren og skriv <code>print("copy, paste, execute")</code> (CTRL+ENTER) – denne kommando skulle blive indsat i konsollen og eksekveret med det samme.</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="kør-flere-kommandoer-fra-tekst-editoren" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="kør-flere-kommandoer-fra-tekst-editoren"><span class="header-section-number">1.6</span> Kør flere kommandoer fra tekst editoren</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="gfx/gui/ctrl-enter_2.gif" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">I tekst editoren, tilføj en linje under den første linje: <code>print("with CTRL-ENTER")</code> – denne gang prøv at fremhæve begge linjer (mus klik+træk) før CTRL+ENTER.</figcaption>
+</figure>
+</div>
+<p><strong>Hint</strong> Tjek ‘Run’ fold-ud menuen i øverste, højre hjørne af tekst editorn, for at køre alle kommandoer eller specifikke blokke.</p>
+<hr>
+<p>Der er angiveligt ikke nogen tastaturgenvej for at kopiere den anden vej fra konsollen til tekst editoren.</p>
 <script src="https://giscus.app/client.js" data-repo="sorenoneill/r4phd" data-repo-id="R_kgDOJ9etDQ" data-category="Announcements" data-category-id="DIC_kwDOJ9etDc4CYApF" data-mapping="pathname" data-strict="0" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="bottom" data-theme="cobalt" data-lang="en" crossorigin="anonymous" async="">
 </script>
 
 
+</section>
 </section>
 
 

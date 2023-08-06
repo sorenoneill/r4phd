@@ -32,14 +32,47 @@ As mentioned elsewhere, the console lets you _talk_ directly to the R interprete
 
 Here follows a number of practical simple hints on how to use the console:
 
-1. Write `mean` in the console and wait a short while -- RStudio will present you with a list of functions etc in the current environment that starts with _mean_. Try scrolling through the list.
-2. Write `meaning_of_life <- 52` (ENTER) to create a new variable -- now try out hint #1 again and you will see this new variable has been added to the list.
-3. But the meaning of life is not 52, is it?[^1] So we need to fix that. In the console on an empty line, simply press the keyboard up-arrow and you previous command should re-appear, amend it to 42 and press ENTER. You can use the arrows to scroll up/down through a history of you console commands, in the current session.
-4. In the top right hand corner of the console click the icon which resembles a broom. It clears the console window.
-5. Try pressing the up-arrow key again and you will see, your console history was not deleted. You just cleared the window.
-6. Open an empty R script in the text editor, enter `print("copy, paste, execute")` (CTRL+ENTER) -- this command should be copied into the console and executed immediately.
-7. In the text editor add another line below the first one: `print("with CTRL-ENTER")` -- this time, highlight both lines (mouse: click+drag) before CTRL+ENTER.
-8. There is apparently no keyboard short-cut to copy/paste the current console line to the text editor.
+## Predictive texting
+
+![Write `mean` in the console and wait a short while -- RStudio will present you with a list of functions etc in the current environment that starts with _mean_. Try scrolling through the list.](gfx/gui/mouse_over_list.gif)
+
+<hr>
+
+## Predictive texting .. which is adaptive
+
+![Write `meaning_of_life <- 52` (ENTER) to create a new variable -- now try out hint #1 again and you will see this new variable has been added to the list.](gfx/gui/mouse_over_list_2.gif)
+
+<hr>
+
+## Re-use previous commands
+
+But the meaning of life is not 52, is it?[^1] So we need to fix that. 
+
+![In the console on an empty line, simply press the keyboard up-arrow and your previous command should re-appear, amend it to 42 and press ENTER. You can use the arrows to scroll up/down through a history of you console commands, in the current session.](gfx/gui/history_keys.gif)
+
+<hr>
+
+## Sweeping away the clutter
+
+![In the top right hand corner of the console click the icon which resembles a broom. It clears the console window, but the console hisotry is retained.](gfx/gui/clear_console.gif)
+
+<hr>
+
+## Running a command from the text editor
+
+![Open an empty R script in the text editor, enter `print("copy, paste, execute")` (CTRL+ENTER) -- this command should be copied into the console and executed immediately.](gfx/gui/ctrl-enter.gif)
+
+<hr>
+
+## Running multiple commands from the text editor
+
+![In the text editor add another line below the first one: `print("with CTRL-ENTER")` -- this time, highlight both lines (mouse: click+drag) before CTRL+ENTER.](gfx/gui/ctrl-enter_2.gif)
+
+**Hint** Check out the 'Run' dropdown button in the top right-hand corner of the text editor, to run all code or specific chunks.
+
+<hr>
+
+There is apparently no keyboard short-cut to copy/paste the current console line to the text editor.
 
 [^1]: According to the fictional supercomputer Deep Thought in Douglas Adams' sci-fi universe, The Answer to the Ultimate Question of Life, The Universe, and Everything, is 42, but you probably already knew that :-)
 

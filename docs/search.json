@@ -347,7 +347,7 @@
     "href": "rstudio_introduction_to_gui_console_en.html",
     "title": "RStudios GUI – the console",
     "section": "",
-    "text": "As mentioned elsewhere, the console lets you talk directly to the R interpreter and you will spend much time in the console testing out your code.\nHere follows a number of practical simple hints on how to use the console:\n\nWrite mean in the console and wait a short while – RStudio will present you with a list of functions etc in the current environment that starts with mean. Try scrolling through the list.\nWrite meaning_of_life &lt;- 52 (ENTER) to create a new variable – now try out hint #1 again and you will see this new variable has been added to the list.\nBut the meaning of life is not 52, is it?1 So we need to fix that. In the console on an empty line, simply press the keyboard up-arrow and you previous command should re-appear, amend it to 42 and press ENTER. You can use the arrows to scroll up/down through a history of you console commands, in the current session.\nIn the top right hand corner of the console click the icon which resembles a broom. It clears the console window.\nTry pressing the up-arrow key again and you will see, your console history was not deleted. You just cleared the window.\nOpen an empty R script in the text editor, enter print(\"copy, paste, execute\") (CTRL+ENTER) – this command should be copied into the console and executed immediately.\nIn the text editor add another line below the first one: print(\"with CTRL-ENTER\") – this time, highlight both lines (mouse: click+drag) before CTRL+ENTER.\nThere is apparently no keyboard short-cut to copy/paste the current console line to the text editor."
+    "text": "As mentioned elsewhere, the console lets you talk directly to the R interpreter and you will spend much time in the console testing out your code.\nHere follows a number of practical simple hints on how to use the console:\n\n\n\n\n\nWrite mean in the console and wait a short while – RStudio will present you with a list of functions etc in the current environment that starts with mean. Try scrolling through the list.\n\n\n\n\n\n\n\n\n\nWrite meaning_of_life &lt;- 52 (ENTER) to create a new variable – now try out hint #1 again and you will see this new variable has been added to the list.\n\n\n\n\n\n\nBut the meaning of life is not 52, is it?1 So we need to fix that.\n\n\n\nIn the console on an empty line, simply press the keyboard up-arrow and your previous command should re-appear, amend it to 42 and press ENTER. You can use the arrows to scroll up/down through a history of you console commands, in the current session.\n\n\n\n\n\n\n\n\n\nIn the top right hand corner of the console click the icon which resembles a broom. It clears the console window, but the console hisotry is retained.\n\n\n\n\n\n\n\n\n\nOpen an empty R script in the text editor, enter print(\"copy, paste, execute\") (CTRL+ENTER) – this command should be copied into the console and executed immediately.\n\n\n\n\n\n\n\n\n\nIn the text editor add another line below the first one: print(\"with CTRL-ENTER\") – this time, highlight both lines (mouse: click+drag) before CTRL+ENTER.\n\n\nHint Check out the ‘Run’ dropdown button in the top right-hand corner of the text editor, to run all code or specific chunks.\n\nThere is apparently no keyboard short-cut to copy/paste the current console line to the text editor."
   },
   {
     "objectID": "rstudio_introduction_to_gui_console_en.html#footnotes",
@@ -445,7 +445,7 @@
     "href": "rstudio_introduction_to_gui_console_da.html",
     "title": "RStudios GUI – the console",
     "section": "",
-    "text": "Som nævnt andetsted, lader konsollen dig kommunikere direkte med R fortokeren og du kommer til at bruge en del tid i konsollen med at teste din kode.\nHerunder følger et antal praktiske tips om konsollen:\n\nSkriv mean i konsollen og vent et kort øjeblik – RStudio vil vise dig en liste over funktioner mm som er i det aktuelle environment som starter med mean. Prøv at rulle gennem listen.\nSkriv meaning_of_life &lt;- 52 (ENTER) for at lave en ny variabel – prøv nu tip #1 igen og bemærk, at den nye variable er blevet føjet til listen.\nMen meningen med livet er jo ikke 5, vel?1 Så det skal fikses. I konsollen, i en ny tom linje, trykker du blot på pil-op tasten på tastaturet og din foregående R kommando kommer tilbage, ret den til 42 og tryk så ENTER. Du kan bruge op/ned tasterne til at rulle op/ned i din konsol-historik, for den aktuelle sæssion.\nØverst i højre hjørne af konsollen: klik på ikonet der ligner en kost. Konsol vinduet bliver fejet rent.\nPrøv at trykke op-pil igen og du vil se, at din konsol-historik ikke er blevet slettet. Det var ku vinduet der blevet renset.\nÅben et nyt tomt R script i tekst editoren og skriv print(\"copy, paste, execute\") (CTRL+ENTER) – denne kommando skulle blive indsat i konsollen og eksekveret med det samme.\nI tekst editoren, tilføj en linje under den første linje: print(\"with CTRL-ENTER\") – denne gang prøv at fremhæve begge linjer (mus klik+træk) før CTRL+ENTER.\nDer er angiveligt ikke nogen tastaturgenvej for at kopiere den anden vej fra konsollen til tekst editoren."
+    "text": "Som nævnt andetsted, lader konsollen dig kommunikere direkte med R fortokeren og du kommer til at bruge en del tid i konsollen med at teste din kode.\nHerunder følger et antal praktiske tips om konsollen:\n\n\n\n\n\nSkriv mean i konsollen og vent et kort øjeblik – RStudio vil vise dig en liste over funktioner mm som er i det aktuelle environment som starter med mean. Prøv at rulle gennem listen.\n\n\n\n\n\n\n\n\n\nSkriv meaning_of_life &lt;- 52 (ENTER) for at lave en ny variabel – prøv nu tip #1 igen og bemærk, at den nye variable er blevet føjet til listen.\n\n\n\n\n\n\nMen meningen med livet er jo ikke 5, vel?1. Så det skal fikses.\n\n\n\nI konsollen, i en ny tom linje, trykker du blot på pil-op tasten på tastaturet og din foregående R kommando kommer tilbage, ret den til 42 og tryk så ENTER. Du kan bruge op/ned tasterne til at rulle op/ned i din konsol-historik, for den aktuelle sæssion.\n\n\n\n\n\n\n\n\n\nØverst i højre hjørne af konsollen: klik på ikonet der ligner en kost. Konsol vinduet bliver fejet rent, men konsolens historik bevares.\n\n\n\n\n\n\n\n\n\nÅben et nyt tomt R script i tekst editoren og skriv print(\"copy, paste, execute\") (CTRL+ENTER) – denne kommando skulle blive indsat i konsollen og eksekveret med det samme.\n\n\n\n\n\n\n\n\n\nI tekst editoren, tilføj en linje under den første linje: print(\"with CTRL-ENTER\") – denne gang prøv at fremhæve begge linjer (mus klik+træk) før CTRL+ENTER.\n\n\nHint Tjek ‘Run’ fold-ud menuen i øverste, højre hjørne af tekst editorn, for at køre alle kommandoer eller specifikke blokke.\n\nDer er angiveligt ikke nogen tastaturgenvej for at kopiere den anden vej fra konsollen til tekst editoren."
   },
   {
     "objectID": "rstudio_introduction_to_gui_console_da.html#footnotes",
@@ -852,5 +852,89 @@
     "title": "Prerequisites",
     "section": "",
     "text": "You’r going to need a computer …\n\nA somewhat modern computer\n\nSufficient storage (+500 Mb) on your harddisk for the installation\nSufficient memory (+1 Gb) - the more, the better\n\nA somehwat modern operating system\n\nLinux (Ubuntu 18+, Debian 9+, OpenSuse 15+, Fedora 19+, Redhat 7+, etc)\nWindows 10+\nMacOS10.15+\n\nA working internet connection\n\nIf you are in doubt or your computer was issues by SDU, SLB, or OUH, please see below:\n\n\n\n\n\n\nHow to find the information about your computer\n\n\n\n\n\nIf you already have a working installation of R, you can use this script to list all the relevant information about your computer and its software.\n\nWindowsMacOSLinux\n\n\nWindows 10\nWindows 10\n\n\nMacOS\n\n\n\n\nIf you’re running Linux, you probably know all this stuff already, down to the clock speed of your RAM and the block size of ext4, but if not:\nRun the following in a terminal, to get information about your operating system (uname), your hardware (lscpu) and disk space (df):\n$ uname -a\n$ lscpu\n$ df -h\n\n\n\nRun the following in a terminal, to get information about your operating system (hostnamectl), your hardware (lscpu) and disk space (df):\n$ hostnamectl\n$ lscpu\n$ df -h\n\n\n\n\nYou definitely do not need any assistance here…\n\n\n\n\n\n\n\n\n\n\n\n\n\nIs you computer an older model?\n\n\n\n\n\nIf your computer is an older model, we recomment that you get someone to help you install R well in time before the R-course.\nOtherwise, you risk spending all your class time wrangling your computer instead of playing with R.\nThe R-ecosystem is constantly developing and new functionality is added all the time, which may be unavailable to you with an older R installation.\nYour computer doesn’t have to be brand spanking new, but if in doubt, contact the teachers before the R course starts.\nAt the time of writting (summer 2022) we reommend you use R version4.x.x and RStudio version 2022.x.x\n\n\n\n\n\n\n\n\n\nAre you connected to an institutional network drive\n\n\n\n\n\nNote, that if your computer is set up to use an institutional network drive (such as Microsoft OneDrive) as opposed to its local harddisk, it may slow things down somewhat … it will still run, but slower due to the net-traffic overhead.\n\n\n\n\n\n\n\n\n\nWas your computer supplied by SDU?\n\n\n\n\n\nBe aware that the local IT department on the Regional Hospitals and the Universiy may impose certain restrictions on your ability to install software on your computer:\n\nAccess to some webpages (e.g. CRAN) may be restricted, as may access to download some files from the internet.\nInstallation of software may require particular administrative rights which you do not have as standard.\n\nIf this is the case, it will impede and slow down your installation of R.\nIt is therefor a good idea, to get all of this sorted out before the start of classes. Again, otherwise you risk spending all your class time wrnagling your computer rather than playing with R.\n…and we (the teacher) will gladly help you with the R-ecosystem, but not necessarily your computer or your operating system.\nOn an SDU issued computer, your best bet is to install software via the SDU IT Software Center.\n\n\n\n\n\n\n\n\n\nWas your computer supplied by SLB?\n\n\n\n\n\nBe aware that the local IT department on the Regional Hospitals and the Universiy may impose certain restrictions on your ability to install software on your computer:\n\nAccess to some webpages (e.g. CRAN) may be restricted, as may access to download some files from the internet.\nInstallation of software may require particular administrative rights which you do not have as standard.\n\nIf this is the case, it will impede and slow down your installation of R.\nIt is therefor a good idea, to get all of this sorted out before the start of classes. Again, otherwise you risk spending all your class time wrnagling your computer rather than playing with R.\n…and we (the teacher) will gladly help you with the R-ecosystem, but not necessarily your computer or your operating system.\n\n\n\n\n\n\n\n\n\nWas your computer supplied by OUH?\n\n\n\n\n\nSome OUH employees in the past, have been advised to use a server-based R/RStudio solution, in place of a local installation on your computer – that does not work well. We highly recommend a local installation on your own harddrive.\nBe aware that the local IT department on the Regional Hospitals and the Universiy may impose certain restrictions on your ability to install software on your computer:\n\nAccess to some webpages (e.g. CRAN) may be restricted, as may access to download some files from the internet.\nInstallation of software may require particular administrative rights which you do not have as standard.\n\nIf this is the case, it will impede and slow down your installation of R.\nIt is therefor a good idea, to get all of this sorted out before the start of classes. Again, otherwise you risk spending all your class time wrnagling your computer rather than playing with R.\n…and we (the teacher) will gladly help you with the R-ecosystem, but not necessarily your computer or your operating system."
+  },
+  {
+    "objectID": "rstudio_introduction_to_gui_console_en.html#predictive-texting",
+    "href": "rstudio_introduction_to_gui_console_en.html#predictive-texting",
+    "title": "RStudios GUI – the console",
+    "section": "",
+    "text": "Write mean in the console and wait a short while – RStudio will present you with a list of functions etc in the current environment that starts with mean. Try scrolling through the list."
+  },
+  {
+    "objectID": "rstudio_introduction_to_gui_console_en.html#predictive-texting-..-which-is-adaptive",
+    "href": "rstudio_introduction_to_gui_console_en.html#predictive-texting-..-which-is-adaptive",
+    "title": "RStudios GUI – the console",
+    "section": "",
+    "text": "Write meaning_of_life &lt;- 52 (ENTER) to create a new variable – now try out hint #1 again and you will see this new variable has been added to the list."
+  },
+  {
+    "objectID": "rstudio_introduction_to_gui_console_en.html#re-use-previous-commands",
+    "href": "rstudio_introduction_to_gui_console_en.html#re-use-previous-commands",
+    "title": "RStudios GUI – the console",
+    "section": "",
+    "text": "But the meaning of life is not 52, is it?1 So we need to fix that.\n\n\n\nIn the console on an empty line, simply press the keyboard up-arrow and your previous command should re-appear, amend it to 42 and press ENTER. You can use the arrows to scroll up/down through a history of you console commands, in the current session."
+  },
+  {
+    "objectID": "rstudio_introduction_to_gui_console_en.html#sweeping-away-the-clutter",
+    "href": "rstudio_introduction_to_gui_console_en.html#sweeping-away-the-clutter",
+    "title": "RStudios GUI – the console",
+    "section": "",
+    "text": "In the top right hand corner of the console click the icon which resembles a broom. It clears the console window, but the console hisotry is retained."
+  },
+  {
+    "objectID": "rstudio_introduction_to_gui_console_en.html#running-a-command-from-the-text-editor",
+    "href": "rstudio_introduction_to_gui_console_en.html#running-a-command-from-the-text-editor",
+    "title": "RStudios GUI – the console",
+    "section": "",
+    "text": "Open an empty R script in the text editor, enter print(\"copy, paste, execute\") (CTRL+ENTER) – this command should be copied into the console and executed immediately."
+  },
+  {
+    "objectID": "rstudio_introduction_to_gui_console_en.html#running-multiple-commands-from-the-text-editor",
+    "href": "rstudio_introduction_to_gui_console_en.html#running-multiple-commands-from-the-text-editor",
+    "title": "RStudios GUI – the console",
+    "section": "",
+    "text": "In the text editor add another line below the first one: print(\"with CTRL-ENTER\") – this time, highlight both lines (mouse: click+drag) before CTRL+ENTER.\n\n\nHint Check out the ‘Run’ dropdown button in the top right-hand corner of the text editor, to run all code or specific chunks.\n\nThere is apparently no keyboard short-cut to copy/paste the current console line to the text editor."
+  },
+  {
+    "objectID": "rstudio_introduction_to_gui_console_da.html#prædiktiv-tekst",
+    "href": "rstudio_introduction_to_gui_console_da.html#prædiktiv-tekst",
+    "title": "RStudios GUI – the console",
+    "section": "",
+    "text": "Skriv mean i konsollen og vent et kort øjeblik – RStudio vil vise dig en liste over funktioner mm som er i det aktuelle environment som starter med mean. Prøv at rulle gennem listen."
+  },
+  {
+    "objectID": "rstudio_introduction_to_gui_console_da.html#prædiktiv-tekst-som-tilpasser-sig",
+    "href": "rstudio_introduction_to_gui_console_da.html#prædiktiv-tekst-som-tilpasser-sig",
+    "title": "RStudios GUI – the console",
+    "section": "",
+    "text": "Skriv meaning_of_life &lt;- 52 (ENTER) for at lave en ny variabel – prøv nu tip #1 igen og bemærk, at den nye variable er blevet føjet til listen."
+  },
+  {
+    "objectID": "rstudio_introduction_to_gui_console_da.html#genbrug-tidligere-kommandoer",
+    "href": "rstudio_introduction_to_gui_console_da.html#genbrug-tidligere-kommandoer",
+    "title": "RStudios GUI – the console",
+    "section": "",
+    "text": "Men meningen med livet er jo ikke 5, vel?1. Så det skal fikses.\n\n\n\nI konsollen, i en ny tom linje, trykker du blot på pil-op tasten på tastaturet og din foregående R kommando kommer tilbage, ret den til 42 og tryk så ENTER. Du kan bruge op/ned tasterne til at rulle op/ned i din konsol-historik, for den aktuelle sæssion."
+  },
+  {
+    "objectID": "rstudio_introduction_to_gui_console_da.html#fej-rent",
+    "href": "rstudio_introduction_to_gui_console_da.html#fej-rent",
+    "title": "RStudios GUI – the console",
+    "section": "",
+    "text": "Øverst i højre hjørne af konsollen: klik på ikonet der ligner en kost. Konsol vinduet bliver fejet rent, men konsolens historik bevares."
+  },
+  {
+    "objectID": "rstudio_introduction_to_gui_console_da.html#kør-en-kommando-fra-tekst-editoren",
+    "href": "rstudio_introduction_to_gui_console_da.html#kør-en-kommando-fra-tekst-editoren",
+    "title": "RStudios GUI – the console",
+    "section": "",
+    "text": "Åben et nyt tomt R script i tekst editoren og skriv print(\"copy, paste, execute\") (CTRL+ENTER) – denne kommando skulle blive indsat i konsollen og eksekveret med det samme."
+  },
+  {
+    "objectID": "rstudio_introduction_to_gui_console_da.html#kør-flere-kommandoer-fra-tekst-editoren",
+    "href": "rstudio_introduction_to_gui_console_da.html#kør-flere-kommandoer-fra-tekst-editoren",
+    "title": "RStudios GUI – the console",
+    "section": "",
+    "text": "I tekst editoren, tilføj en linje under den første linje: print(\"with CTRL-ENTER\") – denne gang prøv at fremhæve begge linjer (mus klik+træk) før CTRL+ENTER.\n\n\nHint Tjek ‘Run’ fold-ud menuen i øverste, højre hjørne af tekst editorn, for at køre alle kommandoer eller specifikke blokke.\n\nDer er angiveligt ikke nogen tastaturgenvej for at kopiere den anden vej fra konsollen til tekst editoren."
   }
 ]

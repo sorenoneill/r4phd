@@ -448,7 +448,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#hints-for-working-in-the-console" id="toc-hints-for-working-in-the-console" class="nav-link active" data-scroll-target="#hints-for-working-in-the-console"><span class="header-section-number">1</span> Hints for working in the console</a></li>
+  <li><a href="#hints-for-working-in-the-console" id="toc-hints-for-working-in-the-console" class="nav-link active" data-scroll-target="#hints-for-working-in-the-console"><span class="header-section-number">1</span> Hints for working in the console</a>
+  <ul class="collapse">
+  <li><a href="#predictive-texting" id="toc-predictive-texting" class="nav-link" data-scroll-target="#predictive-texting"><span class="header-section-number">1.1</span> Predictive texting</a></li>
+  <li><a href="#predictive-texting-..-which-is-adaptive" id="toc-predictive-texting-..-which-is-adaptive" class="nav-link" data-scroll-target="#predictive-texting-..-which-is-adaptive"><span class="header-section-number">1.2</span> Predictive texting .. which is adaptive</a></li>
+  <li><a href="#re-use-previous-commands" id="toc-re-use-previous-commands" class="nav-link" data-scroll-target="#re-use-previous-commands"><span class="header-section-number">1.3</span> Re-use previous commands</a></li>
+  <li><a href="#sweeping-away-the-clutter" id="toc-sweeping-away-the-clutter" class="nav-link" data-scroll-target="#sweeping-away-the-clutter"><span class="header-section-number">1.4</span> Sweeping away the clutter</a></li>
+  <li><a href="#running-a-command-from-the-text-editor" id="toc-running-a-command-from-the-text-editor" class="nav-link" data-scroll-target="#running-a-command-from-the-text-editor"><span class="header-section-number">1.5</span> Running a command from the text editor</a></li>
+  <li><a href="#running-multiple-commands-from-the-text-editor" id="toc-running-multiple-commands-from-the-text-editor" class="nav-link" data-scroll-target="#running-multiple-commands-from-the-text-editor"><span class="header-section-number">1.6</span> Running multiple commands from the text editor</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -496,20 +504,73 @@ ul.task-list li input[type="checkbox"] {
 <h1 data-number="1"><span class="header-section-number">1</span> Hints for working in the console</h1>
 <p>As mentioned elsewhere, the console lets you <em>talk</em> directly to the R interpreter and you will spend much time in the console testing out your code.</p>
 <p>Here follows a number of practical simple hints on how to use the console:</p>
-<ol type="1">
-<li>Write <code>mean</code> in the console and wait a short while – RStudio will present you with a list of functions etc in the current environment that starts with <em>mean</em>. Try scrolling through the list.</li>
-<li>Write <code>meaning_of_life &lt;- 52</code> (ENTER) to create a new variable – now try out hint #1 again and you will see this new variable has been added to the list.</li>
-<li>But the meaning of life is not 52, is it?<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> So we need to fix that. In the console on an empty line, simply press the keyboard up-arrow and you previous command should re-appear, amend it to 42 and press ENTER. You can use the arrows to scroll up/down through a history of you console commands, in the current session.</li>
-<li>In the top right hand corner of the console click the icon which resembles a broom. It clears the console window.</li>
-<li>Try pressing the up-arrow key again and you will see, your console history was not deleted. You just cleared the window.</li>
-<li>Open an empty R script in the text editor, enter <code>print("copy, paste, execute")</code> (CTRL+ENTER) – this command should be copied into the console and executed immediately.</li>
-<li>In the text editor add another line below the first one: <code>print("with CTRL-ENTER")</code> – this time, highlight both lines (mouse: click+drag) before CTRL+ENTER.</li>
-<li>There is apparently no keyboard short-cut to copy/paste the current console line to the text editor.</li>
-</ol>
+<section id="predictive-texting" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="predictive-texting"><span class="header-section-number">1.1</span> Predictive texting</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="gfx/gui/mouse_over_list.gif" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Write <code>mean</code> in the console and wait a short while – RStudio will present you with a list of functions etc in the current environment that starts with <em>mean</em>. Try scrolling through the list.</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="predictive-texting-..-which-is-adaptive" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="predictive-texting-..-which-is-adaptive"><span class="header-section-number">1.2</span> Predictive texting .. which is adaptive</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="gfx/gui/mouse_over_list_2.gif" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Write <code>meaning_of_life &lt;- 52</code> (ENTER) to create a new variable – now try out hint #1 again and you will see this new variable has been added to the list.</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="re-use-previous-commands" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="re-use-previous-commands"><span class="header-section-number">1.3</span> Re-use previous commands</h2>
+<p>But the meaning of life is not 52, is it?<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> So we need to fix that.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="gfx/gui/history_keys.gif" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">In the console on an empty line, simply press the keyboard up-arrow and your previous command should re-appear, amend it to 42 and press ENTER. You can use the arrows to scroll up/down through a history of you console commands, in the current session.</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="sweeping-away-the-clutter" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="sweeping-away-the-clutter"><span class="header-section-number">1.4</span> Sweeping away the clutter</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="gfx/gui/clear_console.gif" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">In the top right hand corner of the console click the icon which resembles a broom. It clears the console window, but the console hisotry is retained.</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="running-a-command-from-the-text-editor" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="running-a-command-from-the-text-editor"><span class="header-section-number">1.5</span> Running a command from the text editor</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="gfx/gui/ctrl-enter.gif" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Open an empty R script in the text editor, enter <code>print("copy, paste, execute")</code> (CTRL+ENTER) – this command should be copied into the console and executed immediately.</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="running-multiple-commands-from-the-text-editor" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="running-multiple-commands-from-the-text-editor"><span class="header-section-number">1.6</span> Running multiple commands from the text editor</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="gfx/gui/ctrl-enter_2.gif" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">In the text editor add another line below the first one: <code>print("with CTRL-ENTER")</code> – this time, highlight both lines (mouse: click+drag) before CTRL+ENTER.</figcaption>
+</figure>
+</div>
+<p><strong>Hint</strong> Check out the ‘Run’ dropdown button in the top right-hand corner of the text editor, to run all code or specific chunks.</p>
+<hr>
+<p>There is apparently no keyboard short-cut to copy/paste the current console line to the text editor.</p>
 <script src="https://giscus.app/client.js" data-repo="sorenoneill/r4phd" data-repo-id="R_kgDOJ9etDQ" data-category="Announcements" data-category-id="DIC_kwDOJ9etDc4CYApF" data-mapping="pathname" data-strict="0" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="bottom" data-theme="cobalt" data-lang="en" crossorigin="anonymous" async="">
 </script>
 
 
+</section>
 </section>
 
 
