@@ -5,7 +5,7 @@ description: |
 author:
   - name: Søren O'Neill
     url: www.oneill.dk
-date: '`r Sys.Date()`'
+date: today
 output:
   distill::distill_article:
     self_contained: false
@@ -27,7 +27,7 @@ By default, the RStudio GUI is divided into four panes (the different colors add
 
 ::: {.callout-caution collapse="true"}
 
-### If your layout does not look like that ... click here.
+### Help! My layout does not look like that ... 
 
 If the _text editor_ field is missing, it is probably just because you do not have any text files open for editing -- try clicking _File_ / _New file_ / _R script_ (CTRL+SHIFT+n).
 

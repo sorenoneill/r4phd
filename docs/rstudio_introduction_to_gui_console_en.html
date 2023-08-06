@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Søren O’Neill">
-<meta name="dcterms.date" content="2023-01-08">
-<meta name="description" content="If you need to avoid installing RStudio on your computer">
+<meta name="dcterms.date" content="2023-08-06">
+<meta name="description" content="Hints for the RStudio console">
 
-<title>R4phd - Posit Cloud</title>
+<title>R4phd - RStudios GUI – the console</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,8 +33,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./installation_check_en.html" rel="next">
-<link href="./installation_r_packages_en.html" rel="prev">
+<link href="./day_1_basics_of_Rstudio.html" rel="next">
+<link href="./rstudio_introduction_to_gui_2_en.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -89,7 +89,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">English</li><li class="breadcrumb-item"><a href="./installation_quick_preparation_en.html">Installation</a></li><li class="breadcrumb-item"><a href="./installation_cloud_en.html">Posit Cloud</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">English</li><li class="breadcrumb-item"><a href="./rstudio_introduction_to_gui_1_en.html">Getting to know RStudio</a></li><li class="breadcrumb-item"><a href="./rstudio_introduction_to_gui_console_en.html">RStudios GUI – the console</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -120,13 +120,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
  <span class="menu-text">Installation</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./installation_quick_preparation_en.html" class="sidebar-item-text sidebar-link">
@@ -171,7 +171,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./installation_cloud_en.html" class="sidebar-item-text sidebar-link active">
+  <a href="./installation_cloud_en.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Posit Cloud</span></a>
   </div>
 </li>
@@ -185,13 +185,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
  <span class="menu-text">Getting to know RStudio</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./rstudio_introduction_to_gui_1_en.html" class="sidebar-item-text sidebar-link">
@@ -206,7 +206,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./rstudio_introduction_to_gui_console_en.html" class="sidebar-item-text sidebar-link">
+  <a href="./rstudio_introduction_to_gui_console_en.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">RStudios GUI – the console</span></a>
   </div>
 </li>
@@ -444,22 +444,28 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#hints-for-working-in-the-console" id="toc-hints-for-working-in-the-console" class="nav-link active" data-scroll-target="#hints-for-working-in-the-console"><span class="header-section-number">1</span> Hints for working in the console</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Posit Cloud</h1>
+<h1 class="title">RStudios GUI – the console</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Installation</div>
+    <div class="quarto-category">RStudio</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    <p>If you need to avoid installing RStudio on your computer</p>
+    <p>Hints for the RStudio console</p>
   </div>
 </div>
 
@@ -476,7 +482,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 8, 2023</p>
+      <p class="date">August 6, 2023</p>
     </div>
   </div>
   
@@ -486,29 +492,33 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The company Posit which develops RStudio (and a great many R packages), also offer an online version of RStudio and the R ecosystem, called <em>Posit Cloud</em>.</p>
-<blockquote class="blockquote">
-<p>Posit Cloud (formerly RStudio Cloud) lets you access Posit’s powerful set of data science tools right in your browser – no installation or complex configuration required.</p>
-</blockquote>
-<p>They even offer a free (as in free beer) version with some limitations. However, we recommend you install R, RStudio, etc on your own computer unless there are very specific reasons to choose a cloud hosted solution.</p>
-</div>
-</div>
+<section id="hints-for-working-in-the-console" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Hints for working in the console</h1>
+<p>As mentioned elsewhere, the console lets you <em>talk</em> directly to the R interpreter and you will spend much time in the console testing out your code.</p>
+<p>Here follows a number of practical simple hints on how to use the console:</p>
+<ol type="1">
+<li>Write <code>mean</code> in the console and wait a short while – RStudio will present you with a list of functions etc in the current environment that starts with <em>mean</em>. Try scrolling through the list.</li>
+<li>Write <code>meaning_of_life &lt;- 52</code> (ENTER) to create a new variable – now try out hint #1 again and you will see this new variable has been added to the list.</li>
+<li>But the meaning of life is not 52, is it?<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> So we need to fix that. In the console on an empty line, simply press the keyboard up-arrow and you previous command should re-appear, amend it to 42 and press ENTER. You can use the arrows to scroll up/down through a history of you console commands, in the current session.</li>
+<li>In the top right hand corner of the console click the icon which resembles a broom. It clears the console window.</li>
+<li>Try pressing the up-arrow key again and you will see, your console history was not deleted. You just cleared the window.</li>
+<li>Open an empty R script in the text editor, enter <code>print("copy, paste, execute")</code> (CTRL+ENTER) – this command should be copied into the console and executed immediately.</li>
+<li>In the text editor add another line below the first one: <code>print("with CTRL-ENTER")</code> – this time, highlight both lines (mouse: click+drag) before CTRL+ENTER.</li>
+<li>There is apparently no keyboard short-cut to copy/paste the current console line to the text editor.</li>
+</ol>
 <script src="https://giscus.app/client.js" data-repo="sorenoneill/r4phd" data-repo-id="R_kgDOJ9etDQ" data-category="Announcements" data-category-id="DIC_kwDOJ9etDc4CYApF" data-mapping="pathname" data-strict="0" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="bottom" data-theme="cobalt" data-lang="en" crossorigin="anonymous" async="">
 </script>
 
 
+</section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>According to the fictional supercomputer Deep Thought in Douglas Adams’ sci-fi universe, The Answer to the Ultimate Question of Life, The Universe, and Everything, is 42, but you probably already knew that :-)<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -746,13 +756,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./installation_r_packages_en.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">R package installation</span>
+      <a href="./rstudio_introduction_to_gui_2_en.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">RStudios GUI #2</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./installation_check_en.html" class="pagination-link">
-        <span class="nav-page-text">Check all is OK</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./day_1_basics_of_Rstudio.html" class="pagination-link">
+        <span class="nav-page-text">Basics of Rstudio</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

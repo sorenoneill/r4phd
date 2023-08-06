@@ -5,7 +5,7 @@ description: |
 author:
   - name: Søren O'Neill
     url: www.oneill.dk
-date: '`r Sys.Date()`'
+date: today
 output:
   distill::distill_article:
     self_contained: false
@@ -27,7 +27,7 @@ I udgangspunktet er RStudio inddelt i 4 paneler (de forskellige farver herover e
 
 ::: {.callout-caution collapse="true"}
 
-### Hvis dit layout ikke ser ligedan ud ... klik her.
+### Hjælp! Sådan ser mit layout ikke ud ...
 
 Hvis _text editor_ feltet mangler, er det sandsynligvis bare fordi du ikke har noget dokument åben til at redigere i -- prøv at klikke _File_ / _New file_ / _R script_ (CTRL+SHIFT+n).
 

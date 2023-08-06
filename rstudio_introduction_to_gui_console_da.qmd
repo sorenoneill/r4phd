@@ -1,0 +1,62 @@
+---
+title: "RStudios GUI -- the console"
+description: |
+  Tips til RStudio konsollen
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: today
+output:
+  distill::distill_article:
+    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+categories:
+  - RStudio
+creative_commons: CC BY
+format: html
+editor: source
+---
+
+```{r}
+#| echo: false
+#| warning: false
+
+library(tidyverse)
+```
+
+# Tips for arbejde i RStudio konsolen
+
+Som nævnt andetsted, lader konsollen dig kommunikere direkte med R fortokeren og du kommer til at bruge en del tid i konsollen med at teste din kode.
+
+Herunder følger et antal praktiske tips om konsollen:
+
+1. Skriv `mean` i konsollen og vent et kort øjeblik -- RStudio vil vise dig en liste over funktioner mm som er i det aktuelle _environment_ som starter med _mean_. Prøv at rulle gennem listen.
+2. Skriv `meaning_of_life <- 52` (ENTER) for at lave en ny variabel -- prøv nu tip #1 igen og bemærk, at den nye variable er blevet føjet til listen.
+3. Men meningen med livet er jo ikke 5, vel?[^1] Så det skal fikses. I konsollen, i en ny tom linje, trykker du blot på pil-op tasten på tastaturet og din foregående R kommando kommer tilbage, ret den til 42 og tryk så ENTER. Du kan bruge op/ned tasterne til at rulle op/ned i din konsol-historik, for den aktuelle sæssion.
+4. Øverst i højre hjørne af konsollen: klik på ikonet der ligner en kost. Konsol vinduet bliver fejet rent.
+5. Prøv at trykke op-pil igen og du vil se, at din konsol-historik ikke er blevet slettet. Det var ku vinduet der blevet renset.
+6. Åben et nyt tomt R script i tekst editoren og skriv `print("copy, paste, execute")` (CTRL+ENTER) -- denne kommando skulle blive indsat i konsollen og eksekveret med det samme.
+7. I tekst editoren, tilføj en linje under den første linje:  `print("with CTRL-ENTER")` -- denne gang prøv at fremhæve begge linjer (mus klik+træk) før CTRL+ENTER.
+8. Der er angiveligt ikke nogen tastaturgenvej for at kopiere den anden vej fra konsollen til tekst editoren.
+
+[^1]: I følge den fiktive supercomputer Deep Thought i Douglas Adams' sci-fi univers, er svaret på det ultimative spørgsmål om livet, universet og alting: 42. Men det vidste du allerede, ikk'  :-)
+
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+

@@ -1,0 +1,140 @@
+---
+title: "RStudios GUI #2"
+description: |
+  How to work effectively in RStudio
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: today
+output:
+  distill::distill_article:
+    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+categories:
+  - RStudio
+creative_commons: CC BY
+format: html
+editor: source
+---
+
+```{r}
+#| echo: false
+#| warning: false
+
+library(tidyverse)
+```
+
+## Work flow in RStudios GUI
+
+![](gfx/rstudio_panels_functions.png)
+
+:::{.callout-important collapse=false}
+## Important concept you need to grasp!
+
+You can think about your workflow in RStudio as consisting of two separate work stations: you either _talk_ to R or you _write_ for to R:
+
+### TALKING to R -- here-and-now
+
+You talk to R in the console (orange), but the entire conversation is lost when you close RStudio!
+
+If you tell R to create some data, it is stored in the short term memory and you can talk about it, but it is lost when you close RStudio.
+
+If you tell R to do something that is not valid R code, it will complain (error).
+
+**Note** If you _tell_ R to _write_ something to a file, that file will not be lost, but your command to do so _is_.
+
+### WRITING for R -- furture use
+
+In the text editor (blue) you can _write_ anything to be saved to a text file.
+
+It will not be read by R until you specifically ask it to.
+
+If you write something that isn't valid R code, you will not get an error (albeit RStudio may give you a hint) ... in fact, you write a shopping list in the text editor, if you want to and R won't complain.
+
+:::
+
+**A typical workflow consists of ping-pong'ing back and forth between i) testing code in real-time (console and short term memory) and ii) storing working code in a text file.**
+
+:::{.callout-note collapse=false}
+## Example 
+
+Let's say you want to use the functions `mean` and `rnorm` to calculate the mean of a sample of 100 from a normal distribution. The following code should do the trick:
+
+```r
+rnorm(n=100, mean=1, sd=2) %>% mean()
+```
+
+...before using that code in you manuscript, you might want to check it out in the console:
+
+```{r}
+rnorm(n=100, mean=1, sd=2) %>% mean()
+```
+
+Perhaps, you then realize, that the result has too many digits and you amend your code:
+
+```{r}
+rnorm(n=100, mean=1, sd=2) %>% mean() %>% round(2)
+```
+
+:::
+
+:::{.callout-note collapse=false}
+## Exercise #1
+
+Open RStudio and create and empty R script by menu: File / New File / R Script or keyboard: CTRL-SHIFT-n
+
+1. Copy paste this code `rnorm(n=100, mean=1, sd=2) %>% mean()` into the console and execute it by pressing ENTER -- what happens in the text editor?
+2. Copy and paste this code `rnorm(n=100, mean=120, sd=25) %>% mean()` into the text editor and press ENTER -- what happens in the console?
+3. Copy and paste this code `rnorm(n=100, mean=20, sd=250) %>% mean()` into the text editor and press CTRL+ENTER -- what happens in the console?
+
+:::
+
+:::{.callout-note collapse=true}
+## Exercise #1 Solution
+
+1. Nothing happens in the text editor
+2. Nothing happens in the console
+3. The code is copied and pasted into the console and executed
+
+**Bonus question** Amend the code in the text editor so that the output of the R command is ascribed to a variable called x. What happens in the Environment tab of the Environment pane, i) when you added the code to the text file and ii) when you copy/paste/execute (CTRL+ENTER) the code in the console?
+
+:::
+
+:::{.callout-note collapse=false}
+## Exercise #2
+
+When you close an R project, RStudio will ask you whether you want to save a 'Workspace image'.
+
+A workspace image stores the information currently in the console and the short term memory (Environment) and restores it, the next time you open the project.
+
+1. What are the potential benefits of that?
+2. What are the potential pitfalls of that?
+
+:::
+
+:::{.callout-note collapse=true}
+## Exercise #2 Solution
+
+1. Restoring a workspace image from the last time you worked in the project, lets you pick up and start from the exact same position, which can sometimes be helpful. For instance, if you rely on downloading a large dataset from the internet, you can save some time.
+2. A common mistake that frustrates beginners: Ping-pong'ing back and forth, you might solve a problem in the console which commits the right data to short term memory, but forget to add that problem-solving code to the script in the text editor. If you _do not_ use the workspace image, that mistake will become apparent next time you open your project with an empty environment.
+
+:::
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+

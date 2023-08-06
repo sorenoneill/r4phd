@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Søren O’Neill">
-<meta name="dcterms.date" content="2023-01-08">
-<meta name="description" content="If you need to avoid installing RStudio on your computer">
+<meta name="dcterms.date" content="2023-08-06">
+<meta name="description" content="How to work effectively in RStudio">
 
-<title>R4phd - Posit Cloud</title>
+<title>R4phd - RStudios GUI #2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,6 +23,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -33,8 +67,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./installation_check_en.html" rel="next">
-<link href="./installation_r_packages_en.html" rel="prev">
+<link href="./rstudio_introduction_to_gui_console_en.html" rel="next">
+<link href="./rstudio_introduction_to_gui_1_en.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -89,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">English</li><li class="breadcrumb-item"><a href="./installation_quick_preparation_en.html">Installation</a></li><li class="breadcrumb-item"><a href="./installation_cloud_en.html">Posit Cloud</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">English</li><li class="breadcrumb-item"><a href="./rstudio_introduction_to_gui_1_en.html">Getting to know RStudio</a></li><li class="breadcrumb-item"><a href="./rstudio_introduction_to_gui_2_en.html">RStudios GUI #2</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -120,13 +154,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
  <span class="menu-text">Installation</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./installation_quick_preparation_en.html" class="sidebar-item-text sidebar-link">
@@ -171,7 +205,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./installation_cloud_en.html" class="sidebar-item-text sidebar-link active">
+  <a href="./installation_cloud_en.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Posit Cloud</span></a>
   </div>
 </li>
@@ -185,13 +219,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
  <span class="menu-text">Getting to know RStudio</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./rstudio_introduction_to_gui_1_en.html" class="sidebar-item-text sidebar-link">
@@ -200,7 +234,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./rstudio_introduction_to_gui_2_en.html" class="sidebar-item-text sidebar-link">
+  <a href="./rstudio_introduction_to_gui_2_en.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">RStudios GUI #2</span></a>
   </div>
 </li>
@@ -444,22 +478,28 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#work-flow-in-rstudios-gui" id="toc-work-flow-in-rstudios-gui" class="nav-link active" data-scroll-target="#work-flow-in-rstudios-gui"><span class="header-section-number">1</span> Work flow in RStudios GUI</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Posit Cloud</h1>
+<h1 class="title">RStudios GUI #2</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Installation</div>
+    <div class="quarto-category">RStudio</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    <p>If you need to avoid installing RStudio on your computer</p>
+    <p>How to work effectively in RStudio</p>
   </div>
 </div>
 
@@ -476,7 +516,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 8, 2023</p>
+      <p class="date">August 6, 2023</p>
     </div>
   </div>
   
@@ -486,27 +526,157 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="work-flow-in-rstudios-gui" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="work-flow-in-rstudios-gui"><span class="header-section-number">1</span> Work flow in RStudios GUI</h2>
+<p><img src="gfx/rstudio_panels_functions.png" class="img-fluid"></p>
 <div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Important
+Important concept you need to grasp!
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p>The company Posit which develops RStudio (and a great many R packages), also offer an online version of RStudio and the R ecosystem, called <em>Posit Cloud</em>.</p>
-<blockquote class="blockquote">
-<p>Posit Cloud (formerly RStudio Cloud) lets you access Posit’s powerful set of data science tools right in your browser – no installation or complex configuration required.</p>
-</blockquote>
-<p>They even offer a free (as in free beer) version with some limitations. However, we recommend you install R, RStudio, etc on your own computer unless there are very specific reasons to choose a cloud hosted solution.</p>
+<p>You can think about your workflow in RStudio as consisting of two separate work stations: you either <em>talk</em> to R or you <em>write</em> for to R:</p>
+<section id="talking-to-r-here-and-now" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="talking-to-r-here-and-now"><span class="header-section-number">1.1</span> TALKING to R – here-and-now</h3>
+<p>You talk to R in the console (orange), but the entire conversation is lost when you close RStudio!</p>
+<p>If you tell R to create some data, it is stored in the short term memory and you can talk about it, but it is lost when you close RStudio.</p>
+<p>If you tell R to do something that is not valid R code, it will complain (error).</p>
+<p><strong>Note</strong> If you <em>tell</em> R to <em>write</em> something to a file, that file will not be lost, but your command to do so <em>is</em>.</p>
+</section>
+<section id="writing-for-r-furture-use" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="writing-for-r-furture-use"><span class="header-section-number">1.2</span> WRITING for R – furture use</h3>
+<p>In the text editor (blue) you can <em>write</em> anything to be saved to a text file.</p>
+<p>It will not be read by R until you specifically ask it to.</p>
+<p>If you write something that isn’t valid R code, you will not get an error (albeit RStudio may give you a hint) … in fact, you write a shopping list in the text editor, if you want to and R won’t complain.</p>
+</section>
+</div>
+</div>
+</div>
+<p><strong>A typical workflow consists of ping-pong’ing back and forth between i) testing code in real-time (console and short term memory) and ii) storing working code in a text file.</strong></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Let’s say you want to use the functions <code>mean</code> and <code>rnorm</code> to calculate the mean of a sample of 100 from a normal distribution. The following code should do the trick:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">100</span>, <span class="at">mean=</span><span class="dv">1</span>, <span class="at">sd=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span> <span class="fu">mean</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>…before using that code in you manuscript, you might want to check it out in the console:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">100</span>, <span class="at">mean=</span><span class="dv">1</span>, <span class="at">sd=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span> <span class="fu">mean</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.7602354</code></pre>
+</div>
+</div>
+<p>Perhaps, you then realize, that the result has too many digits and you amend your code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">100</span>, <span class="at">mean=</span><span class="dv">1</span>, <span class="at">sd=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span> <span class="fu">mean</span>() <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.12</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise #1
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Open RStudio and create and empty R script by menu: File / New File / R Script or keyboard: CTRL-SHIFT-n</p>
+<ol type="1">
+<li>Copy paste this code <code>rnorm(n=100, mean=1, sd=2) %&gt;% mean()</code> into the console and execute it by pressing ENTER – what happens in the text editor?</li>
+<li>Copy and paste this code <code>rnorm(n=100, mean=120, sd=25) %&gt;% mean()</code> into the text editor and press ENTER – what happens in the console?</li>
+<li>Copy and paste this code <code>rnorm(n=100, mean=20, sd=250) %&gt;% mean()</code> into the text editor and press CTRL+ENTER – what happens in the console?</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise #1 Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Nothing happens in the text editor</li>
+<li>Nothing happens in the console</li>
+<li>The code is copied and pasted into the console and executed</li>
+</ol>
+<p><strong>Bonus question</strong> Amend the code in the text editor so that the output of the R command is ascribed to a variable called x. What happens in the Environment tab of the Environment pane, i) when you added the code to the text file and ii) when you copy/paste/execute (CTRL+ENTER) the code in the console?</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise #2
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>When you close an R project, RStudio will ask you whether you want to save a ‘Workspace image’.</p>
+<p>A workspace image stores the information currently in the console and the short term memory (Environment) and restores it, the next time you open the project.</p>
+<ol type="1">
+<li>What are the potential benefits of that?</li>
+<li>What are the potential pitfalls of that?</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise #2 Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Restoring a workspace image from the last time you worked in the project, lets you pick up and start from the exact same position, which can sometimes be helpful. For instance, if you rely on downloading a large dataset from the internet, you can save some time.</li>
+<li>A common mistake that frustrates beginners: Ping-pong’ing back and forth, you might solve a problem in the console which commits the right data to short term memory, but forget to add that problem-solving code to the script in the text editor. If you <em>do not</em> use the workspace image, that mistake will become apparent next time you open your project with an empty environment.</li>
+</ol>
+</div>
 </div>
 </div>
 <script src="https://giscus.app/client.js" data-repo="sorenoneill/r4phd" data-repo-id="R_kgDOJ9etDQ" data-category="Announcements" data-category-id="DIC_kwDOJ9etDc4CYApF" data-mapping="pathname" data-strict="0" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="bottom" data-theme="cobalt" data-lang="en" crossorigin="anonymous" async="">
 </script>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -746,13 +916,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./installation_r_packages_en.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">R package installation</span>
+      <a href="./rstudio_introduction_to_gui_1_en.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">RStudios GUI #1</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./installation_check_en.html" class="pagination-link">
-        <span class="nav-page-text">Check all is OK</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./rstudio_introduction_to_gui_console_en.html" class="pagination-link">
+        <span class="nav-page-text">RStudios GUI – the console</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

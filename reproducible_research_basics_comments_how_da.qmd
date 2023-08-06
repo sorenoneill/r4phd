@@ -1,0 +1,149 @@
+---
+title: "Comments - how to"
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: '`r Sys.Date()`'
+output:
+  distill::distill_article:
+    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+#categories:
+#  - Installation
+creative_commons: CC BY
+format: 
+  html:
+    code-line-numbers: true
+editor: source
+---
+
+```{r include=FALSE}
+#library(vembedr)
+library(tidyverse)
+library(ggplot2)
+library(DiagrammeR)
+```
+
+# Hvordan angiver man kommentarer i R kode og Quarto MarkDown
+
+En af grund idéerne i R og Quarto MarkDown er at gøre selve koden læselig for mennesker -- et koncept der kaldes '_literal programming_'. 
+
+R+Quarto kode er helt sikkert mere læsevenlig end andre klassiske programmeringssprog, men det er usandsynligt at du kan skrive R kode der er fuldstændigt selfforklarende for en menneskelig læser ... du får brug for at tilføje kommentarer til din kode så fremtidige læsere (formentligt dig selv!) kan forstå kode.
+
+**R kode**
+
+I R kode, kan du tilføje en kommentar med hashtag \#, sådan her:
+
+```r
+# Dette er en enkelt-linje kommentar i R kode
+# ...og det er ikke mulighed for fler-linje kommentarer: Der skal et # før hver kommentar linje
+x <- 2 + 2 # ...men kommentarer sidst på en linje er også okay
+
+```
+
+**Quarto** 
+
+```markdown
+<!-- Dette er en enkelt-linje kommentar i MarkDown -->
+<!--
+Dette er en multi-linje
+kommentar i MarkDown
+-->
+..og man kan <!-- indsætte kommentarer --> hvor man vil
+```
+
+::: {.callout-important collapse=true}
+## Vigtigt! ... hashtag # har forskellig betydning i R kode og i MarkDown!
+
+Som du har set, bruges \# til at tilføje kommentarer i R kode, men i MarkDown bruges # til at definere overskrifter, sådan her:
+
+````markdown
+---
+title: "Mit Quarto Markdown dokument"
+---
+
+# Dette er overskrift niveau 1
+
+## Dette er overskrift niveau 2
+````
+:::
+
+::: {.callout-note collapse=true}
+# Øvelse #1
+
+Kig på dette grimme og nyttesløse Quarto MarkDown dokument:
+
+````markdown
+---
+title: "Mit grimme Quarto Markdown dokument"
+author: S. O'Neill
+---
+
+# E <- MC^2
+
+data <- c(2,4,7,12,4)
+
+<!-- c <- sqrt(a^2 + b^2) -->
+
+# # if (3>2) then print("to er for lille")
+
+```{{r my chunk}}
+# data <- rsample(1:1000, 100, replace=TRUE)
+<!-- data <- NULL ->>
+
+```
+
+# if (pi > 3) then <!-- print("Pi er større end 3") -->
+
+````
+
+Diskutér medfølgende  din sidemand, før i kigger på løsningen:
+
+* Kan i identificere kommentarerne i dokumentet?
+* Hvordan forventer du out output vil se ud?
+
+:::
+
+::: {.callout-note collapse=true}
+
+# Øvelse #1 løsning
+
+Hvis ovenstående havde stået i RStudio, ville du måske have bemærket nogle røde, bølge linjer og et advarsels ikon i margen på linje 16 ![](gfx/RR/comments_r_vs_quarto_warning.png).
+
+Det burde fortælle dig, at der er et problem med R koden, og koden vil faktisk ikke fungere -- kan du se hvad problemet er? ...kig herunder for at få svaret.
+
+::: {.callout-note collapse=true}
+# Øvelse #1 ..det fulde svar.
+
+Okay så. Line 16 var ikke valid R kode. Linjen var faktisk en _enkelt-linje markdown kommentar_ og hører som sådan hjemme i MarkDown og **ikke** inde i en R kode _chunk_. 
+
+Hvis vi kommenterer linjen væk med et \# så har vi en valid R kode og vi får følgende output:
+
+![OBS Engelsk version](gfx/RR/comments_r_vs_quarto_output.png)
+
+Med andre ord, kun linjerne 10 og 15 er valide kommentarer.
+
+Bonus spørgsmål: Forklar hvor linje gav det output du ser herover.
+
+:::
+
+:::
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>

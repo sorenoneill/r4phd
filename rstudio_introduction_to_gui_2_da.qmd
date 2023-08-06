@@ -1,0 +1,140 @@
+---
+title: "RStudios GUI #2"
+description: |
+  How to work effectively in RStudio
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: today
+output:
+  distill::distill_article:
+    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+categories:
+  - RStudio
+creative_commons: CC BY
+format: html
+editor: source
+---
+
+```{r}
+#| echo: false
+#| warning: false
+
+library(tidyverse)
+```
+
+## Work flow i RStudios GUI
+
+![](gfx/rstudio_panels_functions.png)
+
+:::{.callout-important collapse=false}
+## Vigtigt koncepot du skal forstå!
+
+Du kan forestille dig din arbejdsgang i RStudio som bestående af to arbejdsstationer: enten _taler_ du direkte med R eller også _skriver_ du til R:
+
+### TAL med R -- her-og_nu
+
+Du _'taler'_ med R i konsollen (orange), men hele samtalen bliver slettet når du lukker RStudio!
+
+Hvis du instruerer R om at generere noget data, bliver det lagret i 'Short term memory' (altså i Environment) og du kan 'tale' med R om dataene, men de forsvinder også når du lukker RStudio.
+
+Hvis du giver R instrukser som ikke er valid R kode, vil R beklage sig (fejl meddelelse).
+
+**Bemærk** Hvis du beder R om at skrive noget til en fil, så bliver filen ikke slettet, men det gør kommandoen derom.
+
+### SKRIVE til R -- fremtidig brug
+
+I tekst editoren (blå) kan du skrive hvad som helst og gemme det som en tekst fil.
+
+Det bliver ikke læst af R før du specifikt beder R om det.
+
+Hvis du skriver noget som ikke er valid R kode, vil du ikke få en fejl (omend RStudio vil give dig visuelle tip om at der er noget galt) ... faktisk, kan du skrive en indkøbsliste i tekst editoren hvis du vil, og R vil ikke klage sig.
+
+:::
+
+**En typisk arbejdsgang består af at ping-pong'e frem og tilbage mellem i) test af kode i real-tid (konsol or 'short term memory') or ii) at gemme fungerende kode i tekst filer.**
+
+:::{.callout-note collapse=false}
+## Eksempel
+
+Lad os sige, du vil bruger funktionerne `mean` og `rnorm` til at beregne et gennemsnit af en stikpårøve på 100 fra en normal fordeling. Denne kode løser opgaven:
+
+```r
+rnorm(n=100, mean=1, sd=2) %>% mean()
+```
+
+...før du skriver koden ind i dit manuskript bør du afprøve den i konsollen:
+
+```{r}
+rnorm(n=100, mean=1, sd=2) %>% mean()
+```
+
+Måske opdager du så, at der er flere decimaler end du ønsker og du kan tilpasse din kode:
+
+```{r}
+rnorm(n=100, mean=1, sd=2) %>% mean() %>% round(2)
+```
+
+:::
+
+:::{.callout-note collapse=false}
+## Øvelse #1
+
+Åben RStudio og lav et nyt, tomt R scriptvia menu: File / New File / R Script eller keyboard: CTRL-SHIFT-n
+
+1. Kopier og indsæt denne kode `rnorm(n=100, mean=1, sd=2) %>% mean()` i konsollen og eksekvér koden ved at trykke ENTER -- hvad skete der i tekst editoren?
+2. Kopier og indsæt denne kode `rnorm(n=100, mean=120, sd=25) %>% mean()` i tekst editor og tryk ENTER -- hvad skete der i konsollen?
+3. Kopier og indsæt denne kode `rnorm(n=100, mean=20, sd=250) %>% mean()` i tekst editor og tryk CTRL+ENTER -- hvad skete der i konsollen?
+
+:::
+
+:::{.callout-note collapse=true}
+## Øvelse #1 Løsning
+
+1. Der sker ingenting i tekst editoren
+2. Der sker ingenting i konsollen
+3. Koden bliver kopieret og indsat i konosllen og eksekveret
+
+**Bonus spørgsmål** Tilpas koden i tekst editoren sådan at outputtet fra R kommandoen bliver tilskrevet en ny variabel x. Hvad sker der i Environment fanebladet af Environment panelet, i) da du tilføjede koden til tekst filen hhv ii) da når du copy/paste/execute (CTRL+ENTER) koden ind i konsollen?
+
+:::
+
+:::{.callout-note collapse=false}
+## Øvelse #2
+
+Når du lukker et R projekt, vil RStudio spørge om du vil gemme et 'Workspace image'.
+
+Et 'workspace image' gemmer information om den aktuelle konsol (historik) og det som er lagret i short term memory (Environment) og genskaber det, næste gang du åbner projektet.
+
+1. Hvad er fordelene ved det?
+2. Hvilke risici er det ved det?
+
+:::
+
+:::{.callout-note collapse=true}
+## Øvelse #2 Løsning
+
+1. At genskabe et workspace image fra sidste gang du arbejde med projektet , lader dig starte hvor du slap, hvilket kan være en hjælp i nogle situationer. F.eks hvis du beror på et meget stort data sæt der skal hentes ned fra internettet, så kan man spare lidt tid.
+2. En hyppig fejl som frustrerer nybegyndere: Når man ping-pong'er frem og tilbage mellem tekst fil og konsol, kan man komme til at løse et problem som gemmer de rigtige data til hukommelsen, men man kan glemme at få koden ind i tekst filen det rigtige sted. Hvis man _ikke_ bruger workspace image, vil den fejl blive synlig næste gang du starter projektet op med et tomt environment.
+
+:::
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+

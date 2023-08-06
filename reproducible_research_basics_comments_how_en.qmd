@@ -118,7 +118,7 @@ This should tell you, there is a problem with the R code and indeed the code wil
 ::: {.callout-note collapse=true}
 # Exercise #1 ..the full answer.
 
-Okay so. Line 17 was not valid R code. The line was actually a _single-line markdown comment_ and it belongs in markdown and **not** inside an R code chunk. 
+Okay so. Line 16 was not valid R code. The line was actually a _single-line markdown comment_ and it belongs in markdown and **not** inside an R code chunk. 
 
 If we comment out that line with a hashtag \# as appropriate for valid R code, we get the following output:
 
