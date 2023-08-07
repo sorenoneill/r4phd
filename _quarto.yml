@@ -45,10 +45,10 @@ website:
                 - day_1_settting_up_your_course_project.qmd
                 - day_1_quarto_documents.qmd
                 - day_1_dplyr.qmd
-                - day_1_other.qmdauto:
-            - section: "Day 1"
+                - day_1_other.qmd
+            - section: "Day 2"
               contents:
-                - day_2_ggplot2_bascis.qmd
+                - day_2_ggplot2_basics.qmd
             - section: "Day 4"
               contents: 
               - section: "RRR"
