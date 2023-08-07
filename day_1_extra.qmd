@@ -1,0 +1,41 @@
+---
+title: "Day 1 Extra #1"
+author: "Søren O'Neill"
+date: today
+output:
+  distill::distill_article:
+    self_contained: false
+creative_commons: CC BY
+format:
+  html: 
+    code-fold: true
+    code-summary: "Show me the code"
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    number-depth: 2
+editor: 
+  mode: source
+execute: 
+  output: false
+---
+
+# Extra materials for those ahead of the curve
+
+...
+
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>

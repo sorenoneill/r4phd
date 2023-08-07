@@ -83,6 +83,7 @@ Type `?seq()` in the console or type `seq()`and pres F1 while the cursor stands 
 <br>  
   
 ### Make a sequence of numbers that goes from 0 to 100
+
 ```{r}
 #| results: false
 seq(from = 0,

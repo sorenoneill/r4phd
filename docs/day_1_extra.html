@@ -8,9 +8,8 @@
 
 <meta name="author" content="Søren O’Neill">
 <meta name="dcterms.date" content="2023-08-06">
-<meta name="description" content="How to work effectively in RStudio">
 
-<title>R4phd - RStudios GUI #2</title>
+<title>R4phd - Day 1 Extra #1</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -121,7 +86,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">RStudios GUI #2</li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Day 1 Extra #1</li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -479,8 +444,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
-  <li><a href="#work-flow-i-rstudios-gui" id="toc-work-flow-i-rstudios-gui" class="nav-link active" data-scroll-target="#work-flow-i-rstudios-gui"><span class="header-section-number">1</span> Work flow i RStudios GUI</a></li>
+  <ul class="collapse">
+  <li><a href="#extra-materials-for-those-ahead-of-the-curve" id="toc-extra-materials-for-those-ahead-of-the-curve" class="nav-link active" data-scroll-target="#extra-materials-for-those-ahead-of-the-curve"><span class="header-section-number">1</span> Extra materials for those ahead of the curve</a></li>
   </ul>
 </nav>
     </div>
@@ -489,17 +454,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">RStudios GUI #2</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">RStudio</div>
-  </div>
-  </div>
-
-<div>
-  <div class="description">
-    <p>How to work effectively in RStudio</p>
-  </div>
+<h1 class="title">Day 1 Extra #1</h1>
 </div>
+
 
 
 <div class="quarto-title-meta">
@@ -507,7 +464,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p><a href="www.oneill.dk">Søren O’Neill</a> </p>
+             <p>Søren O’Neill </p>
           </div>
   </div>
     
@@ -524,152 +481,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="work-flow-i-rstudios-gui" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="work-flow-i-rstudios-gui"><span class="header-section-number">1</span> Work flow i RStudios GUI</h2>
-<p><img src="gfx/rstudio_panels_functions.png" class="img-fluid"></p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Vigtigt koncepot du skal forstå!
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<p>Du kan forestille dig din arbejdsgang i RStudio som bestående af to arbejdsstationer: enten <em>taler</em> du direkte med R eller også <em>skriver</em> du til R:</p>
-<section id="tal-med-r-her-og_nu" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="tal-med-r-her-og_nu"><span class="header-section-number">1.1</span> TAL med R – her-og_nu</h3>
-<p>Du <em>‘taler’</em> med R i konsollen (orange), men hele samtalen bliver slettet når du lukker RStudio!</p>
-<p>Hvis du instruerer R om at generere noget data, bliver det lagret i ‘Short term memory’ (altså i Environment) og du kan ‘tale’ med R om dataene, men de forsvinder også når du lukker RStudio.</p>
-<p>Hvis du giver R instrukser som ikke er valid R kode, vil R beklage sig (fejl meddelelse).</p>
-<p><strong>Bemærk</strong> Hvis du beder R om at skrive noget til en fil, så bliver filen ikke slettet, men det gør kommandoen derom.</p>
-</section>
-<section id="skrive-til-r-fremtidig-brug" class="level3" data-number="1.2">
-<h3 data-number="1.2" class="anchored" data-anchor-id="skrive-til-r-fremtidig-brug"><span class="header-section-number">1.2</span> SKRIVE til R – fremtidig brug</h3>
-<p>I tekst editoren (blå) kan du skrive hvad som helst og gemme det som en tekst fil.</p>
-<p>Det bliver ikke læst af R før du specifikt beder R om det.</p>
-<p>Hvis du skriver noget som ikke er valid R kode, vil du ikke få en fejl (omend RStudio vil give dig visuelle tip om at der er noget galt) … faktisk, kan du skrive en indkøbsliste i tekst editoren hvis du vil, og R vil ikke klage sig.</p>
-</section>
-</div>
-</div>
-</div>
-<p><strong>En typisk arbejdsgang består af at ping-pong’e frem og tilbage mellem i) test af kode i real-tid (konsol or ‘short term memory’) or ii) at gemme fungerende kode i tekst filer.</strong></p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Eksempel
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<p>Lad os sige, du vil bruger funktionerne <code>mean</code> og <code>rnorm</code> til at beregne et gennemsnit af en stikpårøve på 100 fra en normal fordeling. Denne kode løser opgaven:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">100</span>, <span class="at">mean=</span><span class="dv">1</span>, <span class="at">sd=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span> <span class="fu">mean</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>…før du skriver koden ind i dit manuskript bør du afprøve den i konsollen:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">100</span>, <span class="at">mean=</span><span class="dv">1</span>, <span class="at">sd=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span> <span class="fu">mean</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.8328629</code></pre>
-</div>
-</div>
-<p>Måske opdager du så, at der er flere decimaler end du ønsker og du kan tilpasse din kode:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">100</span>, <span class="at">mean=</span><span class="dv">1</span>, <span class="at">sd=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span> <span class="fu">mean</span>() <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.42</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Øvelse #1
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<p>Åben RStudio og lav et nyt, tomt R scriptvia menu: File / New File / R Script eller keyboard: CTRL-SHIFT-n</p>
-<ol type="1">
-<li>Kopier og indsæt denne kode <code>rnorm(n=100, mean=1, sd=2) %&gt;% mean()</code> i konsollen og eksekvér koden ved at trykke ENTER – hvad skete der i tekst editoren?</li>
-<li>Kopier og indsæt denne kode <code>rnorm(n=100, mean=120, sd=25) %&gt;% mean()</code> i tekst editor og tryk ENTER – hvad skete der i konsollen?</li>
-<li>Kopier og indsæt denne kode <code>rnorm(n=100, mean=20, sd=250) %&gt;% mean()</code> i tekst editor og tryk CTRL+ENTER – hvad skete der i konsollen?</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Øvelse #1 Løsning
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li>Der sker ingenting i tekst editoren</li>
-<li>Der sker ingenting i konsollen</li>
-<li>Koden bliver kopieret og indsat i konosllen og eksekveret</li>
-</ol>
-<p><strong>Bonus spørgsmål</strong> Tilpas koden i tekst editoren sådan at outputtet fra R kommandoen bliver tilskrevet en ny variabel x. Hvad sker der i Environment fanebladet af Environment panelet, i) da du tilføjede koden til tekst filen hhv ii) da når du copy/paste/execute (CTRL+ENTER) koden ind i konsollen?</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Øvelse #2
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<p>Når du lukker et R projekt, vil RStudio spørge om du vil gemme et ‘Workspace image’.</p>
-<p>Et ‘workspace image’ gemmer information om den aktuelle konsol (historik) og det som er lagret i short term memory (Environment) og genskaber det, næste gang du åbner projektet.</p>
-<ol type="1">
-<li>Hvad er fordelene ved det?</li>
-<li>Hvilke risici er det ved det?</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Øvelse #2 Løsning
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li>At genskabe et workspace image fra sidste gang du arbejde med projektet , lader dig starte hvor du slap, hvilket kan være en hjælp i nogle situationer. F.eks hvis du beror på et meget stort data sæt der skal hentes ned fra internettet, så kan man spare lidt tid.</li>
-<li>En hyppig fejl som frustrerer nybegyndere: Når man ping-pong’er frem og tilbage mellem tekst fil og konsol, kan man komme til at løse et problem som gemmer de rigtige data til hukommelsen, men man kan glemme at få koden ind i tekst filen det rigtige sted. Hvis man <em>ikke</em> bruger workspace image, vil den fejl blive synlig næste gang du starter projektet op med et tomt environment.</li>
-</ol>
-</div>
-</div>
-</div>
+<section id="extra-materials-for-those-ahead-of-the-curve" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Extra materials for those ahead of the curve</h1>
+<p>…</p>
 <script src="https://giscus.app/client.js" data-repo="sorenoneill/r4phd" data-repo-id="R_kgDOJ9etDQ" data-category="Announcements" data-category-id="DIC_kwDOJ9etDc4CYApF" data-mapping="pathname" data-strict="0" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="bottom" data-theme="cobalt" data-lang="en" crossorigin="anonymous" async="">
 </script>
 

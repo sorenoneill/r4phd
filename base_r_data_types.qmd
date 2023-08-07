@@ -1,0 +1,61 @@
+---
+title: "Base R"
+subtitle: "Data types"
+author: "Søren O'Neill"
+date: today
+output:
+  distill::distill_article:
+    self_contained: false
+creative_commons: CC BY
+format: html
+editor: 
+  mode: source
+execute: 
+  output: false
+---
+
+# Data types - why it matters
+
+R is constructed to work with a number of _basic_ data types:
+
+* logical : TRUE or FALSE
+* integer : whole numbers
+* numeric : decimal numbers
+* complex : complex numbers 
+* character : alphabetic and other characters
+* raw : byte data
+
+It is important to use the right data type for your data management and analyses.
+
+It is also important to _know_ the type of the data you are working with, otherwise you may get confusing output. We will see examples of this later.
+
+## Logical (or boolean)
+
+Assumes either `TRUE` or `FALSE`.
+
+**Note** That logical values can also be regarded as _integer_ values 1 and 0, corresponding to `TRUE` and `FALSE`.
+
+Look at this code and its output:
+
+```{r logical}
+a <- TRUE
+a+3
+```
+
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
