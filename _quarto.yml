@@ -49,6 +49,7 @@ website:
             - section: "Day 2"
               contents:
                 - day_2_ggplot2_basics.qmd
+                - day_2_ggplot2_extras.qmd
             - section: "Day 4"
               contents: 
               - section: "RRR"
