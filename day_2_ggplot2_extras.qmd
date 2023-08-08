@@ -112,8 +112,15 @@ ggplot(mpg, aes(displ, hwy, colour = class)) +
 
 Most packages have a webpage where the package and its core functions are introduced. Head the `gganimate` website and read the [getting started](https://gganimate.com/articles/gganimate.html#your-first-animation) section. Then continue to exercises here where we will practice using the `soldiers` dataset that you already know.
 
-You need to install `gganimate`
-
+You need to install `gganimate`. 
+::: {.callout-tip collapse=true}
+#### Installing `gganimate`
+```{r}
+#| eval: false
+#| code-fold: false
+install.packages("gganimate")
+```
+:::
 
 ```{r}
 #| eval: true
@@ -127,6 +134,8 @@ library(gganimate)  # Animate plots
 source(here("scripts", "01_import.R"))
 ```
 
+<br>
+
 ### Animate the this plot so its shows difference between men and women
 ```{r}
 #| code-fold: false
@@ -138,10 +147,11 @@ soldiers %>%
                alpha = 0.5)
 ```
 
+*  Assign the animation to an object 
 
 ```{r}
 # One option
-soldiers %>% 
+my_animation <- soldiers %>% 
   ggplot(aes(x = weightkg, y = Installation, fill = Installation))+
   geom_boxplot(outlier.shape = NA,
                alpha = 0.5)+
@@ -150,8 +160,11 @@ soldiers %>%
                     state_length = 2)+
   labs(title = "Weight in Kgs of male and female soldiers",
        subtitle = "Now showing {closest_state}")
+
+my_animation
 ```
 
+<br>
 
 ```{r}
 # Another option
@@ -168,6 +181,170 @@ soldiers %>%
   exit_fly()
 ```
 
+<br>
+
+### Save your animation in the plots folder you created earlier
+
+```{r}
+#| eval: false
+anim_save(
+    filename = here("plots", "my_animation.gif"),
+    animation = my_animation
+  )
+```
+
+<br>
+
+### `Oxboys` data
+
+Load the`nlme` package and examine the `Oxboys` dataset that it comes with.  
+You might need to install the `nlme` package first.
+```{r}
+library(nlme)
+head(Oxboys)
+?Oxboys
+```
+
+### Create an animation that shows how `height` changes with `age`
+*  Use `transition_reveal()`
+```{r}
+Oxboys %>% 
+  ggplot(aes(x = age, y = height))+
+  # geom_boxplot(fill = "steelblue", 
+  #              alpha = 0.5, 
+  #              width = 0.3,
+  #              outlier.shape = NA)+
+  geom_line(aes(group = Subject), color = "grey", alpha = 1)+
+  geom_point(aes(group = Subject))+
+  labs(x = "Standardized age \n(years)",
+       y = "Height\n(cm)")+
+  theme_classic()+
+  transition_reveal(age)
+```
+
+
+<br><br><br>
+
+## `ggiraph`
+Another useful resource for learning R is blogposts. These are often written in a much more accesible language. For learning `ggiraph` we will use a blogpost written by [Albert Rapp](https://albert-rapp.de/). Head to his [blogpost](https://albert-rapp.de/posts/ggplot2-tips/17_ggiraph/17_ggiraph.html) about `ggiraph` and read it. You don't need to read the sections about `shiny`apps. When you have done that continue to exercises below.
+
+
+You need to install `ggiraph`. 
+::: {.callout-tip collapse=true}
+#### Installing `ggiraph`
+```{r}
+#| eval: false
+#| code-fold: false
+install.packages("ggiraph")
+```
+:::
+
+<br>
+
+### Load the `tidyverse`, `here`, and the cleaned `soldiers` dataset
+```{r}
+#| eval: true
+
+# Load libraries
+library(tidyverse)  # Data wrangling and plots
+library(here)       # File control in project
+library(ggiraph)    # Interactive plots
+
+# Load the cleaned soldiers dataset
+source(here("scripts", "01_import.R"))
+```
+
+<br>
+
+### Explore `Fort Hood`, `Camp Arnold`, and `Fort Doughnut`
+*  Filter you data to the three camps
+*  Make a interactive boxplot that shows the 
+```{r}
+my_plot <- soldiers %>% 
+  filter(Installation %in% c("Fort Hood", "Camp Arnold", "Fort Doughnut")) %>% 
+  ggplot(aes(x = BMI, y = Installation, fill = Installation))+
+  geom_boxplot_interactive(
+    aes(tooltip = paste0("This is the ", Installation, " installation")))
+
+girafe(ggobj = my_plot)
+```
+
+### Add an interactive geom_jitter layer.
+* facet the plot on sex
+* Make a tooltip that gives you the subjectid, BMI, heightcm, heightcm, bicepcircumference, and waist circumference
+
+```{r}
+my_plot <- soldiers %>% 
+  filter(Installation %in% c("Fort Hood", "Camp Arnold", "Fort Doughnut")) %>% 
+  ggplot(aes(x = BMI, y = Installation, fill = Installation))+
+  facet_wrap(~sex, ncol = 1)+
+  labs(x = NULL)+
+  geom_boxplot_interactive(
+    aes(tooltip = paste0("This is the ", Installation, " installation")),
+    outlier.shape = NA) +
+  geom_jitter_interactive(
+    aes(tooltip = paste0("Subjectid: ", subjectid,
+                         "\n BMI:   ", round(BMI), " (", category, ")",
+                         "\nHeight: ", round(heightcm), " cm",
+                         "\nWeight: ", round(weightkg), " kg",
+                         "\nBiceps: ", round(bicepscircumference), " mm", 
+                         "\nWaist:  ", round(waistcircumference), " mm")),
+    height = 0.2,
+    alpha = 0.3,
+    shape = 21
+  )+
+  theme_classic()
+
+girafe(ggobj = my_plot)
+```
+
+
+
+```{r}
+my_plot_a <- soldiers %>% 
+  filter(Installation %in% c("Fort Hood", "Camp Arnold", "Fort Doughnut")) %>% 
+  ggplot(aes(x = BMI, y = Installation, fill = Installation))+
+  facet_wrap(~sex, ncol = 1)+
+  labs(x = NULL)+
+  geom_boxplot_interactive(
+    aes(tooltip = paste0("This is the ", Installation, " installation")),
+    outlier.shape = NA) +
+  geom_jitter_interactive(
+    aes(tooltip = paste0("Subjectid: ", subjectid,
+                         "\n BMI:   ", round(BMI), " (", category, ")",
+                         "\nHeight: ", round(heightcm), " cm",
+                         "\nWeight: ", round(weightkg), " kg",
+                         "\nBiceps: ", round(bicepscircumference), " mm", 
+                         "\nWaist:  ", round(waistcircumference), " mm")),
+    height = 0.2,
+    alpha = 0.3,
+    shape = 21
+  )+
+  theme_classic()
+
+my_plot_b <- soldiers %>% 
+  filter(Installation %in% c("Fort Hood", "Camp Arnold", "Fort Doughnut")) %>% 
+  ggplot(aes(x = waistcircumference, y = Installation, fill = Installation))+
+  facet_wrap(~sex, ncol = 1)+
+  labs(x = NULL)+
+  geom_boxplot_interactive(
+    aes(tooltip = paste0("This is the ", Installation, " installation")),
+    outlier.shape = NA) +
+  geom_jitter_interactive(
+    aes(tooltip = paste0("Subjectid: ", subjectid,
+                         "\n BMI:   ", round(BMI), " (", category, ")",
+                         "\nHeight: ", round(heightcm), " cm",
+                         "\nWeight: ", round(weightkg), " kg",
+                         "\nBiceps: ", round(bicepscircumference), " mm", 
+                         "\nWaist:  ", round(waistcircumference), " mm")),
+    height = 0.2,
+    alpha = 0.3,
+    shape = 21
+  )+
+  theme_classic()
+
+girafe(ggobj = my_plot)
+```
 
 
 
