@@ -707,6 +707,629 @@
     "text": "The standard installation of R consists of a set of ‘core’ functions. In addition to those, it is possible to install a large variety of packages with extra functionality. These packages are developed by the company behind RStudio (Posit), by other companies, universities and by R users … perhaps, some day you will write and publish an R package too?\nSome of these packages have a very specific and narrow forus – e.g. Steen Harsteds packages for handling motion capture data called mocapr. Other packages er more generic and you will get to know some of them during the course. For instance:\n\ntidyverse – en meta-pakckage which makes it easier to work with the R syntax – e.g. by using pipes.\nggplot2 – a package for constructing graphs or plots.\nggpubr – a package which extends ggplot2, aiming to make it easier to produce publication ready plots.\n\nThere are just a few technicalities about R packages, that you need to understand:\n\n\nTo install certain R packages on Windows operating systems, you need to install a program called RTools. You can read more about RTools at (this link)[https://cran.r-project.org/bin/windows/Rtools/rtools42/rtools.html] which includes links to the RTools installer and a more detailed tutorial.\nPlease note, that this has previously presented problems for those using SDU issued computers, thus check to see if RTools is available through the SDU IT Software Center.\n\n\n\nR packages are specific to the underlying version of R – when a new version of R is published it may take some time for package developers to update their packages. In other words, depending on the packages you make use of, it is not always a good idea to run the absolute latest release of R, but this is mostly an issue if you used ‘niche’ packages.\n\n\n\nIf you want to make use of an R package, you need to install and load it before it is available.\n\nWhen you install a package, it is downloaded from the internet and stored on your harddrive.\nWhen you load the package, it is read into your computeres RAM memory.\n\nNot until the package is in your computers RAM memory will it be available to your code.\n\n\n\nBy far the majority of packages are available online through the Comprehensive R Archive Network – CRAN.\nIf you want to install a CRAN package you can choose to do so via RStudios graphical user interface or via R in an R console. When installing via the R console, you may get some useful information about the installation process, especially if it fails.\n\n\n\n\n\n\nVideo : Installation of R pakker\n\n\n\n\n\n\n\nVideo\nExample installation of an R package"
   },
   {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#data-transformation-with-dplyr",
+    "href": "presentations/Day_1_wrangling_presentation.html#data-transformation-with-dplyr",
+    "title": "Day 1 - Data Wrangling",
+    "section": "Data transformation with dplyr",
+    "text": "Data transformation with dplyr\n\n\nWe will use the dplyr package that loads with the tidyverse.\nAt current dplyr contains 293 functions.\nThe main 6 functions in dplyr that we will use today are:\n\nselect()\nfilter()\nsummarise()\ngroup_by()\nmutate()\ncount()\n\ndplyr cheatsheet"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#load-the-dplyr-library",
+    "href": "presentations/Day_1_wrangling_presentation.html#load-the-dplyr-library",
+    "title": "Day 1 - Data Wrangling",
+    "section": "Load the dplyr library",
+    "text": "Load the dplyr library\n\nlibrary(tidyverse) \n\ndplyr is one of the many packages that are loaded with the tidyverse"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#take-a-look-at-the-starwars-dataset",
+    "href": "presentations/Day_1_wrangling_presentation.html#take-a-look-at-the-starwars-dataset",
+    "title": "Day 1 - Data Wrangling",
+    "section": "Take a look at the starwars dataset",
+    "text": "Take a look at the starwars dataset\nstarwars is one of several datasets that loads when you load the tidyverse.\nThe datasets are great for practising.\n\nWe call the dataset by typing its name.\n\n\n\nstarwars\n\n\n\n# A tibble: 87 × 14\n   name     height  mass hair_color skin_color eye_color birth_year sex   gender\n   &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; \n 1 Luke Sk…    172    77 blond      fair       blue            19   male  mascu…\n 2 C-3PO       167    75 &lt;NA&gt;       gold       yellow         112   none  mascu…\n 3 R2-D2        96    32 &lt;NA&gt;       white, bl… red             33   none  mascu…\n 4 Darth V…    202   136 none       white      yellow          41.9 male  mascu…\n 5 Leia Or…    150    49 brown      light      brown           19   fema… femin…\n 6 Owen La…    178   120 brown, gr… light      blue            52   male  mascu…\n 7 Beru Wh…    165    75 brown      light      blue            47   fema… femin…\n 8 R5-D4        97    32 &lt;NA&gt;       white, red red             NA   none  mascu…\n 9 Biggs D…    183    84 black      light      brown           24   male  mascu…\n10 Obi-Wan…    182    77 auburn, w… fair       blue-gray       57   male  mascu…\n# ℹ 77 more rows\n# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,\n#   vehicles &lt;list&gt;, starships &lt;list&gt;"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#select-1",
+    "href": "presentations/Day_1_wrangling_presentation.html#select-1",
+    "title": "Day 1 - Data Wrangling",
+    "section": "select()",
+    "text": "select()\nFunction:\nSelect a subset of columns (variables). Gets rid of all other columns. You can refer to the columns by the column position (first column) or by name.\nThe order in which you list the column names/positions is the order that the columns will be displayed.\n\nExample\nIn the starwars dataset, only keep the columns name and homeworld:\n\n\n\n\nstarwars %&gt;% \n  select(name, homeworld)\n\n\n# A tibble: 87 × 2\n   name               homeworld\n   &lt;chr&gt;              &lt;chr&gt;    \n 1 Luke Skywalker     Tatooine \n 2 C-3PO              Tatooine \n 3 R2-D2              Naboo    \n 4 Darth Vader        Tatooine \n 5 Leia Organa        Alderaan \n 6 Owen Lars          Tatooine \n 7 Beru Whitesun lars Tatooine \n 8 R5-D4              Tatooine \n 9 Biggs Darklighter  Tatooine \n10 Obi-Wan Kenobi     Stewjon  \n# ℹ 77 more rows"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#select-2",
+    "href": "presentations/Day_1_wrangling_presentation.html#select-2",
+    "title": "Day 1 - Data Wrangling",
+    "section": "select()",
+    "text": "select()\n\nOnly keep the first five columns:\n\nstarwars %&gt;% select(1:5)\nstarwars %&gt;% select(1,2,3,4,5)\n\n\nKeep all of the columns except for name:\n\nstarwars %&gt;% select(-name)\n\n\nKeep all of the columns except for name and mass:\n\nstarwars %&gt;% select(-name, -mass)\n\n\nKeep all of the columns except for the first five columns:\n\nstarwars %&gt;% select (-1,-2,-3,-4,-5)\nstarwars %&gt;% select(-(1:5))"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#select-and-the-tidyselect-helpers",
+    "href": "presentations/Day_1_wrangling_presentation.html#select-and-the-tidyselect-helpers",
+    "title": "Day 1 - Data Wrangling",
+    "section": "select() and the tidyselect helpers",
+    "text": "select() and the tidyselect helpers\n\n\n\nstarts_with()\nends_with()\ncontains()\n\n\nAre three of the tidyselect helper functions.\nYou can use them inside the select() function.\n\nExample\nselect all columns that start with “s”\n\n\nstarwars %&gt;% \n  select(starts_with(\"s\"))\n\n\n# A tibble: 87 × 4\n   skin_color  sex    species starships\n   &lt;chr&gt;       &lt;chr&gt;  &lt;chr&gt;   &lt;list&gt;   \n 1 fair        male   Human   &lt;chr [2]&gt;\n 2 gold        none   Droid   &lt;chr [0]&gt;\n 3 white, blue none   Droid   &lt;chr [0]&gt;\n 4 white       male   Human   &lt;chr [1]&gt;\n 5 light       female Human   &lt;chr [0]&gt;\n 6 light       male   Human   &lt;chr [0]&gt;\n 7 light       female Human   &lt;chr [0]&gt;\n 8 white, red  none   Droid   &lt;chr [0]&gt;\n 9 light       male   Human   &lt;chr [1]&gt;\n10 fair        male   Human   &lt;chr [5]&gt;\n# ℹ 77 more rows"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#lets-practice-using-select",
+    "href": "presentations/Day_1_wrangling_presentation.html#lets-practice-using-select",
+    "title": "Day 1 - Data Wrangling",
+    "section": "Lets practice using select()",
+    "text": "Lets practice using select()"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#filter-1",
+    "href": "presentations/Day_1_wrangling_presentation.html#filter-1",
+    "title": "Day 1 - Data Wrangling",
+    "section": "filter()",
+    "text": "filter()\nFunction:\nOnly keep specific rows of data that meet the specified requirement(s).\n\nExample\nIn the starwars dataset, only Keep the rows where height is above 150:\n\n\n\nstarwars %&gt;% \n  filter(height&gt;150)\n\n\n\n# A tibble: 69 × 14\n   name     height  mass hair_color skin_color eye_color birth_year sex   gender\n   &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; \n 1 Luke Sk…    172    77 blond      fair       blue            19   male  mascu…\n 2 C-3PO       167    75 &lt;NA&gt;       gold       yellow         112   none  mascu…\n 3 Darth V…    202   136 none       white      yellow          41.9 male  mascu…\n 4 Owen La…    178   120 brown, gr… light      blue            52   male  mascu…\n 5 Beru Wh…    165    75 brown      light      blue            47   fema… femin…\n 6 Biggs D…    183    84 black      light      brown           24   male  mascu…\n 7 Obi-Wan…    182    77 auburn, w… fair       blue-gray       57   male  mascu…\n 8 Anakin …    188    84 blond      fair       blue            41.9 male  mascu…\n 9 Wilhuff…    180    NA auburn, g… fair       blue            64   male  mascu…\n10 Chewbac…    228   112 brown      unknown    blue           200   male  mascu…\n# ℹ 59 more rows\n# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,\n#   vehicles &lt;list&gt;, starships &lt;list&gt;"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#filter-2",
+    "href": "presentations/Day_1_wrangling_presentation.html#filter-2",
+    "title": "Day 1 - Data Wrangling",
+    "section": "filter()",
+    "text": "filter()\nWorks with the logical operators:\n\n\n\n\n\n\n\nOperator\nAction\n\n\n\n\n!\nNOT\n\n\n==\nEQUAL TO\n\n\n!=\nNOT EQUAL TO\n\n\n|\nOR\n\n\n&gt;\nGREATER THAN\n\n\n&gt;=\nGREATER THAN OR EQUAL TO\n\n\n&lt;\nLESS THAN\n\n\n&lt;=\nLESS THAN OR EQUAL TO\n\n\n&\nAND\n\n\n\n\n\nActually, most functions that output either TRUE or FALSE e.g., is.NA() will work within filter()\nFurther reading"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#filter-3",
+    "href": "presentations/Day_1_wrangling_presentation.html#filter-3",
+    "title": "Day 1 - Data Wrangling",
+    "section": "filter()",
+    "text": "filter()\nKeep all rows where gender is masculine:\nnotice == not =\nnotice “masculine” not masculine\n\nstarwars %&gt;% filter(gender == \"masculine\")\n\n\nKeep all rows where hair_color is missing (NA value)\n\nstarwars %&gt;% filter(is.na(hair_color))\n\n\nKeep all rows where hair_color is “blond” AND eye_color is “blue”\n\nstarwars %&gt;% filter(hair_color == \"blond\" &  eye_color == \"blue\")\nstarwars %&gt;% filter(hair_color == \"blond\" ,  eye_color == \"blue\") \n\n\nKeep all rows where hair_color is “blond” OR eye_color is “blue”\n\nstarwars %&gt;% filter(hair_color == \"blond\" |  eye_color == \"blue\")\n\n\nKeep all rows where hair_color is either “blond” OR “white”\n\nstarwars %&gt;% filter(hair_color %in% c(\"blond\", \"white\"))"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#lets-practice-using-the-filter-function",
+    "href": "presentations/Day_1_wrangling_presentation.html#lets-practice-using-the-filter-function",
+    "title": "Day 1 - Data Wrangling",
+    "section": "Lets Practice using the filter() function",
+    "text": "Lets Practice using the filter() function"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#summarise-1",
+    "href": "presentations/Day_1_wrangling_presentation.html#summarise-1",
+    "title": "Day 1 - Data Wrangling",
+    "section": "summarise()",
+    "text": "summarise()\nFunction:\nCollapses all rows and returns a one-row summary.\n\nExample\n\nIn the diamonds dataset, calculate the mean price\n\ndiamonds %&gt;% \n  summarise(\n    avg_price = mean(price))\n\n\n\n# A tibble: 1 × 1\n  avg_price\n      &lt;dbl&gt;\n1     3933."
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#summarise-2",
+    "href": "presentations/Day_1_wrangling_presentation.html#summarise-2",
+    "title": "Day 1 - Data Wrangling",
+    "section": "summarise()",
+    "text": "summarise()\nSome functions that often go inside summarise()\n\nmean()\nsd\nn()\nmedian()\nquantile()\nsum()\nmax()\nmin()\nIQR()"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#summarise-3",
+    "href": "presentations/Day_1_wrangling_presentation.html#summarise-3",
+    "title": "Day 1 - Data Wrangling",
+    "section": "summarise",
+    "text": "summarise\nCalculate the mean and standard deviation of price\n\ndiamonds %&gt;% \n  summarise(\n    price_avg = mean(price),\n    price_sd = sd(price))\n\n\nCalculate the median and interquartile range of price\n\ndiamonds %&gt;% \n  summarise(\n    price_median = median(price),\n    price_iqr = IQR(price))\n\n\nCount the number of rows where cut is equal to “Ideal”\n\ndiamonds %&gt;%\n  summarise(\n    n_ideal = sum(cut == \"Ideal\"))\n\n\nWhat is the price of the most expensive diamond?\n\ndiamonds %&gt;% \n  summarise(\n    price_max = max(price))"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#lets-practice-using-the-summarise-function",
+    "href": "presentations/Day_1_wrangling_presentation.html#lets-practice-using-the-summarise-function",
+    "title": "Day 1 - Data Wrangling",
+    "section": "Lets Practice using the summarise() function",
+    "text": "Lets Practice using the summarise() function"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#group_by-1",
+    "href": "presentations/Day_1_wrangling_presentation.html#group_by-1",
+    "title": "Day 1 - Data Wrangling",
+    "section": "group_by()",
+    "text": "group_by()\nFunction:\nTakes existing data and groups specific variables together for future operations.\n\nExample\n\nGroup the diamonds dataset by cut\n\ndiamonds %&gt;% \n  group_by(cut)\n\n\n\n# A tibble: 53,940 × 10\n# Groups:   cut [5]\n   carat cut       color clarity depth table price     x     y     z\n   &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1  0.23 Ideal     E     SI2      61.5    55   326  3.95  3.98  2.43\n 2  0.21 Premium   E     SI1      59.8    61   326  3.89  3.84  2.31\n 3  0.23 Good      E     VS1      56.9    65   327  4.05  4.07  2.31\n 4  0.29 Premium   I     VS2      62.4    58   334  4.2   4.23  2.63\n 5  0.31 Good      J     SI2      63.3    58   335  4.34  4.35  2.75\n 6  0.24 Very Good J     VVS2     62.8    57   336  3.94  3.96  2.48\n 7  0.24 Very Good I     VVS1     62.3    57   336  3.95  3.98  2.47\n 8  0.26 Very Good H     SI1      61.9    55   337  4.07  4.11  2.53\n 9  0.22 Fair      E     VS2      65.1    61   337  3.87  3.78  2.49\n10  0.23 Very Good H     VS1      59.4    61   338  4     4.05  2.39\n# ℹ 53,930 more rows"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#group_by-2",
+    "href": "presentations/Day_1_wrangling_presentation.html#group_by-2",
+    "title": "Day 1 - Data Wrangling",
+    "section": "group_by()",
+    "text": "group_by()\nFunction:\nTakes existing data and groups specific variables together for future operations.\n\nExample\n\nGroup the diamonds dataset by cut, then caluclate the mean price\n\ndiamonds %&gt;% \n  group_by(cut) %&gt;% \n  summarise(avg_price = mean(price))\n\n\n\n# A tibble: 5 × 2\n  cut       avg_price\n  &lt;ord&gt;         &lt;dbl&gt;\n1 Fair          4359.\n2 Good          3929.\n3 Very Good     3982.\n4 Premium       4584.\n5 Ideal         3458."
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#group_by-3",
+    "href": "presentations/Day_1_wrangling_presentation.html#group_by-3",
+    "title": "Day 1 - Data Wrangling",
+    "section": "group_by()",
+    "text": "group_by()\nYou can group by multiple columns\n\nExample\n\nGroup the diamonds dataset by cut and clarity, then caluclate the mean and sd of price\n\ndiamonds %&gt;% \n  group_by(cut, color) %&gt;% \n  summarise(avg_price = mean(price),\n            sd_price = sd(price))\n\n\n\n# A tibble: 35 × 4\n# Groups:   cut [5]\n   cut   color avg_price sd_price\n   &lt;ord&gt; &lt;ord&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n 1 Fair  D         4291.    3286.\n 2 Fair  E         3682.    2977.\n 3 Fair  F         3827.    3223.\n 4 Fair  G         4239.    3610.\n 5 Fair  H         5136.    3886.\n 6 Fair  I         4685.    3730.\n 7 Fair  J         4976.    4050.\n 8 Good  D         3405.    3175.\n 9 Good  E         3424.    3331.\n10 Good  F         3496.    3202.\n# ℹ 25 more rows"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#group_by-and-ungroup",
+    "href": "presentations/Day_1_wrangling_presentation.html#group_by-and-ungroup",
+    "title": "Day 1 - Data Wrangling",
+    "section": "group_by() and ungroup",
+    "text": "group_by() and ungroup\nYou can undo a group_by() with ungroup()\n\ndiamonds %&gt;% \n  group_by(cut) %&gt;% \n  ungroup()\n\n\n\n# A tibble: 53,940 × 10\n   carat cut       color clarity depth table price     x     y     z\n   &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1  0.23 Ideal     E     SI2      61.5    55   326  3.95  3.98  2.43\n 2  0.21 Premium   E     SI1      59.8    61   326  3.89  3.84  2.31\n 3  0.23 Good      E     VS1      56.9    65   327  4.05  4.07  2.31\n 4  0.29 Premium   I     VS2      62.4    58   334  4.2   4.23  2.63\n 5  0.31 Good      J     SI2      63.3    58   335  4.34  4.35  2.75\n 6  0.24 Very Good J     VVS2     62.8    57   336  3.94  3.96  2.48\n 7  0.24 Very Good I     VVS1     62.3    57   336  3.95  3.98  2.47\n 8  0.26 Very Good H     SI1      61.9    55   337  4.07  4.11  2.53\n 9  0.22 Fair      E     VS2      65.1    61   337  3.87  3.78  2.49\n10  0.23 Very Good H     VS1      59.4    61   338  4     4.05  2.39\n# ℹ 53,930 more rows"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#arrange",
+    "href": "presentations/Day_1_wrangling_presentation.html#arrange",
+    "title": "Day 1 - Data Wrangling",
+    "section": "arrange()",
+    "text": "arrange()\nFunction:\nArranges (sorts) your tibble based on the values within a variable.\n\nExample\n\nArrange the diamonds dataset by cut\n\ndiamonds %&gt;% \n  arrange(cut)\n\n\n\n# A tibble: 53,940 × 10\n   carat cut   color clarity depth table price     x     y     z\n   &lt;dbl&gt; &lt;ord&gt; &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1  0.22 Fair  E     VS2      65.1    61   337  3.87  3.78  2.49\n 2  0.86 Fair  E     SI2      55.1    69  2757  6.45  6.33  3.52\n 3  0.96 Fair  F     SI2      66.3    62  2759  6.27  5.95  4.07\n 4  0.7  Fair  F     VS2      64.5    57  2762  5.57  5.53  3.58\n 5  0.7  Fair  F     VS2      65.3    55  2762  5.63  5.58  3.66\n 6  0.91 Fair  H     SI2      64.4    57  2763  6.11  6.09  3.93\n 7  0.91 Fair  H     SI2      65.7    60  2763  6.03  5.99  3.95\n 8  0.98 Fair  H     SI2      67.9    60  2777  6.05  5.97  4.08\n 9  0.84 Fair  G     SI1      55.1    67  2782  6.39  6.2   3.47\n10  1.01 Fair  E     I1       64.5    58  2788  6.29  6.21  4.03\n# ℹ 53,930 more rows"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#arrange-and-desc",
+    "href": "presentations/Day_1_wrangling_presentation.html#arrange-and-desc",
+    "title": "Day 1 - Data Wrangling",
+    "section": "arrange() and desc()",
+    "text": "arrange() and desc()\nFunction:\narrange() Arranges (sorts) your tibble based on the values within a variable.\ndesc() is put inside arrange() to make the order descending\n\nExample\nArrange the diamonds dataset by price\n\n\ndiamonds %&gt;% \n  arrange(price)\n\n\n# A tibble: 53,940 × 10\n   carat cut       color clarity depth table price     x     y     z\n   &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1  0.23 Ideal     E     SI2      61.5    55   326  3.95  3.98  2.43\n 2  0.21 Premium   E     SI1      59.8    61   326  3.89  3.84  2.31\n 3  0.23 Good      E     VS1      56.9    65   327  4.05  4.07  2.31\n 4  0.29 Premium   I     VS2      62.4    58   334  4.2   4.23  2.63\n 5  0.31 Good      J     SI2      63.3    58   335  4.34  4.35  2.75\n 6  0.24 Very Good J     VVS2     62.8    57   336  3.94  3.96  2.48\n 7  0.24 Very Good I     VVS1     62.3    57   336  3.95  3.98  2.47\n 8  0.26 Very Good H     SI1      61.9    55   337  4.07  4.11  2.53\n 9  0.22 Fair      E     VS2      65.1    61   337  3.87  3.78  2.49\n10  0.23 Very Good H     VS1      59.4    61   338  4     4.05  2.39\n# ℹ 53,930 more rows\n\n\n\n\nArrange the diamonds dataset in descending order by price\n\n\ndiamonds %&gt;% \n  arrange(desc(price))\n\n\n# A tibble: 53,940 × 10\n   carat cut       color clarity depth table price     x     y     z\n   &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1  2.29 Premium   I     VS2      60.8    60 18823  8.5   8.47  5.16\n 2  2    Very Good G     SI1      63.5    56 18818  7.9   7.97  5.04\n 3  1.51 Ideal     G     IF       61.7    55 18806  7.37  7.41  4.56\n 4  2.07 Ideal     G     SI2      62.5    55 18804  8.2   8.13  5.11\n 5  2    Very Good H     SI1      62.8    57 18803  7.95  8     5.01\n 6  2.29 Premium   I     SI1      61.8    59 18797  8.52  8.45  5.24\n 7  2.04 Premium   H     SI1      58.1    60 18795  8.37  8.28  4.84\n 8  2    Premium   I     VS1      60.8    59 18795  8.13  8.02  4.91\n 9  1.71 Premium   F     VS2      62.3    59 18791  7.57  7.53  4.7 \n10  2.15 Ideal     G     SI2      62.6    54 18791  8.29  8.35  5.21\n# ℹ 53,930 more rows"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#lets-practice-using-the-group_by-and-arrange-functions",
+    "href": "presentations/Day_1_wrangling_presentation.html#lets-practice-using-the-group_by-and-arrange-functions",
+    "title": "Day 1 - Data Wrangling",
+    "section": "Lets Practice using the group_by() and arrange() functions",
+    "text": "Lets Practice using the group_by() and arrange() functions"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#mutate-1",
+    "href": "presentations/Day_1_wrangling_presentation.html#mutate-1",
+    "title": "Day 1 - Data Wrangling",
+    "section": "mutate()",
+    "text": "mutate()\nFunction:\nAdds new columns or modifies current variables in the tibble.\n\n\nExample\nIn the diamonds dataset, create a new variable called tax equal to 25% of price\n\n\n\ndiamonds %&gt;% \n  mutate(\n    tax = price*0.25)\n\n\n\n# A tibble: 53,940 × 11\n   carat cut       color clarity depth table price     x     y     z   tax\n   &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1  0.23 Ideal     E     SI2      61.5    55   326  3.95  3.98  2.43  81.5\n 2  0.21 Premium   E     SI1      59.8    61   326  3.89  3.84  2.31  81.5\n 3  0.23 Good      E     VS1      56.9    65   327  4.05  4.07  2.31  81.8\n 4  0.29 Premium   I     VS2      62.4    58   334  4.2   4.23  2.63  83.5\n 5  0.31 Good      J     SI2      63.3    58   335  4.34  4.35  2.75  83.8\n 6  0.24 Very Good J     VVS2     62.8    57   336  3.94  3.96  2.48  84  \n 7  0.24 Very Good I     VVS1     62.3    57   336  3.95  3.98  2.47  84  \n 8  0.26 Very Good H     SI1      61.9    55   337  4.07  4.11  2.53  84.2\n 9  0.22 Fair      E     VS2      65.1    61   337  3.87  3.78  2.49  84.2\n10  0.23 Very Good H     VS1      59.4    61   338  4     4.05  2.39  84.5\n# ℹ 53,930 more rows"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#mutate-2",
+    "href": "presentations/Day_1_wrangling_presentation.html#mutate-2",
+    "title": "Day 1 - Data Wrangling",
+    "section": "mutate()",
+    "text": "mutate()\nFunction:\nAdds new columns or modifies current variables in the tibble.\n\n\nExample\nIn the diamonds dataset, create a new variable called tax equal to 25% of price\nPlace the new variable tax right after price\n\ndiamonds %&gt;% \n  mutate(\n    tax = price*0.25,\n    .after = price)\n\n\n\n# A tibble: 53,940 × 11\n   carat cut       color clarity depth table price   tax     x     y     z\n   &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1  0.23 Ideal     E     SI2      61.5    55   326  81.5  3.95  3.98  2.43\n 2  0.21 Premium   E     SI1      59.8    61   326  81.5  3.89  3.84  2.31\n 3  0.23 Good      E     VS1      56.9    65   327  81.8  4.05  4.07  2.31\n 4  0.29 Premium   I     VS2      62.4    58   334  83.5  4.2   4.23  2.63\n 5  0.31 Good      J     SI2      63.3    58   335  83.8  4.34  4.35  2.75\n 6  0.24 Very Good J     VVS2     62.8    57   336  84    3.94  3.96  2.48\n 7  0.24 Very Good I     VVS1     62.3    57   336  84    3.95  3.98  2.47\n 8  0.26 Very Good H     SI1      61.9    55   337  84.2  4.07  4.11  2.53\n 9  0.22 Fair      E     VS2      65.1    61   337  84.2  3.87  3.78  2.49\n10  0.23 Very Good H     VS1      59.4    61   338  84.5  4     4.05  2.39\n# ℹ 53,930 more rows"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#mutate-3",
+    "href": "presentations/Day_1_wrangling_presentation.html#mutate-3",
+    "title": "Day 1 - Data Wrangling",
+    "section": "mutate()",
+    "text": "mutate()\nAdd a new colum called dummy with only TRUE values\n\ndiamonds %&gt;% \n  mutate(dummy = TRUE)\n\n\n\nAdd a new collum called cubic_volume that multiplies x, y, and z\n\ndiamonds %&gt;% \n  mutate(cubic_volume = x*y*z)\n\n\n\nAdd a new column that calculates the difference in price from the mean price\n\ndiamonds %&gt;% \n  mutate(price_dm = price-mean(price))"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#if_else-often-goes-inside-mutate",
+    "href": "presentations/Day_1_wrangling_presentation.html#if_else-often-goes-inside-mutate",
+    "title": "Day 1 - Data Wrangling",
+    "section": "if_else() often goes inside mutate()",
+    "text": "if_else() often goes inside mutate()\nFunction:\nif_else()contains 3 parts:  \n\nA test\nWhat to do if the test is TRUE\nWhat to do if the test is FALSE\n\n\n\nExample\n\n\n\ndiamonds %&gt;% \n  mutate(\n    buy = if_else(cut == \"Ideal\" & price &lt; mean(price), \"YES\", \"NO\"))\n\n\n\n# A tibble: 53,940 × 11\n   carat cut       color clarity depth table price     x     y     z buy  \n   &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;\n 1  0.23 Ideal     E     SI2      61.5    55   326  3.95  3.98  2.43 YES  \n 2  0.21 Premium   E     SI1      59.8    61   326  3.89  3.84  2.31 NO   \n 3  0.23 Good      E     VS1      56.9    65   327  4.05  4.07  2.31 NO   \n 4  0.29 Premium   I     VS2      62.4    58   334  4.2   4.23  2.63 NO   \n 5  0.31 Good      J     SI2      63.3    58   335  4.34  4.35  2.75 NO   \n 6  0.24 Very Good J     VVS2     62.8    57   336  3.94  3.96  2.48 NO   \n 7  0.24 Very Good I     VVS1     62.3    57   336  3.95  3.98  2.47 NO   \n 8  0.26 Very Good H     SI1      61.9    55   337  4.07  4.11  2.53 NO   \n 9  0.22 Fair      E     VS2      65.1    61   337  3.87  3.78  2.49 NO   \n10  0.23 Very Good H     VS1      59.4    61   338  4     4.05  2.39 NO   \n# ℹ 53,930 more rows"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#case_when-often-goes-inside-mutate",
+    "href": "presentations/Day_1_wrangling_presentation.html#case_when-often-goes-inside-mutate",
+    "title": "Day 1 - Data Wrangling",
+    "section": "case_when() often goes inside mutate()",
+    "text": "case_when() often goes inside mutate()\nFunction: \ncase_when() contains a series of tests instead of just one.\nThe output of a passed test is written after a ~\ncase_when ends with TRUE ~ (what to do if none of the tests are passed) \n\nExample\n\n\n\ndiamonds %&gt;% \n  mutate(\n    buy = case_when(\n      cut == \"Ideal\" & price &lt; mean(price) ~ \"YES\", \n      cut == \"Premium\" & price &lt; mean(price) ~ \"MAYBE\",\n      TRUE ~ \"NO\"))\n\n\n\n# A tibble: 53,940 × 11\n   carat cut       color clarity depth table price     x     y     z buy  \n   &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;\n 1  0.23 Ideal     E     SI2      61.5    55   326  3.95  3.98  2.43 YES  \n 2  0.21 Premium   E     SI1      59.8    61   326  3.89  3.84  2.31 MAYBE\n 3  0.23 Good      E     VS1      56.9    65   327  4.05  4.07  2.31 NO   \n 4  0.29 Premium   I     VS2      62.4    58   334  4.2   4.23  2.63 MAYBE\n 5  0.31 Good      J     SI2      63.3    58   335  4.34  4.35  2.75 NO   \n 6  0.24 Very Good J     VVS2     62.8    57   336  3.94  3.96  2.48 NO   \n 7  0.24 Very Good I     VVS1     62.3    57   336  3.95  3.98  2.47 NO   \n 8  0.26 Very Good H     SI1      61.9    55   337  4.07  4.11  2.53 NO   \n 9  0.22 Fair      E     VS2      65.1    61   337  3.87  3.78  2.49 NO   \n10  0.23 Very Good H     VS1      59.4    61   338  4     4.05  2.39 NO   \n# ℹ 53,930 more rows"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#lets-practice-using-the-mutate-function",
+    "href": "presentations/Day_1_wrangling_presentation.html#lets-practice-using-the-mutate-function",
+    "title": "Day 1 - Data Wrangling",
+    "section": "Lets Practice using the mutate() function",
+    "text": "Lets Practice using the mutate() function\nand if_else() and case_when()"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#count-1",
+    "href": "presentations/Day_1_wrangling_presentation.html#count-1",
+    "title": "Day 1 - Data Wrangling",
+    "section": "count()",
+    "text": "count()\ncount() is very useful for fast counting and to get an overview of the number of observations within a (grouped) dataset\n\n\ndiamonds %&gt;% \n  count()\n\n\n# A tibble: 1 × 1\n      n\n  &lt;int&gt;\n1 53940\n\n\n\n\n\n\n\ndiamonds %&gt;% \n  count(cut)\n\n\n# A tibble: 5 × 2\n  cut           n\n  &lt;ord&gt;     &lt;int&gt;\n1 Fair       1610\n2 Good       4906\n3 Very Good 12082\n4 Premium   13791\n5 Ideal     21551\n\n\n\n\n\n\n\ndiamonds %&gt;% \n  count(cut, color)\n\n\n# A tibble: 35 × 3\n   cut   color     n\n   &lt;ord&gt; &lt;ord&gt; &lt;int&gt;\n 1 Fair  D       163\n 2 Fair  E       224\n 3 Fair  F       312\n 4 Fair  G       314\n 5 Fair  H       303\n 6 Fair  I       175\n 7 Fair  J       119\n 8 Good  D       662\n 9 Good  E       933\n10 Good  F       909\n# ℹ 25 more rows"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#join",
+    "href": "presentations/Day_1_wrangling_presentation.html#join",
+    "title": "Day 1 - Data Wrangling",
+    "section": "[]_join",
+    "text": "[]_join\nIt’s rare that a data analysis involves only a single table of data. In practice, you’ll normally have many tables that contribute to an analysis, and you need flexible tools to combine them.\n\ninner_join()\nsemi_join()\nleft_join()\nanti_join()\nfull_join()"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#join---example-data",
+    "href": "presentations/Day_1_wrangling_presentation.html#join---example-data",
+    "title": "Day 1 - Data Wrangling",
+    "section": "[]_join - Example data",
+    "text": "[]_join - Example data\n\n\n\nsuperheroes\n\n\n\n\n\n\n\n  \n    \n    \n      name\n      alignment\n      gender\n      publisher\n    \n  \n  \n    Magneto\nbad\nmale\nMarvel\n    Storm\ngood\nfemale\nMarvel\n    Mystique\nbad\nfemale\nMarvel\n    Batman\ngood\nmale\nDC\n    Joker\nbad\nmale\nDC\n    Catwoman\nbad\nfemale\nDC\n    Hellboy\ngood\nmale\nDark Horse Comics\n  \n  \n  \n\n\n\n\n\n\n\n\npublishers\n\n\n\n\n\n\n\n  \n    \n    \n      publisher\n      yr_founded\n    \n  \n  \n    DC\n1934\n    Marvel\n1939\n    Image\n1992\n  \n  \n  \n\n\n\n\n\n\n\nTake a good look at the two dataframes\n\nWhat columns match between the two dataframes?\nAre the values in the publisher column identical in the two dataframes?\nAre the values in the publisher column arranged (sorted) in the same way in the two dataframes?\nWhat kind of information are we missing on the Dark Horse Comics and Image publishers?"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#inner_join",
+    "href": "presentations/Day_1_wrangling_presentation.html#inner_join",
+    "title": "Day 1 - Data Wrangling",
+    "section": "inner_join()",
+    "text": "inner_join()\ninner_join(x, y) returns all rows from x where there are matching values in y, and all columns from x and y.\n\n\n\n\n\ninner_join(superheroes, publishers)\n\n\n\n\n\n\n\n  \n    \n    \n      name\n      alignment\n      gender\n      publisher\n      yr_founded\n    \n  \n  \n    Magneto\nbad\nmale\nMarvel\n1939\n    Storm\ngood\nfemale\nMarvel\n1939\n    Mystique\nbad\nfemale\nMarvel\n1939\n    Batman\ngood\nmale\nDC\n1934\n    Joker\nbad\nmale\nDC\n1934\n    Catwoman\nbad\nfemale\nDC\n1934\n  \n  \n  \n\n\n\n\n\n\n\n\ninner_join(publishers, superheroes)\n\n\n\n\n\n\n\n  \n    \n    \n      publisher\n      yr_founded\n      name\n      alignment\n      gender\n    \n  \n  \n    DC\n1934\nBatman\ngood\nmale\n    DC\n1934\nJoker\nbad\nmale\n    DC\n1934\nCatwoman\nbad\nfemale\n    Marvel\n1939\nMagneto\nbad\nmale\n    Marvel\n1939\nStorm\ngood\nfemale\n    Marvel\n1939\nMystique\nbad\nfemale\n  \n  \n  \n\n\n\n\n\n\n\nResults are identical. Only variable order is different.\nWhat information was filtered away?"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#semi_join",
+    "href": "presentations/Day_1_wrangling_presentation.html#semi_join",
+    "title": "Day 1 - Data Wrangling",
+    "section": "semi_join()",
+    "text": "semi_join()\nsemi_join(x, y) returns all rows from x where there are matching values in y, keeping just columns from x.\n\n\n\n\n\nsemi_join(superheroes, publishers)\n\n\n\n\n\n\n\n  \n    \n    \n      name\n      alignment\n      gender\n      publisher\n    \n  \n  \n    Magneto\nbad\nmale\nMarvel\n    Storm\ngood\nfemale\nMarvel\n    Mystique\nbad\nfemale\nMarvel\n    Batman\ngood\nmale\nDC\n    Joker\nbad\nmale\nDC\n    Catwoman\nbad\nfemale\nDC\n  \n  \n  \n\n\n\n\n\n\n\n\nsemi_join(publishers, superheroes)\n\n\n\n\n\n\n\n  \n    \n    \n      publisher\n      yr_founded\n    \n  \n  \n    DC\n1934\n    Marvel\n1939"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#left_join",
+    "href": "presentations/Day_1_wrangling_presentation.html#left_join",
+    "title": "Day 1 - Data Wrangling",
+    "section": "left_join()",
+    "text": "left_join()\nleft_join(x, y) returns all rows from x, and all columns from x and y.\n\n\n\n\n\nleft_join(superheroes, publishers)\n\n\n\n\n\n\n\n  \n    \n    \n      name\n      alignment\n      gender\n      publisher\n      yr_founded\n    \n  \n  \n    Magneto\nbad\nmale\nMarvel\n1939\n    Storm\ngood\nfemale\nMarvel\n1939\n    Mystique\nbad\nfemale\nMarvel\n1939\n    Batman\ngood\nmale\nDC\n1934\n    Joker\nbad\nmale\nDC\n1934\n    Catwoman\nbad\nfemale\nDC\n1934\n    Hellboy\ngood\nmale\nDark Horse Comics\nNA\n  \n  \n  \n\n\n\n\n\n\n\n\nleft_join(publishers, superheroes)\n\n\n\n\n\n\n\n  \n    \n    \n      publisher\n      yr_founded\n      name\n      alignment\n      gender\n    \n  \n  \n    DC\n1934\nBatman\ngood\nmale\n    DC\n1934\nJoker\nbad\nmale\n    DC\n1934\nCatwoman\nbad\nfemale\n    Marvel\n1939\nMagneto\nbad\nmale\n    Marvel\n1939\nStorm\ngood\nfemale\n    Marvel\n1939\nMystique\nbad\nfemale\n    Image\n1992\nNA\nNA\nNA"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#anti_join",
+    "href": "presentations/Day_1_wrangling_presentation.html#anti_join",
+    "title": "Day 1 - Data Wrangling",
+    "section": "anti_join()",
+    "text": "anti_join()\nanti_join(x, y) returns all rows from x where there are not matching values in y. Keeping only columns in x.\n\n\n\n\n\nanti_join(superheroes, publishers)\n\n\n\n\n\n\n\n  \n    \n    \n      name\n      alignment\n      gender\n      publisher\n    \n  \n  \n    Hellboy\ngood\nmale\nDark Horse Comics\n  \n  \n  \n\n\n\n\n\n\n\n\nanti_join(publishers, superheroes)\n\n\n\n\n\n\n\n  \n    \n    \n      publisher\n      yr_founded\n    \n  \n  \n    Image\n1992"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#full_join",
+    "href": "presentations/Day_1_wrangling_presentation.html#full_join",
+    "title": "Day 1 - Data Wrangling",
+    "section": "full_join()",
+    "text": "full_join()\nfull_join(x, y) Return all rows and all columns from both x and y. Where there are not matching values, returns NA for the one missing.\n\n\n\nfull_join(superheroes, publishers)\n\n\n\n\n\n\n\n  \n    \n    \n      name\n      alignment\n      gender\n      publisher\n      yr_founded\n    \n  \n  \n    Magneto\nbad\nmale\nMarvel\n1939\n    Storm\ngood\nfemale\nMarvel\n1939\n    Mystique\nbad\nfemale\nMarvel\n1939\n    Batman\ngood\nmale\nDC\n1934\n    Joker\nbad\nmale\nDC\n1934\n    Catwoman\nbad\nfemale\nDC\n1934\n    Hellboy\ngood\nmale\nDark Horse Comics\nNA\n    NA\nNA\nNA\nImage\n1992\n  \n  \n  \n\n\n\n\n\n\n\n\nfull_join(publishers, superheroes)\n\n\n\n\n\n\n\n  \n    \n    \n      publisher\n      yr_founded\n      name\n      alignment\n      gender\n    \n  \n  \n    DC\n1934\nBatman\ngood\nmale\n    DC\n1934\nJoker\nbad\nmale\n    DC\n1934\nCatwoman\nbad\nfemale\n    Marvel\n1939\nMagneto\nbad\nmale\n    Marvel\n1939\nStorm\ngood\nfemale\n    Marvel\n1939\nMystique\nbad\nfemale\n    Image\n1992\nNA\nNA\nNA\n    Dark Horse Comics\nNA\nHellboy\ngood\nmale"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#lets-practice-joins",
+    "href": "presentations/Day_1_wrangling_presentation.html#lets-practice-joins",
+    "title": "Day 1 - Data Wrangling",
+    "section": "lets practice joins",
+    "text": "lets practice joins"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#pivot_",
+    "href": "presentations/Day_1_wrangling_presentation.html#pivot_",
+    "title": "Day 1 - Data Wrangling",
+    "section": "pivot_",
+    "text": "pivot_\n\n\n\npivot_longer() makes datasets longer by increasing the number of rows and decreasing the number of columns.\npivot_wider() makes datasets wider by decreasing the number of rows and increasing the number of columns."
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#pivot_longer",
+    "href": "presentations/Day_1_wrangling_presentation.html#pivot_longer",
+    "title": "Day 1 - Data Wrangling",
+    "section": "pivot_longer()",
+    "text": "pivot_longer()\nThe relig_income dataset\n\n\nInformation on religion and annual income:\n\ncell values are counts\n\n\n\nhead(relig_income)\n\n\n\n# A tibble: 6 × 11\n  religion  `&lt;$10k` `$10-20k` `$20-30k` `$30-40k` `$40-50k` `$50-75k` `$75-100k`\n  &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n1 Agnostic       27        34        60        81        76       137        122\n2 Atheist        12        27        37        52        35        70         73\n3 Buddhist       27        21        30        34        33        58         62\n4 Catholic      418       617       732       670       638      1116        949\n5 Don’t kn…      15        14        15        11        10        35         21\n6 Evangeli…     575       869      1064       982       881      1486        949\n# ℹ 3 more variables: `$100-150k` &lt;dbl&gt;, `&gt;150k` &lt;dbl&gt;,\n#   `Don't know/refused` &lt;dbl&gt;"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#pivot_longer-1",
+    "href": "presentations/Day_1_wrangling_presentation.html#pivot_longer-1",
+    "title": "Day 1 - Data Wrangling",
+    "section": "pivot_longer()",
+    "text": "pivot_longer()\n\n\nrelig_income %&gt;% \n  pivot_longer(cols = -religion)\n\n\n# A tibble: 180 × 3\n   religion name               value\n   &lt;chr&gt;    &lt;chr&gt;              &lt;dbl&gt;\n 1 Agnostic &lt;$10k                 27\n 2 Agnostic $10-20k               34\n 3 Agnostic $20-30k               60\n 4 Agnostic $30-40k               81\n 5 Agnostic $40-50k               76\n 6 Agnostic $50-75k              137\n 7 Agnostic $75-100k             122\n 8 Agnostic $100-150k            109\n 9 Agnostic &gt;150k                 84\n10 Agnostic Don't know/refused    96\n# ℹ 170 more rows\n\n\n\n\n\nrelig_income %&gt;% \n  pivot_longer(cols = -religion,\n               names_to = \"income\",\n               values_to = \"count\")\n\n\n# A tibble: 180 × 3\n   religion income             count\n   &lt;chr&gt;    &lt;chr&gt;              &lt;dbl&gt;\n 1 Agnostic &lt;$10k                 27\n 2 Agnostic $10-20k               34\n 3 Agnostic $20-30k               60\n 4 Agnostic $30-40k               81\n 5 Agnostic $40-50k               76\n 6 Agnostic $50-75k              137\n 7 Agnostic $75-100k             122\n 8 Agnostic $100-150k            109\n 9 Agnostic &gt;150k                 84\n10 Agnostic Don't know/refused    96\n# ℹ 170 more rows"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#pivot_wider",
+    "href": "presentations/Day_1_wrangling_presentation.html#pivot_wider",
+    "title": "Day 1 - Data Wrangling",
+    "section": "pivot_wider()",
+    "text": "pivot_wider()\nIs less often used, but often comes in handy when tidying data\n\nmocap_data\n\n\n\n# A tibble: 10 × 10\n      id hip_x hip_y hip_z knee_x knee_y knee_z ankle_x ankle_y ankle_z\n   &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;int&gt;   &lt;dbl&gt;   &lt;dbl&gt;\n 1     1     1     2     1      1      1      1       1       0       1\n 2     2     2     2     1      2      1      1       2       0       1\n 3     3     3     2     1      3      1      1       3       0       1\n 4     4     4     2     1      4      1      1       4       0       1\n 5     5     5     2     1      5      1      1       5       0       1\n 6     6     6     2     1      6      1      1       6       0       1\n 7     7     7     2     1      7      1      1       7       0       1\n 8     8     8     2     1      8      1      1       8       0       1\n 9     9     9     2     1      9      1      1       9       0       1\n10    10    10     2     1     10      1      1      10       0       1\n\n\n\n*notice: The column names contain two pieces of information ({joint}_{coordinate})*"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#pivot_wider-1",
+    "href": "presentations/Day_1_wrangling_presentation.html#pivot_wider-1",
+    "title": "Day 1 - Data Wrangling",
+    "section": "pivot_wider()",
+    "text": "pivot_wider()\nWe want to go from this:\n\n\n# A tibble: 3 × 10\n     id hip_x hip_y hip_z knee_x knee_y knee_z ankle_x ankle_y ankle_z\n  &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;int&gt;   &lt;dbl&gt;   &lt;dbl&gt;\n1     1     1     2     1      1      1      1       1       0       1\n2     2     2     2     1      2      1      1       2       0       1\n3     3     3     2     1      3      1      1       3       0       1\n\n\n\n\nTo this:\n\n\n# A tibble: 30 × 5\n      id Joint     x     y     z\n   &lt;int&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1     1 hip       1     2     1\n 2     1 knee      1     1     1\n 3     1 ankle     1     0     1\n 4     2 hip       2     2     1\n 5     2 knee      2     1     1\n 6     2 ankle     2     0     1\n 7     3 hip       3     2     1\n 8     3 knee      3     1     1\n 9     3 ankle     3     0     1\n10     4 hip       4     2     1\n# ℹ 20 more rows"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#pivot_wider-2",
+    "href": "presentations/Day_1_wrangling_presentation.html#pivot_wider-2",
+    "title": "Day 1 - Data Wrangling",
+    "section": "pivot_wider()",
+    "text": "pivot_wider()\n\nWe start with pivot_longer(), but it pulls to much together\n\nmocap_data %&gt;% \n  pivot_longer(cols = -id) \n\n\n\n# A tibble: 90 × 3\n      id name    value\n   &lt;int&gt; &lt;chr&gt;   &lt;dbl&gt;\n 1     1 hip_x       1\n 2     1 hip_y       2\n 3     1 hip_z       1\n 4     1 knee_x      1\n 5     1 knee_y      1\n 6     1 knee_z      1\n 7     1 ankle_x     1\n 8     1 ankle_y     0\n 9     1 ankle_z     1\n10     2 hip_x       2\n# ℹ 80 more rows"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#pivot_wider-3",
+    "href": "presentations/Day_1_wrangling_presentation.html#pivot_wider-3",
+    "title": "Day 1 - Data Wrangling",
+    "section": "pivot_wider()",
+    "text": "pivot_wider()\n\nWe then use extract() to split the name column\n\nmocap_data %&gt;% \n  pivot_longer(cols = -id) %&gt;%  \n  extract(col = name,                  # What column to extract information from \n          into = c(\"Joint\", \"coord\"),  # What should the new columns be called\n          regex = \"(.+)_(.+)\")         # A regular expression\n\n\n\n# A tibble: 90 × 4\n      id Joint coord value\n   &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;\n 1     1 hip   x         1\n 2     1 hip   y         2\n 3     1 hip   z         1\n 4     1 knee  x         1\n 5     1 knee  y         1\n 6     1 knee  z         1\n 7     1 ankle x         1\n 8     1 ankle y         0\n 9     1 ankle z         1\n10     2 hip   x         2\n# ℹ 80 more rows"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#pivot_wider-4",
+    "href": "presentations/Day_1_wrangling_presentation.html#pivot_wider-4",
+    "title": "Day 1 - Data Wrangling",
+    "section": "pivot_wider()",
+    "text": "pivot_wider()\n\nFinally we use pivot_wider()\n\nmocap_data %&gt;% \n  pivot_longer(cols = -id) %&gt;%  # pulls to much together\n  extract(name, \n          into = c(\"Joint\", \"coord\"),\n          regex = \"(.+)_(.+)\") %&gt;% \n  pivot_wider(names_from = coord,\n              values_from = value)\n\n\n\n# A tibble: 30 × 5\n      id Joint     x     y     z\n   &lt;int&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1     1 hip       1     2     1\n 2     1 knee      1     1     1\n 3     1 ankle     1     0     1\n 4     2 hip       2     2     1\n 5     2 knee      2     1     1\n 6     2 ankle     2     0     1\n 7     3 hip       3     2     1\n 8     3 knee      3     1     1\n 9     3 ankle     3     0     1\n10     4 hip       4     2     1\n# ℹ 20 more rows"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#across-1",
+    "href": "presentations/Day_1_wrangling_presentation.html#across-1",
+    "title": "Day 1 - Data Wrangling",
+    "section": "across()",
+    "text": "across()\nacross is more advanced but very useful when you want to perform the same operations on multiple columns\nRead more about across here and here\n\ndiamonds %&gt;%  \n  group_by(cut) %&gt;%  \n  summarise(\n    across(.cols = where(is.numeric),      # All numeric columns will change\n           .fns = ~mean(.x, na.rm = T),    # .fns is the function you wnat to want to apply to the columns \n           .names = \"{.col}_mean\"          # How should the new columns be named?\n  ))\n\n\n\n# A tibble: 5 × 8\n  cut       carat_mean depth_mean table_mean price_mean x_mean y_mean z_mean\n  &lt;ord&gt;          &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;\n1 Fair           1.05        64.0       59.1      4359.   6.25   6.18   3.98\n2 Good           0.849       62.4       58.7      3929.   5.84   5.85   3.64\n3 Very Good      0.806       61.8       58.0      3982.   5.74   5.77   3.56\n4 Premium        0.892       61.3       58.7      4584.   5.97   5.94   3.65\n5 Ideal          0.703       61.7       56.0      3458.   5.51   5.52   3.40"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#across-2",
+    "href": "presentations/Day_1_wrangling_presentation.html#across-2",
+    "title": "Day 1 - Data Wrangling",
+    "section": "across()",
+    "text": "across()\nacross is more advanced but very useful when you want to perform the same operations on multiple columns\nRead more about across here and here\n\ndiamonds %&gt;%  \n  group_by(cut) %&gt;%  \n  summarise(\n    across(.cols = where(is.numeric),                   # All numeric columns will change\n           .fns = list(mean = ~mean(.x, na.rm = T),     # If more than one function you supply them in a list and name the functions\n                       sd = ~sd(.x, na.rm = T)),\n           .names = \"{.col}_{.fn}\"\n             ))\n\n\n\n# A tibble: 5 × 15\n  cut     carat_mean carat_sd depth_mean depth_sd table_mean table_sd price_mean\n  &lt;ord&gt;        &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;\n1 Fair         1.05     0.516       64.0    3.64        59.1     3.95      4359.\n2 Good         0.849    0.454       62.4    2.17        58.7     2.85      3929.\n3 Very G…      0.806    0.459       61.8    1.38        58.0     2.12      3982.\n4 Premium      0.892    0.515       61.3    1.16        58.7     1.48      4584.\n5 Ideal        0.703    0.433       61.7    0.719       56.0     1.25      3458.\n# ℹ 7 more variables: price_sd &lt;dbl&gt;, x_mean &lt;dbl&gt;, x_sd &lt;dbl&gt;, y_mean &lt;dbl&gt;,\n#   y_sd &lt;dbl&gt;, z_mean &lt;dbl&gt;, z_sd &lt;dbl&gt;"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#anscombes-quartet",
+    "href": "presentations/Day_2_ggplot2_intro.html#anscombes-quartet",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "2.1 Anscombe’s quartet",
+    "text": "2.1 Anscombe’s quartet\nTmisc::quartet is a tidy version of the built-in Anscombe’s Quartet data.\nAnscombe’s Quartet data contains four datasets that have nearly identical linear regression properties, yet appear very different when graphed.\n\n\nTmisc::quartet %&gt;%\n  head() %&gt;% \n  gt::gt() # print as table\n\n\n\n\n\n\n  \n    \n    \n      set\n      x\n      y\n    \n  \n  \n    I\n10\n8.04\n    I\n8\n6.95\n    I\n13\n7.58\n    I\n9\n8.81\n    I\n11\n8.33\n    I\n14\n9.96\n  \n  \n  \n\n\n\n\n\n  \n\n\nTmisc::quartet %&gt;% \n  tail() %&gt;% \n  gt::gt() # print as table\n\n\n\n\n\n\n  \n    \n    \n      set\n      x\n      y\n    \n  \n  \n    IV\n8\n7.04\n    IV\n8\n5.25\n    IV\n19\n12.50\n    IV\n8\n5.56\n    IV\n8\n7.91\n    IV\n8\n6.89"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#summarising-anscombes-quartet",
+    "href": "presentations/Day_2_ggplot2_intro.html#summarising-anscombes-quartet",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "2.2 Summarising Anscombe’s quartet",
+    "text": "2.2 Summarising Anscombe’s quartet\n\nTmisc::quartet %&gt;%\n  group_by(set) %&gt;%\n  summarise(\n    mean_x = mean(x), \n    mean_y = mean(y),\n    sd_x = sd(x),\n    sd_y = sd(y),\n    r = cor(x, y)\n  )%&gt;% \n  gt::gt() # print as table\n\n\n\n\n\n\n\n  \n    \n    \n      set\n      mean_x\n      mean_y\n      sd_x\n      sd_y\n      r\n    \n  \n  \n    I\n9\n7.500909\n3.316625\n2.031568\n0.8164205\n    II\n9\n7.500909\n3.316625\n2.031657\n0.8162365\n    III\n9\n7.500000\n3.316625\n2.030424\n0.8162867\n    IV\n9\n7.500909\n3.316625\n2.030579\n0.8165214"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#visualizing-anscombes-quartet",
+    "href": "presentations/Day_2_ggplot2_intro.html#visualizing-anscombes-quartet",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "2.3 Visualizing Anscombe’s quartet",
+    "text": "2.3 Visualizing Anscombe’s quartet"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#ggplot2-in-tidyverse",
+    "href": "presentations/Day_2_ggplot2_intro.html#ggplot2-in-tidyverse",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "3.1 ggplot2 \\(\\in\\) tidyverse",
+    "text": "3.1 ggplot2 \\(\\in\\) tidyverse\n\n\nggplot2 is tidyverse’s data visualization package.\ngg in “ggplot2” stands for Grammar of Graphics.\nInspired by the book Grammar of Graphics by Leland Wilkinson."
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#grammar-of-graphics",
+    "href": "presentations/Day_2_ggplot2_intro.html#grammar-of-graphics",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "3.2 Grammar of Graphics",
+    "text": "3.2 Grammar of Graphics\nA grammar of graphics is a tool that enables us to concisely describe the components of a graphic.\n\nSource: BloggoType"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#hello-ggplot2",
+    "href": "presentations/Day_2_ggplot2_intro.html#hello-ggplot2",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "3.3 Hello ggplot2!",
+    "text": "3.3 Hello ggplot2!\nStructure of the code for ggplot2 plots can be summarized as:\n\nggplot(data = [dataset], \n       mapping = aes(x = [x-variable], y = [y-variable])) +\n   geom_xxx() +\n   other options\n\n\nEvery ggplot2 plot has three key components:\n\ndata\nA set of aesthetic mappings between variables in the data and visual properties\nAt least one layer which describes how to render each observation. Layers are usually created with a geom function"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#hello-ggplot2-1",
+    "href": "presentations/Day_2_ggplot2_intro.html#hello-ggplot2-1",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "3.4 Hello ggplot2!",
+    "text": "3.4 Hello ggplot2!\nggplot2: Elegant Graphics for Data Analysis"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#simple-example",
+    "href": "presentations/Day_2_ggplot2_intro.html#simple-example",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "3.5 Simple example",
+    "text": "3.5 Simple example\n\nggplot(data = mpg,                               # Use the mpg data?\n       mapping = aes(x = displ, y = hwy)) +      # map (explore) the variables displ and hwy\n  geom_point()                                   # visualize the observations with points"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#colour-size-shape-and-other-aesthetic-attributes",
+    "href": "presentations/Day_2_ggplot2_intro.html#colour-size-shape-and-other-aesthetic-attributes",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "3.6 colour, size, shape and other aesthetic attributes",
+    "text": "3.6 colour, size, shape and other aesthetic attributes\n\n\nggplot(mpg, aes(displ, hwy, colour = drv))+ \n  geom_point()\n\n\n\n\n\n\n\n\nggplot(mpg, aes(displ, hwy, shape = drv))+ \n  geom_point()\n\n\n\n\n\n\n\n\nggplot(mpg, aes(displ, hwy, size = drv))+ \n  geom_point()"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#fixed-value-of-colour-size-or-shape",
+    "href": "presentations/Day_2_ggplot2_intro.html#fixed-value-of-colour-size-or-shape",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "3.7 Fixed value of Colour, size, or shape",
+    "text": "3.7 Fixed value of Colour, size, or shape\nPlace the value outside of aes()\n\n\nggplot(mpg, aes(displ, hwy))+\n  geom_point(colour = \"blue\")\n\n\n\n\n\n\n\n\nggplot(mpg, aes(displ, hwy))+\n  geom_point(aes(colour = \"blue\"))"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#faceting",
+    "href": "presentations/Day_2_ggplot2_intro.html#faceting",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "3.8 Faceting",
+    "text": "3.8 Faceting\n3.8.1 facet_wrap()\n\nggplot(mpg, aes(displ, hwy)) + \n  geom_point() + \n  facet_wrap(~class)"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms-1",
+    "href": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms-1",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "4.1 Other Plot Geoms",
+    "text": "4.1 Other Plot Geoms\n\n\ngeom_smooth() fits a smoother to the data and displays the smooth and its standard error.\ngeom_jitter() as geom_point() but with a random spread of the points to prevent over plotting.\ngeom_boxplot() produces a box-and-whisker plot to summarise the distribution of a set of points.\ngeom_histogram() and geom_freqpoly() show the distribution of continuous variables.\ngeom_bar() shows the distribution of categorical variables.\ngeom_path() draw lines between the data points. Paths can go in any direction.\ngeom_line() draw lines between the data points. A line plot is constrained to produce lines that travel from left to right. Typically used to explore how things change over time."
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms---geom_smooth",
+    "href": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms---geom_smooth",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "4.2 Other Plot Geoms - geom_smooth()",
+    "text": "4.2 Other Plot Geoms - geom_smooth()\n\nggplot(mpg, aes(displ, hwy)) + \n  geom_point() + \n  geom_smooth()"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms---geom_smooth-1",
+    "href": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms---geom_smooth-1",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "4.3 Other Plot Geoms - geom_smooth()",
+    "text": "4.3 Other Plot Geoms - geom_smooth()\nAn important argument to geom_smooth() is the method, which allows you to choose which type of model is used to fit the smooth curve.\nDefault is method = \"loess\"\n\n\nggplot(mpg, aes(displ, hwy)) + \n  geom_point() + \n  geom_smooth(method = \"loess\")\n\n\n\n\n\n\n\n\nggplot(mpg, aes(displ, hwy)) + \n  geom_point() + \n  geom_smooth(method = \"lm\") #linear model"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms-2",
+    "href": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms-2",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "4.4 Other Plot Geoms",
+    "text": "4.4 Other Plot Geoms\n\n\nggplot(mpg, aes(drv, hwy))+\n  geom_jitter()\n\n\n\n\n\n\n\n\nggplot(mpg, aes(drv, hwy))+\n  geom_boxplot()\n\n\n\n\n\n\n\n\nggplot(mpg, aes(drv, hwy))+\n  geom_violin()"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms-3",
+    "href": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms-3",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "4.5 Other Plot Geoms",
+    "text": "4.5 Other Plot Geoms\n4.5.1 geom_histogram() geom_freqploy()\n\n\nggplot(mpg, aes(hwy))+\n  geom_histogram()\n\n\n\n\n\n\n\n\nggplot(mpg, aes(hwy))+\n  geom_freqpoly()"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms-4",
+    "href": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms-4",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "4.6 Other Plot Geoms",
+    "text": "4.6 Other Plot Geoms\n4.6.1 geom_histogram() geom_freqploy()\nBoth geoms bin the data. You should experiment with the binwidth or bin arguments when exploring your data.\n\n\nggplot(mpg, aes(hwy)) + \n  geom_freqpoly(binwidth = 10)\n\n\n\n\n\n\n\n\nggplot(mpg, aes(hwy)) + \n  geom_freqpoly(binwidth = 1)"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms-geom_bar",
+    "href": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms-geom_bar",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "4.7 Other Plot Geoms geom_bar()",
+    "text": "4.7 Other Plot Geoms geom_bar()\n\n\nggplot(mpg, aes(x = manufacturer)) + \n  geom_bar()\n\n\n\n\n\n\n\n\nggplot(mpg, aes(y =manufacturer)) + \n  geom_bar()"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms-5",
+    "href": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms-5",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "4.8 Other Plot Geoms",
+    "text": "4.8 Other Plot Geoms\n4.8.1 geom_bar() + fct_infreq()\n\nmpg %&gt;% \nggplot(aes(y = fct_infreq(manufacturer))) + \n  geom_bar()"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms-6",
+    "href": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms-6",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "4.9 Other Plot Geoms",
+    "text": "4.9 Other Plot Geoms\n4.9.1 geom_bar() + fct_infreq() and aes(fill = [VAR] )\n\nmpg %&gt;% \nggplot(aes(y = fct_infreq(manufacturer), \n           fill = class)) + \n  geom_bar()"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms-7",
+    "href": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms-7",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "4.10 Other Plot Geoms",
+    "text": "4.10 Other Plot Geoms\n4.10.1 geom_bar() and position = \"fill\"\nposition = \"fill\" works like stacking, but makes each set of stacked bars the same height. This makes it easier to compare proportions across groups.\n\nmpg %&gt;% \nggplot(aes(y = fct_infreq(manufacturer), \n           fill = class)) + \n  geom_bar(position = \"fill\")"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms-8",
+    "href": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms-8",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "4.11 Other Plot Geoms",
+    "text": "4.11 Other Plot Geoms\n4.11.1 geom_bar() and position = \"dodge\"\nposition = \"dodge\" places overlapping objects directly beside one another. This makes it easier to compare individual values.\n\nmpg %&gt;% \nggplot(aes(y = fct_infreq(manufacturer), \n           fill = class)) + \n  geom_bar(position = \"dodge\")"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#labs--title-subtitle-legends-and-more",
+    "href": "presentations/Day_2_ggplot2_intro.html#labs--title-subtitle-legends-and-more",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "5.1 labs()- Title, Subtitle, Legends, and more",
+    "text": "5.1 labs()- Title, Subtitle, Legends, and more\nlabs() can do it all\n\nmpg %&gt;% \n  ggplot(aes(x = class, y = cty, fill = class))+\n  geom_boxplot()+\n  labs(\n    title = \"Milage in cities of various car classes\",\n    subtitle = \"Car classes are colored with nice colors using the fill argument!!\",\n    x = \"Class of car\",\n    y = \"Milage in cities\",\n    fill = \"Class\",\n    caption = \"The data comes from the mpg dataset\"\n    )"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#themes-1",
+    "href": "presentations/Day_2_ggplot2_intro.html#themes-1",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "6.1 Themes",
+    "text": "6.1 Themes\nggplot comes prepackaged with several different themes\n\n\np &lt;- mpg %&gt;% \n  ggplot(aes(x = class, y = cty, fill = class))+\n  geom_boxplot()\n\np + theme_bw()\n\n\n\n\n\n\n\n\np + theme_classic()"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#themes-2",
+    "href": "presentations/Day_2_ggplot2_intro.html#themes-2",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "6.2 Themes",
+    "text": "6.2 Themes\nThe package ggthemes have many different themes.\n\np + ggthemes::theme_stata()\np + ggthemes::theme_economist()\np + ggthemes::theme_excel_new()\np + ggthemes::theme_fivethirtyeight()"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#color-and-fill-scales",
+    "href": "presentations/Day_2_ggplot2_intro.html#color-and-fill-scales",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "6.3 color and fill scales",
+    "text": "6.3 color and fill scales\n6.3.1 Notice fill is mapped to a categorical variable\n\np &lt;- mpg %&gt;% \n  ggplot(aes(x = cty, y = hwy, fill=drv))+\n  geom_point(shape = 21, size = 3)\n\np"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#color-and-fill-scales-1",
+    "href": "presentations/Day_2_ggplot2_intro.html#color-and-fill-scales-1",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "6.4 color and fill scales",
+    "text": "6.4 color and fill scales\n6.4.1 scale_fill_brewer(type = )\n\n\np + scale_fill_brewer(type = \"seq\")  # sequential (default)\n\n\n\n\n\n\n\n\np + scale_fill_brewer(type = \"qual\") # qualitative\n\n\n\n\n\n\n\n\np + scale_fill_brewer(type = \"div\")  # diverging"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#color-and-fill-scales-2",
+    "href": "presentations/Day_2_ggplot2_intro.html#color-and-fill-scales-2",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "6.5 color and fill scales",
+    "text": "6.5 color and fill scales\n6.5.1 scale_fill_brewer(palette = )\n\n\np + scale_fill_brewer(type = \"seq\", # sequential (default)\n                      palette = 2)  \n\n\n\n\n\n\n\n\np + scale_fill_brewer(type = \"qual\", # qualitative\n                      palette = 2) \n\n\n\n\n\n\n\n\np + scale_fill_brewer(type = \"div\", # diverging\n                      palette = 2)"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#color-and-fill-scales-3",
+    "href": "presentations/Day_2_ggplot2_intro.html#color-and-fill-scales-3",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "6.6 color and fill scales",
+    "text": "6.6 color and fill scales\n6.6.1 Notice color is mapped to a continous variable\n\np &lt;- mpg %&gt;% \n  ggplot(aes(x = cty, y = hwy, color=displ))+\n  geom_point(size = 3)\n\np"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#color-and-fill-scales-4",
+    "href": "presentations/Day_2_ggplot2_intro.html#color-and-fill-scales-4",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "6.7 color and fill scales",
+    "text": "6.7 color and fill scales\n6.7.1 scale_colour_continuous(type = )\n\n\np + \n  scale_colour_continuous(type = \"gradient\")\n\n\n\n\n\n\n\n\n# The virdidis color scale\np + \n  scale_colour_continuous(type = \"viridis\")\n\n\n\n\n\n\n\n\np + \n  scale_colour_continuous(type = \"viridis\", \n                          option = \"magma\")"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#the-patchwork-package",
+    "href": "presentations/Day_2_ggplot2_intro.html#the-patchwork-package",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "7.1 The patchwork package",
+    "text": "7.1 The patchwork package"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-1",
+    "href": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-1",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "7.2 Arranging plots with the patchwork package",
+    "text": "7.2 Arranging plots with the patchwork package\n\np1 &lt;- ggplot(mpg) + \n  geom_point(aes(x = displ, y = hwy))+\n  ggtitle(\"p1\")\n\np2 &lt;- ggplot(mpg) + \n  geom_bar(aes(x = as.character(year), fill = drv), position = \"dodge\") + \n  labs(x = \"year\")+\n  ggtitle(\"p2\")\n\np3 &lt;- ggplot(mpg) + \n  geom_density(aes(x = hwy, fill = drv), colour = NA) + \n  facet_grid(rows = vars(drv))+\n  ggtitle(\"p3\")\n\np4 &lt;- ggplot(mpg) + \n  stat_summary(aes(x = drv, y = hwy, fill = drv), geom = \"col\", fun.data = mean_se) +\n  stat_summary(aes(x = drv, y = hwy), geom = \"errorbar\", fun.data = mean_se, width = 0.5)+\n  ggtitle(\"p4\")"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-2",
+    "href": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-2",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "7.3 Arranging plots with the patchwork package",
+    "text": "7.3 Arranging plots with the patchwork package"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-3",
+    "href": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-3",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "7.4 Arranging plots with the patchwork package",
+    "text": "7.4 Arranging plots with the patchwork package\n\n+ does not specify any specific layout, only that the plots should be displayed together.\npatchwork automagically decides the layout.\nAdding 3 plots together will create a 1x3 grid.\nAdding 4 plots together will create a 2x2 grid.\n\n\np1 + p2"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-4",
+    "href": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-4",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "7.5 Arranging plots with the patchwork package",
+    "text": "7.5 Arranging plots with the patchwork package\n\n+ does not specify any specific layout, only that the plots should be displayed together.\npatchwork automagically decides the layout.\nAdding 3 plots together will create a 1x3 grid.\nAdding 4 plots together will create a 2x2 grid.\n\n\np1 + p2 + p3 +p4"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-5",
+    "href": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-5",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "7.6 Arranging plots with the patchwork package",
+    "text": "7.6 Arranging plots with the patchwork package\n7.6.1 plot_layout()\nYou have a very high degree of control via the plot_layout() function\n\np1 + p2 + p3 + p4 + plot_layout(nrow = 1)"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-6",
+    "href": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-6",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "7.7 Arranging plots with the patchwork package",
+    "text": "7.7 Arranging plots with the patchwork package\n7.7.1 / and |\n/ forces a single column.\n| forces a single row.\n\n\np1/p2\n\n\n\n\n\n\n\n\np1|p2 # sames as p1 + p2"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-7",
+    "href": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-7",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "7.8 Arranging plots with the patchwork package",
+    "text": "7.8 Arranging plots with the patchwork package\n7.8.1 nesting plots\n\np3 | (p2 /(p1 | p4))"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-8",
+    "href": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-8",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "7.9 Arranging plots with the patchwork package",
+    "text": "7.9 Arranging plots with the patchwork package\n7.9.1 guides = \"collect\"\n\np1 + p2 + p3 + plot_layout(ncol = 2, guides = \"collect\")"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-9",
+    "href": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-9",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "7.10 Arranging plots with the patchwork package",
+    "text": "7.10 Arranging plots with the patchwork package\n7.10.1 guide_area()\n\np1 + p2 + p3 + plot_layout(ncol = 2, guides = \"collect\") + guide_area()"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-10",
+    "href": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-10",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "7.11 Arranging plots with the patchwork package",
+    "text": "7.11 Arranging plots with the patchwork package\npatchwork comes with the powerful & operator that allows you change the settings on all the individual plots.\n\n\np1 + p2 + p3 + \n  plot_layout(ncol = 2, guides = \"collect\") + \n  guide_area() +\n  scale_fill_brewer(type = \"qual\",\n                    palette = 3) +\n  theme_classic()\n\n\n\n\n\n\nCan you spot the &s in the code below?\n\n\np1 + p2 + p3 + \n  plot_layout(ncol = 2, guides = \"collect\") + \n  guide_area() &   \n  scale_fill_brewer(type = \"qual\",\n                    palette = 3) &\n  theme_classic()"
+  },
+  {
+    "objectID": "presentations/Day_2_ggplot2_intro.html#for-steen",
+    "href": "presentations/Day_2_ggplot2_intro.html#for-steen",
+    "title": "Basic Data Science Skills for Health Researchers",
+    "section": "7.12 For Steen",
+    "text": "7.12 For Steen\nFOR STEEN: CHECK NOUT THIS BLOGPOST! https://www.andrewheiss.com/blog/2022/06/23/long-labels-ggplot/ https://twitter.com/patilindrajeets/status/1536625572570357760?t=xhVDi62vDFggL3tA5cQ7bA&s=19"
+  },
+  {
     "objectID": "reproducible_research_basics_comments_how_da.html",
     "href": "reproducible_research_basics_comments_how_da.html",
     "title": "Comments - how to",
@@ -956,28 +1579,28 @@
     "href": "rstudio_introduction_to_gui_2_da.html",
     "title": "RStudios GUI #2",
     "section": "",
-    "text": "Vigtigt koncepot du skal forstå!\n\n\n\n\n\nDu kan forestille dig din arbejdsgang i RStudio som bestående af to arbejdsstationer: enten taler du direkte med R eller også skriver du til R:\n\n\nDu ‘taler’ med R i konsollen (orange), men hele samtalen bliver slettet når du lukker RStudio!\nHvis du instruerer R om at generere noget data, bliver det lagret i ‘Short term memory’ (altså i Environment) og du kan ‘tale’ med R om dataene, men de forsvinder også når du lukker RStudio.\nHvis du giver R instrukser som ikke er valid R kode, vil R beklage sig (fejl meddelelse).\nBemærk Hvis du beder R om at skrive noget til en fil, så bliver filen ikke slettet, men det gør kommandoen derom.\n\n\n\nI tekst editoren (blå) kan du skrive hvad som helst og gemme det som en tekst fil.\nDet bliver ikke læst af R før du specifikt beder R om det.\nHvis du skriver noget som ikke er valid R kode, vil du ikke få en fejl (omend RStudio vil give dig visuelle tip om at der er noget galt) … faktisk, kan du skrive en indkøbsliste i tekst editoren hvis du vil, og R vil ikke klage sig.\n\n\n\n\nEn typisk arbejdsgang består af at ping-pong’e frem og tilbage mellem i) test af kode i real-tid (konsol or ‘short term memory’) or ii) at gemme fungerende kode i tekst filer.\n\n\n\n\n\n\nEksempel\n\n\n\n\n\nLad os sige, du vil bruger funktionerne mean og rnorm til at beregne et gennemsnit af en stikpårøve på 100 fra en normal fordeling. Denne kode løser opgaven:\nrnorm(n=100, mean=1, sd=2) %&gt;% mean()\n…før du skriver koden ind i dit manuskript bør du afprøve den i konsollen:\n\nrnorm(n=100, mean=1, sd=2) %&gt;% mean()\n\n[1] 0.991125\n\n\nMåske opdager du så, at der er flere decimaler end du ønsker og du kan tilpasse din kode:\n\nrnorm(n=100, mean=1, sd=2) %&gt;% mean() %&gt;% round(2)\n\n[1] 1.19\n\n\n\n\n\n\n\n\n\n\n\nØvelse #1\n\n\n\n\n\nÅben RStudio og lav et nyt, tomt R scriptvia menu: File / New File / R Script eller keyboard: CTRL-SHIFT-n\n\nKopier og indsæt denne kode rnorm(n=100, mean=1, sd=2) %&gt;% mean() i konsollen og eksekvér koden ved at trykke ENTER – hvad skete der i tekst editoren?\nKopier og indsæt denne kode rnorm(n=100, mean=120, sd=25) %&gt;% mean() i tekst editor og tryk ENTER – hvad skete der i konsollen?\nKopier og indsæt denne kode rnorm(n=100, mean=20, sd=250) %&gt;% mean() i tekst editor og tryk CTRL+ENTER – hvad skete der i konsollen?\n\n\n\n\n\n\n\n\n\n\nØvelse #1 Løsning\n\n\n\n\n\n\nDer sker ingenting i tekst editoren\nDer sker ingenting i konsollen\nKoden bliver kopieret og indsat i konosllen og eksekveret\n\nBonus spørgsmål Tilpas koden i tekst editoren sådan at outputtet fra R kommandoen bliver tilskrevet en ny variabel x. Hvad sker der i Environment fanebladet af Environment panelet, i) da du tilføjede koden til tekst filen hhv ii) da når du copy/paste/execute (CTRL+ENTER) koden ind i konsollen?\n\n\n\n\n\n\n\n\n\nØvelse #2\n\n\n\n\n\nNår du lukker et R projekt, vil RStudio spørge om du vil gemme et ‘Workspace image’.\nEt ‘workspace image’ gemmer information om den aktuelle konsol (historik) og det som er lagret i short term memory (Environment) og genskaber det, næste gang du åbner projektet.\n\nHvad er fordelene ved det?\nHvilke risici er det ved det?\n\n\n\n\n\n\n\n\n\n\nØvelse #2 Løsning\n\n\n\n\n\n\nAt genskabe et workspace image fra sidste gang du arbejde med projektet , lader dig starte hvor du slap, hvilket kan være en hjælp i nogle situationer. F.eks hvis du beror på et meget stort data sæt der skal hentes ned fra internettet, så kan man spare lidt tid.\nEn hyppig fejl som frustrerer nybegyndere: Når man ping-pong’er frem og tilbage mellem tekst fil og konsol, kan man komme til at løse et problem som gemmer de rigtige data til hukommelsen, men man kan glemme at få koden ind i tekst filen det rigtige sted. Hvis man ikke bruger workspace image, vil den fejl blive synlig næste gang du starter projektet op med et tomt environment."
+    "text": "Vigtigt koncepot du skal forstå!\n\n\n\n\n\nDu kan forestille dig din arbejdsgang i RStudio som bestående af to arbejdsstationer: enten taler du direkte med R eller også skriver du til R:\n\n\nDu ‘taler’ med R i konsollen (orange), men hele samtalen bliver slettet når du lukker RStudio!\nHvis du instruerer R om at generere noget data, bliver det lagret i ‘Short term memory’ (altså i Environment) og du kan ‘tale’ med R om dataene, men de forsvinder også når du lukker RStudio.\nHvis du giver R instrukser som ikke er valid R kode, vil R beklage sig (fejl meddelelse).\nBemærk Hvis du beder R om at skrive noget til en fil, så bliver filen ikke slettet, men det gør kommandoen derom.\n\n\n\nI tekst editoren (blå) kan du skrive hvad som helst og gemme det som en tekst fil.\nDet bliver ikke læst af R før du specifikt beder R om det.\nHvis du skriver noget som ikke er valid R kode, vil du ikke få en fejl (omend RStudio vil give dig visuelle tip om at der er noget galt) … faktisk, kan du skrive en indkøbsliste i tekst editoren hvis du vil, og R vil ikke klage sig.\n\n\n\n\nEn typisk arbejdsgang består af at ping-pong’e frem og tilbage mellem i) test af kode i real-tid (konsol or ‘short term memory’) or ii) at gemme fungerende kode i tekst filer.\n\n\n\n\n\n\nEksempel\n\n\n\n\n\nLad os sige, du vil bruger funktionerne mean og rnorm til at beregne et gennemsnit af en stikpårøve på 100 fra en normal fordeling. Denne kode løser opgaven:\nrnorm(n=100, mean=1, sd=2) %&gt;% mean()\n…før du skriver koden ind i dit manuskript bør du afprøve den i konsollen:\n\nrnorm(n=100, mean=1, sd=2) %&gt;% mean()\n\n[1] 0.602977\n\n\nMåske opdager du så, at der er flere decimaler end du ønsker og du kan tilpasse din kode:\n\nrnorm(n=100, mean=1, sd=2) %&gt;% mean() %&gt;% round(2)\n\n[1] 0.99\n\n\n\n\n\n\n\n\n\n\n\nØvelse #1\n\n\n\n\n\nÅben RStudio og lav et nyt, tomt R scriptvia menu: File / New File / R Script eller keyboard: CTRL-SHIFT-n\n\nKopier og indsæt denne kode rnorm(n=100, mean=1, sd=2) %&gt;% mean() i konsollen og eksekvér koden ved at trykke ENTER – hvad skete der i tekst editoren?\nKopier og indsæt denne kode rnorm(n=100, mean=120, sd=25) %&gt;% mean() i tekst editor og tryk ENTER – hvad skete der i konsollen?\nKopier og indsæt denne kode rnorm(n=100, mean=20, sd=250) %&gt;% mean() i tekst editor og tryk CTRL+ENTER – hvad skete der i konsollen?\n\n\n\n\n\n\n\n\n\n\nØvelse #1 Løsning\n\n\n\n\n\n\nDer sker ingenting i tekst editoren\nDer sker ingenting i konsollen\nKoden bliver kopieret og indsat i konosllen og eksekveret\n\nBonus spørgsmål Tilpas koden i tekst editoren sådan at outputtet fra R kommandoen bliver tilskrevet en ny variabel x. Hvad sker der i Environment fanebladet af Environment panelet, i) da du tilføjede koden til tekst filen hhv ii) da når du copy/paste/execute (CTRL+ENTER) koden ind i konsollen?\n\n\n\n\n\n\n\n\n\nØvelse #2\n\n\n\n\n\nNår du lukker et R projekt, vil RStudio spørge om du vil gemme et ‘Workspace image’.\nEt ‘workspace image’ gemmer information om den aktuelle konsol (historik) og det som er lagret i short term memory (Environment) og genskaber det, næste gang du åbner projektet.\n\nHvad er fordelene ved det?\nHvilke risici er det ved det?\n\n\n\n\n\n\n\n\n\n\nØvelse #2 Løsning\n\n\n\n\n\n\nAt genskabe et workspace image fra sidste gang du arbejde med projektet , lader dig starte hvor du slap, hvilket kan være en hjælp i nogle situationer. F.eks hvis du beror på et meget stort data sæt der skal hentes ned fra internettet, så kan man spare lidt tid.\nEn hyppig fejl som frustrerer nybegyndere: Når man ping-pong’er frem og tilbage mellem tekst fil og konsol, kan man komme til at løse et problem som gemmer de rigtige data til hukommelsen, men man kan glemme at få koden ind i tekst filen det rigtige sted. Hvis man ikke bruger workspace image, vil den fejl blive synlig næste gang du starter projektet op med et tomt environment."
   },
   {
     "objectID": "rstudio_introduction_to_gui_2_da.html#work-flow-i-rstudios-gui",
     "href": "rstudio_introduction_to_gui_2_da.html#work-flow-i-rstudios-gui",
     "title": "RStudios GUI #2",
     "section": "",
-    "text": "Vigtigt koncepot du skal forstå!\n\n\n\n\n\nDu kan forestille dig din arbejdsgang i RStudio som bestående af to arbejdsstationer: enten taler du direkte med R eller også skriver du til R:\n\n\nDu ‘taler’ med R i konsollen (orange), men hele samtalen bliver slettet når du lukker RStudio!\nHvis du instruerer R om at generere noget data, bliver det lagret i ‘Short term memory’ (altså i Environment) og du kan ‘tale’ med R om dataene, men de forsvinder også når du lukker RStudio.\nHvis du giver R instrukser som ikke er valid R kode, vil R beklage sig (fejl meddelelse).\nBemærk Hvis du beder R om at skrive noget til en fil, så bliver filen ikke slettet, men det gør kommandoen derom.\n\n\n\nI tekst editoren (blå) kan du skrive hvad som helst og gemme det som en tekst fil.\nDet bliver ikke læst af R før du specifikt beder R om det.\nHvis du skriver noget som ikke er valid R kode, vil du ikke få en fejl (omend RStudio vil give dig visuelle tip om at der er noget galt) … faktisk, kan du skrive en indkøbsliste i tekst editoren hvis du vil, og R vil ikke klage sig.\n\n\n\n\nEn typisk arbejdsgang består af at ping-pong’e frem og tilbage mellem i) test af kode i real-tid (konsol or ‘short term memory’) or ii) at gemme fungerende kode i tekst filer.\n\n\n\n\n\n\nEksempel\n\n\n\n\n\nLad os sige, du vil bruger funktionerne mean og rnorm til at beregne et gennemsnit af en stikpårøve på 100 fra en normal fordeling. Denne kode løser opgaven:\nrnorm(n=100, mean=1, sd=2) %&gt;% mean()\n…før du skriver koden ind i dit manuskript bør du afprøve den i konsollen:\n\nrnorm(n=100, mean=1, sd=2) %&gt;% mean()\n\n[1] 0.991125\n\n\nMåske opdager du så, at der er flere decimaler end du ønsker og du kan tilpasse din kode:\n\nrnorm(n=100, mean=1, sd=2) %&gt;% mean() %&gt;% round(2)\n\n[1] 1.19\n\n\n\n\n\n\n\n\n\n\n\nØvelse #1\n\n\n\n\n\nÅben RStudio og lav et nyt, tomt R scriptvia menu: File / New File / R Script eller keyboard: CTRL-SHIFT-n\n\nKopier og indsæt denne kode rnorm(n=100, mean=1, sd=2) %&gt;% mean() i konsollen og eksekvér koden ved at trykke ENTER – hvad skete der i tekst editoren?\nKopier og indsæt denne kode rnorm(n=100, mean=120, sd=25) %&gt;% mean() i tekst editor og tryk ENTER – hvad skete der i konsollen?\nKopier og indsæt denne kode rnorm(n=100, mean=20, sd=250) %&gt;% mean() i tekst editor og tryk CTRL+ENTER – hvad skete der i konsollen?\n\n\n\n\n\n\n\n\n\n\nØvelse #1 Løsning\n\n\n\n\n\n\nDer sker ingenting i tekst editoren\nDer sker ingenting i konsollen\nKoden bliver kopieret og indsat i konosllen og eksekveret\n\nBonus spørgsmål Tilpas koden i tekst editoren sådan at outputtet fra R kommandoen bliver tilskrevet en ny variabel x. Hvad sker der i Environment fanebladet af Environment panelet, i) da du tilføjede koden til tekst filen hhv ii) da når du copy/paste/execute (CTRL+ENTER) koden ind i konsollen?\n\n\n\n\n\n\n\n\n\nØvelse #2\n\n\n\n\n\nNår du lukker et R projekt, vil RStudio spørge om du vil gemme et ‘Workspace image’.\nEt ‘workspace image’ gemmer information om den aktuelle konsol (historik) og det som er lagret i short term memory (Environment) og genskaber det, næste gang du åbner projektet.\n\nHvad er fordelene ved det?\nHvilke risici er det ved det?\n\n\n\n\n\n\n\n\n\n\nØvelse #2 Løsning\n\n\n\n\n\n\nAt genskabe et workspace image fra sidste gang du arbejde med projektet , lader dig starte hvor du slap, hvilket kan være en hjælp i nogle situationer. F.eks hvis du beror på et meget stort data sæt der skal hentes ned fra internettet, så kan man spare lidt tid.\nEn hyppig fejl som frustrerer nybegyndere: Når man ping-pong’er frem og tilbage mellem tekst fil og konsol, kan man komme til at løse et problem som gemmer de rigtige data til hukommelsen, men man kan glemme at få koden ind i tekst filen det rigtige sted. Hvis man ikke bruger workspace image, vil den fejl blive synlig næste gang du starter projektet op med et tomt environment."
+    "text": "Vigtigt koncepot du skal forstå!\n\n\n\n\n\nDu kan forestille dig din arbejdsgang i RStudio som bestående af to arbejdsstationer: enten taler du direkte med R eller også skriver du til R:\n\n\nDu ‘taler’ med R i konsollen (orange), men hele samtalen bliver slettet når du lukker RStudio!\nHvis du instruerer R om at generere noget data, bliver det lagret i ‘Short term memory’ (altså i Environment) og du kan ‘tale’ med R om dataene, men de forsvinder også når du lukker RStudio.\nHvis du giver R instrukser som ikke er valid R kode, vil R beklage sig (fejl meddelelse).\nBemærk Hvis du beder R om at skrive noget til en fil, så bliver filen ikke slettet, men det gør kommandoen derom.\n\n\n\nI tekst editoren (blå) kan du skrive hvad som helst og gemme det som en tekst fil.\nDet bliver ikke læst af R før du specifikt beder R om det.\nHvis du skriver noget som ikke er valid R kode, vil du ikke få en fejl (omend RStudio vil give dig visuelle tip om at der er noget galt) … faktisk, kan du skrive en indkøbsliste i tekst editoren hvis du vil, og R vil ikke klage sig.\n\n\n\n\nEn typisk arbejdsgang består af at ping-pong’e frem og tilbage mellem i) test af kode i real-tid (konsol or ‘short term memory’) or ii) at gemme fungerende kode i tekst filer.\n\n\n\n\n\n\nEksempel\n\n\n\n\n\nLad os sige, du vil bruger funktionerne mean og rnorm til at beregne et gennemsnit af en stikpårøve på 100 fra en normal fordeling. Denne kode løser opgaven:\nrnorm(n=100, mean=1, sd=2) %&gt;% mean()\n…før du skriver koden ind i dit manuskript bør du afprøve den i konsollen:\n\nrnorm(n=100, mean=1, sd=2) %&gt;% mean()\n\n[1] 0.602977\n\n\nMåske opdager du så, at der er flere decimaler end du ønsker og du kan tilpasse din kode:\n\nrnorm(n=100, mean=1, sd=2) %&gt;% mean() %&gt;% round(2)\n\n[1] 0.99\n\n\n\n\n\n\n\n\n\n\n\nØvelse #1\n\n\n\n\n\nÅben RStudio og lav et nyt, tomt R scriptvia menu: File / New File / R Script eller keyboard: CTRL-SHIFT-n\n\nKopier og indsæt denne kode rnorm(n=100, mean=1, sd=2) %&gt;% mean() i konsollen og eksekvér koden ved at trykke ENTER – hvad skete der i tekst editoren?\nKopier og indsæt denne kode rnorm(n=100, mean=120, sd=25) %&gt;% mean() i tekst editor og tryk ENTER – hvad skete der i konsollen?\nKopier og indsæt denne kode rnorm(n=100, mean=20, sd=250) %&gt;% mean() i tekst editor og tryk CTRL+ENTER – hvad skete der i konsollen?\n\n\n\n\n\n\n\n\n\n\nØvelse #1 Løsning\n\n\n\n\n\n\nDer sker ingenting i tekst editoren\nDer sker ingenting i konsollen\nKoden bliver kopieret og indsat i konosllen og eksekveret\n\nBonus spørgsmål Tilpas koden i tekst editoren sådan at outputtet fra R kommandoen bliver tilskrevet en ny variabel x. Hvad sker der i Environment fanebladet af Environment panelet, i) da du tilføjede koden til tekst filen hhv ii) da når du copy/paste/execute (CTRL+ENTER) koden ind i konsollen?\n\n\n\n\n\n\n\n\n\nØvelse #2\n\n\n\n\n\nNår du lukker et R projekt, vil RStudio spørge om du vil gemme et ‘Workspace image’.\nEt ‘workspace image’ gemmer information om den aktuelle konsol (historik) og det som er lagret i short term memory (Environment) og genskaber det, næste gang du åbner projektet.\n\nHvad er fordelene ved det?\nHvilke risici er det ved det?\n\n\n\n\n\n\n\n\n\n\nØvelse #2 Løsning\n\n\n\n\n\n\nAt genskabe et workspace image fra sidste gang du arbejde med projektet , lader dig starte hvor du slap, hvilket kan være en hjælp i nogle situationer. F.eks hvis du beror på et meget stort data sæt der skal hentes ned fra internettet, så kan man spare lidt tid.\nEn hyppig fejl som frustrerer nybegyndere: Når man ping-pong’er frem og tilbage mellem tekst fil og konsol, kan man komme til at løse et problem som gemmer de rigtige data til hukommelsen, men man kan glemme at få koden ind i tekst filen det rigtige sted. Hvis man ikke bruger workspace image, vil den fejl blive synlig næste gang du starter projektet op med et tomt environment."
   },
   {
     "objectID": "rstudio_introduction_to_gui_2_en.html",
     "href": "rstudio_introduction_to_gui_2_en.html",
     "title": "RStudios GUI #2",
     "section": "",
-    "text": "Important concept you need to grasp!\n\n\n\n\n\nYou can think about your workflow in RStudio as consisting of two separate work stations: you either talk to R or you write for to R:\n\n\nYou talk to R in the console (orange), but the entire conversation is lost when you close RStudio!\nIf you tell R to create some data, it is stored in the short term memory and you can talk about it, but it is lost when you close RStudio.\nIf you tell R to do something that is not valid R code, it will complain (error).\nNote If you tell R to write something to a file, that file will not be lost, but your command to do so is.\n\n\n\nIn the text editor (blue) you can write anything to be saved to a text file.\nIt will not be read by R until you specifically ask it to.\nIf you write something that isn’t valid R code, you will not get an error (albeit RStudio may give you a hint) … in fact, you write a shopping list in the text editor, if you want to and R won’t complain.\n\n\n\n\nA typical workflow consists of ping-pong’ing back and forth between i) testing code in real-time (console and short term memory) and ii) storing working code in a text file.\n\n\n\n\n\n\nExample\n\n\n\n\n\nLet’s say you want to use the functions mean and rnorm to calculate the mean of a sample of 100 from a normal distribution. The following code should do the trick:\nrnorm(n=100, mean=1, sd=2) %&gt;% mean()\n…before using that code in you manuscript, you might want to check it out in the console:\n\nrnorm(n=100, mean=1, sd=2) %&gt;% mean()\n\n[1] 1.453407\n\n\nPerhaps, you then realize, that the result has too many digits and you amend your code:\n\nrnorm(n=100, mean=1, sd=2) %&gt;% mean() %&gt;% round(2)\n\n[1] 0.57\n\n\n\n\n\n\n\n\n\n\n\nExercise #1\n\n\n\n\n\nOpen RStudio and create and empty R script by menu: File / New File / R Script or keyboard: CTRL-SHIFT-n\n\nCopy paste this code rnorm(n=100, mean=1, sd=2) %&gt;% mean() into the console and execute it by pressing ENTER – what happens in the text editor?\nCopy and paste this code rnorm(n=100, mean=120, sd=25) %&gt;% mean() into the text editor and press ENTER – what happens in the console?\nCopy and paste this code rnorm(n=100, mean=20, sd=250) %&gt;% mean() into the text editor and press CTRL+ENTER – what happens in the console?\n\n\n\n\n\n\n\n\n\n\nExercise #1 Solution\n\n\n\n\n\n\nNothing happens in the text editor\nNothing happens in the console\nThe code is copied and pasted into the console and executed\n\nBonus question Amend the code in the text editor so that the output of the R command is ascribed to a variable called x. What happens in the Environment tab of the Environment pane, i) when you added the code to the text file and ii) when you copy/paste/execute (CTRL+ENTER) the code in the console?\n\n\n\n\n\n\n\n\n\nExercise #2\n\n\n\n\n\nWhen you close an R project, RStudio will ask you whether you want to save a ‘Workspace image’.\nA workspace image stores the information currently in the console and the short term memory (Environment) and restores it, the next time you open the project.\n\nWhat are the potential benefits of that?\nWhat are the potential pitfalls of that?\n\n\n\n\n\n\n\n\n\n\nExercise #2 Solution\n\n\n\n\n\n\nRestoring a workspace image from the last time you worked in the project, lets you pick up and start from the exact same position, which can sometimes be helpful. For instance, if you rely on downloading a large dataset from the internet, you can save some time.\nA common mistake that frustrates beginners: Ping-pong’ing back and forth, you might solve a problem in the console which commits the right data to short term memory, but forget to add that problem-solving code to the script in the text editor. If you do not use the workspace image, that mistake will become apparent next time you open your project with an empty environment."
+    "text": "Important concept you need to grasp!\n\n\n\n\n\nYou can think about your workflow in RStudio as consisting of two separate work stations: you either talk to R or you write for to R:\n\n\nYou talk to R in the console (orange), but the entire conversation is lost when you close RStudio!\nIf you tell R to create some data, it is stored in the short term memory and you can talk about it, but it is lost when you close RStudio.\nIf you tell R to do something that is not valid R code, it will complain (error).\nNote If you tell R to write something to a file, that file will not be lost, but your command to do so is.\n\n\n\nIn the text editor (blue) you can write anything to be saved to a text file.\nIt will not be read by R until you specifically ask it to.\nIf you write something that isn’t valid R code, you will not get an error (albeit RStudio may give you a hint) … in fact, you write a shopping list in the text editor, if you want to and R won’t complain.\n\n\n\n\nA typical workflow consists of ping-pong’ing back and forth between i) testing code in real-time (console and short term memory) and ii) storing working code in a text file.\n\n\n\n\n\n\nExample\n\n\n\n\n\nLet’s say you want to use the functions mean and rnorm to calculate the mean of a sample of 100 from a normal distribution. The following code should do the trick:\nrnorm(n=100, mean=1, sd=2) %&gt;% mean()\n…before using that code in you manuscript, you might want to check it out in the console:\n\nrnorm(n=100, mean=1, sd=2) %&gt;% mean()\n\n[1] 1.054998\n\n\nPerhaps, you then realize, that the result has too many digits and you amend your code:\n\nrnorm(n=100, mean=1, sd=2) %&gt;% mean() %&gt;% round(2)\n\n[1] 0.73\n\n\n\n\n\n\n\n\n\n\n\nExercise #1\n\n\n\n\n\nOpen RStudio and create and empty R script by menu: File / New File / R Script or keyboard: CTRL-SHIFT-n\n\nCopy paste this code rnorm(n=100, mean=1, sd=2) %&gt;% mean() into the console and execute it by pressing ENTER – what happens in the text editor?\nCopy and paste this code rnorm(n=100, mean=120, sd=25) %&gt;% mean() into the text editor and press ENTER – what happens in the console?\nCopy and paste this code rnorm(n=100, mean=20, sd=250) %&gt;% mean() into the text editor and press CTRL+ENTER – what happens in the console?\n\n\n\n\n\n\n\n\n\n\nExercise #1 Solution\n\n\n\n\n\n\nNothing happens in the text editor\nNothing happens in the console\nThe code is copied and pasted into the console and executed\n\nBonus question Amend the code in the text editor so that the output of the R command is ascribed to a variable called x. What happens in the Environment tab of the Environment pane, i) when you added the code to the text file and ii) when you copy/paste/execute (CTRL+ENTER) the code in the console?\n\n\n\n\n\n\n\n\n\nExercise #2\n\n\n\n\n\nWhen you close an R project, RStudio will ask you whether you want to save a ‘Workspace image’.\nA workspace image stores the information currently in the console and the short term memory (Environment) and restores it, the next time you open the project.\n\nWhat are the potential benefits of that?\nWhat are the potential pitfalls of that?\n\n\n\n\n\n\n\n\n\n\nExercise #2 Solution\n\n\n\n\n\n\nRestoring a workspace image from the last time you worked in the project, lets you pick up and start from the exact same position, which can sometimes be helpful. For instance, if you rely on downloading a large dataset from the internet, you can save some time.\nA common mistake that frustrates beginners: Ping-pong’ing back and forth, you might solve a problem in the console which commits the right data to short term memory, but forget to add that problem-solving code to the script in the text editor. If you do not use the workspace image, that mistake will become apparent next time you open your project with an empty environment."
   },
   {
     "objectID": "rstudio_introduction_to_gui_2_en.html#work-flow-in-rstudios-gui",
     "href": "rstudio_introduction_to_gui_2_en.html#work-flow-in-rstudios-gui",
     "title": "RStudios GUI #2",
     "section": "",
-    "text": "Important concept you need to grasp!\n\n\n\n\n\nYou can think about your workflow in RStudio as consisting of two separate work stations: you either talk to R or you write for to R:\n\n\nYou talk to R in the console (orange), but the entire conversation is lost when you close RStudio!\nIf you tell R to create some data, it is stored in the short term memory and you can talk about it, but it is lost when you close RStudio.\nIf you tell R to do something that is not valid R code, it will complain (error).\nNote If you tell R to write something to a file, that file will not be lost, but your command to do so is.\n\n\n\nIn the text editor (blue) you can write anything to be saved to a text file.\nIt will not be read by R until you specifically ask it to.\nIf you write something that isn’t valid R code, you will not get an error (albeit RStudio may give you a hint) … in fact, you write a shopping list in the text editor, if you want to and R won’t complain.\n\n\n\n\nA typical workflow consists of ping-pong’ing back and forth between i) testing code in real-time (console and short term memory) and ii) storing working code in a text file.\n\n\n\n\n\n\nExample\n\n\n\n\n\nLet’s say you want to use the functions mean and rnorm to calculate the mean of a sample of 100 from a normal distribution. The following code should do the trick:\nrnorm(n=100, mean=1, sd=2) %&gt;% mean()\n…before using that code in you manuscript, you might want to check it out in the console:\n\nrnorm(n=100, mean=1, sd=2) %&gt;% mean()\n\n[1] 1.453407\n\n\nPerhaps, you then realize, that the result has too many digits and you amend your code:\n\nrnorm(n=100, mean=1, sd=2) %&gt;% mean() %&gt;% round(2)\n\n[1] 0.57\n\n\n\n\n\n\n\n\n\n\n\nExercise #1\n\n\n\n\n\nOpen RStudio and create and empty R script by menu: File / New File / R Script or keyboard: CTRL-SHIFT-n\n\nCopy paste this code rnorm(n=100, mean=1, sd=2) %&gt;% mean() into the console and execute it by pressing ENTER – what happens in the text editor?\nCopy and paste this code rnorm(n=100, mean=120, sd=25) %&gt;% mean() into the text editor and press ENTER – what happens in the console?\nCopy and paste this code rnorm(n=100, mean=20, sd=250) %&gt;% mean() into the text editor and press CTRL+ENTER – what happens in the console?\n\n\n\n\n\n\n\n\n\n\nExercise #1 Solution\n\n\n\n\n\n\nNothing happens in the text editor\nNothing happens in the console\nThe code is copied and pasted into the console and executed\n\nBonus question Amend the code in the text editor so that the output of the R command is ascribed to a variable called x. What happens in the Environment tab of the Environment pane, i) when you added the code to the text file and ii) when you copy/paste/execute (CTRL+ENTER) the code in the console?\n\n\n\n\n\n\n\n\n\nExercise #2\n\n\n\n\n\nWhen you close an R project, RStudio will ask you whether you want to save a ‘Workspace image’.\nA workspace image stores the information currently in the console and the short term memory (Environment) and restores it, the next time you open the project.\n\nWhat are the potential benefits of that?\nWhat are the potential pitfalls of that?\n\n\n\n\n\n\n\n\n\n\nExercise #2 Solution\n\n\n\n\n\n\nRestoring a workspace image from the last time you worked in the project, lets you pick up and start from the exact same position, which can sometimes be helpful. For instance, if you rely on downloading a large dataset from the internet, you can save some time.\nA common mistake that frustrates beginners: Ping-pong’ing back and forth, you might solve a problem in the console which commits the right data to short term memory, but forget to add that problem-solving code to the script in the text editor. If you do not use the workspace image, that mistake will become apparent next time you open your project with an empty environment."
+    "text": "Important concept you need to grasp!\n\n\n\n\n\nYou can think about your workflow in RStudio as consisting of two separate work stations: you either talk to R or you write for to R:\n\n\nYou talk to R in the console (orange), but the entire conversation is lost when you close RStudio!\nIf you tell R to create some data, it is stored in the short term memory and you can talk about it, but it is lost when you close RStudio.\nIf you tell R to do something that is not valid R code, it will complain (error).\nNote If you tell R to write something to a file, that file will not be lost, but your command to do so is.\n\n\n\nIn the text editor (blue) you can write anything to be saved to a text file.\nIt will not be read by R until you specifically ask it to.\nIf you write something that isn’t valid R code, you will not get an error (albeit RStudio may give you a hint) … in fact, you write a shopping list in the text editor, if you want to and R won’t complain.\n\n\n\n\nA typical workflow consists of ping-pong’ing back and forth between i) testing code in real-time (console and short term memory) and ii) storing working code in a text file.\n\n\n\n\n\n\nExample\n\n\n\n\n\nLet’s say you want to use the functions mean and rnorm to calculate the mean of a sample of 100 from a normal distribution. The following code should do the trick:\nrnorm(n=100, mean=1, sd=2) %&gt;% mean()\n…before using that code in you manuscript, you might want to check it out in the console:\n\nrnorm(n=100, mean=1, sd=2) %&gt;% mean()\n\n[1] 1.054998\n\n\nPerhaps, you then realize, that the result has too many digits and you amend your code:\n\nrnorm(n=100, mean=1, sd=2) %&gt;% mean() %&gt;% round(2)\n\n[1] 0.73\n\n\n\n\n\n\n\n\n\n\n\nExercise #1\n\n\n\n\n\nOpen RStudio and create and empty R script by menu: File / New File / R Script or keyboard: CTRL-SHIFT-n\n\nCopy paste this code rnorm(n=100, mean=1, sd=2) %&gt;% mean() into the console and execute it by pressing ENTER – what happens in the text editor?\nCopy and paste this code rnorm(n=100, mean=120, sd=25) %&gt;% mean() into the text editor and press ENTER – what happens in the console?\nCopy and paste this code rnorm(n=100, mean=20, sd=250) %&gt;% mean() into the text editor and press CTRL+ENTER – what happens in the console?\n\n\n\n\n\n\n\n\n\n\nExercise #1 Solution\n\n\n\n\n\n\nNothing happens in the text editor\nNothing happens in the console\nThe code is copied and pasted into the console and executed\n\nBonus question Amend the code in the text editor so that the output of the R command is ascribed to a variable called x. What happens in the Environment tab of the Environment pane, i) when you added the code to the text file and ii) when you copy/paste/execute (CTRL+ENTER) the code in the console?\n\n\n\n\n\n\n\n\n\nExercise #2\n\n\n\n\n\nWhen you close an R project, RStudio will ask you whether you want to save a ‘Workspace image’.\nA workspace image stores the information currently in the console and the short term memory (Environment) and restores it, the next time you open the project.\n\nWhat are the potential benefits of that?\nWhat are the potential pitfalls of that?\n\n\n\n\n\n\n\n\n\n\nExercise #2 Solution\n\n\n\n\n\n\nRestoring a workspace image from the last time you worked in the project, lets you pick up and start from the exact same position, which can sometimes be helpful. For instance, if you rely on downloading a large dataset from the internet, you can save some time.\nA common mistake that frustrates beginners: Ping-pong’ing back and forth, you might solve a problem in the console which commits the right data to short term memory, but forget to add that problem-solving code to the script in the text editor. If you do not use the workspace image, that mistake will become apparent next time you open your project with an empty environment."
   },
   {
     "objectID": "rstudio_introduction_to_gui_console_da.html",
