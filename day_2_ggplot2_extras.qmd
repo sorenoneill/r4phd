@@ -241,7 +241,7 @@ install.packages("ggiraph")
 
 <br>
 
-### Load the `tidyverse`, `here`, and the cleaned `soldiers` dataset
+### Load the `tidyverse`, `here`, `ggiraph`, `patchwork`, and the cleaned `soldiers` dataset
 ```{r}
 #| eval: true
 
@@ -249,6 +249,7 @@ install.packages("ggiraph")
 library(tidyverse)  # Data wrangling and plots
 library(here)       # File control in project
 library(ggiraph)    # Interactive plots
+library(patchwork)  # Combining plots
 
 # Load the cleaned soldiers dataset
 source(here("scripts", "01_import.R"))
@@ -258,27 +259,54 @@ source(here("scripts", "01_import.R"))
 
 ### Explore `Fort Hood`, `Camp Arnold`, and `Fort Doughnut`
 *  Filter you data to the three camps
-*  Make a interactive boxplot that shows the 
+*  Make a interactive boxplot that shows the name of the installation
+
+::: {.callout-tip collapse=true}
+#### Hint
+You can use the base R functions `paste()` or `paste0()` to combine text and values in your tooltip.  
+You can also use `glue()` from the `glue` package, but you need to install that package first. In the blogpost Albert uses the `glue()` function.
+:::
+
+::: {.callout-tip collapse=true}
+#### Size of your interactive plot
+With the default options, the interactive plots tends to be oversized. Add this option to reduce it
+```{r}
+#| eval: false
+#| code-fold: false
+girafe(ggobj = my_plot,
+       options = list(opts_sizing(rescale = FALSE)))
+```
+
+:::
+
+
 ```{r}
 my_plot <- soldiers %>% 
   filter(Installation %in% c("Fort Hood", "Camp Arnold", "Fort Doughnut")) %>% 
   ggplot(aes(x = BMI, y = Installation, fill = Installation))+
   geom_boxplot_interactive(
-    aes(tooltip = paste0("This is the ", Installation, " installation")))
+    aes(tooltip = paste0("This is the ", Installation, " installation")))+
+  labs(y = NULL)+
+  theme_classic()
 
 girafe(ggobj = my_plot)
 ```
 
 ### Add an interactive geom_jitter layer.
 * facet the plot on sex
-* Make a tooltip that gives you the subjectid, BMI, heightcm, heightcm, bicepcircumference, and waist circumference
+* Make a tooltip that gives you the subjectid, BMI, height, weight, biceps circumference, and waist circumference.
+
+::: {.callout-tip collapse=true}
+#### Hint line breaks
+"\n" Gives you a line break
+:::
 
 ```{r}
 my_plot <- soldiers %>% 
   filter(Installation %in% c("Fort Hood", "Camp Arnold", "Fort Doughnut")) %>% 
   ggplot(aes(x = BMI, y = Installation, fill = Installation))+
   facet_wrap(~sex, ncol = 1)+
-  labs(x = NULL)+
+  labs(y = NULL)+
   geom_boxplot_interactive(
     aes(tooltip = paste0("This is the ", Installation, " installation")),
     outlier.shape = NA) +
@@ -295,29 +323,51 @@ my_plot <- soldiers %>%
   )+
   theme_classic()
 
-girafe(ggobj = my_plot)
+girafe(ggobj = my_plot,
+       options = list(opts_sizing(rescale = FALSE)))
 ```
 
+### Create another interactive plot with `geom_jitter_interactive()`
+*  Combine your new plot with the one you made above using `patchwork`
+*  Set the data_id argument to: `data_id = subjectid` for the points
+*  Use the options that Alfred suggested in his post (see tip below)
+
+::: {.callout-tip collapse=true}
+#### Options
+```{r}
+#| code-fold: false
+girafe(ggobj = my_plot,
+       options = list(
+         opts_hover(css = ''),
+         opts_hover_inv(css = "opacity:0.2;"), 
+         opts_sizing(rescale = FALSE)
+  ))
+```
+:::
 
 
 ```{r}
 my_plot_a <- soldiers %>% 
   filter(Installation %in% c("Fort Hood", "Camp Arnold", "Fort Doughnut")) %>% 
-  ggplot(aes(x = BMI, y = Installation, fill = Installation))+
+  ggplot(aes(x = BMI, y = Installation, fill = Installation, ))+
   facet_wrap(~sex, ncol = 1)+
-  labs(x = NULL)+
+  labs(y = NULL,
+       x = NULL,
+       title = "BMI")+
   geom_boxplot_interactive(
-    aes(tooltip = paste0("This is the ", Installation, " installation")),
+    aes(data_id = Installation,
+        tooltip = paste0("This is the ", Installation, " installation")),
     outlier.shape = NA) +
   geom_jitter_interactive(
-    aes(tooltip = paste0("Subjectid: ", subjectid,
+    aes(data_id = subjectid,
+        tooltip = paste0("Subjectid: ", subjectid,
                          "\n BMI:   ", round(BMI), " (", category, ")",
                          "\nHeight: ", round(heightcm), " cm",
                          "\nWeight: ", round(weightkg), " kg",
                          "\nBiceps: ", round(bicepscircumference), " mm", 
                          "\nWaist:  ", round(waistcircumference), " mm")),
     height = 0.2,
-    alpha = 0.3,
+    alpha = 0.5,
     shape = 21
   )+
   theme_classic()
@@ -326,25 +376,39 @@ my_plot_b <- soldiers %>%
   filter(Installation %in% c("Fort Hood", "Camp Arnold", "Fort Doughnut")) %>% 
   ggplot(aes(x = waistcircumference, y = Installation, fill = Installation))+
   facet_wrap(~sex, ncol = 1)+
-  labs(x = NULL)+
+  labs(y = NULL,
+       x = NULL,
+       title = "Waist circumference")+
   geom_boxplot_interactive(
-    aes(tooltip = paste0("This is the ", Installation, " installation")),
+    aes(data_id = Installation,
+        tooltip = paste0("This is the ", Installation, " installation")),
     outlier.shape = NA) +
   geom_jitter_interactive(
-    aes(tooltip = paste0("Subjectid: ", subjectid,
+    aes(data_id = subjectid,
+        tooltip = paste0("Subjectid: ", subjectid,
                          "\n BMI:   ", round(BMI), " (", category, ")",
                          "\nHeight: ", round(heightcm), " cm",
                          "\nWeight: ", round(weightkg), " kg",
                          "\nBiceps: ", round(bicepscircumference), " mm", 
                          "\nWaist:  ", round(waistcircumference), " mm")),
     height = 0.2,
-    alpha = 0.3,
+    alpha = 0.5,
     shape = 21
   )+
   theme_classic()
 
-girafe(ggobj = my_plot)
+my_plot <- my_plot_a + my_plot_b +
+  plot_layout(guides = "collect") &
+  theme(legend.position='bottom')
+
+girafe(ggobj = my_plot,
+       options = list(
+         opts_hover(css = ''),
+         opts_hover_inv(css = "opacity:0.2;"), 
+         opts_sizing(rescale = FALSE)
+  ))
 ```
+
 
 
 
