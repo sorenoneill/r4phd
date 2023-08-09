@@ -1,7 +1,10 @@
 ---
-title: "ggplot2 exercise"
+title: "ggplot2"
 author: "Steen Flammild Harsted"
 date: today
+output:
+  distill::distill_article:
+    self_contained: false
 format:
   html: 
     code-fold: true
@@ -10,7 +13,6 @@ format:
     toc-depth: 2
     number-sections: true
     number-depth: 3
-    embed-resources: true
 editor: 
   mode: source
 execute: 
@@ -23,14 +25,13 @@ execute:
 
 ```{r load-packages}
 #| eval: true
+#| include: false
 library(tidyverse)
 library(here)
 library(patchwork)
 ```
 
-## Getting Started
-
-\ 
+## Getting Started {.unnumbered}
 
 * Create a new quarto document
 * Insert a code chunk and load 2 important libraries
@@ -41,12 +42,18 @@ library(patchwork)
 ```{r}
 #| eval: true
 
+# Load libraries
+library(tidyverse)  # Data wrangling and plots
+library(here)       # File control in project
+
 # Load the cleaned soldiers dataset
 source(here("scripts", "01_import.R"))
 ```
 
 
 <br>
+
+## Guess the output
 
 #### Look at and discuss the code below.  
 You’ll need to guess a little because you haven’t seen all the datasets and functions yet, but use your common sense! See if you can predict what each plot will look like before running the code.
@@ -64,48 +71,80 @@ ggplot(mpg, aes(cty)) + geom_histogram()
 
 <br>
 
-#### Use the `mpg` dataset. 
+## Aesthetic mappings - aes() 
 
-*  Explore `mpg`. Using `?mpg`, `view()`, `glimpse()`, `skimr()`, etc.
-*  Experiment with the `colour`, `shape`, and `size` aesthetics. 
-*  What happens when you map them to continuous values? 
-*  What about categorical values? 
+Use the `mpg` dataset. 
+
+<br>
+
+###  Explore the columntypes in the `mpg` dataset
+Use one or more of: `?mpg`, `head()`, `glimpse()`, `summary()`, and/or `skim()`
+```{r}
+?mpg
+mpg %>%  head()
+mpg %>%  glimpse()
+mpg %>% skimr::skim()  # or library(skimr) and then mpg %>% skim()
+```
+
+<br>
+
+### Experiment with the `colour`, `shape`, and `size` aesthetics. 
+Use this basic code, and add/change the `colour`, `shape`, and `size` aesthetics.
+```{r}
+#| code-fold: false
+#| eval: true
+ggplot(mpg, aes(cty, hwy)) + 
+  geom_point()
+```
+
+*  What happens when you map continuous variables to one or more of the aesthetics? 
+*  What about categorical variables? 
 *  What happens when you use multiple aesthetics in a plot?
 
 ```{r}
+## Examples
+
 # Categorial
-ggplot(mpg, aes(cty, displ, colour = class)) + 
+ggplot(mpg, aes(cty, hwy, colour = class)) + 
   geom_point()
 
 # Continuous 
 ggplot(mpg, aes(cty, hwy, size = displ)) + 
-  geom_jitter()
+  geom_point()
 
-## Doesnt work for shape
+# Continuous 
+ggplot(mpg, aes(cty, hwy, color = hwy)) +  # Notice hwy is mapped to both y axis and color
+  geom_point()
+
+## A continuous variable doesn't work for shape
 ggplot(mpg, aes(cty, hwy, shape = displ)) + 
-  geom_jitter()
+  geom_point()
 
-# Multiple Categorial
-ggplot(mpg, aes(cty, displ, colour = class, shape = fl)) + 
+# Multiple Categorical - a legend for each aesthetic is created
+ggplot(mpg, aes(cty, hwy, colour = class, shape = fl)) + 
   geom_point()
 ```
 
 <br>
 
-What’s gone wrong with this code? Why are the points not blue?
+### What’s gone wrong with this code? Why are the points not blue?
 ```{r}
 #| code-fold: false
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy, color = "blue"))
 ```
 ```{r}
+
+# If you want all the points to be colored blute, then color = "blue" must be placed outside the aes() function.
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy),
-             color = "blue")  # color = "blue" must be placed outside the aes() function.
+             color = "blue")  
 ```
 
 
 <br>
+
+## `geom_point()` and `geom_smooth()`
 
 #### Use your `soldiers` dataset
 
@@ -161,6 +200,13 @@ soldiers %>%
 ```
 
 
+\ 
+
+## `facet_wrap()`
+
+* What arguments can you use to control how many rows and columns appear in the output?
+* What does the `scales` argument in `facet_wrap()` do? When might you use it?
+
 \
 
 Explore the relationship between `heightcm` and `weightkg`
@@ -177,12 +223,9 @@ soldiers %>%
 ```
 
 
-\ 
+<br>
 
-#### `facet_wrap()`
-
-* What arguments can you use to control how many rows and columns appear in the output?
-* What does the `scales` argument in `facet_wrap()` do? When might you use it?
+## `geom_bar()`
 
 <br>
 
@@ -220,14 +263,20 @@ soldiers %>%
 
 \ 
 
-* Change something so that you can evaluate if race is equally distributed across the Installations
+* Change something so that you can visually evaluate if race is equally distributed across the Installations
 ```{r}
 soldiers %>% 
   ggplot(aes(y = Installation, fill = race))+
-  geom_bar(position = "fill", color = "black")
+  geom_bar(position = "fill",   #  All bars have full length/height - this makes it easier to see proportional differences between groups
+           color = "black"      #  Adds a black line around each box.
+           )
 ```
 
 \
+
+## `geom_boxplot()`
+
+<br>
 
 #### Use `geom_boxplot` to explore `weightkg` across the different Installations
 ```{r}
@@ -462,6 +511,7 @@ p4+p5+plot_layout(nrow = 1)
 *  change shape
 ```{r}
 #| eval: true
+#| code-fold: false
 diamonds %>% 
   filter(x>3 & x<9) %>% 
   ggplot(aes(x = x, y = price))+
@@ -503,6 +553,8 @@ p4 <- pf + geom_histogram(aes(x = carat, fill = clarity), binwidth = 0.1, positi
 ```
 
 ```{r}
+#| eval: true
+#| output: true
 (p1|p2/(p3+p4)) + plot_layout(guide = "collect")
 ```
 
@@ -564,5 +616,27 @@ You need to set an argument in the `labs()` function to `NULL`
 <br>
 
 #### Save the plot to your plot folder
+```{r}
+#| eval: false
+ggsave(filename = here("plots", "my_patchwork_plot.png"),
+       plot = last_plot(),
+       dpi = "retina")
+```
+
 
 <br>
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
