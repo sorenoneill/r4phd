@@ -353,15 +353,15 @@
     "objectID": "day_2_ggplot2_extras.html#gganimate-1",
     "href": "day_2_ggplot2_extras.html#gganimate-1",
     "title": "Extra Material",
-    "section": "2 gganimate",
-    "text": "2 gganimate\nMost packages have a webpage where the package and its core functions are introduced. Head the gganimate website and read the getting started section. Then continue to exercises here where we will practice using the soldiers dataset that you already know.\nYou need to install gganimate. ::: {.callout-tip collapse=true} #### Installing gganimate\n\ninstall.packages(\"gganimate\")\n\n:::\n\n\nShow me the code\n# Load libraries\nlibrary(tidyverse)  # Data wrangling and plots\nlibrary(here)       # File control in project\nlibrary(gganimate)  # Animate plots\n\n# Load the cleaned soldiers dataset\nsource(here(\"scripts\", \"01_import.R\"))\n\n\n\n\nAnimate the this plot so its shows difference between men and women\n\nsoldiers %&gt;% \n  ggplot(aes(x = weightkg, y = Installation, fill = Installation))+\n  geom_boxplot(outlier.shape = NA,\n               alpha = 0.5)\n\n\n\n\n\nAssign the animation to an object\n\n\n\nShow me the code\n# One option\nmy_animation &lt;- soldiers %&gt;% \n  ggplot(aes(x = weightkg, y = Installation, fill = Installation))+\n  geom_boxplot(outlier.shape = NA,\n               alpha = 0.5)+\n  transition_states(sex,\n                    transition_length = 1,\n                    state_length = 2)+\n  labs(title = \"Weight in Kgs of male and female soldiers\",\n       subtitle = \"Now showing {closest_state}\")\n\nmy_animation\n\n\n\n\n\nShow me the code\n# Another option\nsoldiers %&gt;% \n  ggplot(aes(x = weightkg, y = Installation, fill = Installation, seq_along = sex))+\n  geom_boxplot(outlier.shape = NA,\n               alpha = 0.5)+\n  labs(title = \"Weight in Kgs of male and female soldiers\",\n       subtitle = \"Now showing {closest_state}\")+\n  transition_states(sex,\n                    transition_length = 0.5,\n                    state_length = 2)+\n  enter_fade()+\n  exit_fly()\n\n\n\n\n\nSave your animation in the plots folder you created earlier\n\n\nShow me the code\nanim_save(\n    filename = here(\"plots\", \"my_animation.gif\"),\n    animation = my_animation\n  )\n\n\n\n\n\nOxboys data\nLoad thenlme package and examine the Oxboys dataset that it comes with.\nYou might need to install the nlme package first.\n\n\nShow me the code\nlibrary(nlme)\nhead(Oxboys)\n?Oxboys\n\n\n\n\nCreate an animation that shows how height changes with age\n\nUse transition_reveal()\n\n\n\nShow me the code\nOxboys %&gt;% \n  ggplot(aes(x = age, y = height))+\n  # geom_boxplot(fill = \"steelblue\", \n  #              alpha = 0.5, \n  #              width = 0.3,\n  #              outlier.shape = NA)+\n  geom_line(aes(group = Subject), color = \"grey\", alpha = 1)+\n  geom_point(aes(group = Subject))+\n  labs(x = \"Standardized age \\n(years)\",\n       y = \"Height\\n(cm)\")+\n  theme_classic()+\n  transition_reveal(age)"
+    "section": "1 gganimate",
+    "text": "1 gganimate\nMost packages have a webpage where the package and its core functions are introduced. Head the gganimate website and read the getting started section. Then continue to exercises here where we will practice using the soldiers dataset that you already know.\nYou need to install gganimate\n\n\n\n\n\n\nInstalling gganimate\n\n\n\n\n\n\ninstall.packages(\"gganimate\")\n\n\n\n\n\n\nShow me the code\n# Load libraries\nlibrary(tidyverse)  # Data wrangling and plots\nlibrary(here)       # File control in project\nlibrary(gganimate)  # Animate plots\n\n# Load the cleaned soldiers dataset\nsource(here(\"scripts\", \"01_import.R\"))\n\n\n\n\nAnimate the this plot so its shows difference between men and women\n\nsoldiers %&gt;% \n  ggplot(aes(x = weightkg, y = Installation, fill = Installation))+\n  geom_boxplot(outlier.shape = NA,\n               alpha = 0.5)\n\n\n\n\n\nAssign the animation to an object\n\n\n\nShow me the code\n# One option\nmy_animation &lt;- soldiers %&gt;% \n  ggplot(aes(x = weightkg, y = Installation, fill = Installation))+\n  geom_boxplot(outlier.shape = NA,\n               alpha = 0.5)+\n  transition_states(sex,\n                    transition_length = 1,\n                    state_length = 2)+\n  labs(title = \"Weight in Kgs of male and female soldiers\",\n       subtitle = \"Now showing {closest_state}\")\n\nmy_animation\n\n\n\n\n\nShow me the code\n# Another option\nsoldiers %&gt;% \n  ggplot(aes(x = weightkg, y = Installation, fill = Installation, seq_along = sex))+\n  geom_boxplot(outlier.shape = NA,\n               alpha = 0.5)+\n  labs(title = \"Weight in Kgs of male and female soldiers\",\n       subtitle = \"Now showing {closest_state}\")+\n  transition_states(sex,\n                    transition_length = 0.5,\n                    state_length = 2)+\n  enter_fade()+\n  exit_fly()\n\n\n\n\n\nSave your animation in the plots folder you created earlier\n\n\nShow me the code\nanim_save(\n    filename = here(\"plots\", \"my_animation.gif\"),\n    animation = my_animation\n  )\n\n\n\n\n\nOxboys data\nLoad thenlme package and examine the Oxboys dataset that it comes with.\nYou might need to install the nlme package first.\n\n\nShow me the code\nlibrary(nlme)\nhead(Oxboys)\n?Oxboys\n\n\n\n\nCreate an animation that shows how height changes with age\n\nUse transition_reveal()\n\n\n\nShow me the code\nOxboys %&gt;% \n  ggplot(aes(x = age, y = height))+\n  # geom_boxplot(fill = \"steelblue\", \n  #              alpha = 0.5, \n  #              width = 0.3,\n  #              outlier.shape = NA)+\n  geom_line(aes(group = Subject), color = \"grey\", alpha = 1)+\n  geom_point(aes(group = Subject))+\n  labs(x = \"Standardized age \\n(years)\",\n       y = \"Height\\n(cm)\")+\n  theme_classic()+\n  transition_reveal(age)"
   },
   {
     "objectID": "day_2_ggplot2_extras.html#ggiraph-1",
     "href": "day_2_ggplot2_extras.html#ggiraph-1",
     "title": "Extra Material",
-    "section": "3 ggiraph",
-    "text": "3 ggiraph\nAnother useful resource for learning R is blogposts. These are often written in a much more accesible language. For learning ggiraph we will use a blogpost written by Albert Rapp. Head to his blogpost about ggiraph and read it. You don’t need to read the sections about shinyapps. When you have done that continue to exercises below.\nYou need to install ggiraph. ::: {.callout-tip collapse=true} #### Installing ggiraph\n\ninstall.packages(\"ggiraph\")\n\n:::\n\n\nLoad the tidyverse, here, ggiraph, patchwork, and the cleaned soldiers dataset\n\n\nShow me the code\n# Load libraries\nlibrary(tidyverse)  # Data wrangling and plots\nlibrary(here)       # File control in project\nlibrary(ggiraph)    # Interactive plots\nlibrary(patchwork)  # Combining plots\n\n# Load the cleaned soldiers dataset\nsource(here(\"scripts\", \"01_import.R\"))\n\n\n\n\n\nExplore Fort Hood, Camp Arnold, and Fort Doughnut\n\nFilter you data to the three camps\nMake a interactive boxplot that shows the name of the installation\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nYou can use the base R functions paste() or paste0() to combine text and values in your tooltip.\nYou can also use glue() from the glue package, but you need to install that package first. In the blogpost Albert uses the glue() function.\n\n\n\n\n\n\n\n\n\nSize of your interactive plot\n\n\n\n\n\nWith the default options, the interactive plots tends to be oversized. Add this option to reduce it\n\ngirafe(ggobj = my_plot,\n       options = list(opts_sizing(rescale = FALSE)))\n\n\n\n\n\n\nShow me the code\nmy_plot &lt;- soldiers %&gt;% \n  filter(Installation %in% c(\"Fort Hood\", \"Camp Arnold\", \"Fort Doughnut\")) %&gt;% \n  ggplot(aes(x = BMI, y = Installation, fill = Installation))+\n  geom_boxplot_interactive(\n    aes(tooltip = paste0(\"This is the \", Installation, \" installation\")))+\n  labs(y = NULL)+\n  theme_classic()\n\ngirafe(ggobj = my_plot)\n\n\n\n\nAdd an interactive geom_jitter layer.\n\nfacet the plot on sex\nMake a tooltip that gives you the subjectid, BMI, height, weight, biceps circumference, and waist circumference.\n\n\n\n\n\n\n\nHint line breaks\n\n\n\n\n\n“” Gives you a line break\n\n\n\n\n\nShow me the code\nmy_plot &lt;- soldiers %&gt;% \n  filter(Installation %in% c(\"Fort Hood\", \"Camp Arnold\", \"Fort Doughnut\")) %&gt;% \n  ggplot(aes(x = BMI, y = Installation, fill = Installation))+\n  facet_wrap(~sex, ncol = 1)+\n  labs(y = NULL)+\n  geom_boxplot_interactive(\n    aes(tooltip = paste0(\"This is the \", Installation, \" installation\")),\n    outlier.shape = NA) +\n  geom_jitter_interactive(\n    aes(tooltip = paste0(\"Subjectid: \", subjectid,\n                         \"\\n BMI:   \", round(BMI), \" (\", category, \")\",\n                         \"\\nHeight: \", round(heightcm), \" cm\",\n                         \"\\nWeight: \", round(weightkg), \" kg\",\n                         \"\\nBiceps: \", round(bicepscircumference), \" mm\", \n                         \"\\nWaist:  \", round(waistcircumference), \" mm\")),\n    height = 0.2,\n    alpha = 0.3,\n    shape = 21\n  )+\n  theme_classic()\n\ngirafe(ggobj = my_plot,\n       options = list(opts_sizing(rescale = FALSE)))\n\n\n\n\nCreate another interactive plot with geom_jitter_interactive()\n\nCombine your new plot with the one you made above using patchwork\nSet the data_id argument to: data_id = subjectid for the points\nUse the options that Alfred suggested in his post (see tip below)\n\n\n\n\n\n\n\nOptions\n\n\n\n\n\n\ngirafe(ggobj = my_plot,\n       options = list(\n         opts_hover(css = ''),\n         opts_hover_inv(css = \"opacity:0.2;\"), \n         opts_sizing(rescale = FALSE)\n  ))\n\n\n\n\n\n\nShow me the code\nmy_plot_a &lt;- soldiers %&gt;% \n  filter(Installation %in% c(\"Fort Hood\", \"Camp Arnold\", \"Fort Doughnut\")) %&gt;% \n  ggplot(aes(x = BMI, y = Installation, fill = Installation, ))+\n  facet_wrap(~sex, ncol = 1)+\n  labs(y = NULL,\n       x = NULL,\n       title = \"BMI\")+\n  geom_boxplot_interactive(\n    aes(data_id = Installation,\n        tooltip = paste0(\"This is the \", Installation, \" installation\")),\n    outlier.shape = NA) +\n  geom_jitter_interactive(\n    aes(data_id = subjectid,\n        tooltip = paste0(\"Subjectid: \", subjectid,\n                         \"\\n BMI:   \", round(BMI), \" (\", category, \")\",\n                         \"\\nHeight: \", round(heightcm), \" cm\",\n                         \"\\nWeight: \", round(weightkg), \" kg\",\n                         \"\\nBiceps: \", round(bicepscircumference), \" mm\", \n                         \"\\nWaist:  \", round(waistcircumference), \" mm\")),\n    height = 0.2,\n    alpha = 0.5,\n    shape = 21\n  )+\n  theme_classic()\n\nmy_plot_b &lt;- soldiers %&gt;% \n  filter(Installation %in% c(\"Fort Hood\", \"Camp Arnold\", \"Fort Doughnut\")) %&gt;% \n  ggplot(aes(x = waistcircumference, y = Installation, fill = Installation))+\n  facet_wrap(~sex, ncol = 1)+\n  labs(y = NULL,\n       x = NULL,\n       title = \"Waist circumference\")+\n  geom_boxplot_interactive(\n    aes(data_id = Installation,\n        tooltip = paste0(\"This is the \", Installation, \" installation\")),\n    outlier.shape = NA) +\n  geom_jitter_interactive(\n    aes(data_id = subjectid,\n        tooltip = paste0(\"Subjectid: \", subjectid,\n                         \"\\n BMI:   \", round(BMI), \" (\", category, \")\",\n                         \"\\nHeight: \", round(heightcm), \" cm\",\n                         \"\\nWeight: \", round(weightkg), \" kg\",\n                         \"\\nBiceps: \", round(bicepscircumference), \" mm\", \n                         \"\\nWaist:  \", round(waistcircumference), \" mm\")),\n    height = 0.2,\n    alpha = 0.5,\n    shape = 21\n  )+\n  theme_classic()\n\nmy_plot &lt;- my_plot_a + my_plot_b +\n  plot_layout(guides = \"collect\") &\n  theme(legend.position='bottom')\n\ngirafe(ggobj = my_plot,\n       options = list(\n         opts_hover(css = ''),\n         opts_hover_inv(css = \"opacity:0.2;\"), \n         opts_sizing(rescale = FALSE)\n  ))"
+    "section": "2 ggiraph",
+    "text": "2 ggiraph\nAnother useful resource for learning R is blogposts. These are often written in a much more accesible language. For learning ggiraph we will use a blogpost written by Albert Rapp. Head to his blogpost about ggiraph and read it. You don’t need to read the sections about shinyapps. When you have done that continue to exercises below.\nYou need to install ggiraph.\n\n\n\n\n\n\nInstalling ggiraph\n\n\n\n\n\n\ninstall.packages(\"ggiraph\")\n\n\n\n\n\n\nLoad the tidyverse, here, ggiraph, patchwork, and the cleaned soldiers dataset\n\n\nShow me the code\n# Load libraries\nlibrary(tidyverse)  # Data wrangling and plots\nlibrary(here)       # File control in project\nlibrary(ggiraph)    # Interactive plots\nlibrary(patchwork)  # Combining plots\n\n# Load the cleaned soldiers dataset\nsource(here(\"scripts\", \"01_import.R\"))\n\n\n\n\n\nExplore Fort Hood, Camp Arnold, and Fort Doughnut\n\nFilter you data to the three camps\nMake a interactive boxplot that shows the name of the installation\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nYou can use the base R functions paste() or paste0() to combine text and values in your tooltip.\nYou can also use glue() from the glue package, but you need to install that package first. In the blogpost Albert uses the glue() function.\n\n\n\n\n\n\n\n\n\nSize of your interactive plot\n\n\n\n\n\nWith the default options, the interactive plots tends to be oversized. Add this option to reduce it\n\ngirafe(ggobj = my_plot,\n       options = list(opts_sizing(rescale = FALSE)))\n\n\n\n\n\n\nShow me the code\nmy_plot &lt;- soldiers %&gt;% \n  filter(Installation %in% c(\"Fort Hood\", \"Camp Arnold\", \"Fort Doughnut\")) %&gt;% \n  ggplot(aes(x = BMI, y = Installation, fill = Installation))+\n  geom_boxplot_interactive(\n    aes(tooltip = paste0(\"This is the \", Installation, \" installation\")))+\n  labs(y = NULL)+\n  theme_classic()\n\ngirafe(ggobj = my_plot)\n\n\n\n\nAdd an interactive geom_jitter layer.\n\nfacet the plot on sex\nMake a tooltip that gives you the subjectid, BMI, height, weight, biceps circumference, and waist circumference.\n\n\n\n\n\n\n\nHint line breaks\n\n\n\n\n\n“” Gives you a line break\n\n\n\n\n\nShow me the code\nmy_plot &lt;- soldiers %&gt;% \n  filter(Installation %in% c(\"Fort Hood\", \"Camp Arnold\", \"Fort Doughnut\")) %&gt;% \n  ggplot(aes(x = BMI, y = Installation, fill = Installation))+\n  facet_wrap(~sex, ncol = 1)+\n  labs(y = NULL)+\n  geom_boxplot_interactive(\n    aes(tooltip = paste0(\"This is the \", Installation, \" installation\")),\n    outlier.shape = NA) +\n  geom_jitter_interactive(\n    aes(tooltip = paste0(\"Subjectid: \", subjectid,\n                         \"\\n BMI:   \", round(BMI), \" (\", category, \")\",\n                         \"\\nHeight: \", round(heightcm), \" cm\",\n                         \"\\nWeight: \", round(weightkg), \" kg\",\n                         \"\\nBiceps: \", round(bicepscircumference), \" mm\", \n                         \"\\nWaist:  \", round(waistcircumference), \" mm\")),\n    height = 0.2,\n    alpha = 0.3,\n    shape = 21\n  )+\n  theme_classic()\n\ngirafe(ggobj = my_plot,\n       options = list(opts_sizing(rescale = FALSE)))\n\n\n\n\nCreate another interactive plot with geom_jitter_interactive()\n\nCombine your new plot with the one you made above using patchwork\nSet the data_id argument to: data_id = subjectid for the points\nUse the options that Alfred suggested in his post (see tip below)\n\n\n\n\n\n\n\nOptions\n\n\n\n\n\n\ngirafe(ggobj = my_plot,\n       options = list(\n         opts_hover(css = ''),\n         opts_hover_inv(css = \"opacity:0.2;\"), \n         opts_sizing(rescale = FALSE)\n  ))\n\n\n\n\n\n\nShow me the code\nmy_plot_a &lt;- soldiers %&gt;% \n  filter(Installation %in% c(\"Fort Hood\", \"Camp Arnold\", \"Fort Doughnut\")) %&gt;% \n  ggplot(aes(x = BMI, y = Installation, fill = Installation, ))+\n  facet_wrap(~sex, ncol = 1)+\n  labs(y = NULL,\n       x = NULL,\n       title = \"BMI\")+\n  geom_boxplot_interactive(\n    aes(data_id = Installation,\n        tooltip = paste0(\"This is the \", Installation, \" installation\")),\n    outlier.shape = NA) +\n  geom_jitter_interactive(\n    aes(data_id = subjectid,\n        tooltip = paste0(\"Subjectid: \", subjectid,\n                         \"\\n BMI:   \", round(BMI), \" (\", category, \")\",\n                         \"\\nHeight: \", round(heightcm), \" cm\",\n                         \"\\nWeight: \", round(weightkg), \" kg\",\n                         \"\\nBiceps: \", round(bicepscircumference), \" mm\", \n                         \"\\nWaist:  \", round(waistcircumference), \" mm\")),\n    height = 0.2,\n    alpha = 0.5,\n    shape = 21\n  )+\n  theme_classic()\n\nmy_plot_b &lt;- soldiers %&gt;% \n  filter(Installation %in% c(\"Fort Hood\", \"Camp Arnold\", \"Fort Doughnut\")) %&gt;% \n  ggplot(aes(x = waistcircumference, y = Installation, fill = Installation))+\n  facet_wrap(~sex, ncol = 1)+\n  labs(y = NULL,\n       x = NULL,\n       title = \"Waist circumference\")+\n  geom_boxplot_interactive(\n    aes(data_id = Installation,\n        tooltip = paste0(\"This is the \", Installation, \" installation\")),\n    outlier.shape = NA) +\n  geom_jitter_interactive(\n    aes(data_id = subjectid,\n        tooltip = paste0(\"Subjectid: \", subjectid,\n                         \"\\n BMI:   \", round(BMI), \" (\", category, \")\",\n                         \"\\nHeight: \", round(heightcm), \" cm\",\n                         \"\\nWeight: \", round(weightkg), \" kg\",\n                         \"\\nBiceps: \", round(bicepscircumference), \" mm\", \n                         \"\\nWaist:  \", round(waistcircumference), \" mm\")),\n    height = 0.2,\n    alpha = 0.5,\n    shape = 21\n  )+\n  theme_classic()\n\nmy_plot &lt;- my_plot_a + my_plot_b +\n  plot_layout(guides = \"collect\") &\n  theme(legend.position='bottom')\n\ngirafe(ggobj = my_plot,\n       options = list(\n         opts_hover(css = ''),\n         opts_hover_inv(css = \"opacity:0.2;\"), \n         opts_sizing(rescale = FALSE)\n  ))"
   },
   {
     "objectID": "gfx/RR/prefer_text_files.html",
@@ -1039,295 +1039,295 @@
     "objectID": "presentations/Day_2_ggplot2_intro.html#anscombes-quartet",
     "href": "presentations/Day_2_ggplot2_intro.html#anscombes-quartet",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "2.1 Anscombe’s quartet",
-    "text": "2.1 Anscombe’s quartet\nTmisc::quartet is a tidy version of the built-in Anscombe’s Quartet data.\nAnscombe’s Quartet data contains four datasets that have nearly identical linear regression properties, yet appear very different when graphed.\n\n\nTmisc::quartet %&gt;%\n  head() %&gt;% \n  gt::gt() # print as table\n\n\n\n\n\n\n  \n    \n    \n      set\n      x\n      y\n    \n  \n  \n    I\n10\n8.04\n    I\n8\n6.95\n    I\n13\n7.58\n    I\n9\n8.81\n    I\n11\n8.33\n    I\n14\n9.96\n  \n  \n  \n\n\n\n\n\n  \n\n\nTmisc::quartet %&gt;% \n  tail() %&gt;% \n  gt::gt() # print as table\n\n\n\n\n\n\n  \n    \n    \n      set\n      x\n      y\n    \n  \n  \n    IV\n8\n7.04\n    IV\n8\n5.25\n    IV\n19\n12.50\n    IV\n8\n5.56\n    IV\n8\n7.91\n    IV\n8\n6.89"
+    "section": "Anscombe’s quartet",
+    "text": "Anscombe’s quartet\nTmisc::quartet is a tidy version of the built-in Anscombe’s Quartet data.\nAnscombe’s Quartet data contains four datasets that have nearly identical linear regression properties, yet appear very different when graphed.\n\n\nTmisc::quartet %&gt;%\n  head() %&gt;% \n  gt::gt() # print as table\n\n\n\n\n\n\n  \n    \n    \n      set\n      x\n      y\n    \n  \n  \n    I\n10\n8.04\n    I\n8\n6.95\n    I\n13\n7.58\n    I\n9\n8.81\n    I\n11\n8.33\n    I\n14\n9.96\n  \n  \n  \n\n\n\n\n\n  \n\n\nTmisc::quartet %&gt;% \n  tail() %&gt;% \n  gt::gt() # print as table\n\n\n\n\n\n\n  \n    \n    \n      set\n      x\n      y\n    \n  \n  \n    IV\n8\n7.04\n    IV\n8\n5.25\n    IV\n19\n12.50\n    IV\n8\n5.56\n    IV\n8\n7.91\n    IV\n8\n6.89"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#summarising-anscombes-quartet",
     "href": "presentations/Day_2_ggplot2_intro.html#summarising-anscombes-quartet",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "2.2 Summarising Anscombe’s quartet",
-    "text": "2.2 Summarising Anscombe’s quartet\n\nTmisc::quartet %&gt;%\n  group_by(set) %&gt;%\n  summarise(\n    mean_x = mean(x), \n    mean_y = mean(y),\n    sd_x = sd(x),\n    sd_y = sd(y),\n    r = cor(x, y)\n  )%&gt;% \n  gt::gt() # print as table\n\n\n\n\n\n\n\n  \n    \n    \n      set\n      mean_x\n      mean_y\n      sd_x\n      sd_y\n      r\n    \n  \n  \n    I\n9\n7.500909\n3.316625\n2.031568\n0.8164205\n    II\n9\n7.500909\n3.316625\n2.031657\n0.8162365\n    III\n9\n7.500000\n3.316625\n2.030424\n0.8162867\n    IV\n9\n7.500909\n3.316625\n2.030579\n0.8165214"
+    "section": "Summarising Anscombe’s quartet",
+    "text": "Summarising Anscombe’s quartet\n\nTmisc::quartet %&gt;%\n  group_by(set) %&gt;%\n  summarise(\n    mean_x = mean(x), \n    mean_y = mean(y),\n    sd_x = sd(x),\n    sd_y = sd(y),\n    r = cor(x, y)\n  )%&gt;% \n  gt::gt() # print as table\n\n\n\n\n\n\n\n  \n    \n    \n      set\n      mean_x\n      mean_y\n      sd_x\n      sd_y\n      r\n    \n  \n  \n    I\n9\n7.500909\n3.316625\n2.031568\n0.8164205\n    II\n9\n7.500909\n3.316625\n2.031657\n0.8162365\n    III\n9\n7.500000\n3.316625\n2.030424\n0.8162867\n    IV\n9\n7.500909\n3.316625\n2.030579\n0.8165214"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#visualizing-anscombes-quartet",
     "href": "presentations/Day_2_ggplot2_intro.html#visualizing-anscombes-quartet",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "2.3 Visualizing Anscombe’s quartet",
-    "text": "2.3 Visualizing Anscombe’s quartet"
+    "section": "Visualizing Anscombe’s quartet",
+    "text": "Visualizing Anscombe’s quartet"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#ggplot2-in-tidyverse",
     "href": "presentations/Day_2_ggplot2_intro.html#ggplot2-in-tidyverse",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "3.1 ggplot2 \\(\\in\\) tidyverse",
-    "text": "3.1 ggplot2 \\(\\in\\) tidyverse\n\n\nggplot2 is tidyverse’s data visualization package.\ngg in “ggplot2” stands for Grammar of Graphics.\nInspired by the book Grammar of Graphics by Leland Wilkinson."
+    "section": "ggplot2 \\(\\in\\) tidyverse",
+    "text": "ggplot2 \\(\\in\\) tidyverse\n\n\nggplot2 is tidyverse’s data visualization package.\ngg in “ggplot2” stands for Grammar of Graphics.\nInspired by the book Grammar of Graphics by Leland Wilkinson."
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#grammar-of-graphics",
     "href": "presentations/Day_2_ggplot2_intro.html#grammar-of-graphics",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "3.2 Grammar of Graphics",
-    "text": "3.2 Grammar of Graphics\nA grammar of graphics is a tool that enables us to concisely describe the components of a graphic.\n\nSource: BloggoType"
+    "section": "Grammar of Graphics",
+    "text": "Grammar of Graphics\nA grammar of graphics is a tool that enables us to concisely describe the components of a graphic.\n\nSource: BloggoType"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#hello-ggplot2",
     "href": "presentations/Day_2_ggplot2_intro.html#hello-ggplot2",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "3.3 Hello ggplot2!",
-    "text": "3.3 Hello ggplot2!\nStructure of the code for ggplot2 plots can be summarized as:\n\nggplot(data = [dataset], \n       mapping = aes(x = [x-variable], y = [y-variable])) +\n   geom_xxx() +\n   other options\n\n\nEvery ggplot2 plot has three key components:\n\ndata\nA set of aesthetic mappings between variables in the data and visual properties\nAt least one layer which describes how to render each observation. Layers are usually created with a geom function"
+    "section": "Hello ggplot2!",
+    "text": "Hello ggplot2!\nStructure of the code for ggplot2 plots can be summarized as:\n\nggplot(data = [dataset], \n       mapping = aes(x = [x-variable], y = [y-variable])) +\n   geom_xxx() +\n   other options\n\n\nEvery ggplot2 plot has three key components:\n\ndata\nA set of aesthetic mappings between variables in the data and visual properties\nAt least one layer which describes how to render each observation. Layers are usually created with a geom function"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#hello-ggplot2-1",
     "href": "presentations/Day_2_ggplot2_intro.html#hello-ggplot2-1",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "3.4 Hello ggplot2!",
-    "text": "3.4 Hello ggplot2!\nggplot2: Elegant Graphics for Data Analysis"
+    "section": "Hello ggplot2!",
+    "text": "Hello ggplot2!\nggplot2: Elegant Graphics for Data Analysis"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#simple-example",
     "href": "presentations/Day_2_ggplot2_intro.html#simple-example",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "3.5 Simple example",
-    "text": "3.5 Simple example\n\nggplot(data = mpg,                               # Use the mpg data?\n       mapping = aes(x = displ, y = hwy)) +      # map (explore) the variables displ and hwy\n  geom_point()                                   # visualize the observations with points"
+    "section": "Simple example",
+    "text": "Simple example\n\nggplot(data = mpg,                               # Use the mpg data\n       mapping = aes(x = displ, y = hwy)) +      # map (explore) the variables displ and hwy\n  geom_point()                                   # visualize the observations with points"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#colour-size-shape-and-other-aesthetic-attributes",
     "href": "presentations/Day_2_ggplot2_intro.html#colour-size-shape-and-other-aesthetic-attributes",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "3.6 colour, size, shape and other aesthetic attributes",
-    "text": "3.6 colour, size, shape and other aesthetic attributes\n\n\nggplot(mpg, aes(displ, hwy, colour = drv))+ \n  geom_point()\n\n\n\n\n\n\n\n\nggplot(mpg, aes(displ, hwy, shape = drv))+ \n  geom_point()\n\n\n\n\n\n\n\n\nggplot(mpg, aes(displ, hwy, size = drv))+ \n  geom_point()"
+    "section": "colour, size, shape and other aesthetic attributes",
+    "text": "colour, size, shape and other aesthetic attributes\n\n\nggplot(mpg, aes(displ, hwy, colour = drv))+ \n  geom_point()\n\n\n\n\n\n\n\n\nggplot(mpg, aes(displ, hwy, shape = drv))+ \n  geom_point()\n\n\n\n\n\n\n\n\nggplot(mpg, aes(displ, hwy, size = drv))+ \n  geom_point()"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#fixed-value-of-colour-size-or-shape",
     "href": "presentations/Day_2_ggplot2_intro.html#fixed-value-of-colour-size-or-shape",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "3.7 Fixed value of Colour, size, or shape",
-    "text": "3.7 Fixed value of Colour, size, or shape\nPlace the value outside of aes()\n\n\nggplot(mpg, aes(displ, hwy))+\n  geom_point(colour = \"blue\")\n\n\n\n\n\n\n\n\nggplot(mpg, aes(displ, hwy))+\n  geom_point(aes(colour = \"blue\"))"
+    "section": "Fixed value of Colour, size, or shape",
+    "text": "Fixed value of Colour, size, or shape\nPlace the value outside of aes()\n\n\nggplot(mpg, aes(displ, hwy))+\n  geom_point(colour = \"blue\")\n\n\n\n\n\n\n\n\nggplot(mpg, aes(displ, hwy))+\n  geom_point(aes(colour = \"blue\"))"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#faceting",
     "href": "presentations/Day_2_ggplot2_intro.html#faceting",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "3.8 Faceting",
-    "text": "3.8 Faceting\n3.8.1 facet_wrap()\n\nggplot(mpg, aes(displ, hwy)) + \n  geom_point() + \n  facet_wrap(~class)"
+    "section": "Faceting",
+    "text": "Faceting\nfacet_wrap()\n\nggplot(mpg, aes(displ, hwy)) + \n  geom_point() + \n  facet_wrap(~class)"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms-1",
     "href": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms-1",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "4.1 Other Plot Geoms",
-    "text": "4.1 Other Plot Geoms\n\n\ngeom_smooth() fits a smoother to the data and displays the smooth and its standard error.\ngeom_jitter() as geom_point() but with a random spread of the points to prevent over plotting.\ngeom_boxplot() produces a box-and-whisker plot to summarise the distribution of a set of points.\ngeom_histogram() and geom_freqpoly() show the distribution of continuous variables.\ngeom_bar() shows the distribution of categorical variables.\ngeom_path() draw lines between the data points. Paths can go in any direction.\ngeom_line() draw lines between the data points. A line plot is constrained to produce lines that travel from left to right. Typically used to explore how things change over time."
+    "section": "Other Plot Geoms",
+    "text": "Other Plot Geoms\n\n\ngeom_smooth() fits a smoother to the data and displays the smooth and its standard error.\ngeom_jitter() as geom_point() but with a random spread of the points to prevent over plotting.\ngeom_boxplot() produces a box-and-whisker plot to summarise the distribution of a set of points.\ngeom_histogram() and geom_freqpoly() show the distribution of continuous variables.\ngeom_bar() shows the distribution of categorical variables.\ngeom_path() draw lines between the data points. Paths can go in any direction.\ngeom_line() draw lines between the data points. A line plot is constrained to produce lines that travel from left to right. Typically used to explore how things change over time."
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms---geom_smooth",
     "href": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms---geom_smooth",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "4.2 Other Plot Geoms - geom_smooth()",
-    "text": "4.2 Other Plot Geoms - geom_smooth()\n\nggplot(mpg, aes(displ, hwy)) + \n  geom_point() + \n  geom_smooth()"
+    "section": "Other Plot Geoms - geom_smooth()",
+    "text": "Other Plot Geoms - geom_smooth()\n\nggplot(mpg, aes(displ, hwy)) + \n  geom_point() + \n  geom_smooth()"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms---geom_smooth-1",
     "href": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms---geom_smooth-1",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "4.3 Other Plot Geoms - geom_smooth()",
-    "text": "4.3 Other Plot Geoms - geom_smooth()\nAn important argument to geom_smooth() is the method, which allows you to choose which type of model is used to fit the smooth curve.\nDefault is method = \"loess\"\n\n\nggplot(mpg, aes(displ, hwy)) + \n  geom_point() + \n  geom_smooth(method = \"loess\")\n\n\n\n\n\n\n\n\nggplot(mpg, aes(displ, hwy)) + \n  geom_point() + \n  geom_smooth(method = \"lm\") #linear model"
+    "section": "Other Plot Geoms - geom_smooth()",
+    "text": "Other Plot Geoms - geom_smooth()\nAn important argument to geom_smooth() is the method, which allows you to choose which type of model is used to fit the smooth curve.\nDefault is method = \"loess\"\n\n\nggplot(mpg, aes(displ, hwy)) + \n  geom_point() + \n  geom_smooth(method = \"loess\")\n\n\n\n\n\n\n\n\nggplot(mpg, aes(displ, hwy)) + \n  geom_point() + \n  geom_smooth(method = \"lm\") #linear model"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms-2",
     "href": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms-2",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "4.4 Other Plot Geoms",
-    "text": "4.4 Other Plot Geoms\n\n\nggplot(mpg, aes(drv, hwy))+\n  geom_jitter()\n\n\n\n\n\n\n\n\nggplot(mpg, aes(drv, hwy))+\n  geom_boxplot()\n\n\n\n\n\n\n\n\nggplot(mpg, aes(drv, hwy))+\n  geom_violin()"
+    "section": "Other Plot Geoms",
+    "text": "Other Plot Geoms\n\n\nggplot(mpg, aes(drv, hwy))+\n  geom_jitter()\n\n\n\n\n\n\n\n\nggplot(mpg, aes(drv, hwy))+\n  geom_boxplot()\n\n\n\n\n\n\n\n\nggplot(mpg, aes(drv, hwy))+\n  geom_violin()"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms-3",
     "href": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms-3",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "4.5 Other Plot Geoms",
-    "text": "4.5 Other Plot Geoms\n4.5.1 geom_histogram() geom_freqploy()\n\n\nggplot(mpg, aes(hwy))+\n  geom_histogram()\n\n\n\n\n\n\n\n\nggplot(mpg, aes(hwy))+\n  geom_freqpoly()"
+    "section": "Other Plot Geoms",
+    "text": "Other Plot Geoms\ngeom_histogram() geom_freqploy()\n\n\nggplot(mpg, aes(hwy))+\n  geom_histogram()\n\n\n\n\n\n\n\n\nggplot(mpg, aes(hwy))+\n  geom_freqpoly()"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms-4",
     "href": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms-4",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "4.6 Other Plot Geoms",
-    "text": "4.6 Other Plot Geoms\n4.6.1 geom_histogram() geom_freqploy()\nBoth geoms bin the data. You should experiment with the binwidth or bin arguments when exploring your data.\n\n\nggplot(mpg, aes(hwy)) + \n  geom_freqpoly(binwidth = 10)\n\n\n\n\n\n\n\n\nggplot(mpg, aes(hwy)) + \n  geom_freqpoly(binwidth = 1)"
+    "section": "Other Plot Geoms",
+    "text": "Other Plot Geoms\ngeom_histogram() geom_freqploy()\nBoth geoms bin the data. You should experiment with the binwidth or bin arguments when exploring your data.\n\n\nggplot(mpg, aes(hwy)) + \n  geom_freqpoly(binwidth = 10)\n\n\n\n\n\n\n\n\nggplot(mpg, aes(hwy)) + \n  geom_freqpoly(binwidth = 1)"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms-geom_bar",
     "href": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms-geom_bar",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "4.7 Other Plot Geoms geom_bar()",
-    "text": "4.7 Other Plot Geoms geom_bar()\n\n\nggplot(mpg, aes(x = manufacturer)) + \n  geom_bar()\n\n\n\n\n\n\n\n\nggplot(mpg, aes(y =manufacturer)) + \n  geom_bar()"
+    "section": "Other Plot Geoms geom_bar()",
+    "text": "Other Plot Geoms geom_bar()\n\n\nggplot(mpg, aes(x = manufacturer)) + \n  geom_bar()\n\n\n\n\n\n\n\n\nggplot(mpg, aes(y =manufacturer)) + \n  geom_bar()"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms-5",
     "href": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms-5",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "4.8 Other Plot Geoms",
-    "text": "4.8 Other Plot Geoms\n4.8.1 geom_bar() + fct_infreq()\n\nmpg %&gt;% \nggplot(aes(y = fct_infreq(manufacturer))) + \n  geom_bar()"
+    "section": "Other Plot Geoms",
+    "text": "Other Plot Geoms\ngeom_bar() + fct_infreq()\n\nmpg %&gt;% \nggplot(aes(y = fct_infreq(manufacturer))) + \n  geom_bar()"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms-6",
     "href": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms-6",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "4.9 Other Plot Geoms",
-    "text": "4.9 Other Plot Geoms\n4.9.1 geom_bar() + fct_infreq() and aes(fill = [VAR] )\n\nmpg %&gt;% \nggplot(aes(y = fct_infreq(manufacturer), \n           fill = class)) + \n  geom_bar()"
+    "section": "Other Plot Geoms",
+    "text": "Other Plot Geoms\ngeom_bar() + fct_infreq() and aes(fill = [VAR] )\n\nmpg %&gt;% \nggplot(aes(y = fct_infreq(manufacturer), \n           fill = class)) + \n  geom_bar()"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms-7",
     "href": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms-7",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "4.10 Other Plot Geoms",
-    "text": "4.10 Other Plot Geoms\n4.10.1 geom_bar() and position = \"fill\"\nposition = \"fill\" works like stacking, but makes each set of stacked bars the same height. This makes it easier to compare proportions across groups.\n\nmpg %&gt;% \nggplot(aes(y = fct_infreq(manufacturer), \n           fill = class)) + \n  geom_bar(position = \"fill\")"
+    "section": "Other Plot Geoms",
+    "text": "Other Plot Geoms\ngeom_bar() and position = \"fill\"\nposition = \"fill\" works like stacking, but makes each set of stacked bars the same height. This makes it easier to compare proportions across groups.\n\nmpg %&gt;% \nggplot(aes(y = fct_infreq(manufacturer), \n           fill = class)) + \n  geom_bar(position = \"fill\")"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms-8",
     "href": "presentations/Day_2_ggplot2_intro.html#other-plot-geoms-8",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "4.11 Other Plot Geoms",
-    "text": "4.11 Other Plot Geoms\n4.11.1 geom_bar() and position = \"dodge\"\nposition = \"dodge\" places overlapping objects directly beside one another. This makes it easier to compare individual values.\n\nmpg %&gt;% \nggplot(aes(y = fct_infreq(manufacturer), \n           fill = class)) + \n  geom_bar(position = \"dodge\")"
+    "section": "Other Plot Geoms",
+    "text": "Other Plot Geoms\ngeom_bar() and position = \"dodge\"\nposition = \"dodge\" places overlapping objects directly beside one another. This makes it easier to compare individual values.\n\nmpg %&gt;% \nggplot(aes(y = fct_infreq(manufacturer), \n           fill = class)) + \n  geom_bar(position = \"dodge\")"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#labs--title-subtitle-legends-and-more",
     "href": "presentations/Day_2_ggplot2_intro.html#labs--title-subtitle-legends-and-more",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "5.1 labs()- Title, Subtitle, Legends, and more",
-    "text": "5.1 labs()- Title, Subtitle, Legends, and more\nlabs() can do it all\n\nmpg %&gt;% \n  ggplot(aes(x = class, y = cty, fill = class))+\n  geom_boxplot()+\n  labs(\n    title = \"Milage in cities of various car classes\",\n    subtitle = \"Car classes are colored with nice colors using the fill argument!!\",\n    x = \"Class of car\",\n    y = \"Milage in cities\",\n    fill = \"Class\",\n    caption = \"The data comes from the mpg dataset\"\n    )"
+    "section": "labs()- Title, Subtitle, Legends, and more",
+    "text": "labs()- Title, Subtitle, Legends, and more\nlabs() can do it all\n\nmpg %&gt;% \n  ggplot(aes(x = class, y = cty, fill = class))+\n  geom_boxplot()+\n  labs(\n    title = \"Milage in cities of various car classes\",\n    subtitle = \"Car classes are colored with nice colors using the fill argument!!\",\n    x = \"Class of car\",\n    y = \"Milage in cities\",\n    fill = \"Class\",\n    caption = \"The data comes from the mpg dataset\"\n    )"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#themes-1",
     "href": "presentations/Day_2_ggplot2_intro.html#themes-1",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "6.1 Themes",
-    "text": "6.1 Themes\nggplot comes prepackaged with several different themes\n\n\np &lt;- mpg %&gt;% \n  ggplot(aes(x = class, y = cty, fill = class))+\n  geom_boxplot()\n\np + theme_bw()\n\n\n\n\n\n\n\n\np + theme_classic()"
+    "section": "Themes",
+    "text": "Themes\nggplot comes prepackaged with several different themes\n\n\np &lt;- mpg %&gt;% \n  ggplot(aes(x = class, y = cty, fill = class))+\n  geom_boxplot()\n\np + theme_bw()\n\n\n\n\n\n\n\n\np + theme_classic()"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#themes-2",
     "href": "presentations/Day_2_ggplot2_intro.html#themes-2",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "6.2 Themes",
-    "text": "6.2 Themes\nThe package ggthemes have many different themes.\n\np + ggthemes::theme_stata()\np + ggthemes::theme_economist()\np + ggthemes::theme_excel_new()\np + ggthemes::theme_fivethirtyeight()"
+    "section": "Themes",
+    "text": "Themes\nThe package ggthemes have many different themes.\n\np + ggthemes::theme_stata()\np + ggthemes::theme_economist()\np + ggthemes::theme_excel_new()\np + ggthemes::theme_fivethirtyeight()"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#color-and-fill-scales",
     "href": "presentations/Day_2_ggplot2_intro.html#color-and-fill-scales",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "6.3 color and fill scales",
-    "text": "6.3 color and fill scales\n6.3.1 Notice fill is mapped to a categorical variable\n\np &lt;- mpg %&gt;% \n  ggplot(aes(x = cty, y = hwy, fill=drv))+\n  geom_point(shape = 21, size = 3)\n\np"
+    "section": "color and fill scales",
+    "text": "color and fill scales\nNotice fill is mapped to a categorical variable\n\np &lt;- mpg %&gt;% \n  ggplot(aes(x = cty, y = hwy, fill=drv))+\n  geom_point(shape = 21, size = 3)\n\np"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#color-and-fill-scales-1",
     "href": "presentations/Day_2_ggplot2_intro.html#color-and-fill-scales-1",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "6.4 color and fill scales",
-    "text": "6.4 color and fill scales\n6.4.1 scale_fill_brewer(type = )\n\n\np + scale_fill_brewer(type = \"seq\")  # sequential (default)\n\n\n\n\n\n\n\n\np + scale_fill_brewer(type = \"qual\") # qualitative\n\n\n\n\n\n\n\n\np + scale_fill_brewer(type = \"div\")  # diverging"
+    "section": "color and fill scales",
+    "text": "color and fill scales\nscale_fill_brewer(type = )\n\n\np + scale_fill_brewer(type = \"seq\")  # sequential (default)\n\n\n\n\n\n\n\n\np + scale_fill_brewer(type = \"qual\") # qualitative\n\n\n\n\n\n\n\n\np + scale_fill_brewer(type = \"div\")  # diverging"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#color-and-fill-scales-2",
     "href": "presentations/Day_2_ggplot2_intro.html#color-and-fill-scales-2",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "6.5 color and fill scales",
-    "text": "6.5 color and fill scales\n6.5.1 scale_fill_brewer(palette = )\n\n\np + scale_fill_brewer(type = \"seq\", # sequential (default)\n                      palette = 2)  \n\n\n\n\n\n\n\n\np + scale_fill_brewer(type = \"qual\", # qualitative\n                      palette = 2) \n\n\n\n\n\n\n\n\np + scale_fill_brewer(type = \"div\", # diverging\n                      palette = 2)"
+    "section": "color and fill scales",
+    "text": "color and fill scales\nscale_fill_brewer(palette = )\n\n\np + scale_fill_brewer(type = \"seq\", # sequential (default)\n                      palette = 2)  \n\n\n\n\n\n\n\n\np + scale_fill_brewer(type = \"qual\", # qualitative\n                      palette = 2) \n\n\n\n\n\n\n\n\np + scale_fill_brewer(type = \"div\", # diverging\n                      palette = 2)"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#color-and-fill-scales-3",
     "href": "presentations/Day_2_ggplot2_intro.html#color-and-fill-scales-3",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "6.6 color and fill scales",
-    "text": "6.6 color and fill scales\n6.6.1 Notice color is mapped to a continous variable\n\np &lt;- mpg %&gt;% \n  ggplot(aes(x = cty, y = hwy, color=displ))+\n  geom_point(size = 3)\n\np"
+    "section": "color and fill scales",
+    "text": "color and fill scales\nNotice color is mapped to a continous variable\n\np &lt;- mpg %&gt;% \n  ggplot(aes(x = cty, y = hwy, color=displ))+\n  geom_point(size = 3)\n\np"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#color-and-fill-scales-4",
     "href": "presentations/Day_2_ggplot2_intro.html#color-and-fill-scales-4",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "6.7 color and fill scales",
-    "text": "6.7 color and fill scales\n6.7.1 scale_colour_continuous(type = )\n\n\np + \n  scale_colour_continuous(type = \"gradient\")\n\n\n\n\n\n\n\n\n# The virdidis color scale\np + \n  scale_colour_continuous(type = \"viridis\")\n\n\n\n\n\n\n\n\np + \n  scale_colour_continuous(type = \"viridis\", \n                          option = \"magma\")"
+    "section": "color and fill scales",
+    "text": "color and fill scales\nscale_colour_continuous(type = )\n\n\np + \n  scale_colour_continuous(type = \"gradient\")\n\n\n\n\n\n\n\n\n# The virdidis color scale\np + \n  scale_colour_continuous(type = \"viridis\")\n\n\n\n\n\n\n\n\np + \n  scale_colour_continuous(type = \"viridis\", \n                          option = \"magma\")"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#the-patchwork-package",
     "href": "presentations/Day_2_ggplot2_intro.html#the-patchwork-package",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "7.1 The patchwork package",
-    "text": "7.1 The patchwork package"
+    "section": "The patchwork package",
+    "text": "The patchwork package"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-1",
     "href": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-1",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "7.2 Arranging plots with the patchwork package",
-    "text": "7.2 Arranging plots with the patchwork package\n\np1 &lt;- ggplot(mpg) + \n  geom_point(aes(x = displ, y = hwy))+\n  ggtitle(\"p1\")\n\np2 &lt;- ggplot(mpg) + \n  geom_bar(aes(x = as.character(year), fill = drv), position = \"dodge\") + \n  labs(x = \"year\")+\n  ggtitle(\"p2\")\n\np3 &lt;- ggplot(mpg) + \n  geom_density(aes(x = hwy, fill = drv), colour = NA) + \n  facet_grid(rows = vars(drv))+\n  ggtitle(\"p3\")\n\np4 &lt;- ggplot(mpg) + \n  stat_summary(aes(x = drv, y = hwy, fill = drv), geom = \"col\", fun.data = mean_se) +\n  stat_summary(aes(x = drv, y = hwy), geom = \"errorbar\", fun.data = mean_se, width = 0.5)+\n  ggtitle(\"p4\")"
+    "section": "Arranging plots with the patchwork package",
+    "text": "Arranging plots with the patchwork package\n\np1 &lt;- ggplot(mpg) + \n  geom_point(aes(x = displ, y = hwy))+\n  ggtitle(\"p1\")\n\np2 &lt;- ggplot(mpg) + \n  geom_bar(aes(x = as.character(year), fill = drv), position = \"dodge\") + \n  labs(x = \"year\")+\n  ggtitle(\"p2\")\n\np3 &lt;- ggplot(mpg) + \n  geom_density(aes(x = hwy, fill = drv), colour = NA) + \n  facet_grid(rows = vars(drv))+\n  ggtitle(\"p3\")\n\np4 &lt;- ggplot(mpg) + \n  stat_summary(aes(x = drv, y = hwy, fill = drv), geom = \"col\", fun.data = mean_se) +\n  stat_summary(aes(x = drv, y = hwy), geom = \"errorbar\", fun.data = mean_se, width = 0.5)+\n  ggtitle(\"p4\")"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-2",
     "href": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-2",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "7.3 Arranging plots with the patchwork package",
-    "text": "7.3 Arranging plots with the patchwork package"
+    "section": "Arranging plots with the patchwork package",
+    "text": "Arranging plots with the patchwork package"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-3",
     "href": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-3",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "7.4 Arranging plots with the patchwork package",
-    "text": "7.4 Arranging plots with the patchwork package\n\n+ does not specify any specific layout, only that the plots should be displayed together.\npatchwork automagically decides the layout.\nAdding 3 plots together will create a 1x3 grid.\nAdding 4 plots together will create a 2x2 grid.\n\n\np1 + p2"
+    "section": "Arranging plots with the patchwork package",
+    "text": "Arranging plots with the patchwork package\n\n+ does not specify any specific layout, only that the plots should be displayed together.\npatchwork automagically decides the layout.\nAdding 3 plots together will create a 1x3 grid.\nAdding 4 plots together will create a 2x2 grid.\n\n\np1 + p2"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-4",
     "href": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-4",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "7.5 Arranging plots with the patchwork package",
-    "text": "7.5 Arranging plots with the patchwork package\n\n+ does not specify any specific layout, only that the plots should be displayed together.\npatchwork automagically decides the layout.\nAdding 3 plots together will create a 1x3 grid.\nAdding 4 plots together will create a 2x2 grid.\n\n\np1 + p2 + p3 +p4"
+    "section": "Arranging plots with the patchwork package",
+    "text": "Arranging plots with the patchwork package\n\n+ does not specify any specific layout, only that the plots should be displayed together.\npatchwork automagically decides the layout.\nAdding 3 plots together will create a 1x3 grid.\nAdding 4 plots together will create a 2x2 grid.\n\n\np1 + p2 + p3 +p4"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-5",
     "href": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-5",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "7.6 Arranging plots with the patchwork package",
-    "text": "7.6 Arranging plots with the patchwork package\n7.6.1 plot_layout()\nYou have a very high degree of control via the plot_layout() function\n\np1 + p2 + p3 + p4 + plot_layout(nrow = 1)"
+    "section": "Arranging plots with the patchwork package",
+    "text": "Arranging plots with the patchwork package\nplot_layout()\nYou have a very high degree of control via the plot_layout() function\n\np1 + p2 + p3 + p4 + plot_layout(nrow = 1)"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-6",
     "href": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-6",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "7.7 Arranging plots with the patchwork package",
-    "text": "7.7 Arranging plots with the patchwork package\n7.7.1 / and |\n/ forces a single column.\n| forces a single row.\n\n\np1/p2\n\n\n\n\n\n\n\n\np1|p2 # sames as p1 + p2"
+    "section": "Arranging plots with the patchwork package",
+    "text": "Arranging plots with the patchwork package\n/ and |\n/ forces a single column.\n| forces a single row.\n\n\np1/p2\n\n\n\n\n\n\n\n\np1|p2 # sames as p1 + p2"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-7",
     "href": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-7",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "7.8 Arranging plots with the patchwork package",
-    "text": "7.8 Arranging plots with the patchwork package\n7.8.1 nesting plots\n\np3 | (p2 /(p1 | p4))"
+    "section": "Arranging plots with the patchwork package",
+    "text": "Arranging plots with the patchwork package\nnesting plots\n\np3 | (p2 /(p1 | p4))"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-8",
     "href": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-8",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "7.9 Arranging plots with the patchwork package",
-    "text": "7.9 Arranging plots with the patchwork package\n7.9.1 guides = \"collect\"\n\np1 + p2 + p3 + plot_layout(ncol = 2, guides = \"collect\")"
+    "section": "Arranging plots with the patchwork package",
+    "text": "Arranging plots with the patchwork package\nguides = \"collect\"\n\np1 + p2 + p3 + plot_layout(ncol = 2, guides = \"collect\")"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-9",
     "href": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-9",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "7.10 Arranging plots with the patchwork package",
-    "text": "7.10 Arranging plots with the patchwork package\n7.10.1 guide_area()\n\np1 + p2 + p3 + plot_layout(ncol = 2, guides = \"collect\") + guide_area()"
+    "section": "Arranging plots with the patchwork package",
+    "text": "Arranging plots with the patchwork package\nguide_area()\n\np1 + p2 + p3 + plot_layout(ncol = 2, guides = \"collect\") + guide_area()"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-10",
     "href": "presentations/Day_2_ggplot2_intro.html#arranging-plots-with-the-patchwork-package-10",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "7.11 Arranging plots with the patchwork package",
-    "text": "7.11 Arranging plots with the patchwork package\npatchwork comes with the powerful & operator that allows you change the settings on all the individual plots.\n\n\np1 + p2 + p3 + \n  plot_layout(ncol = 2, guides = \"collect\") + \n  guide_area() +\n  scale_fill_brewer(type = \"qual\",\n                    palette = 3) +\n  theme_classic()\n\n\n\n\n\n\nCan you spot the &s in the code below?\n\n\np1 + p2 + p3 + \n  plot_layout(ncol = 2, guides = \"collect\") + \n  guide_area() &   \n  scale_fill_brewer(type = \"qual\",\n                    palette = 3) &\n  theme_classic()"
+    "section": "Arranging plots with the patchwork package",
+    "text": "Arranging plots with the patchwork package\npatchwork comes with the powerful & operator that allows you change the settings on all the individual plots.\n\n\np1 + p2 + p3 + \n  plot_layout(ncol = 2, guides = \"collect\") + \n  guide_area() +\n  scale_fill_brewer(type = \"qual\",\n                    palette = 3) +\n  theme_classic()\n\n\n\n\n\n\nCan you spot the &s in the code below?\n\n\np1 + p2 + p3 + \n  plot_layout(ncol = 2, guides = \"collect\") + \n  guide_area() &   \n  scale_fill_brewer(type = \"qual\",\n                    palette = 3) &\n  theme_classic()"
   },
   {
     "objectID": "presentations/Day_2_ggplot2_intro.html#for-steen",
     "href": "presentations/Day_2_ggplot2_intro.html#for-steen",
     "title": "Basic Data Science Skills for Health Researchers",
-    "section": "7.12 For Steen",
-    "text": "7.12 For Steen\nFOR STEEN: CHECK NOUT THIS BLOGPOST! https://www.andrewheiss.com/blog/2022/06/23/long-labels-ggplot/ https://twitter.com/patilindrajeets/status/1536625572570357760?t=xhVDi62vDFggL3tA5cQ7bA&s=19"
+    "section": "For Steen",
+    "text": "For Steen\nFOR STEEN: CHECK NOUT THIS BLOGPOST! https://www.andrewheiss.com/blog/2022/06/23/long-labels-ggplot/ https://twitter.com/patilindrajeets/status/1536625572570357760?t=xhVDi62vDFggL3tA5cQ7bA&s=19"
   },
   {
     "objectID": "reproducible_research_basics_comments_how_da.html",

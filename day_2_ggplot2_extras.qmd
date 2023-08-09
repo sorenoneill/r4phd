@@ -29,7 +29,7 @@ library(here)
 
 
 
-## Diving Deeper into ggplot2 Extensions
+## Diving Deeper into ggplot2 Extensions {.unnumbered}
 `ggplot2 ` stands as a cornerstone for data visualization in R. But the richness of the R ecosystem extends far beyond its foundational tools. Complementing the core offerings of `ggplot2` is a suite of powerful extension packages, each designed to elevate and refine your visualization experiences.
 
 In this section, we'll journey through three particularly impactful extensions: `gganimate`, `ggiraph`, and `ggside`.
@@ -112,7 +112,8 @@ ggplot(mpg, aes(displ, hwy, colour = class)) +
 
 Most packages have a webpage where the package and its core functions are introduced. Head the `gganimate` website and read the [getting started](https://gganimate.com/articles/gganimate.html#your-first-animation) section. Then continue to exercises here where we will practice using the `soldiers` dataset that you already know.
 
-You need to install `gganimate`. 
+You need to install `gganimate`
+
 ::: {.callout-tip collapse=true}
 #### Installing `gganimate`
 ```{r}
@@ -230,6 +231,7 @@ Another useful resource for learning R is blogposts. These are often written in 
 
 
 You need to install `ggiraph`. 
+
 ::: {.callout-tip collapse=true}
 #### Installing `ggiraph`
 ```{r}
