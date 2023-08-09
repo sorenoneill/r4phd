@@ -28,7 +28,7 @@ editor: source
 
 If your computer was issued by the SDU IT department, you can install R via SDUs _Software Center_.
 
-**LINK?**
+If your computer is a Windows computer, you should install RTools along with R. Ensure, that you download the version of RTools that correspond to you version of R (4.2 or 4.3, etc).
 
 ## Windows
 
@@ -37,6 +37,8 @@ R can be downloaded from the internet via this link [CRAN](https://cran.r-projec
 -   Near the top, you will find the link **Download R for Windows**.
 -   Click the link and download hte file
 -   Once the file is downloaded, install as per usual procedure
+
+You should also install RTools along with R - make sure you use the version appropriate for you installation of R -- [Link to RTools](https://cran.r-project.org/bin/windows/Rtools/).
 
 ## MacOS
 

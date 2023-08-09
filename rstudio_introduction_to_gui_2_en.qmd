@@ -33,19 +33,19 @@ library(tidyverse)
 :::{.callout-important collapse=false}
 ## Important concept you need to grasp!
 
-You can think about your workflow in RStudio as consisting of two separate work stations: you either _talk_ to R or you _write_ for to R:
+You can think about your workflow in RStudio as consisting of two separate work stations: you either _talk_ to R or you _write_ for R:
 
 ### TALKING to R -- here-and-now
 
 You talk to R in the console (orange), but the entire conversation is lost when you close RStudio!
 
-If you tell R to create some data, it is stored in the short term memory and you can talk about it, but it is lost when you close RStudio.
+If you tell R to create some data, it is stored in the short term memory and you can talk R about it, but it is lost when you close RStudio.
 
 If you tell R to do something that is not valid R code, it will complain (error).
 
 **Note** If you _tell_ R to _write_ something to a file, that file will not be lost, but your command to do so _is_.
 
-### WRITING for R -- furture use
+### WRITING for R -- future use
 
 In the text editor (blue) you can _write_ anything to be saved to a text file.
 

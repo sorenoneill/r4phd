@@ -45,10 +45,10 @@ website:
                 - day_1_settting_up_your_course_project.qmd
                 - day_1_quarto_documents.qmd
                 - day_1_dplyr.qmd
-                - day_1_other.qmdauto:
-            - section: "Day 1"
+                - day_1_other.qmd
+            - section: "Day 2"
               contents:
-                - day_2_ggplot2_bascis.qmd
+                - day_2_ggplot2_basics.qmd
             - section: "Day 4"
               contents: 
               - section: "RRR"
@@ -62,6 +62,9 @@ website:
                   - reproducible_research_basics_readme.qmd
                   - reproducible_research_basics_naming_stuff.qmd
                   - reproducible_research_basics_file_structure.qmd
+          - section: "Base R"
+            contents:
+              - base_r_data_types_en.qmd
       - section: "Dansk"
         contents:
           - section: "Installation"
@@ -84,6 +87,9 @@ website:
               - rstudio_introduction_to_gui_1_da.qmd
               - rstudio_introduction_to_gui_2_en.qmd
               - rstudio_introduction_to_gui_console_da.qmd
+          - section: "Base R"
+            contents:
+              - base_r_data_types_da.qmd
 format:
   html:
     theme: cosmo

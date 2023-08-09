@@ -28,7 +28,8 @@ editor: source
 
 Hvis din computer er udleveret af SDU IT, anbefales det at du installerer R via SDUs _Software Center_.
 
-**LINK?**
+Du skal også installere RTools -- bemærk, at RTools versionen skal svare til din version af R (4.2 eller 4.3, etc).
+
 
 ## Windows
 
@@ -37,6 +38,8 @@ R kan hentes på internettet fra dette link til [CRAN](https://cran.r-project.or
 -   Nær toppen finder du linket **Download R for Windows**.
 -   Klik på linket og download filen.
 -   Når filen er hentet ned installeres på vanlig vis.
+
+Du skal også installere RTools sammen med R - sørg for at hente den version som svarer til din R version -- [Link to RTools](https://cran.r-project.org/bin/windows/Rtools/).
 
 ## MacOS
 

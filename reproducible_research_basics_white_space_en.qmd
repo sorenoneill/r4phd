@@ -26,35 +26,42 @@ library(DiagrammeR)
 
 # Using white space
 
-::: panel-tabset
+In MarkDown, 
 
-* in the middle of text, multiple spaces = a single space 
-* at the end of text space + new-line = 2x new-line
+* in the middle of text: multiple spaces = a single space 
+* at the end of text: space + new-line = new-line + empty-line
+
+::: panel-tabset
 
 ## Markdown
 
-```{}
-#| echo: true
-#| eval: false
+Look at this MarkDown, before clicking the next tab...
+
+```
 In markdown, there's an important difference
 between '_new-line_' and '_empty-line_'.
 
-...white space matters!
+...white space is important.
+
 ```
 
 ## Output
 
+Look at the output from the MarkDown, before clicking the last tabs...
+
 In markdown, there's an important difference
 between '_new-line_' and '_empty-line_'.
 
-...white space matters!
+...white space is important.
 
 ## Good practice
 
 * any number of spaces between words is equal to one space
 * any number of empty lines between paragraphs is equal to one empty line
-* use one space to seperate functions, operators, etc a%>%b vs a %>% b
+* use one space to separate functions, operators, etc `a%>%b` vs `a %>% b`
 * use empty line to indicate new paragraph
+
+Go back and forth between the first two tabs, and look closely at the white space...
 
 :::
 
