@@ -106,7 +106,7 @@ ggplot(mpg, aes(displ, hwy, colour = class)) +
   scale_ysidex_continuous(guide = guide_axis(angle = 90), minor_breaks = NULL) 
 ```
 
-
+<br><br><br>
 
 ## `gganimate`
 
@@ -137,7 +137,7 @@ source(here("scripts", "01_import.R"))
 
 <br>
 
-### Animate the this plot so its shows difference between men and women
+### Animate this plot so its shows difference between men and women
 ```{r}
 #| code-fold: false
 #| output: true
