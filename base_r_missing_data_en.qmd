@@ -1,0 +1,56 @@
+---
+title: "Base R - missing data"
+author: "Søren O'Neill"
+date: today
+output:
+  distill::distill_article:
+    self_contained: false
+creative_commons: CC BY
+format: html
+editor: 
+  mode: source
+---
+
+# Handling missing data
+
+Take a look at this simple code:
+
+```{r}
+# Our seven participants self-reported their age:
+participants_age <- c(23,25,23,21,25,NA,20)
+
+# What is the mean age?
+mean(participants_age)
+```
+
+The **NA** values indicates a data point that is _Not Available_, i.e. missing. This is fundementally _not_ the same as NULL or 0. So how would you calculate a mean value? Well, when the age of one participant is unavailable, so is the mean value and R, quite rightly, reports the mean as **NA**.
+
+You might think, it would be obvious to calculate the mean value of the available values and ignore the one NA. In some cases, that makes sense and is a valid decision to make (or perhaps not). The important think is: _you have to decide how to deal with missing values - R won't do it for you_. This is not a bug, it's a (safety) feature.
+
+Look at this amended code:
+
+```{r}
+# Our seven participants self-reported their age:
+participants_age <- c(23,25,23,21,25,NA,20)
+
+# What is the mean age?
+mean(participants_age, na.rm=TRUE)
+```
+
+What is your best quess as to the meaning of `na.rm=TRUE`?
+
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>

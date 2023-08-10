@@ -1,0 +1,94 @@
+---
+title: "Comments - where to"
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: '`r Sys.Date()`'
+output:
+  distill::distill_article:
+    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+#categories:
+#  - Installation
+creative_commons: CC BY
+format: html
+editor: source
+---
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(DiagrammeR)
+```
+
+# Hvor i din R kode og Quarto dokumenter skal du skrive kommentarer?
+
+::: {.callout-note collapse=false}
+
+# Øvelse #1
+
+Hvad tænker du om disse kommentarer og hvor de er placeret? Vil koden virke?
+
+```{r}
+#|  eval: true
+#|  echo: false
+
+# this comment definitely okay
+x <- 2 + 2
+
+# ...but is the following okay?
+tibble(x=1:10, y=2:11) %>% # ..is it okay, mid-pipe?
+  filter(y>5 & # and how about breaking in the middle..
+  x != 9) # ..of a statement like 'filter'?
+```
+
+:::
+
+::: {.callout-note collapse=true}
+# Øvelse #1 Svar
+
+Sådan ser output ud fra koden herover:
+
+FIX THIS !!
+
+...så koden fungerer sådan set uden fejl - R er relativt tolerant ift hvor du placerer dine kommentarer, men er det god praksis?
+
+Kommentarerne er syntaktisk okay ... men de gør det ikke nemmere for mennesker at læse koden. Det blev faktisk unødigt meget sværere. Så kig herunder og se hvordan det kan gøres simplere:
+
+:::
+
+::: {.callout-note collapse=true}
+## Keep it simple!
+
+```{r}
+#| eval: false
+#| echo: true
+# Kommentar linjer før koden
+# kan dække flere linjer og
+# vil ikke være forstyrrende
+# når du læser kode ... god praksis!
+
+x <- 2 + 2 # brug kun inline kommentarer sparsomt
+y <- x^2 - c(2, 5, 8, 10:14) # ..de forstyrrer
+```
+
+:::
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>

@@ -1,0 +1,93 @@
+---
+title: "Comments - what to"
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: '`r Sys.Date()`'
+output:
+  distill::distill_article:
+    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+#categories:
+#  - Installation
+creative_commons: CC BY
+format: html
+editor: source
+---
+
+```{r include=FALSE}
+#library(vembedr)
+library(tidyverse)
+library(ggplot2)
+library(DiagrammeR)
+```
+
+# Kommentarer der giver _mening_
+
+Hvilke kommentarer ville være relevante her?
+
+::: panel-tabset
+
+# Spørgsmål
+
+Kom med forslag til kommentarer til denne kode ... tænk 'hvad' og 'hvorfor'
+
+```{r eval=FALSE, echo=TRUE}
+# 1
+d <- read.csv("my_data_file.csv")
+
+# 2
+d <- d %>% filter(id != "241269-1212")
+
+# 3
+d <- d %>% 
+  mutate(s=factor(c("M", "F"))[as.numeric(substr(id,nchar(id),nchar(id))) %% 2])
+
+```
+
+
+# Løsning
+
+Forslag til meningsfyldte kommentarer
+
+```{r eval=FALSE, echo=TRUE}
+# ?? comments necessary ??
+d <- read.csv("my_data_file.csv")
+
+# excluded as participant entered an invalid CPR number
+d <- d %>% filter(id != "2321369-1212")
+
+# set 's' to F(emale) or M(ale) depending on odd/even id number in CPR
+d <- d %>% 
+  mutate(s=factor(c("M", "F"))[as.numeric(substr(id,nchar(id),nchar(id))) %% 2])
+
+```
+::::
+
+## Kommentér din kode
+
+**Hovedpointer**
+
+* **Altid** føj kommentarer til din kode
+* Kommentarer skulle forklare 'hvorfor' (din rationale)
+* Med god kode, bliver 'hvordan' selv-indlysende
+    - ..men hvis din kode ikke kan være selv-indlysende: så forklar hvordan den fungerer i kommentarer
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>

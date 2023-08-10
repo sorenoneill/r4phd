@@ -41,11 +41,10 @@ d <- d %>%
 mData <- d %>% filter(s=="M")
 ```
 
-**Suggest alternative code and variable names for this code**
+**Look at the code and suggest better variable names**
 
-## Meaning
-
-Let variable, function and file names convey _meaning_. 
+:::{.callout-note collapse=true}
+# Suggested solution
 
 ```{r eval=FALSE, echo=TRUE}
 # 1 
@@ -56,15 +55,18 @@ data <- data %>%
 data_males_only <- data %>% filter(sex=="M")
 males_only_data <- data %>% filter(sex=="M")
 ```
-
-## Making the meaning _even_ clearer...
+:::
+ 
+:::{.callout-note collapse=true}
+# An even better solution
 
 ```{r eval=FALSE, echo=TRUE}
 data <- data %>% 
   mutate(sex=cpr2sex(id))
 ```
+:::
 
-Alas, the function cpr2sex does not exist in base R or Tidyverse
+Alas, the function `cpr2sex` does not exist in base R or Tidyverse, but we can write it ourselves:
 
 ::: {.callout-tip collapse="true"}
 

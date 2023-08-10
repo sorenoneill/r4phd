@@ -9,8 +9,6 @@ creative_commons: CC BY
 format: html
 editor: 
   mode: source
-execute: 
-  output: false
 ---
 
 # Data types - why it matters
@@ -26,7 +24,31 @@ R is constructed to work with a number of _basic_ data types:
 
 It is important to use the right data type for your data management and analyses.
 
+**Note** The listed data types above are _basic_ data types and R offers many other combined and more complex data types.
+
 It is also important to _know_ the type of the data you are working with, otherwise you may get confusing output. A common mistake is to load data from an external source (e.g. a .csv file) and _assume_ that variable _x_ was loaded as a character string, but actually it was loaded as a factor. If in doubt, check out `class()` and `str()` functions.
+
+Consider the following code and resulting plot:
+
+```{r}
+#| echo: false
+#| warning: false
+require(ggplot2)
+```
+
+
+```{r}
+
+ggplot(mpg, aes(x=year, y=hwy)) + geom_point()
+```
+
+Now look at the revised code below and the changes it made to the plot:
+
+```{r}
+ggplot(mpg, aes(x=factor(year), y=hwy)) + geom_point()
+```
+
+In the first instance, the variable 'year' is a continuous numeric variable, in the second instance, a categorical factor.
 
 ## Logical (or boolean)
 

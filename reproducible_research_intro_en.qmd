@@ -48,7 +48,7 @@ library(DiagrammeR)
 ## Levels of research reproducibility
 
 ```{r flow_dia}
-#| eval: false
+#| eval: true
 #| echo: false
 #| message: false
 #| warning: false

@@ -9,8 +9,6 @@ creative_commons: CC BY
 format: html
 editor: 
   mode: source
-execute: 
-  output: false
 ---
 
 # Data typer - hvorfor er de vigtige
@@ -20,13 +18,37 @@ R er bygget med et antal _basis_ data typer:
 * logical : TRUE eller FALSE (sandt eller falsk)
 * integer : heltal
 * numeric : decimaltal
-* complex : compleks tal 
+* complex : komplekse tal 
 * character : alfa-numeriske tegn og andre special tegn
 * raw : rå byte data
 
 Det er vigtigt at bruge variabler af den rigtige type i din data management og analyse.
 
+**Bemærk** At ovenstående er _basis_ datatyper og R tilbyder mange mere komplicerede, sammensatte datatyper. 
+
 Det er også vigtigt at _vide_ hvilken type data du sidder og arbejder med, ellers kan du få forvirrende resultater. En hyppigt eksempel på en frustrerende fejl er at man læser data ind fra en ekstern kilde (f.eks en .csv fil) og antager at tekst stringe er blevet læst som sådan, men faktisk bliver de læst som en 'factor'. Hvis du er i tvivl om dine datas typer, kan du få hjælp med `class()` or `str()` functionerne.
+
+Kig engang på følgende kode og plot:
+
+```{r}
+#| echo: false
+#| warning: false
+require(ggplot2)
+```
+
+
+```{r}
+
+ggplot(mpg, aes(x=year, y=hwy)) + geom_point()
+```
+
+Kig nu på den tilrettede kode herunder og hvordan det har ændret plottet:
+
+```{r}
+ggplot(mpg, aes(x=factor(year), y=hwy)) + geom_point()
+```
+
+I første tilfælde er 'year' en kontinuert numeriske variable. I andet tilfælde er det en kategorisk faktor.
 
 ## Logical (eller boolean)
 

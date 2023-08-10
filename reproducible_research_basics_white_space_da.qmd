@@ -1,0 +1,85 @@
+---
+title: "White space"
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: '`r Sys.Date()`'
+output:
+  distill::distill_article:
+    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+#categories:
+#  - Installation
+creative_commons: CC BY
+format: html
+editor: source
+---
+
+```{r include=FALSE}
+#library(vembedr)
+library(tidyverse)
+library(ggplot2)
+library(DiagrammeR)
+```
+
+# Brug af "white space"
+
+I MarkDown, 
+
+* midt i tekst: multiple mellemrum = et enkelt mellemrum 
+* sidst i en tekst: mellemrum + ny-linje = ny-linje + tom-linje
+
+::: panel-tabset
+
+## Markdown
+
+Kig på denne MarkDown, før du klikke på det næste faneblad...
+
+```
+I markdown, er der en vigtig forskel
+mellem '_ny-linje_' og '_tom-linje_'.
+
+..."white space" er vigtigt.
+
+```
+
+## Output
+
+Kig på output'et fra MarkDown, før du klikker på det sidste faneblad.
+
+I markdown, er der en vigtig forskel
+mellem '_ny-linje_' og '_tom-linje_'.
+
+..."white space" er vigtigt.
+
+## God praksis
+
+* et vilkårligt antal mellemrum mellem ord svarer til et mellemrum
+* et vilkårligt antal tomme linjer mellem linjer svarer til en tom linje
+* brug et mellemrum til at adskille functioner, operatorer, etc `a%>%b` vs `a %>% b`
+* brug en tom-linje (ikke bare ny-linje) til at indikere et nyt afsnit
+
+Klik frem-og-tilbage mellem de første to faneblade og kig nøje på "white space"...
+
+:::
+
+**Hint** Check : _Soft wrap long lines_ i _Code_ menuen.
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>

@@ -1,0 +1,99 @@
+---
+title: "Files"
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: '`r Sys.Date()`'
+output:
+  distill::distill_article:
+    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+#categories:
+#  - Installation
+creative_commons: CC BY
+format: html
+editor: source
+---
+
+```{r include=FALSE}
+#library(vembedr)
+library(tidyverse)
+library(ggplot2)
+library(DiagrammeR)
+```
+
+# Fil typer og strukturer (foldere)
+
+<!-- -->
+
+## The _root_ 
+
+### One root folder for each project
+
+Should contain
+
+* RStudio project (_\*.RProj_)
+* README.md
+* sessionInfo.txt
+* Your _main_ R scripts
+* Your RMarkdown and quarto scripts
+* Relevant subfolders (/custom_functions, /gfx, /data, etc)
+
+## <!-- -->
+
+![](gfx/RR/phdcomics.1531.png){height=90%}
+
+## Files and folders
+
+### Make and use your own folder/sub-folder template for new projects
+
+![](gfx/RR/file_structure.png){height=100%}
+
+## File types
+
+* Text always preferable to binary files
+* Markup files (HTML, XML, etc) are human readable, but can be complex
+* Application files (.odt, .docx) are often either binary files or very complex markup files
+
+gfx/RR/prefer_text_files.pdf
+
+gfx/RR/prefer_text_files.pdf
+
+gfx/RR/prefer_text_files.xml
+
+
+## File types
+
+**Stick to simple, human-readable files like R-scripts, markdown, csv files, etc, as far into the process as you can and only generate pdf, word, tiff, jpeg etc files as the final step.**
+
+If any characters look weird in a simple txt file (it _does_ happen) -- it's probably the character encoding -- just stick to UTF8/UTF16
+
+>- _By the way_, what do you think the first thing the typesetters at Springer does with your manuscript once accepted?
+
+## Files and folders
+
+**Main points**
+
+* Use a strict folder structure you can handle -- make a template!
+* Use relational folder paths if possible
+* Use human-readable files only if possible (txt, md, Rmd, csv, etc)
+* Only use non-human readable files for '_final output_' (pdf, docx, xlsx, etc)
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>

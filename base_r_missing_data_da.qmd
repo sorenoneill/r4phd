@@ -1,0 +1,56 @@
+---
+title: "Base R - missing data"
+author: "Søren O'Neill"
+date: today
+output:
+  distill::distill_article:
+    self_contained: false
+creative_commons: CC BY
+format: html
+editor: 
+  mode: source
+---
+
+# Om håndtering af manglende observationer i data
+
+Kig engang på denne simple kode
+
+```{r}
+# Vores syv deltagere angav deres alder i onlinespørgeskema
+alder <- c(23,25,23,21,25,NA,20)
+
+# Hvad er deres gennemsnitsalder?
+mean(alder)
+```
+
+Bemærk **NA** værdien, som indikerer at en observation ikke var tilgængeligt (_Not Available_), altså en manglende observation. Dette er helt grundlæggende _ikke_ det samme som NULL eller 0. Så hvordan skal vi beregne et gennemsnit? Ja, når alderen på en af deltagerne er utilgængelig, så er gennemsnittet det også og R svarer derfor: NA.
+
+Umiddelbart tænker man måske, at man bare skal ignorere NA værdien og beregne gennemsnit af de kendte værdier. I mange tilfælde, vil det være helt på sin plads og en god løsning (eller måske ikke). Men det springende punkt er: _det skal du afgøre - R afgør det ikke for dig_. Det er ikke en fejl - det er en (sikkerheds) _feature_.
+
+Kig på denne tilpassede kode
+
+```{r}
+# Vores syv deltagere angav deres alder i onlinespørgeskema
+alder <- c(23,25,23,21,25,NA,20)
+
+# Hvad er deres gennemsnitsalder?
+mean(alder, na.rm=TRUE)
+```
+
+Hvad gætter du på `na.rm=TRUE` står for?
+
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>

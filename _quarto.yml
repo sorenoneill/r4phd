@@ -52,20 +52,21 @@ website:
                 - day_2_ggplot2_extras.qmd
             - section: "Day 4"
               contents: 
-              - section: "RRR"
-                contents:
-                  - reproducible_research_basics_exercises_en.qmd
-                  - reproducible_research_intro_en.qmd
-                  - reproducible_research_basics_comments_how_en.qmd
-                  - reproducible_research_basics_comments_where_en.qmd
-                  - reproducible_research_basics_comments_what_en.qmd
-                  - reproducible_research_basics_white_space_en.qmd
-                  - reproducible_research_basics_readme.qmd
-                  - reproducible_research_basics_naming_stuff.qmd
-                  - reproducible_research_basics_file_structure.qmd
+            - section: "RRR"
+              contents:
+                - reproducible_research_basics_exercises_en.qmd
+                - reproducible_research_intro_en.qmd
+                - reproducible_research_basics_comments_how_en.qmd
+                - reproducible_research_basics_comments_where_en.qmd
+                - reproducible_research_basics_comments_what_en.qmd
+                - reproducible_research_basics_white_space_en.qmd
+                - reproducible_research_basics_readme_en.qmd
+                - reproducible_research_basics_naming_stuff_en.qmd
+                - reproducible_research_basics_file_structure_en.qmd
           - section: "Base R"
             contents:
               - base_r_data_types_en.qmd
+              - base_r_missing_data_en.qmd
       - section: "Dansk"
         contents:
           - section: "Installation"
@@ -88,9 +89,21 @@ website:
               - rstudio_introduction_to_gui_1_da.qmd
               - rstudio_introduction_to_gui_2_en.qmd
               - rstudio_introduction_to_gui_console_da.qmd
+          - section: "RRR"
+            contents:
+              - reproducible_research_basics_exercises_da.qmd
+              - reproducible_research_intro_da.qmd
+              - reproducible_research_basics_comments_how_da.qmd
+              - reproducible_research_basics_comments_where_da.qmd
+              - reproducible_research_basics_comments_what_da.qmd
+              - reproducible_research_basics_white_space_da.qmd
+              - reproducible_research_basics_readme_da.qmd
+              - reproducible_research_basics_naming_stuff_da.qmd
+              - reproducible_research_basics_file_structure_da.qmd
           - section: "Base R"
             contents:
               - base_r_data_types_da.qmd
+              - base_r_missing_data_da.qmd
 format:
   html:
     theme: cosmo

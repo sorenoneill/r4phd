@@ -1,0 +1,144 @@
+---
+title: "Naming stuff"
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: '`r Sys.Date()`'
+output:
+  distill::distill_article:
+    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+#categories:
+#  - Installation
+creative_commons: CC BY
+format: html
+editor: source
+---
+
+```{r include=FALSE}
+#library(vembedr)
+library(tidyverse)
+library(ggplot2)
+library(DiagrammeR)
+```
+
+# Om at navngive ting
+
+## Mening / formål
+
+Lad variabler, funktion og filers navne være sigende for deres _mening_. 
+
+```{r}
+#| eval: false
+#| echo: true
+# 1 
+d <- d %>% 
+  mutate(s=factor(c("M", "F"))[as.numeric(substr(id,nchar(id),nchar(id))) %% 2])
+
+# 2 
+mData <- d %>% filter(s=="M")
+```
+
+**Kig på koden og foreslå bedre variable navne**
+
+:::{.callout-note collapse=true}
+# Løsningsforslag
+
+```{r eval=FALSE, echo=TRUE}
+# 1 
+data <- data %>% 
+  mutate(sex=factor(c("M", "F"))[as.numeric(substr(id,nchar(id),nchar(id))) %% 2])
+
+# 2 
+data_males_only <- data %>% filter(sex=="M")
+males_only_data <- data %>% filter(sex=="M")
+```
+
+:::
+
+:::{.callout-note collapse=true}
+# Et endnu bedre løsningsforslag
+
+```{r eval=FALSE, echo=TRUE}
+data <- data %>% 
+  mutate(sex=cpr2sex(id))
+```
+
+:::
+
+Desværre findes funktionen `cpr2sex` ikke i hverken basis R eller Tidyverse, men vi kan jo lave den selv:
+
+::: {.callout-tip collapse="true"}
+
+```{r}
+#| eval: false
+#| echo: true
+
+# Requires a custom function like this -- which could be sourced from file
+
+cpr2sex <- function(x) {
+  # This function takes a string (x), presumed to be a valid Danish CPR
+  # and return "F", "M" or NA depending on the last character in the string
+  # If the last CPR character is an even number, it indicates female sex, and
+  # an odd number indicates male sex.
+  if (str_sub(x, str_length(x), str_length(x)) %in% c("0","2","4","6","8")) {
+    return("F") 
+  } else if (str_sub(x, str_length(x), str_length(x)) %in% c("1","3","5","7","9")) {
+    return("M") 
+  } 
+  return(NA) # Last character in CPR is not a ciffre
+}
+```
+
+Vi kunne så gemme denne funktion i en separat fil og '_source_'e den ... eller skrive en ny R pakke.
+
+:::
+
+## Sammensatte navne
+
+![](gfx/RR/var_name_animation.webp)
+
+* **Brug** under_scores
+* **Brug ikke** camelCase
+* **Brug ikke** kebab-case
+
+## Navneord og verber
+
+```{r echo=TRUE, eval=FALSE}
+make_larger_by_10 <- function(x) {
+  return(x+10)
+}
+
+ten_larger <- make_larger_by_10(112)
+
+# For instance:
+# selected_data <- data %>% select(..)
+```
+
+
+## Navne
+
+**Hovedpointer**
+
+* Navne skal være meningsbærende
+* Brug under_scores, ikke CamelCase, ej heller kebab-case 
+* Funktionsnavne bør være verber
+* Variabelnavne bør være navneord
+
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
