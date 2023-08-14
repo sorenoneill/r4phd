@@ -368,28 +368,28 @@
     "href": "day_2_ggplot2_extras.html",
     "title": "Extra Material",
     "section": "",
-    "text": "ggplot2 stands as a cornerstone for data visualization in R. But the richness of the R ecosystem extends far beyond its foundational tools. Complementing the core offerings of ggplot2 is a suite of powerful extension packages, each designed to elevate and refine your visualization experiences.\nIn this section, we’ll journey through three particularly impactful extensions: gganimate, ggiraph, and ggside.\n\n\n\n\n\n\nTwist!\n\n\n\nWhile our exploration in this section will be guided, it comes with a twist. We’ll be immersing ourselves in blogs and webpages from the broader R community. The aim? To prepare you for a future where you will explore the R ecosystem independently.\n\n\nHere is a brief introduction to three packages. Start with the one you find most interesting.\n\n\nBreathe life into your static plots by transforming them into animations. Whether you’re showcasing trends over time or simply adding a dynamic touch to your visuals, gganimate is your go-to tool.\n\n\nNULL\n\n\n\n\n\nMake your plots interactive! With ggiraph, you can create hover-over effects, clickable elements, and other interactive features that make your plots more engaging and informative.\n\n\n\n\n\n\n\n\n\nExpand the canvas of your data stories by crafting marginal plots alongside your primary visualization. With ggside, you can seamlessly incorporate histograms, density plots, or boxplots directly adjacent to your main plot. Whether it’s enriching a scatterplot with marginal distributions or adding supplementary insights, ggside offers that extra dimension to your visual narratives."
+    "text": "ggplot2 stands as a cornerstone for data visualization in R. But the richness of the R ecosystem extends far beyond its foundational tools. Complementing the core offerings of ggplot2 is a suite of powerful extension packages, each designed to elevate and refine your visualization experiences.\nIn this section, we’ll journey through three particularly impactful extensions: gganimate, ggiraph, and ggside.\n\n\n\n\n\n\nTwist!\n\n\n\nWhile our exploration in this section will be guided, it comes with a twist. We’ll be immersing ourselves in blogs and webpages from the broader R community. The aim? To prepare you for a future where you will explore the R ecosystem independently.\n\n\nHere is a brief introduction to three packages. Start with the one you find most interesting.\n\n\nBreathe life into your static plots by transforming them into animations. Whether you’re showcasing trends over time or simply adding a dynamic touch to your visuals, gganimate is your go-to tool.\n\n\n\n\n\n\n\n\nMake your plots interactive! With ggiraph, you can create hover-over effects, clickable elements, and other interactive features that make your plots more engaging and informative.\n\n\n\n\n\n\n\n\n\nExpand the canvas of your data stories by crafting marginal plots alongside your primary visualization. With ggside, you can seamlessly incorporate histograms, density plots, or boxplots directly adjacent to your main plot. Whether it’s enriching a scatterplot with marginal distributions or adding supplementary insights, ggside offers that extra dimension to your visual narratives."
   },
   {
     "objectID": "day_2_ggplot2_extras.html#diving-deeper-into-ggplot2-extensions",
     "href": "day_2_ggplot2_extras.html#diving-deeper-into-ggplot2-extensions",
     "title": "Extra Material",
     "section": "",
-    "text": "ggplot2 stands as a cornerstone for data visualization in R. But the richness of the R ecosystem extends far beyond its foundational tools. Complementing the core offerings of ggplot2 is a suite of powerful extension packages, each designed to elevate and refine your visualization experiences.\nIn this section, we’ll journey through three particularly impactful extensions: gganimate, ggiraph, and ggside.\n\n\n\n\n\n\nTwist!\n\n\n\nWhile our exploration in this section will be guided, it comes with a twist. We’ll be immersing ourselves in blogs and webpages from the broader R community. The aim? To prepare you for a future where you will explore the R ecosystem independently.\n\n\nHere is a brief introduction to three packages. Start with the one you find most interesting.\n\n\nBreathe life into your static plots by transforming them into animations. Whether you’re showcasing trends over time or simply adding a dynamic touch to your visuals, gganimate is your go-to tool.\n\n\nNULL\n\n\n\n\n\nMake your plots interactive! With ggiraph, you can create hover-over effects, clickable elements, and other interactive features that make your plots more engaging and informative.\n\n\n\n\n\n\n\n\n\nExpand the canvas of your data stories by crafting marginal plots alongside your primary visualization. With ggside, you can seamlessly incorporate histograms, density plots, or boxplots directly adjacent to your main plot. Whether it’s enriching a scatterplot with marginal distributions or adding supplementary insights, ggside offers that extra dimension to your visual narratives."
+    "text": "ggplot2 stands as a cornerstone for data visualization in R. But the richness of the R ecosystem extends far beyond its foundational tools. Complementing the core offerings of ggplot2 is a suite of powerful extension packages, each designed to elevate and refine your visualization experiences.\nIn this section, we’ll journey through three particularly impactful extensions: gganimate, ggiraph, and ggside.\n\n\n\n\n\n\nTwist!\n\n\n\nWhile our exploration in this section will be guided, it comes with a twist. We’ll be immersing ourselves in blogs and webpages from the broader R community. The aim? To prepare you for a future where you will explore the R ecosystem independently.\n\n\nHere is a brief introduction to three packages. Start with the one you find most interesting.\n\n\nBreathe life into your static plots by transforming them into animations. Whether you’re showcasing trends over time or simply adding a dynamic touch to your visuals, gganimate is your go-to tool.\n\n\n\n\n\n\n\n\nMake your plots interactive! With ggiraph, you can create hover-over effects, clickable elements, and other interactive features that make your plots more engaging and informative.\n\n\n\n\n\n\n\n\n\nExpand the canvas of your data stories by crafting marginal plots alongside your primary visualization. With ggside, you can seamlessly incorporate histograms, density plots, or boxplots directly adjacent to your main plot. Whether it’s enriching a scatterplot with marginal distributions or adding supplementary insights, ggside offers that extra dimension to your visual narratives."
   },
   {
     "objectID": "day_2_ggplot2_extras.html#gganimate-1",
     "href": "day_2_ggplot2_extras.html#gganimate-1",
     "title": "Extra Material",
     "section": "1 gganimate",
-    "text": "1 gganimate\nMost packages have a webpage where the package and its core functions are introduced. Head the gganimate website and read the getting started section. Then continue to exercises here where we will practice using the soldiers dataset that you already know.\nYou need to install gganimate\n\n\n\n\n\n\nInstalling gganimate\n\n\n\n\n\n\ninstall.packages(\"gganimate\")\n\n\n\n\n\n\nCode\n# Load libraries\nlibrary(tidyverse)  # Data wrangling and plots\nlibrary(here)       # File control in project\nlibrary(gganimate)  # Animate plots\n\n# Load the cleaned soldiers dataset\nsource(here(\"scripts\", \"01_import.R\"))\n\n\n\n\nAnimate the this plot so its shows difference between men and women\n\nsoldiers %&gt;% \n  ggplot(aes(x = weightkg, y = Installation, fill = Installation))+\n  geom_boxplot(outlier.shape = NA,\n               alpha = 0.5)\n\n\n\n\n\nAssign the animation to an object\n\n\n\nCode\n# One option\nmy_animation &lt;- soldiers %&gt;% \n  ggplot(aes(x = weightkg, y = Installation, fill = Installation))+\n  geom_boxplot(outlier.shape = NA,\n               alpha = 0.5)+\n  transition_states(sex,\n                    transition_length = 1,\n                    state_length = 2)+\n  labs(title = \"Weight in Kgs of male and female soldiers\",\n       subtitle = \"Now showing {closest_state}\")\n\nmy_animation\n\n\n\n\n\nCode\n# Another option\nsoldiers %&gt;% \n  ggplot(aes(x = weightkg, y = Installation, fill = Installation, seq_along = sex))+\n  geom_boxplot(outlier.shape = NA,\n               alpha = 0.5)+\n  labs(title = \"Weight in Kgs of male and female soldiers\",\n       subtitle = \"Now showing {closest_state}\")+\n  transition_states(sex,\n                    transition_length = 0.5,\n                    state_length = 2)+\n  enter_fade()+\n  exit_fly()\n\n\n\n\n\nSave your animation in the plots folder you created earlier\n\n\nCode\nanim_save(\n    filename = here(\"plots\", \"my_animation.gif\"),\n    animation = my_animation\n  )\n\n\n\n\n\nOxboys data\nLoad thenlme package and examine the Oxboys dataset that it comes with.\nYou might need to install the nlme package first.\n\n\nCode\nlibrary(nlme)\nhead(Oxboys)\n?Oxboys\n\n\n\n\nCreate an animation that shows how height changes with age\n\nUse transition_reveal()\n\n\n\nCode\nOxboys %&gt;% \n  ggplot(aes(x = age, y = height))+\n  # geom_boxplot(fill = \"steelblue\", \n  #              alpha = 0.5, \n  #              width = 0.3,\n  #              outlier.shape = NA)+\n  geom_line(aes(group = Subject), color = \"grey\", alpha = 1)+\n  geom_point(aes(group = Subject))+\n  labs(x = \"Standardized age \\n(years)\",\n       y = \"Height\\n(cm)\")+\n  theme_classic()+\n  transition_reveal(age)"
+    "text": "1 gganimate\nMost packages have a webpage where the package and its core functions are introduced. Head the gganimate website and read the getting started section. Then continue to exercises here where we will practice using the soldiers dataset that you already know.\nYou need to install gganimate\n\n\n\n\n\n\nInstalling gganimate\n\n\n\n\n\n\ninstall.packages(\"gganimate\")\n\n\n\n\n\n\nShow me the code\n# Load libraries\nlibrary(tidyverse)  # Data wrangling and plots\nlibrary(here)       # File control in project\nlibrary(gganimate)  # Animate plots\n\n# Load the cleaned soldiers dataset\nsource(here(\"scripts\", \"01_import.R\"))\n\n\n\n\nAnimate this plot so its shows difference between men and women\n\nsoldiers %&gt;% \n  ggplot(aes(x = weightkg, y = Installation, fill = Installation))+\n  geom_boxplot(outlier.shape = NA,\n               alpha = 0.5)\n\n\n\n\n\nAssign the animation to an object\n\n\n\nShow me the code\n# One option\nmy_animation &lt;- soldiers %&gt;% \n  ggplot(aes(x = weightkg, y = Installation, fill = Installation))+\n  geom_boxplot(outlier.shape = NA,\n               alpha = 0.5)+\n  transition_states(sex,\n                    transition_length = 1,\n                    state_length = 2)+\n  labs(title = \"Weight in Kgs of male and female soldiers\",\n       subtitle = \"Now showing {closest_state}\")\n\nmy_animation\n\n\n\n\n\nShow me the code\n# Another option\nsoldiers %&gt;% \n  ggplot(aes(x = weightkg, y = Installation, fill = Installation, seq_along = sex))+\n  geom_boxplot(outlier.shape = NA,\n               alpha = 0.5)+\n  labs(title = \"Weight in Kgs of male and female soldiers\",\n       subtitle = \"Now showing {closest_state}\")+\n  transition_states(sex,\n                    transition_length = 0.5,\n                    state_length = 2)+\n  enter_fade()+\n  exit_fly()\n\n\n\n\n\nSave your animation in the plots folder you created earlier\n\n\nShow me the code\nanim_save(\n    filename = here(\"plots\", \"my_animation.gif\"),\n    animation = my_animation\n  )\n\n\n\n\n\nOxboys data\nLoad thenlme package and examine the Oxboys dataset that it comes with.\nYou might need to install the nlme package first.\n\n\nShow me the code\nlibrary(nlme)\nhead(Oxboys)\n?Oxboys\n\n\n\n\nCreate an animation that shows how height changes with age\n\nUse transition_reveal()\n\n\n\nShow me the code\nOxboys %&gt;% \n  ggplot(aes(x = age, y = height))+\n  # geom_boxplot(fill = \"steelblue\", \n  #              alpha = 0.5, \n  #              width = 0.3,\n  #              outlier.shape = NA)+\n  geom_line(aes(group = Subject), color = \"grey\", alpha = 1)+\n  geom_point(aes(group = Subject))+\n  labs(x = \"Standardized age \\n(years)\",\n       y = \"Height\\n(cm)\")+\n  theme_classic()+\n  transition_reveal(age)"
   },
   {
     "objectID": "day_2_ggplot2_extras.html#ggiraph-1",
     "href": "day_2_ggplot2_extras.html#ggiraph-1",
     "title": "Extra Material",
     "section": "2 ggiraph",
-    "text": "2 ggiraph\nAnother useful resource for learning R is blogposts. These are often written in a much more accesible language. For learning ggiraph we will use a blogpost written by Albert Rapp. Head to his blogpost about ggiraph and read it. You don’t need to read the sections about shinyapps. When you have done that continue to exercises below.\nYou need to install ggiraph.\n\n\n\n\n\n\nInstalling ggiraph\n\n\n\n\n\n\ninstall.packages(\"ggiraph\")\n\n\n\n\n\n\nLoad the tidyverse, here, ggiraph, patchwork, and the cleaned soldiers dataset\n\n\nCode\n# Load libraries\nlibrary(tidyverse)  # Data wrangling and plots\nlibrary(here)       # File control in project\nlibrary(ggiraph)    # Interactive plots\nlibrary(patchwork)  # Combining plots\n\n# Load the cleaned soldiers dataset\nsource(here(\"scripts\", \"01_import.R\"))\n\n\n\n\n\nExplore Fort Hood, Camp Arnold, and Fort Doughnut\n\nFilter you data to the three camps\nMake a interactive boxplot that shows the name of the installation\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nYou can use the base R functions paste() or paste0() to combine text and values in your tooltip.\nYou can also use glue() from the glue package, but you need to install that package first. In the blogpost Albert uses the glue() function.\n\n\n\n\n\n\n\n\n\nSize of your interactive plot\n\n\n\n\n\nWith the default options, the interactive plots tends to be oversized. Add this option to reduce it\n\ngirafe(ggobj = my_plot,\n       options = list(opts_sizing(rescale = FALSE)))\n\n\n\n\n\n\nCode\nmy_plot &lt;- soldiers %&gt;% \n  filter(Installation %in% c(\"Fort Hood\", \"Camp Arnold\", \"Fort Doughnut\")) %&gt;% \n  ggplot(aes(x = BMI, y = Installation, fill = Installation))+\n  geom_boxplot_interactive(\n    aes(tooltip = paste0(\"This is the \", Installation, \" installation\")))+\n  labs(y = NULL)+\n  theme_classic()\n\ngirafe(ggobj = my_plot)\n\n\n\n\nAdd an interactive geom_jitter layer.\n\nfacet the plot on sex\nMake a tooltip that gives you the subjectid, BMI, height, weight, biceps circumference, and waist circumference.\n\n\n\n\n\n\n\nHint line breaks\n\n\n\n\n\n“” Gives you a line break\n\n\n\n\n\nCode\nmy_plot &lt;- soldiers %&gt;% \n  filter(Installation %in% c(\"Fort Hood\", \"Camp Arnold\", \"Fort Doughnut\")) %&gt;% \n  ggplot(aes(x = BMI, y = Installation, fill = Installation))+\n  facet_wrap(~sex, ncol = 1)+\n  labs(y = NULL)+\n  geom_boxplot_interactive(\n    aes(tooltip = paste0(\"This is the \", Installation, \" installation\")),\n    outlier.shape = NA) +\n  geom_jitter_interactive(\n    aes(tooltip = paste0(\"Subjectid: \", subjectid,\n                         \"\\n BMI:   \", round(BMI), \" (\", category, \")\",\n                         \"\\nHeight: \", round(heightcm), \" cm\",\n                         \"\\nWeight: \", round(weightkg), \" kg\",\n                         \"\\nBiceps: \", round(bicepscircumference), \" mm\", \n                         \"\\nWaist:  \", round(waistcircumference), \" mm\")),\n    height = 0.2,\n    alpha = 0.3,\n    shape = 21\n  )+\n  theme_classic()\n\ngirafe(ggobj = my_plot,\n       options = list(opts_sizing(rescale = FALSE)))\n\n\n\n\nCreate another interactive plot with geom_jitter_interactive()\n\nCombine your new plot with the one you made above using patchwork\nSet the data_id argument to: data_id = subjectid for the points\nUse the options that Alfred suggested in his post (see tip below)\n\n\n\n\n\n\n\nOptions\n\n\n\n\n\n\ngirafe(ggobj = my_plot,\n       options = list(\n         opts_hover(css = ''),\n         opts_hover_inv(css = \"opacity:0.2;\"), \n         opts_sizing(rescale = FALSE)\n  ))\n\n\n\n\n\n\nCode\nmy_plot_a &lt;- soldiers %&gt;% \n  filter(Installation %in% c(\"Fort Hood\", \"Camp Arnold\", \"Fort Doughnut\")) %&gt;% \n  ggplot(aes(x = BMI, y = Installation, fill = Installation, ))+\n  facet_wrap(~sex, ncol = 1)+\n  labs(y = NULL,\n       x = NULL,\n       title = \"BMI\")+\n  geom_boxplot_interactive(\n    aes(data_id = Installation,\n        tooltip = paste0(\"This is the \", Installation, \" installation\")),\n    outlier.shape = NA) +\n  geom_jitter_interactive(\n    aes(data_id = subjectid,\n        tooltip = paste0(\"Subjectid: \", subjectid,\n                         \"\\n BMI:   \", round(BMI), \" (\", category, \")\",\n                         \"\\nHeight: \", round(heightcm), \" cm\",\n                         \"\\nWeight: \", round(weightkg), \" kg\",\n                         \"\\nBiceps: \", round(bicepscircumference), \" mm\", \n                         \"\\nWaist:  \", round(waistcircumference), \" mm\")),\n    height = 0.2,\n    alpha = 0.5,\n    shape = 21\n  )+\n  theme_classic()\n\nmy_plot_b &lt;- soldiers %&gt;% \n  filter(Installation %in% c(\"Fort Hood\", \"Camp Arnold\", \"Fort Doughnut\")) %&gt;% \n  ggplot(aes(x = waistcircumference, y = Installation, fill = Installation))+\n  facet_wrap(~sex, ncol = 1)+\n  labs(y = NULL,\n       x = NULL,\n       title = \"Waist circumference\")+\n  geom_boxplot_interactive(\n    aes(data_id = Installation,\n        tooltip = paste0(\"This is the \", Installation, \" installation\")),\n    outlier.shape = NA) +\n  geom_jitter_interactive(\n    aes(data_id = subjectid,\n        tooltip = paste0(\"Subjectid: \", subjectid,\n                         \"\\n BMI:   \", round(BMI), \" (\", category, \")\",\n                         \"\\nHeight: \", round(heightcm), \" cm\",\n                         \"\\nWeight: \", round(weightkg), \" kg\",\n                         \"\\nBiceps: \", round(bicepscircumference), \" mm\", \n                         \"\\nWaist:  \", round(waistcircumference), \" mm\")),\n    height = 0.2,\n    alpha = 0.5,\n    shape = 21\n  )+\n  theme_classic()\n\nmy_plot &lt;- my_plot_a + my_plot_b +\n  plot_layout(guides = \"collect\") &\n  theme(legend.position='bottom')\n\ngirafe(ggobj = my_plot,\n       options = list(\n         opts_hover(css = ''),\n         opts_hover_inv(css = \"opacity:0.2;\"), \n         opts_sizing(rescale = FALSE)\n  ))"
+    "text": "2 ggiraph\nAnother useful resource for learning R is blogposts. These are often written in a much more accesible language. For learning ggiraph we will use a blogpost written by Albert Rapp. Head to his blogpost about ggiraph and read it. You don’t need to read the sections about shinyapps. When you have done that continue to exercises below.\nYou need to install ggiraph.\n\n\n\n\n\n\nInstalling ggiraph\n\n\n\n\n\n\ninstall.packages(\"ggiraph\")\n\n\n\n\n\n\nLoad the tidyverse, here, ggiraph, patchwork, and the cleaned soldiers dataset\n\n\nShow me the code\n# Load libraries\nlibrary(tidyverse)  # Data wrangling and plots\nlibrary(here)       # File control in project\nlibrary(ggiraph)    # Interactive plots\nlibrary(patchwork)  # Combining plots\n\n# Load the cleaned soldiers dataset\nsource(here(\"scripts\", \"01_import.R\"))\n\n\n\n\n\nExplore Fort Hood, Camp Arnold, and Fort Doughnut\n\nFilter you data to the three camps\nMake a interactive boxplot that shows the name of the installation\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nYou can use the base R functions paste() or paste0() to combine text and values in your tooltip.\nYou can also use glue() from the glue package, but you need to install that package first. In the blogpost Albert uses the glue() function.\n\n\n\n\n\n\n\n\n\nSize of your interactive plot\n\n\n\n\n\nWith the default options, the interactive plots tends to be oversized. Add this option to reduce it\n\ngirafe(ggobj = my_plot,\n       options = list(opts_sizing(rescale = FALSE)))\n\n\n\n\n\n\nShow me the code\nmy_plot &lt;- soldiers %&gt;% \n  filter(Installation %in% c(\"Fort Hood\", \"Camp Arnold\", \"Fort Doughnut\")) %&gt;% \n  ggplot(aes(x = BMI, y = Installation, fill = Installation))+\n  geom_boxplot_interactive(\n    aes(tooltip = paste0(\"This is the \", Installation, \" installation\")))+\n  labs(y = NULL)+\n  theme_classic()\n\ngirafe(ggobj = my_plot)\n\n\n\n\nAdd an interactive geom_jitter layer.\n\nfacet the plot on sex\nMake a tooltip that gives you the subjectid, BMI, height, weight, biceps circumference, and waist circumference.\n\n\n\n\n\n\n\nHint line breaks\n\n\n\n\n\n“\\n” Gives you a line break\n\n\n\n\n\nShow me the code\nmy_plot &lt;- soldiers %&gt;% \n  filter(Installation %in% c(\"Fort Hood\", \"Camp Arnold\", \"Fort Doughnut\")) %&gt;% \n  ggplot(aes(x = BMI, y = Installation, fill = Installation))+\n  facet_wrap(~sex, ncol = 1)+\n  labs(y = NULL)+\n  geom_boxplot_interactive(\n    aes(tooltip = paste0(\"This is the \", Installation, \" installation\")),\n    outlier.shape = NA) +\n  geom_jitter_interactive(\n    aes(tooltip = paste0(\"Subjectid: \", subjectid,\n                         \"\\n BMI:   \", round(BMI), \" (\", category, \")\",\n                         \"\\nHeight: \", round(heightcm), \" cm\",\n                         \"\\nWeight: \", round(weightkg), \" kg\",\n                         \"\\nBiceps: \", round(bicepscircumference), \" mm\", \n                         \"\\nWaist:  \", round(waistcircumference), \" mm\")),\n    height = 0.2,\n    alpha = 0.3,\n    shape = 21\n  )+\n  theme_classic()\n\ngirafe(ggobj = my_plot,\n       options = list(opts_sizing(rescale = FALSE)))\n\n\n\n\nCreate another interactive plot with geom_jitter_interactive()\n\nCombine your new plot with the one you made above using patchwork\nSet the data_id argument to: data_id = subjectid for the points\nUse the options that Alfred suggested in his post (see tip below)\n\n\n\n\n\n\n\nOptions\n\n\n\n\n\n\ngirafe(ggobj = my_plot,\n       options = list(\n         opts_hover(css = ''),\n         opts_hover_inv(css = \"opacity:0.2;\"), \n         opts_sizing(rescale = FALSE)\n  ))\n\n\n\n\n\n\nShow me the code\nmy_plot_a &lt;- soldiers %&gt;% \n  filter(Installation %in% c(\"Fort Hood\", \"Camp Arnold\", \"Fort Doughnut\")) %&gt;% \n  ggplot(aes(x = BMI, y = Installation, fill = Installation, ))+\n  facet_wrap(~sex, ncol = 1)+\n  labs(y = NULL,\n       x = NULL,\n       title = \"BMI\")+\n  geom_boxplot_interactive(\n    aes(data_id = Installation,\n        tooltip = paste0(\"This is the \", Installation, \" installation\")),\n    outlier.shape = NA) +\n  geom_jitter_interactive(\n    aes(data_id = subjectid,\n        tooltip = paste0(\"Subjectid: \", subjectid,\n                         \"\\n BMI:   \", round(BMI), \" (\", category, \")\",\n                         \"\\nHeight: \", round(heightcm), \" cm\",\n                         \"\\nWeight: \", round(weightkg), \" kg\",\n                         \"\\nBiceps: \", round(bicepscircumference), \" mm\", \n                         \"\\nWaist:  \", round(waistcircumference), \" mm\")),\n    height = 0.2,\n    alpha = 0.5,\n    shape = 21\n  )+\n  theme_classic()\n\nmy_plot_b &lt;- soldiers %&gt;% \n  filter(Installation %in% c(\"Fort Hood\", \"Camp Arnold\", \"Fort Doughnut\")) %&gt;% \n  ggplot(aes(x = waistcircumference, y = Installation, fill = Installation))+\n  facet_wrap(~sex, ncol = 1)+\n  labs(y = NULL,\n       x = NULL,\n       title = \"Waist circumference\")+\n  geom_boxplot_interactive(\n    aes(data_id = Installation,\n        tooltip = paste0(\"This is the \", Installation, \" installation\")),\n    outlier.shape = NA) +\n  geom_jitter_interactive(\n    aes(data_id = subjectid,\n        tooltip = paste0(\"Subjectid: \", subjectid,\n                         \"\\n BMI:   \", round(BMI), \" (\", category, \")\",\n                         \"\\nHeight: \", round(heightcm), \" cm\",\n                         \"\\nWeight: \", round(weightkg), \" kg\",\n                         \"\\nBiceps: \", round(bicepscircumference), \" mm\", \n                         \"\\nWaist:  \", round(waistcircumference), \" mm\")),\n    height = 0.2,\n    alpha = 0.5,\n    shape = 21\n  )+\n  theme_classic()\n\nmy_plot &lt;- my_plot_a + my_plot_b +\n  plot_layout(guides = \"collect\") &\n  theme(legend.position='bottom')\n\ngirafe(ggobj = my_plot,\n       options = list(\n         opts_hover(css = ''),\n         opts_hover_inv(css = \"opacity:0.2;\"), \n         opts_sizing(rescale = FALSE)\n  ))"
   },
   {
     "objectID": "rstudio_introduction_to_gui_console_da.html",
@@ -452,14 +452,14 @@
     "href": "rstudio_introduction_to_gui_2_en.html",
     "title": "RStudios GUI #2",
     "section": "",
-    "text": "Important concept you need to grasp!\n\n\n\n\n\nYou can think about your workflow in RStudio as consisting of two separate work stations: you either talk to R or you write for R:\n\n\nYou talk to R in the console (orange), but the entire conversation is lost when you close RStudio!\nIf you tell R to create some data, it is stored in the short term memory and you can talk R about it, but it is lost when you close RStudio.\nIf you tell R to do something that is not valid R code, it will complain (error).\nNote If you tell R to write something to a file, that file will not be lost, but your command to do so is.\n\n\n\nIn the text editor (blue) you can write anything to be saved to a text file.\nIt will not be read by R until you specifically ask it to.\nIf you write something that isn’t valid R code, you will not get an error (albeit RStudio may give you a hint) … in fact, you write a shopping list in the text editor, if you want to and R won’t complain.\n\n\n\n\nA typical workflow consists of ping-pong’ing back and forth between i) testing code in real-time (console and short term memory) and ii) storing working code in a text file.\n\n\n\n\n\n\nExample\n\n\n\n\n\nLet’s say you want to use the functions mean and rnorm to calculate the mean of a sample of 100 from a normal distribution. The following code should do the trick:\nrnorm(n=100, mean=1, sd=2) %&gt;% mean()\n…before using that code in you manuscript, you might want to check it out in the console:\n\nrnorm(n=100, mean=1, sd=2) %&gt;% mean()\n\n[1] 1.073024\n\n\nPerhaps, you then realize, that the result has too many digits and you amend your code:\n\nrnorm(n=100, mean=1, sd=2) %&gt;% mean() %&gt;% round(2)\n\n[1] 1.47\n\n\n\n\n\n\n\n\n\n\n\nExercise #1\n\n\n\n\n\nOpen RStudio and create and empty R script by menu: File / New File / R Script or keyboard: CTRL-SHIFT-n\n\nCopy paste this code rnorm(n=100, mean=1, sd=2) %&gt;% mean() into the console and execute it by pressing ENTER – what happens in the text editor?\nCopy and paste this code rnorm(n=100, mean=120, sd=25) %&gt;% mean() into the text editor and press ENTER – what happens in the console?\nCopy and paste this code rnorm(n=100, mean=20, sd=250) %&gt;% mean() into the text editor and press CTRL+ENTER – what happens in the console?\n\n\n\n\n\n\n\n\n\n\nExercise #1 Solution\n\n\n\n\n\n\nNothing happens in the text editor\nNothing happens in the console\nThe code is copied and pasted into the console and executed\n\nBonus question Amend the code in the text editor so that the output of the R command is ascribed to a variable called x. What happens in the Environment tab of the Environment pane, i) when you added the code to the text file and ii) when you copy/paste/execute (CTRL+ENTER) the code in the console?\n\n\n\n\n\n\n\n\n\nExercise #2\n\n\n\n\n\nWhen you close an R project, RStudio will ask you whether you want to save a ‘Workspace image’.\nA workspace image stores the information currently in the console and the short term memory (Environment) and restores it, the next time you open the project.\n\nWhat are the potential benefits of that?\nWhat are the potential pitfalls of that?\n\n\n\n\n\n\n\n\n\n\nExercise #2 Solution\n\n\n\n\n\n\nRestoring a workspace image from the last time you worked in the project, lets you pick up and start from the exact same position, which can sometimes be helpful. For instance, if you rely on downloading a large dataset from the internet, you can save some time.\nA common mistake that frustrates beginners: Ping-pong’ing back and forth, you might solve a problem in the console which commits the right data to short term memory, but forget to add that problem-solving code to the script in the text editor. If you do not use the workspace image, that mistake will become apparent next time you open your project with an empty environment."
+    "text": "Important concept you need to grasp!\n\n\n\n\n\nYou can think about your workflow in RStudio as consisting of two separate work stations: you either talk to R or you write for R:\n\n\nYou talk to R in the console (orange), but the entire conversation is lost when you close RStudio!\nIf you tell R to create some data, it is stored in the short term memory and you can talk R about it, but it is lost when you close RStudio.\nIf you tell R to do something that is not valid R code, it will complain (error).\nNote If you tell R to write something to a file, that file will not be lost, but your command to do so is.\n\n\n\nIn the text editor (blue) you can write anything to be saved to a text file.\nIt will not be read by R until you specifically ask it to.\nIf you write something that isn’t valid R code, you will not get an error (albeit RStudio may give you a hint) … in fact, you write a shopping list in the text editor, if you want to and R won’t complain.\n\n\n\n\nA typical workflow consists of ping-pong’ing back and forth between i) testing code in real-time (console and short term memory) and ii) storing working code in a text file.\n\n\n\n\n\n\nExample\n\n\n\n\n\nLet’s say you want to use the functions mean and rnorm to calculate the mean of a sample of 100 from a normal distribution. The following code should do the trick:\nrnorm(n=100, mean=1, sd=2) %&gt;% mean()\n…before using that code in you manuscript, you might want to check it out in the console:\n\nrnorm(n=100, mean=1, sd=2) %&gt;% mean()\n\n[1] 0.9726502\n\n\nPerhaps, you then realize, that the result has too many digits and you amend your code:\n\nrnorm(n=100, mean=1, sd=2) %&gt;% mean() %&gt;% round(2)\n\n[1] 1.22\n\n\n\n\n\n\n\n\n\n\n\nExercise #1\n\n\n\n\n\nOpen RStudio and create and empty R script by menu: File / New File / R Script or keyboard: CTRL-SHIFT-n\n\nCopy paste this code rnorm(n=100, mean=1, sd=2) %&gt;% mean() into the console and execute it by pressing ENTER – what happens in the text editor?\nCopy and paste this code rnorm(n=100, mean=120, sd=25) %&gt;% mean() into the text editor and press ENTER – what happens in the console?\nCopy and paste this code rnorm(n=100, mean=20, sd=250) %&gt;% mean() into the text editor and press CTRL+ENTER – what happens in the console?\n\n\n\n\n\n\n\n\n\n\nExercise #1 Solution\n\n\n\n\n\n\nNothing happens in the text editor\nNothing happens in the console\nThe code is copied and pasted into the console and executed\n\nBonus question Amend the code in the text editor so that the output of the R command is ascribed to a variable called x. What happens in the Environment tab of the Environment pane, i) when you added the code to the text file and ii) when you copy/paste/execute (CTRL+ENTER) the code in the console?\n\n\n\n\n\n\n\n\n\nExercise #2\n\n\n\n\n\nWhen you close an R project, RStudio will ask you whether you want to save a ‘Workspace image’.\nA workspace image stores the information currently in the console and the short term memory (Environment) and restores it, the next time you open the project.\n\nWhat are the potential benefits of that?\nWhat are the potential pitfalls of that?\n\n\n\n\n\n\n\n\n\n\nExercise #2 Solution\n\n\n\n\n\n\nRestoring a workspace image from the last time you worked in the project, lets you pick up and start from the exact same position, which can sometimes be helpful. For instance, if you rely on downloading a large dataset from the internet, you can save some time.\nA common mistake that frustrates beginners: Ping-pong’ing back and forth, you might solve a problem in the console which commits the right data to short term memory, but forget to add that problem-solving code to the script in the text editor. If you do not use the workspace image, that mistake will become apparent next time you open your project with an empty environment."
   },
   {
     "objectID": "rstudio_introduction_to_gui_2_en.html#work-flow-in-rstudios-gui",
     "href": "rstudio_introduction_to_gui_2_en.html#work-flow-in-rstudios-gui",
     "title": "RStudios GUI #2",
     "section": "",
-    "text": "Important concept you need to grasp!\n\n\n\n\n\nYou can think about your workflow in RStudio as consisting of two separate work stations: you either talk to R or you write for R:\n\n\nYou talk to R in the console (orange), but the entire conversation is lost when you close RStudio!\nIf you tell R to create some data, it is stored in the short term memory and you can talk R about it, but it is lost when you close RStudio.\nIf you tell R to do something that is not valid R code, it will complain (error).\nNote If you tell R to write something to a file, that file will not be lost, but your command to do so is.\n\n\n\nIn the text editor (blue) you can write anything to be saved to a text file.\nIt will not be read by R until you specifically ask it to.\nIf you write something that isn’t valid R code, you will not get an error (albeit RStudio may give you a hint) … in fact, you write a shopping list in the text editor, if you want to and R won’t complain.\n\n\n\n\nA typical workflow consists of ping-pong’ing back and forth between i) testing code in real-time (console and short term memory) and ii) storing working code in a text file.\n\n\n\n\n\n\nExample\n\n\n\n\n\nLet’s say you want to use the functions mean and rnorm to calculate the mean of a sample of 100 from a normal distribution. The following code should do the trick:\nrnorm(n=100, mean=1, sd=2) %&gt;% mean()\n…before using that code in you manuscript, you might want to check it out in the console:\n\nrnorm(n=100, mean=1, sd=2) %&gt;% mean()\n\n[1] 1.073024\n\n\nPerhaps, you then realize, that the result has too many digits and you amend your code:\n\nrnorm(n=100, mean=1, sd=2) %&gt;% mean() %&gt;% round(2)\n\n[1] 1.47\n\n\n\n\n\n\n\n\n\n\n\nExercise #1\n\n\n\n\n\nOpen RStudio and create and empty R script by menu: File / New File / R Script or keyboard: CTRL-SHIFT-n\n\nCopy paste this code rnorm(n=100, mean=1, sd=2) %&gt;% mean() into the console and execute it by pressing ENTER – what happens in the text editor?\nCopy and paste this code rnorm(n=100, mean=120, sd=25) %&gt;% mean() into the text editor and press ENTER – what happens in the console?\nCopy and paste this code rnorm(n=100, mean=20, sd=250) %&gt;% mean() into the text editor and press CTRL+ENTER – what happens in the console?\n\n\n\n\n\n\n\n\n\n\nExercise #1 Solution\n\n\n\n\n\n\nNothing happens in the text editor\nNothing happens in the console\nThe code is copied and pasted into the console and executed\n\nBonus question Amend the code in the text editor so that the output of the R command is ascribed to a variable called x. What happens in the Environment tab of the Environment pane, i) when you added the code to the text file and ii) when you copy/paste/execute (CTRL+ENTER) the code in the console?\n\n\n\n\n\n\n\n\n\nExercise #2\n\n\n\n\n\nWhen you close an R project, RStudio will ask you whether you want to save a ‘Workspace image’.\nA workspace image stores the information currently in the console and the short term memory (Environment) and restores it, the next time you open the project.\n\nWhat are the potential benefits of that?\nWhat are the potential pitfalls of that?\n\n\n\n\n\n\n\n\n\n\nExercise #2 Solution\n\n\n\n\n\n\nRestoring a workspace image from the last time you worked in the project, lets you pick up and start from the exact same position, which can sometimes be helpful. For instance, if you rely on downloading a large dataset from the internet, you can save some time.\nA common mistake that frustrates beginners: Ping-pong’ing back and forth, you might solve a problem in the console which commits the right data to short term memory, but forget to add that problem-solving code to the script in the text editor. If you do not use the workspace image, that mistake will become apparent next time you open your project with an empty environment."
+    "text": "Important concept you need to grasp!\n\n\n\n\n\nYou can think about your workflow in RStudio as consisting of two separate work stations: you either talk to R or you write for R:\n\n\nYou talk to R in the console (orange), but the entire conversation is lost when you close RStudio!\nIf you tell R to create some data, it is stored in the short term memory and you can talk R about it, but it is lost when you close RStudio.\nIf you tell R to do something that is not valid R code, it will complain (error).\nNote If you tell R to write something to a file, that file will not be lost, but your command to do so is.\n\n\n\nIn the text editor (blue) you can write anything to be saved to a text file.\nIt will not be read by R until you specifically ask it to.\nIf you write something that isn’t valid R code, you will not get an error (albeit RStudio may give you a hint) … in fact, you write a shopping list in the text editor, if you want to and R won’t complain.\n\n\n\n\nA typical workflow consists of ping-pong’ing back and forth between i) testing code in real-time (console and short term memory) and ii) storing working code in a text file.\n\n\n\n\n\n\nExample\n\n\n\n\n\nLet’s say you want to use the functions mean and rnorm to calculate the mean of a sample of 100 from a normal distribution. The following code should do the trick:\nrnorm(n=100, mean=1, sd=2) %&gt;% mean()\n…before using that code in you manuscript, you might want to check it out in the console:\n\nrnorm(n=100, mean=1, sd=2) %&gt;% mean()\n\n[1] 0.9726502\n\n\nPerhaps, you then realize, that the result has too many digits and you amend your code:\n\nrnorm(n=100, mean=1, sd=2) %&gt;% mean() %&gt;% round(2)\n\n[1] 1.22\n\n\n\n\n\n\n\n\n\n\n\nExercise #1\n\n\n\n\n\nOpen RStudio and create and empty R script by menu: File / New File / R Script or keyboard: CTRL-SHIFT-n\n\nCopy paste this code rnorm(n=100, mean=1, sd=2) %&gt;% mean() into the console and execute it by pressing ENTER – what happens in the text editor?\nCopy and paste this code rnorm(n=100, mean=120, sd=25) %&gt;% mean() into the text editor and press ENTER – what happens in the console?\nCopy and paste this code rnorm(n=100, mean=20, sd=250) %&gt;% mean() into the text editor and press CTRL+ENTER – what happens in the console?\n\n\n\n\n\n\n\n\n\n\nExercise #1 Solution\n\n\n\n\n\n\nNothing happens in the text editor\nNothing happens in the console\nThe code is copied and pasted into the console and executed\n\nBonus question Amend the code in the text editor so that the output of the R command is ascribed to a variable called x. What happens in the Environment tab of the Environment pane, i) when you added the code to the text file and ii) when you copy/paste/execute (CTRL+ENTER) the code in the console?\n\n\n\n\n\n\n\n\n\nExercise #2\n\n\n\n\n\nWhen you close an R project, RStudio will ask you whether you want to save a ‘Workspace image’.\nA workspace image stores the information currently in the console and the short term memory (Environment) and restores it, the next time you open the project.\n\nWhat are the potential benefits of that?\nWhat are the potential pitfalls of that?\n\n\n\n\n\n\n\n\n\n\nExercise #2 Solution\n\n\n\n\n\n\nRestoring a workspace image from the last time you worked in the project, lets you pick up and start from the exact same position, which can sometimes be helpful. For instance, if you rely on downloading a large dataset from the internet, you can save some time.\nA common mistake that frustrates beginners: Ping-pong’ing back and forth, you might solve a problem in the console which commits the right data to short term memory, but forget to add that problem-solving code to the script in the text editor. If you do not use the workspace image, that mistake will become apparent next time you open your project with an empty environment."
   },
   {
     "objectID": "reproducible_research_basics_comments_how_da.html",
@@ -1167,5 +1167,523 @@
     "title": "Intro to RRR",
     "section": "",
     "text": "Aim for level four ‘Product documentation’ (**) – Level 5 ‘Process documentation’ can be quite involved and is probably only relevant when many authors collaborate on the same code/data (if it is important to know who did what when, i.e. who screwed up)."
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html",
+    "href": "presentations/Day_1_wrangling_presentation.html",
+    "title": "Day 1 - Data Wrangling",
+    "section": "",
+    "text": "We will use the dplyr package that loads with the tidyverse.\nAt current dplyr contains 293 functions.\nThe main 6 functions in dplyr that we will use today are:\n\nselect()\nfilter()\nsummarise()\ngroup_by()\nmutate()\ncount()\n\ndplyr cheatsheet\n\n\nknitr::include_graphics(\"img/dplyr.png\")"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#data-transformation-with-dplyr",
+    "href": "presentations/Day_1_wrangling_presentation.html#data-transformation-with-dplyr",
+    "title": "Day 1 - Data Wrangling",
+    "section": "",
+    "text": "We will use the dplyr package that loads with the tidyverse.\nAt current dplyr contains 293 functions.\nThe main 6 functions in dplyr that we will use today are:\n\nselect()\nfilter()\nsummarise()\ngroup_by()\nmutate()\ncount()\n\ndplyr cheatsheet\n\n\nknitr::include_graphics(\"img/dplyr.png\")"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#load-the-dplyr-library",
+    "href": "presentations/Day_1_wrangling_presentation.html#load-the-dplyr-library",
+    "title": "Day 1 - Data Wrangling",
+    "section": "0.2 Load the dplyr library",
+    "text": "0.2 Load the dplyr library\n\nlibrary(tidyverse) \n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.2     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.0\n✔ ggplot2   3.4.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.1     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\ndplyr is one of the many packages that are loaded with the tidyverse"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#take-a-look-at-the-starwars-dataset",
+    "href": "presentations/Day_1_wrangling_presentation.html#take-a-look-at-the-starwars-dataset",
+    "title": "Day 1 - Data Wrangling",
+    "section": "0.3 Take a look at the starwars dataset",
+    "text": "0.3 Take a look at the starwars dataset\nstarwars is one of several datasets that loads when you load the tidyverse.\nThe datasets are great for practising.\n\nWe call the dataset by typing its name.\n\n\n\nstarwars\n\n# A tibble: 87 × 14\n   name     height  mass hair_color skin_color eye_color birth_year sex   gender\n   &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; \n 1 Luke Sk…    172    77 blond      fair       blue            19   male  mascu…\n 2 C-3PO       167    75 &lt;NA&gt;       gold       yellow         112   none  mascu…\n 3 R2-D2        96    32 &lt;NA&gt;       white, bl… red             33   none  mascu…\n 4 Darth V…    202   136 none       white      yellow          41.9 male  mascu…\n 5 Leia Or…    150    49 brown      light      brown           19   fema… femin…\n 6 Owen La…    178   120 brown, gr… light      blue            52   male  mascu…\n 7 Beru Wh…    165    75 brown      light      blue            47   fema… femin…\n 8 R5-D4        97    32 &lt;NA&gt;       white, red red             NA   none  mascu…\n 9 Biggs D…    183    84 black      light      brown           24   male  mascu…\n10 Obi-Wan…    182    77 auburn, w… fair       blue-gray       57   male  mascu…\n# ℹ 77 more rows\n# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,\n#   vehicles &lt;list&gt;, starships &lt;list&gt;"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#select-1",
+    "href": "presentations/Day_1_wrangling_presentation.html#select-1",
+    "title": "Day 1 - Data Wrangling",
+    "section": "1.1 select()",
+    "text": "1.1 select()\nFunction:\nSelect a subset of columns (variables). Gets rid of all other columns. You can refer to the columns by the column position (first column) or by name.\nThe order in which you list the column names/positions is the order that the columns will be displayed.\n\nExample\nIn the starwars dataset, only keep the columns name and homeworld:\n\n\n\nstarwars %&gt;% \n  select(name, homeworld)\n\n# A tibble: 87 × 2\n   name               homeworld\n   &lt;chr&gt;              &lt;chr&gt;    \n 1 Luke Skywalker     Tatooine \n 2 C-3PO              Tatooine \n 3 R2-D2              Naboo    \n 4 Darth Vader        Tatooine \n 5 Leia Organa        Alderaan \n 6 Owen Lars          Tatooine \n 7 Beru Whitesun lars Tatooine \n 8 R5-D4              Tatooine \n 9 Biggs Darklighter  Tatooine \n10 Obi-Wan Kenobi     Stewjon  \n# ℹ 77 more rows"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#select-2",
+    "href": "presentations/Day_1_wrangling_presentation.html#select-2",
+    "title": "Day 1 - Data Wrangling",
+    "section": "1.2 select()",
+    "text": "1.2 select()\n\nOnly keep the first five columns:\n\nstarwars %&gt;% select(1:5)\nstarwars %&gt;% select(1,2,3,4,5)\n\n\nKeep all of the columns except for name:\n\nstarwars %&gt;% select(-name)\n\n\nKeep all of the columns except for name and mass:\n\nstarwars %&gt;% select(-name, -mass)\n\n\nKeep all of the columns except for the first five columns:\n\nstarwars %&gt;% select (-1,-2,-3,-4,-5)\nstarwars %&gt;% select(-(1:5))"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#select-and-the-tidyselect-helpers",
+    "href": "presentations/Day_1_wrangling_presentation.html#select-and-the-tidyselect-helpers",
+    "title": "Day 1 - Data Wrangling",
+    "section": "1.3 select() and the tidyselect helpers",
+    "text": "1.3 select() and the tidyselect helpers\n\n\n\nstarts_with()\nends_with()\ncontains()\n\n\nAre three of the tidyselect helper functions.\nYou can use them inside the select() function.\n\nExample\nselect all columns that start with “s”\n\nstarwars %&gt;% \n  select(starts_with(\"s\"))\n\n# A tibble: 87 × 4\n   skin_color  sex    species starships\n   &lt;chr&gt;       &lt;chr&gt;  &lt;chr&gt;   &lt;list&gt;   \n 1 fair        male   Human   &lt;chr [2]&gt;\n 2 gold        none   Droid   &lt;chr [0]&gt;\n 3 white, blue none   Droid   &lt;chr [0]&gt;\n 4 white       male   Human   &lt;chr [1]&gt;\n 5 light       female Human   &lt;chr [0]&gt;\n 6 light       male   Human   &lt;chr [0]&gt;\n 7 light       female Human   &lt;chr [0]&gt;\n 8 white, red  none   Droid   &lt;chr [0]&gt;\n 9 light       male   Human   &lt;chr [1]&gt;\n10 fair        male   Human   &lt;chr [5]&gt;\n# ℹ 77 more rows"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#lets-practice-using-select",
+    "href": "presentations/Day_1_wrangling_presentation.html#lets-practice-using-select",
+    "title": "Day 1 - Data Wrangling",
+    "section": "1.4 Lets practice using select()",
+    "text": "1.4 Lets practice using select()"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#filter-1",
+    "href": "presentations/Day_1_wrangling_presentation.html#filter-1",
+    "title": "Day 1 - Data Wrangling",
+    "section": "2.1 filter()",
+    "text": "2.1 filter()\nFunction:\nOnly keep specific rows of data that meet the specified requirement(s).\n\nExample\nIn the starwars dataset, only Keep the rows where height is above 150:\n\n\n\nstarwars %&gt;% \n  filter(height&gt;150)\n\n# A tibble: 69 × 14\n   name     height  mass hair_color skin_color eye_color birth_year sex   gender\n   &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; \n 1 Luke Sk…    172    77 blond      fair       blue            19   male  mascu…\n 2 C-3PO       167    75 &lt;NA&gt;       gold       yellow         112   none  mascu…\n 3 Darth V…    202   136 none       white      yellow          41.9 male  mascu…\n 4 Owen La…    178   120 brown, gr… light      blue            52   male  mascu…\n 5 Beru Wh…    165    75 brown      light      blue            47   fema… femin…\n 6 Biggs D…    183    84 black      light      brown           24   male  mascu…\n 7 Obi-Wan…    182    77 auburn, w… fair       blue-gray       57   male  mascu…\n 8 Anakin …    188    84 blond      fair       blue            41.9 male  mascu…\n 9 Wilhuff…    180    NA auburn, g… fair       blue            64   male  mascu…\n10 Chewbac…    228   112 brown      unknown    blue           200   male  mascu…\n# ℹ 59 more rows\n# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,\n#   vehicles &lt;list&gt;, starships &lt;list&gt;"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#filter-2",
+    "href": "presentations/Day_1_wrangling_presentation.html#filter-2",
+    "title": "Day 1 - Data Wrangling",
+    "section": "2.2 filter()",
+    "text": "2.2 filter()\nWorks with the logical operators:\n\n\n\n\n\n\n\nOperator\nAction\n\n\n\n\n!\nNOT\n\n\n==\nEQUAL TO\n\n\n!=\nNOT EQUAL TO\n\n\n|\nOR\n\n\n&gt;\nGREATER THAN\n\n\n&gt;=\nGREATER THAN OR EQUAL TO\n\n\n&lt;\nLESS THAN\n\n\n&lt;=\nLESS THAN OR EQUAL TO\n\n\n&\nAND\n\n\n\n\n\nActually, most functions that output either TRUE or FALSE e.g., is.NA() will work within filter()\nFurther reading"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#filter-3",
+    "href": "presentations/Day_1_wrangling_presentation.html#filter-3",
+    "title": "Day 1 - Data Wrangling",
+    "section": "2.3 filter()",
+    "text": "2.3 filter()\nKeep all rows where gender is masculine:\nnotice == not =\nnotice “masculine” not masculine\n\nstarwars %&gt;% filter(gender == \"masculine\")\n\n\nKeep all rows where hair_color is missing (NA value)\n\nstarwars %&gt;% filter(is.na(hair_color))\n\n\nKeep all rows where hair_color is “blond” AND eye_color is “blue”\n\nstarwars %&gt;% filter(hair_color == \"blond\" &  eye_color == \"blue\")\nstarwars %&gt;% filter(hair_color == \"blond\" ,  eye_color == \"blue\") \n\n\nKeep all rows where hair_color is “blond” OR eye_color is “blue”\n\nstarwars %&gt;% filter(hair_color == \"blond\" |  eye_color == \"blue\")\n\n\nKeep all rows where hair_color is either “blond” OR “white”\n\nstarwars %&gt;% filter(hair_color %in% c(\"blond\", \"white\"))"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#lets-practice-using-the-filter-function",
+    "href": "presentations/Day_1_wrangling_presentation.html#lets-practice-using-the-filter-function",
+    "title": "Day 1 - Data Wrangling",
+    "section": "2.4 Lets Practice using the filter() function",
+    "text": "2.4 Lets Practice using the filter() function"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#summarise-1",
+    "href": "presentations/Day_1_wrangling_presentation.html#summarise-1",
+    "title": "Day 1 - Data Wrangling",
+    "section": "3.1 summarise()",
+    "text": "3.1 summarise()\nFunction:\nCollapses all rows and returns a one-row summary.\n\nExample\n\nIn the diamonds dataset, calculate the mean price\n\ndiamonds %&gt;% \n  summarise(\n    avg_price = mean(price))\n\n# A tibble: 1 × 1\n  avg_price\n      &lt;dbl&gt;\n1     3933."
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#summarise-2",
+    "href": "presentations/Day_1_wrangling_presentation.html#summarise-2",
+    "title": "Day 1 - Data Wrangling",
+    "section": "3.2 summarise()",
+    "text": "3.2 summarise()\nSome functions that often go inside summarise()\n\nmean()\nsd\nn()\nmedian()\nquantile()\nsum()\nmax()\nmin()\nIQR()"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#summarise-3",
+    "href": "presentations/Day_1_wrangling_presentation.html#summarise-3",
+    "title": "Day 1 - Data Wrangling",
+    "section": "3.3 summarise",
+    "text": "3.3 summarise\nCalculate the mean and standard deviation of price\n\ndiamonds %&gt;% \n  summarise(\n    price_avg = mean(price),\n    price_sd = sd(price))\n\n\nCalculate the median and interquartile range of price\n\ndiamonds %&gt;% \n  summarise(\n    price_median = median(price),\n    price_iqr = IQR(price))\n\n\nCount the number of rows where cut is equal to “Ideal”\n\ndiamonds %&gt;%\n  summarise(\n    n_ideal = sum(cut == \"Ideal\"))\n\n\nWhat is the price of the most expensive diamond?\n\ndiamonds %&gt;% \n  summarise(\n    price_max = max(price))"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#lets-practice-using-the-summarise-function",
+    "href": "presentations/Day_1_wrangling_presentation.html#lets-practice-using-the-summarise-function",
+    "title": "Day 1 - Data Wrangling",
+    "section": "3.4 Lets Practice using the summarise() function",
+    "text": "3.4 Lets Practice using the summarise() function"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#group_by-1",
+    "href": "presentations/Day_1_wrangling_presentation.html#group_by-1",
+    "title": "Day 1 - Data Wrangling",
+    "section": "4.1 group_by()",
+    "text": "4.1 group_by()\nFunction:\nTakes existing data and groups specific variables together for future operations.\n\nExample\n\nGroup the diamonds dataset by cut\n\ndiamonds %&gt;% \n  group_by(cut)\n\n# A tibble: 53,940 × 10\n# Groups:   cut [5]\n   carat cut       color clarity depth table price     x     y     z\n   &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1  0.23 Ideal     E     SI2      61.5    55   326  3.95  3.98  2.43\n 2  0.21 Premium   E     SI1      59.8    61   326  3.89  3.84  2.31\n 3  0.23 Good      E     VS1      56.9    65   327  4.05  4.07  2.31\n 4  0.29 Premium   I     VS2      62.4    58   334  4.2   4.23  2.63\n 5  0.31 Good      J     SI2      63.3    58   335  4.34  4.35  2.75\n 6  0.24 Very Good J     VVS2     62.8    57   336  3.94  3.96  2.48\n 7  0.24 Very Good I     VVS1     62.3    57   336  3.95  3.98  2.47\n 8  0.26 Very Good H     SI1      61.9    55   337  4.07  4.11  2.53\n 9  0.22 Fair      E     VS2      65.1    61   337  3.87  3.78  2.49\n10  0.23 Very Good H     VS1      59.4    61   338  4     4.05  2.39\n# ℹ 53,930 more rows"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#group_by-2",
+    "href": "presentations/Day_1_wrangling_presentation.html#group_by-2",
+    "title": "Day 1 - Data Wrangling",
+    "section": "4.2 group_by()",
+    "text": "4.2 group_by()\nFunction:\nTakes existing data and groups specific variables together for future operations.\n\nExample\n\nGroup the diamonds dataset by cut, then caluclate the mean price\n\ndiamonds %&gt;% \n  group_by(cut) %&gt;% \n  summarise(avg_price = mean(price))\n\n# A tibble: 5 × 2\n  cut       avg_price\n  &lt;ord&gt;         &lt;dbl&gt;\n1 Fair          4359.\n2 Good          3929.\n3 Very Good     3982.\n4 Premium       4584.\n5 Ideal         3458."
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#group_by-3",
+    "href": "presentations/Day_1_wrangling_presentation.html#group_by-3",
+    "title": "Day 1 - Data Wrangling",
+    "section": "4.3 group_by()",
+    "text": "4.3 group_by()\nYou can group by multiple columns\n\nExample\n\nGroup the diamonds dataset by cut and clarity, then caluclate the mean and sd of price\n\ndiamonds %&gt;% \n  group_by(cut, color) %&gt;% \n  summarise(avg_price = mean(price),\n            sd_price = sd(price))\n\n`summarise()` has grouped output by 'cut'. You can override using the `.groups`\nargument.\n\n\n# A tibble: 35 × 4\n# Groups:   cut [5]\n   cut   color avg_price sd_price\n   &lt;ord&gt; &lt;ord&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n 1 Fair  D         4291.    3286.\n 2 Fair  E         3682.    2977.\n 3 Fair  F         3827.    3223.\n 4 Fair  G         4239.    3610.\n 5 Fair  H         5136.    3886.\n 6 Fair  I         4685.    3730.\n 7 Fair  J         4976.    4050.\n 8 Good  D         3405.    3175.\n 9 Good  E         3424.    3331.\n10 Good  F         3496.    3202.\n# ℹ 25 more rows"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#group_by-and-ungroup",
+    "href": "presentations/Day_1_wrangling_presentation.html#group_by-and-ungroup",
+    "title": "Day 1 - Data Wrangling",
+    "section": "4.4 group_by() and ungroup",
+    "text": "4.4 group_by() and ungroup\nYou can undo a group_by() with ungroup()\n\ndiamonds %&gt;% \n  group_by(cut) %&gt;% \n  ungroup()\n\n# A tibble: 53,940 × 10\n   carat cut       color clarity depth table price     x     y     z\n   &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1  0.23 Ideal     E     SI2      61.5    55   326  3.95  3.98  2.43\n 2  0.21 Premium   E     SI1      59.8    61   326  3.89  3.84  2.31\n 3  0.23 Good      E     VS1      56.9    65   327  4.05  4.07  2.31\n 4  0.29 Premium   I     VS2      62.4    58   334  4.2   4.23  2.63\n 5  0.31 Good      J     SI2      63.3    58   335  4.34  4.35  2.75\n 6  0.24 Very Good J     VVS2     62.8    57   336  3.94  3.96  2.48\n 7  0.24 Very Good I     VVS1     62.3    57   336  3.95  3.98  2.47\n 8  0.26 Very Good H     SI1      61.9    55   337  4.07  4.11  2.53\n 9  0.22 Fair      E     VS2      65.1    61   337  3.87  3.78  2.49\n10  0.23 Very Good H     VS1      59.4    61   338  4     4.05  2.39\n# ℹ 53,930 more rows"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#arrange",
+    "href": "presentations/Day_1_wrangling_presentation.html#arrange",
+    "title": "Day 1 - Data Wrangling",
+    "section": "4.5 arrange()",
+    "text": "4.5 arrange()\nFunction:\nArranges (sorts) your tibble based on the values within a variable.\n\nExample\n\nArrange the diamonds dataset by cut\n\ndiamonds %&gt;% \n  arrange(cut)\n\n# A tibble: 53,940 × 10\n   carat cut   color clarity depth table price     x     y     z\n   &lt;dbl&gt; &lt;ord&gt; &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1  0.22 Fair  E     VS2      65.1    61   337  3.87  3.78  2.49\n 2  0.86 Fair  E     SI2      55.1    69  2757  6.45  6.33  3.52\n 3  0.96 Fair  F     SI2      66.3    62  2759  6.27  5.95  4.07\n 4  0.7  Fair  F     VS2      64.5    57  2762  5.57  5.53  3.58\n 5  0.7  Fair  F     VS2      65.3    55  2762  5.63  5.58  3.66\n 6  0.91 Fair  H     SI2      64.4    57  2763  6.11  6.09  3.93\n 7  0.91 Fair  H     SI2      65.7    60  2763  6.03  5.99  3.95\n 8  0.98 Fair  H     SI2      67.9    60  2777  6.05  5.97  4.08\n 9  0.84 Fair  G     SI1      55.1    67  2782  6.39  6.2   3.47\n10  1.01 Fair  E     I1       64.5    58  2788  6.29  6.21  4.03\n# ℹ 53,930 more rows"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#arrange-and-desc",
+    "href": "presentations/Day_1_wrangling_presentation.html#arrange-and-desc",
+    "title": "Day 1 - Data Wrangling",
+    "section": "4.6 arrange() and desc()",
+    "text": "4.6 arrange() and desc()\nFunction:\narrange() Arranges (sorts) your tibble based on the values within a variable.\ndesc() is put inside arrange() to make the order descending\n\nExample\nArrange the diamonds dataset by price\n\ndiamonds %&gt;% \n  arrange(price)\n\n# A tibble: 53,940 × 10\n   carat cut       color clarity depth table price     x     y     z\n   &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1  0.23 Ideal     E     SI2      61.5    55   326  3.95  3.98  2.43\n 2  0.21 Premium   E     SI1      59.8    61   326  3.89  3.84  2.31\n 3  0.23 Good      E     VS1      56.9    65   327  4.05  4.07  2.31\n 4  0.29 Premium   I     VS2      62.4    58   334  4.2   4.23  2.63\n 5  0.31 Good      J     SI2      63.3    58   335  4.34  4.35  2.75\n 6  0.24 Very Good J     VVS2     62.8    57   336  3.94  3.96  2.48\n 7  0.24 Very Good I     VVS1     62.3    57   336  3.95  3.98  2.47\n 8  0.26 Very Good H     SI1      61.9    55   337  4.07  4.11  2.53\n 9  0.22 Fair      E     VS2      65.1    61   337  3.87  3.78  2.49\n10  0.23 Very Good H     VS1      59.4    61   338  4     4.05  2.39\n# ℹ 53,930 more rows\n\n\n\nArrange the diamonds dataset in descending order by price\n\ndiamonds %&gt;% \n  arrange(desc(price))\n\n# A tibble: 53,940 × 10\n   carat cut       color clarity depth table price     x     y     z\n   &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1  2.29 Premium   I     VS2      60.8    60 18823  8.5   8.47  5.16\n 2  2    Very Good G     SI1      63.5    56 18818  7.9   7.97  5.04\n 3  1.51 Ideal     G     IF       61.7    55 18806  7.37  7.41  4.56\n 4  2.07 Ideal     G     SI2      62.5    55 18804  8.2   8.13  5.11\n 5  2    Very Good H     SI1      62.8    57 18803  7.95  8     5.01\n 6  2.29 Premium   I     SI1      61.8    59 18797  8.52  8.45  5.24\n 7  2.04 Premium   H     SI1      58.1    60 18795  8.37  8.28  4.84\n 8  2    Premium   I     VS1      60.8    59 18795  8.13  8.02  4.91\n 9  1.71 Premium   F     VS2      62.3    59 18791  7.57  7.53  4.7 \n10  2.15 Ideal     G     SI2      62.6    54 18791  8.29  8.35  5.21\n# ℹ 53,930 more rows"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#lets-practice-using-the-group_by-and-arrange-functions",
+    "href": "presentations/Day_1_wrangling_presentation.html#lets-practice-using-the-group_by-and-arrange-functions",
+    "title": "Day 1 - Data Wrangling",
+    "section": "4.7 Lets Practice using the group_by() and arrange() functions",
+    "text": "4.7 Lets Practice using the group_by() and arrange() functions"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#mutate-1",
+    "href": "presentations/Day_1_wrangling_presentation.html#mutate-1",
+    "title": "Day 1 - Data Wrangling",
+    "section": "5.1 mutate()",
+    "text": "5.1 mutate()\nFunction:\nAdds new columns or modifies current variables in the tibble.\n\n\nExample\nIn the diamonds dataset, create a new variable called tax equal to 25% of price\n\n\n\ndiamonds %&gt;% \n  mutate(\n    tax = price*0.25)\n\n# A tibble: 53,940 × 11\n   carat cut       color clarity depth table price     x     y     z   tax\n   &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1  0.23 Ideal     E     SI2      61.5    55   326  3.95  3.98  2.43  81.5\n 2  0.21 Premium   E     SI1      59.8    61   326  3.89  3.84  2.31  81.5\n 3  0.23 Good      E     VS1      56.9    65   327  4.05  4.07  2.31  81.8\n 4  0.29 Premium   I     VS2      62.4    58   334  4.2   4.23  2.63  83.5\n 5  0.31 Good      J     SI2      63.3    58   335  4.34  4.35  2.75  83.8\n 6  0.24 Very Good J     VVS2     62.8    57   336  3.94  3.96  2.48  84  \n 7  0.24 Very Good I     VVS1     62.3    57   336  3.95  3.98  2.47  84  \n 8  0.26 Very Good H     SI1      61.9    55   337  4.07  4.11  2.53  84.2\n 9  0.22 Fair      E     VS2      65.1    61   337  3.87  3.78  2.49  84.2\n10  0.23 Very Good H     VS1      59.4    61   338  4     4.05  2.39  84.5\n# ℹ 53,930 more rows"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#mutate-2",
+    "href": "presentations/Day_1_wrangling_presentation.html#mutate-2",
+    "title": "Day 1 - Data Wrangling",
+    "section": "5.2 mutate()",
+    "text": "5.2 mutate()\nFunction:\nAdds new columns or modifies current variables in the tibble.\n\n\nExample\nIn the diamonds dataset, create a new variable called tax equal to 25% of price\nPlace the new variable tax right after price\n\ndiamonds %&gt;% \n  mutate(\n    tax = price*0.25,\n    .after = price)\n\n# A tibble: 53,940 × 11\n   carat cut       color clarity depth table price   tax     x     y     z\n   &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1  0.23 Ideal     E     SI2      61.5    55   326  81.5  3.95  3.98  2.43\n 2  0.21 Premium   E     SI1      59.8    61   326  81.5  3.89  3.84  2.31\n 3  0.23 Good      E     VS1      56.9    65   327  81.8  4.05  4.07  2.31\n 4  0.29 Premium   I     VS2      62.4    58   334  83.5  4.2   4.23  2.63\n 5  0.31 Good      J     SI2      63.3    58   335  83.8  4.34  4.35  2.75\n 6  0.24 Very Good J     VVS2     62.8    57   336  84    3.94  3.96  2.48\n 7  0.24 Very Good I     VVS1     62.3    57   336  84    3.95  3.98  2.47\n 8  0.26 Very Good H     SI1      61.9    55   337  84.2  4.07  4.11  2.53\n 9  0.22 Fair      E     VS2      65.1    61   337  84.2  3.87  3.78  2.49\n10  0.23 Very Good H     VS1      59.4    61   338  84.5  4     4.05  2.39\n# ℹ 53,930 more rows"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#mutate-3",
+    "href": "presentations/Day_1_wrangling_presentation.html#mutate-3",
+    "title": "Day 1 - Data Wrangling",
+    "section": "5.3 mutate()",
+    "text": "5.3 mutate()\nAdd a new colum called dummy with only TRUE values\n\ndiamonds %&gt;% \n  mutate(dummy = TRUE)\n\n\n\nAdd a new collum called cubic_volume that multiplies x, y, and z\n\ndiamonds %&gt;% \n  mutate(cubic_volume = x*y*z)\n\n\n\nAdd a new column that calculates the difference in price from the mean price\n\ndiamonds %&gt;% \n  mutate(price_dm = price-mean(price))"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#if_else-often-goes-inside-mutate",
+    "href": "presentations/Day_1_wrangling_presentation.html#if_else-often-goes-inside-mutate",
+    "title": "Day 1 - Data Wrangling",
+    "section": "5.4 if_else() often goes inside mutate()",
+    "text": "5.4 if_else() often goes inside mutate()\nFunction:\nif_else()contains 3 parts:  \n\nA test\nWhat to do if the test is TRUE\nWhat to do if the test is FALSE\n\n\n\nExample\n\n\n\ndiamonds %&gt;% \n  mutate(\n    buy = if_else(cut == \"Ideal\" & price &lt; mean(price), \"YES\", \"NO\"))\n\n# A tibble: 53,940 × 11\n   carat cut       color clarity depth table price     x     y     z buy  \n   &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;\n 1  0.23 Ideal     E     SI2      61.5    55   326  3.95  3.98  2.43 YES  \n 2  0.21 Premium   E     SI1      59.8    61   326  3.89  3.84  2.31 NO   \n 3  0.23 Good      E     VS1      56.9    65   327  4.05  4.07  2.31 NO   \n 4  0.29 Premium   I     VS2      62.4    58   334  4.2   4.23  2.63 NO   \n 5  0.31 Good      J     SI2      63.3    58   335  4.34  4.35  2.75 NO   \n 6  0.24 Very Good J     VVS2     62.8    57   336  3.94  3.96  2.48 NO   \n 7  0.24 Very Good I     VVS1     62.3    57   336  3.95  3.98  2.47 NO   \n 8  0.26 Very Good H     SI1      61.9    55   337  4.07  4.11  2.53 NO   \n 9  0.22 Fair      E     VS2      65.1    61   337  3.87  3.78  2.49 NO   \n10  0.23 Very Good H     VS1      59.4    61   338  4     4.05  2.39 NO   \n# ℹ 53,930 more rows"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#case_when-often-goes-inside-mutate",
+    "href": "presentations/Day_1_wrangling_presentation.html#case_when-often-goes-inside-mutate",
+    "title": "Day 1 - Data Wrangling",
+    "section": "5.5 case_when() often goes inside mutate()",
+    "text": "5.5 case_when() often goes inside mutate()\nFunction: \ncase_when() contains a series of tests instead of just one.\nThe output of a passed test is written after a ~\ncase_when ends with TRUE ~ (what to do if none of the tests are passed) \n\nExample\n\n\n\ndiamonds %&gt;% \n  mutate(\n    buy = case_when(\n      cut == \"Ideal\" & price &lt; mean(price) ~ \"YES\", \n      cut == \"Premium\" & price &lt; mean(price) ~ \"MAYBE\",\n      .default =\"NO\"))\n\n# A tibble: 53,940 × 11\n   carat cut       color clarity depth table price     x     y     z buy  \n   &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;\n 1  0.23 Ideal     E     SI2      61.5    55   326  3.95  3.98  2.43 YES  \n 2  0.21 Premium   E     SI1      59.8    61   326  3.89  3.84  2.31 MAYBE\n 3  0.23 Good      E     VS1      56.9    65   327  4.05  4.07  2.31 NO   \n 4  0.29 Premium   I     VS2      62.4    58   334  4.2   4.23  2.63 MAYBE\n 5  0.31 Good      J     SI2      63.3    58   335  4.34  4.35  2.75 NO   \n 6  0.24 Very Good J     VVS2     62.8    57   336  3.94  3.96  2.48 NO   \n 7  0.24 Very Good I     VVS1     62.3    57   336  3.95  3.98  2.47 NO   \n 8  0.26 Very Good H     SI1      61.9    55   337  4.07  4.11  2.53 NO   \n 9  0.22 Fair      E     VS2      65.1    61   337  3.87  3.78  2.49 NO   \n10  0.23 Very Good H     VS1      59.4    61   338  4     4.05  2.39 NO   \n# ℹ 53,930 more rows"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#lets-practice-using-the-mutate-function",
+    "href": "presentations/Day_1_wrangling_presentation.html#lets-practice-using-the-mutate-function",
+    "title": "Day 1 - Data Wrangling",
+    "section": "5.6 Lets Practice using the mutate() function",
+    "text": "5.6 Lets Practice using the mutate() function\nand if_else() and case_when()"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#count-1",
+    "href": "presentations/Day_1_wrangling_presentation.html#count-1",
+    "title": "Day 1 - Data Wrangling",
+    "section": "6.1 count()",
+    "text": "6.1 count()\ncount() is very useful for fast counting and to get an overview of the number of observations within a (grouped) dataset\n\ndiamonds %&gt;% \n  count()\n\n# A tibble: 1 × 1\n      n\n  &lt;int&gt;\n1 53940\n\n\n\n\n\ndiamonds %&gt;% \n  count(cut)\n\n# A tibble: 5 × 2\n  cut           n\n  &lt;ord&gt;     &lt;int&gt;\n1 Fair       1610\n2 Good       4906\n3 Very Good 12082\n4 Premium   13791\n5 Ideal     21551\n\n\n\n\n\ndiamonds %&gt;% \n  count(cut, color)\n\n# A tibble: 35 × 3\n   cut   color     n\n   &lt;ord&gt; &lt;ord&gt; &lt;int&gt;\n 1 Fair  D       163\n 2 Fair  E       224\n 3 Fair  F       312\n 4 Fair  G       314\n 5 Fair  H       303\n 6 Fair  I       175\n 7 Fair  J       119\n 8 Good  D       662\n 9 Good  E       933\n10 Good  F       909\n# ℹ 25 more rows"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#join",
+    "href": "presentations/Day_1_wrangling_presentation.html#join",
+    "title": "Day 1 - Data Wrangling",
+    "section": "8.1 []_join",
+    "text": "8.1 []_join\nIt’s rare that a data analysis involves only a single table of data. In practice, you’ll normally have many tables that contribute to an analysis, and you need flexible tools to combine them.\n\ninner_join()\nsemi_join()\nleft_join()\nanti_join()\nfull_join()"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#join---example-data",
+    "href": "presentations/Day_1_wrangling_presentation.html#join---example-data",
+    "title": "Day 1 - Data Wrangling",
+    "section": "8.2 []_join - Example data",
+    "text": "8.2 []_join - Example data\n\nsuperheroes &lt;- tibble::tribble(\n       ~name, ~alignment,  ~gender,          ~publisher,\n   \"Magneto\",      \"bad\",   \"male\",            \"Marvel\",\n     \"Storm\",     \"good\", \"female\",            \"Marvel\",\n  \"Mystique\",      \"bad\", \"female\",            \"Marvel\",\n    \"Batman\",     \"good\",   \"male\",                \"DC\",\n     \"Joker\",      \"bad\",   \"male\",                \"DC\",\n  \"Catwoman\",      \"bad\", \"female\",                \"DC\",\n   \"Hellboy\",     \"good\",   \"male\", \"Dark Horse Comics\"\n  )\n\npublishers &lt;- tibble::tribble(\n  ~publisher, ~yr_founded,\n        \"DC\",       1934L,\n    \"Marvel\",       1939L,\n     \"Image\",       1992L\n  )\n\n\n\n\nsuperheroes\n\n\n\n\n\n\n\n  \n    \n    \n      name\n      alignment\n      gender\n      publisher\n    \n  \n  \n    Magneto\nbad\nmale\nMarvel\n    Storm\ngood\nfemale\nMarvel\n    Mystique\nbad\nfemale\nMarvel\n    Batman\ngood\nmale\nDC\n    Joker\nbad\nmale\nDC\n    Catwoman\nbad\nfemale\nDC\n    Hellboy\ngood\nmale\nDark Horse Comics\n  \n  \n  \n\n\n\n\n\n\n\n\npublishers\n\n\n\n\n\n\n\n  \n    \n    \n      publisher\n      yr_founded\n    \n  \n  \n    DC\n1934\n    Marvel\n1939\n    Image\n1992\n  \n  \n  \n\n\n\n\n\n\n\nTake a good look at the two dataframes\n\nWhat columns match between the two dataframes?\nAre the values in the publisher column identical in the two dataframes?\nAre the values in the publisher column arranged (sorted) in the same way in the two dataframes?\nWhat kind of information are we missing on the Dark Horse Comics and Image publishers?"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#inner_join",
+    "href": "presentations/Day_1_wrangling_presentation.html#inner_join",
+    "title": "Day 1 - Data Wrangling",
+    "section": "8.3 inner_join()",
+    "text": "8.3 inner_join()\ninner_join(x, y) returns all rows from x where there are matching values in y, and all columns from x and y.\n\n\n\n\n\ninner_join(superheroes, publishers)\n\n\n\nJoining with `by = join_by(publisher)`\n\n\n\n\n\n\n  \n    \n    \n      name\n      alignment\n      gender\n      publisher\n      yr_founded\n    \n  \n  \n    Magneto\nbad\nmale\nMarvel\n1939\n    Storm\ngood\nfemale\nMarvel\n1939\n    Mystique\nbad\nfemale\nMarvel\n1939\n    Batman\ngood\nmale\nDC\n1934\n    Joker\nbad\nmale\nDC\n1934\n    Catwoman\nbad\nfemale\nDC\n1934\n  \n  \n  \n\n\n\n\n\n\n\n\ninner_join(publishers, superheroes)\n\n\n\nJoining with `by = join_by(publisher)`\n\n\n\n\n\n\n  \n    \n    \n      publisher\n      yr_founded\n      name\n      alignment\n      gender\n    \n  \n  \n    DC\n1934\nBatman\ngood\nmale\n    DC\n1934\nJoker\nbad\nmale\n    DC\n1934\nCatwoman\nbad\nfemale\n    Marvel\n1939\nMagneto\nbad\nmale\n    Marvel\n1939\nStorm\ngood\nfemale\n    Marvel\n1939\nMystique\nbad\nfemale\n  \n  \n  \n\n\n\n\n\n\n\nResults are identical. Only variable order is different.\nWhat information was filtered away?"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#semi_join",
+    "href": "presentations/Day_1_wrangling_presentation.html#semi_join",
+    "title": "Day 1 - Data Wrangling",
+    "section": "8.4 semi_join()",
+    "text": "8.4 semi_join()\nsemi_join(x, y) returns all rows from x where there are matching values in y, keeping just columns from x.\n\n\n\n\n\nsemi_join(superheroes, publishers)\n\n\n\nJoining with `by = join_by(publisher)`\n\n\n\n\n\n\n  \n    \n    \n      name\n      alignment\n      gender\n      publisher\n    \n  \n  \n    Magneto\nbad\nmale\nMarvel\n    Storm\ngood\nfemale\nMarvel\n    Mystique\nbad\nfemale\nMarvel\n    Batman\ngood\nmale\nDC\n    Joker\nbad\nmale\nDC\n    Catwoman\nbad\nfemale\nDC\n  \n  \n  \n\n\n\n\n\n\n\n\nsemi_join(publishers, superheroes)\n\n\n\nJoining with `by = join_by(publisher)`\n\n\n\n\n\n\n  \n    \n    \n      publisher\n      yr_founded\n    \n  \n  \n    DC\n1934\n    Marvel\n1939"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#left_join",
+    "href": "presentations/Day_1_wrangling_presentation.html#left_join",
+    "title": "Day 1 - Data Wrangling",
+    "section": "8.5 left_join()",
+    "text": "8.5 left_join()\nleft_join(x, y) returns all rows from x, and all columns from x and y.\n\n\n\n\n\nleft_join(superheroes, publishers)\n\n\n\nJoining with `by = join_by(publisher)`\n\n\n\n\n\n\n  \n    \n    \n      name\n      alignment\n      gender\n      publisher\n      yr_founded\n    \n  \n  \n    Magneto\nbad\nmale\nMarvel\n1939\n    Storm\ngood\nfemale\nMarvel\n1939\n    Mystique\nbad\nfemale\nMarvel\n1939\n    Batman\ngood\nmale\nDC\n1934\n    Joker\nbad\nmale\nDC\n1934\n    Catwoman\nbad\nfemale\nDC\n1934\n    Hellboy\ngood\nmale\nDark Horse Comics\nNA\n  \n  \n  \n\n\n\n\n\n\n\n\nleft_join(publishers, superheroes)\n\n\n\nJoining with `by = join_by(publisher)`\n\n\n\n\n\n\n  \n    \n    \n      publisher\n      yr_founded\n      name\n      alignment\n      gender\n    \n  \n  \n    DC\n1934\nBatman\ngood\nmale\n    DC\n1934\nJoker\nbad\nmale\n    DC\n1934\nCatwoman\nbad\nfemale\n    Marvel\n1939\nMagneto\nbad\nmale\n    Marvel\n1939\nStorm\ngood\nfemale\n    Marvel\n1939\nMystique\nbad\nfemale\n    Image\n1992\nNA\nNA\nNA"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#anti_join",
+    "href": "presentations/Day_1_wrangling_presentation.html#anti_join",
+    "title": "Day 1 - Data Wrangling",
+    "section": "8.6 anti_join()",
+    "text": "8.6 anti_join()\nanti_join(x, y) returns all rows from x where there are not matching values in y. Keeping only columns in x.\n\n\n\n\n\nanti_join(superheroes, publishers)\n\n\n\nJoining with `by = join_by(publisher)`\n\n\n\n\n\n\n  \n    \n    \n      name\n      alignment\n      gender\n      publisher\n    \n  \n  \n    Hellboy\ngood\nmale\nDark Horse Comics\n  \n  \n  \n\n\n\n\n\n\n\n\nanti_join(publishers, superheroes)\n\n\n\nJoining with `by = join_by(publisher)`\n\n\n\n\n\n\n  \n    \n    \n      publisher\n      yr_founded\n    \n  \n  \n    Image\n1992"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#full_join",
+    "href": "presentations/Day_1_wrangling_presentation.html#full_join",
+    "title": "Day 1 - Data Wrangling",
+    "section": "8.7 full_join()",
+    "text": "8.7 full_join()\nfull_join(x, y) Return all rows and all columns from both x and y. Where there are not matching values, returns NA for the one missing.\n\n\n\nfull_join(superheroes, publishers)\n\n\n\nJoining with `by = join_by(publisher)`\n\n\n\n\n\n\n  \n    \n    \n      name\n      alignment\n      gender\n      publisher\n      yr_founded\n    \n  \n  \n    Magneto\nbad\nmale\nMarvel\n1939\n    Storm\ngood\nfemale\nMarvel\n1939\n    Mystique\nbad\nfemale\nMarvel\n1939\n    Batman\ngood\nmale\nDC\n1934\n    Joker\nbad\nmale\nDC\n1934\n    Catwoman\nbad\nfemale\nDC\n1934\n    Hellboy\ngood\nmale\nDark Horse Comics\nNA\n    NA\nNA\nNA\nImage\n1992\n  \n  \n  \n\n\n\n\n\n\n\n\nfull_join(publishers, superheroes)\n\n\n\nJoining with `by = join_by(publisher)`\n\n\n\n\n\n\n  \n    \n    \n      publisher\n      yr_founded\n      name\n      alignment\n      gender\n    \n  \n  \n    DC\n1934\nBatman\ngood\nmale\n    DC\n1934\nJoker\nbad\nmale\n    DC\n1934\nCatwoman\nbad\nfemale\n    Marvel\n1939\nMagneto\nbad\nmale\n    Marvel\n1939\nStorm\ngood\nfemale\n    Marvel\n1939\nMystique\nbad\nfemale\n    Image\n1992\nNA\nNA\nNA\n    Dark Horse Comics\nNA\nHellboy\ngood\nmale"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#lets-practice-joins",
+    "href": "presentations/Day_1_wrangling_presentation.html#lets-practice-joins",
+    "title": "Day 1 - Data Wrangling",
+    "section": "8.8 lets practice joins",
+    "text": "8.8 lets practice joins"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#pivot_",
+    "href": "presentations/Day_1_wrangling_presentation.html#pivot_",
+    "title": "Day 1 - Data Wrangling",
+    "section": "9.1 pivot_",
+    "text": "9.1 pivot_\n\n\n\npivot_longer() makes datasets longer by increasing the number of rows and decreasing the number of columns.\npivot_wider() makes datasets wider by decreasing the number of rows and increasing the number of columns."
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#pivot_longer",
+    "href": "presentations/Day_1_wrangling_presentation.html#pivot_longer",
+    "title": "Day 1 - Data Wrangling",
+    "section": "9.2 pivot_longer()",
+    "text": "9.2 pivot_longer()\nThe relig_income dataset\n\n\nInformation on religion and annual income:\n\ncell values are counts\n\n\n\nhead(relig_income)\n\n# A tibble: 6 × 11\n  religion  `&lt;$10k` `$10-20k` `$20-30k` `$30-40k` `$40-50k` `$50-75k` `$75-100k`\n  &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n1 Agnostic       27        34        60        81        76       137        122\n2 Atheist        12        27        37        52        35        70         73\n3 Buddhist       27        21        30        34        33        58         62\n4 Catholic      418       617       732       670       638      1116        949\n5 Don’t kn…      15        14        15        11        10        35         21\n6 Evangeli…     575       869      1064       982       881      1486        949\n# ℹ 3 more variables: `$100-150k` &lt;dbl&gt;, `&gt;150k` &lt;dbl&gt;,\n#   `Don't know/refused` &lt;dbl&gt;"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#pivot_longer-1",
+    "href": "presentations/Day_1_wrangling_presentation.html#pivot_longer-1",
+    "title": "Day 1 - Data Wrangling",
+    "section": "9.3 pivot_longer()",
+    "text": "9.3 pivot_longer()\n\nrelig_income %&gt;% \n  pivot_longer(cols = -religion)\n\n# A tibble: 180 × 3\n   religion name               value\n   &lt;chr&gt;    &lt;chr&gt;              &lt;dbl&gt;\n 1 Agnostic &lt;$10k                 27\n 2 Agnostic $10-20k               34\n 3 Agnostic $20-30k               60\n 4 Agnostic $30-40k               81\n 5 Agnostic $40-50k               76\n 6 Agnostic $50-75k              137\n 7 Agnostic $75-100k             122\n 8 Agnostic $100-150k            109\n 9 Agnostic &gt;150k                 84\n10 Agnostic Don't know/refused    96\n# ℹ 170 more rows\n\n\n\nrelig_income %&gt;% \n  pivot_longer(cols = -religion,\n               names_to = \"income\",\n               values_to = \"count\")\n\n# A tibble: 180 × 3\n   religion income             count\n   &lt;chr&gt;    &lt;chr&gt;              &lt;dbl&gt;\n 1 Agnostic &lt;$10k                 27\n 2 Agnostic $10-20k               34\n 3 Agnostic $20-30k               60\n 4 Agnostic $30-40k               81\n 5 Agnostic $40-50k               76\n 6 Agnostic $50-75k              137\n 7 Agnostic $75-100k             122\n 8 Agnostic $100-150k            109\n 9 Agnostic &gt;150k                 84\n10 Agnostic Don't know/refused    96\n# ℹ 170 more rows"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#pivot_wider",
+    "href": "presentations/Day_1_wrangling_presentation.html#pivot_wider",
+    "title": "Day 1 - Data Wrangling",
+    "section": "9.4 pivot_wider()",
+    "text": "9.4 pivot_wider()\nIs less often used, but often comes in handy when tidying data\n\nmocap_data &lt;- tibble(\n  id = 1:10,\n  hip_x = seq(1:10),\n  hip_y = rep(2, 10),\n  hip_z = rep(1, 10),\n  knee_x = seq(1:10),\n  knee_y = rep(1, 10),\n  knee_z = rep(1, 10),\n  ankle_x = seq(1:10),\n  ankle_y = rep(0, 10),\n  ankle_z = rep(1, 10))\n\n\nmocap_data\n\n# A tibble: 10 × 10\n      id hip_x hip_y hip_z knee_x knee_y knee_z ankle_x ankle_y ankle_z\n   &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;int&gt;   &lt;dbl&gt;   &lt;dbl&gt;\n 1     1     1     2     1      1      1      1       1       0       1\n 2     2     2     2     1      2      1      1       2       0       1\n 3     3     3     2     1      3      1      1       3       0       1\n 4     4     4     2     1      4      1      1       4       0       1\n 5     5     5     2     1      5      1      1       5       0       1\n 6     6     6     2     1      6      1      1       6       0       1\n 7     7     7     2     1      7      1      1       7       0       1\n 8     8     8     2     1      8      1      1       8       0       1\n 9     9     9     2     1      9      1      1       9       0       1\n10    10    10     2     1     10      1      1      10       0       1\n\n\n\n*notice: The column names contain two pieces of information ({joint}_{coordinate})*"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#pivot_wider-1",
+    "href": "presentations/Day_1_wrangling_presentation.html#pivot_wider-1",
+    "title": "Day 1 - Data Wrangling",
+    "section": "9.5 pivot_wider()",
+    "text": "9.5 pivot_wider()\nWe want to go from this:\n\n\n# A tibble: 3 × 10\n     id hip_x hip_y hip_z knee_x knee_y knee_z ankle_x ankle_y ankle_z\n  &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;int&gt;   &lt;dbl&gt;   &lt;dbl&gt;\n1     1     1     2     1      1      1      1       1       0       1\n2     2     2     2     1      2      1      1       2       0       1\n3     3     3     2     1      3      1      1       3       0       1\n\n\n\n\nTo this:\n\n\n# A tibble: 30 × 5\n      id Joint     x     y     z\n   &lt;int&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1     1 hip       1     2     1\n 2     1 knee      1     1     1\n 3     1 ankle     1     0     1\n 4     2 hip       2     2     1\n 5     2 knee      2     1     1\n 6     2 ankle     2     0     1\n 7     3 hip       3     2     1\n 8     3 knee      3     1     1\n 9     3 ankle     3     0     1\n10     4 hip       4     2     1\n# ℹ 20 more rows"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#pivot_wider-2",
+    "href": "presentations/Day_1_wrangling_presentation.html#pivot_wider-2",
+    "title": "Day 1 - Data Wrangling",
+    "section": "9.6 pivot_wider()",
+    "text": "9.6 pivot_wider()\n\nWe start with pivot_longer(), but it pulls to much together\n\nmocap_data %&gt;% \n  pivot_longer(cols = -id) \n\n# A tibble: 90 × 3\n      id name    value\n   &lt;int&gt; &lt;chr&gt;   &lt;dbl&gt;\n 1     1 hip_x       1\n 2     1 hip_y       2\n 3     1 hip_z       1\n 4     1 knee_x      1\n 5     1 knee_y      1\n 6     1 knee_z      1\n 7     1 ankle_x     1\n 8     1 ankle_y     0\n 9     1 ankle_z     1\n10     2 hip_x       2\n# ℹ 80 more rows"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#pivot_wider-3",
+    "href": "presentations/Day_1_wrangling_presentation.html#pivot_wider-3",
+    "title": "Day 1 - Data Wrangling",
+    "section": "9.7 pivot_wider()",
+    "text": "9.7 pivot_wider()\n\nWe then use extract() to split the name column\n\nmocap_data %&gt;% \n  pivot_longer(cols = -id) %&gt;%  \n  extract(col = name,                  # What column to extract information from \n          into = c(\"Joint\", \"coord\"),  # What should the new columns be called\n          regex = \"(.+)_(.+)\")         # A regular expression\n\n# A tibble: 90 × 4\n      id Joint coord value\n   &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;\n 1     1 hip   x         1\n 2     1 hip   y         2\n 3     1 hip   z         1\n 4     1 knee  x         1\n 5     1 knee  y         1\n 6     1 knee  z         1\n 7     1 ankle x         1\n 8     1 ankle y         0\n 9     1 ankle z         1\n10     2 hip   x         2\n# ℹ 80 more rows"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#pivot_wider-4",
+    "href": "presentations/Day_1_wrangling_presentation.html#pivot_wider-4",
+    "title": "Day 1 - Data Wrangling",
+    "section": "9.8 pivot_wider()",
+    "text": "9.8 pivot_wider()\n\nFinally we use pivot_wider()\n\nmocap_data %&gt;% \n  pivot_longer(cols = -id) %&gt;%  # pulls to much together\n  extract(name, \n          into = c(\"Joint\", \"coord\"),\n          regex = \"(.+)_(.+)\") %&gt;% \n  pivot_wider(names_from = coord,\n              values_from = value)\n\n# A tibble: 30 × 5\n      id Joint     x     y     z\n   &lt;int&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1     1 hip       1     2     1\n 2     1 knee      1     1     1\n 3     1 ankle     1     0     1\n 4     2 hip       2     2     1\n 5     2 knee      2     1     1\n 6     2 ankle     2     0     1\n 7     3 hip       3     2     1\n 8     3 knee      3     1     1\n 9     3 ankle     3     0     1\n10     4 hip       4     2     1\n# ℹ 20 more rows"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#across-1",
+    "href": "presentations/Day_1_wrangling_presentation.html#across-1",
+    "title": "Day 1 - Data Wrangling",
+    "section": "10.1 across()",
+    "text": "10.1 across()\nacross is more advanced but very useful when you want to perform the same operations on multiple columns\nRead more about across here and here\n\ndiamonds %&gt;%  \n  group_by(cut) %&gt;%  \n  summarise(\n    across(.cols = where(is.numeric),      # All numeric columns will change\n           .fns = ~mean(.x, na.rm = T),    # .fns is the function you wnat to want to apply to the columns \n           .names = \"{.col}_mean\"          # How should the new columns be named?\n  ))\n\n# A tibble: 5 × 8\n  cut       carat_mean depth_mean table_mean price_mean x_mean y_mean z_mean\n  &lt;ord&gt;          &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;\n1 Fair           1.05        64.0       59.1      4359.   6.25   6.18   3.98\n2 Good           0.849       62.4       58.7      3929.   5.84   5.85   3.64\n3 Very Good      0.806       61.8       58.0      3982.   5.74   5.77   3.56\n4 Premium        0.892       61.3       58.7      4584.   5.97   5.94   3.65\n5 Ideal          0.703       61.7       56.0      3458.   5.51   5.52   3.40"
+  },
+  {
+    "objectID": "presentations/Day_1_wrangling_presentation.html#across-2",
+    "href": "presentations/Day_1_wrangling_presentation.html#across-2",
+    "title": "Day 1 - Data Wrangling",
+    "section": "10.2 across()",
+    "text": "10.2 across()\nacross is more advanced but very useful when you want to perform the same operations on multiple columns\nRead more about across here and here\n\ndiamonds %&gt;%  \n  group_by(cut) %&gt;%  \n  summarise(\n    across(.cols = where(is.numeric),                   # All numeric columns will change\n           .fns = list(mean = ~mean(.x, na.rm = T),     # If more than one function you supply them in a list and name the functions\n                       sd = ~sd(.x, na.rm = T)),\n           .names = \"{.col}_{.fn}\"\n             ))\n\n# A tibble: 5 × 15\n  cut     carat_mean carat_sd depth_mean depth_sd table_mean table_sd price_mean\n  &lt;ord&gt;        &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;\n1 Fair         1.05     0.516       64.0    3.64        59.1     3.95      4359.\n2 Good         0.849    0.454       62.4    2.17        58.7     2.85      3929.\n3 Very G…      0.806    0.459       61.8    1.38        58.0     2.12      3982.\n4 Premium      0.892    0.515       61.3    1.16        58.7     1.48      4584.\n5 Ideal        0.703    0.433       61.7    0.719       56.0     1.25      3458.\n# ℹ 7 more variables: price_sd &lt;dbl&gt;, x_mean &lt;dbl&gt;, x_sd &lt;dbl&gt;, y_mean &lt;dbl&gt;,\n#   y_sd &lt;dbl&gt;, z_mean &lt;dbl&gt;, z_sd &lt;dbl&gt;"
+  },
+  {
+    "objectID": "reproducible_research_basics_workflow_en.html",
+    "href": "reproducible_research_basics_workflow_en.html",
+    "title": "Workflow",
+    "section": "",
+    "text": "The entire process from raw data to output should be:\n\nscripted\nreproducible\nreversible.\n\n\n\n\n\n\n\nExercise #1\n\n\n\n\n\nLook at this code, and when you understand what it does, consider the following: Why add a line of code to filter away the user with id “2321369-1212” which will be repeated every time the script is run? Why not just delete that used from the csv file, once-and-for-all?\ndata &lt;- read.csv(\"my_data_file.csv\")\n# excluded as participant entered an invalid CPR number\ndata &lt;- data %&gt;% filter(id != \"2321369-1212\")\n\n\n\n\n\n\n\n\n\nExercise #1 Solution\n\n\n\n\n\nDeleting the observation in the raw data file would break reprodicibility by violating all three points above. The deletion would no be scripted, you would not be able to reproduce the process whereby you deleted the observation and importantly, it would be irreversible.\nAt some later point, when you have forgotten the details, you (or someone else) will re-visit the data, and find that you exported n=123 observations from the database to a csv file, but in your publication, n is reported as 122. No one knows what happened to the missing observation. No one remembers that it was deleted, or why?\nThose two simple lines in you R script means you can document what happened and why (the comment).\n\n\n\n\nThis is a goog place to read more about best practices for importing into R"
+  },
+  {
+    "objectID": "reproducible_research_basics_workflow_en.html#automation",
+    "href": "reproducible_research_basics_workflow_en.html#automation",
+    "title": "Workflow",
+    "section": "",
+    "text": "The entire process from raw data to output should be:\n\nscripted\nreproducible\nreversible.\n\n\n\n\n\n\n\nExercise #1\n\n\n\n\n\nLook at this code, and when you understand what it does, consider the following: Why add a line of code to filter away the user with id “2321369-1212” which will be repeated every time the script is run? Why not just delete that used from the csv file, once-and-for-all?\ndata &lt;- read.csv(\"my_data_file.csv\")\n# excluded as participant entered an invalid CPR number\ndata &lt;- data %&gt;% filter(id != \"2321369-1212\")\n\n\n\n\n\n\n\n\n\nExercise #1 Solution\n\n\n\n\n\nDeleting the observation in the raw data file would break reprodicibility by violating all three points above. The deletion would no be scripted, you would not be able to reproduce the process whereby you deleted the observation and importantly, it would be irreversible.\nAt some later point, when you have forgotten the details, you (or someone else) will re-visit the data, and find that you exported n=123 observations from the database to a csv file, but in your publication, n is reported as 122. No one knows what happened to the missing observation. No one remembers that it was deleted, or why?\nThose two simple lines in you R script means you can document what happened and why (the comment).\n\n\n\n\nThis is a goog place to read more about best practices for importing into R"
+  },
+  {
+    "objectID": "reproducible_research_basics_workflow_en.html#example-project",
+    "href": "reproducible_research_basics_workflow_en.html#example-project",
+    "title": "Workflow",
+    "section": "2.1 Example project",
+    "text": "2.1 Example project\n\nDownload this zip file which contains an R project\nUnzip the file in an appropriate folder\nCreate a new R-project in that existing folder"
+  },
+  {
+    "objectID": "reproducible_research_basics_workflow_en.html#examine-the-project-files",
+    "href": "reproducible_research_basics_workflow_en.html#examine-the-project-files",
+    "title": "Workflow",
+    "section": "2.2 Examine the project files",
+    "text": "2.2 Examine the project files\nFor now don’t change anything and don’t get bogged down in all the details of the code in each file … just get an overview, see if you can understand the code and how it ties together.\nThis exercise is best done in pairs.\n\nWhat is the project all about?\nWhat do the individual files do?\nHow are the files related to each other?"
+  },
+  {
+    "objectID": "reproducible_research_basics_workflow_en.html#overview-of-the-project",
+    "href": "reproducible_research_basics_workflow_en.html#overview-of-the-project",
+    "title": "Workflow",
+    "section": "2.3 Overview of the project",
+    "text": "2.3 Overview of the project\nLet’s try to:\n\nKnit a manuscript to html or work or pdf"
+  },
+  {
+    "objectID": "reproducible_research_basics_workflow_en.html#a-simple-problem",
+    "href": "reproducible_research_basics_workflow_en.html#a-simple-problem",
+    "title": "Workflow",
+    "section": "3.1 A simple problem",
+    "text": "3.1 A simple problem\n\nThe data for participant with ID=7 was corrupted (equipment failure)\n\nWhat to do?\nHow to do it?"
+  },
+  {
+    "objectID": "reproducible_research_basics_workflow_en.html#another-simple-problem",
+    "href": "reproducible_research_basics_workflow_en.html#another-simple-problem",
+    "title": "Workflow",
+    "section": "3.2 Another simple problem",
+    "text": "3.2 Another simple problem\nThe manuscript you are submitting to have some specific requirements:\n\nTables should be included in text close to first reference\nFigure should be included in a section ‘Figures’ (just before References) and a placeholder &lt;&lt;FIGURE X ABOUT HERE&gt;&gt; where it is referenced.\n\nHow would you change the code?"
+  },
+  {
+    "objectID": "reproducible_research_basics_workflow_en.html#bibtex-csl-zotero-and-friends",
+    "href": "reproducible_research_basics_workflow_en.html#bibtex-csl-zotero-and-friends",
+    "title": "Workflow",
+    "section": "4.1 BibTeX, csl, zotero and friends",
+    "text": "4.1 BibTeX, csl, zotero and friends"
+  },
+  {
+    "objectID": "reproducible_research_basics_workflow_en.html#bibtex",
+    "href": "reproducible_research_basics_workflow_en.html#bibtex",
+    "title": "Workflow",
+    "section": "4.2 BibTeX",
+    "text": "4.2 BibTeX\nA simple human readable text file format for references\n\nExport directly from PubMED and others\nExport from Zotero, EndNote(?) and others"
+  },
+  {
+    "objectID": "reproducible_research_basics_workflow_en.html#zotero",
+    "href": "reproducible_research_basics_workflow_en.html#zotero",
+    "title": "Workflow",
+    "section": "4.3 Zotero",
+    "text": "4.3 Zotero\nAn open source, free reference manager – well integrated with firefox.\nAllows for shared libraries.\nPlugin BetterBibTex for … well, better bibTeX.\nAlternatives: Mendeley (Elsevier), EndNote, RefManager, etc"
+  },
+  {
+    "objectID": "reproducible_research_basics_workflow_en.html#zotero-1",
+    "href": "reproducible_research_basics_workflow_en.html#zotero-1",
+    "title": "Workflow",
+    "section": "4.4 Zotero",
+    "text": "4.4 Zotero\n\n4.4.1 Let me demonstrate…\n\nhow to find a new reference\ninclude it in zoteros library\nautomatically update bibTeX file (per project)\ncite in Rmd file"
+  },
+  {
+    "objectID": "reproducible_research_basics_workflow_en.html#zotero-got-style",
+    "href": "reproducible_research_basics_workflow_en.html#zotero-got-style",
+    "title": "Workflow",
+    "section": "4.5 Zotero got style!",
+    "text": "4.5 Zotero got style!\nLoads of styles … 10.000+ … from APA to Ugeskrift for Læger\n…and you can write your own if need be.\nhttps://www.zotero.org/styles"
+  },
+  {
+    "objectID": "reproducible_research_basics_workflow_en.html#exercise",
+    "href": "reproducible_research_basics_workflow_en.html#exercise",
+    "title": "Workflow",
+    "section": "4.6 Exercise",
+    "text": "4.6 Exercise\n(without Zotero)\n\nYou have decided to include an extra citation in the main_v1.qmd file\n\nGo to scholar.google.com\nSearch for ‘What low back pain is and why we need to pay attention’\nGo to science direct and click ‘Cite’ to get bibtex\nCopy bibtex content to your reference file\nCopy the BibTeX identifier and insert it as a citation\nRe-render your document"
+  },
+  {
+    "objectID": "reproducible_research_basics_workflow_en.html#collaborating-with-other-researchers",
+    "href": "reproducible_research_basics_workflow_en.html#collaborating-with-other-researchers",
+    "title": "Workflow",
+    "section": "5.1 Collaborating with other researchers",
+    "text": "5.1 Collaborating with other researchers\nThree scenarios :\n\nYour collaborators do not use the R ecosystem (booh!)\nYour collaborators use the R ecosystem (woohoo!)\nYou and your collaborators are hardcore nerds (git!)"
+  },
+  {
+    "objectID": "reproducible_research_basics_workflow_en.html#collaborating-with-r-agnostic-colleagues",
+    "href": "reproducible_research_basics_workflow_en.html#collaborating-with-r-agnostic-colleagues",
+    "title": "Workflow",
+    "section": "5.2 Collaborating with R-agnostic colleagues",
+    "text": "5.2 Collaborating with R-agnostic colleagues\n\nKnit your R-markdown code into a Word or OpenDocument file … send it\nCollaborators can use Track changes in wordprocessor and … return it\nManually transfer changes back to Rmd … start over again\n\nBenefits\n\nSimple\nNo new tools to learn (?)\nAnyone can join in (?)\nSeparation of comments and revisions"
+  },
+  {
+    "objectID": "reproducible_research_basics_workflow_en.html#collaborating-with-r-agnostic-colleagues-1",
+    "href": "reproducible_research_basics_workflow_en.html#collaborating-with-r-agnostic-colleagues-1",
+    "title": "Workflow",
+    "section": "5.3 Collaborating with R-agnostic colleagues",
+    "text": "5.3 Collaborating with R-agnostic colleagues\n\nKnit your R-markdown code into a Word or OpenDocument file … send it\nCollaborators can use Track changes in wordprocessor and … return it\nManually transfer changes back to Rmd … start over again\n\nDrawbacks\n\nError prone\nRedundancy\nMessy versioning nightmare\nFocus shifts towards typesetting / presentation"
+  },
+  {
+    "objectID": "reproducible_research_basics_workflow_en.html#collaborating-with-r-users-the-simple-way",
+    "href": "reproducible_research_basics_workflow_en.html#collaborating-with-r-users-the-simple-way",
+    "title": "Workflow",
+    "section": "5.4 Collaborating with R users – the simple way",
+    "text": "5.4 Collaborating with R users – the simple way\n\nGet your Rmd files and … send it\nCollaborators edit the Rmd directly and … return it\nDiff the two version of the Rmd file and … merge them selectively"
+  },
+  {
+    "objectID": "reproducible_research_basics_workflow_en.html#diffing-two-or-more-text-files",
+    "href": "reproducible_research_basics_workflow_en.html#diffing-two-or-more-text-files",
+    "title": "Workflow",
+    "section": "5.5 Diff’ing two (or more) text files",
+    "text": "5.5 Diff’ing two (or more) text files\n\nMeld\nBeyond compare\nAraxis merge\nP4Merge\nDeltaWalker\n(RStudio)\n..and others\n\nThere are also several online version .. e.g. https://editor.mergely.com/\n…you probably should not upload sensitive information though."
+  },
+  {
+    "objectID": "reproducible_research_basics_workflow_en.html#collaborating-with-r-users-the-simple-way-1",
+    "href": "reproducible_research_basics_workflow_en.html#collaborating-with-r-users-the-simple-way-1",
+    "title": "Workflow",
+    "section": "5.6 Collaborating with R users – the simple way",
+    "text": "5.6 Collaborating with R users – the simple way\n\nGet your Rmd files and … send it\nCollaborators edit the Rmd directly and … return it\nDiff the two version of the Rmd file and … merge them selectively\n\nBenefits\n\nRelatively simple\nNew tools are easy learn\nAnyone can join in\nOnly one file type – no knitting\nFocus remains on content"
+  },
+  {
+    "objectID": "reproducible_research_basics_workflow_en.html#collaborating-with-r-users-the-simple-way-2",
+    "href": "reproducible_research_basics_workflow_en.html#collaborating-with-r-users-the-simple-way-2",
+    "title": "Workflow",
+    "section": "5.7 Collaborating with R users – the simple way",
+    "text": "5.7 Collaborating with R users – the simple way\n\nGet your Rmd files and … send it\nCollaborators edit the Rmd directly and … return it\nDiff the two version of the Rmd file and … merge them selectively\n\nDrawback\n\nStill some redundancy (Rmd file versions)\nMessy versioning nightmare\nComments and revisions are not clearly separated"
+  },
+  {
+    "objectID": "reproducible_research_basics_workflow_en.html#collaborating-with-tech-savvy-nerds",
+    "href": "reproducible_research_basics_workflow_en.html#collaborating-with-tech-savvy-nerds",
+    "title": "Workflow",
+    "section": "6.1 Collaborating with tech savvy nerds",
+    "text": "6.1 Collaborating with tech savvy nerds\n…enter GIT and renv"
+  },
+  {
+    "objectID": "reproducible_research_basics_workflow_en.html#r-package-renv",
+    "href": "reproducible_research_basics_workflow_en.html#r-package-renv",
+    "title": "Workflow",
+    "section": "6.2 R package renv",
+    "text": "6.2 R package renv\nNot very difficult at all.\n\n\nMaintains a library of R packages along with r code\nUpdates to R and packages does not break your project\nPermits you to come back in 5 years and re-execute your code\n\n\nhttps://rstudio.github.io/renv/articles/renv.html"
+  },
+  {
+    "objectID": "reproducible_research_basics_workflow_en.html#git",
+    "href": "reproducible_research_basics_workflow_en.html#git",
+    "title": "Workflow",
+    "section": "6.3 GIT",
+    "text": "6.3 GIT\nIt is a bit difficult.\n\n\nInstead of storing multiple versions of the same file …\n..it stores just the one file, and a (hidden) version-history\nChanges are handled by Diff’ing versions\n\n\n\n\nAll changes (process) are documented\nAll changes (process) are reversible\nProjects are forkable and mergable\n\n\n\n\nindispensable for LARGE projects\nGIT is a separate program, supported by RStudio."
+  },
+  {
+    "objectID": "reproducible_research_basics_workflow_en.html#summary-1",
+    "href": "reproducible_research_basics_workflow_en.html#summary-1",
+    "title": "Workflow",
+    "section": "7.1 Summary",
+    "text": "7.1 Summary\n\nComment your code\nComment your project\nMeaningful names\nStructured files/folders\nHuman readable files\nSCRIPTED AUTOMATION !!\nSplit the process into ‘chunks’ (data / analyses / output)\nSplit the code into files\nSplit the code-in-files into chunks"
+  },
+  {
+    "objectID": "reproducible_research_basics_workflow_en.html#later-in-your-r-journey",
+    "href": "reproducible_research_basics_workflow_en.html#later-in-your-r-journey",
+    "title": "Workflow",
+    "section": "7.2 Later in your R journey:",
+    "text": "7.2 Later in your R journey:\n\nAccessing databases directly (RedCAP, ao)\nCreating interactive websitesand documents\nMaking graphs come alive with animations\nLive data analyses dashboards\n..and much much more (it can even order pizza)"
+  },
+  {
+    "objectID": "reproducible_research_basics_workflow_en.html#getting-help",
+    "href": "reproducible_research_basics_workflow_en.html#getting-help",
+    "title": "Workflow",
+    "section": "7.3 Getting help",
+    "text": "7.3 Getting help\n\nGoogle\nStackoverflow\nStackoverflow – R4PHD"
   }
 ]

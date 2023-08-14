@@ -300,7 +300,7 @@ girafe(ggobj = my_plot)
 
 ::: {.callout-tip collapse=true}
 #### Hint line breaks
-"\n" Gives you a line break
+"\\n" Gives you a line break
 :::
 
 ```{r}
