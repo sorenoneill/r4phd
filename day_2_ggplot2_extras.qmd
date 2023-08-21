@@ -72,6 +72,7 @@ Make your plots interactive! With `ggiraph`, you can create hover-over effects, 
 #| output: true
 
 library(ggiraph)
+library(ggplot2)
 data <- mtcars
 data$carname <- row.names(data)
 
@@ -85,7 +86,7 @@ gg_point = ggplot(data = data) +
     x = "Weight (1000 lbs)",
     y = "1/4 mile time")
 
-girafe(ggobj = gg_point)
+girafe(ggobj = gg_point, options = list(opts_sizing(rescale = FALSE)))
 ```
 
 
