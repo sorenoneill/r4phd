@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Steen Flammild Harsted">
-<meta name="dcterms.date" content="2023-08-12">
+<meta name="dcterms.date" content="2023-08-20">
 
 <title>R4phd - ggplot2</title>
 <style>
@@ -93,7 +93,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -125,7 +126,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">English</li><li class="breadcrumb-item">R course exercises</li><li class="breadcrumb-item"><a href="./day_2_ggplot2_basics.html">Day 2</a></li><li class="breadcrumb-item"><a href="./day_2_ggplot2_basics.html">ggplot2</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -162,55 +163,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./installation_quick_preparation_en.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_installation/installation_quick_preparation_en.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Getting started</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./installation_prerequisites_en.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_installation/installation_prerequisites_en.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Prerequisites</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./installation_ecosystem_en.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_installation/installation_ecosystem_en.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">The R ecosystem</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./installation_background_en.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_installation/installation_background_en.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R versus RStudio</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./installation_r_en.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_installation/installation_r_en.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R installation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./installation_rstudio_en.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_installation/installation_rstudio_en.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">RStudio installation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./installation_r_packages_en.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_installation/installation_r_packages_en.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R package installation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./installation_cloud_en.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_installation/installation_cloud_en.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Posit Cloud</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./installation_check_en.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_installation/installation_check_en.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Check all is OK</span></a>
   </div>
 </li>
@@ -227,19 +228,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./rstudio_introduction_to_gui_1_en.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_gui/rstudio_introduction_to_gui_1_en.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">RStudios GUI #1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./rstudio_introduction_to_gui_2_en.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_gui/rstudio_introduction_to_gui_2_en.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">RStudios GUI #2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./rstudio_introduction_to_gui_console_en.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_gui/rstudio_introduction_to_gui_console_en.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">RStudios GUI – the console</span></a>
   </div>
 </li>
@@ -339,55 +340,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./reproducible_research_basics_exercises_en.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_rrr/reproducible_research_basics_exercises_en.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Thinking about RRR</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./reproducible_research_intro_en.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_rrr/reproducible_research_intro_en.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Intro to RRR</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./reproducible_research_basics_comments_how_en.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_rrr/reproducible_research_basics_comments_how_en.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Comments - how to</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./reproducible_research_basics_comments_where_en.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_rrr/reproducible_research_basics_comments_where_en.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Comments - where to</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./reproducible_research_basics_comments_what_en.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_rrr/reproducible_research_basics_comments_what_en.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Comments - what to</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./reproducible_research_basics_white_space_en.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_rrr/reproducible_research_basics_white_space_en.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">White space</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./reproducible_research_basics_readme_en.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_rrr/reproducible_research_basics_readme_en.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">README.md</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./reproducible_research_basics_naming_stuff_en.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_rrr/reproducible_research_basics_naming_stuff_en.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Naming stuff</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./reproducible_research_basics_file_structure_en.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_rrr/reproducible_research_basics_file_structure_en.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Files</span></a>
   </div>
 </li>
@@ -406,13 +407,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./base_r_data_types_en.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_base_r/base_r_data_types_en.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Base R - data types</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./base_r_missing_data_en.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_base_r/base_r_missing_data_en.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Base R - missing data</span></a>
   </div>
 </li>
@@ -422,13 +423,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false">
  <span class="menu-text">Dansk</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="false">
@@ -440,55 +441,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./installation_quick_preparation_da.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_installation/installation_quick_preparation_da.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Kom i gang</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./installation_prerequisites_da.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_installation/installation_prerequisites_da.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Forudsætninger</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./installation_ecosystem_da.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_installation/installation_ecosystem_da.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">The R ecosystem</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./installation_background_da.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_installation/installation_background_da.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R versus RStudio</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./installation_r_da.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_installation/installation_r_da.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R installation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./installation_rstudio_da.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_installation/installation_rstudio_da.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">RStudio installation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./installation_r_packages_da.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_installation/installation_r_packages_da.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Installation af pakker</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./installation_cloud_da.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_installation/installation_cloud_da.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Posit Cloud</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./installation_check_da.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_installation/installation_check_da.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tjek alt OK</span></a>
   </div>
 </li>
@@ -505,19 +506,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./rstudio_introduction_to_gui_1_da.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_gui/rstudio_introduction_to_gui_1_da.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">RStudios GUI #1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./rstudio_introduction_to_gui_2_en.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_gui/rstudio_introduction_to_gui_2_en.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">RStudios GUI #2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./rstudio_introduction_to_gui_console_da.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_gui/rstudio_introduction_to_gui_console_da.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">RStudios GUI – the console</span></a>
   </div>
 </li>
@@ -534,55 +535,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./reproducible_research_basics_exercises_da.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_rrr/reproducible_research_basics_exercises_da.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Thinking about RRR</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./reproducible_research_intro_da.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_rrr/reproducible_research_intro_da.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Intro to RRR</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./reproducible_research_basics_comments_how_da.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_rrr/reproducible_research_basics_comments_how_da.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Comments - how to</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./reproducible_research_basics_comments_where_da.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_rrr/reproducible_research_basics_comments_where_da.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Comments - where to</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./reproducible_research_basics_comments_what_da.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_rrr/reproducible_research_basics_comments_what_da.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Comments - what to</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./reproducible_research_basics_white_space_da.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_rrr/reproducible_research_basics_white_space_da.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">White space</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./reproducible_research_basics_readme_da.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_rrr/reproducible_research_basics_readme_da.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">README.md</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./reproducible_research_basics_naming_stuff_da.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_rrr/reproducible_research_basics_naming_stuff_da.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Naming stuff</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./reproducible_research_basics_file_structure_da.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_rrr/reproducible_research_basics_file_structure_da.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Files</span></a>
   </div>
 </li>
@@ -599,13 +600,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./base_r_data_types_da.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_base_r/base_r_data_types_da.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Base R - data types</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./base_r_missing_data_da.html" class="sidebar-item-text sidebar-link">
+  <a href="./qmd_base_r/base_r_missing_data_da.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Base R - missing data</span></a>
   </div>
 </li>
@@ -662,7 +663,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 12, 2023</p>
+      <p class="date">August 20, 2023</p>
     </div>
   </div>
   
@@ -683,7 +684,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <div class="cell">
 <details>
-<summary>Show me the code</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)  <span class="co"># Data wrangling and plots</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)       <span class="co"># File control in project</span></span>
@@ -720,7 +721,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Use one or more of: <code>?mpg</code>, <code>head()</code>, <code>glimpse()</code>, <code>summary()</code>, and/or <code>skim()</code></p>
 <div class="cell">
 <details>
-<summary>Show me the code</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>?mpg</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span>  <span class="fu">head</span>()</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span>  <span class="fu">glimpse</span>()</span>
@@ -746,7 +747,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <div class="cell">
 <details>
-<summary>Show me the code</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Examples</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Categorial</span></span>
@@ -780,7 +781,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="cell">
 <details>
-<summary>Show me the code</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># If you want all the points to be colored blute, then color = "blue" must be placed outside the aes() function.</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span> </span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy),</span>
@@ -799,7 +800,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Explore the relationship between <code>heightcm</code> and <code>weightkg</code> using <code>geom_point()</code></p>
 <div class="cell">
 <details>
-<summary>Show me the code</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>soldiers <span class="sc">%&gt;%</span> </span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> heightcm, <span class="at">y =</span> weightkg))<span class="sc">+</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -812,7 +813,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <div class="cell">
 <details>
-<summary>Show me the code</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>soldiers <span class="sc">%&gt;%</span> </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> heightcm, <span class="at">y =</span> weightkg, <span class="at">color =</span> BMI))<span class="sc">+</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -825,7 +826,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <div class="cell">
 <details>
-<summary>Show me the code</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>soldiers <span class="sc">%&gt;%</span> </span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> heightcm, <span class="at">y =</span> weightkg, <span class="at">color =</span> category))<span class="sc">+</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -836,7 +837,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Explore the relationship between <code>heightcm</code> and <code>weightkg</code> using <code>geom_point()</code> and <code>geom_smooth()</code></p>
 <div class="cell">
 <details>
-<summary>Show me the code</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>soldiers <span class="sc">%&gt;%</span> </span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> heightcm, <span class="at">y =</span> weightkg))<span class="sc">+</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
@@ -850,7 +851,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <div class="cell">
 <details>
-<summary>Show me the code</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>soldiers <span class="sc">%&gt;%</span> </span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> heightcm, <span class="at">y =</span> weightkg, <span class="at">color =</span> sex))<span class="sc">+</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
@@ -876,7 +877,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <div class="cell">
 <details>
-<summary>Show me the code</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>soldiers <span class="sc">%&gt;%</span> </span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> heightcm, <span class="at">y =</span> weightkg))<span class="sc">+</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> category))<span class="sc">+</span></span>
@@ -893,7 +894,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="use-geom_bar-to-explore-how-many-soldiers-of-each-race-there-is">Use <code>geom_bar()</code> to explore how many soldiers of each <code>race</code> there is</h4>
 <div class="cell">
 <details>
-<summary>Show me the code</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>soldiers <span class="sc">%&gt;%</span> </span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> race))<span class="sc">+</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -906,7 +907,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="use-geom_bar-to-explore-how-many-soldiers-are-at-each-installation">Use <code>geom_bar()</code> to explore how many soldiers are at each <code>Installation</code></h4>
 <div class="cell">
 <details>
-<summary>Show me the code</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>soldiers <span class="sc">%&gt;%</span> </span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Installation))<span class="sc">+</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span>
@@ -925,7 +926,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <div class="cell">
 <details>
-<summary>Show me the code</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>soldiers <span class="sc">%&gt;%</span> </span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> Installation, <span class="at">fill =</span> race))<span class="sc">+</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -937,7 +938,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <div class="cell">
 <details>
-<summary>Show me the code</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>soldiers <span class="sc">%&gt;%</span> </span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> Installation, <span class="at">fill =</span> race))<span class="sc">+</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>,   <span class="co">#  All bars have full length/height - this makes it easier to see proportional differences between groups</span></span>
@@ -956,7 +957,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="use-geom_boxplot-to-explore-weightkg-across-the-different-installations">Use <code>geom_boxplot</code> to explore <code>weightkg</code> across the different Installations</h4>
 <div class="cell">
 <details>
-<summary>Show me the code</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>soldiers <span class="sc">%&gt;%</span> </span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Installation, <span class="at">y =</span> weightkg))<span class="sc">+</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span>
@@ -977,7 +978,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <div class="cell">
 <details>
-<summary>Show me the code</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>soldiers <span class="sc">%&gt;%</span> </span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> Installation, <span class="at">x =</span> weightkg))<span class="sc">+</span></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(</span>
@@ -991,7 +992,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 * Use <code>facet_wrap()</code> to split on <code>sex</code> have the plots placed in one column</p>
 <div class="cell">
 <details>
-<summary>Show me the code</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>soldiers <span class="sc">%&gt;%</span> </span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> Installation, <span class="at">x =</span> weightkg))<span class="sc">+</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(</span>
@@ -1019,7 +1020,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>To create a completely blank plot just type <code>ggplot()</code></p>
 <div class="cell">
 <details>
-<summary>Show me the code</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"X-axis"</span>,</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Y-axis"</span>,</span>
@@ -1121,7 +1122,7 @@ Watch the <a href="https://yutannihilation.github.io/allYourFigureAreBelongToUs/
 </div>
 <div class="cell">
 <details>
-<summary>Show me the code</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">%&gt;%</span> </span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> skin_color, <span class="at">fill =</span> sex))<span class="sc">+</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
@@ -1142,7 +1143,7 @@ Watch the <a href="https://yutannihilation.github.io/allYourFigureAreBelongToUs/
 </div>
 <div class="cell">
 <details>
-<summary>Show me the code</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> mpg, <span class="at">y =</span> disp, <span class="at">color =</span> hp)) <span class="sc">+</span></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">6</span>) <span class="sc">+</span></span>
@@ -1203,7 +1204,7 @@ HINT: Think <code>position=?????</code>
 </div>
 <div class="cell">
 <details>
-<summary>Show me the code</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># alpha and point</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(x<span class="sc">&gt;</span><span class="dv">3</span> <span class="sc">&amp;</span> x<span class="sc">&lt;</span><span class="dv">9</span>) <span class="sc">%&gt;%</span> </span>
@@ -1234,7 +1235,7 @@ HINT: Think <code>position=?????</code>
 </div>
 <div class="cell">
 <details>
-<summary>Show me the code</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>(p1<span class="sc">|</span>p2<span class="sc">/</span>(p3<span class="sc">+</span>p4)) <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">guide =</span> <span class="st">"collect"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
@@ -1256,7 +1257,7 @@ HINT: Think <code>position=?????</code>
 <h4 class="anchored" data-anchor-id="tag-the-plots-with-roman-numerals-and-suffix-the-numerals-with-a-.">Tag the plots with roman numerals, and suffix the numerals with a “.”</h4>
 <div class="cell">
 <details>
-<summary>Show me the code</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>(p1<span class="sc">|</span>p2<span class="sc">/</span>(p3<span class="sc">+</span>p4)) <span class="sc">+</span> </span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_layout</span>(<span class="at">guide =</span> <span class="st">"collect"</span>) <span class="sc">+</span></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_annotation</span>(<span class="at">tag_levels =</span> <span class="st">"I"</span>,</span>
@@ -1269,7 +1270,7 @@ HINT: Think <code>position=?????</code>
 <h4 class="anchored" data-anchor-id="add-a-catchy-title">Add a catchy title</h4>
 <div class="cell">
 <details>
-<summary>Show me the code</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>(p1<span class="sc">|</span>p2<span class="sc">/</span>(p3<span class="sc">+</span>p4)) <span class="sc">+</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_layout</span>(<span class="at">guide =</span> <span class="st">"collect"</span>) <span class="sc">+</span></span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_annotation</span>(<span class="at">tag_levels =</span> <span class="st">"I"</span>,</span>
@@ -1284,7 +1285,7 @@ HINT: Think <code>position=?????</code>
 <p>You need to use the <code>&amp;</code> symbol to do this the smart way You need to use the <code>labs()</code> function You need to set an argument in the <code>labs()</code> function to <code>NULL</code></p>
 <div class="cell">
 <details>
-<summary>Show me the code</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>(p1<span class="sc">|</span>p2<span class="sc">/</span>(p3<span class="sc">+</span>p4)) <span class="sc">+</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_layout</span>(<span class="at">guide =</span> <span class="st">"collect"</span>) <span class="sc">+</span></span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_annotation</span>(<span class="at">tag_levels =</span> <span class="st">"I"</span>,</span>
@@ -1299,7 +1300,7 @@ HINT: Think <code>position=?????</code>
 <h4 class="anchored" data-anchor-id="apply-the-theme_void-and-the-viridis-magma-fill-scale">Apply the <code>theme_void()</code> and the viridis magma fill scale</h4>
 <div class="cell">
 <details>
-<summary>Show me the code</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>(p1<span class="sc">|</span>p2<span class="sc">/</span>(p3<span class="sc">+</span>p4)) <span class="sc">+</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_layout</span>(<span class="at">guide =</span> <span class="st">"collect"</span>) <span class="sc">+</span></span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_annotation</span>(<span class="at">tag_levels =</span> <span class="st">"I"</span>,</span>
@@ -1315,7 +1316,7 @@ HINT: Think <code>position=?????</code>
 <h4 class="anchored" data-anchor-id="save-the-plot-to-your-plot-folder">Save the plot to your plot folder</h4>
 <div class="cell">
 <details>
-<summary>Show me the code</summary>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">filename =</span> <span class="fu">here</span>(<span class="st">"plots"</span>, <span class="st">"my_patchwork_plot.png"</span>),</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">plot =</span> <span class="fu">last_plot</span>(),</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">dpi =</span> <span class="st">"retina"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

@@ -1,0 +1,61 @@
+---
+title: "R Sessions"
+description: |
+  How to work effectively in RStudio
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: today
+output:
+  distill::distill_article:
+    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+categories:
+  - RStudio
+creative_commons: CC BY
+format: html
+editor: source
+---
+
+```{r}
+#| echo: false
+#| warning: false
+
+library(tidyverse)
+```
+
+## Understanding R sessions, the RStudio console and the script editor
+
+You have already seen the pane-layout of RStudio:
+
+![](gfx/rstudio_panels_functions.png)
+
+To work efficiently with these panes, there a couple of simple concepts you need to understand:
+
+**POINT 1** You can run more multiple _sessions_ of R at the same time, that are entirely insulated from each other.
+
+![](gfx/multiple_R_sessions.gif)
+
+The video clip above illustrates two R sessions running simultaneously on the same computer ... not in RStudio, but just in a simple console (also known as a terminal or command-line-interface).
+
+**POINT 2** 
+
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
