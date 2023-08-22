@@ -1,0 +1,14 @@
+---
+title: "Quarto start file"
+date: today
+format: 
+  html:
+    toc: true
+    code-fold: true
+    code-summary: "Show me the code"
+    embed-resources: true
+execute: 
+  warning: false
+  message: false
+---
+

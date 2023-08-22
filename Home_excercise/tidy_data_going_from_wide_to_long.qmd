@@ -1,0 +1,163 @@
+---
+title: "tidy data"
+format:
+  revealjs:
+    toc: true
+    code-fold: false
+    embed-resources: true
+execute: 
+  warning: false
+  message: false
+  echo: true
+---
+
+## Simulated data
+Notice the wide format
+```{r}
+#| echo: false
+library(tidyverse)
+```
+
+```{r}
+set.seed(1)
+
+Sorg <- tibble(
+  ID = seq(1:100),                                        # n = 100 
+  ga_week = sample(13:43, 100, replace = TRUE),           # Gestational week
+  gender = sample(c("Male", "Female"), 100, 
+                  replace = TRUE, prob = c(0.4, 0.6)),    # More women
+  t1_pg13_sum = rnorm(100, mean = 20, sd = 10),           # Values from a normal distribution
+  t2_pg13_sum = rnorm(100, mean = t1_pg13_sum-5, sd = 5), # scores tend to drop 
+  t3_pg13_sum = rnorm(100, mean = t2_pg13_sum-5, sd = 3), # scores tend to drop
+) %>% 
+  mutate(
+    across(.cols = ends_with("_sum"),
+           .fns = ~if_else(gender == "Female", .x+10, .x)),  # Women have higher scores
+    across(.cols = ends_with("_sum"),
+           .fns = ~ .x+ga_week/2)                            # Higer scores with higher GA week
+  ) %>%
+  
+  # Create ga_cat on the basis of ga_week
+  # ga_cat is a categorical variable
+  mutate(
+    ga_cat = case_when(
+      ga_week < 22 ~ "14-21",
+      ga_week < 37 ~ "22-36",
+      ga_week < 42 ~ "37-42",
+      ga_week >= 42 ~ "43+"
+    ) %>%  factor(ordered = TRUE)
+  )
+
+```
+
+
+## Print
+```{r}
+#| echo: false
+#| output-location: slide
+Sorg 
+```
+
+
+# Plotting with a wide data structure 
+
+NOT RECOMMENDED!!!
+
+## Example 1
+```{r}
+#| output-location: fragment
+Sorg %>% 
+  ggplot(aes(x =ga_week))+
+  geom_point(aes(y = t1_pg13_sum))+
+  geom_point(aes(y = t2_pg13_sum))+
+  geom_point(aes(y = t3_pg13_sum))
+```
+
+## Example 2
+```{r}
+#| output-location: fragment
+Sorg %>% 
+  ggplot(aes(x =ga_week))+
+  geom_point(aes(y = t1_pg13_sum), color = "red")+
+  geom_point(aes(y = t2_pg13_sum), color = "blue")+
+  geom_point(aes(y = t3_pg13_sum), color = "yellow")
+  
+```
+
+## Example 3
+```{r}
+#| output-location: fragment
+Sorg %>% 
+  ggplot(aes(x =ga_week))+
+  geom_point(aes(y = t1_pg13_sum), color = "red")+
+  geom_point(aes(y = t2_pg13_sum), color = "blue")+
+  geom_point(aes(y = t3_pg13_sum), color = "yellow")+
+  facet_wrap(~gender)
+  
+```
+
+
+# Solution! Make the data longer (tidy) with `pivot_longer()`
+
+## `pivot_longer()`
+```{r}
+Sorg_long <- Sorg %>% 
+  pivot_longer(cols = ends_with("_sum"),
+               names_to = "Tid",
+               values_to = "Grief")
+```
+
+```{r}
+#| echo: false
+#| output-location: slide
+Sorg_long 
+```
+
+
+# Plotting with a tidy datastructure
+
+## Example 1
+```{r}
+#| output-location: slide
+Sorg_long %>% 
+  ggplot(aes(x = ga_week,
+             y = Grief, 
+             color = Tid)) +
+  geom_point()+
+  facet_grid(cols = vars(gender))
+```
+
+## Example 1
+```{r}
+#| output-location: slide
+Sorg_long %>% 
+  ggplot(aes(x = ga_week,
+             y = Grief, 
+             color = Tid)) +
+  geom_point()+
+  geom_smooth(method = "lm")+
+  facet_grid(rows = vars(Tid),
+             cols = vars(gender))
+```
+
+
+## Example 2
+```{r}
+#| output-location: slide
+#| fig-align: center
+#| fig-height: 10
+#| fig-width: 8
+Sorg_long %>% 
+  ggplot(aes(x = Tid,
+             y = Grief,
+             fill = ga_cat))+
+  geom_boxplot(alpha = 0.5)+
+  geom_point(alpha = 0.3) +
+  geom_path(aes(group = ID), alpha = 0.3)+
+  facet_grid(cols = vars(gender),
+             rows = vars(ga_cat))
+```
+
+## Also see
+
+Slides + excercises from Day 1 (Other important functions for data wrangling.)
