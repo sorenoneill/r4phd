@@ -25,6 +25,8 @@ editor: source
 
 På de næste sider, hjælper vi dig igennem punkterne, et af gangen ... bemærkede du linket nederst til højre på denne side? Følg det link for at komme videre i Installations sektionen.
 
+![](gfx/navigation_link_at_bottom.gif)
+
 <script src="https://giscus.app/client.js"
         data-repo="sorenoneill/r4phd"
         data-repo-id="R_kgDOJ9etDQ"

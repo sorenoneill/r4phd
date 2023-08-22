@@ -94,6 +94,10 @@ There are several ways to navigate between pages:
 * At the end of every page in a section, you will find links to the preceding and following pages.
 * A search function is available in the top-right hand corner
 
+**Note** the links at the bottom of pages within a section:
+
+
+
 ## Comments and questions
 
 It is possible to leave comments, suggestions and questions at the end of each page -- please help improve the R4PhD content by doing so:

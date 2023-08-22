@@ -32,15 +32,46 @@ You have already seen the pane-layout of RStudio:
 
 ![](gfx/rstudio_panels_functions.png)
 
-To work efficiently with these panes, there a couple of simple concepts you need to understand:
+To work efficiently with these panes, there are four simple points you need to understand:
 
-**POINT 1** You can run more multiple _sessions_ of R at the same time, that are entirely insulated from each other.
+1. You can run multiple _sessions_ of R at the same time, which are entirely insulated from each other.
+2. Each R session has an associated _workspace_ allocated in computer memory, which contains variables, values, functions, etc *specific* to that session.
+3. RStudio will help you execute code from a script file in the current R session (see the tab 'console' for output)
+4. When you ask RStudio to `render` a quarto document it does _not_ execute the R code in your current session, but a new and separate session (see the tab 'Background jobs' for output)
+
+
+:::{.callout-note collapse=true}
+## Point 1 : Multiple concurrent R sessions
 
 ![](gfx/multiple_R_sessions.gif)
 
-The video clip above illustrates two R sessions running simultaneously on the same computer ... not in RStudio, but just in a simple console (also known as a terminal or command-line-interface).
+The video clip above illustrates two R sessions running simultaneously on the same computer. For simplicity, they are shown in a simple console instead of RStudio.
 
-**POINT 2** 
+:::
+
+
+:::{.callout-note collapse=true}
+## Point 2 : The session workspace
+
+Notice, in the video above how the variable 'a' is _unknown_ in the second R session, because it was only defined in the first R session.
+
+In RStudio, the content of the workspace is presented in the Environment tab (top right hand pane -- 'Short term memory'). In the console, the command `ls()` can be used to get a list of variables in the current session workspace. 
+
+![](gfx/rstudio_environment.gif)
+:::
+
+
+:::{.callout-note collapse=true}
+## Point 3 : From script to current session
+
+:::
+
+
+
+:::{.callout-note collaps=true}
+## Point 4 : From script to rendered output
+
+:::
 
 <script src="https://giscus.app/client.js"
         data-repo="sorenoneill/r4phd"

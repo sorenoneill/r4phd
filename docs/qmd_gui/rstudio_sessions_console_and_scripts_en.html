@@ -672,11 +672,77 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="1" class="anchored" data-anchor-id="understanding-r-sessions-the-rstudio-console-and-the-script-editor"><span class="header-section-number">1</span> Understanding R sessions, the RStudio console and the script editor</h2>
 <p>You have already seen the pane-layout of RStudio:</p>
 <p><img src="gfx/rstudio_panels_functions.png" class="img-fluid"></p>
-<p>To work efficiently with these panes, there a couple of simple concepts you need to understand:</p>
-<p><strong>POINT 1</strong> You can run more multiple <em>sessions</em> of R at the same time, that are entirely insulated from each other.</p>
+<p>To work efficiently with these panes, there are four simple points you need to understand:</p>
+<ol type="1">
+<li>You can run multiple <em>sessions</em> of R at the same time, which are entirely insulated from each other.</li>
+<li>Each R session has an associated <em>workspace</em> allocated in computer memory, which contains variables, values, functions, etc <em>specific</em> to that session.</li>
+<li>RStudio will help you execute code from a script file in the current R session (see the tab ‘console’ for output)</li>
+<li>When you ask RStudio to <code>render</code> a quarto document it does <em>not</em> execute the R code in your current session, but a new and separate session (see the tab ‘Background jobs’ for output)</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Point 1 : Multiple concurrent R sessions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p><img src="gfx/multiple_R_sessions.gif" class="img-fluid"></p>
-<p>The video clip above illustrates two R sessions running simultaneously on the same computer … not in RStudio, but just in a simple console (also known as a terminal or command-line-interface).</p>
-<p><strong>POINT 2</strong></p>
+<p>The video clip above illustrates two R sessions running simultaneously on the same computer. For simplicity, they are shown in a simple console instead of RStudio.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Point 2 : The session workspace
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Notice, in the video above how the variable ‘a’ is <em>unknown</em> in the second R session, because it was only defined in the first R session.</p>
+<p>In RStudio, the content of the workspace is presented in the Environment tab (top right hand pane – ‘Short term memory’). In the console, the command <code>ls()</code> can be used to get a list of variables in the current session workspace.</p>
+<p><img src="gfx/rstudio_environment.gif" class="img-fluid"></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Point 3 : From script to current session
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" data-collaps="true">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Point 4 : From script to rendered output
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
 <script src="https://giscus.app/client.js" data-repo="sorenoneill/r4phd" data-repo-id="R_kgDOJ9etDQ" data-category="Announcements" data-category-id="DIC_kwDOJ9etDc4CYApF" data-mapping="pathname" data-strict="0" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="bottom" data-theme="cobalt" data-lang="en" crossorigin="anonymous" async="">
 </script>
 
