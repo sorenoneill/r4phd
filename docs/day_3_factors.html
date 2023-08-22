@@ -661,13 +661,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#forcats" id="toc-forcats" class="nav-link active" data-scroll-target="#forcats"><span class="header-section-number">1</span> <code>forcats</code></a>
   <ul class="collapse">
-  <li><a href="#in-soldiers" id="toc-in-soldiers" class="nav-link" data-scroll-target="#in-soldiers"><span class="header-section-number">1.1</span> In <code>soldiers</code></a></li>
-  </ul></li>
-  <li><a href="#tables" id="toc-tables" class="nav-link" data-scroll-target="#tables"><span class="header-section-number">2</span> Tables</a>
-  <ul class="collapse">
-  <li><a href="#gtsummary" id="toc-gtsummary" class="nav-link" data-scroll-target="#gtsummary"><span class="header-section-number">2.1</span> <code>gtsummary</code></a></li>
-  <li><a href="#gt" id="toc-gt" class="nav-link" data-scroll-target="#gt"><span class="header-section-number">2.2</span> <code>gt</code></a></li>
-  <li><a href="#gtextras" id="toc-gtextras" class="nav-link" data-scroll-target="#gtextras"><span class="header-section-number">2.3</span> <code>gtExtras</code></a></li>
+  <li><a href="#base-exercises" id="toc-base-exercises" class="nav-link" data-scroll-target="#base-exercises"><span class="header-section-number">1.1</span> Base exercises</a></li>
+  <li><a href="#challenges-with-forcats-ggplot-dplyr" id="toc-challenges-with-forcats-ggplot-dplyr" class="nav-link" data-scroll-target="#challenges-with-forcats-ggplot-dplyr"><span class="header-section-number">1.2</span> Challenges with <code>forcats</code> + <code>ggplot</code> + <code>dplyr</code></a></li>
   </ul></li>
   </ul>
 </nav>
@@ -708,12 +703,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="forcats" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> <code>forcats</code></h1>
 <p>&nbsp;</p>
-<section id="in-soldiers" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="in-soldiers"><span class="header-section-number">1.1</span> In <code>soldiers</code></h2>
+<section id="base-exercises" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="base-exercises"><span class="header-section-number">1.1</span> Base exercises</h2>
+<p>Use the <code>soldiers</code> dataset for the following exercises.</p>
 <p><br>
 </p>
-<section id="race" class="level3" data-number="1.1.1">
-<h3 data-number="1.1.1" class="anchored" data-anchor-id="race"><span class="header-section-number">1.1.1</span> <code>race</code></h3>
+<section id="race" class="level4">
+<h4 class="anchored" data-anchor-id="race"><code>race</code></h4>
 <p><code>race</code> is now ordered alphabetically (try: <code>soldiers %&gt;%  count(race))</code>)</p>
 <ul>
 <li>fix race so that it is ordered after frequency (<code>fct_infreq()</code>)</li>
@@ -736,8 +732,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><br>
 </p>
 </section>
-<section id="ethnicity" class="level3" data-number="1.1.2">
-<h3 data-number="1.1.2" class="anchored" data-anchor-id="ethnicity"><span class="header-section-number">1.1.2</span> <code>Ethnicity</code></h3>
+<section id="ethnicity" class="level4">
+<h4 class="anchored" data-anchor-id="ethnicity"><code>Ethnicity</code></h4>
 <p>Background information: <code>DODRace</code> was collected by assigning fixed race values (1:7) to each soldier. <code>Ethnicity</code> was a black space where the soldiers themselves have filled out their race.</p>
 <ul>
 <li>Explore <code>Ethnicity</code> using <code>count()</code> and <code>view()</code></li>
@@ -747,9 +743,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Ethnicity) <span class="co"># add  %&gt;% view()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>&nbsp;</p>
+</section>
 <section id="fct_lump" class="level4">
 <h4 class="anchored" data-anchor-id="fct_lump"><code>fct_lump()</code></h4>
-<p>OMG.. we probably need to merge some of these groups.<br>
+<p>OMG.. we probably need to merge some of the many <code>Ethnicity</code> groups.<br>
 Try with <code>fct_lump()</code></p>
 <ul>
 <li>Can you find a number of levels that’s reasonable?</li>
@@ -767,9 +764,8 @@ Try with <code>fct_lump()</code></p>
 <p><br>
 </p>
 </section>
-</section>
-<section id="fct_collapse" class="level3" data-number="1.1.3">
-<h3 data-number="1.1.3" class="anchored" data-anchor-id="fct_collapse"><span class="header-section-number">1.1.3</span> <code>fct_collapse()</code></h3>
+<section id="fct_collapse" class="level4">
+<h4 class="anchored" data-anchor-id="fct_collapse"><code>fct_collapse()</code></h4>
 <p>Hmmm… <code>fct_lump()</code> is probably not the best choice for the <code>Ethnicity</code> variable. It has too many groups, and many groups have similar sounding names. We need to fix this manually.<br>
 </p>
 <ul>
@@ -789,9 +785,11 @@ Try with <code>fct_lump()</code></p>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p><br>
+</p>
 </section>
-<section id="category" class="level3" data-number="1.1.4">
-<h3 data-number="1.1.4" class="anchored" data-anchor-id="category"><span class="header-section-number">1.1.4</span> <code>category</code></h3>
+<section id="category" class="level4">
+<h4 class="anchored" data-anchor-id="category"><code>category</code></h4>
 <p><code>DODRace</code>, <code>race</code>, and <code>Ethnicity</code> are all true factors in the sense that no values in any of these variables are more ´race´ than other values. Think about <code>category</code> do the values here imply more or less of the same thing?</p>
 <ul>
 <li>Fix <code>category</code> by changing it into an ordered variable. Use the function <code>factor()</code> and set the argument <code>ordered = TRUE</code></li>
@@ -812,9 +810,17 @@ Try with <code>fct_lump()</code></p>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
+<p>&nbsp;<br>
+</p>
 </section>
-<section id="challenges-with-factors-ggplot-dplyr" class="level3" data-number="1.1.5">
-<h3 data-number="1.1.5" class="anchored" data-anchor-id="challenges-with-factors-ggplot-dplyr"><span class="header-section-number">1.1.5</span> Challenges with factors + <code>ggplot</code> + <code>dplyr</code></h3>
+<section id="go-back-to-your-home-assignment-and-see-if-you-can-improve-anything-using-your-new-factor-and-forcats-skills" class="level4">
+<h4 class="anchored" data-anchor-id="go-back-to-your-home-assignment-and-see-if-you-can-improve-anything-using-your-new-factor-and-forcats-skills">Go back to your home assignment and see if you can improve anything using your new factor and <code>forcats</code> skills</h4>
+<p>&nbsp;<br>
+</p>
+</section>
+</section>
+<section id="challenges-with-forcats-ggplot-dplyr" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="challenges-with-forcats-ggplot-dplyr"><span class="header-section-number">1.2</span> Challenges with <code>forcats</code> + <code>ggplot</code> + <code>dplyr</code></h2>
 <section id="in-mpg" class="level4">
 <h4 class="anchored" data-anchor-id="in-mpg">In <code>mpg</code></h4>
 <ul>
@@ -926,281 +932,6 @@ Here is my suggestion
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>                         <span class="st">"Chi"</span> <span class="ot">=</span> <span class="st">"China"</span>),</span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">country =</span> <span class="fu">fct_reorder</span>(country, case_pr_mill_pop)) <span class="sc">%&gt;%</span> </span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(country)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<p><br><br></p>
-</section>
-</section>
-</section>
-</section>
-<section id="tables" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Tables</h1>
-<p><br></p>
-<section id="install-the-gt-and-gtsummary-packages-and-load-them." class="level4">
-<h4 class="anchored" data-anchor-id="install-the-gt-and-gtsummary-packages-and-load-them.">Install the <code>gt</code> and <code>gtsummary</code> packages and load them.</h4>
-<p>Use <code>install.packages()</code> to download the <code>gt</code> and <code>gtsummary</code> packages. When you have done that add <code>library(gt)</code> and <code>library(gtsummary)</code> to the code chunk where you call your libraries. Execute the lines.</p>
-<p><br></p>
-</section>
-<section id="gtsummary" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="gtsummary"><span class="header-section-number">2.1</span> <code>gtsummary</code></h2>
-<p><br></p>
-<section id="in-soldiers-use-tbl_summary-to-show-the-sex-heightcm-weightkg-and-race-of-the-soldiers" class="level4">
-<h4 class="anchored" data-anchor-id="in-soldiers-use-tbl_summary-to-show-the-sex-heightcm-weightkg-and-race-of-the-soldiers">In <code>soldiers</code> use <code>tbl_summary()</code> to show the <code>sex</code>, <code>heightcm</code>, <code>weightkg</code>, and <code>race</code> of the soldiers</h4>
-<ul>
-<li>Create a tbl_summary()</li>
-</ul>
-<div class="cell">
-<details>
-<summary>Show me the code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>soldiers <span class="sc">%&gt;%</span> </span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sex, heightcm, weightkg) <span class="sc">%&gt;%</span> </span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<p><br></p>
-</section>
-<section id="in-soldiers-use-tbl_summary-to-show-the-sex-heightcm-weightkg-split-by-writingpreference-of-the-soldiers" class="level4">
-<h4 class="anchored" data-anchor-id="in-soldiers-use-tbl_summary-to-show-the-sex-heightcm-weightkg-split-by-writingpreference-of-the-soldiers">In <code>soldiers</code> use <code>tbl_summary()</code> to show the <code>sex</code>, <code>heightcm</code>, <code>weightkg</code>, split by <code>WritingPreference</code> of the soldiers</h4>
-<ul>
-<li>Dont display missing values</li>
-<li><code>add_p()</code> (read <a href="https://www.danieldsjoberg.com/gtsummary/reference/add_p.tbl_summary.html">here</a> and <a href="https://www.danieldsjoberg.com/gtsummary/reference/tests.html">here</a> if you want to change the default tests).</li>
-</ul>
-<p>Try the following functions:</p>
-<ul>
-<li><code>add_overall()</code></li>
-<li><code>add_stat_label()</code></li>
-<li><code>bold_labels()</code></li>
-<li><code>italicize_levels()</code></li>
-<li>When you have the table you like use <code>as_gt() %&gt;% gtsave(filename = here(""))</code></li>
-</ul>
-<div class="cell">
-<details>
-<summary>Show me the code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>soldiers <span class="sc">%&gt;%</span> </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sex, heightcm, weightkg, WritingPreference) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> WritingPreference,</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">missing =</span> <span class="st">"no"</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_p</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bold_labels</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">italicize_levels</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_overall</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<p><br><br></p>
-</section>
-</section>
-<section id="gt" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="gt"><span class="header-section-number">2.2</span> <code>gt</code></h2>
-<p><br><br></p>
-<section id="explain-what-the-4-main-group-of-functions-in-gt-are-and-what-they-do" class="level4">
-<h4 class="anchored" data-anchor-id="explain-what-the-4-main-group-of-functions-in-gt-are-and-what-they-do">Explain what the 4 main group of functions in <code>gt</code> are and what they do</h4>
-<ul>
-<li><code>tab_*()</code></li>
-<li><code>fmt_*()</code></li>
-<li><code>cols_*()</code></li>
-<li><code>cells_*()</code></li>
-</ul>
-<p><br></p>
-</section>
-<section id="find-a-dataset-and-prepare-it-for-a-table" class="level4">
-<h4 class="anchored" data-anchor-id="find-a-dataset-and-prepare-it-for-a-table">Find a dataset and prepare it for a table</h4>
-<p>Below is a suggestion for <code>soldiers</code>, but you are free to try with you own data if you prefer that.</p>
-<p>Using <code>soldiers</code> and <code>gt()</code>, create a table in the following steps:</p>
-<ul>
-<li>Keep the columns <code>Installation</code>, <code>sex</code>, and all the columns that ends with circumference,</li>
-<li>Remove <code>Fort Rucker</code> - it only has one soldier</li>
-<li>Group by <code>Installation</code> and <code>sex</code></li>
-<li>summarise the data and calculate the mean and sd of all the columns that ends with circumference
-<ul>
-<li>you can do this manually (with many lines of code)</li>
-<li>or you can do this by using the <code>across()</code> function inside <code>summarise()</code>. If you are going to be working with a dataset that has many columns, I suggest you invest some time into learning about <code>across()</code></li>
-</ul></li>
-<li>pipe the summarised table to <code>gt()</code> and set the <code>rowname_col</code> argument to <code>sex</code></li>
-<li>add a suitable title and subtitle</li>
-<li>Assign the table to an object called <code>my_tbl</code></li>
-</ul>
-<div class="cell">
-<details>
-<summary>Show me the code</summary>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>my_tbl <span class="ot">&lt;-</span> soldiers <span class="sc">%&gt;%</span> </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Select some columns and arrange the tible</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Installation, sex, </span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>         <span class="fu">ends_with</span>(<span class="st">"circumference"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Remove Fort Rucker</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Installation <span class="sc">!=</span> <span class="st">"Fort Rucker"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Remove the Installation with only one Soldier</span></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="co">#group_by(Installation) %&gt;% </span></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">#add_count() %&gt;% </span></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  <span class="co">#filter(n &gt; 1) %&gt;% </span></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Summary stats by Installation and Race</span></span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Installation, sex) <span class="sc">%&gt;%</span> </span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">ends_with</span>(<span class="st">"circumference"</span>),</span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>           <span class="at">.fns =</span> <span class="fu">list</span>(<span class="at">mean =</span> <span class="sc">~</span> <span class="fu">mean</span>(.x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>                       <span class="at">sd =</span> <span class="sc">~</span> <span class="fu">sd</span>(.x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)))) <span class="sc">%&gt;%</span> </span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>  <span class="co"># group only by installation</span></span>
-<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>  <span class="co"># because we want to use sex in the rowname_col argument in gt() - see below</span></span>
-<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Installation) <span class="sc">%&gt;%</span> </span>
-<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Send to gt and perform a few styling functions</span></span>
-<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>(<span class="at">rowname_col =</span> <span class="st">"sex"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(</span>
-<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">md</span>(<span class="st">"**Overview of soldiers soldiers by sex and installation**"</span>),</span>
-<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="fu">md</span>(<span class="st">"*The data is a mock up version of the soldiers dataset*"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_footnote</span>(</span>
-<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">footnote =</span> <span class="st">"To preserve anonymity, observations from Fort Rucker has been removed becuase of a low number of observations"</span></span>
-<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>my_tbl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-</section>
-<section id="style-my_tbl-as-you-like" class="level4">
-<h4 class="anchored" data-anchor-id="style-my_tbl-as-you-like">Style <code>my_tbl</code> as you like</h4>
-<p>You can some try some of these functions</p>
-<ul>
-<li><p><code>tab_header()</code></p></li>
-<li><p><code>tab_source_note()</code></p></li>
-<li><p><code>tab_stubhead()</code></p></li>
-<li><p><code>tab_spanner()</code></p></li>
-<li><p><code>tab_spanner_delim()</code></p></li>
-<li><p><code>fmt_number()</code><br>
-</p></li>
-<li><p><code>fmt_percent()</code><br>
-</p></li>
-<li><p><code>fmt_missing()</code></p></li>
-<li><p><code>col_merge_n_pct()</code></p></li>
-<li><p><code>cols_label()</code></p></li>
-<li><p><code>md()</code></p></li>
-<li><p><code>cells_body()</code> and <code>tab_footnote()</code></p></li>
-</ul>
-<div class="cell">
-<details>
-<summary>Show me the code</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># It is always a choice how much you want to style your in R, and what you leave for manual editing afterwards (e.g. Word)</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># You can style everything in R, but it can be code intensive</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># In general - you want the basic structure of your table to be in place</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># You NEVER want to manually edit values or merge columns.</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Editing column and spanners names are less labour intensive and dont contain the same risk of making errors</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co"># I think the below table is an ok place to stop the styling in R.</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>my_tbl_styled <span class="ot">&lt;-</span> my_tbl <span class="sc">%&gt;%</span> </span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_spanner_delim</span>(</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">delim =</span> <span class="st">"_"</span>,</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> <span class="fu">everything</span>()</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fmt_number</span>(</span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> <span class="fu">contains</span>(<span class="st">"circumference"</span>),</span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">decimals =</span> <span class="dv">1</span></span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_merge</span>(</span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> <span class="fu">contains</span>(<span class="st">"thigh"</span>),</span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">pattern =</span> <span class="st">"{1} ({2})"</span></span>
-<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
-<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_merge</span>(</span>
-<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> <span class="fu">contains</span>(<span class="st">"waist"</span>),</span>
-<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">pattern =</span> <span class="st">"{1} ({2})"</span></span>
-<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
-<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_merge</span>(</span>
-<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> <span class="fu">contains</span>(<span class="st">"ankle"</span>),</span>
-<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">pattern =</span> <span class="st">"{1} ({2})"</span></span>
-<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
-<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_merge</span>(</span>
-<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> <span class="fu">contains</span>(<span class="st">"biceps"</span>),</span>
-<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">pattern =</span> <span class="st">"{1} ({2})"</span></span>
-<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
-<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_merge</span>(</span>
-<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> <span class="fu">contains</span>(<span class="st">"calf"</span>),</span>
-<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">pattern =</span> <span class="st">"{1} ({2})"</span></span>
-<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a>    ) </span>
-<span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-45"><a href="#cb13-45" aria-hidden="true" tabindex="-1"></a>my_tbl_styled</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<p><br></p>
-</section>
-<section id="save-your-table-using-gtsave" class="level4">
-<h4 class="anchored" data-anchor-id="save-your-table-using-gtsave">Save your table using <code>gtsave()</code></h4>
-<ul>
-<li>Create a folder called “tables”</li>
-</ul>
-<div class="cell">
-<details>
-<summary>Show me the code</summary>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gtsave</span>(</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> my_tbl_styled,</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="fu">here</span>(<span class="st">"tables"</span>, <span class="st">"ANSUR_fort_sex.docx"</span>)</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Word can also open .rtf  files - its sometimes works better in this format</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="fu">gtsave</span>(</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> my_tbl_styled,</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="fu">here</span>(<span class="st">"tables"</span>, <span class="st">"ANSUR_fort_sex.rtf"</span>)</span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<p><br></p>
-</section>
-<section id="want-more" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="want-more">WANT MORE?</h3>
-<p><br></p>
-<section id="give-the-row-group-labels-heading-and-column-labels-a-different-background-color" class="level4">
-<h4 class="anchored" data-anchor-id="give-the-row-group-labels-heading-and-column-labels-a-different-background-color">Give the row group labels, heading, and column labels a different background color</h4>
-<ul>
-<li>Use <code>tab_options()</code></li>
-</ul>
-<div class="cell">
-<details>
-<summary>Show me the code</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>my_tbl_styled <span class="sc">%&gt;%</span> </span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_options</span>(<span class="at">row_group.background.color =</span> <span class="st">"#C2B7B7"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_options</span>(<span class="at">heading.background.color =</span> <span class="st">"#C2B7B7"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_options</span>(<span class="at">column_labels.background.color =</span> <span class="st">"#C2B7B7"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<p><br></p>
-</section>
-</section>
-</section>
-<section id="gtextras" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="gtextras"><span class="header-section-number">2.3</span> <code>gtExtras</code></h2>
-<p>Install the package <code>gtExtras</code> and add <code>library(gtExtras)</code> to the codechunk where you load your libraries.</p>
-<p><br></p>
-<section id="add-a-cool-theme-to-your-table-gt_theme_" class="level4">
-<h4 class="anchored" data-anchor-id="add-a-cool-theme-to-your-table-gt_theme_">Add a cool theme to your table <code>gt_theme_</code></h4>
-<div class="cell">
-<details>
-<summary>Show me the code</summary>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>my_tbl_styled <span class="sc">%&gt;%</span> </span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt_theme_espn</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<p><br></p>
-</section>
-<section id="color-thighcircumference_mean-with-hulk-colors-using-gt_hulk_col_numericthighcircumference_mean" class="level4">
-<h4 class="anchored" data-anchor-id="color-thighcircumference_mean-with-hulk-colors-using-gt_hulk_col_numericthighcircumference_mean">Color <code>thighcircumference_mean</code> with Hulk colors using <code>gt_hulk_col_numeric(thighcircumference_mean)</code></h4>
-<div class="cell">
-<details>
-<summary>Show me the code</summary>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>my_tbl_styled <span class="sc">%&gt;%</span> </span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt_theme_espn</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt_hulk_col_numeric</span>(thighcircumference_mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 
