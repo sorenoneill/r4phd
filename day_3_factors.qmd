@@ -1,0 +1,245 @@
+---
+title: "factors"
+subtitle: "and the `forcats` package"
+author: "Steen Flammild Harsted"
+date: today
+output:
+  distill::distill_article:
+    self_contained: false
+format:
+  html: 
+    code-fold: true
+    code-summary: "Show me the code"
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    number-depth: 3
+editor: 
+  mode: source
+execute: 
+  eval: false
+  echo: true
+  message: false
+  warning: false
+---
+
+```{r setup}
+#| include: false
+library(tidyverse)
+library(here)
+library(vroom)
+library(naniar)
+library(gt)
+library(gtsummary)
+library(gtExtras)
+library(glue)
+library(here)
+source(here("scripts", "01_import.R"))
+```
+
+# `forcats` 
+
+\ 
+
+## Base exercises
+
+Use the `soldiers` dataset for the following exercises. 
+
+\
+
+#### `race`
+`race` is now ordered alphabetically (try: `soldiers %>%  count(race)) `)
+
+* fix race so that it is ordered after frequency (`fct_infreq()`)
+* Add the code to your `01_import.R` file
+* Try to recreate one of the plots from day two where you used `x = race`. Do you see the difference?
+```{r}
+#| output: false
+soldiers %>% 
+  mutate(
+    race = fct_infreq(race)
+  ) %>% 
+  
+  ggplot(aes(x = race, fill = race))+
+  geom_bar()+
+  scale_x_discrete(labels = scales::label_wrap(8)) # one of many ways to fix long labels on the axis
+```
+
+\
+
+#### `Ethnicity`
+Background information: `DODRace` was collected by assigning fixed race values (1:7) to each soldier. `Ethnicity` was a black space where the soldiers themselves have filled out their race.
+
+* Explore `Ethnicity` using `count()` and `view()`
+```{r}
+#| code-fold: false
+#| output: false
+soldiers %>% 
+  count(Ethnicity) # add  %>% view()
+```
+
+\ 
+
+#### `fct_lump()`
+OMG.. we probably need to merge some of the many `Ethnicity`  groups.  
+Try with `fct_lump()`  
+
+* Can you find a number of levels that's reasonable?
+```{r}
+#| output: false
+soldiers %>% 
+  mutate(
+    Ethnicity = fct_lump(Ethnicity, 5) # I dont think this is reasonable see below
+  ) %>% 
+  count(Ethnicity)
+```
+
+\
+
+#### `fct_collapse()`
+Hmmm... `fct_lump()` is probably not the best choice for the `Ethnicity` variable. It has too many groups, and many groups have similar sounding names. We need to fix this manually. \
+
+* Here is a code example where we merge all the Apache.
+* Merge a few more groups together by building on this code.
+* Add the code to your `01_import.R` file
+
+```{r}
+#| code-fold: false
+#| output: false
+soldiers %>% 
+  mutate(
+    Ethnicity = fct_collapse(Ethnicity,
+      Apache = c("Apache Blackfoot",
+                 "Apache Blackfoot Cherokee Crow",
+                 "Apache Cherokee",
+                 "Apache Kiowa Mexican",
+                 "Apache Mexican" )
+    )
+  ) 
+```
+
+\
+
+#### `category`
+`DODRace`, `race`, and `Ethnicity` are all true factors in the sense that no values in any of these variables are more ´race´ than other values. 
+Think about `category` do the values here imply more or less of the same thing?
+
+* Fix `category` by changing it into an ordered variable. Use the function `factor()` and set the argument `ordered = TRUE`
+* Add the code to your `01_import.R` file
+* Try to recreate some of the plots we did on day 2 were we colored the points using `category` - Notice the difference?
+```{r}
+#| output: false
+soldiers %>% 
+  mutate(
+    category = factor(category,
+                      levels = (c("Underweight",
+                                "Normal range",
+                                "Overweight",
+                                "Obese")),
+                      ordered = TRUE)
+  ) 
+```
+
+\ \
+
+#### Go back to your home assignment and see if you can improve anything using your new factor and `forcats` skills 
+
+\ \
+
+## Challenges with `forcats` + `ggplot` + `dplyr`
+
+#### In `mpg`
+*  Collapse the model types `a4 quattro` and `a4` into `a4`
+*  Create a bar plot sorted by frequency
+*  Work out a way to show what manufacturers the models belong to
+
+<details><summary>Here is my suggestion</summary>
+I have cheated and used some functions (`str_to_title()` and `facet_grid()`), and theme options that I haven´t showed you before.
+```{r fig.height=10}
+mpg %>% 
+  group_by(manufacturer) %>% 
+  mutate(
+    model = model %>% str_to_title() %>%  fct_collapse(A4 = c("A4", "A4 Quattro")) %>% fct_infreq(),
+    manufacturer = str_to_title(manufacturer)) %>% 
+  ggplot(aes(y = model, fill = manufacturer)) +
+  geom_bar()+
+  geom_text(aes(x = 0.5, label = model), size =3,  hjust = 0, check_overlap = TRUE)+ # Display the model name at the position (x=0.5, y = model)
+  scale_x_continuous(expand = c(0,0))+ # Remove the padding between the y-axis and the start of the bars
+  facet_grid(rows = vars(manufacturer), 
+             scales = "free_y", 
+             space = "free_y",
+             switch = "y")+
+  ggthemes::theme_pander()+
+  theme(axis.text.y=element_blank(), # Remove the names from y-axis (we used geom_tect instead)
+        axis.ticks.y = element_blank(), # Remove y axis ticks (the small lines)
+        strip.text.y.left = element_text(angle = 0, hjust = 1), # Change strip text orientation
+        legend.position = "none" # remove fill legend
+        ) +
+  labs(
+    title = "Count of car models in `ggplot2::mpg` data set",
+    x = "Count of car models",
+    y = NULL,
+    caption = "Consider a different fill color scale. The current one seems to imply a gradient"
+  )
+```
+</details>
+
+
+<br><br>
+
+#### Fix this `starwars` plot 
+* Order the columns after frequency
+* Pimp it with a nice theme and consider adding some nice colors
+* Correct the y-axis label and give the plot a title
+* Consider lumping together some of the levels
+```{r}
+ggplot(starwars, aes(y = eye_color)) + 
+  geom_bar() 
+```
+
+<details><summary>Here is my suggestion</summary>
+I have cheated and used three functions (`str_to_title()`, `after_stat()`, and `scale_fill_gradient()`), that I haven´t showed you before.  
+```{r}
+starwars %>%
+  mutate(eye_color = fct_recode(str_to_title(eye_color))) %>%  # Change all factor levels to Title case
+  mutate(eye_color = fct_lump(eye_color, 7) %>% fct_infreq()) %>% 
+  ggplot(aes(y = eye_color,
+             fill = after_stat(count))) +                      # Set the fill color to the count value
+  geom_bar() +
+  ggthemes::theme_foundation()+
+  scale_fill_gradient(low = "grey", high = "black")+           # Create a new fill scale going from grey to black
+  labs(
+    x = "Count", 
+    y = "Eye Color",
+    title = "Eye color counts of Starwars characters",
+    caption = "Consider... Is the grey gradient disturbing? e.g. ´brown´ has a black color ")+
+  theme(plot.title.position = "plot")   # Place the title all the way to the left side
+```
+</details>
+
+<br><br>
+
+#### In `table1` (another inbuilt dataset)
+
+`table1` displays the number of TB cases documented by WHO in Afghanistan, Brazil, and China between 1999 and 2000. 
+
+*  Create a new variable called `case_pr_mill_pop` (cases pr. million)  
+*  recode `country` labels so that (Afghanistan = Afg, Brazil = Bra, China = Chi)  
+*  reorder `country` factor after `case_pr_mill_pop`  
+*  arrange the table after `country`  
+
+```{r}
+#| output: false
+table1 %>%
+  mutate(
+    case_pr_mill_pop = cases/(population/1e6),
+    country = fct_recode(country,
+                         "Afg" = "Afghanistan",
+                         "Bra" = "Brazil",
+                         "Chi" = "China"),
+    country = fct_reorder(country, case_pr_mill_pop)) %>% 
+  arrange(country)
+      
+```
+
+

@@ -1,6 +1,9 @@
 project:
   type: website
   output-dir: docs
+  render:
+    - "*.qmd"
+    - "!presentations/"
 
 website:
   title: "R4phd"
@@ -51,6 +54,12 @@ website:
               contents:
                 - day_2_ggplot2_basics.qmd
                 - day_2_ggplot2_extras.qmd
+            - section: "Day 3"
+              contents:
+                - day_3_factors.qmd
+                - day_3_data_import.qmd
+                - day_3_missings.qmd
+                - day_3_tables.qmd
             - section: "Day 4"
               contents: 
             - section: "RRR"
