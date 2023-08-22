@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Søren O’Neill">
-<meta name="dcterms.date" content="2023-08-20">
+<meta name="dcterms.date" content="2023-08-22">
 <meta name="description" content="How to work effectively in RStudio">
 
 <title>R4phd - RStudios GUI #2</title>
@@ -659,7 +659,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 20, 2023</p>
+      <p class="date">August 22, 2023</p>
     </div>
   </div>
   
@@ -720,14 +720,14 @@ Example
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">100</span>, <span class="at">mean=</span><span class="dv">1</span>, <span class="at">sd=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span> <span class="fu">mean</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.1035</code></pre>
+<pre><code>[1] 0.9184806</code></pre>
 </div>
 </div>
 <p>Perhaps, you then realize, that the result has too many digits and you amend your code:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">100</span>, <span class="at">mean=</span><span class="dv">1</span>, <span class="at">sd=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span> <span class="fu">mean</span>() <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.99</code></pre>
+<pre><code>[1] 1.19</code></pre>
 </div>
 </div>
 </div>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Søren O’Neill">
-<meta name="dcterms.date" content="2023-08-20">
+<meta name="dcterms.date" content="2023-08-22">
 <meta name="description" content="Introduction to Reproducible Research with R (and RStudio).">
 
 <title>R4phd - Intro to RRR</title>
@@ -631,7 +631,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 20, 2023</p>
+      <p class="date">August 22, 2023</p>
     </div>
   </div>
   
@@ -665,8 +665,8 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="1.3" class="anchored" data-anchor-id="levels-of-research-reproducibility"><span class="header-section-number">1.3</span> Levels of research reproducibility</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-c8fe5f1eebf7f57a402f" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-c8fe5f1eebf7f57a402f">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10, graph_attrs = \"rankdir = LR\"]\n\n  # several \"node\" statements\n  mm [label = \"Methods and materials\", shape = plaintext, fontcolor=\"Plum\"]\n  basic [label = \"Basic RR\", shape = plaintext, fontcolor=\"Plum\"]\n  workflow [label = \"Workflow RR using R\", shape = plaintext, fontcolor=\"MediumOrchid\"]\n  product [label = \"Product documentation (**)\", shape = plaintext, fontcolor=\"DarkViolet\"]\n  process [label = \"Process documentation\", shape = plaintext, fontcolor=\"Indigo\"]\n\n  # several \"edge\" statements\n  process -> product -> workflow -> basic -> mm [dir = \"back\"]\n  \n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-45f2043968fef85f1171" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-45f2043968fef85f1171">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10, graph_attrs = \"rankdir = LR\"]\n\n  # several \"node\" statements\n  mm [label = \"Methods and materials\", shape = plaintext, fontcolor=\"Plum\"]\n  basic [label = \"Basic RR\", shape = plaintext, fontcolor=\"Plum\"]\n  workflow [label = \"Workflow RR using R\", shape = plaintext, fontcolor=\"MediumOrchid\"]\n  product [label = \"Product documentation (**)\", shape = plaintext, fontcolor=\"DarkViolet\"]\n  process [label = \"Process documentation\", shape = plaintext, fontcolor=\"Indigo\"]\n\n  # several \"edge\" statements\n  process -> product -> workflow -> basic -> mm [dir = \"back\"]\n\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Aim for level four ‘Product documentation’ (**) – Level 5 ‘Process documentation’ can be quite involved and is probably only relevant when many authors collaborate on the same code/data (if it is important to know who did what when, i.e.&nbsp;who screwed up).</p>

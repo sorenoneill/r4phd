@@ -36,8 +36,9 @@ To work efficiently with these panes, there are four simple points you need to u
 
 1. You can run multiple _sessions_ of R at the same time, which are entirely insulated from each other.
 2. Each R session has an associated _workspace_ allocated in computer memory, which contains variables, values, functions, etc *specific* to that session.
-3. When you ask RStudio to `render` a quarto
-4. You can ask RStudio to execute code from a script file in the current R session via the console
+3. RStudio will help you execute code from a script file in the current R session (see the tab 'console' for output)
+4. When you ask RStudio to `render` a quarto document it does _not_ execute the R code in your current session, but a new and separate session (see the tab 'Background jobs' for output)
+
 
 :::{.callout-note collapse=true}
 ## Point 1 : Multiple concurrent R sessions

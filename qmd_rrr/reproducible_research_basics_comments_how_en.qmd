@@ -38,7 +38,7 @@ In R code, you can add a comment using the hashtag \#, like this:
 
 ```r
 # This is a single-line comment in R code
-# ...and there are no multi-line comments: You must add an # for each line
+# ...and there are no multi-line comments: You must add a # for each line
 x <- 2 + 2 # ...but inline comments are okay
 
 ```
@@ -111,7 +111,7 @@ Discuss the following points with your colleague, before looking at the solution
 
 # Exercise #1 Solution
 
-If you had type the MarkDown document above into Rstudio, you might have noticed red squiggly lines and a the warning symbol in the left margin of line 16? ![](gfx/RR/comments_r_vs_quarto_warning.png).
+If you typed the MarkDown document above into Rstudio, you might have noticed red squiggly lines and a the warning symbol in the left margin of line 16? ![](gfx/comments_r_vs_quarto_warning.png).
 
 This should tell you, there is a problem with the R code and indeed the code will not run to produce output -- can you tell what the problem is? ...now click below for the full answer.
 

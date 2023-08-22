@@ -53,24 +53,24 @@ library(DiagrammeR)
 #| message: false
 #| warning: false
 
-# grViz("
-# digraph boxes_and_circles {
-# 
-#   # a 'graph' statement
-#   graph [overlap = true, fontsize = 10, graph_attrs = 'rankdir = LR']
-# 
-#   # several 'node' statements
-#   mm [label = 'Metodesektion i tidsskrift', shape = plaintext, fontcolor='Plum']
-#   basic [label = 'Basal RR', shape = plaintext, fontcolor='Plum']
-#   workflow [label = 'RR arbejdsgange med R', shape = plaintext, fontcolor='MediumOrchid']
-#   product [label = 'Dokumentation af produktet (**)', shape = plaintext, fontcolor='DarkViolet']
-#   process [label = 'Dokumentation af processen', shape = plaintext, fontcolor='Indigo']
-# 
-#   # several 'edge' statements
-#   process -> product -> workflow -> basic -> mm [dir = 'back']
-#   
-# }
-# ")
+grViz("
+digraph boxes_and_circles {
+
+  # a 'graph' statement
+  graph [overlap = true, fontsize = 10, graph_attrs = 'rankdir = LR']
+
+  # several 'node' statements
+  mm [label = 'Metodesektion i tidsskrift', shape = plaintext, fontcolor='Plum']
+  basic [label = 'Basal RR', shape = plaintext, fontcolor='Plum']
+  workflow [label = 'RR arbejdsgange med R', shape = plaintext, fontcolor='MediumOrchid']
+  product [label = 'Dokumentation af produktet (**)', shape = plaintext, fontcolor='DarkViolet']
+  process [label = 'Dokumentation af processen', shape = plaintext, fontcolor='Indigo']
+
+  # several 'edge' statements
+  process -> product -> workflow -> basic -> mm [dir = 'back']
+
+}
+")
 
 ```
 
