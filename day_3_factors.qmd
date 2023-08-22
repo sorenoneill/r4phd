@@ -1,0 +1,679 @@
+---
+title: "factors"
+subtitle: "and the `forcats` package"
+author: "Steen Flammild Harsted"
+date: today
+output:
+  distill::distill_article:
+    self_contained: false
+format:
+  html: 
+    code-fold: true
+    code-summary: "Show me the code"
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    number-depth: 3
+editor: 
+  mode: source
+execute: 
+  eval: false
+  echo: true
+  message: false
+  warning: false
+---
+
+```{r setup}
+#| include: false
+library(tidyverse)
+library(here)
+library(vroom)
+library(naniar)
+library(gt)
+library(gtsummary)
+library(gtExtras)
+library(glue)
+library(here)
+source(here("scripts", "01_import.R"))
+```
+
+# `forcats` 
+
+\ 
+
+## In `soldiers`
+
+\
+
+### `race`
+`race` is now ordered alphabetically (try: `soldiers %>%  count(race)) `)
+
+* fix race so that it is ordered after frequency (`fct_infreq()`)
+* Add the code to your `01_import.R` file
+* Try to recreate one of the plots from day two where you used `x = race`. Do you see the difference?
+```{r}
+#| output: false
+soldiers %>% 
+  mutate(
+    race = fct_infreq(race)
+  ) %>% 
+  
+  ggplot(aes(x = race, fill = race))+
+  geom_bar()+
+  scale_x_discrete(labels = scales::label_wrap(8)) # one of many ways to fix long labels on the axis
+```
+
+\
+
+### `Ethnicity`
+Background information: `DODRace` was collected by assigning fixed race values (1:7) to each soldier. `Ethnicity` was a black space where the soldiers themselves have filled out their race.
+
+* Explore `Ethnicity` using `count()` and `view()`
+```{r}
+#| code-fold: false
+#| output: false
+soldiers %>% 
+  count(Ethnicity) # add  %>% view()
+```
+
+\ 
+
+#### `fct_lump()`
+OMG.. we probably need to merge some of these groups.  
+Try with `fct_lump()`  
+
+* Can you find a number of levels that's reasonable?
+```{r}
+#| output: false
+soldiers %>% 
+  mutate(
+    Ethnicity = fct_lump(Ethnicity, 5) # I dont think this is reasonable see below
+  ) %>% 
+  count(Ethnicity)
+```
+
+\
+
+### `fct_collapse()`
+Hmmm... `fct_lump()` is probably not the best choice for the `Ethnicity` variable. It has too many groups, and many groups have similar sounding names. We need to fix this manually. \
+
+* Here is a code example where we merge all the Apache.
+* Merge a few more groups together by building on this code.
+* Add the code to your `01_import.R` file
+
+```{r}
+#| code-fold: false
+#| output: false
+soldiers %>% 
+  mutate(
+    Ethnicity = fct_collapse(Ethnicity,
+      Apache = c("Apache Blackfoot",
+                 "Apache Blackfoot Cherokee Crow",
+                 "Apache Cherokee",
+                 "Apache Kiowa Mexican",
+                 "Apache Mexican" )
+    )
+  ) 
+```
+
+
+
+### `category`
+`DODRace`, `race`, and `Ethnicity` are all true factors in the sense that no values in any of these variables are more ´race´ than other values. 
+Think about `category` do the values here imply more or less of the same thing?
+
+* Fix `category` by changing it into an ordered variable. Use the function `factor()` and set the argument `ordered = TRUE`
+* Add the code to your `01_import.R` file
+* Try to recreate some of the plots we did on day 2 were we colored the points using `category` - Notice the difference?
+```{r}
+#| output: false
+soldiers %>% 
+  mutate(
+    category = factor(category,
+                      levels = (c("Underweight",
+                                "Normal range",
+                                "Overweight",
+                                "Obese")),
+                      ordered = TRUE)
+  ) 
+```
+
+
+### Callenges with factors + `ggplot` + `dplyr`
+
+#### In `mpg`
+*  Collapse the model types `a4 quattro` and `a4` into `a4`
+*  Create a bar plot sorted by frequency
+*  Work out a way to show what manufacturers the models belong to
+
+<details><summary>Here is my suggestion</summary>
+I have cheated and used some functions (`str_to_title()` and `facet_grid()`), and theme options that I haven´t showed you before.
+```{r fig.height=10}
+mpg %>% 
+  group_by(manufacturer) %>% 
+  mutate(
+    model = model %>% str_to_title() %>%  fct_collapse(A4 = c("A4", "A4 Quattro")) %>% fct_infreq(),
+    manufacturer = str_to_title(manufacturer)) %>% 
+  ggplot(aes(y = model, fill = manufacturer)) +
+  geom_bar()+
+  geom_text(aes(x = 0.5, label = model), size =3,  hjust = 0, check_overlap = TRUE)+ # Display the model name at the position (x=0.5, y = model)
+  scale_x_continuous(expand = c(0,0))+ # Remove the padding between the y-axis and the start of the bars
+  facet_grid(rows = vars(manufacturer), 
+             scales = "free_y", 
+             space = "free_y",
+             switch = "y")+
+  ggthemes::theme_pander()+
+  theme(axis.text.y=element_blank(), # Remove the names from y-axis (we used geom_tect instead)
+        axis.ticks.y = element_blank(), # Remove y axis ticks (the small lines)
+        strip.text.y.left = element_text(angle = 0, hjust = 1), # Change strip text orientation
+        legend.position = "none" # remove fill legend
+        ) +
+  labs(
+    title = "Count of car models in `ggplot2::mpg` data set",
+    x = "Count of car models",
+    y = NULL,
+    caption = "Consider a different fill color scale. The current one seems to imply a gradient"
+  )
+```
+</details>
+
+
+<br><br>
+
+#### Fix this `starwars` plot 
+* Order the columns after frequency
+* Pimp it with a nice theme and consider adding some nice colors
+* Correct the y-axis label and give the plot a title
+* Consider lumping together some of the levels
+```{r}
+ggplot(starwars, aes(y = eye_color)) + 
+  geom_bar() 
+```
+
+<details><summary>Here is my suggestion</summary>
+I have cheated and used three functions (`str_to_title()`, `after_stat()`, and `scale_fill_gradient()`), that I haven´t showed you before.  
+```{r}
+starwars %>%
+  mutate(eye_color = fct_recode(str_to_title(eye_color))) %>%  # Change all factor levels to Title case
+  mutate(eye_color = fct_lump(eye_color, 7) %>% fct_infreq()) %>% 
+  ggplot(aes(y = eye_color,
+             fill = after_stat(count))) +                      # Set the fill color to the count value
+  geom_bar() +
+  ggthemes::theme_foundation()+
+  scale_fill_gradient(low = "grey", high = "black")+           # Create a new fill scale going from grey to black
+  labs(
+    x = "Count", 
+    y = "Eye Color",
+    title = "Eye color counts of Starwars characters",
+    caption = "Consider... Is the grey gradient disturbing? e.g. ´brown´ has a black color ")+
+  theme(plot.title.position = "plot")   # Place the title all the way to the left side
+```
+</details>
+
+<br><br>
+
+#### In `table1` (another inbuilt dataset)
+
+`table1` displays the number of TB cases documented by WHO in Afghanistan, Brazil, and China between 1999 and 2000. 
+
+*  Create a new variable called `case_pr_mill_pop` (cases pr. million)  
+*  recode `country` labels so that (Afghanistan = Afg, Brazil = Bra, China = Chi)  
+*  reorder `country` factor after `case_pr_mill_pop`  
+*  arrange the table after `country`  
+
+```{r}
+#| output: false
+table1 %>%
+  mutate(
+    case_pr_mill_pop = cases/(population/1e6),
+    country = fct_recode(country,
+                         "Afg" = "Afghanistan",
+                         "Bra" = "Brazil",
+                         "Chi" = "China"),
+    country = fct_reorder(country, case_pr_mill_pop)) %>% 
+  arrange(country)
+      
+```
+
+<br>
+
+
+
+
+
+# Data import
+
+<br><br>
+
+#### Download the `data_day_3.zip` file from ItsLearning and unzip it in your `raw_data` directory
+The unzipped folder contains:
+
+*  A .csv file called "Kronisk smerte - udvikling.csv". It has been exported by a Danish version of Excel. Is this a good name for a file?
+*  A set of files related to a motioncapture project
+  -  A Stata file (.dta) containing the sex of the participants
+  -  A .csv file containing the age (in months) of the partipants. 
+  -  19 simplified motioncapture files of children performing vertical jumps
+     - `Frame` and `Time_Seconds` are time variables
+     - `CGY` gives you the height (in mm) of their center of gravity
+*  A folder called `challenge` that you need if you want to solve the challenge assignment
+
+<br><br>
+
+#### Import "kronisk smerte - udvikling.csv" 
+* `read.csv()`
+* `read.csv2()`
+* `read_csv2()`
+*  What is the difference in the output? Why?
+```{r}
+#| output: false
+path <- here("raw_data", "data_day_3"  ,"Kronisk smerte - udvikling.csv")
+read.csv(path)
+read.csv2(path)
+read_csv2(path)
+```
+
+<br><br>
+
+#### Import the files `id_age.csv` and `id_sex.dta`, combine them (use `full_join()`), and assign the combined dataframe to an object
+*  The `tidyverse` includes the `haven` package that can read Stata´s .dta files
+  - The function to use for the .dta file is `haven::read_dta()`
+*  Investigate the two files before you combine them. Do you need to change anything?
+*  The `dplyr` function `full_join()` will help you to combine the two imported objects.
+
+```{r}
+#| output: false
+a <- haven::read_dta(here("raw_data", "data_day_3", "id_sex.dta"))
+
+b <- read_csv2(here("raw_data", "data_day_3","id_age.csv")) %>%
+     rename(ID = id)  # Rename the id column
+
+df_descriptives <- full_join(a, b)
+rm(a,b) # Remove the objects a and b so that your environment is less crowded
+```
+
+<br><br>
+
+#### Use `list.files()` to generate an object called `files` containing the filenames of the 19 motioncapture files
+
+<details><summary>Hints for the `pattern = `argument in `list.files()`</summary>
+```{r}
+#| eval: false
+#| code-fold: false
+, pattern = NULL          # The default setting. List all files in our directory
+, pattern = ".csv$"       # all files in our directory that ends with ".csv"
+, pattern = "^desc"       # all files in our directory that starts with "desc"
+, pattern = "[0-9].csv$"  # all files in our directory that ends with "[a number from 0-9].csv"
+```
+</details>
+
+```{r}
+#| output: false
+files <- list.files(here("raw_data", "data_day_3"), pattern = "[0-9].csv$")
+```
+
+<br><br>
+
+#### Import the 19 motioncapture files 
+
+* Use `read_csv()``
+* The `file = ` should include the path to the folder (use `here()`), and the `files` object you just created.
+```{r}
+#| output: false
+df_mocap <- read_csv(here("raw_data", "data_day_3", files))
+```
+
+*  Combine the motion capture files with the descriptives object you created before
+```{r}
+#| output: false
+df_all <- full_join(df_descriptives, df_mocap)
+```
+
+<br><br>
+
+#### Update the object you just created 
+*  Change ID to a factor
+*  Change sex to a factor with `levels = c(1,2), labels = c("Boy", "Girl")`
+*  Change age from months to years
+*  Retain the row with the highest value of `CGY` for each of the children
+```{r}
+#| output: false
+df_all <- df_all %>% 
+  mutate(
+    ID = factor(ID),
+    sex = factor(sex, levels = c(1,2), labels = c("Boy", "Girl")),
+    age = age/12) %>% 
+  group_by(ID) %>% 
+  filter(CGY == max(CGY, na.rm = TRUE))
+```
+
+<br><br>
+
+#### Save the object you just created
+*  Save the object you created before as an ".RData" file, save it in your "clean_data" folder
+*  Save the object you created before as an ".csv" file, save it in your "clean_data" folder
+*  What are the pros and cons of the two file types?
+```{r}
+#| output: false
+save(df_all, file = here("clean_data", "my_data.RData"))
+write_csv(df_all, file = here("clean_data", "my_data.csv"))
+```
+
+<br><br>
+
+### LOOKING FOR A CHALLENGE?
+
+#### Inspect the 19 motioncapture files in the folder called `challenge` 
+*  What important piece of information is missing from the data in the files?
+*  Where can you find this data? <details><summary>Answer</summary> The ID can only be found in the filename. You need to find a way to piece the ID together with the data in files </details>
+  
+#### Install the package `vroom` and load it
+*  `vroom` is a very fast package for importing `.csv` files. (hence the name)  
+*  The main function in the `vroom` package is `vroom()`
+*  `vroom()` has the argument `delim = ` that allows you specify the delimter you want
+*  Read the documentation for `vroom()`
+      - What does the `id` argument in the `vroom()` function do?
+
+<br><br>  
+
+####  Use `vroom()` to import all the mocap files in the challenge folder
+  - Use the `id = ` argument in the `vroom()` function.
+
+```{r}
+#| output: false
+files_chal <- list.files(here("raw_data", "data_day_3", "challenge"), pattern = "[0-9].csv$")
+df_mocap_chal <- vroom::vroom(here("raw_data", "data_day_3", "challenge", files_chal),
+                              id = "filename")
+```
+
+<br><br>
+
+#### We need to extract the ID from the filename column now
+*  Create a column called `ID` that only contains the `ID` part from the filename
+*  You need to use regular expressions to solve this
+*  Two functions that may help you are `str_extract()` and `str_remove()`
+  - Both functions have a `pattern = ` argument that must be a regular expression
+  - Use them inside a `mutate()` call
+```{r}
+#| output: false
+
+df_mocap_chal <- df_mocap_chal %>%
+  mutate(ID = str_extract(filename, pattern = "[0-9]+_3.1"),  # Capture digits that come before _3.1
+         ID = str_remove(ID, pattern = "_.+$"),               # Remove the _3.1 part
+         ID = as.numeric(ID))                                 # Change ID from a string to a numeric variable. You can also change it to a factor
+```
+
+## Missing Data {-}
+
+<br><br>
+
+#### Install the `naniar` package and load it
+Use `install.packages()` to download the `naniar` package. When you have done that add `library(naniar)` to the code chunk where you call your libraries. Execute the line. 
+
+
+<br><br>
+
+#### Explore missing values in `starwars` using
+*  `vis_miss()` 
+*  `gg_miss_upset()`
+*  What happens if you add `, nsets = 6` inside `gg_miss_upset()`
+*  `naniar` contains more useful functions. You can see them [here](https://cran.r-project.org/web/packages/naniar/vignettes/naniar-visualisation.html)
+```{r}
+#| output: false
+vis_miss(starwars)
+gg_miss_upset(starwars)
+```
+
+<br><br>
+
+# Tables 
+
+<br>
+
+#### Install the `gt` and  `gtsummary` packages and load them.
+Use `install.packages()` to download the `gt` and  `gtsummary` packages. When you have done that add `library(gt)` and `library(gtsummary)` to the code chunk where you call your libraries. Execute the lines. 
+
+<br>
+
+## `gtsummary`
+
+<br>
+
+#### In `soldiers` use `tbl_summary()` to show the `sex`, `heightcm`, `weightkg`, and `race` of the soldiers
+*  Create a tbl_summary()
+```{r}
+#| output: false
+soldiers %>% 
+  select(sex, heightcm, weightkg) %>% 
+  tbl_summary()
+```
+
+<br>
+
+#### In `soldiers` use `tbl_summary()` to show the `sex`, `heightcm`, `weightkg`, split by `WritingPreference` of the soldiers
+
+*  Dont display missing values
+*  `add_p()` (read [here](https://www.danieldsjoberg.com/gtsummary/reference/add_p.tbl_summary.html) and [here](https://www.danieldsjoberg.com/gtsummary/reference/tests.html) if you want to change the default tests). 
+
+Try the following functions:
+
+*  `add_overall()`
+*  `add_stat_label()`
+*  `bold_labels()`
+*  `italicize_levels()`
+*  When you have the table you like use `as_gt() %>% gtsave(filename = here(""))`
+
+```{r}
+#| output: false
+soldiers %>% 
+  select(sex, heightcm, weightkg, WritingPreference) %>% 
+  tbl_summary(
+    by = WritingPreference,
+    missing = "no"
+  ) %>% 
+  add_p() %>% 
+  bold_labels() %>% 
+  italicize_levels() %>% 
+  add_overall() 
+```
+
+<br><br>
+
+## `gt`
+
+<br><br>
+
+#### Explain what the 4 main group of functions in `gt` are and what they do
+
+*  `tab_*()`
+*  `fmt_*()`
+*  `cols_*()`
+*  `cells_*()`
+
+<br>
+
+#### Find a dataset and prepare it for a table 
+
+Below is a suggestion for `soldiers`, but you are free to try with you own data if you prefer that.
+
+Using `soldiers` and `gt()`, create a table in the following steps:  
+
+*  Keep the columns `Installation`, `sex`, and all the columns that ends with circumference, 
+*  Remove `Fort Rucker` - it only has one soldier
+*  Group by `Installation` and `sex`
+*  summarise the data and calculate the mean and sd of all the columns that ends with circumference
+    * you can do this manually (with many lines of code)
+    * or you can do this by using the `across()` function inside `summarise()`. If you are going to be working with a dataset that has many columns, I suggest you invest some time into learning about `across()`
+*  pipe the summarised table to `gt()` and set the `rowname_col` argument to `sex`
+*  add a suitable title and subtitle
+*  Assign the table to an object called `my_tbl`
+
+```{r}
+#| output: false
+my_tbl <- soldiers %>% 
+  
+  # Select some columns and arrange the tible
+  select(Installation, sex, 
+         ends_with("circumference")) %>% 
+  
+  # Remove Fort Rucker
+  filter(Installation != "Fort Rucker") %>% 
+
+  # Remove the Installation with only one Soldier
+  #group_by(Installation) %>% 
+  #add_count() %>% 
+  #filter(n > 1) %>% 
+  
+  # Summary stats by Installation and Race
+  group_by(Installation, sex) %>% 
+  summarise(
+    across(.cols = ends_with("circumference"),
+           .fns = list(mean = ~ mean(.x, na.rm = TRUE),
+                       sd = ~ sd(.x, na.rm = TRUE)))) %>% 
+  
+  # group only by installation
+  # because we want to use sex in the rowname_col argument in gt() - see below
+  group_by(Installation) %>% 
+  
+  # Send to gt and perform a few styling functions
+  gt(rowname_col = "sex") %>% 
+  
+  tab_header(
+    title = md("**Overview of soldiers soldiers by sex and installation**"),
+    subtitle = md("*The data is a mock up version of the soldiers dataset*")) %>% 
+  
+  tab_footnote(
+    footnote = "To preserve anonymity, observations from Fort Rucker has been removed becuase of a low number of observations"
+  )
+
+my_tbl
+```
+
+#### Style `my_tbl` as you like
+You can some try some of these functions
+
+*  `tab_header()`
+*  `tab_source_note()`
+*  `tab_stubhead()`
+*  `tab_spanner()`
+*  `tab_spanner_delim()`
+
+*  `fmt_number()`      
+*  `fmt_percent()`     
+*  `fmt_missing()`     
+
+*  `col_merge_n_pct()`
+*  `cols_label()`
+
+*  `md()`
+*  `cells_body()` and `tab_footnote()` 
+
+```{r}
+#| output: false
+# It is always a choice how much you want to style your in R, and what you leave for manual editing afterwards (e.g. Word)
+# You can style everything in R, but it can be code intensive
+# In general - you want the basic structure of your table to be in place
+# You NEVER want to manually edit values or merge columns.
+# Editing column and spanners names are less labour intensive and dont contain the same risk of making errors
+# I think the below table is an ok place to stop the styling in R.
+
+my_tbl_styled <- my_tbl %>% 
+  
+  tab_spanner_delim(
+    delim = "_",
+    columns = everything()
+  ) %>%
+  
+  fmt_number(
+    columns = contains("circumference"),
+    decimals = 1
+  ) %>% 
+  
+  cols_merge(
+    columns = contains("thigh"),
+    pattern = "{1} ({2})"
+    ) %>% 
+  
+  cols_merge(
+    columns = contains("waist"),
+    pattern = "{1} ({2})"
+    ) %>% 
+  
+  cols_merge(
+    columns = contains("ankle"),
+    pattern = "{1} ({2})"
+    ) %>% 
+  
+  cols_merge(
+    columns = contains("biceps"),
+    pattern = "{1} ({2})"
+    ) %>% 
+  
+  cols_merge(
+    columns = contains("calf"),
+    pattern = "{1} ({2})"
+    ) 
+
+my_tbl_styled
+```
+
+
+<br>
+
+#### Save your table using `gtsave()`
+
+* Create a folder called "tables"
+```{r}
+#| eval: false
+gtsave(
+  data = my_tbl_styled,
+  filename = here("tables", "ANSUR_fort_sex.docx")
+)
+
+# Word can also open .rtf  files - its sometimes works better in this format
+gtsave(
+  data = my_tbl_styled,
+  filename = here("tables", "ANSUR_fort_sex.rtf")
+)
+```
+
+
+<br>
+
+### WANT MORE? {-}
+
+<br>
+
+#### Give the row group labels, heading, and column labels a different background color
+*  Use `tab_options()`
+```{r}
+#| output: false
+my_tbl_styled %>% 
+  tab_options(row_group.background.color = "#C2B7B7") %>% 
+  tab_options(heading.background.color = "#C2B7B7") %>% 
+  tab_options(column_labels.background.color = "#C2B7B7")
+```
+
+<br>
+
+## `gtExtras`
+Install the package `gtExtras` and add `library(gtExtras)` to the codechunk where you load your libraries.
+
+<br>
+
+#### Add a cool theme to your table `gt_theme_`
+```{r}
+#| output: false
+my_tbl_styled %>% 
+  gt_theme_espn()
+```
+
+<br>
+
+#### Color `thighcircumference_mean` with Hulk colors using  `gt_hulk_col_numeric(thighcircumference_mean)`
+```{r}
+#| output: false
+my_tbl_styled %>% 
+  gt_theme_espn() %>% 
+  gt_hulk_col_numeric(thighcircumference_mean)
+```
+
