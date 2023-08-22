@@ -9,7 +9,7 @@
 <meta name="author" content="Steen Flammild Harsted">
 <meta name="dcterms.date" content="2023-08-22">
 
-<title>R4phd - Basics of R code</title>
+<title>R4phd - Tables</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,8 +66,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./day_1_settting_up_your_course_project.html" rel="next">
-<link href="./day_1_basics_of_Rstudio.html" rel="prev">
+<link href="./qmd_rrr/reproducible_research_basics_exercises_en.html" rel="next">
+<link href="./day_3_missings.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -123,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">English</li><li class="breadcrumb-item">R course exercises</li><li class="breadcrumb-item"><a href="./day_1_basics_of_Rstudio.html">Day 1</a></li><li class="breadcrumb-item"><a href="./day_1_basics_of_R_code.html">Basics of R code</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">English</li><li class="breadcrumb-item">R course exercises</li><li class="breadcrumb-item"><a href="./day_3_factors.html">Day 3</a></li><li class="breadcrumb-item"><a href="./day_3_tables.html">Tables</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -257,13 +257,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
  <span class="menu-text">Day 1</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./day_1_basics_of_Rstudio.html" class="sidebar-item-text sidebar-link">
@@ -272,7 +272,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./day_1_basics_of_R_code.html" class="sidebar-item-text sidebar-link active">
+  <a href="./day_1_basics_of_R_code.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Basics of R code</span></a>
   </div>
 </li>
@@ -327,13 +327,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
  <span class="menu-text">Day 3</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth3 ">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth3 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./day_3_factors.html" class="sidebar-item-text sidebar-link">
@@ -354,7 +354,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./day_3_tables.html" class="sidebar-item-text sidebar-link">
+  <a href="./day_3_tables.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Tables</span></a>
   </div>
 </li>
@@ -659,15 +659,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#functions" id="toc-functions" class="nav-link active" data-scroll-target="#functions"><span class="header-section-number">1</span> Functions</a>
+  <li><a href="#tables" id="toc-tables" class="nav-link active" data-scroll-target="#tables"><span class="header-section-number">1</span> Tables</a>
   <ul class="collapse">
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">1.1</span> <code>&lt;-</code></a></li>
-  <li><a href="#c" id="toc-c" class="nav-link" data-scroll-target="#c"><span class="header-section-number">1.2</span> <code>c()</code></a></li>
-  <li><a href="#seq" id="toc-seq" class="nav-link" data-scroll-target="#seq"><span class="header-section-number">1.3</span> <code>seq()</code></a></li>
-  <li><a href="#sample" id="toc-sample" class="nav-link" data-scroll-target="#sample"><span class="header-section-number">1.4</span> <code>sample()</code></a></li>
-  <li><a href="#mean" id="toc-mean" class="nav-link" data-scroll-target="#mean"><span class="header-section-number">1.5</span> <code>mean()</code></a></li>
-  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"><span class="header-section-number">1.6</span> <code>%&gt;%</code></a></li>
-  <li><a href="#explore" id="toc-explore" class="nav-link" data-scroll-target="#explore"><span class="header-section-number">1.7</span> Explore</a></li>
+  <li><a href="#gtsummary" id="toc-gtsummary" class="nav-link" data-scroll-target="#gtsummary"><span class="header-section-number">1.1</span> <code>gtsummary</code></a></li>
+  <li><a href="#gt" id="toc-gt" class="nav-link" data-scroll-target="#gt"><span class="header-section-number">1.2</span> <code>gt</code></a></li>
+  <li><a href="#gtextras" id="toc-gtextras" class="nav-link" data-scroll-target="#gtextras"><span class="header-section-number">1.3</span> <code>gtExtras</code></a></li>
   </ul></li>
   </ul>
 </nav>
@@ -677,7 +673,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Basics of R code</h1>
+<h1 class="title">Tables</h1>
+<p class="subtitle lead">gtsummary, gt, and gtExtras</p>
 </div>
 
 
@@ -704,264 +701,319 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>&nbsp;&nbsp;&nbsp;</p>
-<section id="functions" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Functions</h1>
-<section id="section" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="section"><span class="header-section-number">1.1</span> <code>&lt;-</code></h2>
+<section id="tables" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Tables</h1>
+<p><br></p>
+<section id="install-the-gt-and-gtsummary-packages-and-load-them." class="level4">
+<h4 class="anchored" data-anchor-id="install-the-gt-and-gtsummary-packages-and-load-them.">Install the <code>gt</code> and <code>gtsummary</code> packages and load them.</h4>
+<p>Use <code>install.packages()</code> to download the <code>gt</code> and <code>gtsummary</code> packages. When you have done that add <code>library(gt)</code> and <code>library(gtsummary)</code> to the code chunk where you call your libraries. Execute the lines.</p>
+<p><br></p>
+</section>
+<section id="gtsummary" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="gtsummary"><span class="header-section-number">1.1</span> <code>gtsummary</code></h2>
+<p><br></p>
+<section id="in-soldiers-use-tbl_summary-to-show-the-sex-heightcm-weightkg-and-race-of-the-soldiers" class="level4">
+<h4 class="anchored" data-anchor-id="in-soldiers-use-tbl_summary-to-show-the-sex-heightcm-weightkg-and-race-of-the-soldiers">In <code>soldiers</code> use <code>tbl_summary()</code> to show the <code>sex</code>, <code>heightcm</code>, <code>weightkg</code>, and <code>race</code> of the soldiers</h4>
 <ul>
-<li>Do you have a short cut for the assignment operator? (Tools -&gt; Show Command Palette -&gt; and type “assignment”)</li>
-<li>What does the assign operator <code>&lt;-</code> do?</li>
+<li>Create a tbl_summary()</li>
+</ul>
+<div class="cell">
+<details>
+<summary>Show me the code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>soldiers <span class="sc">%&gt;%</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sex, heightcm, weightkg) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><br></p>
+</section>
+<section id="in-soldiers-use-tbl_summary-to-show-the-sex-heightcm-weightkg-split-by-writingpreference-of-the-soldiers" class="level4">
+<h4 class="anchored" data-anchor-id="in-soldiers-use-tbl_summary-to-show-the-sex-heightcm-weightkg-split-by-writingpreference-of-the-soldiers">In <code>soldiers</code> use <code>tbl_summary()</code> to show the <code>sex</code>, <code>heightcm</code>, <code>weightkg</code>, split by <code>WritingPreference</code> of the soldiers</h4>
+<ul>
+<li>Dont display missing values</li>
+<li><code>add_p()</code> (read <a href="https://www.danieldsjoberg.com/gtsummary/reference/add_p.tbl_summary.html">here</a> and <a href="https://www.danieldsjoberg.com/gtsummary/reference/tests.html">here</a> if you want to change the default tests).</li>
+</ul>
+<p>Try the following functions:</p>
+<ul>
+<li><code>add_overall()</code></li>
+<li><code>add_stat_label()</code></li>
+<li><code>bold_labels()</code></li>
+<li><code>italicize_levels()</code></li>
+<li>When you have the table you like use <code>as_gt() %&gt;% gtsave(filename = here(""))</code></li>
+</ul>
+<div class="cell">
+<details>
+<summary>Show me the code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>soldiers <span class="sc">%&gt;%</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sex, heightcm, weightkg, WritingPreference) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> WritingPreference,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">missing =</span> <span class="st">"no"</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_p</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bold_labels</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">italicize_levels</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_overall</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><br> #### Improve the table further You probably need to investigate the help file for <code>tbl_summary()</code> to solve these. * Change the statistics to mean and sd * Change the statistical test of the continous variables from a “Kruskal-Wallis rank sum test” to a One-way ANOVA * Find better names for sex, heightcm, and weightkg * save the table as a .docx file in your tables folder</p>
+<div class="cell">
+<details>
+<summary>Show me the code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>my_table <span class="ot">&lt;-</span> soldiers <span class="sc">%&gt;%</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sex, heightcm, weightkg, WritingPreference) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> WritingPreference,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">missing =</span> <span class="st">"no"</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Change labels</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="fu">list</span>(</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>      sex <span class="sc">~</span> <span class="st">"Sex"</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>      weightkg <span class="sc">~</span> <span class="st">"Weight (kg)"</span>,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>      heightcm <span class="sc">~</span> <span class="st">"Height (cm)"</span>),</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Change statistics</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">statistic =</span> <span class="fu">list</span>(<span class="fu">all_continuous</span>() <span class="sc">~</span> <span class="st">"{mean} ({sd})"</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># t.test</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_p</span>(</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">test =</span> <span class="fu">list</span>(<span class="fu">all_continuous</span>() <span class="sc">~</span> <span class="st">"aov"</span>,</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>                <span class="fu">all_categorical</span>() <span class="sc">~</span> <span class="st">"chisq.test.no.correct"</span>)</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bold_labels</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">italicize_levels</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_overall</span>() </span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>my_table</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>my_table <span class="sc">%&gt;%</span> </span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_gt</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gtsave</span>(<span class="at">filename =</span> <span class="fu">here</span>(<span class="st">"tables"</span>, <span class="st">"my_table.docx"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><br> #### Go to your homeassignment and update it with one or more tables</p>
+<p><br><br></p>
+</section>
+</section>
+<section id="gt" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="gt"><span class="header-section-number">1.2</span> <code>gt</code></h2>
+<p><br><br></p>
+<section id="explain-what-the-4-main-group-of-functions-in-gt-are-and-what-they-do" class="level4">
+<h4 class="anchored" data-anchor-id="explain-what-the-4-main-group-of-functions-in-gt-are-and-what-they-do">Explain what the 4 main group of functions in <code>gt</code> are and what they do</h4>
+<ul>
+<li><code>tab_*()</code></li>
+<li><code>fmt_*()</code></li>
+<li><code>cols_*()</code></li>
+<li><code>cells_*()</code></li>
 </ul>
 <p><br></p>
-<section id="assign-the-inbuilt-datset-iris-to-an-object-called-my_data" class="level3">
-<h3 class="anchored" data-anchor-id="assign-the-inbuilt-datset-iris-to-an-object-called-my_data">Assign the inbuilt datset <code>iris</code> to an object called <code>my_data</code></h3>
-<p><code>iris</code> is available to you when you load R. It´s an inbuilt dataset. So it is available to you even though you cant find it in the Environment pane. Just type <code>iris</code>.</p>
-<div class="cell">
-<details>
-<summary>Show me the code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> iris</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<p><br></p>
 </section>
-<section id="print-my_data" class="level3">
-<h3 class="anchored" data-anchor-id="print-my_data">print <code>my_data</code></h3>
-<div class="cell">
-<details>
-<summary>Show me the code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>my_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<p>&nbsp;<br>
-</p>
-</section>
-</section>
-<section id="c" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="c"><span class="header-section-number">1.2</span> <code>c()</code></h2>
-<p>The c is short for <a href="https://www.merriam-webster.com/dictionary/concatenate">concatenate</a>, and means to link together.<br>
-This function combines values into a vector or list. For now you can think of a vector as a sequence of values. The values are seperated by a <code>,</code></p>
-<p><br></p>
-<section id="use-c-to-create-a-sequence-of-numbers-from-0-to-4" class="level3">
-<h3 class="anchored" data-anchor-id="use-c-to-create-a-sequence-of-numbers-from-0-to-4">Use <code>c()</code> to create a sequence of numbers from 0 to 4</h3>
-<div class="cell">
-<details>
-<summary>Show me the code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-</section>
-<section id="use-c-to-create-a-sequence-of-numbers-from-0-to-4-in-steps-of-2" class="level3">
-<h3 class="anchored" data-anchor-id="use-c-to-create-a-sequence-of-numbers-from-0-to-4-in-steps-of-2">Use <code>c()</code> to create a sequence of numbers from 0 to 4 in steps of 2</h3>
-<div class="cell">
-<details>
-<summary>Show me the code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<p>&nbsp;<br>
-</p>
-</section>
-</section>
-<section id="seq" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="seq"><span class="header-section-number">1.3</span> <code>seq()</code></h2>
-<p>Of course, such predictable operations can be done with ease in a more reliable way. We will use the function <code>seq()</code> as an example. The output of this function is a sequence of numbers. The sequence of numbers is dictated by the arguments that you provide.</p>
-<p>Read the arguments section on help page for <code>seq()</code><br>
-Type <code>?seq()</code> in the console or type <code>seq()</code>and pres F1 while the cursor stands on the on the letters.</p>
-<p><br></p>
-<section id="make-a-sequence-of-numbers-that-goes-from-0-to-100" class="level3">
-<h3 class="anchored" data-anchor-id="make-a-sequence-of-numbers-that-goes-from-0-to-100">Make a sequence of numbers that goes from 0 to 100</h3>
-<div class="cell">
-<details>
-<summary>Show me the code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>,</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">to =</span> <span class="dv">100</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># This simple operation can also be done by just writing 0:100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<p><br></p>
-</section>
-<section id="make-a-sequence-of-numbers-that-goes-from-0-to-100-in-steps-of-2" class="level3">
-<h3 class="anchored" data-anchor-id="make-a-sequence-of-numbers-that-goes-from-0-to-100-in-steps-of-2">Make a sequence of numbers that goes from 0 to 100 in steps of 2</h3>
-<div class="cell">
-<details>
-<summary>Show me the code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>,</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">to =</span> <span class="dv">100</span>,</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<p>&nbsp;<br>
-</p>
-</section>
-</section>
-<section id="sample" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="sample"><span class="header-section-number">1.4</span> <code>sample()</code></h2>
-<section id="using-sample-take-a-sample-of-5-random-numbers-between-1-and-100" class="level3">
-<h3 class="anchored" data-anchor-id="using-sample-take-a-sample-of-5-random-numbers-between-1-and-100">Using <code>sample()</code>, take a sample of 5 random numbers between 1 and 100</h3>
-<div class="cell">
-<details>
-<summary>Show me the code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-</section>
-<section id="what-does-the-argument-replace-do-what-is-the-default-value" class="level3">
-<h3 class="anchored" data-anchor-id="what-does-the-argument-replace-do-what-is-the-default-value">What does the argument <code>replace</code> do? What is the default value?</h3>
-<p>&nbsp;&nbsp;</p>
-</section>
-</section>
-<section id="mean" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="mean"><span class="header-section-number">1.5</span> <code>mean()</code></h2>
-<p>Another function we can use is <code>mean()</code>. This function gives you the mean value of a sequence of numbers. Read the arguments section of the help page for <code>mean()</code></p>
-<p><br></p>
-<section id="what-type-of-input-does-the-first-arguments-of-the-mean-function-require" class="level3">
-<h3 class="anchored" data-anchor-id="what-type-of-input-does-the-first-arguments-of-the-mean-function-require">What type of input does the first arguments of the <code>mean()</code> function require?</h3>
-<div class="cell">
-<details>
-<summary>Show me the code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># It requires a vector. </span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># You can still think of this as a sequence of numbers</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># c()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<p><br></p>
-</section>
-<section id="using-c-take-the-mean-of-the-numbers-5-3-1-and-10" class="level3">
-<h3 class="anchored" data-anchor-id="using-c-take-the-mean-of-the-numbers-5-3-1-and-10">Using <code>c()</code>, take the mean of the numbers 5, 3, 1, and 10</h3>
-<div class="cell">
-<details>
-<summary>Show me the code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<p><br></p>
-</section>
-<section id="take-the-mean-of-this-vector-c2-4-6-na" class="level3">
-<h3 class="anchored" data-anchor-id="take-the-mean-of-this-vector-c2-4-6-na">Take the mean of this vector <code>c(2, 4, 6, NA)</code></h3>
-<div class="cell">
-<details>
-<summary>Show me the code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="cn">NA</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<p><br></p>
-</section>
-<section id="take-the-mean-of-this-vector-c2-4-6-na-disregarding-na-values" class="level3">
-<h3 class="anchored" data-anchor-id="take-the-mean-of-this-vector-c2-4-6-na-disregarding-na-values">Take the mean of this vector <code>c(2, 4, 6, NA)</code>, disregarding <code>NA</code> values</h3>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hint
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Read about the <code>na.rm</code> argument in the <code>mean()</code> function. What is the default value?</p>
-</div>
-</div>
-</div>
-<div class="cell">
-<details>
-<summary>Show me the code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="cn">NA</span>),</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<p><br></p>
-</section>
-<section id="you-will-find-the-na.rm-argument-in-many-functions.-it-always-defaults-to-false.-discuss-if-this-is-a-good-idea-is-it-different-from-other-programs" class="level3">
-<h3 class="anchored" data-anchor-id="you-will-find-the-na.rm-argument-in-many-functions.-it-always-defaults-to-false.-discuss-if-this-is-a-good-idea-is-it-different-from-other-programs">You will find the <code>na.rm</code> argument in many functions. It always defaults to FALSE. Discuss if this is a good idea? Is it different from other programs?</h3>
-<p>&nbsp;<br>
-</p>
-</section>
-</section>
-<section id="section-1" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="section-1"><span class="header-section-number">1.6</span> <code>%&gt;%</code></h2>
+<section id="find-a-dataset-and-prepare-it-for-a-table" class="level4">
+<h4 class="anchored" data-anchor-id="find-a-dataset-and-prepare-it-for-a-table">Find a dataset and prepare it for a table</h4>
+<p>Below is a suggestion for <code>soldiers</code>, but you are free to try with you own data if you prefer that.</p>
+<p>Using <code>soldiers</code> and <code>gt()</code>, create a table in the following steps:</p>
 <ul>
-<li>What is your keyboard shortcut to write the pipe <code>%&gt;%</code> ? (Pres CTRL+SHIFT+P and type <strong>pipe</strong> in the search field).</li>
-</ul>
-<section id="load-the-tidyverse" class="level3">
-<h3 class="anchored" data-anchor-id="load-the-tidyverse">Load the <code>tidyverse</code></h3>
-<p>Why? The <code>%&lt;%</code> is a part of the tidyverse, and is not included in Base R</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><br></p>
-</section>
-<section id="using-the-pipe-create-a-sequence-of-numbers-going-from-0-til-100-and-then-take-the-mean-of-the-sequence." class="level3">
-<h3 class="anchored" data-anchor-id="using-the-pipe-create-a-sequence-of-numbers-going-from-0-til-100-and-then-take-the-mean-of-the-sequence."><strong>Using the pipe,</strong> create a sequence of numbers going from 0 til 100 and then take the mean of the sequence.</h3>
-<div class="cell">
-<details>
-<summary>Show me the code</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>,</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">to =</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<p><br></p>
-</section>
-<section id="using-the-pipe-create-a-sequence-of-numbers-going-from-1-to-20-in-39-steps-and-then-sample-10-random-numbers-from-the-sequence" class="level3">
-<h3 class="anchored" data-anchor-id="using-the-pipe-create-a-sequence-of-numbers-going-from-1-to-20-in-39-steps-and-then-sample-10-random-numbers-from-the-sequence"><strong>Using the pipe,</strong> create a sequence of numbers going from 1 to 20 in 39 steps, and then sample 10 random numbers from the sequence</h3>
-<div class="cell">
-<details>
-<summary>Show me the code</summary>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>,</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">to =</span> <span class="dv">20</span>,</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">length.out =</span> <span class="dv">39</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<p><br></p>
-</section>
-<section id="rewrite-this-code-to-use-the-pipe-instead" class="level3">
-<h3 class="anchored" data-anchor-id="rewrite-this-code-to-use-the-pipe-instead">Rewrite this code to use the pipe instead</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample</span>(<span class="fu">seq</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>),</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>         <span class="dv">10</span>,</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<details>
-<summary>Show me the code</summary>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample</span>(<span class="dv">10</span>,</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sort</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<p>&nbsp;&nbsp;</p>
-</section>
-</section>
-<section id="explore" class="level2" data-number="1.7">
-<h2 data-number="1.7" class="anchored" data-anchor-id="explore"><span class="header-section-number">1.7</span> Explore</h2>
-<p>Investigate the following functions that we may need later on in this course.</p>
+<li>Keep the columns <code>Installation</code>, <code>sex</code>, and all the columns that ends with circumference,</li>
+<li>Remove <code>Fort Rucker</code> - it only has one soldier</li>
+<li>Group by <code>Installation</code> and <code>sex</code></li>
+<li>summarise the data and calculate the mean and sd of all the columns that ends with circumference
 <ul>
-<li><code>quantile()</code></li>
-<li><code>rnorm()</code></li>
-<li><code>median()</code><br>
-</li>
-<li><code>cumsum()</code></li>
-<li><code>min()</code><br>
-</li>
-<li><code>max()</code><br>
-</li>
-<li><code>n()</code></li>
-<li><code>set.seed()</code></li>
+<li>you can do this manually (with many lines of code)</li>
+<li>or you can do this by using the <code>across()</code> function inside <code>summarise()</code>. If you are going to be working with a dataset that has many columns, I suggest you invest some time into learning about <code>across()</code></li>
+</ul></li>
+<li>pipe the summarised table to <code>gt()</code> and set the <code>rowname_col</code> argument to <code>sex</code></li>
+<li>add a suitable title and subtitle</li>
+<li>Assign the table to an object called <code>my_tbl</code></li>
 </ul>
-<p>&nbsp;&nbsp;<br>
-</p>
-<script src="https://giscus.app/client.js" data-repo="sorenoneill/r4phd" data-repo-id="R_kgDOJ9etDQ" data-category="Announcements" data-category-id="DIC_kwDOJ9etDc4CYApF" data-mapping="pathname" data-strict="0" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="bottom" data-theme="cobalt" data-lang="en" crossorigin="anonymous" async="">
-</script>
+<div class="cell">
+<details>
+<summary>Show me the code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>my_tbl <span class="ot">&lt;-</span> soldiers <span class="sc">%&gt;%</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Select some columns and arrange the tible</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Installation, sex, </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>         <span class="fu">ends_with</span>(<span class="st">"circumference"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Remove Fort Rucker</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Installation <span class="sc">!=</span> <span class="st">"Fort Rucker"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Remove the Installation with only one Soldier</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="co">#group_by(Installation) %&gt;% </span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">#add_count() %&gt;% </span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="co">#filter(n &gt; 1) %&gt;% </span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Summary stats by Installation and Race</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Installation, sex) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">ends_with</span>(<span class="st">"circumference"</span>),</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>           <span class="at">.fns =</span> <span class="fu">list</span>(<span class="at">mean =</span> <span class="sc">~</span> <span class="fu">mean</span>(.x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>                       <span class="at">sd =</span> <span class="sc">~</span> <span class="fu">sd</span>(.x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)))) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  <span class="co"># group only by installation</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  <span class="co"># because we want to use sex in the rowname_col argument in gt() - see below</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Installation) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Send to gt and perform a few styling functions</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>(<span class="at">rowname_col =</span> <span class="st">"sex"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">md</span>(<span class="st">"**Overview of soldiers soldiers by sex and installation**"</span>),</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="fu">md</span>(<span class="st">"*The data is a mock up version of the soldiers dataset*"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_footnote</span>(</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">footnote =</span> <span class="st">"To preserve anonymity, observations from Fort Rucker has been removed becuase of a low number of observations"</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>my_tbl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="style-my_tbl-as-you-like" class="level4">
+<h4 class="anchored" data-anchor-id="style-my_tbl-as-you-like">Style <code>my_tbl</code> as you like</h4>
+<p>You can some try some of these functions</p>
+<ul>
+<li><p><code>tab_header()</code></p></li>
+<li><p><code>tab_source_note()</code></p></li>
+<li><p><code>tab_stubhead()</code></p></li>
+<li><p><code>tab_spanner()</code></p></li>
+<li><p><code>tab_spanner_delim()</code></p></li>
+<li><p><code>fmt_number()</code><br>
+</p></li>
+<li><p><code>fmt_percent()</code><br>
+</p></li>
+<li><p><code>fmt_missing()</code></p></li>
+<li><p><code>col_merge_n_pct()</code></p></li>
+<li><p><code>cols_label()</code></p></li>
+<li><p><code>md()</code></p></li>
+<li><p><code>cells_body()</code> and <code>tab_footnote()</code></p></li>
+</ul>
+<div class="cell">
+<details>
+<summary>Show me the code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># It is always a choice how much you want to style your in R, and what you leave for manual editing afterwards (e.g. Word)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># You can style everything in R, but it can be code intensive</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># In general - you want the basic structure of your table to be in place</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># You NEVER want to manually edit values or merge columns.</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Editing column and spanners names are less labour intensive and dont contain the same risk of making errors</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># I think the below table is an ok place to stop the styling in R.</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>my_tbl_styled <span class="ot">&lt;-</span> my_tbl <span class="sc">%&gt;%</span> </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_spanner_delim</span>(</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">delim =</span> <span class="st">"_"</span>,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> <span class="fu">everything</span>()</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fmt_number</span>(</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> <span class="fu">contains</span>(<span class="st">"circumference"</span>),</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">decimals =</span> <span class="dv">1</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_merge</span>(</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> <span class="fu">contains</span>(<span class="st">"thigh"</span>),</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">pattern =</span> <span class="st">"{1} ({2})"</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_merge</span>(</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> <span class="fu">contains</span>(<span class="st">"waist"</span>),</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">pattern =</span> <span class="st">"{1} ({2})"</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_merge</span>(</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> <span class="fu">contains</span>(<span class="st">"ankle"</span>),</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">pattern =</span> <span class="st">"{1} ({2})"</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_merge</span>(</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> <span class="fu">contains</span>(<span class="st">"biceps"</span>),</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">pattern =</span> <span class="st">"{1} ({2})"</span></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_merge</span>(</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> <span class="fu">contains</span>(<span class="st">"calf"</span>),</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">pattern =</span> <span class="st">"{1} ({2})"</span></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>    ) </span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>my_tbl_styled</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><br></p>
+</section>
+<section id="save-your-table-using-gtsave" class="level4">
+<h4 class="anchored" data-anchor-id="save-your-table-using-gtsave">Save your table using <code>gtsave()</code></h4>
+<ul>
+<li>Create a folder called “tables”</li>
+</ul>
+<div class="cell">
+<details>
+<summary>Show me the code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gtsave</span>(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> my_tbl_styled,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="fu">here</span>(<span class="st">"tables"</span>, <span class="st">"ANSUR_fort_sex.docx"</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Word can also open .rtf  files - its sometimes works better in this format</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">gtsave</span>(</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> my_tbl_styled,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="fu">here</span>(<span class="st">"tables"</span>, <span class="st">"ANSUR_fort_sex.rtf"</span>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><br></p>
+</section>
+<section id="want-more" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="want-more">WANT MORE?</h3>
+<p><br></p>
+<section id="give-the-row-group-labels-heading-and-column-labels-a-different-background-color" class="level4">
+<h4 class="anchored" data-anchor-id="give-the-row-group-labels-heading-and-column-labels-a-different-background-color">Give the row group labels, heading, and column labels a different background color</h4>
+<ul>
+<li>Use <code>tab_options()</code></li>
+</ul>
+<div class="cell">
+<details>
+<summary>Show me the code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>my_tbl_styled <span class="sc">%&gt;%</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_options</span>(<span class="at">row_group.background.color =</span> <span class="st">"#C2B7B7"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_options</span>(<span class="at">heading.background.color =</span> <span class="st">"#C2B7B7"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_options</span>(<span class="at">column_labels.background.color =</span> <span class="st">"#C2B7B7"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><br></p>
+</section>
+</section>
+</section>
+<section id="gtextras" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="gtextras"><span class="header-section-number">1.3</span> <code>gtExtras</code></h2>
+<p>Install the package <code>gtExtras</code> and add <code>library(gtExtras)</code> to the codechunk where you load your libraries.</p>
+<p><br></p>
+<section id="add-a-cool-theme-to-your-table-gt_theme_" class="level4">
+<h4 class="anchored" data-anchor-id="add-a-cool-theme-to-your-table-gt_theme_">Add a cool theme to your table <code>gt_theme_</code></h4>
+<div class="cell">
+<details>
+<summary>Show me the code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>my_tbl_styled <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt_theme_espn</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><br></p>
+</section>
+<section id="color-thighcircumference_mean-with-hulk-colors-using-gt_hulk_col_numericthighcircumference_mean" class="level4">
+<h4 class="anchored" data-anchor-id="color-thighcircumference_mean-with-hulk-colors-using-gt_hulk_col_numericthighcircumference_mean">Color <code>thighcircumference_mean</code> with Hulk colors using <code>gt_hulk_col_numeric(thighcircumference_mean)</code></h4>
+<div class="cell">
+<details>
+<summary>Show me the code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>my_tbl_styled <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt_theme_espn</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt_hulk_col_numeric</span>(thighcircumference_mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 
 
+</section>
 </section>
 </section>
 
@@ -1203,13 +1255,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./day_1_basics_of_Rstudio.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Basics of Rstudio</span>
+      <a href="./day_3_missings.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Missings</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./day_1_settting_up_your_course_project.html" class="pagination-link">
-        <span class="nav-page-text">Setting up your course project</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./qmd_rrr/reproducible_research_basics_exercises_en.html" class="pagination-link">
+        <span class="nav-page-text">Thinking about RRR</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

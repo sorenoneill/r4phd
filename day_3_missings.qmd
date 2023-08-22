@@ -1,0 +1,59 @@
+---
+title: "Missings"
+subtitle: "and the `forcats` package"
+author: "Steen Flammild Harsted"
+date: today
+output:
+  distill::distill_article:
+    self_contained: false
+format:
+  html: 
+    code-fold: true
+    code-summary: "Show me the code"
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    number-depth: 3
+editor: 
+  mode: source
+execute: 
+  eval: false
+  echo: true
+  message: false
+  warning: false
+---
+
+```{r setup}
+#| include: false
+library(tidyverse)
+library(here)
+library(vroom)
+library(naniar)
+library(gt)
+library(gtsummary)
+library(gtExtras)
+library(glue)
+library(here)
+source(here("scripts", "01_import.R"))
+```
+
+## Missing Data
+
+<br><br>
+
+#### Install the `naniar` package and load it
+Use `install.packages()` to download the `naniar` package. When you have done that add `library(naniar)` to the code chunk where you call your libraries. Execute the line. 
+
+
+<br><br>
+
+#### Explore missing values in `starwars` using
+*  `vis_miss()` 
+*  `gg_miss_upset()`
+*  What happens if you add `, nsets = 6` inside `gg_miss_upset()`
+*  `naniar` contains more useful functions. You can see them [here](https://cran.r-project.org/web/packages/naniar/vignettes/naniar-visualisation.html)
+```{r}
+#| output: false
+vis_miss(starwars)
+gg_miss_upset(starwars)
+```
