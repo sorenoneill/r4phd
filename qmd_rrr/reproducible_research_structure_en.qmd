@@ -1,0 +1,210 @@
+---
+title: "Reproducible research with R -- Structuring your project"
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: '`r Sys.Date()`'
+output:
+  distill::distill_article:
+    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+#categories:
+#  - Installation
+creative_commons: CC BY
+format: html
+editor: source
+---
+
+```{r include=FALSE}
+#library(vembedr)
+library(tidyverse)
+```
+
+
+## Example project
+
+* Download this [RRR example project](RR_example.zip)
+* Unzip the file in a new folder somewhere appropriate
+* In RStudio, create a new R-project and choose that as _existing directory_
+
+![](gfx/new_project_existing_directory.gif)
+
+**These exercises are best done in pairs.**
+
+:::{.callout-note collapse=true}
+## Exercise #1 -- Examine the project files
+
+For now don't change anything and don't get bogged down in all the details of the code in each file ... just get an overview, see if you can understand the code and how the different files tie together to make a structured project.
+
+* What is the project all about?
+* What do the individual files do?
+* How are the files related to each other?
+:::
+
+:::{.callout-note collapse=true}
+## Exercise #2 -- What does the project generate? What is the output?
+
+Let's try to:
+
+* Knit a manuscript to html or word or pdf
+
+:::{.callout-note collapse=true appearance="simple"}
+## Hint
+
+Look to the YAML of the main qmd document
+:::
+:::
+
+:::{.callout-note collapse=true}
+## Exercise #3 -- Working with the manuscript : a simple problem
+
+The data for participant with ID=7 was corrupted (equipment failure).
+
+How did the author fix that problem?
+
+:::{.callout-note collapse=true appearance="simple"}
+## Hint
+
+It would be good _Reproducible Research_ practice to fix that problem as part of the data cleaning and wrangling, rather than editing the raw data file.
+:::
+
+:::
+
+:::{.callout-note collapse=true}
+### Exercise #4 -- Working with the manuscript : a problem with cross references
+
+The author did not pay attention to the Instructions for Authors for this particular journal and placed figures immediately after the first mention/reference.
+
+In fact:
+
+* Tables should be included in text close to first reference
+* Figure should be included in a section 'Figures' (just before References) and a placeholder **\<\<FIGURE X ABOUT HERE>>** closely after where it is first referenced.
+
+How would you change the code?
+
+:::{.callout-note collapse=true appearance="simple"}
+## Hint
+
+The chunk 'figure_distribution_by_probe_and session' in 'main_v1.qmd' can be left where it is and the chunk 'show_fig' can be moved further down the manuscript, under a new heading `# Figures`, just before the `# References` section.
+
+The **\<\<FIGURE X ABOUT HERE>>** should be written as markdown **\<\<FIGURE \@fig-distribution-by-probe-and-session ABOUT HERE>>** in a separate line following the first cross reference ("_We presented a boxplot..._"). That would actually be parsed into **\<\<FIGURE 1 ABOUT HERE>>**.
+
+:::
+:::
+
+:::{.callout-note collapse=true}
+### Exercise #5 -- Working with the manuscript : sourcing code
+
+The author has told you that in fact, the table is not well styled -- specifically, the column headings look ugly. He was kind enough to provide a simple function to solve the problem and saved it as an R script is in the file 'analyses/summary_statistics.R'.
+
+Look at the chunk 'a_table' and consider how you might fix this problem easily.
+
+:::{.callout-note collapse=true appearance="simple"}
+## Hint
+
+The code that generates the poorly styled table is:
+
+```
+tmp_data <- data %>%
+  select(sex, age, height, weight) %>%
+  group_by(sex) %>%
+  summarise(mean_age=round(mean(age),2),
+            mean_height=round(mean(height),2),
+            mean_weight=round(mean(weight),2))
+
+knitr::kable(tmp_data)
+```
+
+To replace it with the function (`my_summary_stats`) provided in the R script, you could simply delete those lines and replace them with:
+
+```
+source(here("analyses", "summary_statistics.R"))
+knitr::kable(my_summary_stats(data))
+```
+
+**Bonus question** If you didn't want to delete the old code, but render it inoperative how might you achieve that?
+
+:::{.callout-note collapse=true appearance="simple"}
+## Hint
+Instead of deleting it, simply comment out the code -- CTRL-SHIFT-C will comment/uncomment highlighted lines
+:::
+:::
+:::
+
+:::{.callout-note collapse=true}
+### Exercise #6 -- Working with the manuscript : figure parameters
+
+The journal editors complain that the figure you provided is not formatted as per journal requirements.
+
+The want the file uploaded:
+
+* in tiff format
+* 2 inches wide
+* 1.5 inches heigh
+* in a 600 dpi resolution
+
+How would you fix that problem and where would you go to find the output file?
+
+:::{.callout-note collapse=true appearance="simple"}
+## Hint
+The plot is defined in the chunk called 'figure_distribution_by_probe_and session'.
+
+You will find all the relevant parameters are defined in the ggsave function.
+
+Do not really on the output in the viewer pane to inspect your figure -- instead inspect the file that is save in the folder 'plots'.
+:::
+:::
+
+:::{.callout-note collapse=true}
+### Exercise #7 -- Working with the manuscript : stupid journal anyway!
+
+DOH! Qfter all these adjustments, the Editor rejected your paper anyway. That journal really was a 'Pain'.
+
+So now you need to format your manuscript for another journal and you need to reformat the citation and bibliography style. 
+
+As hinted above, the journal you are currently styled for is 'Pain'.
+
+* Find out how your current citation/bibliography style is defined and which file(s) are involved.
+* Pick another journal -- just anyone you know.
+* Go online and find a new style definition for that journal -- google is your friend and so is Zotero!
+* Now fix your citation formatting.
+
+:::{.callout-note collapse=true appearance="simple"}
+## Hints
+
+* The citation style is defined in the YAML of the 'main_v1.qmd' file -- specifically by `csl: pain.csl` (the line `bibliography: references.bib` defines the BibTeX file where references are stored, but _not_ the citation style)
+* You can find a plethora of Citation Style Language (.csl) files for download at [the 'Zotero style repository'](https://www.zotero.org/styles) -- search and you shall find -- then download into the project folder.
+* Change your YAML csl: definition to the new file name and re-render your quarto document
+
+:::
+:::
+
+:::{.callout-note collapse=true}
+### Bonus -- Check out the folder 'Presentations'
+
+![](gfx/think.png)
+
+Considering that figures and tables, and summary statistics etc defined and used in the file 'main_v1.qmd', but also saved to separate files, you shoulld be able to re-used them for other purposes, e.g. a presentation.
+
+Look at the _static_ presentation qmd and html files -- you should also know, that such qmd presentations can be exported to pdf, LibreOffice Impress and Microsoft Power Point files as well.
+
+The _dynamic_ presentation is not completed yet, but go google to see what that might be...
+
+:::
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
