@@ -95,7 +95,7 @@ We could hide this away in a separate file and '_source_' it .. or even make a n
 
 ## Compound names
 
-![](gfx/RR/var_name_animation.webp)
+![](gfx/var_name_animation.webp)
 
 * **Do** use under_scores
 * **Do not** use camelCase
