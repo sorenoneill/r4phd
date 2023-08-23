@@ -89,12 +89,14 @@ soldiers %>%
 ```
 
 <br>
+
 #### Improve the table further
 You probably need to investigate the help file for `tbl_summary()` to solve these.
 * Change the statistics to mean and sd
 * Change the statistical test of the continous variables from a "Kruskal-Wallis rank sum test" to a One-way ANOVA
 * Find better names for sex, heightcm, and weightkg
 * save the table as a .docx file in your tables folder
+
 ```{r}
 #| output: false
 my_table <- soldiers %>% 
@@ -134,8 +136,8 @@ my_table %>%
 
 
 <br>
-#### Go to your homeassignment and update it with one or more tables
 
+#### Go to your homeassignment and update it with one or more tables
 
 <br><br>
 
