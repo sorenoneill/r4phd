@@ -98,46 +98,7 @@ Markeringen **\<\<FIGURE X ABOUT HERE>>** bør skrives som **\<\<FIGURE \@fig-di
 :::
 
 :::{.callout-note collapse=true}
-### Øvelse #5 -- Inkludér kode fra en anden fil
-
-Kode forfatteren har skrevet og fortalt dig, at faktisk er tabellen ikke formateret rigitgt - kolonne overskrifterne er grimme. Han var dog flink nok til at skrive lidt kode som kan løse det og har vedlagt det som en R script fil 'analyses/summary_statistics.R'.
-
-Kig på kode blokken 'a_table' og overvej hvordan du kan løse det problem ved hjælp af den leverede fil.
-
-:::{.callout-note collapse=true appearance="simple"}
-## Hint
-
-Koden som laver tabellen med grimme overskrifter er:
-
-```
-tmp_data <- data %>%
-  select(sex, age, height, weight) %>%
-  group_by(sex) %>%
-  summarise(mean_age=round(mean(age),2),
-            mean_height=round(mean(height),2),
-            mean_weight=round(mean(weight),2))
-
-knitr::kable(tmp_data)
-```
-
-For at erstattet den kode med funktionen (`my_summary_stats`) fra R scriptet, kan man simpelthen slette tabel koden og erstatte den med:
-
-```
-source(here("analyses", "summary_statistics.R"))
-knitr::kable(my_summary_stats(data))
-```
-
-**Bonus spørgsmål** Hvis du ikke vil slette den gamle kode, men bare gøre den inaktiv, hvordan vil du så gøre det?
-
-:::{.callout-note collapse=true appearance="simple"}
-## Hint
-I stedet for at slette koden, så kommentér den ud -- CTRL-SHIFT-C vil comment/uncomment highlightede linjer.
-:::
-:::
-:::
-
-:::{.callout-note collapse=true}
-### Øvelse #6 -- Figur parametre
+### Øvelse #5 -- Figur parametre
 
 Tidsskriftets editorer har beklaget sig over at figuren ikke lever op til tidsskriftets krav.
 
@@ -150,6 +111,8 @@ De vil have filen uploadet som:
 
 Hvordan vil du fikse det problem og hvor vil du finde output'et?
 
+Hvordan ville du produce en _ekstra fil_ af det samme plot til en poster -- denne gang i 6 tommer gange 6 tommer?
+
 :::{.callout-note collapse=true appearance="simple"}
 ## Hint
 
@@ -158,6 +121,30 @@ Figuren defineres i kode blokken 'figure_distribution_by_probe_and session'.
 Du vil finde alle relevant parametre defineret i funktionen ggsave.
 
 Bero ikke på output'et i RStudios viewer når du skal inspicere figuren gemt i filen -- i stedet inspicér den i folderen 'plots'.
+
+Hvis du vi lgemme en ekstra fil af plottet i en anden størrelse, så kunne du måske bare køre ggsave kommandoen to gange med forskellige parametre?
+:::
+:::
+
+:::{.callout-note collapse=true}
+### Øvelse #6 -- Endnu en reference
+
+Du er blevet bedt om at tilføje en reference til publikationen "Swearing as a Response to Pain: Assessing Hypoalgesic Effects of Novel “Swear” Words" af Richard Stephens og Olly Robertson (Frontiers in Psychology).
+
+Hvordan kunne du gøre det? Kig i main_v1.qmd og i reference listen for at få inspiration.
+
+:::{.callout-note collapse=true appearance="simple"}
+## Hint
+På hjemmesiden [Fronties in Psychology](https://www.frontiersin.org/articles/10.3389/fpsyg.2020.00723/full?fbclid=IwAR3uxw06XXRr7-0xwmKwieOYLH-4bbWdh_6zOa3CZcDZOCXkjgwexs-p9Wk&utm_medium=msn) finder du et link i højre side 'Export citation', som giver dig mulighed for at downloade referencen som BibTeX.
+
+Kig engang i den fil når den er downloadet og sammenlign den med indholdet i references.bib
+
+Copy/paste...
+
+Hver reference er definet med et unikt id i BibTeX definitionen .. kan du se hvor den er definet og hvordan den bruges i reference i quarto dokumentet?
+
+Prøv at give den nye reference et andet id og brug det samme i main_v1.qmd filen til at citere artiklen af Stephens og Robertson. 
+
 :::
 :::
 
@@ -184,6 +171,63 @@ Som antydet herover, var manuskriftet tilpasset tidskrift 'Pain'.
 
 :::
 :::
+
+:::{.callout-note collapse=true}
+### Øvelse #8 -- Samarbejde
+
+Din primære medforfatter på artiklen, Dr. Jekyll har revideret første version af manuskriptet for nogen tid siden. Som et ondt geni bruger Dr. Jekyll selvfølgeligt også R og han har droppet den reviderede qmd file til dig [her](main_v1_DrJekylls_comments.qmd). 
+
+Download Dr. Jekylls reviderede version og sammenlign med din egen. Til det formål kan du gøre brug af _diff'ing_ af filer ... kig på noterne her på r4phd om RRR -- Collaboration (with R users).
+
+Vær kritisk med hvad du accepterer og hvad du afviser -- Dr. Jekylls revision er baseret på en ældre version af dit manuskript.
+
+:::{.callout-note collapse=true appearance="simple"}
+## Hint
+Du kan bruge denne [online diff app](https://editor.mergely.com/) ... eller du kan vælge at installere er program som f.eks Meld på din egen computer.
+
+:::
+:::
+
+:::{.callout-note collapse=true}
+### Øvelse #9 -- Word skabelon
+
+Det nye tidsskrift du indsender til kræver at alle overskrifter niveau 1 skal være **bold** og i en smert farve som du selv vælger.
+
+De insisterer også på at du indsender manuskriptet som en Microsoft Word fil.
+
+Først gør følgende
+
+1. I YAML sektionen i main_v1.qmd ret `format: html` til `format: docx`
+2. Render dokumentet så der geereres en MS Word docx fil som output
+3. Omdøb den fil fra `main_v1.docx` til `my_word_template.docx`
+
+Ret nu den samme YAML linje fra `format: docx` til dette:
+
+```{r}
+#| eval: false
+#| echo: true
+format: 
+  docx:
+    reference-doc: my_word_template.docx
+```
+
+**Bemærk** teksten skal stå præcist sådan her -- linjeskift og mellemrum er vigtige!
+
+Gør nu følgende:
+
+1. Render dit qmd script igen for at generere en ny main_v1.docx fil
+2. Inspicér den fil (åben den i Word eller LibreOffice) -- læg specielt mærke til typografi stilen af niveau 1 overskrifter som **Background**.
+3. Luk main_v1.docx igen og åben open my_word_template.docx istedet for
+4. Check hvilekn stil der er gældende for **Background** (sikkert 'Heading 1' eller lignende) og redigér den typografi stil i stil editoren. Der er **ikke** nok bare at ændre overskriften **Background** -- du skal ændre den stil som er associeret med typografien.
+5. Gem my_word_template.docx efter du har lavet ændringerne
+6. Render nu en ny version af main_v1.qmd og se om stil ændringerne har haft effekt.
+
+Nu kan du leje lidt med de andre stil definitioner i dokumentet, f.eks de andre overskrifts niveauer, brødteksten, figur teksten, etc.
+
+Husk at du skal lave ændringerne i typografi stil i my_word_template.docx med stil editoren (og gemme) før du gen-render qmd filen.
+
+:::
+
 
 :::{.callout-note collapse=true}
 ### Bonus -- Kig i folderen 'Presentations'

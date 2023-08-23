@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -414,7 +448,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../qmd_rrr/reproducible_research_workflow_3_en.html" class="sidebar-item-text sidebar-link">
+  <a href="../qmd_rrr/reproducible_research_collaboration_en.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">RRR – Collaboration</span></a>
   </div>
 </li>
@@ -633,7 +667,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../qmd_rrr/reproducible_research_workflow_3_da.html" class="sidebar-item-text sidebar-link">
+  <a href="../qmd_rrr/reproducible_research_collaboration_da.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">RRR – Collaboration</span></a>
   </div>
 </li>
@@ -761,7 +795,7 @@ Exercise #1 – Examine the project files
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Exercise #2 – What does the project generate? What is the output?
+Exercise #2 – What does the project generate?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -796,7 +830,7 @@ Hint
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Exercise #3 – Working with the manuscript : a simple problem
+Exercise #3 – A simple problem
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -829,7 +863,7 @@ Hint
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Exercise #4 – Working with the manuscript : a problem with cross references
+Exercise #4 – Fixing cross references
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -863,44 +897,27 @@ Hint
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Exercise #5 – Working with the manuscript : sourcing code
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>The author has told you that in fact, the table is not well styled – specifically, the column headings look ugly. He was kind enough to provide a simple function to solve the problem and saved it as an R script is in the file ‘analyses/summary_statistics.R’.</p>
-<p>Look at the chunk ‘a_table’ and consider how you might fix this problem easily.</p>
-<div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hint
+Exercise #5 – Figure parameters
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>The code that generates the poorly styled table is:</p>
-<pre><code>tmp_data &lt;- data %&gt;%
-  select(sex, age, height, weight) %&gt;%
-  group_by(sex) %&gt;%
-  summarise(mean_age=round(mean(age),2),
-            mean_height=round(mean(height),2),
-            mean_weight=round(mean(weight),2))
-
-knitr::kable(tmp_data)</code></pre>
-<p>To replace it with the function (<code>my_summary_stats</code>) provided in the R script, you could simply delete those lines and replace them with:</p>
-<pre><code>source(here("analyses", "summary_statistics.R"))
-knitr::kable(my_summary_stats(data))</code></pre>
-<p><strong>Bonus question</strong> If you didn’t want to delete the old code, but render it inoperative how might you achieve that?</p>
+<p>The journal editors complain that the figure you provided is not formatted as per journal requirements.</p>
+<p>The want the file uploaded:</p>
+<ul>
+<li>in tiff format</li>
+<li>2 inches wide</li>
+<li>1.5 inches heigh</li>
+<li>in a 600 dpi resolution</li>
+</ul>
+<p>How would you fix that problem and where would you go to find the output file?</p>
+<p>How would you produce a <em>second file</em> of the same plot for a poster – this time in 6 inches by 6 inches?</p>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -913,10 +930,10 @@ Hint
 </div>
 <div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Instead of deleting it, simply comment out the code – CTRL-SHIFT-C will comment/uncomment highlighted lines</p>
-</div>
-</div>
-</div>
+<p>The plot is defined in the chunk called ‘figure_distribution_by_probe_and session’.</p>
+<p>You will find all the relevant parameters are defined in the ggsave function.</p>
+<p>Do not rely on the output in the viewer pane to inspect your figure – instead inspect the file that is save in the folder ‘plots’.</p>
+<p>If you wanted to save the plot twice in different sizes, perhaps just run the ggsave command twice with different parameters?</p>
 </div>
 </div>
 </div>
@@ -924,28 +941,21 @@ Hint
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Exercise #6 – Working with the manuscript : figure parameters
+Exercise #6 – One more citation
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>The journal editors complain that the figure you provided is not formatted as per journal requirements.</p>
-<p>The want the file uploaded:</p>
-<ul>
-<li>in tiff format</li>
-<li>2 inches wide</li>
-<li>1.5 inches heigh</li>
-<li>in a 600 dpi resolution</li>
-</ul>
-<p>How would you fix that problem and where would you go to find the output file?</p>
+<p>You have been asked to cite the publication “Swearing as a Response to Pain: Assessing Hypoalgesic Effects of Novel “Swear” Words” by Richard Stephens and Olly Robertson (Frontiers in Psychology).</p>
+<p>How might you do that? Look for inspiration in main_v1.qmd and the reference list.</p>
 <div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -954,11 +964,13 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>The plot is defined in the chunk called ‘figure_distribution_by_probe_and session’.</p>
-<p>You will find all the relevant parameters are defined in the ggsave function.</p>
-<p>Do not really on the output in the viewer pane to inspect your figure – instead inspect the file that is save in the folder ‘plots’.</p>
+<p>On the web page of <a href="https://www.frontiersin.org/articles/10.3389/fpsyg.2020.00723/full?fbclid=IwAR3uxw06XXRr7-0xwmKwieOYLH-4bbWdh_6zOa3CZcDZOCXkjgwexs-p9Wk&amp;utm_medium=msn">Fronties in Psychology</a> you will find a link in the right hand side called ‘Export citation’, which allows you to download the reference as BibTeX.</p>
+<p>Look inside the downloaded file and compare it to the content of references.bib</p>
+<p>Copy/paste…</p>
+<p>Each reference is identified by a unique id in the BibTeX definition .. can you see how it is defined and how it is referenced in the quarto document?</p>
+<p>Try to give the new reference another id and use that in the main_v1.qmd file to cite the paper by Stephens and Robertson.</p>
 </div>
 </div>
 </div>
@@ -966,18 +978,18 @@ Hint
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Exercise #7 – Working with the manuscript : stupid journal anyway!
+Exercise #7 – That journal as a Pain, anyway!
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>DOH! Qfter all these adjustments, the Editor rejected your paper anyway. That journal really was a ‘Pain’.</p>
+<p>DOH! After all these adjustments, the Editor rejected your paper anyway. That journal really was a ‘Pain’ in the backside.</p>
 <p>So now you need to format your manuscript for another journal and you need to reformat the citation and bibliography style.</p>
 <p>As hinted above, the journal you are currently styled for is ‘Pain’.</p>
 <ul>
@@ -987,7 +999,7 @@ Exercise #7 – Working with the manuscript : stupid journal anyway!
 <li>Now fix your citation formatting.</li>
 </ul>
 <div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -996,7 +1008,7 @@ Hints
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
 <li>The citation style is defined in the YAML of the ‘main_v1.qmd’ file – specifically by <code>csl: pain.csl</code> (the line <code>bibliography: references.bib</code> defines the BibTeX file where references are stored, but <em>not</em> the citation style)</li>
@@ -1015,14 +1027,89 @@ Hints
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Bonus – Check out the folder ‘Presentations’
+Exercise #8 – Collaboration
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-16" class="callout-16-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<p>Your main collaborator, Dr.&nbsp;Jekyll has revised the first version of the manuscript, some time ago. Being an evil genius, Dr.&nbsp;Jekyll also uses R and he dropped of the revised qmd file for you <a href="main_v1_DrJekylls_comments.qmd">here</a>.</p>
+<p>Download Dr.&nbsp;Jekylls revised version and compare it to your own. To do this you may avail yourself of <em>diff’ing</em> the files … look at the notes here on r4phd on RRR – Collaboration (with R users) for help.</p>
+<p>Be critical what you accept and what you reject – Dr.&nbsp;Jekylls revision is based on an older version of your manuscript.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You can use an online diff app like <a href="https://editor.mergely.com/">this one</a> … or you can choose to install an app on your computer.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise #9 – Word template
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The new journal you are submitting to insists that any level 1 heading should by styled as <strong>bold</strong> and in a fancy color of your own choosing.</p>
+<p>They also insist you submit in Microsoft Word format.</p>
+<p>First do this:</p>
+<ol type="1">
+<li>In the YAML of main_v1.qmd change <code>format: html</code> to <code>format: docx</code></li>
+<li>Render the document to create a MS Word docx file as output</li>
+<li>Rename that document from <code>main_v1.docx</code> to <code>my_word_template.docx</code></li>
+</ol>
+<p>Now change the same YAML line again from <code>format: docx</code> to this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>format<span class="sc">:</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  docx<span class="sc">:</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    reference<span class="sc">-</span>doc<span class="sc">:</span> my_word_template.docx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Note</strong> that the text must be exactly like that – newlines and spacing matters!</p>
+<p>Now do this:</p>
+<ol type="1">
+<li>Render your qmd script again to produce a new main_v1.docx file</li>
+<li>Inspect that file (open it in Word or LibreOffice) – pay particular attention to the style of level 1 headings like <strong>Background</strong>.</li>
+<li>Close main_v1.docx again and open my_word_template.docx instead</li>
+<li>Now check to see which style heading <strong>Background</strong> is (probably ‘Heading 1’ or similar) and edit the style of that typography using the style editor. It <strong>is not</strong> sufficient to edit the appearance of the <strong>Background</strong> heading – you must edit the style that is associated with the typography.</li>
+<li>Save my_word_template.docx after you have made the changes</li>
+<li>Render a new version of main_v1.qmd and see whether the style changes have taken effect.</li>
+</ol>
+<p>Now play around with some of the other styles that are applied to headings, main text, figure captions, etc.</p>
+<p>Remember to change the styles in the my_word_template.docx using the style editor before re-rendering the qmd file.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Bonus – Check out the folder ‘Presentations’
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p><img src="gfx/think.png" class="img-fluid"></p>
-<p>Considering that figures and tables, and summary statistics etc defined and used in the file ‘main_v1.qmd’, but also saved to separate files, you shoulld be able to re-used them for other purposes, e.g.&nbsp;a presentation.</p>
+<p>Considering that figures and tables, and summary statistics etc defined and used in the file ‘main_v1.qmd’, but also saved to separate files, you should be able to re-used them for other purposes, e.g.&nbsp;a presentation.</p>
 <p>Look at the <em>static</em> presentation qmd and html files – you should also know, that such qmd presentations can be exported to pdf, LibreOffice Impress and Microsoft Power Point files as well.</p>
 <p>The <em>dynamic</em> presentation is not completed yet, but go google to see what that might be…</p>
 </div>

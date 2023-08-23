@@ -41,10 +41,6 @@ Should contain
 * Your RMarkdown and quarto scripts
 * Relevant subfolders (/custom_functions, /gfx, /data, etc)
 
-## <!-- -->
-
-![](gfx/phdcomics.1531.png){height=90%}
-
 ## Files and folders
 
 ### Make and use your own folder/sub-folder template for new projects

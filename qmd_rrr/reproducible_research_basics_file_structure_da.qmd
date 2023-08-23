@@ -30,32 +30,30 @@ library(DiagrammeR)
 
 ## The _root_ 
 
-### One root folder for each project
+### En root folder til hvert projekt
 
-Should contain
+Skal indeholde
 
 * RStudio project (_\*.RProj_)
 * README.md
 * sessionInfo.txt
-* Your _main_ R scripts
-* Your RMarkdown and quarto scripts
-* Relevant subfolders (/custom_functions, /gfx, /data, etc)
+* Dine _main_ R scripts
+* Dine quarto scripts
+* Relevante underfolders (/custom_functions, /gfx, /data, etc)
 
 ## <!-- -->
 
 ![](gfx/phdcomics.1531.png){height=90%}
 
-## Files and folders
-
-### Make and use your own folder/sub-folder template for new projects
+## Filer or foldere under-foldere til nye projekter
 
 ![](gfx/file_structure.png){height=100%}
 
-## File types
+## File typer
 
-* Text always preferable to binary files
-* Markup files (HTML, XML, etc) are human readable, but can be complex
-* Application files (.odt, .docx) are often either binary files or very complex markup files
+* Tekst filer er altid at foretrække frem for binære filer
+* Markup filer (HTML, XML, etc) kan læses men er komplekse
+* Program filer (.odt, .docx) er som oftest enten binære filer eller meget komplekse markup filer
 
 gfx/prefer_text_files.pdf
 
@@ -64,22 +62,22 @@ gfx/prefer_text_files.pdf
 gfx/prefer_text_files.xml
 
 
-## File types
+## Fil typer
 
-**Stick to simple, human-readable files like R-scripts, markdown, csv files, etc, as far into the process as you can and only generate pdf, word, tiff, jpeg etc files as the final step.**
+**Hold dig til simple menneske-læsevenlige filer som R scripts, markdown, csv etc så langt i arbejdsprocessen som muligt. Skift kun til pdf, word, tiff, jpeg etc som sidste trin i processen.**
 
-If any characters look weird in a simple txt file (it _does_ happen) -- it's probably the character encoding -- just stick to UTF8/UTF16
+Hvis et tegn ser mrækeligt ud i en simpel tekst fil er det sikkert et problem med karakter-sættet -- bare hold dig til UTF8/UTF16.
 
->- _By the way_, what do you think the first thing the typesetters at Springer does with your manuscript once accepted?
+>- _Forresten_, hvad tror du der sker som det første, når typografen i Springer modtager dig manuskript?
 
-## Files and folders
+## Filer og foldere
 
-**Main points**
+**Hoved pointer**
 
-* Use a strict folder structure you can handle -- make a template!
-* Use relational folder paths if possible
-* Use human-readable files only if possible (txt, md, Rmd, csv, etc)
-* Only use non-human readable files for '_final output_' (pdf, docx, xlsx, etc)
+* Brug en fil/folder struktur baseret på din egen skabelon
+* Brug relative fil stier (`here()`)
+* Brug menneske-læsevenlig filformater (txt, md, Rmd, csv, etc)
+* Brug kun ikke-menneske-læsevenlig formater som afsluttende output (pdf, docx, xlsx, etc)
 
 
 <script src="https://giscus.app/client.js"

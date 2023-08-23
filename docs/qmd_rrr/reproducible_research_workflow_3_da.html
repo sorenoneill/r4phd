@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -721,6 +755,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="samarbejde" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Samarbejde</h1>
+<p><img src="gfx/phdcomics.1531.png" class="img-fluid"></p>
 <section id="samarbejde-med-andre-forskere" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="samarbejde-med-andre-forskere"><span class="header-section-number">1.1</span> Samarbejde med andre forskere</h2>
 <p>Tre scenarier :</p>
@@ -770,7 +805,25 @@ ul.task-list li input[type="checkbox"] {
 <li>DeltaWalker</li>
 <li>..og andre</li>
 </ul>
-<p>Der er også flere online versioner som f.eks <strong>https://editor.mergely.com/</strong> … men du skal nok ikke uploade følsomme informationer.</p>
+<p>Der er også flere online versioner som f.eks <a href="https://editor.mergely.com/">mergely</a> … men du skal nok ikke uploade følsomme informationer.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Show me Meld in action
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Meld og andre <em>diff</em> programmer sammenligner forskellige filer og fremhæver forskellene imellem dem, så det er nemt at se ændringerne.</p>
+<p>I dette simple eksempel, bruger vi Meld til at sammenligne to næsten identiske filer, version 1 og 2. Video viser en mindre ændring i en linje, en linje sletning og en linje tiføjelse i version 2 (højre side) i forhold til version 1.</p>
+<p><img src="gfx/meld_example.gif" class="img-fluid"></p>
+</div>
+</div>
+</div>
 <p><strong>Fordele</strong></p>
 <ul>
 <li>Relativt let</li>
@@ -785,6 +838,38 @@ ul.task-list li input[type="checkbox"] {
 <li>Versionerings mareridt</li>
 <li>Kommentarer og ændringer er ikke klart adskilt</li>
 </ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise #1
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Kopier disse to tekster (en ad gangen) og indsæt dem i hhv højre og venstre felt på <a href="https://editor.mergely.com/">denne side</a></p>
+<p><strong>Version 1</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>This text is almost similar to the other one. But not completely identical.</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Some lines are identical.</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>Some lines have disappeared.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Version 2</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>This text is almost similar to the other one, but not completely identical.</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>Some lines are identical.</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>Some lines are brand new</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="teknologi-kyndige-samarbejdspartnere" class="level2" data-number="1.4">

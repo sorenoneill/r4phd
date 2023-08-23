@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -414,7 +448,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../qmd_rrr/reproducible_research_workflow_3_en.html" class="sidebar-item-text sidebar-link">
+  <a href="../qmd_rrr/reproducible_research_collaboration_en.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">RRR – Collaboration</span></a>
   </div>
 </li>
@@ -633,7 +667,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../qmd_rrr/reproducible_research_workflow_3_da.html" class="sidebar-item-text sidebar-link">
+  <a href="../qmd_rrr/reproducible_research_collaboration_da.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">RRR – Collaboration</span></a>
   </div>
 </li>
@@ -863,44 +897,27 @@ Hint
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Øvelse #5 – Inkludér kode fra en anden fil
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Kode forfatteren har skrevet og fortalt dig, at faktisk er tabellen ikke formateret rigitgt - kolonne overskrifterne er grimme. Han var dog flink nok til at skrive lidt kode som kan løse det og har vedlagt det som en R script fil ‘analyses/summary_statistics.R’.</p>
-<p>Kig på kode blokken ‘a_table’ og overvej hvordan du kan løse det problem ved hjælp af den leverede fil.</p>
-<div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hint
+Øvelse #5 – Figur parametre
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Koden som laver tabellen med grimme overskrifter er:</p>
-<pre><code>tmp_data &lt;- data %&gt;%
-  select(sex, age, height, weight) %&gt;%
-  group_by(sex) %&gt;%
-  summarise(mean_age=round(mean(age),2),
-            mean_height=round(mean(height),2),
-            mean_weight=round(mean(weight),2))
-
-knitr::kable(tmp_data)</code></pre>
-<p>For at erstattet den kode med funktionen (<code>my_summary_stats</code>) fra R scriptet, kan man simpelthen slette tabel koden og erstatte den med:</p>
-<pre><code>source(here("analyses", "summary_statistics.R"))
-knitr::kable(my_summary_stats(data))</code></pre>
-<p><strong>Bonus spørgsmål</strong> Hvis du ikke vil slette den gamle kode, men bare gøre den inaktiv, hvordan vil du så gøre det?</p>
+<p>Tidsskriftets editorer har beklaget sig over at figuren ikke lever op til tidsskriftets krav.</p>
+<p>De vil have filen uploadet som:</p>
+<ul>
+<li>tiff format</li>
+<li>2 tommer (inches) i bredde</li>
+<li>1.5 tommer (inches) i højde</li>
+<li>i 600 dpi resolution</li>
+</ul>
+<p>Hvordan vil du fikse det problem og hvor vil du finde output’et?</p>
+<p>Hvordan ville du produce en <em>ekstra fil</em> af det samme plot til en poster – denne gang i 6 tommer gange 6 tommer?</p>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -913,10 +930,10 @@ Hint
 </div>
 <div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>I stedet for at slette koden, så kommentér den ud – CTRL-SHIFT-C vil comment/uncomment highlightede linjer.</p>
-</div>
-</div>
-</div>
+<p>Figuren defineres i kode blokken ‘figure_distribution_by_probe_and session’.</p>
+<p>Du vil finde alle relevant parametre defineret i funktionen ggsave.</p>
+<p>Bero ikke på output’et i RStudios viewer når du skal inspicere figuren gemt i filen – i stedet inspicér den i folderen ‘plots’.</p>
+<p>Hvis du vi lgemme en ekstra fil af plottet i en anden størrelse, så kunne du måske bare køre ggsave kommandoen to gange med forskellige parametre?</p>
 </div>
 </div>
 </div>
@@ -924,28 +941,21 @@ Hint
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Øvelse #6 – Figur parametre
+Øvelse #6 – Endnu en reference
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Tidsskriftets editorer har beklaget sig over at figuren ikke lever op til tidsskriftets krav.</p>
-<p>De vil have filen uploadet som:</p>
-<ul>
-<li>tiff format</li>
-<li>2 tommer (inches) i bredde</li>
-<li>1.5 tommer (inches) i højde</li>
-<li>i 600 dpi resolution</li>
-</ul>
-<p>Hvordan vil du fikse det problem og hvor vil du finde output’et?</p>
+<p>Du er blevet bedt om at tilføje en reference til publikationen “Swearing as a Response to Pain: Assessing Hypoalgesic Effects of Novel “Swear” Words” af Richard Stephens og Olly Robertson (Frontiers in Psychology).</p>
+<p>Hvordan kunne du gøre det? Kig i main_v1.qmd og i reference listen for at få inspiration.</p>
 <div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -954,11 +964,13 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Figuren defineres i kode blokken ‘figure_distribution_by_probe_and session’.</p>
-<p>Du vil finde alle relevant parametre defineret i funktionen ggsave.</p>
-<p>Bero ikke på output’et i RStudios viewer når du skal inspicere figuren gemt i filen – i stedet inspicér den i folderen ‘plots’.</p>
+<p>På hjemmesiden <a href="https://www.frontiersin.org/articles/10.3389/fpsyg.2020.00723/full?fbclid=IwAR3uxw06XXRr7-0xwmKwieOYLH-4bbWdh_6zOa3CZcDZOCXkjgwexs-p9Wk&amp;utm_medium=msn">Fronties in Psychology</a> finder du et link i højre side ‘Export citation’, som giver dig mulighed for at downloade referencen som BibTeX.</p>
+<p>Kig engang i den fil når den er downloadet og sammenlign den med indholdet i references.bib</p>
+<p>Copy/paste…</p>
+<p>Hver reference er definet med et unikt id i BibTeX definitionen .. kan du se hvor den er definet og hvordan den bruges i reference i quarto dokumentet?</p>
+<p>Prøv at give den nye reference et andet id og brug det samme i main_v1.qmd filen til at citere artiklen af Stephens og Robertson.</p>
 </div>
 </div>
 </div>
@@ -966,7 +978,7 @@ Hint
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -975,7 +987,7 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>ØV! Efter alle dine tilpasninger har editors alligevel afvist dit manuskript. Tidsskriftet var vitterligt en ‘Pain’.</p>
 <p>Så nu skal du omformattere manuskriptet til et andet tidsskrift og du får derfor brug for en anden reference og bibliografi stil.</p>
@@ -987,7 +999,7 @@ Hint
 <li>Fix din reference/bibliografi stil.</li>
 </ul>
 <div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -996,7 +1008,7 @@ Hints
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
 <li>Reference/bibliografi stilen defineres i YAML i ‘main_v1.qmd’ file – specifikt: <code>csl: pain.csl</code> (linjen <code>bibliography: references.bib</code> definerer BibTeX filen hvor referencerne er gemt, men <em>ikke</em> stilen)</li>
@@ -1015,11 +1027,86 @@ Hints
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Bonus – Kig i folderen ‘Presentations’
+Øvelse #8 – Samarbejde
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Din primære medforfatter på artiklen, Dr.&nbsp;Jekyll har revideret første version af manuskriptet for nogen tid siden. Som et ondt geni bruger Dr.&nbsp;Jekyll selvfølgeligt også R og han har droppet den reviderede qmd file til dig <a href="main_v1_DrJekylls_comments.qmd">her</a>.</p>
+<p>Download Dr.&nbsp;Jekylls reviderede version og sammenlign med din egen. Til det formål kan du gøre brug af <em>diff’ing</em> af filer … kig på noterne her på r4phd om RRR – Collaboration (with R users).</p>
+<p>Vær kritisk med hvad du accepterer og hvad du afviser – Dr.&nbsp;Jekylls revision er baseret på en ældre version af dit manuskript.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Du kan bruge denne <a href="https://editor.mergely.com/">online diff app</a> … eller du kan vælge at installere er program som f.eks Meld på din egen computer.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Øvelse #9 – Word skabelon
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Det nye tidsskrift du indsender til kræver at alle overskrifter niveau 1 skal være <strong>bold</strong> og i en smert farve som du selv vælger.</p>
+<p>De insisterer også på at du indsender manuskriptet som en Microsoft Word fil.</p>
+<p>Først gør følgende</p>
+<ol type="1">
+<li>I YAML sektionen i main_v1.qmd ret <code>format: html</code> til <code>format: docx</code></li>
+<li>Render dokumentet så der geereres en MS Word docx fil som output</li>
+<li>Omdøb den fil fra <code>main_v1.docx</code> til <code>my_word_template.docx</code></li>
+</ol>
+<p>Ret nu den samme YAML linje fra <code>format: docx</code> til dette:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>format<span class="sc">:</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  docx<span class="sc">:</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    reference<span class="sc">-</span>doc<span class="sc">:</span> my_word_template.docx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Bemærk</strong> teksten skal stå præcist sådan her – linjeskift og mellemrum er vigtige!</p>
+<p>Gør nu følgende:</p>
+<ol type="1">
+<li>Render dit qmd script igen for at generere en ny main_v1.docx fil</li>
+<li>Inspicér den fil (åben den i Word eller LibreOffice) – læg specielt mærke til typografi stilen af niveau 1 overskrifter som <strong>Background</strong>.</li>
+<li>Luk main_v1.docx igen og åben open my_word_template.docx istedet for</li>
+<li>Check hvilekn stil der er gældende for <strong>Background</strong> (sikkert ‘Heading 1’ eller lignende) og redigér den typografi stil i stil editoren. Der er <strong>ikke</strong> nok bare at ændre overskriften <strong>Background</strong> – du skal ændre den stil som er associeret med typografien.</li>
+<li>Gem my_word_template.docx efter du har lavet ændringerne</li>
+<li>Render nu en ny version af main_v1.qmd og se om stil ændringerne har haft effekt.</li>
+</ol>
+<p>Nu kan du leje lidt med de andre stil definitioner i dokumentet, f.eks de andre overskrifts niveauer, brødteksten, figur teksten, etc.</p>
+<p>Husk at du skal lave ændringerne i typografi stil i my_word_template.docx med stil editoren (og gemme) før du gen-render qmd filen.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Bonus – Kig i folderen ‘Presentations’
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><img src="gfx/think.png" class="img-fluid"></p>
 <p>Med tanke for at figurer, tabeller, <em>summary statistics</em> mm bruges i ‘main_v1.qmd’, men også er gemt som separate filer, kan du genbrug dem i andre sammenhænge, f.eks en præsentation.</p>

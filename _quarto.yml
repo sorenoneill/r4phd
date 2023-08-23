@@ -4,6 +4,7 @@ project:
   render:
     - "*.qmd"
     - "!presentations/"
+    - "!qmd_rrr/main_v1_DrJekylls_comments.qmd"
 
 website:
   title: "R4phd"
@@ -76,7 +77,7 @@ website:
                 - qmd_rrr/reproducible_research_basics_file_structure_en.qmd
                 - qmd_rrr/reproducible_research_workflow_2_en.qmd
                 - qmd_rrr/reproducible_research_citations_en.qmd
-                - qmd_rrr/reproducible_research_workflow_3_en.qmd
+                - qmd_rrr/reproducible_research_collaboration_en.qmd
           - section: "Base R"
             contents:
               - qmd_base_r/base_r_data_types_en.qmd
@@ -117,7 +118,7 @@ website:
               - qmd_rrr/reproducible_research_basics_file_structure_da.qmd
               - qmd_rrr/reproducible_research_workflow_2_da.qmd
               - qmd_rrr/reproducible_research_citations_da.qmd
-              - qmd_rrr/reproducible_research_workflow_3_da.qmd
+              - qmd_rrr/reproducible_research_collaboration_da.qmd
           - section: "Base R"
             contents:
               - qmd_base_r/base_r_data_types_da.qmd

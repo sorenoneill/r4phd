@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -721,6 +755,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="collaboration" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Collaboration</h1>
+<p><img src="gfx/phdcomics.1531.png" class="img-fluid"></p>
 <section id="collaborating-with-other-researchers" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="collaborating-with-other-researchers"><span class="header-section-number">1.1</span> Collaborating with other researchers</h2>
 <p>Three scenarios :</p>
@@ -735,7 +770,7 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>Render your R-markdown code into a Word or OpenDocument file … send it via email or carrier-pidgeon</li>
 <li>Collaborators can use <em>Track changes</em> in their chosen word-processor and … return it</li>
-<li>You then manually transfer changes back to your rmd … start the process over again for the next time</li>
+<li>You then manually transfer changes back to your qmd … start the process over again for the next time</li>
 </ul>
 <p><strong>Benefits</strong></p>
 <ul>
@@ -755,9 +790,9 @@ ul.task-list li input[type="checkbox"] {
 <section id="collaborating-with-r-users" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="collaborating-with-r-users"><span class="header-section-number">1.3</span> Collaborating with R users</h2>
 <ul>
-<li>Get your rmd files (data files etc) and … send it</li>
+<li>Get your qmd files (data files etc) and … send it</li>
 <li>Collaborators edit the qmd directly and … return it</li>
-<li><em>Diff</em> the two version of the rmd file and … merge them selectively</li>
+<li><em>Diff</em> the two version of the qmd file and … merge them selectively</li>
 </ul>
 <section id="diffing-two-or-more-text-files" class="level3" data-number="1.3.1">
 <h3 data-number="1.3.1" class="anchored" data-anchor-id="diffing-two-or-more-text-files"><span class="header-section-number">1.3.1</span> Diff’ing two (or more) text files</h3>
@@ -770,7 +805,25 @@ ul.task-list li input[type="checkbox"] {
 <li>DeltaWalker</li>
 <li>..and others</li>
 </ul>
-<p>There are also several online version .. e.g.&nbsp;<strong>https://editor.mergely.com/</strong> …you probably should not upload sensitive information though.</p>
+<p>There are also several online version .. e.g.&nbsp;<a href="https://editor.mergely.com/">mergely</a> …you probably should not upload sensitive information though.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Show me Meld in action
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Meld and other <em>diff</em> applications will compare different files and and highlight the differences between them, making it easy to see changes between.</p>
+<p>In this simple example, we use Meld to compare versions 1 and 2 of nearly identical files. The video illustrates a partial change in a line, a line deletion and a line insertion in version 2 (right hand side) compared to version 1.</p>
+<p><img src="gfx/meld_example.gif" class="img-fluid"></p>
+</div>
+</div>
+</div>
 <p><strong>Benefits</strong></p>
 <ul>
 <li>Relatively simple</li>
@@ -785,6 +838,38 @@ ul.task-list li input[type="checkbox"] {
 <li>Messy versioning nightmare</li>
 <li>Comments and revisions are not clearly separated</li>
 </ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise #1
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Copy these two texts (one at a time) and insert them into the left and right hand fields at <a href="https://editor.mergely.com/">this site</a></p>
+<p><strong>Version 1</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>This text is almost similar to the other one. But not completely identical.</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Some lines are identical.</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>Some lines have disappeared.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Version 2</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>This text is almost similar to the other one, but not completely identical.</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>Some lines are identical.</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>Some lines are brand new</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="tech-savvy-collaborators" class="level2" data-number="1.4">

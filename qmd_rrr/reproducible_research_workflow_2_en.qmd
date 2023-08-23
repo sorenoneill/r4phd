@@ -47,7 +47,7 @@ For now don't change anything and don't get bogged down in all the details of th
 :::
 
 :::{.callout-note collapse=true}
-## Exercise #2 -- What does the project generate? What is the output?
+## Exercise #2 -- What does the project generate?
 
 Let's try to:
 
@@ -61,7 +61,7 @@ Look to the YAML of the main qmd document
 :::
 
 :::{.callout-note collapse=true}
-## Exercise #3 -- Working with the manuscript : a simple problem
+## Exercise #3 -- A simple problem
 
 The data for participant with ID=7 was corrupted (equipment failure).
 
@@ -76,7 +76,7 @@ It would be good _Reproducible Research_ practice to fix that problem as part of
 :::
 
 :::{.callout-note collapse=true}
-### Exercise #4 -- Working with the manuscript : a problem with cross references
+### Exercise #4 -- Fixing cross references
 
 The author did not pay attention to the Instructions for Authors for this particular journal and placed figures immediately after the first mention/reference.
 
@@ -98,46 +98,7 @@ The **\<\<FIGURE X ABOUT HERE>>** should be written as markdown **\<\<FIGURE \@f
 :::
 
 :::{.callout-note collapse=true}
-### Exercise #5 -- Working with the manuscript : sourcing code
-
-The author has told you that in fact, the table is not well styled -- specifically, the column headings look ugly. He was kind enough to provide a simple function to solve the problem and saved it as an R script is in the file 'analyses/summary_statistics.R'.
-
-Look at the chunk 'a_table' and consider how you might fix this problem easily.
-
-:::{.callout-note collapse=true appearance="simple"}
-## Hint
-
-The code that generates the poorly styled table is:
-
-```
-tmp_data <- data %>%
-  select(sex, age, height, weight) %>%
-  group_by(sex) %>%
-  summarise(mean_age=round(mean(age),2),
-            mean_height=round(mean(height),2),
-            mean_weight=round(mean(weight),2))
-
-knitr::kable(tmp_data)
-```
-
-To replace it with the function (`my_summary_stats`) provided in the R script, you could simply delete those lines and replace them with:
-
-```
-source(here("analyses", "summary_statistics.R"))
-knitr::kable(my_summary_stats(data))
-```
-
-**Bonus question** If you didn't want to delete the old code, but render it inoperative how might you achieve that?
-
-:::{.callout-note collapse=true appearance="simple"}
-## Hint
-Instead of deleting it, simply comment out the code -- CTRL-SHIFT-C will comment/uncomment highlighted lines
-:::
-:::
-:::
-
-:::{.callout-note collapse=true}
-### Exercise #6 -- Working with the manuscript : figure parameters
+### Exercise #5 -- Figure parameters
 
 The journal editors complain that the figure you provided is not formatted as per journal requirements.
 
@@ -150,20 +111,46 @@ The want the file uploaded:
 
 How would you fix that problem and where would you go to find the output file?
 
+How would you produce a _second file_ of the same plot for a poster -- this time in 6 inches by 6 inches?
+
 :::{.callout-note collapse=true appearance="simple"}
 ## Hint
 The plot is defined in the chunk called 'figure_distribution_by_probe_and session'.
 
 You will find all the relevant parameters are defined in the ggsave function.
 
-Do not really on the output in the viewer pane to inspect your figure -- instead inspect the file that is save in the folder 'plots'.
+Do not rely on the output in the viewer pane to inspect your figure -- instead inspect the file that is save in the folder 'plots'.
+
+If you wanted to save the plot twice in different sizes, perhaps just run the ggsave command twice with different parameters?
 :::
 :::
 
 :::{.callout-note collapse=true}
-### Exercise #7 -- Working with the manuscript : stupid journal anyway!
+### Exercise #6 -- One more citation
 
-DOH! Qfter all these adjustments, the Editor rejected your paper anyway. That journal really was a 'Pain'.
+You have been asked to cite the publication "Swearing as a Response to Pain: Assessing Hypoalgesic Effects of Novel “Swear” Words" by Richard Stephens and Olly Robertson (Frontiers in Psychology).
+
+How might you do that? Look for inspiration in main_v1.qmd and the reference list.
+
+:::{.callout-note collapse=true appearance="simple"}
+## Hint
+On the web page of [Fronties in Psychology](https://www.frontiersin.org/articles/10.3389/fpsyg.2020.00723/full?fbclid=IwAR3uxw06XXRr7-0xwmKwieOYLH-4bbWdh_6zOa3CZcDZOCXkjgwexs-p9Wk&utm_medium=msn) you will find a link in the right hand side called 'Export citation', which allows you to download the reference as BibTeX.
+
+Look inside the downloaded file and compare it to the content of references.bib
+
+Copy/paste...
+
+Each reference is identified by a unique id in the BibTeX definition .. can you see how it is defined and how it is referenced in the quarto document?
+
+Try to give the new reference another id and use that in the main_v1.qmd file to cite the paper by Stephens and Robertson. 
+
+:::
+:::
+
+:::{.callout-note collapse=true}
+### Exercise #7 -- That journal as a Pain, anyway!
+
+DOH! After all these adjustments, the Editor rejected your paper anyway. That journal really was a 'Pain' in the backside.
 
 So now you need to format your manuscript for another journal and you need to reformat the citation and bibliography style. 
 
@@ -185,11 +172,68 @@ As hinted above, the journal you are currently styled for is 'Pain'.
 :::
 
 :::{.callout-note collapse=true}
+### Exercise #8 -- Collaboration
+
+Your main collaborator, Dr. Jekyll has revised the first version of the manuscript, some time ago. Being an evil genius, Dr. Jekyll also uses R and he dropped of the revised qmd file for you [here](main_v1_DrJekylls_comments.qmd). 
+
+Download Dr. Jekylls revised version and compare it to your own. To do this you may avail yourself of _diff'ing_ the files ... look at the notes here on r4phd on RRR -- Collaboration (with R users) for help.
+
+Be critical what you accept and what you reject -- Dr. Jekylls revision is based on an older version of your manuscript.
+
+:::{.callout-note collapse=true appearance="simple"}
+## Hint
+You can use an online diff app like [this one](https://editor.mergely.com/) ... or you can choose to install an app on your computer.
+
+:::
+:::
+
+:::{.callout-note collapse=true}
+### Exercise #9 -- Word template
+
+The new journal you are submitting to insists that any level 1 heading should by styled as **bold** and in a fancy color of your own choosing.
+
+They also insist you submit in Microsoft Word format.
+
+First do this:
+
+1. In the YAML of main_v1.qmd change `format: html` to `format: docx`
+2. Render the document to create a MS Word docx file as output
+3. Rename that document from `main_v1.docx` to `my_word_template.docx`
+
+Now change the same YAML line again from `format: docx` to this:
+
+```{r}
+#| eval: false
+#| echo: true
+format: 
+  docx:
+    reference-doc: my_word_template.docx
+```
+
+**Note** that the text must be exactly like that -- newlines and spacing matters!
+
+Now do this:
+
+1. Render your qmd script again to produce a new main_v1.docx file
+2. Inspect that file (open it in Word or LibreOffice) -- pay particular attention to the style of level 1 headings like **Background**.
+3. Close main_v1.docx again and open my_word_template.docx instead
+4. Now check to see which style heading **Background** is (probably 'Heading 1' or similar) and edit the style of that typography using the style editor. It **is not** sufficient to edit the appearance of the **Background** heading -- you must edit the style that is associated with the typography.
+5. Save my_word_template.docx after you have made the changes
+6. Render a new version of main_v1.qmd and see whether the style changes have taken effect.
+
+Now play around with some of the other styles that are applied to headings, main text, figure captions, etc.
+
+Remember to change the styles in the my_word_template.docx using the style editor before re-rendering the qmd file.
+
+:::
+
+
+:::{.callout-note collapse=true}
 ### Bonus -- Check out the folder 'Presentations'
 
 ![](gfx/think.png)
 
-Considering that figures and tables, and summary statistics etc defined and used in the file 'main_v1.qmd', but also saved to separate files, you shoulld be able to re-used them for other purposes, e.g. a presentation.
+Considering that figures and tables, and summary statistics etc defined and used in the file 'main_v1.qmd', but also saved to separate files, you should be able to re-used them for other purposes, e.g. a presentation.
 
 Look at the _static_ presentation qmd and html files -- you should also know, that such qmd presentations can be exported to pdf, LibreOffice Impress and Microsoft Power Point files as well.
 

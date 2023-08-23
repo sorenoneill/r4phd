@@ -1,0 +1,171 @@
+---
+title: "My ground-breaking research"
+author: "Dr. Frankenstein, MD and Dr. Jekyll, MD"
+date: "01-12-2023"
+format: html
+editor: source
+csl: pain.csl
+bibliography: references.bib
+---
+
+```{r init}
+#| eval: true
+#| echo: false
+#| message: false
+#| warning: false
+
+# Do not install.packages here -- just load them with library (or require)
+library(here)
+library(tidyverse)
+library(stringr)
+library(gt)
+library(gtsummary)
+
+sessionInfo() %>% capture.output(file="session_info.txt")
+# Off-line help for a given command is available via the console by entering: ?cmd
+# ... I wonder what sessionInfo() does... 
+```
+
+```{r get_data}
+#| eval: true
+#| echo: false
+#| message: false
+#| warning: false
+
+# This chunk reads raw data from file, cleans it, wrangles it into shape and writes it out to a file again.
+# As the cleaned data is written to a new file, we may in fact only need to run this chunk whenever something in it is changed. 
+# Otherwise, this chunk can be skipped, by changing eval: true to false. ...saves a bit of time
+
+# Read raw data
+file_path <- here("raw_data", "raw_data_file.csv")
+raw_data <- read_csv2(file_path)
+
+# Clean and wrangle data
+data <- raw_data %>%
+  rowwise() %>%
+  mutate(ppt = (ppt1+ppt2+ppt3)/3) %>%
+  select(-ppt1, -ppt2, -ppt3) %>%
+  mutate(ts = ts10-ts1)
+
+data <- data %>%
+  mutate(id = id) %>% # Yes, this is redundant
+  mutate(date = as.POSIXct(date, format="%Y-%m-%d")) %>%
+  mutate(tester = as.factor(str_to_upper(tester))) %>%
+  mutate(sex = str_to_upper(sex)) %>%
+  mutate(sex = ifelse(sex=="M", "M", "F")) %>% # some joker used K for F
+  mutate(sex = as.factor(sex)) %>%
+  mutate(age = as.integer(age)) %>%
+  mutate(height = as.integer(height)) %>%
+  mutate(weight = as.integer(weight)) %>%
+  mutate(session = as.factor(str_to_upper(session))) %>%
+  mutate(test = as.integer(test)) %>%
+  mutate(probe = as.factor(str_to_upper(probe))) %>%
+  mutate(ts1 = as.integer(ts1)) %>%
+  mutate(ts10 = as.integer(ts10)) %>%
+  mutate(ppt = as.double(ppt)) %>%
+  mutate(ts = as.integer(ts10- ts1))
+
+# Leave out this one OUT -- ID 7 IS BAD FOR YOU!
+data <- data %>%
+  filter(id != 7)
+
+# Write data to file
+file_path <- here("clean_data", "data_file.rds")
+saveRDS(data, file_path)
+
+# release some RAM
+raw_data <- NULL
+data <- NULL
+```
+
+```{r load_clean_data}
+#| eval: true
+#| echo: false
+#| message: false
+#| warning: false
+
+file_path <- here("clean_data", "data_file.rds")
+data <- readRDS(file_path)
+```
+
+# Background
+
+These data stem from a small study of experimental pain sensitiviy. You can read more about that sort of research in the literatur, e.g. Graven-Nielsen and Arendt-Nielsen[@graven-nielsenAssessmentMechanismsLocalized2010]. COMMENT: You need to cite some of my papers as well -- and those of Dr. Evil.
+
+The aim of this study was to examine the contribution of superficial and deep pain when using flat circular or ball-shaped probes when applying pain mechanical pressure[@graeffInterIndividualDifferencesExplain2021].
+
+# Methods
+
+We included 24 of healthy students, exposed them to fixed mechanical pressure (4 kg) using a probe developed to allow for single and repeated pressure application. We did this using the two different probe heads -- and we repeated the tests, with/without light superficial anesthesia using Emla&trade;&reg; creme.
+
+# Results
+
+We present a boxplot of the distribution af _Temporal Summation_ for the two probe heads with/without superficial anesthesia -- see @fig-distribution-by-probe-and-session.
+
+```{r figure_distribution_by_probe_and session}
+#| eval: true
+#| echo: false
+#| message: false
+#| warning: false
+
+# The following creates a variable 'figure_1' and stores the plot in it
+figure_1 <- data %>% 
+  select(session, probe, ts) %>% 
+    ggplot(aes(y=ts, x=session, fill=probe)) + geom_boxplot()
+
+
+
+ggsave(filename=here("plots", "figure_1.png"),
+       plot=figure_1, 
+       device="png", 
+       width=15, 
+       units="cm", 
+       dpi=300)
+```
+
+
+```{r show_fig}
+#| eval: true
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-cap: "Temporal summation of pressure pain (non-parametric distribution), grouped by session (1: with anaesthesia, 2: without) and probe head (Flat or Round)"
+#| label: fig-distribution-by-probe-and-session
+
+# This chunk actually just outputs the figure stored in variable figure_1
+# Why separate that from the code the generated the plot?
+# ...
+# because it makes it easier to store the plot to a file in the appropriate format
+# and resolution etc, and makes it easier to include/exclude the actual figure
+# in the manuscript where (if) needed ... each journal has particular requirements
+
+figure_1
+```
+
+A total of `r n_distinct(data %>% select(id))` healthy volunteers toke part in the study, of `r n_distinct(data %>% filter(sex != "F") %>% select(id))` were female. For summary statistics of descriptive variables see @tbl-a-table
+
+```{r a_table}
+#| echo: false
+#| message: false
+#| warning: false
+#| label: tbl-a-table
+#| tbl-cap: "Summary statistics."
+
+my_tbl <- data %>% 
+  select(Sex=sex, age, height, weight) %>% 
+  group_by(Sex) %>%
+  summarize(`Mean age` = mean(age),
+            `Mean height` = mean(height),
+            `Mean weight` = mean(weight)) %>%
+  gt(rowname_col = "Sex")
+  
+  
+my_tbl
+gtsave(my_tbl, filename=here("tables", "table_1.html"))
+```
+
+
+<!-- Below is a heading 'References' ... but where are the bloody references ... ?? -->
+<!-- Let's hope they show up ... -->
+
+# References
