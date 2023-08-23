@@ -1,5 +1,5 @@
 ---
-title: "Reproducible research with R -- Citing research and maintaining a bibliography"
+title: "RRR -- Citing references"
 author:
   - name: Søren O'Neill
     url: www.oneill.dk

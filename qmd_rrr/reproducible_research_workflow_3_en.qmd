@@ -1,0 +1,116 @@
+---
+title: "RRR -- Collaboration"
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: '`r Sys.Date()`'
+output:
+  distill::distill_article:
+    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+#categories:
+#  - Installation
+creative_commons: CC BY
+format: html
+editor: source
+---
+
+```{r include=FALSE}
+#library(vembedr)
+library(tidyverse)
+```
+
+# Collaboration
+
+## Collaborating with other researchers
+
+Three scenarios :
+
+* Your collaborators do _not_ use the R ecosystem (booh!)
+* Your collaborators use the R ecosystem (woohoo!)
+* You and your collaborators are hardcore nerds (git!)
+
+## Collaborating with R-agnostic colleagues
+
+* Render your R-markdown code into a Word or OpenDocument file ... send it via email or carrier-pidgeon
+* Collaborators can use _Track changes_ in their chosen word-processor and ... return it
+* You then manually transfer changes back to your rmd ... start the process over again for the next time
+
+**Benefits**
+
+* Simple
+* No new tools to learn for R-agnostic colleagues
+* Anyone can join in 
+* Separation of comments and revisions
+
+**Drawbacks**
+
+* Error prone
+* Redundancy
+* Messy versioning nightmare
+* Focus shifts towards typesetting / presentation
+
+## Collaborating with R users
+
+* Get your rmd files (data files etc) and ... send it
+* Collaborators edit the qmd directly and ... return it
+* _Diff_ the two version of the rmd file and ... merge them selectively
+
+### Diff'ing two (or more) text files
+
+Some very nice and useful apps will let you see and merge differences between two versions of the same text (qmd) files:
+
+* **Meld**
+* Beyond compare
+* Araxis merge
+* P4Merge
+* DeltaWalker
+* ..and others
+
+There are also several online version .. e.g. **https://editor.mergely.com/** ...you probably should not upload sensitive information though.
+
+**Benefits**
+
+* Relatively simple
+* New tools are easy learn
+* Anyone can join in
+* Only one file type for all collaborators
+* Focus remains on content
+
+**Drawback**
+
+* Still some redundancy (qmd file versions)
+* Messy versioning nightmare
+* Comments and revisions are not clearly separated 
+
+## Tech savvy collaborators 
+
+Use an online GIT repository like [github](https://github.com) or SDUs self-hosted [gitlab](https://gitlab.sdu.dk) server -- you will need to contact IT support for an account.
+
+**Benefits**
+
+* Top tier reproducible research
+* World class version control
+* No redundancy and clean working directories
+
+**Drawback**
+
+* Let's face it -- it's a bit of a learning curve :-)
+
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>

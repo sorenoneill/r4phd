@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Søren O’Neill">
+<meta name="dcterms.date" content="2023-08-23">
+
+<title>R4phd - RRR – Collaboration</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../qmd_base_r/base_r_data_types_da.html" rel="next">
+<link href="../qmd_rrr/reproducible_research_citations_da.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">R4phd</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools ms-auto">
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Dansk</li><li class="breadcrumb-item"><a href="../qmd_rrr/reproducible_research_basics_exercises_da.html">RRR</a></li><li class="breadcrumb-item"><a href="../qmd_rrr/reproducible_research_workflow_3_da.html">RRR – Collaboration</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+ <span class="menu-text">English</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+ <span class="menu-text">Installation</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_installation/installation_quick_preparation_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Getting started</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_installation/installation_prerequisites_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prerequisites</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_installation/installation_ecosystem_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The R ecosystem</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_installation/installation_background_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R versus RStudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_installation/installation_r_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R installation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_installation/installation_rstudio_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RStudio installation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_installation/installation_r_packages_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R package installation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_installation/installation_cloud_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Posit Cloud</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_installation/installation_check_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Check all is OK</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+ <span class="menu-text">Getting to know RStudio</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_gui/rstudio_introduction_to_gui_1_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RStudios GUI #1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_gui/rstudio_introduction_to_gui_2_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RStudios GUI #2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_gui/rstudio_introduction_to_gui_console_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RStudios GUI – the console</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">R course exercises</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+ <span class="menu-text">Day 1</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../day_1_basics_of_Rstudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Basics of Rstudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../day_1_basics_of_R_code.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Basics of R code</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../day_1_settting_up_your_course_project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Setting up your course project</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../day_1_quarto_documents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">quarto documents</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../day_1_dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">dplyr</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../day_1_other.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Other data wrangling functions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+ <span class="menu-text">Day 2</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../day_2_ggplot2_basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ggplot2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../day_2_ggplot2_extras.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Extra Material</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
+ <span class="menu-text">Day 3</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../day_3_factors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">factors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../day_3_data_import.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">data import</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../day_3_missings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Missings</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../day_3_tables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tables</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Day 4</span></span>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false">
+ <span class="menu-text">RRR</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_rrr/reproducible_research_basics_exercises_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Thinking about RRR</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_rrr/reproducible_research_intro_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Intro to RRR</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_rrr/reproducible_research_workflow_1_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RRR – Workflow #1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_rrr/reproducible_research_basics_comments_how_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comments - how to</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_rrr/reproducible_research_basics_comments_where_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comments - where to</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_rrr/reproducible_research_basics_comments_what_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comments - what to</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_rrr/reproducible_research_basics_white_space_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">White space</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_rrr/reproducible_research_basics_readme_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">README.md</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_rrr/reproducible_research_basics_naming_stuff_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Naming stuff</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_rrr/reproducible_research_basics_file_structure_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Files</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_rrr/reproducible_research_workflow_2_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RRR – Structuring your project</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_rrr/reproducible_research_citations_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RRR – Citing references</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_rrr/reproducible_research_workflow_3_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RRR – Collaboration</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false">
+ <span class="menu-text">Base R</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_base_r/base_r_data_types_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Base R - data types</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_base_r/base_r_missing_data_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Base R - missing data</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="true">
+ <span class="menu-text">Dansk</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" aria-expanded="false">
+ <span class="menu-text">Installation</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_installation/installation_quick_preparation_da.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kom i gang</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_installation/installation_prerequisites_da.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Forudsætninger</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_installation/installation_ecosystem_da.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The R ecosystem</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_installation/installation_background_da.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R versus RStudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_installation/installation_r_da.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R installation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_installation/installation_rstudio_da.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RStudio installation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_installation/installation_r_packages_da.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installation af pakker</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_installation/installation_cloud_da.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Posit Cloud</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_installation/installation_check_da.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tjek alt OK</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" aria-expanded="false">
+ <span class="menu-text">Lær RStudio at kende</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_gui/rstudio_introduction_to_gui_1_da.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RStudios GUI #1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_gui/rstudio_introduction_to_gui_2_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RStudios GUI #2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_gui/rstudio_introduction_to_gui_console_da.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RStudios GUI – the console</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" aria-expanded="true">
+ <span class="menu-text">RRR</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_rrr/reproducible_research_basics_exercises_da.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Thinking about RRR</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_rrr/reproducible_research_intro_da.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Intro to RRR</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_rrr/reproducible_research_workflow_1_da.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RRR – Workflow #1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_rrr/reproducible_research_basics_comments_how_da.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comments - how to</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_rrr/reproducible_research_basics_comments_where_da.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comments - where to</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_rrr/reproducible_research_basics_comments_what_da.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comments - what to</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_rrr/reproducible_research_basics_white_space_da.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">White space</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_rrr/reproducible_research_basics_readme_da.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">README.md</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_rrr/reproducible_research_basics_naming_stuff_da.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Naming stuff</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_rrr/reproducible_research_basics_file_structure_da.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Files</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_rrr/reproducible_research_workflow_2_da.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RRR – Structuring your project</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_rrr/reproducible_research_citations_da.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RRR – Citing references</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_rrr/reproducible_research_workflow_3_da.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">RRR – Collaboration</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" aria-expanded="false">
+ <span class="menu-text">Base R</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_base_r/base_r_data_types_da.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Base R - data types</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_base_r/base_r_missing_data_da.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Base R - missing data</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#samarbejde" id="toc-samarbejde" class="nav-link active" data-scroll-target="#samarbejde"><span class="header-section-number">1</span> Samarbejde</a>
+  <ul class="collapse">
+  <li><a href="#samarbejde-med-andre-forskere" id="toc-samarbejde-med-andre-forskere" class="nav-link" data-scroll-target="#samarbejde-med-andre-forskere"><span class="header-section-number">1.1</span> Samarbejde med andre forskere</a></li>
+  <li><a href="#samarbejde-med-r-agnostikere" id="toc-samarbejde-med-r-agnostikere" class="nav-link" data-scroll-target="#samarbejde-med-r-agnostikere"><span class="header-section-number">1.2</span> Samarbejde med R-agnostikere</a></li>
+  <li><a href="#samarbejde-med-r-brugere" id="toc-samarbejde-med-r-brugere" class="nav-link" data-scroll-target="#samarbejde-med-r-brugere"><span class="header-section-number">1.3</span> Samarbejde med R brugere</a>
+  <ul class="collapse">
+  <li><a href="#diff-af-to-eller-flere-tekst-filer" id="toc-diff-af-to-eller-flere-tekst-filer" class="nav-link" data-scroll-target="#diff-af-to-eller-flere-tekst-filer"><span class="header-section-number">1.3.1</span> Diff’ af to (eller flere) tekst filer</a></li>
+  </ul></li>
+  <li><a href="#teknologi-kyndige-samarbejdspartnere" id="toc-teknologi-kyndige-samarbejdspartnere" class="nav-link" data-scroll-target="#teknologi-kyndige-samarbejdspartnere"><span class="header-section-number">1.4</span> Teknologi kyndige samarbejdspartnere</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">RRR – Collaboration</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p><a href="www.oneill.dk">Søren O’Neill</a> </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 23, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="samarbejde" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Samarbejde</h1>
+<section id="samarbejde-med-andre-forskere" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="samarbejde-med-andre-forskere"><span class="header-section-number">1.1</span> Samarbejde med andre forskere</h2>
+<p>Tre scenarier :</p>
+<ul>
+<li>Dine samarbejdspartnere bruger <em>ikke</em> R økosystemet (buh!)</li>
+<li>Dine samarbejdspartnere bruger R økosystemet (juhuu!)</li>
+<li>Du og dine samarbejdspartnere er hardcore nørder (git!)</li>
+</ul>
+</section>
+<section id="samarbejde-med-r-agnostikere" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="samarbejde-med-r-agnostikere"><span class="header-section-number">1.2</span> Samarbejde med R-agnostikere</h2>
+<ul>
+<li>Render dine quarto dokumenter til Word eller OpenDocument fil formater … send dem via email eller brevdue</li>
+<li>Samarbejdspartnerne bruger <em>Track changes</em> i deres foretrukne tekstbehandlingsprogram og … sender det tilbage</li>
+<li>Du overfører relevante ændringer manuelt fra f.eks Word til qmd filen … i næste runde, gentages processen</li>
+</ul>
+<p><strong>Fordele</strong></p>
+<ul>
+<li>Simpelt</li>
+<li>Ingen nye værktøjer at lære for dine R-agnostiske kolleger</li>
+<li>Alle kan være med</li>
+<li>Adskillelse af indhold og kommentarer</li>
+</ul>
+<p><strong>Ulemper</strong></p>
+<ul>
+<li>Hyppige fejl</li>
+<li>Redundans</li>
+<li>Versionerings mareridt</li>
+<li>Fokus på typografi og opsætning</li>
+</ul>
+</section>
+<section id="samarbejde-med-r-brugere" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="samarbejde-med-r-brugere"><span class="header-section-number">1.3</span> Samarbejde med R brugere</h2>
+<ul>
+<li>Send dem en kopi af dine qmd filer (data filer sov)</li>
+<li>Samarbejdspartnerne redigerer direkte i qmd filerne og … returnerer dem</li>
+<li><em>Diff</em> de to versioner af qmd filerne og … selektiv sammenfletning</li>
+</ul>
+<section id="diff-af-to-eller-flere-tekst-filer" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="diff-af-to-eller-flere-tekst-filer"><span class="header-section-number">1.3.1</span> Diff’ af to (eller flere) tekst filer</h3>
+<p>Der er nogle meget fine programmer som gør det nemt at sammenligne to versioner af den samme tekst (qmd) fil og se _diff_erencerne:</p>
+<ul>
+<li><strong>Meld</strong></li>
+<li>Beyond compare</li>
+<li>Araxis merge</li>
+<li>P4Merge</li>
+<li>DeltaWalker</li>
+<li>..og andre</li>
+</ul>
+<p>Der er også flere online versioner som f.eks <strong>https://editor.mergely.com/</strong> … men du skal nok ikke uploade følsomme informationer.</p>
+<p><strong>Fordele</strong></p>
+<ul>
+<li>Relativt let</li>
+<li>Nye værktøjer er nemme at lære at kende</li>
+<li>Alle kan være med</li>
+<li>Kun én filtype for alle samarbejdspartnere</li>
+<li>Fokus på indhold</li>
+</ul>
+<p><strong>Ulemper</strong></p>
+<ul>
+<li>Stadig nogen redundans (qmd fil versioner)</li>
+<li>Versionerings mareridt</li>
+<li>Kommentarer og ændringer er ikke klart adskilt</li>
+</ul>
+</section>
+</section>
+<section id="teknologi-kyndige-samarbejdspartnere" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="teknologi-kyndige-samarbejdspartnere"><span class="header-section-number">1.4</span> Teknologi kyndige samarbejdspartnere</h2>
+<p>Brug et online GIT repositorie som <a href="https://github.com">github</a> eller SDUs <a href="https://gitlab.sdu.dk">gitlab</a> server – du skal kontakte IT support for at få en bruger konto.</p>
+<p><strong>Fordele</strong></p>
+<ul>
+<li>Top klasse <em>reproducible research</em></li>
+<li>Verdens bedste versionerings system</li>
+<li>Ingen redundans og en smuk og ren arbejdsfolder</li>
+</ul>
+<p><strong>Ulemper</strong></p>
+<ul>
+<li>Lad os bare indrømmet det – læringskurven kan være lidt stejl :-)</li>
+</ul>
+<script src="https://giscus.app/client.js" data-repo="sorenoneill/r4phd" data-repo-id="R_kgDOJ9etDQ" data-category="Announcements" data-category-id="DIC_kwDOJ9etDc4CYApF" data-mapping="pathname" data-strict="0" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="bottom" data-theme="cobalt" data-lang="en" crossorigin="anonymous" async="">
+</script>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="sorenoneill/r4phd" data-repo-id="R_kgDOJ9etDQ" data-category="General" data-category-id="DIC_kwDOJ9etDc4CYApG" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../qmd_rrr/reproducible_research_citations_da.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">RRR – Citing references</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../qmd_base_r/base_r_data_types_da.html" class="pagination-link">
+        <span class="nav-page-text">Base R - data types</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
