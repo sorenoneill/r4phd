@@ -3,15 +3,15 @@
     "objectID": "qmd_rrr/unfinished.html#automation",
     "href": "qmd_rrr/unfinished.html#automation",
     "title": "Reproducible Research with R",
-    "section": "1.1 Automation",
-    "text": "1.1 Automation\nThe entire process from raw data to output should be:\n\nscripted\nreproducible\nreversible"
+    "section": "",
+    "text": "The entire process from raw data to output should be:\n\n\nscripted\nreproducible\nreversible"
   },
   {
     "objectID": "qmd_rrr/unfinished.html#automation-1",
     "href": "qmd_rrr/unfinished.html#automation-1",
     "title": "Reproducible Research with R",
-    "section": "1.2 Automation",
-    "text": "1.2 Automation\nThe entire process from raw data to output should be:\n\nscripted\nreproducible\nreversible.\n\nE.g.\n\ndata &lt;- read.csv(\"my_data_file.csv\")\n# excluded as participant entered an invalid CPR number\ndata &lt;- data %&gt;% filter(id != \"2321369-1212\")\n\n..but why not just delete that observation in raw data..?"
+    "section": "",
+    "text": "The entire process from raw data to output should be:\n\nscripted\nreproducible\nreversible.\n\nE.g.\n\ndata &lt;- read.csv(\"my_data_file.csv\")\n# excluded as participant entered an invalid CPR number\ndata &lt;- data %&gt;% filter(id != \"2321369-1212\")\n\n..but why not just delete that observation in raw data..?"
   },
   {
     "objectID": "qmd_rrr/unfinished.html#scripted-workflows",
@@ -24,8 +24,8 @@
     "objectID": "qmd_rrr/unfinished.html#load-and-clean-data",
     "href": "qmd_rrr/unfinished.html#load-and-clean-data",
     "title": "Reproducible Research with R",
-    "section": "1.4 Load and clean data",
-    "text": "1.4 Load and clean data\nhttp://www.sthda.com/english/wiki/best-practices-in-preparing-data-files-for-importing-into-r"
+    "section": "",
+    "text": "http://www.sthda.com/english/wiki/best-practices-in-preparing-data-files-for-importing-into-r"
   },
   {
     "objectID": "qmd_rrr/unfinished.html#bibtex-csl-zotero-and-friends",
@@ -53,7 +53,7 @@
     "href": "qmd_rrr/unfinished.html#zotero-1",
     "title": "Reproducible Research with R",
     "section": "3.4 Zotero",
-    "text": "3.4 Zotero\n3.4.1 Let me demonstrate…\n\nhow to find a new reference\ninclude it in zoteros library\nautomatically update bibTeX file (per project)\ncite in Rmd file"
+    "text": "3.4 Zotero\n\n3.4.1 Let me demonstrate…\n\nhow to find a new reference\ninclude it in zoteros library\nautomatically update bibTeX file (per project)\ncite in Rmd file"
   },
   {
     "objectID": "qmd_rrr/unfinished.html#zotero-got-style",
@@ -130,14 +130,14 @@
     "href": "qmd_rrr/unfinished.html#r-package-renv",
     "title": "Reproducible Research with R",
     "section": "5.2 R package renv",
-    "text": "5.2 R package renv\nNot very difficult at all.\n\nMaintains a library of R packages along with r code\nUpdates to R and packages does not break your project\nPermits you to come back in 5 years and re-execute your code\n\nhttps://rstudio.github.io/renv/articles/renv.html"
+    "text": "5.2 R package renv\nNot very difficult at all.\n\n\nMaintains a library of R packages along with r code\nUpdates to R and packages does not break your project\nPermits you to come back in 5 years and re-execute your code\n\n\nhttps://rstudio.github.io/renv/articles/renv.html"
   },
   {
     "objectID": "qmd_rrr/unfinished.html#git",
     "href": "qmd_rrr/unfinished.html#git",
     "title": "Reproducible Research with R",
     "section": "5.3 GIT",
-    "text": "5.3 GIT\nIt is a bit difficult.\n\nInstead of storing multiple versions of the same file …\n..it stores just the one file, and a (hidden) version-history\nChanges are handled by Diff’ing versions\n\n\nAll changes (process) are documented\nAll changes (process) are reversible\nProjects are forkable and mergable\n\n\nindispensable for LARGE projects\nGIT is a separate program, supported by RStudio."
+    "text": "5.3 GIT\nIt is a bit difficult.\n\n\nInstead of storing multiple versions of the same file …\n..it stores just the one file, and a (hidden) version-history\nChanges are handled by Diff’ing versions\n\n\n\n\nAll changes (process) are documented\nAll changes (process) are reversible\nProjects are forkable and mergable\n\n\n\n\nindispensable for LARGE projects\nGIT is a separate program, supported by RStudio."
   },
   {
     "objectID": "qmd_rrr/unfinished.html#summary-1",
@@ -459,7 +459,7 @@
     "href": "qmd_rrr/reproducible_research_basics_file_structure_da.html",
     "title": "Files",
     "section": "",
-    "text": "Should contain\n\nRStudio project (*.RProj)\nREADME.md\nsessionInfo.txt\nYour main R scripts\nYour RMarkdown and quarto scripts\nRelevant subfolders (/custom_functions, /gfx, /data, etc)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nText always preferable to binary files\nMarkup files (HTML, XML, etc) are human readable, but can be complex\nApplication files (.odt, .docx) are often either binary files or very complex markup files\n\ngfx/RR/prefer_text_files.pdf\ngfx/RR/prefer_text_files.pdf\ngfx/RR/prefer_text_files.xml\n\n\n\nStick to simple, human-readable files like R-scripts, markdown, csv files, etc, as far into the process as you can and only generate pdf, word, tiff, jpeg etc files as the final step.\nIf any characters look weird in a simple txt file (it does happen) – it’s probably the character encoding – just stick to UTF8/UTF16\n\n\nBy the way, what do you think the first thing the typesetters at Springer does with your manuscript once accepted?\n\n\n\n\n\nMain points\n\nUse a strict folder structure you can handle – make a template!\nUse relational folder paths if possible\nUse human-readable files only if possible (txt, md, Rmd, csv, etc)\nOnly use non-human readable files for ‘final output’ (pdf, docx, xlsx, etc)"
+    "text": "Should contain\n\nRStudio project (*.RProj)\nREADME.md\nsessionInfo.txt\nYour main R scripts\nYour RMarkdown and quarto scripts\nRelevant subfolders (/custom_functions, /gfx, /data, etc)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nText always preferable to binary files\nMarkup files (HTML, XML, etc) are human readable, but can be complex\nApplication files (.odt, .docx) are often either binary files or very complex markup files\n\ngfx/prefer_text_files.pdf\ngfx/prefer_text_files.pdf\ngfx/prefer_text_files.xml\n\n\n\nStick to simple, human-readable files like R-scripts, markdown, csv files, etc, as far into the process as you can and only generate pdf, word, tiff, jpeg etc files as the final step.\nIf any characters look weird in a simple txt file (it does happen) – it’s probably the character encoding – just stick to UTF8/UTF16\n\n\nBy the way, what do you think the first thing the typesetters at Springer does with your manuscript once accepted?\n\n\n\n\n\nMain points\n\nUse a strict folder structure you can handle – make a template!\nUse relational folder paths if possible\nUse human-readable files only if possible (txt, md, Rmd, csv, etc)\nOnly use non-human readable files for ‘final output’ (pdf, docx, xlsx, etc)"
   },
   {
     "objectID": "qmd_rrr/reproducible_research_basics_file_structure_da.html#the-root",
@@ -473,7 +473,7 @@
     "href": "qmd_rrr/reproducible_research_basics_file_structure_da.html#file-types",
     "title": "Files",
     "section": "",
-    "text": "Text always preferable to binary files\nMarkup files (HTML, XML, etc) are human readable, but can be complex\nApplication files (.odt, .docx) are often either binary files or very complex markup files\n\ngfx/RR/prefer_text_files.pdf\ngfx/RR/prefer_text_files.pdf\ngfx/RR/prefer_text_files.xml"
+    "text": "Text always preferable to binary files\nMarkup files (HTML, XML, etc) are human readable, but can be complex\nApplication files (.odt, .docx) are often either binary files or very complex markup files\n\ngfx/prefer_text_files.pdf\ngfx/prefer_text_files.pdf\ngfx/prefer_text_files.xml"
   },
   {
     "objectID": "qmd_rrr/reproducible_research_basics_file_structure_da.html#file-types-1",
@@ -1747,7 +1747,7 @@
     "href": "qmd_rrr/reproducible_research_basics_file_structure_en.html",
     "title": "Files",
     "section": "",
-    "text": "Should contain\n\nRStudio project (*.RProj)\nREADME.md\nsessionInfo.txt\nYour main R scripts\nYour RMarkdown and quarto scripts\nRelevant subfolders (/custom_functions, /gfx, /data, etc)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nText always preferable to binary files\nMarkup files (HTML, XML, etc) are human readable, but can be complex\nApplication files (.odt, .docx) are often either binary files or very complex markup files\n\ngfx/RR/prefer_text_files.pdf\ngfx/RR/prefer_text_files.pdf\ngfx/RR/prefer_text_files.xml\n\n\n\nStick to simple, human-readable files like R-scripts, markdown, csv files, etc, as far into the process as you can and only generate pdf, word, tiff, jpeg etc files as the final step.\nIf any characters look weird in a simple txt file (it does happen) – it’s probably the character encoding – just stick to UTF8/UTF16\n\n\nBy the way, what do you think the first thing the typesetters at Springer does with your manuscript once accepted?\n\n\n\n\n\nMain points\n\nUse a strict folder structure you can handle – make a template!\nUse relational folder paths if possible\nUse human-readable files only if possible (txt, md, Rmd, csv, etc)\nOnly use non-human readable files for ‘final output’ (pdf, docx, xlsx, etc)"
+    "text": "Should contain\n\nRStudio project (*.RProj)\nREADME.md\nsessionInfo.txt\nYour main R scripts\nYour RMarkdown and quarto scripts\nRelevant subfolders (/custom_functions, /gfx, /data, etc)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nText always preferable to binary files\nMarkup files (HTML, XML, etc) are human readable, but can be complex\nApplication files (.odt, .docx) are often either binary files or very complex markup files\n\ngfx/prefer_text_files.pdf\ngfx/prefer_text_files.pdf\ngfx/prefer_text_files.xml\n\n\n\nStick to simple, human-readable files like R-scripts, markdown, csv files, etc, as far into the process as you can and only generate pdf, word, tiff, jpeg etc files as the final step.\nIf any characters look weird in a simple txt file (it does happen) – it’s probably the character encoding – just stick to UTF8/UTF16\n\n\nBy the way, what do you think the first thing the typesetters at Springer does with your manuscript once accepted?\n\n\n\n\n\nMain points\n\nUse a strict folder structure you can handle – make a template!\nUse relational folder paths if possible\nUse human-readable files only if possible (txt, md, Rmd, csv, etc)\nOnly use non-human readable files for ‘final output’ (pdf, docx, xlsx, etc)"
   },
   {
     "objectID": "qmd_rrr/reproducible_research_basics_file_structure_en.html#the-root",
@@ -1761,7 +1761,7 @@
     "href": "qmd_rrr/reproducible_research_basics_file_structure_en.html#file-types",
     "title": "Files",
     "section": "",
-    "text": "Text always preferable to binary files\nMarkup files (HTML, XML, etc) are human readable, but can be complex\nApplication files (.odt, .docx) are often either binary files or very complex markup files\n\ngfx/RR/prefer_text_files.pdf\ngfx/RR/prefer_text_files.pdf\ngfx/RR/prefer_text_files.xml"
+    "text": "Text always preferable to binary files\nMarkup files (HTML, XML, etc) are human readable, but can be complex\nApplication files (.odt, .docx) are often either binary files or very complex markup files\n\ngfx/prefer_text_files.pdf\ngfx/prefer_text_files.pdf\ngfx/prefer_text_files.xml"
   },
   {
     "objectID": "qmd_rrr/reproducible_research_basics_file_structure_en.html#file-types-1",
@@ -1902,5 +1902,12 @@
     "title": "Reproducible research with R – workflow #1",
     "section": "",
     "text": "1 Reproducible Research\nLet’s say you have noticed a wrong entry in your data set … in invalid CPR number. You might decide to delete the observation from your data like this:\n\ndata &lt;- read.csv(\"my_data_file.csv\")\n# excluded as participant entered an invalid CPR number\ndata &lt;- data %&gt;% filter(id != \"2321369-1212\")\n\n…but why not just delete that observation from the csv file?\n\n\n\n\n\n\nReproducible Research\n\n\n\n\n\nThe principles of Reproducible Research admonish you that the entire process from raw data to output should be:\n\nscripted\nreproducible\nreversible\n\nWhat happens when at 6 months later, someone notices that you downloaded 106 rows of data from RedCap, but your manuscript reports n=105? Do you think you’ll remember then?\nOr for a more dramatic example, look at this youtube video  when you have the time (~20 minutes)"
+  },
+  {
+    "objectID": "qmd_rrr/unfinished.html",
+    "href": "qmd_rrr/unfinished.html",
+    "title": "Reproducible Research with R",
+    "section": "",
+    "text": "The entire process from raw data to output should be:\n\n\nscripted\nreproducible\nreversible\n\n\n\n\n\nThe entire process from raw data to output should be:\n\nscripted\nreproducible\nreversible.\n\nE.g.\n\ndata &lt;- read.csv(\"my_data_file.csv\")\n# excluded as participant entered an invalid CPR number\ndata &lt;- data %&gt;% filter(id != \"2321369-1212\")\n\n..but why not just delete that observation in raw data..?\n\n\n\n\n\n\n\nhttp://www.sthda.com/english/wiki/best-practices-in-preparing-data-files-for-importing-into-r"
   }
 ]
