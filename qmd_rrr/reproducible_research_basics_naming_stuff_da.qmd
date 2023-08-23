@@ -98,7 +98,7 @@ Vi kunne så gemme denne funktion i en separat fil og '_source_'e den ... eller 
 
 ## Sammensatte navne
 
-![](gfx/RR/var_name_animation.webp)
+![](gfx/var_name_animation.webp)
 
 * **Brug** under_scores
 * **Brug ikke** camelCase

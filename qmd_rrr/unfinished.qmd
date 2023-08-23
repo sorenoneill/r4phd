@@ -1,0 +1,177 @@
+---
+title: "Reproducible Research with R"
+subtitle: "...workflow"
+author: Søren O'Neill
+format: 
+  revealjs:
+    scrollable: true
+editor: source
+logo: gfx/slb_logo.png
+---
+
+```{r include=FALSE}
+library(DiagrammeR)
+```
+
+# Workflow and documentation in RR
+
+<!-- -->
+
+## Automation
+
+The **entire process** from raw data to output should be:
+
+>- scripted
+>- reproducible
+>- reversible
+
+## Automation
+
+The **entire process** from raw data to output should be:
+
+- scripted
+- reproducible
+- reversible.
+
+E.g. 
+
+```{r eval=FALSE, echo=TRUE}
+data <- read.csv("my_data_file.csv")
+# excluded as participant entered an invalid CPR number
+data <- data %>% filter(id != "2321369-1212")
+```
+
+_..but why not just delete that observation in raw data..?_
+
+
+
+## Scripted workflows
+
+![](gfx/data-science-explore.png)
+
+
+## Load and clean data
+
+http://www.sthda.com/english/wiki/best-practices-in-preparing-data-files-for-importing-into-r
+
+# Structuring workflow
+
+<!-- -->
+
+
+# Working with literature citations
+
+## BibTeX, csl, zotero and friends
+
+<!-- -->
+
+## BibTeX
+
+A simple human readable text file format for references
+
+* Export directly from PubMED and others
+* Export from Zotero, EndNote(?) and others
+
+## Zotero
+
+An open source, free reference manager -- well integrated with firefox.
+
+Allows for shared libraries.
+
+Plugin _BetterBibTex_ for ... well, better bibTeX.
+
+Alternatives: Mendeley (Elsevier), EndNote, RefManager, etc
+
+## Zotero
+
+### Let me demonstrate...
+
+* how to find a new reference
+* include it in zoteros library
+* automatically update bibTeX file (per project)
+* cite in Rmd file
+
+## Zotero got style!
+
+Loads of styles ... 10.000+ ... from APA to Ugeskrift for Læger
+
+...and you can write your own if need be.
+
+https://www.zotero.org/styles
+
+## Exercise 
+
+(without Zotero) 
+
+* You have decided to include an extra citation in the main_v1.qmd file
+    - Go to scholar.google.com
+    - Search for 'What low back pain is and why we need to pay attention'
+    - Go to science direct and click 'Cite' to get bibtex
+    - Copy bibtex content to your reference file
+    - Copy the BibTeX identifier and insert it as a citation
+    - Re-render your document
+
+
+
+# Documenting _process_
+
+<!-- -->
+
+## Collaborating with tech savvy nerds
+
+...enter _GIT_ and _renv_
+
+## R package _renv_
+
+Not very difficult at all.
+
+>- Maintains a library of R packages _along_ with r code
+>- Updates to R and packages does not break your project
+>- Permits you to come back in 5 years and re-execute your code
+
+https://rstudio.github.io/renv/articles/renv.html
+
+## GIT
+
+It is a bit difficult.
+
+>- Instead of storing multiple versions of the same file ...
+>- ..it stores just the one file, **and** a (hidden) version-history
+>- Changes are handled by Diff'ing versions
+
+>- All changes (process) are documented
+>- All changes (process) are reversible
+>- Projects are _forkable_ and _mergable_
+
+>- indispensable for LARGE projects
+>- GIT is a separate program, supported by RStudio.
+
+# Summary
+
+<!-- -->
+
+## Summary
+
+* Comment your code
+* Comment your project
+* Meaningful names
+* Structured files/folders
+* Human readable files
+* SCRIPTED AUTOMATION !! 
+* Split the process into 'chunks' (data / analyses / output)
+* Split the code into files
+* Split the code-in-files into chunks
+
+## Later in your R journey: 
+
+* Accessing databases directly (RedCAP, ao)
+* Creating interactive websitesand documents
+* Making graphs come alive with animations
+* _Live_ data analyses dashboards
+* ..and much much more (it can even order pizza)
+
+## Getting help
+
+* Google 
+* Stackoverflow
+* Stackoverflow -- R4PHD

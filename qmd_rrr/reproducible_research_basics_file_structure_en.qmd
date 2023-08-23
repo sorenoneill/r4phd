@@ -43,13 +43,13 @@ Should contain
 
 ## <!-- -->
 
-![](gfx/RR/phdcomics.1531.png){height=90%}
+![](gfx/phdcomics.1531.png){height=90%}
 
 ## Files and folders
 
 ### Make and use your own folder/sub-folder template for new projects
 
-![](gfx/RR/file_structure.png){height=100%}
+![](gfx/file_structure.png){height=100%}
 
 ## File types
 
@@ -57,11 +57,11 @@ Should contain
 * Markup files (HTML, XML, etc) are human readable, but can be complex
 * Application files (.odt, .docx) are often either binary files or very complex markup files
 
-gfx/RR/prefer_text_files.pdf
+gfx/prefer_text_files.pdf
 
-gfx/RR/prefer_text_files.pdf
+gfx/prefer_text_files.pdf
 
-gfx/RR/prefer_text_files.xml
+gfx/prefer_text_files.xml
 
 
 ## File types

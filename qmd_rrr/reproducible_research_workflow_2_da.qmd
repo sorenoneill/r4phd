@@ -1,0 +1,214 @@
+---
+title: "RRR -- Structuring your project"
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: '`r Sys.Date()`'
+output:
+  distill::distill_article:
+    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+#categories:
+#  - Installation
+creative_commons: CC BY
+format: html
+editor: source
+---
+
+```{r include=FALSE}
+#library(vembedr)
+library(tidyverse)
+```
+
+
+## Projekt eksempel
+
+* Download dette [RRR projekt eksempel](RR_example.zip)
+* Unzip file i en ny folder et egnet sted
+* I RStudio, lav et nyt R projekt og vælg den folder som _existing directory_
+
+:::{.callout-note collapse=true}
+## Show me how
+![](gfx/new_project_existing_directory.gif)
+:::
+
+**Disse øvelser løses bedst parvist.**
+
+:::{.callout-note collapse=true}
+## Øvelse #1 -- Inspicér filerne
+
+Indtil videre, undlad at ændre filerne og der er igen grund til at bruge meget tid på detaljerne i koden -- prøv i stedet at forstå koden og hvordan de forskellige filer hænger sammen, som et struktureret projekt.
+
+* Hvad handler projektet om?
+* Hvad formål tjener de enkelte filer?
+* Hvordan er filerne relateret til hinanden?
+:::
+
+:::{.callout-note collapse=true}
+## Øvelse #2 -- Hvad er projektets produkt/output?
+
+Prøv at:
+
+* Render et manuskript som html eller word eller pdf
+
+:::{.callout-note collapse=true appearance="simple"}
+## Hint
+
+Kig i YAML i main qmd dokumentet
+:::
+:::
+
+:::{.callout-note collapse=true}
+## Øvelse #3 -- Et simpelt problem i et manuskript
+
+Data for deltager med ID=7 er fejlbehæftet (apparatur fejl).
+
+Hvordan løste kode forfatteren det problem?
+
+:::{.callout-note collapse=true appearance="simple"}
+## Hint
+
+Det vil være god _Reproducible Research_ praksis at løse problemer som del af data cleaning og wrangling, fremfor at redigere i rå data.
+:::
+
+:::
+
+:::{.callout-note collapse=true}
+### Øvelse #4 -- Et problem med kryds referencer
+
+Kode forfatteren har ikke nær-læst Instructions for Authors til det tidsskrift der skal indsendes til, og har placeret figuren umiddelbart efter første reference.
+
+Faktisk skal:
+
+* Tabeller placeres i teksten nær første reference
+* Figurer skal placeres i en særskilt sektion 'Figures' (umiddelbart før References) og en _placeholder_ **\<\<FIGURE X ABOUT HERE>>** skal indsættes i teksten nær første reference.
+
+Hvordan ville du ændre koden.
+
+:::{.callout-note collapse=true appearance="simple"}
+## Hint
+
+Kode blokken 'figure_distribution_by_probe_and session' i 'main_v1.qmd' kan forblive hvor den er og kode blokke 'show_fig' kan flyttes længere ned i manuskriptet under en ny overskrift `# Figures`, umiddelbart før `# References` sektionen.
+
+Markeringen **\<\<FIGURE X ABOUT HERE>>** bør skrives som **\<\<FIGURE \@fig-distribution-by-probe-and-session ABOUT HERE>>** på en separat linje efter første reference til figuren ("_We presented a boxplot..._"). Det bliver så konverteret til **\<\<FIGURE 1 ABOUT HERE>>**.
+
+:::
+:::
+
+:::{.callout-note collapse=true}
+### Øvelse #5 -- Inkludér kode fra en anden fil
+
+Kode forfatteren har skrevet og fortalt dig, at faktisk er tabellen ikke formateret rigitgt - kolonne overskrifterne er grimme. Han var dog flink nok til at skrive lidt kode som kan løse det og har vedlagt det som en R script fil 'analyses/summary_statistics.R'.
+
+Kig på kode blokken 'a_table' og overvej hvordan du kan løse det problem ved hjælp af den leverede fil.
+
+:::{.callout-note collapse=true appearance="simple"}
+## Hint
+
+Koden som laver tabellen med grimme overskrifter er:
+
+```
+tmp_data <- data %>%
+  select(sex, age, height, weight) %>%
+  group_by(sex) %>%
+  summarise(mean_age=round(mean(age),2),
+            mean_height=round(mean(height),2),
+            mean_weight=round(mean(weight),2))
+
+knitr::kable(tmp_data)
+```
+
+For at erstattet den kode med funktionen (`my_summary_stats`) fra R scriptet, kan man simpelthen slette tabel koden og erstatte den med:
+
+```
+source(here("analyses", "summary_statistics.R"))
+knitr::kable(my_summary_stats(data))
+```
+
+**Bonus spørgsmål** Hvis du ikke vil slette den gamle kode, men bare gøre den inaktiv, hvordan vil du så gøre det?
+
+:::{.callout-note collapse=true appearance="simple"}
+## Hint
+I stedet for at slette koden, så kommentér den ud -- CTRL-SHIFT-C vil comment/uncomment highlightede linjer.
+:::
+:::
+:::
+
+:::{.callout-note collapse=true}
+### Øvelse #6 -- Figur parametre
+
+Tidsskriftets editorer har beklaget sig over at figuren ikke lever op til tidsskriftets krav.
+
+De vil have filen uploadet som:
+
+* tiff format
+* 2 tommer (inches) i bredde
+* 1.5 tommer (inches) i højde
+* i 600 dpi resolution
+
+Hvordan vil du fikse det problem og hvor vil du finde output'et?
+
+:::{.callout-note collapse=true appearance="simple"}
+## Hint
+
+Figuren defineres i kode blokken 'figure_distribution_by_probe_and session'.
+
+Du vil finde alle relevant parametre defineret i funktionen ggsave.
+
+Bero ikke på output'et i RStudios viewer når du skal inspicere figuren gemt i filen -- i stedet inspicér den i folderen 'plots'.
+:::
+:::
+
+:::{.callout-note collapse=true}
+### Øvelse #7 -- Det er også bare et træls tidsskrift!
+
+ØV! Efter alle dine tilpasninger har editors alligevel afvist dit manuskript. Tidsskriftet var vitterligt en 'Pain'.
+
+Så nu skal du omformattere manuskriptet til et andet tidsskrift og du får derfor brug for en anden reference og bibliografi stil. 
+
+Som antydet herover, var manuskriftet tilpasset tidskrift 'Pain'.
+
+* Find ud af hvor dit aktuelle reference og bibliografi stil defineres og hvilke filer der er involveret.
+* Vælg et andet tidsskrift -- bare en eller anden du kender.
+* Go på internettet og find en ny stil definition for det tidsskrift -- "Google is your friend" og det er Zotero også!
+* Fix din reference/bibliografi stil.
+
+:::{.callout-note collapse=true appearance="simple"}
+## Hints
+
+* Reference/bibliografi stilen defineres i YAML i 'main_v1.qmd' file -- specifikt: `csl: pain.csl` (linjen `bibliography: references.bib` definerer BibTeX filen hvor referencerne er gemt, men _ikke_ stilen)
+* Du finder en overflødighedshorn af Citation Style Language (.csl) filer du kan downloade på [the 'Zotero style repository'](https://www.zotero.org/styles) -- søg og du skal finde -- download .csl filen til din projekt folder.
+* Rediger din YAML csl definition så det passer til din nye csl fil og re-render dit manuskript.
+
+:::
+:::
+
+:::{.callout-note collapse=true}
+### Bonus -- Kig i folderen 'Presentations'
+
+![](gfx/think.png)
+
+Med tanke for at figurer, tabeller, _summary statistics_ mm bruges i 'main_v1.qmd', men også er gemt som separate filer, kan du genbrug dem i andre sammenhænge, f.eks en præsentation.
+
+Kig på _static_ presentation qmd og html filerne -- du skal også vide, at sådanne filer kan eksporteres til pdf, LibreOffice Impress og Microsoft Power Point filer.
+
+Filen _dynamic_ presentation er ikke færdig endnu, men prøv at google _dynamic r presentations_.
+
+:::
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>

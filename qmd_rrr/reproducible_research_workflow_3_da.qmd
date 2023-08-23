@@ -1,0 +1,121 @@
+---
+title: "RRR -- Collaboration"
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: '`r Sys.Date()`'
+output:
+  distill::distill_article:
+    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+#categories:
+#  - Installation
+creative_commons: CC BY
+format: html
+editor: source
+---
+
+```{r include=FALSE}
+#library(vembedr)
+library(tidyverse)
+```
+
+```{r include=FALSE}
+#library(vembedr)
+library(tidyverse)
+```
+
+# Samarbejde
+
+## Samarbejde med andre forskere
+
+Tre scenarier :
+
+* Dine samarbejdspartnere bruger _ikke_ R økosystemet (buh!)
+* Dine samarbejdspartnere bruger R økosystemet (juhuu!)
+* Du og dine samarbejdspartnere er hardcore nørder (git!)
+
+## Samarbejde med R-agnostikere
+
+* Render dine quarto dokumenter til Word eller OpenDocument fil formater ... send dem via email eller brevdue
+* Samarbejdspartnerne bruger _Track changes_ i deres foretrukne tekstbehandlingsprogram og ... sender det tilbage
+* Du overfører relevante ændringer manuelt fra f.eks Word til qmd filen ... i næste runde, gentages processen
+
+**Fordele**
+
+* Simpelt
+* Ingen nye værktøjer at lære for dine R-agnostiske kolleger
+* Alle kan være med 
+* Adskillelse af indhold og kommentarer
+
+**Ulemper**
+
+* Hyppige fejl
+* Redundans
+* Versionerings mareridt
+* Fokus på typografi og opsætning
+
+## Samarbejde med R brugere
+
+* Send dem en kopi af dine qmd filer (data filer sov)
+* Samarbejdspartnerne redigerer direkte i qmd filerne og ... returnerer dem
+* _Diff_ de to versioner af qmd filerne og ... selektiv sammenfletning
+
+### Diff' af to (eller flere) tekst filer
+
+Der er nogle meget fine programmer som gør det nemt at sammenligne to versioner af den samme tekst (qmd) fil og se _diff_erencerne:
+
+* **Meld**
+* Beyond compare
+* Araxis merge
+* P4Merge
+* DeltaWalker
+* ..og andre
+
+Der er også flere online versioner som f.eks **https://editor.mergely.com/** ... men du skal nok ikke uploade følsomme informationer.
+
+**Fordele**
+
+* Relativt let
+* Nye værktøjer er nemme at lære at kende
+* Alle kan være med
+* Kun én filtype for alle samarbejdspartnere 
+* Fokus på indhold
+
+**Ulemper**
+
+* Stadig nogen redundans (qmd fil versioner)
+* Versionerings mareridt
+* Kommentarer og ændringer er ikke klart adskilt
+
+## Teknologi kyndige samarbejdspartnere
+
+Brug et online GIT repositorie som [github](https://github.com) eller SDUs [gitlab](https://gitlab.sdu.dk) server -- du skal kontakte IT support for at få en bruger konto.
+
+**Fordele**
+
+* Top klasse _reproducible research_
+* Verdens bedste versionerings system
+* Ingen redundans og en smuk og ren arbejdsfolder
+
+**Ulemper**
+
+* Lad os bare indrømmet det -- læringskurven kan være lidt stejl :-)
+
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
