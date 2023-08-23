@@ -1,0 +1,200 @@
+---
+title: "data import"
+author: "Steen Flammild Harsted"
+date: today
+output:
+  distill::distill_article:
+    self_contained: false
+format:
+  html: 
+    code-fold: true
+    code-summary: "Show me the code"
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    number-depth: 3
+editor: 
+  mode: source
+execute: 
+  eval: false
+  echo: true
+  message: false
+  warning: false
+---
+
+```{r setup}
+#| include: false
+library(tidyverse)
+library(here)
+library(vroom)
+library(naniar)
+library(gt)
+library(gtsummary)
+library(gtExtras)
+library(glue)
+library(here)
+source(here("scripts", "01_import.R"))
+```
+
+# Data import
+
+<br><br>
+
+#### Download the `data_day_3.zip` file from ItsLearning and unzip it in your `raw_data` directory
+The unzipped folder contains:
+
+*  A .csv file called "Kronisk smerte - udvikling.csv". It has been exported by a Danish version of Excel. Is this a good name for a file?
+*  A set of files related to a motioncapture project
+  -  A Stata file (.dta) containing the sex of the participants
+  -  A .csv file containing the age (in months) of the partipants. 
+  -  19 simplified motioncapture files of children performing vertical jumps
+     - `Frame` and `Time_Seconds` are time variables
+     - `CGY` gives you the height (in mm) of their center of gravity
+*  A folder called `challenge` that you need if you want to solve the challenge assignment
+
+<br><br>
+
+#### Import "kronisk smerte - udvikling.csv" 
+* `read.csv()`
+* `read.csv2()`
+* `read_csv2()`
+*  What is the difference in the output? Why?
+```{r}
+#| output: false
+path <- here("raw_data", "data_day_3"  ,"Kronisk smerte - udvikling.csv")
+read.csv(path)
+read.csv2(path)
+read_csv2(path)
+```
+
+<br><br>
+
+#### Import the files `id_age.csv` and `id_sex.dta`, combine them (use `full_join()`), and assign the combined dataframe to an object
+*  The `tidyverse` includes the `haven` package that can read Stata´s .dta files
+  - The function to use for the .dta file is `haven::read_dta()`
+*  Investigate the two files before you combine them. Do you need to change anything?
+*  The `dplyr` function `full_join()` will help you to combine the two imported objects.
+
+```{r}
+#| output: false
+a <- haven::read_dta(here("raw_data", "data_day_3", "id_sex.dta"))
+
+b <- read_csv2(here("raw_data", "data_day_3","id_age.csv")) %>%
+     rename(ID = id)  # Rename the id column
+
+df_descriptives <- full_join(a, b)
+rm(a,b) # Remove the objects a and b so that your environment is less crowded
+```
+
+<br><br>
+
+#### Use `list.files()` to generate an object called `files` containing the filenames of the 19 motioncapture files
+
+<details><summary>Hints for the `pattern = `argument in `list.files()`</summary>
+```{r}
+#| eval: false
+#| code-fold: false
+, pattern = NULL          # The default setting. List all files in our directory
+, pattern = ".csv$"       # all files in our directory that ends with ".csv"
+, pattern = "^desc"       # all files in our directory that starts with "desc"
+, pattern = "[0-9].csv$"  # all files in our directory that ends with "[a number from 0-9].csv"
+```
+</details>
+
+```{r}
+#| output: false
+files <- list.files(here("raw_data", "data_day_3"), pattern = "[0-9].csv$")
+```
+
+<br><br>
+
+#### Import the 19 motioncapture files 
+
+* Use `read_csv()``
+* The `file = ` should include the path to the folder (use `here()`), and the `files` object you just created.
+```{r}
+#| output: false
+df_mocap <- read_csv(here("raw_data", "data_day_3", files))
+```
+
+*  Combine the motion capture files with the descriptives object you created before
+```{r}
+#| output: false
+df_all <- full_join(df_descriptives, df_mocap)
+```
+
+<br><br>
+
+#### Update the object you just created 
+*  Change ID to a factor
+*  Change sex to a factor with `levels = c(1,2), labels = c("Boy", "Girl")`
+*  Change age from months to years
+*  Retain the row with the highest value of `CGY` for each of the children
+```{r}
+#| output: false
+df_all <- df_all %>% 
+  mutate(
+    ID = factor(ID),
+    sex = factor(sex, levels = c(1,2), labels = c("Boy", "Girl")),
+    age = age/12) %>% 
+  group_by(ID) %>% 
+  filter(CGY == max(CGY, na.rm = TRUE))
+```
+
+<br><br>
+
+#### Save the object you just created
+*  Save the object you created before as an ".RData" file, save it in your "clean_data" folder
+*  Save the object you created before as an ".csv" file, save it in your "clean_data" folder
+*  What are the pros and cons of the two file types?
+```{r}
+#| output: false
+save(df_all, file = here("clean_data", "my_data.RData"))
+write_csv(df_all, file = here("clean_data", "my_data.csv"))
+```
+
+<br><br>
+
+### LOOKING FOR A CHALLENGE?
+
+#### Inspect the 19 motioncapture files in the folder called `challenge` 
+*  What important piece of information is missing from the data in the files?
+*  Where can you find this data? <details><summary>Answer</summary> The ID can only be found in the filename. You need to find a way to piece the ID together with the data in files </details>
+  
+#### Install the package `vroom` and load it
+*  `vroom` is a very fast package for importing `.csv` files. (hence the name)  
+*  The main function in the `vroom` package is `vroom()`
+*  `vroom()` has the argument `delim = ` that allows you specify the delimter you want
+*  Read the documentation for `vroom()`
+      - What does the `id` argument in the `vroom()` function do?
+
+<br><br>  
+
+####  Use `vroom()` to import all the mocap files in the challenge folder
+  - Use the `id = ` argument in the `vroom()` function.
+
+```{r}
+#| output: false
+files_chal <- list.files(here("raw_data", "data_day_3", "challenge"), pattern = "[0-9].csv$")
+df_mocap_chal <- vroom::vroom(here("raw_data", "data_day_3", "challenge", files_chal),
+                              id = "filename")
+```
+
+<br><br>
+
+#### We need to extract the ID from the filename column now
+*  Create a column called `ID` that only contains the `ID` part from the filename
+*  You need to use regular expressions to solve this
+*  Two functions that may help you are `str_extract()` and `str_remove()`
+  - Both functions have a `pattern = ` argument that must be a regular expression
+  - Use them inside a `mutate()` call
+```{r}
+#| output: false
+
+df_mocap_chal <- df_mocap_chal %>%
+  mutate(ID = str_extract(filename, pattern = "[0-9]+_3.1"),  # Capture digits that come before _3.1
+         ID = str_remove(ID, pattern = "_.+$"),               # Remove the _3.1 part
+         ID = as.numeric(ID))                                 # Change ID from a string to a numeric variable. You can also change it to a factor
+```
+
+

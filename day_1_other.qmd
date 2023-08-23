@@ -387,7 +387,7 @@ soldiers <- read_csv2(here("raw_data", "soldiers.csv"))
 
 The `across()` function is part of the `dplyr` package in R and is used for applying a function (or functions) across multiple columns in a dataframe. 
 
-across() is particularly useful when you want to perform the same operation on multiple columns but don't want to write out each operation individually. It works in combination with mutate() and summarise().  
+`across()` is particularly useful when you want to perform the same operation on multiple columns but don't want to write out each operation individually. It works in combination with mutate() and summarise().  
 
 Very importantly the .cols argument allows you to use the [tidyselect](https://tidyselect.r-lib.org/) functions that you are now familiar with.
 
@@ -400,7 +400,7 @@ Let's say we want to take the mean of `weightkg` and `earlength` in the `soldier
 soldiers %>% 
   summarise(across(
     .cols = c("weightkg", "earlength"),  # What columns to target
-    .fns = mean)                         # What function to apply - Notice that mean is not written round()
+    .fns = mean)                         # What function to apply - Notice that mean is not written mean()
     )
 ```
 
@@ -434,7 +434,7 @@ soldiers %>%
 
 <br><br>
 
-### Change all circumference columns in the `soldiers` dataframe and change their values from cm to inches
+### Target all circumference columns in the `soldiers` dataframe and change their values from cm to inches
 
 ```{r}
 soldiers %>% 

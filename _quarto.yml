@@ -1,6 +1,9 @@
 project:
   type: website
   output-dir: docs
+  render:
+    - "*.qmd"
+    - "!presentations/"
 
 website:
   title: "R4phd"
@@ -51,6 +54,12 @@ website:
               contents:
                 - day_2_ggplot2_basics.qmd
                 - day_2_ggplot2_extras.qmd
+            - section: "Day 3"
+              contents:
+                - day_3_factors.qmd
+                - day_3_data_import.qmd
+                - day_3_missings.qmd
+                - day_3_tables.qmd
             - section: "Day 4"
               contents: 
             - section: "RRR"
@@ -64,6 +73,9 @@ website:
                 - qmd_rrr/reproducible_research_basics_readme_en.qmd
                 - qmd_rrr/reproducible_research_basics_naming_stuff_en.qmd
                 - qmd_rrr/reproducible_research_basics_file_structure_en.qmd
+                - qmd_rrr/reproducible_research_workflow_en.qmd
+                - qmd_rrr/reproducible_research_structure_en.qmd
+                - qmd_rrr/reproducible_research_citations_en.qmd
           - section: "Base R"
             contents:
               - qmd_base_r/base_r_data_types_en.qmd
@@ -101,6 +113,9 @@ website:
               - qmd_rrr/reproducible_research_basics_readme_da.qmd
               - qmd_rrr/reproducible_research_basics_naming_stuff_da.qmd
               - qmd_rrr/reproducible_research_basics_file_structure_da.qmd
+              - qmd_rrr/reproducible_research_workflow_da.qmd
+              - qmd_rrr/reproducible_research_structure_en.qmd
+              - qmd_rrr/reproducible_research_citations_da.qmd
           - section: "Base R"
             contents:
               - qmd_base_r/base_r_data_types_da.qmd

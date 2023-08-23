@@ -1,0 +1,93 @@
+---
+title: "Reproducible research with R -- Citing research and maintaining a bibliography"
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: '`r Sys.Date()`'
+output:
+  distill::distill_article:
+    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+#categories:
+#  - Installation
+creative_commons: CC BY
+format: html
+editor: source
+---
+
+# BibTeX, csl, zotero and friends
+
+<!-- -->
+
+## BibTeX
+
+BibTeX is a simple human readable text file format for references
+
+* Export directly from PubMED and others
+* Export from Zotero, EndNote(?) and others
+
+**An example BibTeX entry**
+
+```
+@article{graeffInterIndividualDifferencesExplain2021,
+  title = {Inter-{{Individual Differences Explain More Variance}} in {{Conditioned Pain Modulation Than Age}}, {{Sex}} and {{Conditioning Stimulus Intensity Combined}}},
+  author = {Graeff, Philipp and Itter, Alina and Wach, Katharina and Ruscheweyh, Ruth},
+  year = {2021},
+  month = sep,
+  journal = {Brain Sciences},
+  volume = {11},
+  number = {9},
+  pages = {1186},
+  publisher = {{Multidisciplinary Digital Publishing Institute}},
+  issn = {2076-3425},
+  doi = {10.3390/brainsci11091186},
+  abstract = {Conditioned pain modulation (CPM) describes the reduction in pain evoked by a test stimulus (TS) when presented together with a heterotopic painful conditioning stimulus (CS). CPM has been proposed to reflect inter-individual differences in endogenous pain modulation, which may predict susceptibility for acute and chronic pain. Here, we aimed to estimate the relative variance in CPM explained by inter-individual differences compared to age, sex, and CS physical and pain intensity. We constructed linear and mixed effect models on pooled data from 171 participants of several studies, of which 97 had repeated measures. Cross-sectional analyses showed no significant effect of age, sex or CS intensity. Repeated measures analyses revealed a significant effect of CS physical intensity (p = 0.002) but not CS pain intensity (p = 0.159). Variance decomposition showed that inter-individual differences accounted for 24\% to 34\% of the variance in CPM while age, sex, and CS intensity together explained {$<$}3\% to 12\%. In conclusion, the variance in CPM explained by inter-individual differences largely exceeds that of commonly considered factors such as age, sex and CS intensity. This may explain why predictive capability of these factors has had conflicting results and suggests that future models investigating them should account for inter-individual differences.},
+  copyright = {http://creativecommons.org/licenses/by/3.0/},
+  langid = {english},
+  keywords = {conditioned pain modulation,conditioning stimulus,CPM variability,endogenous analgesia,interindividual factors},
+  file = {/home/soon/Zotero/storage/AJ8W4U2G/Graeff et al. - 2021 - Inter-Individual Differences Explain More Variance.pdf;/home/soon/Zotero/storage/3SYEHU3A/1186.html}
+}
+```
+
+But you won't be typing them by hand -- they can be downloaded directly from the research papers online version straight to Zotero with a single click in your browser.
+
+## Zotero
+
+Zotero is an open source, free reference manager -- well integrated with firefox, MS Word and other apps.
+
+Allows for shared libraries between you and your colleagues.
+
+Several plugins, including _BetterBibTex_ for ... well, better bibTeX.
+
+Alternatives: Mendeley (Elsevier), EndNote, RefManager, etc
+
+### Zotero demo
+
+...awaiting video of Zotero library, download, export, etc
+
+### Zotero got style!
+
+Loads of styles ... 10.000+ ... from APA to Ugeskrift for Læger
+
+...and you can write your own if need be.
+
+https://www.zotero.org/styles
+
+    
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>

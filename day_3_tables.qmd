@@ -1,0 +1,340 @@
+---
+title: "Tables"
+subtitle: "gtsummary, gt, and gtExtras"
+author: "Steen Flammild Harsted"
+date: today
+output:
+  distill::distill_article:
+    self_contained: false
+format:
+  html: 
+    code-fold: true
+    code-summary: "Show me the code"
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    number-depth: 3
+editor: 
+  mode: source
+execute: 
+  eval: false
+  echo: true
+  message: false
+  warning: false
+---
+
+```{r setup}
+#| include: false
+library(tidyverse)
+library(here)
+library(vroom)
+library(naniar)
+library(gt)
+library(gtsummary)
+library(gtExtras)
+library(glue)
+library(here)
+source(here("scripts", "01_import.R"))
+```
+
+# Tables 
+
+<br>
+
+#### Install the `gt` and  `gtsummary` packages and load them.
+Use `install.packages()` to download the `gt` and  `gtsummary` packages. When you have done that add `library(gt)` and `library(gtsummary)` to the code chunk where you call your libraries. Execute the lines. 
+
+<br>
+
+## `gtsummary`
+
+<br>
+
+#### In `soldiers` use `tbl_summary()` to show the `sex`, `heightcm`, `weightkg`, and `race` of the soldiers
+*  Create a tbl_summary()
+```{r}
+#| output: false
+soldiers %>% 
+  select(sex, heightcm, weightkg) %>% 
+  tbl_summary()
+```
+
+<br>
+
+#### In `soldiers` use `tbl_summary()` to show the `sex`, `heightcm`, `weightkg`, split by `WritingPreference` of the soldiers
+
+*  Dont display missing values
+*  `add_p()` (read [here](https://www.danieldsjoberg.com/gtsummary/reference/add_p.tbl_summary.html) and [here](https://www.danieldsjoberg.com/gtsummary/reference/tests.html) if you want to change the default tests). 
+
+Try the following functions:
+
+*  `add_overall()`
+*  `add_stat_label()`
+*  `bold_labels()`
+*  `italicize_levels()`
+*  When you have the table you like use `as_gt() %>% gtsave(filename = here(""))`
+
+```{r}
+#| output: false
+soldiers %>% 
+  select(sex, heightcm, weightkg, WritingPreference) %>% 
+  tbl_summary(
+    by = WritingPreference,
+    missing = "no"
+  ) %>% 
+  add_p() %>% 
+  bold_labels() %>% 
+  italicize_levels() %>% 
+  add_overall() 
+```
+
+<br>
+#### Improve the table further
+You probably need to investigate the help file for `tbl_summary()` to solve these.
+* Change the statistics to mean and sd
+* Change the statistical test of the continous variables from a "Kruskal-Wallis rank sum test" to a One-way ANOVA
+* Find better names for sex, heightcm, and weightkg
+* save the table as a .docx file in your tables folder
+```{r}
+#| output: false
+my_table <- soldiers %>% 
+  select(sex, heightcm, weightkg, WritingPreference) %>% 
+  tbl_summary(
+    by = WritingPreference,
+    missing = "no",
+    
+    # Change labels
+    label = list(
+      sex ~ "Sex",
+      weightkg ~ "Weight (kg)",
+      heightcm ~ "Height (cm)"),
+    
+    # Change statistics
+    statistic = list(all_continuous() ~ "{mean} ({sd})")
+    
+    
+  ) %>% 
+  
+  # t.test
+  add_p(
+    test = list(all_continuous() ~ "aov",
+                all_categorical() ~ "chisq.test.no.correct")
+    ) %>% 
+  bold_labels() %>% 
+  italicize_levels() %>% 
+  add_overall() 
+
+my_table
+
+
+my_table %>% 
+  as_gt() %>% 
+  gtsave(filename = here("tables", "my_table.docx"))
+```
+
+
+<br>
+#### Go to your homeassignment and update it with one or more tables
+
+
+<br><br>
+
+## `gt`
+
+<br><br>
+
+#### Explain what the 4 main group of functions in `gt` are and what they do
+
+*  `tab_*()`
+*  `fmt_*()`
+*  `cols_*()`
+*  `cells_*()`
+
+<br>
+
+#### Find a dataset and prepare it for a table 
+
+Below is a suggestion for `soldiers`, but you are free to try with you own data if you prefer that.
+
+Using `soldiers` and `gt()`, create a table in the following steps:  
+
+*  Keep the columns `Installation`, `sex`, and all the columns that ends with circumference, 
+*  Remove `Fort Rucker` - it only has one soldier
+*  Group by `Installation` and `sex`
+*  summarise the data and calculate the mean and sd of all the columns that ends with circumference
+    * you can do this manually (with many lines of code)
+    * or you can do this by using the `across()` function inside `summarise()`. If you are going to be working with a dataset that has many columns, I suggest you invest some time into learning about `across()`
+*  pipe the summarised table to `gt()` and set the `rowname_col` argument to `sex`
+*  add a suitable title and subtitle
+*  Assign the table to an object called `my_tbl`
+
+```{r}
+#| output: false
+my_tbl <- soldiers %>% 
+  
+  # Select some columns and arrange the tible
+  select(Installation, sex, 
+         ends_with("circumference")) %>% 
+  
+  # Remove Fort Rucker
+  filter(Installation != "Fort Rucker") %>% 
+
+  # Remove the Installation with only one Soldier
+  #group_by(Installation) %>% 
+  #add_count() %>% 
+  #filter(n > 1) %>% 
+  
+  # Summary stats by Installation and Race
+  group_by(Installation, sex) %>% 
+  summarise(
+    across(.cols = ends_with("circumference"),
+           .fns = list(mean = ~ mean(.x, na.rm = TRUE),
+                       sd = ~ sd(.x, na.rm = TRUE)))) %>% 
+  
+  # group only by installation
+  # because we want to use sex in the rowname_col argument in gt() - see below
+  group_by(Installation) %>% 
+  
+  # Send to gt and perform a few styling functions
+  gt(rowname_col = "sex") %>% 
+  
+  tab_header(
+    title = md("**Overview of soldiers soldiers by sex and installation**"),
+    subtitle = md("*The data is a mock up version of the soldiers dataset*")) %>% 
+  
+  tab_footnote(
+    footnote = "To preserve anonymity, observations from Fort Rucker has been removed becuase of a low number of observations"
+  )
+
+my_tbl
+```
+
+#### Style `my_tbl` as you like
+You can some try some of these functions
+
+*  `tab_header()`
+*  `tab_source_note()`
+*  `tab_stubhead()`
+*  `tab_spanner()`
+*  `tab_spanner_delim()`
+
+*  `fmt_number()`      
+*  `fmt_percent()`     
+*  `fmt_missing()`     
+
+*  `col_merge_n_pct()`
+*  `cols_label()`
+
+*  `md()`
+*  `cells_body()` and `tab_footnote()` 
+
+```{r}
+#| output: false
+# It is always a choice how much you want to style your in R, and what you leave for manual editing afterwards (e.g. Word)
+# You can style everything in R, but it can be code intensive
+# In general - you want the basic structure of your table to be in place
+# You NEVER want to manually edit values or merge columns.
+# Editing column and spanners names are less labour intensive and dont contain the same risk of making errors
+# I think the below table is an ok place to stop the styling in R.
+
+my_tbl_styled <- my_tbl %>% 
+  
+  tab_spanner_delim(
+    delim = "_",
+    columns = everything()
+  ) %>%
+  
+  fmt_number(
+    columns = contains("circumference"),
+    decimals = 1
+  ) %>% 
+  
+  cols_merge(
+    columns = contains("thigh"),
+    pattern = "{1} ({2})"
+    ) %>% 
+  
+  cols_merge(
+    columns = contains("waist"),
+    pattern = "{1} ({2})"
+    ) %>% 
+  
+  cols_merge(
+    columns = contains("ankle"),
+    pattern = "{1} ({2})"
+    ) %>% 
+  
+  cols_merge(
+    columns = contains("biceps"),
+    pattern = "{1} ({2})"
+    ) %>% 
+  
+  cols_merge(
+    columns = contains("calf"),
+    pattern = "{1} ({2})"
+    ) 
+
+my_tbl_styled
+```
+
+
+<br>
+
+#### Save your table using `gtsave()`
+
+* Create a folder called "tables"
+```{r}
+#| eval: false
+gtsave(
+  data = my_tbl_styled,
+  filename = here("tables", "ANSUR_fort_sex.docx")
+)
+
+# Word can also open .rtf  files - its sometimes works better in this format
+gtsave(
+  data = my_tbl_styled,
+  filename = here("tables", "ANSUR_fort_sex.rtf")
+)
+```
+
+
+<br>
+
+### WANT MORE? {-}
+
+<br>
+
+#### Give the row group labels, heading, and column labels a different background color
+*  Use `tab_options()`
+```{r}
+#| output: false
+my_tbl_styled %>% 
+  tab_options(row_group.background.color = "#C2B7B7") %>% 
+  tab_options(heading.background.color = "#C2B7B7") %>% 
+  tab_options(column_labels.background.color = "#C2B7B7")
+```
+
+<br>
+
+## `gtExtras`
+Install the package `gtExtras` and add `library(gtExtras)` to the codechunk where you load your libraries.
+
+<br>
+
+#### Add a cool theme to your table `gt_theme_`
+```{r}
+#| output: false
+my_tbl_styled %>% 
+  gt_theme_espn()
+```
+
+<br>
+
+#### Color `thighcircumference_mean` with Hulk colors using  `gt_hulk_col_numeric(thighcircumference_mean)`
+```{r}
+#| output: false
+my_tbl_styled %>% 
+  gt_theme_espn() %>% 
+  gt_hulk_col_numeric(thighcircumference_mean)
+```
+
