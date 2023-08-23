@@ -62,6 +62,8 @@ website:
                 - day_3_tables.qmd
             - section: "Day 4"
               contents: 
+                - day_4_hypothesis.qmd
+                - day_4_regression.qmd
             - section: "RRR"
               contents:
                 - qmd_rrr/reproducible_research_basics_exercises_en.qmd

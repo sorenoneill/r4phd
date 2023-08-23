@@ -1,0 +1,221 @@
+---
+title: 'Hypothesis testing'
+subtitle: "ggstatsplot"
+author: "Steen Harsted"
+date: today
+format: 
+  html:
+    toc: true
+    toc-depth: 2
+    code-fold: true
+    code-summary: "Show me the code"
+    embed-resources: true
+execute: 
+  eval: true
+  echo: true
+  output: false
+  warning: false
+  message: false
+---
+
+```{r}
+#| echo: false
+library(tidyverse)
+library(here)
+library(ggstatsplot)
+library(rstatix)
+library(AER)
+library(easystats)
+library(GGally)
+library(gt)
+library(gtsummary)
+data("PhDPublications")
+library(palmerpenguins)
+```
+
+
+
+# `ggstatsplot`
+
+<br><br>
+Install the `ggstatsplot` and `rstatix` packages and add the library calls for these packages to your library code chunk
+
+
+<br><br>
+
+## The `bugs_long` dataset
+`bugs_long` provides information on the extent to which men and women want to kill arthropods that vary in  disgustingness (low, high) and freighteningness (low, high) (four groups in total). Each participant rated their attitude towards all four kinds of anthropods. `bugs_long` is a subset of the data reported by [Ryan et al.(2013)](https://www.sciencedirect.com/science/article/abs/pii/S0747563213000277) .  
+
+Note that this is a repeated measures design because the same participant gave four different ratings across four different conditions (LDLF, LDHF, HDLF, HDHF).
+
+*  `desire` - The desire to kill an arthropod was indicated on a scale from 0 to 10
+*  `gender` Male/Female
+*  `region` 
+*  `condition` 
+    - **LDLF**: low disgustingness and low freighteningness  
+    - **LDHF**: low disgustingness and high freighteningness   
+    - **HDLF**: high disgustingness and low freighteningness  
+    - **HDHF**: high disgustingness and high freighteningness  
+```{r}
+#| output: true
+#| echo: false
+#| fig-cap: "Picture from Ryan et al. (2013) https://doi.org/10.1016/j.chb.2013.01.024"
+knitr::include_graphics(here("presentations", "img" , "bugs_conditions.jpg"))
+```
+
+<br><br>
+
+#### In `bugs_long`, is there a difference within the participants in their `desire` to kill bugs from the four different `conditions`?    
+
+*  Should you use `ggwithinstats()` or `ggbetweenstats()` when comparing 
+*  Is it reasonable to assume normality?
+
+```{r}
+bugs_long %>% group_by(condition) %>% shapiro_test(desire)
+
+# qqplot
+bugs_long %>% 
+  ggplot(aes(sample = desire, group = condition)) +
+  geom_qq()+
+  geom_qq_line()
+
+# Density plot
+bugs_long %>% 
+  ggplot(aes(x = desire, fill = condition)) +
+  geom_density(alpha = 0.2)
+  
+```
+*  Make the appropriate test
+```{r}
+bugs_long %>% 
+  ggwithinstats(x = condition,
+                y = desire,
+                type = "nonparametric")
+
+# Note that the ggstatstutorial actually runs this as a "parametric" test
+```
+*  What is the name of the statistical test that was performed?  
+*  What is your interpretation?
+*  What is the consequence if you change the type of test?
+
+<br><br>
+
+#### Is there a difference between men and women in the `desire` to kill bugs that are **LDHF** (low disgustingness and high freighteningness).
+
+*  Create a filtered data frame of bugs_long
+```{r}
+bl_LDHF <- bugs_long %>% filter(condition == "LDHF")
+```
+
+*  Should you use `ggwithinstats()` or `ggbetweenstats()` for this test?
+*  Is it reasonable to assume normality?
+
+```{r}
+bl_LDHF %>% 
+  filter(!is.na(gender), !is.na(desire)) %>% 
+  group_by(gender) %>% 
+  shapiro_test(desire)
+
+# qqplot
+bl_LDHF %>% 
+  ggplot(aes(sample = desire, color = gender)) +
+  geom_qq()+
+  geom_qq_line()
+
+# Density plot
+bl_LDHF %>% 
+  ggplot(aes(x = desire, fill = gender)) +
+  geom_density(alpha = 0.2)
+  
+```
+*  Make the appropriate test
+```{r}
+bl_LDHF %>% 
+  ggbetweenstats(x = gender,
+                 y = desire,
+                 type = "nonparametric")
+```
+*  What is the name of the statistical test that was performed?  
+*  What is your interpretation?
+*  What is the consequence if you change the type of test?
+
+<br><br>
+
+
+
+#### Is there a difference in the frequency of men and women between `North America` and the remaining regions?.
+*  First, lump `region` togehter to two levels (`fct_lump()`)
+*  Reduce the data to one row pr subject ID, and discuss why this is a good idea.
+```{r}
+bl_region <- bugs_long %>%
+  mutate(region = fct_lump(region, 1)) %>% 
+  group_by(subject) %>% 
+  slice(1) %>% 
+  ungroup()
+```
+
+*  Should you use `ggwithinstats()` or `ggbetweenstats()`  or perhaps `ggbarstats()` for this test?
+*  Should you asses normality?
+
+```{r}
+# Both variables are factors (categorical). Normality has to do with continuous data
+```
+*  Make the appropriate test
+```{r}
+bl_region %>% 
+  ggbarstats(x = gender,
+             y = region)
+```
+*  What is the name of the statistical test that was performed? (check the help page under the `paired` argument) 
+*  What is your interpretation?
+*  What is the consequence if you change the type of test?
+
+<br><br>
+
+## The `ToothGrowth` dataset
+`ToothGrowth` gives information on tooth length in 60 guinea pigs. Each animal received one of three dose levels of vitamin C (0.5, 1, and 2 mg/day) by one of two delivery methods, orange juice or ascorbic acid (a form of vitamin C and coded as VC).
+
+*  `len` Tooth length
+*  `supp` Supplement type
+    - **VC** Vitamin C as ascorbic acid
+    - **OJ** Orange Juice
+*  `dose` Dose in milligrams/day (0.5, 1, or 2)
+
+<br><br>
+
+#### Is there a difference in Tooth length based on the type of supplement?
+*  Should you use `ggwithinstats()` or `ggbetweenstats()` when comparing 
+*  Is it reasonable to assume normality?
+
+```{r}
+ToothGrowth %>% group_by(supp) %>% shapiro_test(len)
+
+# qqplot
+ToothGrowth %>% 
+  ggplot(aes(sample = len, color = supp)) +
+  geom_qq()+
+  geom_qq_line()
+
+# Density plot
+ToothGrowth %>% 
+  ggplot(aes(x = len, fill = supp)) +
+  geom_density(alpha = 0.2)
+  
+```
+*  Make the appropriate test
+```{r}
+ToothGrowth %>% 
+  ggbetweenstats(x = supp,
+                 y = len,
+                 type = "robust")
+
+# It is likely completely fine to run this as a "parametric" test
+```
+*  What is the name of the statistical test that was performed?  
+*  What is your interpretation?
+*  What is the consequence if you change the type of test?
+
+
+
+
+

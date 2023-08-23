@@ -1,0 +1,276 @@
+---
+title: 'Regression'
+subtitle: "easystats"
+author: "Steen Flammild Harsted"
+date: today
+format: 
+  html:
+    toc: true
+    toc-depth: 2
+    code-fold: true
+    code-summary: "Show me the code"
+    embed-resources: true
+execute: 
+  eval: true
+  echo: true
+  output: false
+  warning: false
+  message: false
+---
+
+```{r}
+#| echo: false
+library(tidyverse)
+library(here)
+library(ggstatsplot)
+library(rstatix)
+library(AER)
+library(easystats)
+library(GGally)
+library(gt)
+library(gtsummary)
+data("PhDPublications")
+library(palmerpenguins)
+```
+
+
+<br><br>
+
+# Regression
+
+<br><br>
+
+Install the `easystats` package and add a library call to `easystats` in the code chunk where you call your other libraries.
+
+
+<br><br>
+
+## The `palmerpenguins` dataset
+
+<br><br>
+
+Install the `palmerpenguins` package and add a library call to `palmerpenguins` in the code chunk where you call your other libraries. \ 
+Read the documentation for `palmerpenguins` [here](https://allisonhorst.github.io/palmerpenguins/)
+
+<br><br>
+
+#### Using the `penguins` dataset. Let `body_mass_g` be your dependent variable (y), and investigate how changes in the other variables in `penguins` impact `body_mass_g`
+*  Build at least two models
+*  Consider making the formula for one of the models `body_mass_g ~ .`  - What does this do?
+
+*  Store them as (`pen_model1`, `pen_model2`, etc.)
+*  Remember that we are just practicing coding here. Today is about **How do we code it**. The purpose of this particular exercise is to introduce you to a few very useful functions from the `easystats` package(s), and to get you started with using `lm()`.
+
+```{r results='hide'}
+pen_model1 <- penguins %>% lm(body_mass_g ~ sex + species, data = .)
+pen_model2 <- penguins %>% lm(body_mass_g ~ bill_depth_mm + bill_length_mm + flipper_length_mm, data = .)
+pen_model3 <- penguins %>% lm(body_mass_g ~ ., data = .)
+```
+
+<br><br>
+
+#### Base R
+*  Print a summary of `penguins` (`summary(penguins)`)
+*  Explore the elements in one of your models using `$`
+    *  Type `pen_model1$` and explore the drop down menu
+    *  `coefficients(pen_model1)`
+    *  Print a `summary()` of one of your models
+
+<br><br>
+
+#### `easystats` 
+*  Check the assumptions of your models (`check_model`)
+    - Discuss if/why some assumptions are violated
+    - What could be done to remedy this?
+```{r}
+check_model(pen_model1)
+check_model(pen_model2)
+check_model(pen_model3)
+```
+
+\ \ 
+
+*  Investigate the model parameters of your models `model_parameters()` 
+```{r results='hide'}
+model_parameters(pen_model1)
+model_parameters(pen_model2)
+model_parameters(pen_model3)
+```
+
+\ \ 
+
+*  Compare your models `compare_models()`
+```{r results='hide'}
+compare_models(pen_model1, pen_model2, pen_model3)
+```
+
+\ \ 
+
+*  Compare the performance of your models `compare_performance()`
+```{r results='hide'}
+compare_performance(pen_model1, pen_model2, pen_model3)
+```
+
+\ \ 
+
+* Plot a comparison of your models `compare_performance() %>% plot()`
+```{r results='hide', fig.show='hide'}
+compare_performance(pen_model1, pen_model2, pen_model3) %>% plot()
+```
+
+\ \ 
+
+* Make a report of the model you think is the best
+```{r results='hide'}
+report(pen_model3)
+```
+
+<br><br>
+
+## The `PhDPublications` dataset
+
+*  Install the package  `AER` and load the package (+add library call to your library code chunk)
+*  `AER` contains >100 different datasets (to see a list: `data(package = 'AER')`).
+*  Load the dataset `PhDPublications`, by writing `data(PhDPublications)` 
+*  Read the documentation for `PhDPublications`
+
+<BR><BR>
+
+#### Using `PhDPublications`, investigate what influenced the number of `articles` PhD students published during the last 3 years of their PhD. 
+*  We want to predict `articles` what type of data is this? 
+    - <details><summary>ANSWER</summary>
+  R will tell you this is an integer, but if you read the documentaion you will realize that the numbers represent Count or Rate data (Number of articles within a three year period). We typically need to model this type of data using another approach than linear regression. Lets investigate the distribution of `articles`.
+</details>
+*  Investigate the distribution of the `articles` variable (see plot below).
+    - Does it look normal?
+    - Can you recognize the type of distribution?
+    - <details><summary>ANSWER</summary>
+  This looks like a possion distribution, and you should not model this using normal linear regression with `lm()`. Instead you should use `glm(, family = poisson())`
+</details>
+```{r}
+PhDPublications %>% 
+  ggplot(aes(x = articles))+
+  geom_density(bw = 0.5, fill = "lightgrey", size = 1)+
+  theme_modern()
+```
+
+*  Build at least two models
+*  Consider making the formula for one of the models `articles ~ .`  - What does this do?
+*  Store them as (`phd_model1`, `phd_model2`, etc.)
+*  Remember that we are just practicing coding here. Today is about **How do we code it**. The purpose of this particular exercise is to show you that you can use the same `easystats` functions to work with different model types. The output will automagically adjust. This is a big advantage to other packages and programs.   
+
+```{r results='hide'}
+phd_model1 <- PhDPublications %>% glm(articles ~ gender, data = ., family = poisson())
+phd_model2 <- PhDPublications %>% glm(articles ~ ., data = ., family = poisson())
+phd_model3 <- PhDPublications %>% glm(articles ~ gender + kids + mentor,  data = ., family = poisson())
+```
+
+<br><br>
+
+#### Base R
+*  Print a summary of `PhDPublications` (`summary(PhDPublications)`)
+*  Explore the elements in one of your models using `$`
+    *  Type `phd_model1$` and explore the drop down menu
+    *  `coefficients(phd_model1)`
+    *  Print a `summary()` of one of your models
+
+<br><br>
+
+#### `easystats` 
+
+\ \ 
+
+*  Check the assumptions of your models (`check_model`)
+    - Discuss if/why some assumptions are violated
+    - What could be done to remedy this?
+```{r}
+check_model(phd_model1)
+check_model(phd_model2)
+check_model(phd_model3)
+```
+
+\ \ 
+
+*  Investigate the model parameters of your models `model_parameters()` 
+```{r results='hide'}
+model_parameters(phd_model1)
+model_parameters(phd_model2)
+model_parameters(phd_model3)
+```
+
+\ \ 
+
+*  Compare your models `compare_models()`
+```{r results='hide'}
+compare_models(phd_model1, phd_model2, phd_model3)
+```
+
+\ \ 
+
+*  Compare the performance of your models `compare_performance()`
+```{r results='hide'}
+compare_performance(phd_model1, phd_model2, phd_model3)
+```
+
+\ \ 
+
+* Plot a comparison of your models `compare_performance() %>% plot()`
+```{r results='hide', fig.show='hide'}
+compare_performance(phd_model1, phd_model2, phd_model3) %>% plot()
+```
+
+\ \ 
+
+* Make a report of the model you think is the best
+```{r results='hide'}
+report(phd_model3)
+```
+
+<br><br>
+
+## Want More? {-}
+For more information on `easystats` read [here](https://github.com/easystats/easystats).
+
+<br><br>
+
+#### `gtsummary` can also be used to create regressiontables:
+*  `tbl_regression()`
+*  `add_n()`
+*  `add_glance_source_note()`
+```{r}
+pen_model2 %>% 
+  tbl_regression() %>% 
+  add_n() %>% 
+  add_glance_source_note() 
+```
+*  try to pipe `tbl_regression()` to a `plot()`
+```{r}
+pen_model2 %>% 
+  tbl_regression() %>% 
+  plot()
+```
+* `tbl_uvregression()` is great for a large number of univariable regressions
+```{r}
+penguins %>% 
+  tbl_uvregression(y = body_mass_g,
+                   method = lm) %>% 
+  bold_labels() %>% 
+  italicize_levels()
+```
+
+<br><br>
+
+#### `GGally`
+Install the `GGally` package and add a library call to the code chunk where you call your libraries.
+
+* `GGally` has many powerful functions for dataanalysis
+  * `ggpairs()` to investigate your data. Try:
+    - `ggpairs(PhDPublications)`
+    - `ggpairs(PhDPublications, mapping = aes(color = gender, alpha = 0.2))`
+  * `ggcoef_model()` to plot you coefficients. Try:
+```{r}
+models <- list("model 2" = phd_model2, "model 3" = phd_model3)
+ggcoef_compare(models = models)
+```
+
+
