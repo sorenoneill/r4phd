@@ -61,6 +61,7 @@ Note that this is a repeated measures design because the same participant gave f
 #| echo: false
 #| fig-cap: "Picture from Ryan et al. (2013) https://doi.org/10.1016/j.chb.2013.01.024"
 # knitr::include_graphics(here("presentations", "img" , "bugs_conditions.jpg"))
+knitr::include_graphics(here("gfx" , "bugs.jpg"))
 ```
 
 <br><br>
