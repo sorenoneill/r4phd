@@ -1,0 +1,120 @@
+---
+title: "Load data from a CSV file"
+description: |
+  How to load data into R from a _comma Separated Values_ file.
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: "2023-11-26"
+#output:
+#  distill::distill_article:
+#    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+categories:
+  - RStudio
+  - Input
+creative_commons: CC BY
+format: html
+editor: source
+number-sections: true
+---
+
+## What is a CSV file?
+
+* CSV is an acronym for '_Comma Separated Values_'.
+* It is a format for storing data in a simple text file.
+* CSV files inherit all the benefits of working with simple text files.
+* Conversely, CSV files are limited in the complexity of the data it can store: only simple tabular data.
+* Read more about CSV files here [wiki](https://en.wikipedia.org/wiki/Comma-separated_values). 
+
+## An example file
+
+An example of a CSV file could look like this:
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: false
+id,test,value,group,note
+1,1,12,"A",""
+1,2,14,"B",""
+2,1,15,"C","My note"
+2,2,13,"A",""
+```
+
+::: {.callout-tip collapse="true" title="Think! What does the CSV file tell us about the data? ...and not?"}
+From the raw text of the CSV file we can deduce, that the data consists of 5 variables and 4 observations, delimited by '**,**'. We can take a guess as to the meaning of the variables from their names i line 1, but we can not know. Also, **note** that a CSV file does not necessarily include a title line.
+
+Also, ask yourself 
+
+* _What is the data type of each variable?_ (integer, numerical, factors/categorical, etc)? 
+* _What are the allowed or valid values for each variable?_
+* _What happens if a variable is missing_
+
+...such meta-data is not stored within a CSV and we need to keep tabs on it ourselves: It is a good idea to maintain a _data definition_ file along with the CSV file itself, which described the data in more detail.
+:::
+
+### Is a comma the best choice?
+
+In fact, as decimal numbers (like $\frac14$) are typed as _0.25_ in some locales/countries and _0,25_ in others, there is a risk that decimal commas can be mistaken for value-delimiting commas, and vice versa. It is thus not uncommon to use a semi-colon instead of a comma.
+
+## Tidyverse solution
+
+* Tidyverse includes the package [readr](https://readr.tidyverse.org/) which provides a number of functions to read CSV files. 
+* The function `read_delim()` is the generic function which reads tabular data delimited by whatever character is specified in the function call.
+* The functions `read_csv()`, `read_tsv()` and `read_csv2()` are just special cases of `read_delim()` (using comma, tab and semi-colon as delimiters).
+
+::: {.callout-tip collapse="true" title="If you need a base-R alternative.."}
+Base R includes the function `read.table()` which has a number of special cases, including `read.csv()` that also serves to read tabular data from CSV files. **Note** the use of dot rather than an underscore in the function name.
+:::
+
+## RTFM -- Read the fine manual
+
+Firstly, acquaint yourself with the `read_delim()` function using the [help function](https://www.r-project.org/help.html) in RStudio. 
+
+## Try it out
+
+Ideally, use you own CSV data file for these exercises.
+
+Alternatively, you will find a [sample CSV file](./example_csv_file.csv) here
+
+* Inspect the data with `my_dataframe` and `str(my_dataframe)`.
+
+::: {.callout-tip collapse="true" title="Coding example.."}
+
+```{r}
+#| eval: false
+#| echo: true
+
+my_data <- read_csv(here("path_to_file", "fil.csv"))
+my_data
+str(my_data)
+```
+:::
+
+
+## Exercises
+
+* What happens if you use `read_csv()` and `read_csv2()` respectively without specifying a delimiter?
+* What happens if you set the parameter `col_names = FALSE`?
+* What happens if you set the parameter `na = "NA"`?
+* Look at the data structure as revealed by the `str()` function, are all you variables of the type you expected them to be?
+    - How could you use the parameter `col_types` to specify data types?
+
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>

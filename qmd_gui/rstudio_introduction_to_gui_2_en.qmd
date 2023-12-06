@@ -63,19 +63,19 @@ If you write something that isn't valid R code, you will not get an error (albei
 Let's say you want to use the functions `mean` and `rnorm` to calculate the mean of a sample of 100 from a normal distribution. The following code should do the trick:
 
 ```r
-rnorm(n=100, mean=1, sd=2) %>% mean()
+rnorm(n=100, mean=1, sd=2) |> mean()
 ```
 
 ...before using that code in you manuscript, you might want to check it out in the console:
 
 ```{r}
-rnorm(n=100, mean=1, sd=2) %>% mean()
+rnorm(n=100, mean=1, sd=2) |> mean()
 ```
 
 Perhaps, you then realize, that the result has too many digits and you amend your code:
 
 ```{r}
-rnorm(n=100, mean=1, sd=2) %>% mean() %>% round(2)
+rnorm(n=100, mean=1, sd=2) |> mean() |> round(2)
 ```
 
 :::

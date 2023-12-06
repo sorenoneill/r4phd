@@ -26,14 +26,14 @@ editor: source
 library(tidyverse)
 ```
 
-## Work flow i RStudios GUI
+## Arbejdsgang i RStudio
 
 ![](gfx/rstudio_panels_functions.png)
 
 :::{.callout-important collapse=false}
 ## Vigtigt koncepot du skal forstå!
 
-Du kan forestille dig din arbejdsgang i RStudio som bestående af to arbejdsstationer: enten _taler_ du direkte med R eller også _skriver_ du til R:
+Du kan forestille dig din arbejdsgang i RStudio som bestående af to arbejdsstationer: enten _taler_ du direkte med R _her og nu_  eller også _skriver_ du til R:
 
 ### TAL med R -- her-og_nu
 
@@ -63,19 +63,19 @@ Hvis du skriver noget som ikke er valid R kode, vil du ikke få en fejl (omend R
 Lad os sige, du vil bruger funktionerne `mean` og `rnorm` til at beregne et gennemsnit af en stikpårøve på 100 fra en normal fordeling. Denne kode løser opgaven:
 
 ```r
-rnorm(n=100, mean=1, sd=2) %>% mean()
+rnorm(n=100, mean=1, sd=2) |> mean()
 ```
 
 ...før du skriver koden ind i dit manuskript bør du afprøve den i konsollen:
 
 ```{r}
-rnorm(n=100, mean=1, sd=2) %>% mean()
+rnorm(n=100, mean=1, sd=2) |> mean()
 ```
 
 Måske opdager du så, at der er flere decimaler end du ønsker og du kan tilpasse din kode:
 
 ```{r}
-rnorm(n=100, mean=1, sd=2) %>% mean() %>% round(2)
+rnorm(n=100, mean=1, sd=2) |> mean() |> round(2)
 ```
 
 :::

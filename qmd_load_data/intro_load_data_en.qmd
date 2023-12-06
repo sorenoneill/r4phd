@@ -1,0 +1,51 @@
+---
+title: "Load data"
+description: |
+  How to load data into R
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: "2023-11-26"
+#output:
+#  distill::distill_article:
+#    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+categories:
+  - RStudio
+  - Input
+creative_commons: CC BY
+format: html
+editor: source
+number-sections: true
+---
+
+## Loading data 
+
+In the following, we assume that you are working with data stored on your computer or data which can be copied to and stored on your computer.
+
+R can read data from a number of different data file formats:
+
+* RDA and RDS files -- _R Data_ and _R Data Serialization_ 
+* CSV -- _Comma Separated Values_
+* Microsoft Excel files 
+* STATA files
+* SPSS
+* SAS
+
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>

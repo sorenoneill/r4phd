@@ -15,15 +15,17 @@ output:
 categories:
   - RStudio
 creative_commons: CC BY
-format: html
+#format: 
+#  revealjs:
+#    scrollable: true
 editor: source
 ---
 
 ## Et første overblik over RStudios GUI
 
-![Et første overblik over RStudios GUI](gfx/rstudio_panels.png)
+![](gfx/rstudio_panels.png)
 
-I udgangspunktet er RStudio inddelt i 4 paneler (de forskellige farver herover er tilføjet for illustrere). Dette layout kan tilpasses som du måtte ønske det, men indtil videre, så lad den være som i udgangspunktet og i illustrationen herover.
+RStudio er i udgangspunktet opdelt i 4 paneler (her illustrerert med forskellige farver). Dette layout kan ændres efter behov, men indtil videre, så hold dig til standard opsætningen.
 
 ::: {.callout-caution collapse="true"}
 
@@ -39,26 +41,36 @@ Hvis du ved et uheld har fået skjult et eller flere paneler, så prøv at klikk
 
 Klik og træk..
 
-![Ændring af panel størrelserne med klik-og-træk](gfx/rstudio_pane_resizing.gif)
+![](gfx/rstudio_pane_resizing.gif)
 
-Bemærk også _minimize_ og _maximize_ ikonerne øverst til højre i hvert panel: 
-![](gfx/pane_min_max.png)
+## Ændre størrelse på panelerne 
 
-![Minimizing and maximizing panes in RStudio](gfx/rstudio_pane_min_max.gif)
+Minimér, maximér og returnér..
+
+![](gfx/rstudio_pane_min_max.gif)
+
+## Ændre størrelse på panelerne 
+
+Menu og tastatur genveje..
+
+![](gfx/rstudio_pane_resize_menu.gif)
 
 ## RStudio layout
 
-Ønsker du at ændre layout (forskellige farver, skrifttyper, tekst størrelse, osv) i RSudio? Klik: _Tools_ / _Global options_ / _Appearance_ ... men indtil videre, lad de andre indstillinger være i fred, f.eks _General_, _Code_, etc.
+Layout: forskellige farver, skrifttyper, tekst størrelse, osv)
 
-![Changing the RStudio appearance](gfx/rstudio_appearance.gif)
+_Tools_ / _Global options_ / _Appearance_ ... men indtil videre, lad de andre indstillinger være i fred, f.eks _General_, _Code_, etc.
+
+![](gfx/rstudio_appearance.gif)
 
 ## Flere faneblade i hvert panel
 
-Hvert _panel_ i RStudio har som regel adskillige fanebalde. For eksempel, i billedet herunder, indeholder 'Output' panel fanebladene **Files**, **Plots**, **Packages**, **Help**, **Viewer** og **Presentation**.
+Hvert _panel_ i RStudio har som regel adskillige faneblade. For eksempel, i billedet herunder, indeholder 'Output' panelet fanebladene **Files**, **Plots**, **Packages**, **Help**, **Viewer** og **Presentation**.
 
-![Multiple tabs in each RStudio pane](gfx/rstudio_tabs.gif)
+![](gfx/rstudio_tabs.gif)
 
 Bemærk, at de faneblade som ses vil variere afhængigt hvad type dokument du arbejder med. Visse ekstra funktioner, som eksempelvis Git versionerings kontrol, vil også ændre på hvilke faneblade der præsenteres. 
+
 
 :::{.callout-note collapse=true}
 
@@ -67,9 +79,11 @@ Bemærk, at de faneblade som ses vil variere afhængigt hvad type dokument du ar
 **Prøv at gennemføre følgende:**
 
 1. Lav tre faneblade i 'Text editor' panelet.
-2. Brug hjælpefunktionen til at afgøre hvordan du kan bruge R til at finde ud af hvilken version af R du har installeret på din computer.
-3. Find din R konsol. Tast: `a <- 5` (tryk enter) -- hvad skete der i dit **Environment**?
-4. Skift dit RSudio layout til et _dark_ farve skema.
+2. Byt om på rækkefølgen af de tre faneblade i 'Text editor'
+3. Brug hjælpefunktionen til at afgøre hvordan du kan bruge R til at finde ud af hvilken version af R du har installeret på din computer.
+4. Find din R konsol. Tast: `a <- 5` (tryk enter) -- hvad skete der i dit **Environment**?
+5. Skift dit RSudio layout til et _dark_ farve skema.
+
 
 :::
 
@@ -78,9 +92,10 @@ Bemærk, at de faneblade som ses vil variere afhængigt hvad type dokument du ar
 ### Svar på øvelse #1
 
 1. Lav blot tre nye tomme dokumenter at redigere: _File_ / _New file_ / _R script_ (CTRL+SHIFT+n).
-2. Bemærk, at der er to søgefelter på 'help' fanebladet i 'Output' panelet -- brug den til højre til at lære mere om (base)funktionen R.Version.
-3. I Environment fanebladet i Environment panelet, skulle du se en liste af 'Values' hvor 'a' er '5'.
-4. I _Tools_ / _Global options_ / _Appearance_, vælg f.eks 'Cobalt' i _Editor theme_ dialogen.
+2. Klik-hold-og-flyt med musen
+3. Bemærk, at der er to søgefelter på 'help' fanebladet i 'Output' panelet -- brug den til højre til at lære mere om (base)funktionen R.Version.
+4. I Environment fanebladet i Environment panelet, skulle du se en liste af 'Values' hvor 'a' er '5'.
+5. I _Tools_ / _Global options_ / _Appearance_, vælg f.eks 'Cobalt' i _Editor theme_ dialogen.
 
 :::
 
