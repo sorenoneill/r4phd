@@ -21,18 +21,196 @@ editor: source
 number-sections: true
 ---
 
-## Loading data 
+# Data formats
 
-In the following, we assume that you are working with data stored on your computer or data which can be copied to and stored on your computer.
+In the following, we assume that you are working with data stored locally on the same computer as your R installation.
 
 R can read data from a number of different data file formats:
 
-* RDA and RDS files -- _R Data_ and _R Data Serialization_ 
-* CSV -- _Comma Separated Values_
-* Microsoft Excel files 
+* CSV -- jump to [@sec-csv]
+* Microsoft Excel -- jump to [@sec-excel]
+* REDCap -- jump to [@sec-redcap]
 * STATA files
 * SPSS
 * SAS
+* RDS -- jump to [@sec-rds]
+
+# CSV files {#sec-csv}
+
+## What is a CSV file?
+
+* CSV is an acronym for '_Comma Separated Values_'.
+* It is a format for storing data in a simple text file.
+* CSV files inherit all the benefits of working with simple text files.
+* Conversely, CSV files are limited in the complexity of the data it can store: only simple tabular data.
+* Read more about CSV files here [wiki](https://en.wikipedia.org/wiki/Comma-separated_values). 
+
+## An example file
+
+An example of a CSV file could look like this:
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: false
+id,test,value,group,note
+1,1,12,"A",""
+1,2,14,"B",""
+2,1,15,"C","My note"
+2,2,13,"A",""
+```
+
+::: {.callout-tip collapse="true" title="Think! What does the CSV file above tell us about the data? ...and not?"}
+From the raw text of the CSV file we can deduce, that the data consists of 5 variables and 4 observations, delimited by '**,**'. We can take a guess as to the meaning of the variables from their names in line 1, but we can not know. Also, **note** that a CSV file does not necessarily include a title line.
+
+Also, ask yourself 
+
+* _What is the data type of each variable?_ (integer, numerical, factors/categorical, etc)? 
+* _What are the allowed or valid values for each variable?_
+* _What happens if a variable is missing_
+
+...such meta-data is not stored within a CSV and we need to keep tabs on it ourselves: It is a good idea to maintain a _data definition_ file along with the CSV file itself, which described the data in more detail.
+:::
+
+### Is a comma the best choice?
+
+In fact, as decimal numbers are typed as _0.25_ in some locales/countries and _0,25_ in others, there is a risk that decimal commas can be mistaken for value-delimiting commas, and vice versa. It is thus not uncommon to use a semi-colon instead of a comma.
+
+## Tidyverse solution
+
+* Tidyverse includes the package [readr](https://readr.tidyverse.org/) which provides a number of functions to read CSV files. 
+* The function `read_delim()` is the generic function which reads tabular data delimited by whatever character is specified in the function call.
+* The functions `read_csv()`, `read_tsv()` and `read_csv2()` are just special cases of `read_delim()` (using comma, tab and semi-colon as delimiters).
+
+::: {.callout-tip collapse="true" title="If you need a base-R alternative.."}
+Base R includes the function `read.table()` which has a number of special cases, including `read.csv()` that also serves to read tabular data from CSV files. **Note** the use of dot rather than an underscore in the function name.
+:::
+
+## RTFM -- Read the fine manual
+
+Acquaint yourself with the `read_delim()` function using the [help function](https://www.r-project.org/help.html) in RStudio. 
+
+## Try it out
+
+Ideally, use you own CSV data file for these exercises.
+
+Alternatively, you will find a [sample CSV file](./example_csv_file.csv) here
+
+* Inspect the data with `my_data` and `str(my_data)`.
+
+::: {.callout-tip collapse="true" title="Coding example.."}
+
+```{r}
+#| eval: false
+#| echo: true
+library(readr)
+my_data <- read_csv(here("path_to_file", "fil.csv"))
+my_data
+str(my_data)
+```
+:::
+
+
+## Exercises
+
+* What happens if you use `read_csv()` and `read_csv2()` respectively without specifying a delimiter?
+* What happens if you set the parameter `col_names = FALSE`?
+* What happens if you set the parameter `na = "NA"`?
+* Look at the data structure as revealed by the `str()` function: Are all you variables of the type you expected them to be?
+    - How could you use the parameter `col_types` to specify data types?
+
+# Excel files {#sec-excel}
+
+## What is an Excel file?
+
+* Microsoft Excel is a spreadsheet program -- that means it includes many other features than simply storing data in tabular format.
+* There are (at least) two different versions of excel files (xls and xlsx) -- `read_excel()` should handle both.
+* If you use excel files there are a couple of issues you need to pay attention to:
+    - An excel file can contain more than one '_sheet_' -- you may need to specify which sheet to load
+    - Character encoding -- Microsoft often uses ISO character encoding. It may be prudent to ensure that you file uses UTF8 or UTF16 character encoding instead,
+    - Data type conversion?
+
+
+## Tidyverse solution
+
+* Tidyverse includes the package [readxl](https://https://readxl.tidyverse.org/) which provides a number of functions to read excel files. 
+
+## RTFM -- Read the fine manual
+
+Acquaint yourself with the `readxl`()` function using the [help function](https://www.r-project.org/help.html) in RStudio. 
+
+## Try it out
+
+Ideally, use you own excel data file for these exercises.
+
+Alternatively, you will find a [sample xlsx file](./example_xlsx_file.xlsx) here
+
+* Inspect the data with `my_data` and `str(my_data)`.
+
+::: {.callout-tip collapse="true" title="Coding example.."}
+
+```{r}
+#| eval: false
+#| echo: true
+
+library(readxl)
+my_data <- read_excel(here("path_to_file", "fil.xls"))
+my_data
+str(my_data)
+```
+:::
+
+
+## Exercises
+
+??
+
+# RedCap {#sec-redcap}
+
+* Firstly, log into the REDCap web portal
+* Go to 'My Projects'
+* Find the project from which you want to download data
+* In the left-hand side menu, choose Applications / Exports, Reports and Stats
+
+![](gfx/redcap_menu.png)
+
+* Then click 'Export data'
+
+![](gfx/redcap_export.png)
+
+* Select the option 'R Statistical Software' and click 'Export data'
+
+![](gfx/redcap_export_2.png)
+Now click each of the two icons (lower right) labelled **R** and *DATA**
+
+![](gfx/redcap_export_3.png)
+
+## Data structure
+
+The data will be exported as a standard [csv file](intro_load_csv_en.qmd). 
+
+The csv file will be accompanied by an R script file, which will read the csv file and wrangle the data into an R data frame called 'data'.
+
+You can run the R script once to generate the 'data' data frame and export to an RDS file and load that into your own R scripts.
+
+**Note** The R script file depends on the `Hmisc` package being installed.
+
+## Direct database access
+
+It is possible to access the REDCap database directly from R code. See [this link](https://cran.r-project.org/web/packages/REDCapR/REDCapR.pdf) for more information. 
+
+This will also require a valid access token. The REDCap administrator should be able to provide you with such a token, if permitted.
+
+
+# RDS {#sec-rds}
+
+* RDS is short for _R Data Serialization_ -- that means data which is complex in nature and asymmetrical such as e.g. a list of lists of variable lengths, can be serialized and stored easily.
+* RDS is _not_ a simple text file -- it is a compressed format not well suited for human readers
+* RDS is however, a simple and efficient way to store and retrieve data which already exist in R memory.
+
+
+
+https://readr.tidyverse.org/reference/read_rds.html
 
 <script src="https://giscus.app/client.js"
         data-repo="sorenoneill/r4phd"

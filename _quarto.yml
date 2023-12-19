@@ -41,12 +41,13 @@ website:
               - qmd_gui/rstudio_introduction_to_gui_1_en.qmd
               - qmd_gui/rstudio_introduction_to_gui_2_en.qmd
               - qmd_gui/rstudio_introduction_to_gui_console_en.qmd
-          - section: "Self paced training"
+          - section: "R"
             contents:
-            - section: "Self paced training"
-              contents:
-                - qmd_load_data/intro_load_data_en.qmd
-                - qmd_load_data/intro_load_csv_en.qmd
+              - qmd_load_data/intro_load_data_en.qmd
+              - qmd_load_data/intro_load_csv_en.qmd
+              - qmd_load_data/intro_load_excel_en.qmd
+              - qmd_load_data/intro_load_redcap_en.qmd
+              - qmd_load_data/intro_load_rds_en.qmd
           - section: "R course exercises"
             contents: 
             - section: "Day 1"
@@ -112,12 +113,13 @@ website:
               - qmd_gui/rstudio_introduction_to_gui_1_da.qmd
               - qmd_gui/rstudio_introduction_to_gui_2_en.qmd
               - qmd_gui/rstudio_introduction_to_gui_console_da.qmd
-          - section: "Self paced training"
+          - section: "R"
             contents:
-            - section: "Self paced training"
-              contents:
-                - qmd_load_data/intro_load_data_da.qmd
-                - qmd_load_data/intro_load_csv_da.qmd
+              - qmd_load_data/intro_load_data_da.qmd
+              - qmd_load_data/intro_load_csv_da.qmd
+              - qmd_load_data/intro_load_excel_da.qmd
+              - qmd_load_data/intro_load_redcap_da.qmd
+              - qmd_load_data/intro_load_rds_da.qmd
           - section: "RRR"
             contents:
               - qmd_rrr/reproducible_research_basics_exercises_da.qmd

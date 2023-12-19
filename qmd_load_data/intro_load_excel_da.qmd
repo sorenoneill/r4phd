@@ -1,0 +1,80 @@
+---
+title: "Indlæs data fra en Excel fil"
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: "2023-12-19"
+#output:
+#  distill::distill_article:
+#    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+categories:
+  - RStudio
+  - Input
+creative_commons: CC BY
+format: html
+editor: source
+number-sections: true
+---
+
+## Hvad er en Excel fil?
+
+* MS excel er et regnearks program -- det betyder at det har mange funktioner ud over bare at lagre data i tabel format.
+* Der er (mindst) to forskellige version af Excel filer (xls og xlsx) -- `read_excel` burde håndtere begge formater uden videre.
+* Hvis du bruger en excel fil, er der nogle ting at være opmærksom på:
+    - En Excel fil kan indehold mere end et ark ('_sheet_') -- det kan være nødvendigt at angive hvilket ark du ønsker at indlæse.0
+    - Character encoding?
+    - Data type conversion?
+
+
+## Tidyverse løsning
+
+* Tidyverse inkludrer pakken [readxl](https://https://readxl.tidyverse.org/) som giver et antal funktioner til at læse excel filer.
+
+## RTFM -- Read the fine manual
+
+Til en start, læs vejledningen om `read_excel()` funktionen i R's hjælpe funktion: [help function](https://www.r-project.org/help.html).
+
+## Prøv det selv
+
+Ideelt set, skal du bruge din egen excel fil til disse øvelser.
+
+Alternativt, kan du brge denne [sample xlsx file](./example_xlsx_file.xlsx).
+
+* Inspect the data with `my_data` and `str(my_data)`.
+
+::: {.callout-tip collapse="true" title="Coding example.."}
+
+```{r}
+#| eval: false
+#| echo: true
+
+library(readxl)
+my_data <- read_excel(here("path_to_file", "fil.xls"))
+my_data
+str(my_data)
+```
+:::
+
+
+## Exercises
+
+??
+
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>

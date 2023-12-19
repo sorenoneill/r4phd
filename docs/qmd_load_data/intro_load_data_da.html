@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Søren O’Neill">
-<meta name="dcterms.date" content="2023-12-06">
+<meta name="dcterms.date" content="2023-12-19">
 <meta name="description" content="Sådan læser du data ind i R">
 
 <title>R4phd - Indlæs data</title>
@@ -91,7 +91,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Dansk</li><li class="breadcrumb-item">Self paced training</li><li class="breadcrumb-item"><a href="../qmd_load_data/intro_load_data_da.html">Self paced training</a></li><li class="breadcrumb-item"><a href="../qmd_load_data/intro_load_data_da.html">Indlæs data</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Dansk</li><li class="breadcrumb-item"><a href="../qmd_load_data/intro_load_data_da.html">Self paced training</a></li><li class="breadcrumb-item"><a href="../qmd_load_data/intro_load_data_da.html">Indlæs data</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -226,7 +226,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
- <span class="menu-text">Self paced training</span></a>
+ <span class="menu-text">Load data</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -235,13 +235,31 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../qmd_load_data/intro_load_data_en.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Load data</span></a>
+ <span class="menu-text">Loading data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../qmd_load_data/intro_load_csv_en.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Load data from a CSV file</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_load_data/intro_load_excel_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Load data from a MS excel spreadsheet file</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_load_data/intro_load_redcap_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Load data from RedCap</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_load_data/intro_load_rds_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Load data from RDS</span></a>
   </div>
 </li>
       </ul>
@@ -613,15 +631,6 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth2 show">  
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" aria-expanded="true">
- <span class="menu-text">Self paced training</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-17" class="collapse list-unstyled sidebar-section depth3 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../qmd_load_data/intro_load_data_da.html" class="sidebar-item-text sidebar-link active">
@@ -631,22 +640,38 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../qmd_load_data/intro_load_csv_da.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Indlæs data fra CSV</span></a>
+ <span class="menu-text">Indlæs data fra en CSV fil</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_load_data/intro_load_excel_da.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Indlæs data fra en Excel fil</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_load_data/intro_load_redcap_da.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Indlæs data fra RedCap</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_load_data/intro_load_rds_da.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Indlæs data fra RDS</span></a>
   </div>
 </li>
       </ul>
   </li>
-      </ul>
-  </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" aria-expanded="false">
  <span class="menu-text">RRR</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-18" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-17" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../qmd_rrr/reproducible_research_basics_exercises_da.html" class="sidebar-item-text sidebar-link">
@@ -729,13 +754,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" aria-expanded="false">
  <span class="menu-text">Base R</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-19" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-18" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../qmd_base_r/base_r_data_types_da.html" class="sidebar-item-text sidebar-link">
@@ -797,7 +822,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">December 6, 2023</p>
+      <p class="date">December 19, 2023</p>
     </div>
   </div>
   
@@ -809,11 +834,11 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="indlæs-data" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="indlæs-data"><span class="header-section-number">1</span> Indlæs data</h2>
-<p>Vi antager i det følgende at du arbejder med data som er på din egen computer, ellers data som kan kopieres til din egen computer.</p>
+<p>Vi antager i det følgende at du arbejder med data som er lagret lokalt på den samme computer som din R installation.</p>
 <p>R kan læse filer i en række forskellige formater:</p>
 <ul>
 <li>RDA og RDS filer – <em>R Data</em> og <em>R Data Serialization.</em></li>
-<li>CSV – <em>Comma Separated Values</em></li>
+<li><a href="../qmd_load_data/intro_load_csv_da.html">CSV</a> – <em>Comma Separated Values</em></li>
 <li>Microsoft Excel filer</li>
 <li>STATA filer</li>
 <li>SPSS</li>
@@ -1069,7 +1094,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="../qmd_load_data/intro_load_csv_da.html" class="pagination-link">
-        <span class="nav-page-text">Indlæs data fra CSV</span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text">Indlæs data fra en CSV fil</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

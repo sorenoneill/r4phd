@@ -22,12 +22,12 @@ editor: source
 
 ## Indlæs data 
 
-Vi antager i det følgende at du arbejder med data som er på din egen computer, ellers data som kan kopieres til din egen computer.
+Vi antager i det følgende at du arbejder med data som er lagret lokalt på den samme computer som din R installation.
 
 R kan læse filer i en række forskellige formater:
 
 * RDA og RDS filer -- _R Data_ og _R Data Serialization._ 
-* CSV -- _Comma Separated Values_
+* [CSV](intro_load_csv_da.qmd) -- _Comma Separated Values_
 * Microsoft Excel filer 
 * STATA filer
 * SPSS

@@ -44,8 +44,8 @@ id,test,value,group,note
 2,2,13,"A",""
 ```
 
-::: {.callout-tip collapse="true" title="Think! What does the CSV file tell us about the data? ...and not?"}
-From the raw text of the CSV file we can deduce, that the data consists of 5 variables and 4 observations, delimited by '**,**'. We can take a guess as to the meaning of the variables from their names i line 1, but we can not know. Also, **note** that a CSV file does not necessarily include a title line.
+::: {.callout-tip collapse="true" title="Think! What does the CSV file above tell us about the data? ...and not?"}
+From the raw text of the CSV file we can deduce, that the data consists of 5 variables and 4 observations, delimited by '**,**'. We can take a guess as to the meaning of the variables from their names in line 1, but we can not know. Also, **note** that a CSV file does not necessarily include a title line.
 
 Also, ask yourself 
 
@@ -58,7 +58,7 @@ Also, ask yourself
 
 ### Is a comma the best choice?
 
-In fact, as decimal numbers (like $\frac14$) are typed as _0.25_ in some locales/countries and _0,25_ in others, there is a risk that decimal commas can be mistaken for value-delimiting commas, and vice versa. It is thus not uncommon to use a semi-colon instead of a comma.
+In fact, as decimal numbers are typed as _0.25_ in some locales/countries and _0,25_ in others, there is a risk that decimal commas can be mistaken for value-delimiting commas, and vice versa. It is thus not uncommon to use a semi-colon instead of a comma.
 
 ## Tidyverse solution
 
@@ -72,7 +72,7 @@ Base R includes the function `read.table()` which has a number of special cases,
 
 ## RTFM -- Read the fine manual
 
-Firstly, acquaint yourself with the `read_delim()` function using the [help function](https://www.r-project.org/help.html) in RStudio. 
+Acquaint yourself with the `read_delim()` function using the [help function](https://www.r-project.org/help.html) in RStudio. 
 
 ## Try it out
 
@@ -80,14 +80,14 @@ Ideally, use you own CSV data file for these exercises.
 
 Alternatively, you will find a [sample CSV file](./example_csv_file.csv) here
 
-* Inspect the data with `my_dataframe` and `str(my_dataframe)`.
+* Inspect the data with `my_data` and `str(my_data)`.
 
 ::: {.callout-tip collapse="true" title="Coding example.."}
 
 ```{r}
 #| eval: false
 #| echo: true
-
+library(readr)
 my_data <- read_csv(here("path_to_file", "fil.csv"))
 my_data
 str(my_data)
@@ -100,7 +100,7 @@ str(my_data)
 * What happens if you use `read_csv()` and `read_csv2()` respectively without specifying a delimiter?
 * What happens if you set the parameter `col_names = FALSE`?
 * What happens if you set the parameter `na = "NA"`?
-* Look at the data structure as revealed by the `str()` function, are all you variables of the type you expected them to be?
+* Look at the data structure as revealed by the `str()` function: Are all you variables of the type you expected them to be?
     - How could you use the parameter `col_types` to specify data types?
 
 <script src="https://giscus.app/client.js"

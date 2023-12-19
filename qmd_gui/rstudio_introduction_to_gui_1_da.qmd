@@ -39,21 +39,24 @@ Hvis du ved et uheld har fået skjult et eller flere paneler, så prøv at klikk
 
 ## Ændre størrelse på panelerne
 
-Klik og træk..
+Klik på fanebladene herunder for at se tre forskellige måder at ændre på panelernes størrelser.
+
+::: panel-tabset
+
+### Klik-og-træk
 
 ![](gfx/rstudio_pane_resizing.gif)
 
-## Ændre størrelse på panelerne 
-
-Minimér, maximér og returnér..
+### Ikoner
 
 ![](gfx/rstudio_pane_min_max.gif)
 
-## Ændre størrelse på panelerne 
+### Menu og tastaturgenvej
 
-Menu og tastatur genveje..
+![View / Panes](gfx/rstudio_pane_resize_menu.gif)
 
-![](gfx/rstudio_pane_resize_menu.gif)
+::: 
+
 
 ## RStudio layout
 
@@ -80,7 +83,7 @@ Bemærk, at de faneblade som ses vil variere afhængigt hvad type dokument du ar
 
 1. Lav tre faneblade i 'Text editor' panelet.
 2. Byt om på rækkefølgen af de tre faneblade i 'Text editor'
-3. Brug hjælpefunktionen til at afgøre hvordan du kan bruge R til at finde ud af hvilken version af R du har installeret på din computer.
+3. Brug hjælpefunktionen _help_ til at afgøre hvordan du kan bruge R til at finde ud af hvilken version af R du har installeret på din computer.
 4. Find din R konsol. Tast: `a <- 5` (tryk enter) -- hvad skete der i dit **Environment**?
 5. Skift dit RSudio layout til et _dark_ farve skema.
 
@@ -93,8 +96,8 @@ Bemærk, at de faneblade som ses vil variere afhængigt hvad type dokument du ar
 
 1. Lav blot tre nye tomme dokumenter at redigere: _File_ / _New file_ / _R script_ (CTRL+SHIFT+n).
 2. Klik-hold-og-flyt med musen
-3. Bemærk, at der er to søgefelter på 'help' fanebladet i 'Output' panelet -- brug den til højre til at lære mere om (base)funktionen R.Version.
-4. I Environment fanebladet i Environment panelet, skulle du se en liste af 'Values' hvor 'a' er '5'.
+3. Du finder et faneblad '_Help_' i _Output_ panelet nederst til højre. Bemærk, at der er to søgefelter på _help_ fanebladet -- brug den til højre til at lære mere om (base)funktionen R.Version.
+4. Du finder konsolen _'Console_' i _Input_ panelet nederst til venstre. Tilsvarende, i Environment fanebladet i Environment panelet, skulle du se en liste af 'Values' hvor 'a' er '5'.
 5. I _Tools_ / _Global options_ / _Appearance_, vælg f.eks 'Cobalt' i _Editor theme_ dialogen.
 
 :::

@@ -1,0 +1,80 @@
+---
+title: "Load data from a MS excel spreadsheet file"
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: "2023-12-19"
+#output:
+#  distill::distill_article:
+#    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+categories:
+  - RStudio
+  - Input
+creative_commons: CC BY
+format: html
+editor: source
+number-sections: true
+---
+
+## What is an MS excel file?
+
+* MS excel is a spreadsheet programme -- that means it includes many other features than simply storing data in tabular format.
+* There are (at least) two different versions of excel files (xls and xlsx) -- read_excel should handle both.
+* If you use excel files there are a couple of issues you need to pay attention to:
+    - An excel file can contain more than one '_sheet_' -- you may need to specify which sheet to load
+    - Character encoding?
+    - Data type conversion?
+
+
+## Tidyverse solution
+
+* Tidyverse includes the package [readxl](https://https://readxl.tidyverse.org/) which provides a number of functions to read excel files. 
+
+## RTFM -- Read the fine manual
+
+Acquaint yourself with the `readxl`()` function using the [help function](https://www.r-project.org/help.html) in RStudio. 
+
+## Try it out
+
+Ideally, use you own excel data file for these exercises.
+
+Alternatively, you will find a [sample xlsx file](./example_xlsx_file.xlsx) here
+
+* Inspect the data with `my_data` and `str(my_data)`.
+
+::: {.callout-tip collapse="true" title="Coding example.."}
+
+```{r}
+#| eval: false
+#| echo: true
+
+library(readxl)
+my_data <- read_excel(here("path_to_file", "fil.xls"))
+my_data
+str(my_data)
+```
+:::
+
+
+## Exercises
+
+??
+
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>

@@ -37,15 +37,23 @@ If you have accidentally hidden one or more panes, try clicking _View_ / _Panes_
 
 ## Resizing panes
 
-Click and drag...
+Look at each of the three tabs below to see different ways to change the pane sizes.
 
-![Resizing panes in RStudio with click-and-drag](gfx/rstudio_pane_resizing.gif)
+::: panel-tabset
 
-Also, note the _minimize_ and _maximize_ icons in the top-right hand corner of each pane: 
-![](gfx/pane_min_max.png)
+### Click and drag...
 
-![Minimizing and maximizing panes in RStudio](gfx/rstudio_pane_min_max.gif)
+![](gfx/rstudio_pane_resizing.gif)
 
+### Icons 
+
+![](gfx/rstudio_pane_min_max.gif)
+
+### Menu and keyboard shortcuts
+
+![View / Panes](gfx/rstudio_pane_resize_menu.gif)
+
+:::
 
 ## RStudio layout
 
