@@ -14,10 +14,6 @@ format: html
 editor: source
 ---
 
-[![](gfx/dannebrog.png)](index_da.qmd){fig-align="left"} Klik for at skifte til dansk.
-
-> This website is available in Danish and in English.<br> Please pay attention to the _Table of content_ on the left hand side, where you will find pages organized under 'Dansk' and 'English'. 
-
 ## Welcome to R4phd
 
 The idea behind this webpage was to form the basis for regular classroom teaching of R, RStudio and the R ecosystem. Primarily with Ph.D. courses based at the University of Southern Denmark in mind.
@@ -38,7 +34,7 @@ The teaching material on this site was prepared mainly on a Linux computer.
 
 If you use Microsoft Windows or Apple MacOS you should expect things to look sightly different here, from how they appear on your own screen.
 
-It should not give rise to any important issues however, as R and RStudio work very well and almost identically on all three operating systems. None-the-less, where I am aware of any real differences between the operating systems, I will illustrate it using three tabs in the following way (click the relevant tab):
+It should not give rise to any important issues however, as R and RStudio work very well and almost identically on all three operating systems. None-the-less, where I am aware of any real differences between the operating systems, I will /illustrate it using three tabs in the following way (click the relevant tab):
 
 ::: panel-tabset
 
