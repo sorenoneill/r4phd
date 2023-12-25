@@ -8,9 +8,9 @@
 
 <meta name="author" content="Søren O’Neill">
 <meta name="dcterms.date" content="2023-11-26">
-<meta name="description" content="How to load data into R">
+<meta name="description" content="Making sure your data is what you think it is">
 
-<title>R4phd - Loading data</title>
+<title>R4phd - Inspect your data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -67,8 +67,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../qmd_inspect_data/intro_inspect_data_en.html" rel="next">
-<link href="../qmd_gui/rstudio_introduction_to_gui_console_en.html" rel="prev">
+<link href="../day_1_basics_of_Rstudio.html" rel="next">
+<link href="../qmd_load_data/intro_load_data_en.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -125,7 +125,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../qmd_load_data/intro_load_data_en.html">Manuscript workflow</a></li><li class="breadcrumb-item"><a href="../qmd_load_data/intro_load_data_en.html">Loading data</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../qmd_load_data/intro_load_data_en.html">Manuscript workflow</a></li><li class="breadcrumb-item"><a href="../qmd_inspect_data/intro_inspect_data_en.html">Inspect your data</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -250,13 +250,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../qmd_load_data/intro_load_data_en.html" class="sidebar-item-text sidebar-link active">
+  <a href="../qmd_load_data/intro_load_data_en.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Loading data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../qmd_inspect_data/intro_inspect_data_en.html" class="sidebar-item-text sidebar-link">
+  <a href="../qmd_inspect_data/intro_inspect_data_en.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Inspect your data</span></a>
   </div>
 </li>
@@ -523,39 +523,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#data-formats" id="toc-data-formats" class="nav-link active" data-scroll-target="#data-formats"><span class="header-section-number">1</span> Data formats</a></li>
-  <li><a href="#sec-csv" id="toc-sec-csv" class="nav-link" data-scroll-target="#sec-csv"><span class="header-section-number">2</span> CSV files</a>
+  <li><a href="#data-structure" id="toc-data-structure" class="nav-link active" data-scroll-target="#data-structure"><span class="header-section-number">1</span> Data structure</a>
   <ul class="collapse">
-  <li><a href="#what-is-a-csv-file" id="toc-what-is-a-csv-file" class="nav-link" data-scroll-target="#what-is-a-csv-file"><span class="header-section-number">2.1</span> What is a CSV file?</a></li>
-  <li><a href="#an-example-file" id="toc-an-example-file" class="nav-link" data-scroll-target="#an-example-file"><span class="header-section-number">2.2</span> An example file</a>
+  <li><a href="#names" id="toc-names" class="nav-link" data-scroll-target="#names"><span class="header-section-number">1.1</span> Names</a></li>
+  <li><a href="#structure" id="toc-structure" class="nav-link" data-scroll-target="#structure"><span class="header-section-number">1.2</span> Structure</a></li>
+  </ul></li>
+  <li><a href="#data-content" id="toc-data-content" class="nav-link" data-scroll-target="#data-content"><span class="header-section-number">2</span> Data content</a>
   <ul class="collapse">
-  <li><a href="#is-a-comma-the-best-choice" id="toc-is-a-comma-the-best-choice" class="nav-link" data-scroll-target="#is-a-comma-the-best-choice"><span class="header-section-number">2.2.1</span> Is a comma the best choice?</a></li>
+  <li><a href="#inspect-the-head-of-the-data" id="toc-inspect-the-head-of-the-data" class="nav-link" data-scroll-target="#inspect-the-head-of-the-data"><span class="header-section-number">2.1</span> Inspect the head of the data</a></li>
+  <li><a href="#look-for-missing-values" id="toc-look-for-missing-values" class="nav-link" data-scroll-target="#look-for-missing-values"><span class="header-section-number">2.2</span> Look for missing values</a></li>
+  <li><a href="#look-at-value-ranges" id="toc-look-at-value-ranges" class="nav-link" data-scroll-target="#look-at-value-ranges"><span class="header-section-number">2.3</span> Look at value ranges</a></li>
   </ul></li>
-  <li><a href="#tidyverse-solution" id="toc-tidyverse-solution" class="nav-link" data-scroll-target="#tidyverse-solution"><span class="header-section-number">2.3</span> Tidyverse solution</a></li>
-  <li><a href="#rtfm-read-the-fine-manual" id="toc-rtfm-read-the-fine-manual" class="nav-link" data-scroll-target="#rtfm-read-the-fine-manual"><span class="header-section-number">2.4</span> RTFM – Read the fine manual</a></li>
-  <li><a href="#try-it-out" id="toc-try-it-out" class="nav-link" data-scroll-target="#try-it-out"><span class="header-section-number">2.5</span> Try it out</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">2.6</span> Exercises</a></li>
-  </ul></li>
-  <li><a href="#sec-excel" id="toc-sec-excel" class="nav-link" data-scroll-target="#sec-excel"><span class="header-section-number">3</span> Excel files</a>
-  <ul class="collapse">
-  <li><a href="#what-is-an-excel-file" id="toc-what-is-an-excel-file" class="nav-link" data-scroll-target="#what-is-an-excel-file"><span class="header-section-number">3.1</span> What is an Excel file?</a></li>
-  <li><a href="#tidyverse-solution-1" id="toc-tidyverse-solution-1" class="nav-link" data-scroll-target="#tidyverse-solution-1"><span class="header-section-number">3.2</span> Tidyverse solution</a></li>
-  <li><a href="#rtfm-read-the-fine-manual-1" id="toc-rtfm-read-the-fine-manual-1" class="nav-link" data-scroll-target="#rtfm-read-the-fine-manual-1"><span class="header-section-number">3.3</span> RTFM – Read the fine manual</a></li>
-  <li><a href="#try-it-out-1" id="toc-try-it-out-1" class="nav-link" data-scroll-target="#try-it-out-1"><span class="header-section-number">3.4</span> Try it out</a></li>
-  <li><a href="#exercises-1" id="toc-exercises-1" class="nav-link" data-scroll-target="#exercises-1"><span class="header-section-number">3.5</span> Exercises</a></li>
-  </ul></li>
-  <li><a href="#sec-redcap" id="toc-sec-redcap" class="nav-link" data-scroll-target="#sec-redcap"><span class="header-section-number">4</span> RedCap</a>
-  <ul class="collapse">
-  <li><a href="#data-structure" id="toc-data-structure" class="nav-link" data-scroll-target="#data-structure"><span class="header-section-number">4.1</span> Data structure</a></li>
-  <li><a href="#direct-database-access" id="toc-direct-database-access" class="nav-link" data-scroll-target="#direct-database-access"><span class="header-section-number">4.2</span> Direct database access</a></li>
-  </ul></li>
-  <li><a href="#sec-stata-spss-sas" id="toc-sec-stata-spss-sas" class="nav-link" data-scroll-target="#sec-stata-spss-sas"><span class="header-section-number">5</span> STATA, SPSS and SAS</a></li>
-  <li><a href="#sec-rds" id="toc-sec-rds" class="nav-link" data-scroll-target="#sec-rds"><span class="header-section-number">6</span> RDS</a>
-  <ul class="collapse">
-  <li><a href="#rds" id="toc-rds" class="nav-link" data-scroll-target="#rds"><span class="header-section-number">6.1</span> RDS</a></li>
-  <li><a href="#rda" id="toc-rda" class="nav-link" data-scroll-target="#rda"><span class="header-section-number">6.2</span> RDA</a></li>
-  </ul></li>
-  <li><a href="#sec-sqlite" id="toc-sec-sqlite" class="nav-link" data-scroll-target="#sec-sqlite"><span class="header-section-number">7</span> SQLite</a></li>
+  <li><a href="#manually-cleaning-data" id="toc-manually-cleaning-data" class="nav-link" data-scroll-target="#manually-cleaning-data"><span class="header-section-number">3</span> Manually cleaning data</a></li>
   </ul>
 </nav>
     </div>
@@ -564,16 +543,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Loading data</h1>
+<h1 class="title">Inspect your data</h1>
   <div class="quarto-categories">
     <div class="quarto-category">RStudio</div>
-    <div class="quarto-category">Input</div>
+    <div class="quarto-category">Inspection</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    <p>How to load data into R</p>
+    <p>Making sure your data is what you think it is</p>
   </div>
 </div>
 
@@ -601,320 +580,146 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <hr>
-<p>Sooner or later, you will need to important data into R from some <em>external</em> container like a file or a database.</p>
-<p>In the following we will provide some help to getting started with the most common such files and databases.</p>
-<section id="data-formats" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Data formats</h1>
-<p>R can read data from many different sources, including:</p>
-<ul>
-<li>CSV – jump to <a href="#sec-csv">Section&nbsp;2</a></li>
-<li>Microsoft Excel – jump to <a href="#sec-excel">Section&nbsp;3</a></li>
-<li>REDCap – jump to <a href="#sec-redcap">Section&nbsp;4</a></li>
-<li>STATA, SPS and SAS – jump to <a href="#sec-stata-spss-sas">Section&nbsp;5</a></li>
-<li>RDS – jump to <a href="#sec-rds">Section&nbsp;6</a></li>
-<li>SQLite – jump to <a href="#sec-sqlite">Section&nbsp;7</a></li>
-</ul>
-</section>
-<section id="sec-csv" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> CSV files</h1>
-<section id="what-is-a-csv-file" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="what-is-a-csv-file"><span class="header-section-number">2.1</span> What is a CSV file?</h2>
-<ul>
-<li>CSV is an acronym for ‘<em>Comma Separated Values</em>’.</li>
-<li>It is a format for storing data in a simple text file.</li>
-<li>CSV files inherit all the benefits of working with simple text files: small size, simple format, universal access, maximum portability, minimum learning curve, future proofed, etc.</li>
-<li>Conversely, CSV files are limited in the complexity of the data it can store: only simple tabular data.</li>
-<li>Read more about CSV files here <a href="https://en.wikipedia.org/wiki/Comma-separated_values">wiki</a>.</li>
-</ul>
-</section>
-<section id="an-example-file" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="an-example-file"><span class="header-section-number">2.2</span> An example file</h2>
-<p>An example of a CSV file could look like this:</p>
+<p>Many new R users (and quite a few experienced ones, too) have spent a lot of time scratching their heads, because they <em>thought</em> they knew how their data was structured, only to find it was not.</p>
+<p>It is a very good idea, once data has been loaded into memory, to spend a little time inspecting it more carefully.</p>
+<section id="data-structure" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Data structure</h1>
+<section id="names" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="names"><span class="header-section-number">1.1</span> Names</h2>
+<p>The function <code>names()</code> provides the names of the variables in an R data.frame. For instance, on this page, we make us of a simple data frame called ‘df’:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1" data-code-line-numbers="false"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>id,test,value,group,note</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">12</span>,<span class="st">"A"</span>,<span class="st">""</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">14</span>,<span class="st">"B"</span>,<span class="st">""</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">15</span>,<span class="st">"C"</span>,<span class="st">"My note"</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">13</span>,<span class="st">"A"</span>,<span class="st">""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled" title="Think! What does the CSV file above tell us about the data? ...and not?">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Think! What does the CSV file above tell us about the data? …and not?
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>From the raw text of the CSV file we can deduce, that the data consists of 5 variables and 4 observations, delimited by ‘<strong>,</strong>’. We can take a guess as to the meaning of the variables from their names in line 1, but we can not know. Also, <strong>note</strong> that a CSV file does not necessarily include a title line.</p>
-<p>The text is maybe not as easy to read as data in a spreadsheet for instance, is very easily transformed into a tabular data structure:</p>
-<p>Also, ask yourself</p>
-<ul>
-<li><em>What is the data type of each variable?</em> (integer, numerical, factors/categorical, etc)?</li>
-<li><em>What are the allowed or valid values for each variable?</em></li>
-<li><em>What happens if a variable is missing</em></li>
-</ul>
-<p>…such meta-data is not stored within a CSV and we need to keep tabs on it ourselves: It is a good idea to maintain a <em>data definition</em> file along with the CSV file itself, which described the data in more detail.</p>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "id"              "age"             "department"      "passport_stamps"</code></pre>
 </div>
 </div>
-</div>
-<p>And here is the same data presented as a table, which makes it easier on the human eye.</p>
+<p>The <code>names()</code> tells us that ‘df’ contains four columns called ‘id’, ‘age’, etc.</p>
+</section>
+<section id="structure" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="structure"><span class="header-section-number">1.2</span> Structure</h2>
+<p>R also provides the function <code>str()</code> which details the structure of a variable. An example output of the <code>str()</code> function can look like this:</p>
 <div class="cell">
-<div class="cell-output-display">
-<table data-quarto-postprocess="true" class="table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: right;" data-quarto-table-cell-role="th">id</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">test</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">value</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">group</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">note</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: left;">A</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">14</td>
-<td style="text-align: left;">B</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: left;">C</td>
-<td style="text-align: left;">My note</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: left;">A</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-
-
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   5 obs. of  4 variables:
+ $ id             : int  1 2 3 4 5
+ $ age            : num  23 43 32 NA 43
+ $ department     : chr  "Management" "Marketing" "Accounting" "Public relations" ...
+ $ passport_stamps:List of 5
+  ..$ : chr  "Norway" "Netherlands"
+  ..$ : NULL
+  ..$ : chr  "Uruguay" "Mexico" "Canada"
+  ..$ : chr "India"
+  ..$ : chr  "Kenya" "Botswana"</code></pre>
 </div>
 </div>
-<section id="is-a-comma-the-best-choice" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="is-a-comma-the-best-choice"><span class="header-section-number">2.2.1</span> Is a comma the best choice?</h3>
-<p>In fact, as decimal numbers are typed as <em>0.25</em> in some locales/countries and <em>0,25</em> in others (i.e.&nbsp;with a comma or point), there is a risk that decimal commas can be mistaken for value-delimiting commas, and vice versa. It is thus not uncommon to use a semi-colon instead of a comma.</p>
-</section>
-</section>
-<section id="tidyverse-solution" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="tidyverse-solution"><span class="header-section-number">2.3</span> Tidyverse solution</h2>
-<ul>
-<li>Tidyverse includes the package <a href="https://readr.tidyverse.org/">readr</a> which provides a number of functions to read CSV files.</li>
-<li>The function <code>read_delim()</code> is the generic function which reads tabular data delimited by whatever character is specified in the function call.</li>
-<li>The functions <code>read_csv()</code>, <code>read_tsv()</code> and <code>read_csv2()</code> are just special cases of <code>read_delim()</code> (using comma, tab and semi-colon as delimiters).</li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled" title="If you need a base-R alternative..">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-If you need a base-R alternative..
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Base R includes the function <code>read.table()</code> which has a number of special cases, including <code>read.csv()</code> that also serves to read tabular data from CSV files. <strong>Note</strong> the use of dot rather than an underscore in the function name.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="rtfm-read-the-fine-manual" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="rtfm-read-the-fine-manual"><span class="header-section-number">2.4</span> RTFM – Read the fine manual</h2>
-<p>Acquaint yourself with the <code>read_delim()</code> function using the <a href="https://www.r-project.org/help.html">help function</a> in RStudio.</p>
-<p><strong>Note</strong> that a csv file should end with an empty line – more specifically, that the invisble end-of-line character is necessary to indicate the end of the last line.</p>
-</section>
-<section id="try-it-out" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="try-it-out"><span class="header-section-number">2.5</span> Try it out</h2>
-<p>Ideally, use you own CSV data file for these exercises.</p>
-<p>Alternatively, you will find a <a href="./example_csv_file.csv">sample CSV file</a> here</p>
-<ul>
-<li>Inspect the data with <code>my_data</code> and <code>str(my_data)</code>.</li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled" title="Coding example..">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Coding example..
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
+<p>This output is somewhat more comprehensive and tells us that the variable ‘df’ is a data frame consisting of 5 observations (rows) of 4 variables (columns).</p>
+<p>Furthermore, we can see the data type and the first actual data points for each column – e.g.&nbsp;‘id’ is of type ‘int’ (integer).</p>
+<p>Perhaps, we expected the variable ‘department’ to be a factor rather than a type character. Let’s fix that:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"path_to_file"</span>, <span class="st">"fil.csv"</span>))</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>my_data</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(my_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">department =</span> <span class="fu">as.factor</span>(department))</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   5 obs. of  4 variables:
+ $ id             : int  1 2 3 4 5
+ $ age            : num  23 43 32 NA 43
+ $ department     : Factor w/ 4 levels "Accounting","Management",..: 2 3 1 4 1
+ $ passport_stamps:List of 5
+  ..$ : chr  "Norway" "Netherlands"
+  ..$ : NULL
+  ..$ : chr  "Uruguay" "Mexico" "Canada"
+  ..$ : chr "India"
+  ..$ : chr  "Kenya" "Botswana"</code></pre>
 </div>
 </div>
-</div>
-</div>
-</section>
-<section id="exercises" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="exercises"><span class="header-section-number">2.6</span> Exercises</h2>
-<ul>
-<li>What happens is a value is missing?</li>
-<li>What happens if a value-delimiting-character is missing?</li>
-<li>What happens if you add a value-delimiting-character inside a text data point, e.g.&nbsp;between ‘My’ and ‘note’ in the example csv file?</li>
-<li>What happens if you use <code>read_csv()</code> and <code>read_csv2()</code> respectively without specifying a delimiter?</li>
-<li>What happens if you set the parameter <code>col_names = FALSE</code>?</li>
-<li>What happens if you set the parameter <code>na = "NA"</code>?</li>
-<li>Look at the data structure as revealed by the <code>str()</code> function: Are all you variables of the type you expected them to be?
-<ul>
-<li>How could you use the parameter <code>col_types</code> to specify data types?</li>
-</ul></li>
-</ul>
+<p>Notice, that the ‘department’ is now of type ‘Factor’ with 4 levels.</p>
+<p>Also notice the column ‘passport_stamps’ which is of type ‘list’.</p>
 </section>
 </section>
-<section id="sec-excel" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Excel files</h1>
-<section id="what-is-an-excel-file" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="what-is-an-excel-file"><span class="header-section-number">3.1</span> What is an Excel file?</h2>
-<ul>
-<li>Microsoft Excel is a spreadsheet program – that means it includes many other features than simply storing data in tabular format.</li>
-<li>There are (at least) two different versions of excel files (xls and xlsx) – <code>read_excel()</code> should handle both.</li>
-<li>If you use excel files there are a couple of issues you need to pay attention to:
-<ul>
-<li>An excel file can contain more than one ‘<em>sheet</em>’ – you may need to specify which sheet to load</li>
-<li>Character encoding – Microsoft often uses ISO character encoding. It may be prudent to ensure that you file uses UTF8 or UTF16 character encoding instead,</li>
-<li>Data type conversion?</li>
-</ul></li>
-</ul>
+<section id="data-content" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Data content</h1>
+<section id="inspect-the-head-of-the-data" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="inspect-the-head-of-the-data"><span class="header-section-number">2.1</span> Inspect the head of the data</h2>
+<p>The function <code>head()</code> simply lists the first 6 observations in a data frame or a vector. This is useful to get a first quick impression of the data at hand. The number of lines displayed can be specified in the function call, e.g.&nbsp;<code>head(data, n=10)</code>.</p>
 </section>
-<section id="tidyverse-solution-1" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="tidyverse-solution-1"><span class="header-section-number">3.2</span> Tidyverse solution</h2>
-<ul>
-<li>Tidyverse includes the package <a href="https://https://readxl.tidyverse.org/">readxl</a> which provides a number of functions to read excel files.</li>
-</ul>
-</section>
-<section id="rtfm-read-the-fine-manual-1" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="rtfm-read-the-fine-manual-1"><span class="header-section-number">3.3</span> RTFM – Read the fine manual</h2>
-<p>Acquaint yourself with the <code>readxl</code>()` function using the <a href="https://www.r-project.org/help.html">help function</a> in RStudio.</p>
-</section>
-<section id="try-it-out-1" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="try-it-out-1"><span class="header-section-number">3.4</span> Try it out</h2>
-<p>Ideally, use you own excel data file for these exercises.</p>
-<p>Alternatively, you will find a <a href="./example_xlsx_file.xlsx">sample xlsx file</a> here</p>
-<ul>
-<li>Inspect the data with <code>my_data</code> and <code>str(my_data)</code>.</li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled" title="Coding example..">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Coding example..
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
+<section id="look-for-missing-values" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="look-for-missing-values"><span class="header-section-number">2.2</span> Look for missing values</h2>
+<p>The function <code>is.na()</code> tests whether a given value is NA and returns TRUE or FALSE. If a data frame is passed to <code>is.na()</code> it will return a data frame of similar size with each cell being TRUE or FALSE. Look at this simple example</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="fu">here</span>(<span class="st">"path_to_file"</span>, <span class="st">"fil.xls"</span>))</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>my_data</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(my_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df2<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">c1=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">c2=</span><span class="fu">sample</span>(LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">24</span>],<span class="dv">5</span>,<span class="cn">TRUE</span>), <span class="at">c3=</span>letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]) </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df2[<span class="dv">3</span>,<span class="dv">3</span>]<span class="ot">&lt;-</span><span class="cn">NA</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  c1 c2   c3
+1  1  T    a
+2  2  C    b
+3  3  F &lt;NA&gt;
+4  4  I    d
+5  5  W    e</code></pre>
 </div>
 </div>
+<p>We can now use the <code>is.na()</code> function to look for NA values:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(df2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        c1    c2    c3
+[1,] FALSE FALSE FALSE
+[2,] FALSE FALSE FALSE
+[3,] FALSE FALSE  TRUE
+[4,] FALSE FALSE FALSE
+[5,] FALSE FALSE FALSE</code></pre>
+</div>
+</div>
+<p>If the data frame is large and difficult to get a good overview of, we could also check for the presence of <em>any</em> NA’s and their location:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(df2) <span class="sc">|&gt;</span> <span class="fu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+<p>The code above works like this: the boolean values TRUE and FALSE will be regarded as integers 1 and 0 in any function that takes numerical input – thus the <code>sum()</code> function will add all the FALSE (0) and TRUE (1) values in the data frame and the result thus represents the number of observed NAs.</p>
+<p>If you were interested in finding the row and column of NA values, you could do it like so:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(<span class="fu">is.na</span>(df2) , <span class="at">arr.ind=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     row col
+[1,]   3   3</code></pre>
+</div>
+</div>
+<p>..or perhaps, if you want to check for NAs on a per-column basis:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="sc">|&gt;</span> <span class="fu">summarise</span>(<span class="fu">across</span>(c1<span class="sc">:</span>c3, <span class="sc">~</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(.x))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  c1 c2 c3
+1  0  0  1</code></pre>
 </div>
 </div>
 </section>
-<section id="exercises-1" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="exercises-1"><span class="header-section-number">3.5</span> Exercises</h2>
-<p>??</p>
+<section id="look-at-value-ranges" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="look-at-value-ranges"><span class="header-section-number">2.3</span> Look at value ranges</h2>
+<p>Let us return to the data frame ‘df’ and look at the column ‘age’.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  23.00   29.75   37.50   35.25   43.00   43.00       1 </code></pre>
+</div>
+</div>
+<p>The function <code>summary()</code> gives us some summary statistics for the variable ‘age’, including the minimum and maximum values.</p>
+<p>Similarly, look at the output of <code>summary()</code> for the ‘department’ variable, which was a factor:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df<span class="sc">$</span>department)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Accounting       Management        Marketing Public relations 
+               2                1                1                1 </code></pre>
+</div>
+</div>
 </section>
 </section>
-<section id="sec-redcap" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> RedCap</h1>
-<p>The simplest way to use REDCap data is to export it from the REDCap web-portal to an appropriate file format and import that into R.</p>
-<ul>
-<li>Firstly, log into the REDCap web portal</li>
-<li>Go to ‘My Projects’</li>
-<li>Find the project from which you want to download data</li>
-<li>In the left-hand side menu, choose Applications / Exports, Reports and Stats</li>
-<li>Then click ‘Export data’</li>
-<li>Select the option ‘R Statistical Software’ and click ‘Export data’</li>
-<li>Now click each of the two icons (lower right) labelled <strong>R</strong> and <strong>DATA</strong></li>
-</ul>
-<p><img src="gfx/redcap.gif" class="img-fluid"></p>
-<section id="data-structure" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="data-structure"><span class="header-section-number">4.1</span> Data structure</h2>
-<p>The data will be exported as a standard csv file. Read more about that above in <a href="#sec-csv">Section&nbsp;2</a>.</p>
-<p>The csv file will be accompanied by an R script file, which contains R code that will read the csv file and wrangle the data into an R data frame called ‘data’.</p>
-<p>If your data does not change on a regular basis, we would suggest that you run the R script once to generate the ‘data’ data frame and then export to an RDS file and load that into your own R scripts. Read more about the RDS file format in <a href="#sec-rds">Section&nbsp;6</a>.</p>
-<p><strong>Note</strong> The R script file depends on the <code>Hmisc</code> package being installed.</p>
-</section>
-<section id="direct-database-access" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="direct-database-access"><span class="header-section-number">4.2</span> Direct database access</h2>
-<p>It is possible to access the underlying SQL database on which REDCap is built, directly from R code. See <a href="https://cran.r-project.org/web/packages/REDCapR/REDCapR.pdf">this link</a> for more information.</p>
-<p>This will also require a valid access token. The REDCap administrator should be able to provide you with such a token, if permitted.</p>
-</section>
-</section>
-<section id="sec-stata-spss-sas" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> STATA, SPSS and SAS</h1>
-<p>Tidyverse provides the package <a href="https://haven.tidyverse.org/">‘haven’</a> which enables R to read and write various data formats used by other statistical packages.</p>
-<p>It currently supports:</p>
-<ul>
-<li>SAS: <code>read_sas()</code> reads .sas7bdat + .sas7bcat files and <code>read_xpt()</code> reads SAS transport files (versions 5 and 8). <code>write_xpt()</code> writes SAS transport files (versions 5 and 8).</li>
-<li>SPSS: <code>read_sav()</code> reads .sav files and <code>read_por()</code> reads the older .por files. <code>write_sav()</code> writes .sav files.</li>
-<li>Stata: <code>read_dta()</code> reads .dta files (up to version 15). <code>write_dta()</code> writes .dta files (versions 8-15).</li>
-</ul>
-</section>
-<section id="sec-rds" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> RDS</h1>
-<p>R also provides its own data file formats, RDS and RDATA with the suffixes <code>.Rds</code> and <code>.Rda</code> or <code>.Rdata</code>.</p>
-<section id="rds" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="rds"><span class="header-section-number">6.1</span> RDS</h2>
-<ul>
-<li>RDS is short for <em>R Data Serialization</em>. RDS can store any R data, including data which is complex in nature and asymmetrical such as e.g.&nbsp;a list of lists of variable lengths.</li>
-<li>RDS is <em>not</em> a simple text file – it is a compressed format not well suited for human readers</li>
-<li>RDS is however, a simple and efficient way to store and retrieve data which already exist in R memory.</li>
-<li>RDS is used to store a discrete data object (such as a variable containing a dataframe for instance) to a single file. When re-loaded, that data is re-assigned to a variable.</li>
-</ul>
-</section>
-<section id="rda" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="rda"><span class="header-section-number">6.2</span> RDA</h2>
-<ul>
-<li>The RDA format is not as well suited for most R users as RDS</li>
-<li>It stores multiple variables in a single file</li>
-<li>When re-loading, the data is not re-assigned but stored in the same variable names as they were saved in – this can prove a problem.</li>
-<li>If Reproducible Research is a priority, stick to RDS.</li>
-</ul>
-<p>Read more about the rds format <a href="https://readr.tidyverse.org/reference/read_rds.html">here</a>.</p>
-</section>
-</section>
-<section id="sec-sqlite" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> SQLite</h1>
-<p>SQLite is a light weight implementation of a <em>Structured Query Language</em> (SQL) database.</p>
-<p>If your data set is dynamic in nature, with data being added, removed or edited regularly, you should consider using an SQL database to store data. The SQLite is about as light-weight and simple an SQL database as you can find.</p>
-<p>To quote Hadley Wickham:</p>
-<blockquote class="blockquote">
-<p>RSQLite is the easiest way to use a database from R because the package itself contains SQLite; no external software is needed.</p>
-</blockquote>
-<p>You can find a good introduction to R’s SQLite implementation <a href="https://cran.r-project.org/web/packages/RSQLite/vignettes/RSQLite.html">here</a> and <a href="https://rsqlite.r-dbi.org/">here</a>.</p>
+<section id="manually-cleaning-data" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Manually cleaning data</h1>
+<p>If you find, that you data is not structured correctly (e.g.&nbsp;a variable is cast as a character, but should be a factor), has unexpected NA values or has some other issues with data values: <strong>You should write R code to clean and restructure the data – do not edit the raw data.</strong></p>
+<p>That way, the data cleaning remains transparent and reversible.</p>
 <script src="https://giscus.app/client.js" data-repo="sorenoneill/r4phd" data-repo-id="R_kgDOJ9etDQ" data-category="Announcements" data-category-id="DIC_kwDOJ9etDc4CYApF" data-mapping="pathname" data-strict="0" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="bottom" data-theme="cobalt" data-lang="en" crossorigin="anonymous" async="">
 </script>
 
@@ -1159,13 +964,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../qmd_gui/rstudio_introduction_to_gui_console_en.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">RStudios GUI – the console</span>
+      <a href="../qmd_load_data/intro_load_data_en.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Loading data</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../qmd_inspect_data/intro_inspect_data_en.html" class="pagination-link">
-        <span class="nav-page-text">Inspect your data</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../day_1_basics_of_Rstudio.html" class="pagination-link">
+        <span class="nav-page-text">Basics of Rstudio</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

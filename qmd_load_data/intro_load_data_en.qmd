@@ -63,16 +63,6 @@ id,test,value,group,note
 2,2,13,"A",""
 ```
 
-And here is the same data presented as a table, which makes it easier on the human eye.
-
-```{r}
-#| eval: true
-#| echo: false
-#| code-line-numbers: false
-library(kableExtra)
-read.csv("example_csv_file.csv") |> kable()
-```
-
 ::: {.callout-tip collapse="true" title="Think! What does the CSV file above tell us about the data? ...and not?"}
 From the raw text of the CSV file we can deduce, that the data consists of 5 variables and 4 observations, delimited by '**,**'. We can take a guess as to the meaning of the variables from their names in line 1, but we can not know. Also, **note** that a CSV file does not necessarily include a title line.
 
@@ -86,6 +76,8 @@ Also, ask yourself
 
 ...such meta-data is not stored within a CSV and we need to keep tabs on it ourselves: It is a good idea to maintain a _data definition_ file along with the CSV file itself, which described the data in more detail.
 :::
+
+And here is the same data presented as a table, which makes it easier on the human eye.
 
 ```{r}
 #| eval: true
