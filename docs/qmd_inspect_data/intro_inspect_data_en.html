@@ -586,20 +586,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1 data-number="1"><span class="header-section-number">1</span> Data structure</h1>
 <section id="names" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="names"><span class="header-section-number">1.1</span> Names</h2>
-<p>The function <code>names()</code> provides the names of the variables in an R data.frame. For instance, on this page, we make us of a simple data frame called ‘df’:</p>
+<p>The function <code>names()</code> provides the names of the variables in an R data.frame or a list. For instance, on this page, we make us of a simple data frame called ‘df’:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "id"              "age"             "department"      "passport_stamps"</code></pre>
 </div>
 </div>
-<p>The <code>names()</code> tells us that ‘df’ contains four columns called ‘id’, ‘age’, etc.</p>
+<p>The <code>names()</code> tells us that ‘df’ contains four columns called ‘id’, ‘age’, etc. The <code>names()</code> function will not provides meaningful information about vectors, as they have no named constituents.</p>
+<p><code>names()</code> can alse be used to define the names of a data frame. What do you think the following code does?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Id"</span>, <span class="st">"Age"</span>, <span class="st">"Department"</span>, <span class="st">"Stamps"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="structure" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="structure"><span class="header-section-number">1.2</span> Structure</h2>
 <p>R also provides the function <code>str()</code> which details the structure of a variable. An example output of the <code>str()</code> function can look like this:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   5 obs. of  4 variables:
  $ id             : int  1 2 3 4 5
@@ -617,8 +621,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Furthermore, we can see the data type and the first actual data points for each column – e.g.&nbsp;‘id’ is of type ‘int’ (integer).</p>
 <p>Perhaps, we expected the variable ‘department’ to be a factor rather than a type character. Let’s fix that:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">department =</span> <span class="fu">as.factor</span>(department))</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">department =</span> <span class="fu">as.factor</span>(department))</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   5 obs. of  4 variables:
  $ id             : int  1 2 3 4 5
@@ -646,21 +650,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="2.2" class="anchored" data-anchor-id="look-for-missing-values"><span class="header-section-number">2.2</span> Look for missing values</h2>
 <p>The function <code>is.na()</code> tests whether a given value is NA and returns TRUE or FALSE. If a data frame is passed to <code>is.na()</code> it will return a data frame of similar size with each cell being TRUE or FALSE. Look at this simple example</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df2<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">c1=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">c2=</span><span class="fu">sample</span>(LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">24</span>],<span class="dv">5</span>,<span class="cn">TRUE</span>), <span class="at">c3=</span>letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]) </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df2[<span class="dv">3</span>,<span class="dv">3</span>]<span class="ot">&lt;-</span><span class="cn">NA</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df2<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">c1=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">c2=</span><span class="fu">sample</span>(LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">24</span>],<span class="dv">5</span>,<span class="cn">TRUE</span>), <span class="at">c3=</span>letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]) </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df2[<span class="dv">3</span>,<span class="dv">3</span>]<span class="ot">&lt;-</span><span class="cn">NA</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  c1 c2   c3
-1  1  T    a
-2  2  C    b
-3  3  F &lt;NA&gt;
-4  4  I    d
-5  5  W    e</code></pre>
+1  1  R    a
+2  2  V    b
+3  3  G &lt;NA&gt;
+4  4  M    d
+5  5  S    e</code></pre>
 </div>
 </div>
 <p>We can now use the <code>is.na()</code> function to look for NA values:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(df2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(df2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>        c1    c2    c3
 [1,] FALSE FALSE FALSE
@@ -672,7 +676,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>If the data frame is large and difficult to get a good overview of, we could also check for the presence of <em>any</em> NA’s and their location:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(df2) <span class="sc">|&gt;</span> <span class="fu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(df2) <span class="sc">|&gt;</span> <span class="fu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1</code></pre>
 </div>
@@ -680,7 +684,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The code above works like this: the boolean values TRUE and FALSE will be regarded as integers 1 and 0 in any function that takes numerical input – thus the <code>sum()</code> function will add all the FALSE (0) and TRUE (1) values in the data frame and the result thus represents the number of observed NAs.</p>
 <p>If you were interested in finding the row and column of NA values, you could do it like so:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(<span class="fu">is.na</span>(df2) , <span class="at">arr.ind=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(<span class="fu">is.na</span>(df2) , <span class="at">arr.ind=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     row col
 [1,]   3   3</code></pre>
@@ -688,7 +692,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>..or perhaps, if you want to check for NAs on a per-column basis:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="sc">|&gt;</span> <span class="fu">summarise</span>(<span class="fu">across</span>(c1<span class="sc">:</span>c3, <span class="sc">~</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(.x))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="sc">|&gt;</span> <span class="fu">summarise</span>(<span class="fu">across</span>(c1<span class="sc">:</span>c3, <span class="sc">~</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(.x))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  c1 c2 c3
 1  0  0  1</code></pre>
@@ -699,7 +703,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="2.3" class="anchored" data-anchor-id="look-at-value-ranges"><span class="header-section-number">2.3</span> Look at value ranges</h2>
 <p>Let us return to the data frame ‘df’ and look at the column ‘age’.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
   23.00   29.75   37.50   35.25   43.00   43.00       1 </code></pre>
@@ -708,10 +712,69 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The function <code>summary()</code> gives us some summary statistics for the variable ‘age’, including the minimum and maximum values.</p>
 <p>Similarly, look at the output of <code>summary()</code> for the ‘department’ variable, which was a factor:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df<span class="sc">$</span>department)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df<span class="sc">$</span>department)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Accounting       Management        Marketing Public relations 
                2                1                1                1 </code></pre>
+</div>
+</div>
+<p>The <code>rstatix</code> package includes the function <code>get_summarys_stats</code> which will provide even more detailed summary data. Look at the ouput regarding the data frame <code>df</code> - notice, that it only includes the numerical variables/columns:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_summary_stats</span>(df) <span class="sc">|&gt;</span> <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">variable</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">n</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">min</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">max</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">median</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">q1</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">q3</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">iqr</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">mad</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">mean</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">sd</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">se</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">ci</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">id</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: right;">2.00</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2.00</td>
+<td style="text-align: right;">1.483</td>
+<td style="text-align: right;">3.00</td>
+<td style="text-align: right;">1.581</td>
+<td style="text-align: right;">0.707</td>
+<td style="text-align: right;">1.963</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">age</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">43</td>
+<td style="text-align: right;">37.5</td>
+<td style="text-align: right;">29.75</td>
+<td style="text-align: right;">43</td>
+<td style="text-align: right;">13.25</td>
+<td style="text-align: right;">8.154</td>
+<td style="text-align: right;">35.25</td>
+<td style="text-align: right;">9.674</td>
+<td style="text-align: right;">4.837</td>
+<td style="text-align: right;">15.393</td>
+</tr>
+</tbody>
+</table>
+
+
 </div>
 </div>
 </section>

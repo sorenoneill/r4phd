@@ -40,13 +40,20 @@ It is a very good idea, once data has been loaded into memory, to spend a little
 
 ## Names
 
-The function `names()` provides the names of the variables in an R data.frame. For instance, on this page, we make us of a simple data frame called 'df':
+The function `names()` provides the names of the variables in an R data.frame or a list. For instance, on this page, we make us of a simple data frame called 'df':
 
 ```{r}
 names(df)
 ```
 
-The `names()` tells us that 'df' contains four columns called 'id', 'age', etc.
+The `names()` tells us that 'df' contains four columns called 'id', 'age', etc. The `names()` function will not provides meaningful information about vectors, as they have no named constituents.   
+
+`names()` can alse be used to define the names of a data frame. What do you think the following code does?
+
+```{r}
+#| eval: false
+names(df) <- c("Id", "Age", "Department", "Stamps")
+```
 
 ## Structure
 
@@ -128,6 +135,19 @@ Similarly, look at the output of `summary()` for the 'department' variable, whic
 
 ```{r}
 summary(df$department)
+```
+
+The `rstatix` package includes the function `get_summarys_stats` which will provide even more detailed summary data. Look at the ouput regarding the data frame `df` - notice, that it only includes the numerical variables/columns:
+
+```{r}
+#| echo: false
+#| warning: false
+library(rstatix)
+library(kableExtra)
+```
+
+```{r}
+get_summary_stats(df) |> kable()
 ```
 
 # Manually cleaning data
