@@ -223,8 +223,11 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
           <li class="sidebar-item">
- <span class="menu-text">qmd_inspect_data/intro_inspect_data_en.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_inspect_data/intro_inspect_data_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inspect your data</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -558,8 +561,8 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="1.3" class="anchored" data-anchor-id="niveauer-af-research-reproducibility"><span class="header-section-number">1.3</span> Niveauer af Research Reproducibility</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div class="grViz html-widget html-fill-item" id="htmlwidget-24cf6afc1d6ac31a0d59" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-24cf6afc1d6ac31a0d59">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10, graph_attrs = \"rankdir = LR\"]\n\n  # several \"node\" statements\n  mm [label = \"Metodesektion i tidsskrift\", shape = plaintext, fontcolor=\"Plum\"]\n  basic [label = \"Basal RR\", shape = plaintext, fontcolor=\"Plum\"]\n  workflow [label = \"RR arbejdsgange med R\", shape = plaintext, fontcolor=\"MediumOrchid\"]\n  product [label = \"Dokumentation af produktet (**)\", shape = plaintext, fontcolor=\"DarkViolet\"]\n  process [label = \"Dokumentation af processen\", shape = plaintext, fontcolor=\"Indigo\"]\n\n  # several \"edge\" statements\n  process -> product -> workflow -> basic -> mm [dir = \"back\"]\n\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-8b948ac022dfdac09d1c" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-8b948ac022dfdac09d1c">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10, graph_attrs = \"rankdir = LR\"]\n\n  # several \"node\" statements\n  mm [label = \"Metodesektion i tidsskrift\", shape = plaintext, fontcolor=\"Plum\"]\n  basic [label = \"Basal RR\", shape = plaintext, fontcolor=\"Plum\"]\n  workflow [label = \"RR arbejdsgange med R\", shape = plaintext, fontcolor=\"MediumOrchid\"]\n  product [label = \"Dokumentation af produktet (**)\", shape = plaintext, fontcolor=\"DarkViolet\"]\n  process [label = \"Dokumentation af processen\", shape = plaintext, fontcolor=\"Indigo\"]\n\n  # several \"edge\" statements\n  process -> product -> workflow -> basic -> mm [dir = \"back\"]\n\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Sigt efter niveau fire ‘Dokumentation af produkt’ (**) – Niveau 5 ‘Dokumentation af processen’ kan blive lidt kompliceret og er nok mest relevant hvis der er mange samarbejdende forfattere på samme kode (..og der er vigtigt at kunne identificere hvem der gjorde hvad, hvornår).</p>
