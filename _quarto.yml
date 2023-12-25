@@ -21,124 +21,72 @@ website:
     style: "docked"
     search: true
     collapse-level: 1
-    contents: 
-      - section: "English"
+    contents:
+      - section: "Installation"
         contents:
-          - section: "Installation"
-            contents:
-              - href: qmd_installation/installation_quick_preparation_en.qmd
-                text: "Getting started"
-              - qmd_installation/installation_prerequisites_en.qmd
-              - qmd_installation/installation_ecosystem_en.qmd
-              - qmd_installation/installation_background_en.qmd
-              - qmd_installation/installation_r_en.qmd
-              - qmd_installation/installation_rstudio_en.qmd
-              - qmd_installation/installation_r_packages_en.qmd
-              - qmd_installation/installation_cloud_en.qmd
-              - qmd_installation/installation_check_en.qmd
-          - section: "Getting to know RStudio"
-            contents:
-              - qmd_gui/rstudio_introduction_to_gui_1_en.qmd
-              - qmd_gui/rstudio_introduction_to_gui_2_en.qmd
-              - qmd_gui/rstudio_introduction_to_gui_console_en.qmd
-          - section: "R"
-            contents:
-              - qmd_load_data/intro_load_data_en.qmd
-              - qmd_load_data/intro_load_csv_en.qmd
-              - qmd_load_data/intro_load_excel_en.qmd
-              - qmd_load_data/intro_load_redcap_en.qmd
-              - qmd_load_data/intro_load_rds_en.qmd
-          - section: "R course exercises"
-            contents: 
-            - section: "Day 1"
-              contents: 
-                - day_1_basics_of_Rstudio.qmd
-                - day_1_basics_of_R_code.qmd
-                - day_1_settting_up_your_course_project.qmd
-                - day_1_quarto_documents.qmd
-                - day_1_dplyr.qmd
-                - day_1_other.qmd
-            - section: "Day 2"
-              contents:
-                - day_2_ggplot2_basics.qmd
-                - day_2_ggplot2_extras.qmd
-            - section: "Day 3"
-              contents:
-                - day_3_factors.qmd
-                - day_3_data_import.qmd
-                - day_3_missings.qmd
-                - day_3_tables.qmd
-            - section: "Day 4"
-              contents: 
-                - day_4_hypothesis.qmd
-                - day_4_regression.qmd
-            - section: "RRR"
-              contents:
-                - qmd_rrr/reproducible_research_basics_exercises_en.qmd
-                - qmd_rrr/reproducible_research_intro_en.qmd
-                - qmd_rrr/reproducible_research_workflow_1_en.qmd
-                - qmd_rrr/reproducible_research_basics_comments_how_en.qmd
-                - qmd_rrr/reproducible_research_basics_comments_where_en.qmd
-                - qmd_rrr/reproducible_research_basics_comments_what_en.qmd
-                - qmd_rrr/reproducible_research_basics_white_space_en.qmd
-                - qmd_rrr/reproducible_research_basics_readme_en.qmd
-                - qmd_rrr/reproducible_research_basics_naming_stuff_en.qmd
-                - qmd_rrr/reproducible_research_basics_file_structure_en.qmd
-                - qmd_rrr/reproducible_research_workflow_2_en.qmd
-                - qmd_rrr/reproducible_research_citations_en.qmd
-                - qmd_rrr/reproducible_research_collaboration_en.qmd
-          - section: "Base R"
-            contents:
-              - qmd_base_r/base_r_data_types_en.qmd
-              - qmd_base_r/base_r_missing_data_en.qmd
-      - section: "Dansk"
+          - href: qmd_installation/installation_quick_preparation_en.qmd
+            text: "Getting started"
+          - qmd_installation/installation_prerequisites_en.qmd
+          - qmd_installation/installation_ecosystem_en.qmd
+          - qmd_installation/installation_background_en.qmd
+          - qmd_installation/installation_r_en.qmd
+          - qmd_installation/installation_rstudio_en.qmd
+          - qmd_installation/installation_r_packages_en.qmd
+          - qmd_installation/installation_cloud_en.qmd
+          - qmd_installation/installation_check_en.qmd
+      - section: "Getting to know RStudio"
         contents:
-          - section: "Installation"
-            contents:
-              - href: qmd_installation/installation_quick_preparation_da.qmd
-                text: "Kom i gang"
-              - href: qmd_installation/installation_prerequisites_da.qmd
-                text: "Forudsætninger"
-              - qmd_installation/installation_ecosystem_da.qmd
-              - qmd_installation/installation_background_da.qmd
-              - qmd_installation/installation_r_da.qmd
-              - qmd_installation/installation_rstudio_da.qmd
-              - href: qmd_installation/installation_r_packages_da.qmd
-                text: "Installation af pakker"
-              - qmd_installation/installation_cloud_da.qmd
-              - href: qmd_installation/installation_check_da.qmd
-                text: "Tjek alt OK"
-          - section: "Lær RStudio at kende"
-            contents:
-              - qmd_gui/rstudio_introduction_to_gui_1_da.qmd
-              - qmd_gui/rstudio_introduction_to_gui_2_en.qmd
-              - qmd_gui/rstudio_introduction_to_gui_console_da.qmd
-          - section: "R"
-            contents:
-              - qmd_load_data/intro_load_data_da.qmd
-              - qmd_load_data/intro_load_csv_da.qmd
-              - qmd_load_data/intro_load_excel_da.qmd
-              - qmd_load_data/intro_load_redcap_da.qmd
-              - qmd_load_data/intro_load_rds_da.qmd
-          - section: "RRR"
-            contents:
-              - qmd_rrr/reproducible_research_basics_exercises_da.qmd
-              - qmd_rrr/reproducible_research_intro_da.qmd
-              - qmd_rrr/reproducible_research_workflow_1_da.qmd
-              - qmd_rrr/reproducible_research_basics_comments_how_da.qmd
-              - qmd_rrr/reproducible_research_basics_comments_where_da.qmd
-              - qmd_rrr/reproducible_research_basics_comments_what_da.qmd
-              - qmd_rrr/reproducible_research_basics_white_space_da.qmd
-              - qmd_rrr/reproducible_research_basics_readme_da.qmd
-              - qmd_rrr/reproducible_research_basics_naming_stuff_da.qmd
-              - qmd_rrr/reproducible_research_basics_file_structure_da.qmd
-              - qmd_rrr/reproducible_research_workflow_2_da.qmd
-              - qmd_rrr/reproducible_research_citations_da.qmd
-              - qmd_rrr/reproducible_research_collaboration_da.qmd
-          - section: "Base R"
-            contents:
-              - qmd_base_r/base_r_data_types_da.qmd
-              - qmd_base_r/base_r_missing_data_da.qmd
+          - qmd_gui/rstudio_introduction_to_gui_1_en.qmd
+          - qmd_gui/rstudio_introduction_to_gui_2_en.qmd
+          - qmd_gui/rstudio_introduction_to_gui_console_en.qmd
+      - section: "Manuscript workflow"
+        contents:
+          - qmd_load_data/intro_load_data_en.qmd
+          - qmd_inspect_data/intro_inspect_data_en.qmd
+      - section: "R course exercises"
+        contents: 
+        - section: "Day 1"
+          contents: 
+            - day_1_basics_of_Rstudio.qmd
+            - day_1_basics_of_R_code.qmd
+            - day_1_settting_up_your_course_project.qmd
+            - day_1_quarto_documents.qmd
+            - day_1_dplyr.qmd
+            - day_1_other.qmd
+        - section: "Day 2"
+          contents:
+            - day_2_ggplot2_basics.qmd
+            - day_2_ggplot2_extras.qmd
+        - section: "Day 3"
+          contents:
+            - day_3_factors.qmd
+            - day_3_data_import.qmd
+            - day_3_missings.qmd
+            - day_3_tables.qmd
+        - section: "Day 4"
+          contents: 
+            - day_4_hypothesis.qmd
+            - day_4_regression.qmd
+        - section: "RRR"
+          contents:
+            - qmd_rrr/reproducible_research_basics_exercises_en.qmd
+            - qmd_rrr/reproducible_research_intro_en.qmd
+            - qmd_rrr/reproducible_research_workflow_1_en.qmd
+            - qmd_rrr/reproducible_research_basics_comments_how_en.qmd
+            - qmd_rrr/reproducible_research_basics_comments_where_en.qmd
+            - qmd_rrr/reproducible_research_basics_comments_what_en.qmd
+            - qmd_rrr/reproducible_research_basics_white_space_en.qmd
+            - qmd_rrr/reproducible_research_basics_readme_en.qmd
+            - qmd_rrr/reproducible_research_basics_naming_stuff_en.qmd
+            - qmd_rrr/reproducible_research_basics_file_structure_en.qmd
+            - qmd_rrr/reproducible_research_workflow_2_en.qmd
+            - qmd_rrr/reproducible_research_citations_en.qmd
+            - qmd_rrr/reproducible_research_collaboration_en.qmd
+      - section: "Base R"
+        contents:
+          - qmd_base_r/base_r_data_types_en.qmd
+          - qmd_base_r/base_r_missing_data_en.qmd
+      
 format:
   html:
     theme: cosmo

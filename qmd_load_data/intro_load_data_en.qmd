@@ -1,5 +1,5 @@
 ---
-title: "Load data"
+title: "Loading data"
 description: |
   How to load data into R
 author:
@@ -21,19 +21,22 @@ editor: source
 number-sections: true
 ---
 
+-----
+
+Sooner or later, you will need to important data into R from some _external_ container like a file or a database.
+
+In the following we will provide some help to getting started with the most common such files and databases.
+
 # Data formats
 
-In the following, we assume that you are working with data stored locally on the same computer as your R installation.
-
-R can read data from a number of different data file formats:
+R can read data from many different sources, including:
 
 * CSV -- jump to [@sec-csv]
 * Microsoft Excel -- jump to [@sec-excel]
 * REDCap -- jump to [@sec-redcap]
-* STATA files
-* SPSS
-* SAS
+* STATA, SPS and SAS -- jump to [@sec-stata-spss-sas]
 * RDS -- jump to [@sec-rds]
+* SQLite -- jump to [@sec-sqlite]
 
 # CSV files {#sec-csv}
 
@@ -41,7 +44,7 @@ R can read data from a number of different data file formats:
 
 * CSV is an acronym for '_Comma Separated Values_'.
 * It is a format for storing data in a simple text file.
-* CSV files inherit all the benefits of working with simple text files.
+* CSV files inherit all the benefits of working with simple text files: small size, simple format, universal access, maximum portability, minimum learning curve, future proofed, etc.
 * Conversely, CSV files are limited in the complexity of the data it can store: only simple tabular data.
 * Read more about CSV files here [wiki](https://en.wikipedia.org/wiki/Comma-separated_values). 
 
@@ -60,8 +63,20 @@ id,test,value,group,note
 2,2,13,"A",""
 ```
 
+And here is the same data presented as a table, which makes it easier on the human eye.
+
+```{r}
+#| eval: true
+#| echo: false
+#| code-line-numbers: false
+library(kableExtra)
+read.csv("example_csv_file.csv") |> kable()
+```
+
 ::: {.callout-tip collapse="true" title="Think! What does the CSV file above tell us about the data? ...and not?"}
 From the raw text of the CSV file we can deduce, that the data consists of 5 variables and 4 observations, delimited by '**,**'. We can take a guess as to the meaning of the variables from their names in line 1, but we can not know. Also, **note** that a CSV file does not necessarily include a title line.
+
+The text is maybe not as easy to read as data in a spreadsheet for instance, is very easily transformed into a tabular data structure:
 
 Also, ask yourself 
 
@@ -72,9 +87,17 @@ Also, ask yourself
 ...such meta-data is not stored within a CSV and we need to keep tabs on it ourselves: It is a good idea to maintain a _data definition_ file along with the CSV file itself, which described the data in more detail.
 :::
 
+```{r}
+#| eval: true
+#| echo: false
+#| code-line-numbers: false
+library(kableExtra)
+read.csv("example_csv_file.csv") |> kable()
+```
+
 ### Is a comma the best choice?
 
-In fact, as decimal numbers are typed as _0.25_ in some locales/countries and _0,25_ in others, there is a risk that decimal commas can be mistaken for value-delimiting commas, and vice versa. It is thus not uncommon to use a semi-colon instead of a comma.
+In fact, as decimal numbers are typed as _0.25_ in some locales/countries and _0,25_ in others (i.e. with a comma or point), there is a risk that decimal commas can be mistaken for value-delimiting commas, and vice versa. It is thus not uncommon to use a semi-colon instead of a comma.
 
 ## Tidyverse solution
 
@@ -89,6 +112,8 @@ Base R includes the function `read.table()` which has a number of special cases,
 ## RTFM -- Read the fine manual
 
 Acquaint yourself with the `read_delim()` function using the [help function](https://www.r-project.org/help.html) in RStudio. 
+
+**Note** that a csv file should end with an empty line -- more specifically, that the invisble end-of-line character is necessary to indicate the end of the last line.
 
 ## Try it out
 
@@ -113,6 +138,9 @@ str(my_data)
 
 ## Exercises
 
+* What happens is a value is missing?
+* What happens if a value-delimiting-character is missing?
+* What happens if you add a value-delimiting-character inside a text data point, e.g. between 'My' and 'note' in the example csv file?
 * What happens if you use `read_csv()` and `read_csv2()` respectively without specifying a delimiter?
 * What happens if you set the parameter `col_names = FALSE`?
 * What happens if you set the parameter `na = "NA"`?
@@ -167,50 +195,78 @@ str(my_data)
 
 # RedCap {#sec-redcap}
 
+The simplest way to use REDCap data is to export it from the REDCap web-portal to an appropriate file format and import that into R.
+
 * Firstly, log into the REDCap web portal
 * Go to 'My Projects'
 * Find the project from which you want to download data
 * In the left-hand side menu, choose Applications / Exports, Reports and Stats
-
-![](gfx/redcap_menu.png)
-
 * Then click 'Export data'
-
-![](gfx/redcap_export.png)
-
 * Select the option 'R Statistical Software' and click 'Export data'
+* Now click each of the two icons (lower right) labelled **R** and **DATA**
 
-![](gfx/redcap_export_2.png)
-Now click each of the two icons (lower right) labelled **R** and *DATA**
-
-![](gfx/redcap_export_3.png)
+![](gfx/redcap.gif)
 
 ## Data structure
 
-The data will be exported as a standard [csv file](intro_load_csv_en.qmd). 
+The data will be exported as a standard csv file. Read more about that above in [@sec-csv].
 
-The csv file will be accompanied by an R script file, which will read the csv file and wrangle the data into an R data frame called 'data'.
+The csv file will be accompanied by an R script file, which contains R code that will read the csv file and wrangle the data into an R data frame called 'data'.
 
-You can run the R script once to generate the 'data' data frame and export to an RDS file and load that into your own R scripts.
+If your data does not change on a regular basis, we would suggest that you run the R script once to generate the 'data' data frame and then export to an RDS file and load that into your own R scripts. Read more about the RDS file format in [@sec-rds].
 
 **Note** The R script file depends on the `Hmisc` package being installed.
 
 ## Direct database access
 
-It is possible to access the REDCap database directly from R code. See [this link](https://cran.r-project.org/web/packages/REDCapR/REDCapR.pdf) for more information. 
+It is possible to access the underlying SQL database on which REDCap is built, directly from R code. See [this link](https://cran.r-project.org/web/packages/REDCapR/REDCapR.pdf) for more information. 
 
 This will also require a valid access token. The REDCap administrator should be able to provide you with such a token, if permitted.
+
+# STATA, SPSS and SAS {#sec-stata-spss-sas}
+
+Tidyverse provides the package ['haven'](https://haven.tidyverse.org/) which enables R to read and write various data formats used by other statistical packages. 
+
+It currently supports:
+
+* SAS: `read_sas()` reads .sas7bdat + .sas7bcat files and `read_xpt()` reads SAS transport files (versions 5 and 8). `write_xpt()` writes SAS transport files (versions 5 and 8).
+* SPSS: `read_sav()` reads .sav files and `read_por()` reads the older .por files. `write_sav()` writes .sav files.
+* Stata: `read_dta()` reads .dta files (up to version 15). `write_dta()` writes .dta files (versions 8-15).
 
 
 # RDS {#sec-rds}
 
-* RDS is short for _R Data Serialization_ -- that means data which is complex in nature and asymmetrical such as e.g. a list of lists of variable lengths, can be serialized and stored easily.
+R also provides its own data file formats, RDS and RDATA with the suffixes `.Rds` and `.Rda` or `.Rdata`.
+
+## RDS 
+
+* RDS is short for _R Data Serialization_. RDS can store any R data, including data which is complex in nature and asymmetrical such as e.g. a list of lists of variable lengths.
 * RDS is _not_ a simple text file -- it is a compressed format not well suited for human readers
 * RDS is however, a simple and efficient way to store and retrieve data which already exist in R memory.
+* RDS is used to store a discrete data object (such as a variable containing a dataframe for instance) to a single file. When re-loaded, that data is re-assigned to a variable.
+
+## RDA
+
+* The RDA format is not as well suited for most R users as RDS
+* It stores multiple variables in a single file
+* When re-loading, the data is not re-assigned but stored in the same variable names as they were saved in -- this can prove a problem.
+* If Reproducible Research is a priority, stick to RDS.
 
 
+Read more about the rds format [here](https://readr.tidyverse.org/reference/read_rds.html).
 
-https://readr.tidyverse.org/reference/read_rds.html
+# SQLite {#sec-sqlite}
+
+SQLite is a light weight implementation of a _Structured Query Language_ (SQL) database. 
+
+If your data set is dynamic in nature, with data being added, removed or edited regularly, you should consider using an SQL database to store data. The SQLite is about as light-weight and simple an SQL database as you can find.
+
+To quote Hadley Wickham: 
+
+> RSQLite is the easiest way to use a database from R because the package itself contains SQLite; no external software is needed.
+
+You can find a good introduction to R's SQLite implementation [here](https://cran.r-project.org/web/packages/RSQLite/vignettes/RSQLite.html) and [here](https://rsqlite.r-dbi.org/).
+
 
 <script src="https://giscus.app/client.js"
         data-repo="sorenoneill/r4phd"
