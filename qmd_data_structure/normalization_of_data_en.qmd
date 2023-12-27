@@ -1,0 +1,271 @@
+---
+title: "Normalization of data"
+description: |
+  Levels of _normalization_ of data structure...
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: "2023-11-26"
+#output:
+#  distill::distill_article:
+#    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+categories:
+  - RStudio
+  - Inspection
+creative_commons: CC BY
+format: html
+editor: source
+number-sections: true
+---
+
+```{r}
+#| echo: false
+#| warning: false
+library(tidyverse)
+library(kableExtra)
+```
+
+```{r}
+#| echo: false
+#| warning: false
+
+df <- data.frame(subject_id = 1:10, subject_name = c("John", "Billy", "Joan", "Clare", "Peter", "Maggy", "Jack", "Suzy", "Billy", "Mary"), test_a = sample(1:1000, 10), test_b = sample(1:1000,10), day_of_test_a = sample(c("MON", "TUE", "WED", "THU", "FRI"), 10, replace=TRUE), day_of_test_b = sample(c("MON", "TUE", "WED", "THU", "FRI"), 10, replace=TRUE), test_a_type = "Blood", test_b_type = "Saliva")
+
+```
+
+-------
+
+To manage your data effectively and safely, it is a good idea to know a little bit about database _normalization_: "Normalization is a process that database designers use to eliminate data redundancy, improve data integrity, and enhance the overall efficiency of the database." [^1]
+
+The _normalization_ of data has nothing to do with the normal (Gaussian) distribution.
+
+Data normalization it is not a case of either/or -- data can be normalized to different levels, depending on your needs.
+
+## First Normal Form -- 1NF
+
+The First Normal Form requires that:
+
+* Each column represents one variable
+* Each variable contains _atomic_ values -- i.e. the smallest (indivisible) unit of information
+* Variables to not contain arrays of atomic values
+* The data set does not contain repeating groups of similar variables
+
+Look at the different examples of structures of the same data on the tabs below in light of the requirements for First Normal Form data listed above:
+
+::: panel-tabset
+
+### Example 1
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-1NFa
+#| tbl-cap: "A"
+
+df |> 
+  mutate(measurement = paste0(test_a, ",", test_b)) |>
+  mutate(test_day = paste0(day_of_test_a, ",", day_of_test_b)) |>
+  mutate(test = "a,b") |>
+  mutate(type = paste0(test_a_type, ",", test_b_type)) |>
+  select(subject_id, subject_name, measurement, test_day, test, type) |>
+  kable()
+```
+
+### Example 2
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-1NFb
+#| tbl-cap: "B"
+
+df |> 
+  mutate(test_a = paste0(test_a, " (", day_of_test_a, " : ", test_a_type, ")")) |>
+  mutate(test_b = paste0(test_b, " (", day_of_test_b, " : ", test_b_type, ")")) |>
+  select(subject_id, subject_name, test_a, test_b) |>
+  kable()
+```
+
+### Example 3
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-1NFc
+#| tbl-cap: "C"
+
+df |> kable()
+```
+
+### Example 4
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-1NFd
+#| tbl-cap: "D"
+ 
+df |> 
+  pivot_longer(cols = c("test_a", "test_b"), values_to = "measurement", names_to = "test_id") |> 
+  mutate(test_id = str_sub(test_id, -1,-1)) |> 
+  pivot_longer(cols = c("day_of_test_a", "day_of_test_b"), values_to = "day", names_to = "test_day") |>
+  filter(str_sub(test_day,-1,-1) == test_id) |>
+  select(-test_day) |> 
+  pivot_longer(cols = c("test_a_type", "test_b_type"), values_to = "type", names_to = "test_type") |>
+  filter(str_sub(test_type,6,6) == test_id) |>
+  select(-test_type) |> 
+  select(subject_id, subject_name, test_id, type, day, measurement) |>
+  kable()
+```
+
+:::
+
+::: {.callout-note collapse=true}
+## Click to get answers..
+
+**Example 1**: More than one value is stored per cell. In other words, each cell consists of an array (or _a series of_) values, separated by a comma. 
+
+**Example 2**: The data is not _atomic_, i.e. indivisible. The cells of columns 'test_a' and 'test_b' contain two different values (measurement and weekday).
+
+**Example 3**: The data is atomic, and there is only one data point per cell. However, the data set contains repeating groups of similar variables ('a' and 'b').
+
+**Example 4**: This data conforms to the First Normal Form (1NF) data structure.
+:::
+
+## Second Normal Form -- 2NF
+
+The Second Normal Form requires that data conforms to the 1NF requirements and additionally:
+
+* Data contains a single-column primary key.
+* That all non-key variables 'depend' on the entire primary key.
+
+::: panel-tabset
+### Example A
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-2NFa
+#| tbl-cap: "A"
+ 
+df |> 
+  pivot_longer(cols = c("test_a", "test_b"), values_to = "measurement", names_to = "test_id") |> 
+  mutate(test_id = str_sub(test_id, -1,-1)) |> 
+  pivot_longer(cols = c("day_of_test_a", "day_of_test_b"), values_to = "day", names_to = "test_day") |>
+  filter(str_sub(test_day,-1,-1) == test_id) |>
+  select(-test_day) |> 
+  pivot_longer(cols = c("test_a_type", "test_b_type"), values_to = "type", names_to = "test_type") |>
+  filter(str_sub(test_type,6,6) == test_id) |>
+  select(-test_type) |> 
+  select(subject_id, subject_name, test_id, type, day, measurement) |>
+  kable()
+```
+
+### Example B
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-2NFb
+#| tbl-cap: "B"
+
+df |> 
+  pivot_longer(cols = c("test_a", "test_b"), values_to = "measurement", names_to = "test_id") |> 
+  mutate(test_id = str_sub(test_id, -1,-1)) |> 
+  pivot_longer(cols = c("day_of_test_a", "day_of_test_b"), values_to = "day", names_to = "test_day") |>
+  filter(str_sub(test_day,-1,-1) == test_id) |>
+  select(-test_day) |> 
+  pivot_longer(cols = c("test_a_type", "test_b_type"), values_to = "type", names_to = "test_type") |>
+  filter(str_sub(test_type,6,6) == test_id) |>
+  select(-test_type) |> 
+  mutate(key = LETTERS[row_number()]) |> 
+  select(key, subject_id, subject_name, test_id, type, day, measurement) |>
+  kable()
+  
+```
+
+### Example C
+
+#### Data frame #1
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-2NFc1
+#| tbl-cap: "C1"
+
+
+df |> 
+  pivot_longer(cols = c("test_a", "test_b"), values_to = "measurement", names_to = "test_id") |> 
+  mutate(test_id = str_sub(test_id, -1,-1)) |> 
+  pivot_longer(cols = c("day_of_test_a", "day_of_test_b"), values_to = "day", names_to = "test_day") |>
+  filter(str_sub(test_day,-1,-1) == test_id) |>
+  select(-test_day) |> 
+  pivot_longer(cols = c("test_a_type", "test_b_type"), values_to = "type", names_to = "test_type") |>
+  filter(str_sub(test_type,6,6) == test_id) |>
+  select(-test_type) |> 
+  mutate(key = LETTERS[row_number()]) |> 
+  select(key, subject_id, subject_name, test_id, day, measurement) |>
+  kable()
+```
+
+#### Data frame #2
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-2NFc2
+#| tbl-cap: "C2"
+
+df |> 
+  pivot_longer(cols = c("test_a", "test_b"), values_to = "measurement", names_to = "test_id") |> 
+  mutate(test_id = str_sub(test_id, -1,-1)) |> 
+  pivot_longer(cols = c("day_of_test_a", "day_of_test_b"), values_to = "day", names_to = "test_day") |>
+  filter(str_sub(test_day,-1,-1) == test_id) |>
+  select(-test_day) |> 
+  pivot_longer(cols = c("test_a_type", "test_b_type"), values_to = "type", names_to = "test_type") |>
+  filter(str_sub(test_type,6,6) == test_id) |>
+  select(-test_type) |> 
+  mutate(key = LETTERS[row_number()]) |> 
+  select(test_id, type) |>
+  unique() |>
+  kable()
+```
+:::
+
+::: {.callout-note collapse=true}
+## Click to get answers..
+
+**Example 1**: The data does not contains a single-column primary key. Each observation is unique and identifiable by the (compound) primary key `subject_id` + `test_id`. 
+
+**Example 2**: The data does contains a single-column primary key (`key`), but all non-key variables do not 'depend' on the _entire_ primary key. Specifically, the variable `type` is contingent exclusively on `test_id`. In this example, there is a very simple $1:1$ relationship between `test_id` and `type` (test 'a' is always 'Blood', and vice versa), but that need not be the case, and the test type could include other information than simply Blood versus Saliva.
+
+**Example 3**: This data structure conforms to Second Normal Form (2NF) data structure. The data has been split into two separate tables, with no redundancy of information. The variable `test_id` in the first, larger data set, corresponds to `test_id` in the second, smaller data set. This structure makes data much easier to survey, when the amount of data grows large.
+:::
+
+[^1]: [https://www.linkedin.com/pulse/understanding-normalization-databases-crucial-step-data-organization-dwnwc](https://www.linkedin.com/pulse/understanding-normalization-databases-crucial-step-data-organization-dwnwc)
+
+## Further Normal Forms
+
+For most statistical analyses
+
+See online for further details about data normalization - e.g. [this link](https://www.linkedin.com/pulse/understanding-normalization-databases-crucial-step-data-organization-dwnwc)
+
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>

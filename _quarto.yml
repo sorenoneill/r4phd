@@ -39,10 +39,14 @@ website:
           - qmd_gui/rstudio_introduction_to_gui_1_en.qmd
           - qmd_gui/rstudio_introduction_to_gui_2_en.qmd
           - qmd_gui/rstudio_introduction_to_gui_console_en.qmd
+      - section: "Data structure"
+        contents:
+          - qmd_data_structure/tidy_data_en.qmd
       - section: "Manuscript workflow"
         contents:
-          - qmd_load_data/intro_load_data_en.qmd
-          - qmd_inspect_data/intro_inspect_data_en.qmd
+          - qmd_manuscript_workflow/load_data_en.qmd
+          - qmd_manuscript_workflow/inspect_data_en.qmd
+          - qmd_manuscript_workflow/wrangle_data_en.qmd
       - section: "R course exercises"
         contents: 
         - section: "Day 1"

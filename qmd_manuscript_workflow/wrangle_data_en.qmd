@@ -1,0 +1,159 @@
+---
+title: "Wrangle your data into tidy data"
+description: |
+  A few words about _tidy data_ structure...
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: "2023-11-26"
+#output:
+#  distill::distill_article:
+#    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+categories:
+  - RStudio
+  - Inspection
+creative_commons: CC BY
+format: html
+editor: source
+number-sections: true
+---
+
+```{r}
+#| echo: false
+#| warning: false
+library(tidyverse)
+library(kableExtra)
+```
+
+
+-------
+
+> It is often said that 80% of data analysis is spent on the cleaning and preparing data.
+
+... a quote from the [tidyverse page on _tidy data_](https://tidyr.tidyverse.org/articles/tidy-data.html).
+
+Please consider the differences between:
+
+* Raw data
+* Cleaned data
+* Wrangled data
+    
+The **raw** data is the unadulterated version of the data as collected by what-ever-means: questionnaires, machine readings, etc. You should always a version of the raw data in its original form.     
+
+**Cleaned** data is the raw data after the minimal changes necessary to make data useful. For example, deletion of observations which are flawed due to apparatus malfunction, or data entry mistakes, and deletion of variables that were never collected. The process whereby the raw data is cleaned should be scripted (coded) to ensure, that it is repeatable and documented.
+
+The cleaned data probably needs to be **wrangled** into a shape (and content) appropriate for analyses. For example, a wrangled data set may include only specific observations of specific variables relevant to a given analysis, in a format/shape suited for that analysis. This should also be scripted to ensure, that it is repeatable and documented.
+
+The link to the [tidyverse page on _tidy data_](https://tidyr.tidyverse.org/articles/tidy-data.html) provides a lot of information about _tidy data_, but the central principle is, that with _tidy data_:
+
+* Every column is a variable.
+* Every row is an observation.
+* Every cell is a single value.
+
+On the following three tabs, you can see three examples of the same data set, structured in different ways. Look at each of them ....
+
+```{r}
+#| echo: false
+#| warning: false
+
+df <- data.frame(id = 1:10, test_a = sample(1:1000, 10), test_b = sample(1:1000,10), day_of_test_a = sample(c("MON", "TUE", "WED", "THU", "FRI"), 10, replace=TRUE), day_of_test_b = sample(c("MON", "TUE", "WED", "THU", "FRI"), 10, replace=TRUE))
+```
+
+::: panel-tabset
+
+### Structure example 1
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-one
+#| tbl-cap: "A"
+
+df |> kable()
+```
+
+### Structure example 2
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-two
+#| tbl-cap: "B"
+ 
+df |> 
+  pivot_longer(cols = c("test_a", "test_b"), values_to = "measurement", names_to = "test") |> 
+  mutate(test = str_sub(test, -1,-1)) |>
+  pivot_longer(cols = c("day_of_test_a", "day_of_test_b"), values_to = "day", names_to = "test_day") |>
+  mutate(test_day = str_sub(test_day,-1,-1)) |>
+  filter(test == test_day) |>
+  select(id, test, day, measurement) |>
+  kable()
+```
+
+### Structure example 3
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: tbl-three
+#| tbl-cap: "C"
+
+df |> 
+  mutate(test_a = paste0(test_a, ",", day_of_test_a)) |>
+  mutate(test_b = paste0(test_b, ",", day_of_test_b)) |>
+  select(id, test_a, test_b) |>
+  kable()
+```
+:::
+
+Consider the three different ways to structure the data in light of:
+
+
+* Every column is a variable.
+* Every row is an observation.
+* Every cell is a single value.
+
+Which of the three structures/tables represent the most _tidy data_ structure?
+
+::: {.callout-note collapse=true}
+## Click to get a hint..
+
+Ask yourself, what different _information_ (i.e. data points) constitutes each _observation_ ... and how the _relation_ between data points specifies such an observation?
+:::
+
+::: {.callout-note collapse=true}
+## Click to get some answers..
+
+It is obvious, that each of the numerical values (measurements) represent _data_, but so does 'id' and the 'weekday', as well as the test 'a' versus 'b'. 
+
+It seems from the data, that each _id_ was tested on two occasions ('a' and 'b') which fell on different weekdays. 
+
+In other words, 'id', 'test', 'weekday' and 'measurement' all represent information (data points) which together constitutes an _observation_, but they are related in a non-trivial manner:
+
+For instance, the data id=`r df[1,1]`, test=a, weekday=`r df[1,4]` and measurement=`r df[1,2]` are related as a single observation. 
+
+The most tidy data structure is thus @tbl-two above: Each row represents an observation and each column represents one of the variables that constitutes each observation. Note however, that there is no one-single variable that is unique per observation -- instead, it is the combination of variables that constitutes a unique identifier (in this case, 'id' and 'test' in combination). This is not a problem!
+
+@tbl-one may seem more intuitive, and probably easier to set up as a data entry interface, e.g. a spreadsheet. At first impression, it also has the benefit that each line includes a unique identifier (id). In reality however, this data structure stores some information (e.g. whether the test was 'a' and 'b') as column names, rather than as actual data in cells. @tbl-three is even more problematic, not only does it store data in the column names, it also stores multiple data points in each cell, and data of different types (numeric vs text) at that.
+
+:::
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
