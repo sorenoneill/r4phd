@@ -41,7 +41,7 @@ Please consider the differences between:
 * Cleaned data
 * Wrangled data
     
-The **raw** data is the unadulterated version of the data as collected by what-ever-means: questionnaires, machine readings, etc. You should always a version of the raw data in its original form.     
+The **raw** data is the unadulterated version of the data as collected by what-ever-means: questionnaires, machine readings, etc. You should always keep a version of the raw data in its original form.     
 
 **Cleaned** data is the raw data after the minimal changes necessary to make data useful. For example, deletion of observations which are flawed due to apparatus malfunction, or data entry mistakes, and deletion of variables that were never collected. The process whereby the raw data is cleaned should be scripted (coded) to ensure, that it is repeatable and documented.
 

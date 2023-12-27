@@ -42,6 +42,7 @@ website:
       - section: "Data structure"
         contents:
           - qmd_data_structure/tidy_data_en.qmd
+          - qmd_data_structure/normalization_of_data_en.qmd
       - section: "Manuscript workflow"
         contents:
           - qmd_manuscript_workflow/load_data_en.qmd

@@ -33,7 +33,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../qmd_manuscript_workflow/load_data_en.html" rel="next">
+<link href="../qmd_data_structure/normalization_of_data_en.html" rel="next">
 <link href="../qmd_gui/rstudio_introduction_to_gui_console_en.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -218,6 +218,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../qmd_data_structure/tidy_data_en.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Tidy data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_data_structure/normalization_of_data_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Normalization of data</span></a>
   </div>
 </li>
       </ul>
@@ -559,7 +565,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Cleaned data</li>
 <li>Wrangled data</li>
 </ul>
-<p>The <strong>raw</strong> data is the unadulterated version of the data as collected by what-ever-means: questionnaires, machine readings, etc. You should always a version of the raw data in its original form.</p>
+<p>The <strong>raw</strong> data is the unadulterated version of the data as collected by what-ever-means: questionnaires, machine readings, etc. You should always keep a version of the raw data in its original form.</p>
 <p><strong>Cleaned</strong> data is the raw data after the minimal changes necessary to make data useful. For example, deletion of observations which are flawed due to apparatus malfunction, or data entry mistakes, and deletion of variables that were never collected. The process whereby the raw data is cleaned should be scripted (coded) to ensure, that it is repeatable and documented.</p>
 <p>The cleaned data probably needs to be <strong>wrangled</strong> into a shape (and content) appropriate for analyses. For example, a wrangled data set may include only specific observations of specific variables relevant to a given analysis, in a format/shape suited for that analysis. This should also be scripted to ensure, that it is repeatable and documented.</p>
 <p>The link to the <a href="https://tidyr.tidyverse.org/articles/tidy-data.html">tidyverse page on <em>tidy data</em></a> provides a lot of information about <em>tidy data</em>, but the central principle is, that with <em>tidy data</em>:</p>
@@ -590,73 +596,73 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">95</td>
-<td style="text-align: right;">784</td>
+<td style="text-align: right;">613</td>
+<td style="text-align: right;">285</td>
 <td style="text-align: left;">THU</td>
-<td style="text-align: left;">FRI</td>
+<td style="text-align: left;">THU</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">105</td>
-<td style="text-align: right;">489</td>
-<td style="text-align: left;">MON</td>
+<td style="text-align: right;">78</td>
+<td style="text-align: right;">418</td>
 <td style="text-align: left;">TUE</td>
+<td style="text-align: left;">MON</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">3</td>
-<td style="text-align: right;">434</td>
-<td style="text-align: right;">524</td>
-<td style="text-align: left;">FRI</td>
+<td style="text-align: right;">513</td>
+<td style="text-align: right;">741</td>
 <td style="text-align: left;">WED</td>
+<td style="text-align: left;">FRI</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">4</td>
-<td style="text-align: right;">172</td>
-<td style="text-align: right;">836</td>
-<td style="text-align: left;">MON</td>
-<td style="text-align: left;">WED</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">304</td>
-<td style="text-align: right;">204</td>
-<td style="text-align: left;">WED</td>
-<td style="text-align: left;">THU</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">35</td>
-<td style="text-align: right;">981</td>
-<td style="text-align: left;">THU</td>
-<td style="text-align: left;">MON</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">827</td>
-<td style="text-align: right;">208</td>
-<td style="text-align: left;">WED</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">530</td>
 <td style="text-align: left;">FRI</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">53</td>
-<td style="text-align: right;">375</td>
-<td style="text-align: left;">WED</td>
 <td style="text-align: left;">TUE</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">784</td>
-<td style="text-align: right;">824</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">165</td>
+<td style="text-align: left;">WED</td>
+<td style="text-align: left;">MON</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">325</td>
+<td style="text-align: right;">862</td>
+<td style="text-align: left;">TUE</td>
 <td style="text-align: left;">FRI</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">812</td>
+<td style="text-align: right;">292</td>
+<td style="text-align: left;">TUE</td>
+<td style="text-align: left;">TUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">945</td>
+<td style="text-align: right;">310</td>
+<td style="text-align: left;">THU</td>
+<td style="text-align: left;">MON</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: right;">395</td>
+<td style="text-align: left;">THU</td>
 <td style="text-align: left;">TUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">10</td>
-<td style="text-align: right;">412</td>
-<td style="text-align: right;">399</td>
+<td style="text-align: right;">792</td>
+<td style="text-align: right;">797</td>
 <td style="text-align: left;">TUE</td>
-<td style="text-align: left;">TUE</td>
+<td style="text-align: left;">MON</td>
 </tr>
 </tbody>
 </table>
@@ -685,121 +691,121 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">a</td>
 <td style="text-align: left;">THU</td>
-<td style="text-align: right;">95</td>
+<td style="text-align: right;">613</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">b</td>
-<td style="text-align: left;">FRI</td>
-<td style="text-align: right;">784</td>
+<td style="text-align: left;">THU</td>
+<td style="text-align: right;">285</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">2</td>
 <td style="text-align: left;">a</td>
-<td style="text-align: left;">MON</td>
-<td style="text-align: right;">105</td>
+<td style="text-align: left;">TUE</td>
+<td style="text-align: right;">78</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2</td>
+<td style="text-align: left;">b</td>
+<td style="text-align: left;">MON</td>
+<td style="text-align: right;">418</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">a</td>
+<td style="text-align: left;">WED</td>
+<td style="text-align: right;">513</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">b</td>
+<td style="text-align: left;">FRI</td>
+<td style="text-align: right;">741</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">a</td>
+<td style="text-align: left;">FRI</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
 <td style="text-align: left;">b</td>
 <td style="text-align: left;">TUE</td>
-<td style="text-align: right;">489</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">3</td>
-<td style="text-align: left;">a</td>
-<td style="text-align: left;">FRI</td>
-<td style="text-align: right;">434</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">3</td>
-<td style="text-align: left;">b</td>
-<td style="text-align: left;">WED</td>
-<td style="text-align: right;">524</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">a</td>
-<td style="text-align: left;">MON</td>
-<td style="text-align: right;">172</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">b</td>
-<td style="text-align: left;">WED</td>
-<td style="text-align: right;">836</td>
+<td style="text-align: right;">530</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">5</td>
 <td style="text-align: left;">a</td>
 <td style="text-align: left;">WED</td>
-<td style="text-align: right;">304</td>
+<td style="text-align: right;">30</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">5</td>
 <td style="text-align: left;">b</td>
-<td style="text-align: left;">THU</td>
-<td style="text-align: right;">204</td>
+<td style="text-align: left;">MON</td>
+<td style="text-align: right;">165</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">6</td>
 <td style="text-align: left;">a</td>
-<td style="text-align: left;">THU</td>
-<td style="text-align: right;">35</td>
+<td style="text-align: left;">TUE</td>
+<td style="text-align: right;">325</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">6</td>
+<td style="text-align: left;">b</td>
+<td style="text-align: left;">FRI</td>
+<td style="text-align: right;">862</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">a</td>
+<td style="text-align: left;">TUE</td>
+<td style="text-align: right;">812</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">b</td>
+<td style="text-align: left;">TUE</td>
+<td style="text-align: right;">292</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">8</td>
+<td style="text-align: left;">a</td>
+<td style="text-align: left;">THU</td>
+<td style="text-align: right;">945</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
 <td style="text-align: left;">b</td>
 <td style="text-align: left;">MON</td>
-<td style="text-align: right;">981</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">7</td>
-<td style="text-align: left;">a</td>
-<td style="text-align: left;">WED</td>
-<td style="text-align: right;">827</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">7</td>
-<td style="text-align: left;">b</td>
-<td style="text-align: left;">FRI</td>
-<td style="text-align: right;">208</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">8</td>
-<td style="text-align: left;">a</td>
-<td style="text-align: left;">WED</td>
-<td style="text-align: right;">53</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">8</td>
-<td style="text-align: left;">b</td>
-<td style="text-align: left;">TUE</td>
-<td style="text-align: right;">375</td>
+<td style="text-align: right;">310</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">9</td>
 <td style="text-align: left;">a</td>
-<td style="text-align: left;">FRI</td>
-<td style="text-align: right;">784</td>
+<td style="text-align: left;">THU</td>
+<td style="text-align: right;">47</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">9</td>
 <td style="text-align: left;">b</td>
 <td style="text-align: left;">TUE</td>
-<td style="text-align: right;">824</td>
+<td style="text-align: right;">395</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">10</td>
 <td style="text-align: left;">a</td>
 <td style="text-align: left;">TUE</td>
-<td style="text-align: right;">412</td>
+<td style="text-align: right;">792</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">10</td>
 <td style="text-align: left;">b</td>
-<td style="text-align: left;">TUE</td>
-<td style="text-align: right;">399</td>
+<td style="text-align: left;">MON</td>
+<td style="text-align: right;">797</td>
 </tr>
 </tbody>
 </table>
@@ -825,53 +831,53 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">1</td>
-<td style="text-align: left;">95,THU</td>
-<td style="text-align: left;">784,FRI</td>
+<td style="text-align: left;">613,THU</td>
+<td style="text-align: left;">285,THU</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2</td>
-<td style="text-align: left;">105,MON</td>
-<td style="text-align: left;">489,TUE</td>
+<td style="text-align: left;">78,TUE</td>
+<td style="text-align: left;">418,MON</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">3</td>
-<td style="text-align: left;">434,FRI</td>
-<td style="text-align: left;">524,WED</td>
+<td style="text-align: left;">513,WED</td>
+<td style="text-align: left;">741,FRI</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">4</td>
-<td style="text-align: left;">172,MON</td>
-<td style="text-align: left;">836,WED</td>
+<td style="text-align: left;">3,FRI</td>
+<td style="text-align: left;">530,TUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">5</td>
-<td style="text-align: left;">304,WED</td>
-<td style="text-align: left;">204,THU</td>
+<td style="text-align: left;">30,WED</td>
+<td style="text-align: left;">165,MON</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">6</td>
-<td style="text-align: left;">35,THU</td>
-<td style="text-align: left;">981,MON</td>
+<td style="text-align: left;">325,TUE</td>
+<td style="text-align: left;">862,FRI</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">7</td>
-<td style="text-align: left;">827,WED</td>
-<td style="text-align: left;">208,FRI</td>
+<td style="text-align: left;">812,TUE</td>
+<td style="text-align: left;">292,TUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">8</td>
-<td style="text-align: left;">53,WED</td>
-<td style="text-align: left;">375,TUE</td>
+<td style="text-align: left;">945,THU</td>
+<td style="text-align: left;">310,MON</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">9</td>
-<td style="text-align: left;">784,FRI</td>
-<td style="text-align: left;">824,TUE</td>
+<td style="text-align: left;">47,THU</td>
+<td style="text-align: left;">395,TUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">10</td>
-<td style="text-align: left;">412,TUE</td>
-<td style="text-align: left;">399,TUE</td>
+<td style="text-align: left;">792,TUE</td>
+<td style="text-align: left;">797,MON</td>
 </tr>
 </tbody>
 </table>
@@ -921,7 +927,7 @@ Click to get some answers..
 <p>It is obvious, that each of the numerical values (measurements) represent <em>data</em>, but so does ‘id’ and the ‘weekday’, as well as the test ‘a’ versus ‘b’.</p>
 <p>It seems from the data, that each <em>id</em> was tested on two occasions (‘a’ and ‘b’) which fell on different weekdays.</p>
 <p>In other words, ‘id’, ‘test’, ‘weekday’ and ‘measurement’ all represent information (data points) which together constitutes an <em>observation</em>, but they are related in a non-trivial manner:</p>
-<p>For instance, the data id=1, test=a, weekday=THU and measurement=95 are related as a single observation.</p>
+<p>For instance, the data id=1, test=a, weekday=THU and measurement=613 are related as a single observation.</p>
 <p>The most tidy data structure is thus <a href="#tbl-two">Table&nbsp;2</a> above: Each row represents an observation and each column represents one of the variables that constitutes each observation. Note however, that there is no one-single variable that is unique per observation – instead, it is the combination of variables that constitutes a unique identifier (in this case, ‘id’ and ‘test’ in combination). This is not a problem!</p>
 <p><a href="#tbl-one">Table&nbsp;1</a> may seem more intuitive, and probably easier to set up as a data entry interface, e.g.&nbsp;a spreadsheet. At first impression, it also has the benefit that each line includes a unique identifier (id). In reality however, this data structure stores some information (e.g.&nbsp;whether the test was ‘a’ and ‘b’) as column names, rather than as actual data in cells. <a href="#tbl-three">Table&nbsp;3</a> is even more problematic, not only does it store data in the column names, it also stores multiple data points in each cell, and data of different types (numeric vs text) at that.</p>
 </div>
@@ -1175,8 +1181,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../qmd_manuscript_workflow/load_data_en.html" class="pagination-link">
-        <span class="nav-page-text">Loading data</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../qmd_data_structure/normalization_of_data_en.html" class="pagination-link">
+        <span class="nav-page-text">Normalization of data</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
