@@ -33,7 +33,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../qmd_manuscript_workflow/load_data_en.html" rel="next">
+<link href="../qmd_data_structure/base_r_data_types_en.html" rel="next">
 <link href="../qmd_data_structure/tidy_data_en.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -228,6 +228,15 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Normalization of data</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_data_structure/base_r_data_types_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Base R - data types</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+ <span class="menu-text">qmd_data_structure/base_r_missing_data_en.qmds</span>
+  </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -484,29 +493,6 @@ ul.task-list li input[type="checkbox"] {
   </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="false">
- <span class="menu-text">Base R</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../qmd_base_r/base_r_data_types_en.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Base R - data types</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../qmd_base_r/base_r_missing_data_en.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Base R - missing data</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
@@ -565,16 +551,17 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <hr>
-<p>To manage your data effectively and safely, it is a good idea to know a little bit about database <em>normalization</em>: “Normalization is a process that database designers use to eliminate data redundancy, improve data integrity, and enhance the overall efficiency of the database.” <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>Observing a <a href="qmd_data_structure/tidy_data_en">tidy data format</a> is sufficient for most purposes.</p>
+<p>A more comprehensive way to approach data structure is called data <em>normalization</em>: “Normalization is a process that database designers use to eliminate data redundancy, improve data integrity, and enhance the overall efficiency of the database.” <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <p>The <em>normalization</em> of data has nothing to do with the normal (Gaussian) distribution.</p>
-<p>Data normalization it is not a case of either/or – data can be normalized to different levels, depending on your needs.</p>
+<p>Data normalization it is not a case of either/or – data can be normalized to different levels, depending on your needs. In this text, we will deal only with levels 1 and 2.</p>
 <section id="first-normal-form-1nf" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="first-normal-form-1nf"><span class="header-section-number">1</span> First Normal Form – 1NF</h2>
-<p>The First Normal Form requires that:</p>
+<p>The First Normal Form (of data normalization) is roughly similar to the Tidy data format and requires that:</p>
 <ul>
 <li>Each column represents one variable</li>
 <li>Each variable contains <em>atomic</em> values – i.e.&nbsp;the smallest (indivisible) unit of information</li>
-<li>Variables to not contain arrays of atomic values</li>
+<li>Variables do not contain arrays of atomic values</li>
 <li>The data set does not contain repeating groups of similar variables</li>
 </ul>
 <p>Look at the different examples of structures of the same data on the tabs below in light of the requirements for First Normal Form data listed above:</p>
@@ -601,55 +588,55 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">John</td>
-<td style="text-align: left;">684,911</td>
-<td style="text-align: left;">MON,MON</td>
+<td style="text-align: left;">767,331</td>
+<td style="text-align: left;">MON,TUE</td>
 <td style="text-align: left;">a,b</td>
 <td style="text-align: left;">Blood,Saliva</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2</td>
 <td style="text-align: left;">Billy</td>
-<td style="text-align: left;">101,567</td>
-<td style="text-align: left;">THU,THU</td>
+<td style="text-align: left;">926,866</td>
+<td style="text-align: left;">THU,MON</td>
 <td style="text-align: left;">a,b</td>
 <td style="text-align: left;">Blood,Saliva</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">3</td>
 <td style="text-align: left;">Joan</td>
-<td style="text-align: left;">454,571</td>
-<td style="text-align: left;">WED,TUE</td>
+<td style="text-align: left;">163,775</td>
+<td style="text-align: left;">FRI,THU</td>
 <td style="text-align: left;">a,b</td>
 <td style="text-align: left;">Blood,Saliva</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">4</td>
 <td style="text-align: left;">Clare</td>
-<td style="text-align: left;">761,754</td>
-<td style="text-align: left;">WED,TUE</td>
+<td style="text-align: left;">343,474</td>
+<td style="text-align: left;">TUE,TUE</td>
 <td style="text-align: left;">a,b</td>
 <td style="text-align: left;">Blood,Saliva</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">5</td>
 <td style="text-align: left;">Peter</td>
-<td style="text-align: left;">613,437</td>
-<td style="text-align: left;">THU,WED</td>
+<td style="text-align: left;">722,692</td>
+<td style="text-align: left;">MON,MON</td>
 <td style="text-align: left;">a,b</td>
 <td style="text-align: left;">Blood,Saliva</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">6</td>
 <td style="text-align: left;">Maggy</td>
-<td style="text-align: left;">529,428</td>
-<td style="text-align: left;">MON,MON</td>
+<td style="text-align: left;">609,742</td>
+<td style="text-align: left;">FRI,MON</td>
 <td style="text-align: left;">a,b</td>
 <td style="text-align: left;">Blood,Saliva</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">7</td>
 <td style="text-align: left;">Jack</td>
-<td style="text-align: left;">772,831</td>
+<td style="text-align: left;">417,661</td>
 <td style="text-align: left;">TUE,WED</td>
 <td style="text-align: left;">a,b</td>
 <td style="text-align: left;">Blood,Saliva</td>
@@ -657,24 +644,24 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td style="text-align: right;">8</td>
 <td style="text-align: left;">Suzy</td>
-<td style="text-align: left;">16,979</td>
-<td style="text-align: left;">TUE,MON</td>
+<td style="text-align: left;">222,261</td>
+<td style="text-align: left;">MON,WED</td>
 <td style="text-align: left;">a,b</td>
 <td style="text-align: left;">Blood,Saliva</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">9</td>
 <td style="text-align: left;">Billy</td>
-<td style="text-align: left;">486,857</td>
-<td style="text-align: left;">TUE,WED</td>
+<td style="text-align: left;">492,811</td>
+<td style="text-align: left;">TUE,FRI</td>
 <td style="text-align: left;">a,b</td>
 <td style="text-align: left;">Blood,Saliva</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">10</td>
 <td style="text-align: left;">Mary</td>
-<td style="text-align: left;">265,189</td>
-<td style="text-align: left;">THU,WED</td>
+<td style="text-align: left;">645,225</td>
+<td style="text-align: left;">FRI,FRI</td>
 <td style="text-align: left;">a,b</td>
 <td style="text-align: left;">Blood,Saliva</td>
 </tr>
@@ -685,6 +672,7 @@ ul.task-list li input[type="checkbox"] {
 
 </div>
 </div>
+<p>More than one value is stored per cell. In other words, each cell consists of an array (or <em>a series of</em>) values, separated by a comma. This does not conform to 1NF.</p>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div class="cell">
@@ -704,62 +692,62 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">John</td>
-<td style="text-align: left;">684 (MON : Blood)</td>
-<td style="text-align: left;">911 (MON : Saliva)</td>
+<td style="text-align: left;">767 (MON : Blood)</td>
+<td style="text-align: left;">331 (TUE : Saliva)</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2</td>
 <td style="text-align: left;">Billy</td>
-<td style="text-align: left;">101 (THU : Blood)</td>
-<td style="text-align: left;">567 (THU : Saliva)</td>
+<td style="text-align: left;">926 (THU : Blood)</td>
+<td style="text-align: left;">866 (MON : Saliva)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">3</td>
 <td style="text-align: left;">Joan</td>
-<td style="text-align: left;">454 (WED : Blood)</td>
-<td style="text-align: left;">571 (TUE : Saliva)</td>
+<td style="text-align: left;">163 (FRI : Blood)</td>
+<td style="text-align: left;">775 (THU : Saliva)</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">4</td>
 <td style="text-align: left;">Clare</td>
-<td style="text-align: left;">761 (WED : Blood)</td>
-<td style="text-align: left;">754 (TUE : Saliva)</td>
+<td style="text-align: left;">343 (TUE : Blood)</td>
+<td style="text-align: left;">474 (TUE : Saliva)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">5</td>
 <td style="text-align: left;">Peter</td>
-<td style="text-align: left;">613 (THU : Blood)</td>
-<td style="text-align: left;">437 (WED : Saliva)</td>
+<td style="text-align: left;">722 (MON : Blood)</td>
+<td style="text-align: left;">692 (MON : Saliva)</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">6</td>
 <td style="text-align: left;">Maggy</td>
-<td style="text-align: left;">529 (MON : Blood)</td>
-<td style="text-align: left;">428 (MON : Saliva)</td>
+<td style="text-align: left;">609 (FRI : Blood)</td>
+<td style="text-align: left;">742 (MON : Saliva)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">7</td>
 <td style="text-align: left;">Jack</td>
-<td style="text-align: left;">772 (TUE : Blood)</td>
-<td style="text-align: left;">831 (WED : Saliva)</td>
+<td style="text-align: left;">417 (TUE : Blood)</td>
+<td style="text-align: left;">661 (WED : Saliva)</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">8</td>
 <td style="text-align: left;">Suzy</td>
-<td style="text-align: left;">16 (TUE : Blood)</td>
-<td style="text-align: left;">979 (MON : Saliva)</td>
+<td style="text-align: left;">222 (MON : Blood)</td>
+<td style="text-align: left;">261 (WED : Saliva)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">9</td>
 <td style="text-align: left;">Billy</td>
-<td style="text-align: left;">486 (TUE : Blood)</td>
-<td style="text-align: left;">857 (WED : Saliva)</td>
+<td style="text-align: left;">492 (TUE : Blood)</td>
+<td style="text-align: left;">811 (FRI : Saliva)</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">10</td>
 <td style="text-align: left;">Mary</td>
-<td style="text-align: left;">265 (THU : Blood)</td>
-<td style="text-align: left;">189 (WED : Saliva)</td>
+<td style="text-align: left;">645 (FRI : Blood)</td>
+<td style="text-align: left;">225 (FRI : Saliva)</td>
 </tr>
 </tbody>
 </table>
@@ -768,6 +756,7 @@ ul.task-list li input[type="checkbox"] {
 
 </div>
 </div>
+<p>The data is not <em>atomic</em>, i.e.&nbsp;indivisible. The cells of columns ‘test_a’ and ‘test_b’ contain three different values (measurement, weekday, and type). This does not conform to 1NF.</p>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <div class="cell">
@@ -791,39 +780,39 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">John</td>
-<td style="text-align: right;">684</td>
-<td style="text-align: right;">911</td>
+<td style="text-align: right;">767</td>
+<td style="text-align: right;">331</td>
 <td style="text-align: left;">MON</td>
-<td style="text-align: left;">MON</td>
+<td style="text-align: left;">TUE</td>
 <td style="text-align: left;">Blood</td>
 <td style="text-align: left;">Saliva</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2</td>
 <td style="text-align: left;">Billy</td>
-<td style="text-align: right;">101</td>
-<td style="text-align: right;">567</td>
+<td style="text-align: right;">926</td>
+<td style="text-align: right;">866</td>
 <td style="text-align: left;">THU</td>
-<td style="text-align: left;">THU</td>
+<td style="text-align: left;">MON</td>
 <td style="text-align: left;">Blood</td>
 <td style="text-align: left;">Saliva</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">3</td>
 <td style="text-align: left;">Joan</td>
-<td style="text-align: right;">454</td>
-<td style="text-align: right;">571</td>
-<td style="text-align: left;">WED</td>
-<td style="text-align: left;">TUE</td>
+<td style="text-align: right;">163</td>
+<td style="text-align: right;">775</td>
+<td style="text-align: left;">FRI</td>
+<td style="text-align: left;">THU</td>
 <td style="text-align: left;">Blood</td>
 <td style="text-align: left;">Saliva</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">4</td>
 <td style="text-align: left;">Clare</td>
-<td style="text-align: right;">761</td>
-<td style="text-align: right;">754</td>
-<td style="text-align: left;">WED</td>
+<td style="text-align: right;">343</td>
+<td style="text-align: right;">474</td>
+<td style="text-align: left;">TUE</td>
 <td style="text-align: left;">TUE</td>
 <td style="text-align: left;">Blood</td>
 <td style="text-align: left;">Saliva</td>
@@ -831,19 +820,19 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td style="text-align: right;">5</td>
 <td style="text-align: left;">Peter</td>
-<td style="text-align: right;">613</td>
-<td style="text-align: right;">437</td>
-<td style="text-align: left;">THU</td>
-<td style="text-align: left;">WED</td>
+<td style="text-align: right;">722</td>
+<td style="text-align: right;">692</td>
+<td style="text-align: left;">MON</td>
+<td style="text-align: left;">MON</td>
 <td style="text-align: left;">Blood</td>
 <td style="text-align: left;">Saliva</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">6</td>
 <td style="text-align: left;">Maggy</td>
-<td style="text-align: right;">529</td>
-<td style="text-align: right;">428</td>
-<td style="text-align: left;">MON</td>
+<td style="text-align: right;">609</td>
+<td style="text-align: right;">742</td>
+<td style="text-align: left;">FRI</td>
 <td style="text-align: left;">MON</td>
 <td style="text-align: left;">Blood</td>
 <td style="text-align: left;">Saliva</td>
@@ -851,8 +840,8 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td style="text-align: right;">7</td>
 <td style="text-align: left;">Jack</td>
-<td style="text-align: right;">772</td>
-<td style="text-align: right;">831</td>
+<td style="text-align: right;">417</td>
+<td style="text-align: right;">661</td>
 <td style="text-align: left;">TUE</td>
 <td style="text-align: left;">WED</td>
 <td style="text-align: left;">Blood</td>
@@ -861,30 +850,30 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td style="text-align: right;">8</td>
 <td style="text-align: left;">Suzy</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">979</td>
-<td style="text-align: left;">TUE</td>
+<td style="text-align: right;">222</td>
+<td style="text-align: right;">261</td>
 <td style="text-align: left;">MON</td>
+<td style="text-align: left;">WED</td>
 <td style="text-align: left;">Blood</td>
 <td style="text-align: left;">Saliva</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">9</td>
 <td style="text-align: left;">Billy</td>
-<td style="text-align: right;">486</td>
-<td style="text-align: right;">857</td>
+<td style="text-align: right;">492</td>
+<td style="text-align: right;">811</td>
 <td style="text-align: left;">TUE</td>
-<td style="text-align: left;">WED</td>
+<td style="text-align: left;">FRI</td>
 <td style="text-align: left;">Blood</td>
 <td style="text-align: left;">Saliva</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">10</td>
 <td style="text-align: left;">Mary</td>
-<td style="text-align: right;">265</td>
-<td style="text-align: right;">189</td>
-<td style="text-align: left;">THU</td>
-<td style="text-align: left;">WED</td>
+<td style="text-align: right;">645</td>
+<td style="text-align: right;">225</td>
+<td style="text-align: left;">FRI</td>
+<td style="text-align: left;">FRI</td>
 <td style="text-align: left;">Blood</td>
 <td style="text-align: left;">Saliva</td>
 </tr>
@@ -895,6 +884,7 @@ ul.task-list li input[type="checkbox"] {
 
 </div>
 </div>
+<p>The data <em>is</em> atomic, and there <em>is</em> only one data point per cell. However, the data set contains repeating groups of similar variables (‘a’ and ‘b’). This does not conform to 1NF.</p>
 </div>
 <div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
 <div class="cell">
@@ -919,15 +909,15 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: left;">a</td>
 <td style="text-align: left;">Blood</td>
 <td style="text-align: left;">MON</td>
-<td style="text-align: right;">684</td>
+<td style="text-align: right;">767</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">John</td>
 <td style="text-align: left;">b</td>
 <td style="text-align: left;">Saliva</td>
-<td style="text-align: left;">MON</td>
-<td style="text-align: right;">911</td>
+<td style="text-align: left;">TUE</td>
+<td style="text-align: right;">331</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">2</td>
@@ -935,71 +925,71 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: left;">a</td>
 <td style="text-align: left;">Blood</td>
 <td style="text-align: left;">THU</td>
-<td style="text-align: right;">101</td>
+<td style="text-align: right;">926</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2</td>
 <td style="text-align: left;">Billy</td>
 <td style="text-align: left;">b</td>
 <td style="text-align: left;">Saliva</td>
-<td style="text-align: left;">THU</td>
-<td style="text-align: right;">567</td>
+<td style="text-align: left;">MON</td>
+<td style="text-align: right;">866</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">3</td>
 <td style="text-align: left;">Joan</td>
 <td style="text-align: left;">a</td>
 <td style="text-align: left;">Blood</td>
-<td style="text-align: left;">WED</td>
-<td style="text-align: right;">454</td>
+<td style="text-align: left;">FRI</td>
+<td style="text-align: right;">163</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">3</td>
 <td style="text-align: left;">Joan</td>
 <td style="text-align: left;">b</td>
 <td style="text-align: left;">Saliva</td>
-<td style="text-align: left;">TUE</td>
-<td style="text-align: right;">571</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">Clare</td>
-<td style="text-align: left;">a</td>
-<td style="text-align: left;">Blood</td>
-<td style="text-align: left;">WED</td>
-<td style="text-align: right;">761</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">Clare</td>
-<td style="text-align: left;">b</td>
-<td style="text-align: left;">Saliva</td>
-<td style="text-align: left;">TUE</td>
-<td style="text-align: right;">754</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">Peter</td>
-<td style="text-align: left;">a</td>
-<td style="text-align: left;">Blood</td>
 <td style="text-align: left;">THU</td>
-<td style="text-align: right;">613</td>
+<td style="text-align: right;">775</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Clare</td>
+<td style="text-align: left;">a</td>
+<td style="text-align: left;">Blood</td>
+<td style="text-align: left;">TUE</td>
+<td style="text-align: right;">343</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Clare</td>
+<td style="text-align: left;">b</td>
+<td style="text-align: left;">Saliva</td>
+<td style="text-align: left;">TUE</td>
+<td style="text-align: right;">474</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">Peter</td>
+<td style="text-align: left;">a</td>
+<td style="text-align: left;">Blood</td>
+<td style="text-align: left;">MON</td>
+<td style="text-align: right;">722</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">5</td>
 <td style="text-align: left;">Peter</td>
 <td style="text-align: left;">b</td>
 <td style="text-align: left;">Saliva</td>
-<td style="text-align: left;">WED</td>
-<td style="text-align: right;">437</td>
+<td style="text-align: left;">MON</td>
+<td style="text-align: right;">692</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">6</td>
 <td style="text-align: left;">Maggy</td>
 <td style="text-align: left;">a</td>
 <td style="text-align: left;">Blood</td>
-<td style="text-align: left;">MON</td>
-<td style="text-align: right;">529</td>
+<td style="text-align: left;">FRI</td>
+<td style="text-align: right;">609</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">6</td>
@@ -1007,7 +997,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: left;">b</td>
 <td style="text-align: left;">Saliva</td>
 <td style="text-align: left;">MON</td>
-<td style="text-align: right;">428</td>
+<td style="text-align: right;">742</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">7</td>
@@ -1015,7 +1005,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: left;">a</td>
 <td style="text-align: left;">Blood</td>
 <td style="text-align: left;">TUE</td>
-<td style="text-align: right;">772</td>
+<td style="text-align: right;">417</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">7</td>
@@ -1023,23 +1013,23 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: left;">b</td>
 <td style="text-align: left;">Saliva</td>
 <td style="text-align: left;">WED</td>
-<td style="text-align: right;">831</td>
+<td style="text-align: right;">661</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">8</td>
 <td style="text-align: left;">Suzy</td>
 <td style="text-align: left;">a</td>
 <td style="text-align: left;">Blood</td>
-<td style="text-align: left;">TUE</td>
-<td style="text-align: right;">16</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">8</td>
-<td style="text-align: left;">Suzy</td>
-<td style="text-align: left;">b</td>
-<td style="text-align: left;">Saliva</td>
 <td style="text-align: left;">MON</td>
-<td style="text-align: right;">979</td>
+<td style="text-align: right;">222</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: left;">Suzy</td>
+<td style="text-align: left;">b</td>
+<td style="text-align: left;">Saliva</td>
+<td style="text-align: left;">WED</td>
+<td style="text-align: right;">261</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">9</td>
@@ -1047,31 +1037,31 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: left;">a</td>
 <td style="text-align: left;">Blood</td>
 <td style="text-align: left;">TUE</td>
-<td style="text-align: right;">486</td>
+<td style="text-align: right;">492</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">9</td>
 <td style="text-align: left;">Billy</td>
 <td style="text-align: left;">b</td>
 <td style="text-align: left;">Saliva</td>
-<td style="text-align: left;">WED</td>
-<td style="text-align: right;">857</td>
+<td style="text-align: left;">FRI</td>
+<td style="text-align: right;">811</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">10</td>
 <td style="text-align: left;">Mary</td>
 <td style="text-align: left;">a</td>
 <td style="text-align: left;">Blood</td>
-<td style="text-align: left;">THU</td>
-<td style="text-align: right;">265</td>
+<td style="text-align: left;">FRI</td>
+<td style="text-align: right;">645</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">10</td>
 <td style="text-align: left;">Mary</td>
 <td style="text-align: left;">b</td>
 <td style="text-align: left;">Saliva</td>
-<td style="text-align: left;">WED</td>
-<td style="text-align: right;">189</td>
+<td style="text-align: left;">FRI</td>
+<td style="text-align: right;">225</td>
 </tr>
 </tbody>
 </table>
@@ -1080,25 +1070,7 @@ ul.task-list li input[type="checkbox"] {
 
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Click to get answers..
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><strong>Example 1</strong>: More than one value is stored per cell. In other words, each cell consists of an array (or <em>a series of</em>) values, separated by a comma.</p>
-<p><strong>Example 2</strong>: The data is not <em>atomic</em>, i.e.&nbsp;indivisible. The cells of columns ‘test_a’ and ‘test_b’ contain two different values (measurement and weekday).</p>
-<p><strong>Example 3</strong>: The data is atomic, and there is only one data point per cell. However, the data set contains repeating groups of similar variables (‘a’ and ‘b’).</p>
-<p><strong>Example 4</strong>: This data conforms to the First Normal Form (1NF) data structure.</p>
+<p>This data conforms to the First Normal Form (1NF) data structure.</p>
 </div>
 </div>
 </div>
@@ -1136,15 +1108,15 @@ Click to get answers..
 <td style="text-align: left;">a</td>
 <td style="text-align: left;">Blood</td>
 <td style="text-align: left;">MON</td>
-<td style="text-align: right;">684</td>
+<td style="text-align: right;">767</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">John</td>
 <td style="text-align: left;">b</td>
 <td style="text-align: left;">Saliva</td>
-<td style="text-align: left;">MON</td>
-<td style="text-align: right;">911</td>
+<td style="text-align: left;">TUE</td>
+<td style="text-align: right;">331</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">2</td>
@@ -1152,71 +1124,71 @@ Click to get answers..
 <td style="text-align: left;">a</td>
 <td style="text-align: left;">Blood</td>
 <td style="text-align: left;">THU</td>
-<td style="text-align: right;">101</td>
+<td style="text-align: right;">926</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2</td>
 <td style="text-align: left;">Billy</td>
 <td style="text-align: left;">b</td>
 <td style="text-align: left;">Saliva</td>
-<td style="text-align: left;">THU</td>
-<td style="text-align: right;">567</td>
+<td style="text-align: left;">MON</td>
+<td style="text-align: right;">866</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">3</td>
 <td style="text-align: left;">Joan</td>
 <td style="text-align: left;">a</td>
 <td style="text-align: left;">Blood</td>
-<td style="text-align: left;">WED</td>
-<td style="text-align: right;">454</td>
+<td style="text-align: left;">FRI</td>
+<td style="text-align: right;">163</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">3</td>
 <td style="text-align: left;">Joan</td>
 <td style="text-align: left;">b</td>
 <td style="text-align: left;">Saliva</td>
-<td style="text-align: left;">TUE</td>
-<td style="text-align: right;">571</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">Clare</td>
-<td style="text-align: left;">a</td>
-<td style="text-align: left;">Blood</td>
-<td style="text-align: left;">WED</td>
-<td style="text-align: right;">761</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">Clare</td>
-<td style="text-align: left;">b</td>
-<td style="text-align: left;">Saliva</td>
-<td style="text-align: left;">TUE</td>
-<td style="text-align: right;">754</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">Peter</td>
-<td style="text-align: left;">a</td>
-<td style="text-align: left;">Blood</td>
 <td style="text-align: left;">THU</td>
-<td style="text-align: right;">613</td>
+<td style="text-align: right;">775</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Clare</td>
+<td style="text-align: left;">a</td>
+<td style="text-align: left;">Blood</td>
+<td style="text-align: left;">TUE</td>
+<td style="text-align: right;">343</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Clare</td>
+<td style="text-align: left;">b</td>
+<td style="text-align: left;">Saliva</td>
+<td style="text-align: left;">TUE</td>
+<td style="text-align: right;">474</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">Peter</td>
+<td style="text-align: left;">a</td>
+<td style="text-align: left;">Blood</td>
+<td style="text-align: left;">MON</td>
+<td style="text-align: right;">722</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">5</td>
 <td style="text-align: left;">Peter</td>
 <td style="text-align: left;">b</td>
 <td style="text-align: left;">Saliva</td>
-<td style="text-align: left;">WED</td>
-<td style="text-align: right;">437</td>
+<td style="text-align: left;">MON</td>
+<td style="text-align: right;">692</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">6</td>
 <td style="text-align: left;">Maggy</td>
 <td style="text-align: left;">a</td>
 <td style="text-align: left;">Blood</td>
-<td style="text-align: left;">MON</td>
-<td style="text-align: right;">529</td>
+<td style="text-align: left;">FRI</td>
+<td style="text-align: right;">609</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">6</td>
@@ -1224,7 +1196,7 @@ Click to get answers..
 <td style="text-align: left;">b</td>
 <td style="text-align: left;">Saliva</td>
 <td style="text-align: left;">MON</td>
-<td style="text-align: right;">428</td>
+<td style="text-align: right;">742</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">7</td>
@@ -1232,7 +1204,7 @@ Click to get answers..
 <td style="text-align: left;">a</td>
 <td style="text-align: left;">Blood</td>
 <td style="text-align: left;">TUE</td>
-<td style="text-align: right;">772</td>
+<td style="text-align: right;">417</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">7</td>
@@ -1240,23 +1212,23 @@ Click to get answers..
 <td style="text-align: left;">b</td>
 <td style="text-align: left;">Saliva</td>
 <td style="text-align: left;">WED</td>
-<td style="text-align: right;">831</td>
+<td style="text-align: right;">661</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">8</td>
 <td style="text-align: left;">Suzy</td>
 <td style="text-align: left;">a</td>
 <td style="text-align: left;">Blood</td>
-<td style="text-align: left;">TUE</td>
-<td style="text-align: right;">16</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">8</td>
-<td style="text-align: left;">Suzy</td>
-<td style="text-align: left;">b</td>
-<td style="text-align: left;">Saliva</td>
 <td style="text-align: left;">MON</td>
-<td style="text-align: right;">979</td>
+<td style="text-align: right;">222</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: left;">Suzy</td>
+<td style="text-align: left;">b</td>
+<td style="text-align: left;">Saliva</td>
+<td style="text-align: left;">WED</td>
+<td style="text-align: right;">261</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">9</td>
@@ -1264,31 +1236,31 @@ Click to get answers..
 <td style="text-align: left;">a</td>
 <td style="text-align: left;">Blood</td>
 <td style="text-align: left;">TUE</td>
-<td style="text-align: right;">486</td>
+<td style="text-align: right;">492</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">9</td>
 <td style="text-align: left;">Billy</td>
 <td style="text-align: left;">b</td>
 <td style="text-align: left;">Saliva</td>
-<td style="text-align: left;">WED</td>
-<td style="text-align: right;">857</td>
+<td style="text-align: left;">FRI</td>
+<td style="text-align: right;">811</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">10</td>
 <td style="text-align: left;">Mary</td>
 <td style="text-align: left;">a</td>
 <td style="text-align: left;">Blood</td>
-<td style="text-align: left;">THU</td>
-<td style="text-align: right;">265</td>
+<td style="text-align: left;">FRI</td>
+<td style="text-align: right;">645</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">10</td>
 <td style="text-align: left;">Mary</td>
 <td style="text-align: left;">b</td>
 <td style="text-align: left;">Saliva</td>
-<td style="text-align: left;">WED</td>
-<td style="text-align: right;">189</td>
+<td style="text-align: left;">FRI</td>
+<td style="text-align: right;">225</td>
 </tr>
 </tbody>
 </table>
@@ -1297,6 +1269,7 @@ Click to get answers..
 
 </div>
 </div>
+<p>The data does not contain a single-column primary key. Each observation is unique and identifiable by the (compound) primary key <code>subject_id</code> + <code>test_id</code>.</p>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <div class="cell">
@@ -1323,7 +1296,7 @@ Click to get answers..
 <td style="text-align: left;">a</td>
 <td style="text-align: left;">Blood</td>
 <td style="text-align: left;">MON</td>
-<td style="text-align: right;">684</td>
+<td style="text-align: right;">767</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">B</td>
@@ -1331,8 +1304,8 @@ Click to get answers..
 <td style="text-align: left;">John</td>
 <td style="text-align: left;">b</td>
 <td style="text-align: left;">Saliva</td>
-<td style="text-align: left;">MON</td>
-<td style="text-align: right;">911</td>
+<td style="text-align: left;">TUE</td>
+<td style="text-align: right;">331</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">C</td>
@@ -1341,7 +1314,7 @@ Click to get answers..
 <td style="text-align: left;">a</td>
 <td style="text-align: left;">Blood</td>
 <td style="text-align: left;">THU</td>
-<td style="text-align: right;">101</td>
+<td style="text-align: right;">926</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">D</td>
@@ -1349,8 +1322,8 @@ Click to get answers..
 <td style="text-align: left;">Billy</td>
 <td style="text-align: left;">b</td>
 <td style="text-align: left;">Saliva</td>
-<td style="text-align: left;">THU</td>
-<td style="text-align: right;">567</td>
+<td style="text-align: left;">MON</td>
+<td style="text-align: right;">866</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">E</td>
@@ -1358,8 +1331,8 @@ Click to get answers..
 <td style="text-align: left;">Joan</td>
 <td style="text-align: left;">a</td>
 <td style="text-align: left;">Blood</td>
-<td style="text-align: left;">WED</td>
-<td style="text-align: right;">454</td>
+<td style="text-align: left;">FRI</td>
+<td style="text-align: right;">163</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">F</td>
@@ -1367,8 +1340,8 @@ Click to get answers..
 <td style="text-align: left;">Joan</td>
 <td style="text-align: left;">b</td>
 <td style="text-align: left;">Saliva</td>
-<td style="text-align: left;">TUE</td>
-<td style="text-align: right;">571</td>
+<td style="text-align: left;">THU</td>
+<td style="text-align: right;">775</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">G</td>
@@ -1376,8 +1349,8 @@ Click to get answers..
 <td style="text-align: left;">Clare</td>
 <td style="text-align: left;">a</td>
 <td style="text-align: left;">Blood</td>
-<td style="text-align: left;">WED</td>
-<td style="text-align: right;">761</td>
+<td style="text-align: left;">TUE</td>
+<td style="text-align: right;">343</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">H</td>
@@ -1386,7 +1359,7 @@ Click to get answers..
 <td style="text-align: left;">b</td>
 <td style="text-align: left;">Saliva</td>
 <td style="text-align: left;">TUE</td>
-<td style="text-align: right;">754</td>
+<td style="text-align: right;">474</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">I</td>
@@ -1394,8 +1367,8 @@ Click to get answers..
 <td style="text-align: left;">Peter</td>
 <td style="text-align: left;">a</td>
 <td style="text-align: left;">Blood</td>
-<td style="text-align: left;">THU</td>
-<td style="text-align: right;">613</td>
+<td style="text-align: left;">MON</td>
+<td style="text-align: right;">722</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">J</td>
@@ -1403,8 +1376,8 @@ Click to get answers..
 <td style="text-align: left;">Peter</td>
 <td style="text-align: left;">b</td>
 <td style="text-align: left;">Saliva</td>
-<td style="text-align: left;">WED</td>
-<td style="text-align: right;">437</td>
+<td style="text-align: left;">MON</td>
+<td style="text-align: right;">692</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">K</td>
@@ -1412,8 +1385,8 @@ Click to get answers..
 <td style="text-align: left;">Maggy</td>
 <td style="text-align: left;">a</td>
 <td style="text-align: left;">Blood</td>
-<td style="text-align: left;">MON</td>
-<td style="text-align: right;">529</td>
+<td style="text-align: left;">FRI</td>
+<td style="text-align: right;">609</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">L</td>
@@ -1422,7 +1395,7 @@ Click to get answers..
 <td style="text-align: left;">b</td>
 <td style="text-align: left;">Saliva</td>
 <td style="text-align: left;">MON</td>
-<td style="text-align: right;">428</td>
+<td style="text-align: right;">742</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">M</td>
@@ -1431,7 +1404,7 @@ Click to get answers..
 <td style="text-align: left;">a</td>
 <td style="text-align: left;">Blood</td>
 <td style="text-align: left;">TUE</td>
-<td style="text-align: right;">772</td>
+<td style="text-align: right;">417</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">N</td>
@@ -1440,7 +1413,7 @@ Click to get answers..
 <td style="text-align: left;">b</td>
 <td style="text-align: left;">Saliva</td>
 <td style="text-align: left;">WED</td>
-<td style="text-align: right;">831</td>
+<td style="text-align: right;">661</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">O</td>
@@ -1448,8 +1421,8 @@ Click to get answers..
 <td style="text-align: left;">Suzy</td>
 <td style="text-align: left;">a</td>
 <td style="text-align: left;">Blood</td>
-<td style="text-align: left;">TUE</td>
-<td style="text-align: right;">16</td>
+<td style="text-align: left;">MON</td>
+<td style="text-align: right;">222</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">P</td>
@@ -1457,8 +1430,8 @@ Click to get answers..
 <td style="text-align: left;">Suzy</td>
 <td style="text-align: left;">b</td>
 <td style="text-align: left;">Saliva</td>
-<td style="text-align: left;">MON</td>
-<td style="text-align: right;">979</td>
+<td style="text-align: left;">WED</td>
+<td style="text-align: right;">261</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Q</td>
@@ -1467,7 +1440,7 @@ Click to get answers..
 <td style="text-align: left;">a</td>
 <td style="text-align: left;">Blood</td>
 <td style="text-align: left;">TUE</td>
-<td style="text-align: right;">486</td>
+<td style="text-align: right;">492</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">R</td>
@@ -1475,8 +1448,8 @@ Click to get answers..
 <td style="text-align: left;">Billy</td>
 <td style="text-align: left;">b</td>
 <td style="text-align: left;">Saliva</td>
-<td style="text-align: left;">WED</td>
-<td style="text-align: right;">857</td>
+<td style="text-align: left;">FRI</td>
+<td style="text-align: right;">811</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">S</td>
@@ -1484,8 +1457,8 @@ Click to get answers..
 <td style="text-align: left;">Mary</td>
 <td style="text-align: left;">a</td>
 <td style="text-align: left;">Blood</td>
-<td style="text-align: left;">THU</td>
-<td style="text-align: right;">265</td>
+<td style="text-align: left;">FRI</td>
+<td style="text-align: right;">645</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">T</td>
@@ -1493,8 +1466,8 @@ Click to get answers..
 <td style="text-align: left;">Mary</td>
 <td style="text-align: left;">b</td>
 <td style="text-align: left;">Saliva</td>
-<td style="text-align: left;">WED</td>
-<td style="text-align: right;">189</td>
+<td style="text-align: left;">FRI</td>
+<td style="text-align: right;">225</td>
 </tr>
 </tbody>
 </table>
@@ -1503,10 +1476,10 @@ Click to get answers..
 
 </div>
 </div>
+<p>The data does contains a single-column primary key (<code>key</code>), but all non-key variables do not ‘depend’ on the <em>entire</em> primary key. Specifically, the variable <code>type</code> is contingent exclusively on <code>test_id</code>. In this example, there is a very simple <span class="math inline">\(1:1\)</span> relationship between <code>test_id</code> and <code>type</code> (test ‘a’ is always ‘Blood’, and vice versa), but that need not be the case, and the test type could include other information than simply Blood versus Saliva.</p>
 </div>
 <div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
-<section id="data-frame-1" class="level4" data-number="2.0.1">
-<h4 data-number="2.0.1" class="anchored" data-anchor-id="data-frame-1"><span class="header-section-number">2.0.1</span> Data frame #1</h4>
+<p><strong>Data frame #1</strong></p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="tbl-2NFc1" class="anchored">
@@ -1529,15 +1502,15 @@ Click to get answers..
 <td style="text-align: left;">John</td>
 <td style="text-align: left;">a</td>
 <td style="text-align: left;">MON</td>
-<td style="text-align: right;">684</td>
+<td style="text-align: right;">767</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">B</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">John</td>
 <td style="text-align: left;">b</td>
-<td style="text-align: left;">MON</td>
-<td style="text-align: right;">911</td>
+<td style="text-align: left;">TUE</td>
+<td style="text-align: right;">331</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">C</td>
@@ -1545,39 +1518,39 @@ Click to get answers..
 <td style="text-align: left;">Billy</td>
 <td style="text-align: left;">a</td>
 <td style="text-align: left;">THU</td>
-<td style="text-align: right;">101</td>
+<td style="text-align: right;">926</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">D</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: left;">Billy</td>
 <td style="text-align: left;">b</td>
-<td style="text-align: left;">THU</td>
-<td style="text-align: right;">567</td>
+<td style="text-align: left;">MON</td>
+<td style="text-align: right;">866</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">E</td>
 <td style="text-align: right;">3</td>
 <td style="text-align: left;">Joan</td>
 <td style="text-align: left;">a</td>
-<td style="text-align: left;">WED</td>
-<td style="text-align: right;">454</td>
+<td style="text-align: left;">FRI</td>
+<td style="text-align: right;">163</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">F</td>
 <td style="text-align: right;">3</td>
 <td style="text-align: left;">Joan</td>
 <td style="text-align: left;">b</td>
-<td style="text-align: left;">TUE</td>
-<td style="text-align: right;">571</td>
+<td style="text-align: left;">THU</td>
+<td style="text-align: right;">775</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">G</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: left;">Clare</td>
 <td style="text-align: left;">a</td>
-<td style="text-align: left;">WED</td>
-<td style="text-align: right;">761</td>
+<td style="text-align: left;">TUE</td>
+<td style="text-align: right;">343</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">H</td>
@@ -1585,31 +1558,31 @@ Click to get answers..
 <td style="text-align: left;">Clare</td>
 <td style="text-align: left;">b</td>
 <td style="text-align: left;">TUE</td>
-<td style="text-align: right;">754</td>
+<td style="text-align: right;">474</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">I</td>
 <td style="text-align: right;">5</td>
 <td style="text-align: left;">Peter</td>
 <td style="text-align: left;">a</td>
-<td style="text-align: left;">THU</td>
-<td style="text-align: right;">613</td>
+<td style="text-align: left;">MON</td>
+<td style="text-align: right;">722</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">J</td>
 <td style="text-align: right;">5</td>
 <td style="text-align: left;">Peter</td>
 <td style="text-align: left;">b</td>
-<td style="text-align: left;">WED</td>
-<td style="text-align: right;">437</td>
+<td style="text-align: left;">MON</td>
+<td style="text-align: right;">692</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">K</td>
 <td style="text-align: right;">6</td>
 <td style="text-align: left;">Maggy</td>
 <td style="text-align: left;">a</td>
-<td style="text-align: left;">MON</td>
-<td style="text-align: right;">529</td>
+<td style="text-align: left;">FRI</td>
+<td style="text-align: right;">609</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">L</td>
@@ -1617,7 +1590,7 @@ Click to get answers..
 <td style="text-align: left;">Maggy</td>
 <td style="text-align: left;">b</td>
 <td style="text-align: left;">MON</td>
-<td style="text-align: right;">428</td>
+<td style="text-align: right;">742</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">M</td>
@@ -1625,7 +1598,7 @@ Click to get answers..
 <td style="text-align: left;">Jack</td>
 <td style="text-align: left;">a</td>
 <td style="text-align: left;">TUE</td>
-<td style="text-align: right;">772</td>
+<td style="text-align: right;">417</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">N</td>
@@ -1633,23 +1606,23 @@ Click to get answers..
 <td style="text-align: left;">Jack</td>
 <td style="text-align: left;">b</td>
 <td style="text-align: left;">WED</td>
-<td style="text-align: right;">831</td>
+<td style="text-align: right;">661</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">O</td>
 <td style="text-align: right;">8</td>
 <td style="text-align: left;">Suzy</td>
 <td style="text-align: left;">a</td>
-<td style="text-align: left;">TUE</td>
-<td style="text-align: right;">16</td>
+<td style="text-align: left;">MON</td>
+<td style="text-align: right;">222</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">P</td>
 <td style="text-align: right;">8</td>
 <td style="text-align: left;">Suzy</td>
 <td style="text-align: left;">b</td>
-<td style="text-align: left;">MON</td>
-<td style="text-align: right;">979</td>
+<td style="text-align: left;">WED</td>
+<td style="text-align: right;">261</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Q</td>
@@ -1657,31 +1630,31 @@ Click to get answers..
 <td style="text-align: left;">Billy</td>
 <td style="text-align: left;">a</td>
 <td style="text-align: left;">TUE</td>
-<td style="text-align: right;">486</td>
+<td style="text-align: right;">492</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">R</td>
 <td style="text-align: right;">9</td>
 <td style="text-align: left;">Billy</td>
 <td style="text-align: left;">b</td>
-<td style="text-align: left;">WED</td>
-<td style="text-align: right;">857</td>
+<td style="text-align: left;">FRI</td>
+<td style="text-align: right;">811</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">S</td>
 <td style="text-align: right;">10</td>
 <td style="text-align: left;">Mary</td>
 <td style="text-align: left;">a</td>
-<td style="text-align: left;">THU</td>
-<td style="text-align: right;">265</td>
+<td style="text-align: left;">FRI</td>
+<td style="text-align: right;">645</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">T</td>
 <td style="text-align: right;">10</td>
 <td style="text-align: left;">Mary</td>
 <td style="text-align: left;">b</td>
-<td style="text-align: left;">WED</td>
-<td style="text-align: right;">189</td>
+<td style="text-align: left;">FRI</td>
+<td style="text-align: right;">225</td>
 </tr>
 </tbody>
 </table>
@@ -1690,9 +1663,7 @@ Click to get answers..
 
 </div>
 </div>
-</section>
-<section id="data-frame-2" class="level4" data-number="2.0.2">
-<h4 data-number="2.0.2" class="anchored" data-anchor-id="data-frame-2"><span class="header-section-number">2.0.2</span> Data frame #2</h4>
+<p><strong>Data frame #2</strong></p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="tbl-2NFc2" class="anchored">
@@ -1720,33 +1691,14 @@ Click to get answers..
 
 </div>
 </div>
-</section>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Click to get answers..
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><strong>Example 1</strong>: The data does not contains a single-column primary key. Each observation is unique and identifiable by the (compound) primary key <code>subject_id</code> + <code>test_id</code>.</p>
-<p><strong>Example 2</strong>: The data does contains a single-column primary key (<code>key</code>), but all non-key variables do not ‘depend’ on the <em>entire</em> primary key. Specifically, the variable <code>type</code> is contingent exclusively on <code>test_id</code>. In this example, there is a very simple <span class="math inline">\(1:1\)</span> relationship between <code>test_id</code> and <code>type</code> (test ‘a’ is always ‘Blood’, and vice versa), but that need not be the case, and the test type could include other information than simply Blood versus Saliva.</p>
-<p><strong>Example 3</strong>: This data structure conforms to Second Normal Form (2NF) data structure. The data has been split into two separate tables, with no redundancy of information. The variable <code>test_id</code> in the first, larger data set, corresponds to <code>test_id</code> in the second, smaller data set. This structure makes data much easier to survey, when the amount of data grows large.</p>
+<p>This data structure conforms to Second Normal Form (2NF) data structure. The data has been split into two separate tables, with no redundancy of information. The variable <code>test_id</code> in the first, larger data set, corresponds to <code>test_id</code> in the second, smaller data set. This structure makes data much easier to survey, when the amount of data grows large.</p>
 </div>
 </div>
 </div>
 </section>
 <section id="further-normal-forms" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="further-normal-forms"><span class="header-section-number">3</span> Further Normal Forms</h2>
-<p>For most statistical analyses</p>
-<p>See online for further details about data normalization - e.g.&nbsp;<a href="https://www.linkedin.com/pulse/understanding-normalization-databases-crucial-step-data-organization-dwnwc">this link</a></p>
+<p>For most statistical analyses 2NF will suffice. If your data set is very large and complex, requiring a relational database system, look online for further details about data normalization - e.g.&nbsp;<a href="https://www.linkedin.com/pulse/understanding-normalization-databases-crucial-step-data-organization-dwnwc">this link</a></p>
 <script src="https://giscus.app/client.js" data-repo="sorenoneill/r4phd" data-repo-id="R_kgDOJ9etDQ" data-category="Announcements" data-category-id="DIC_kwDOJ9etDc4CYApF" data-mapping="pathname" data-strict="0" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="bottom" data-theme="cobalt" data-lang="en" crossorigin="anonymous" async="">
 </script>
 
@@ -2002,8 +1954,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../qmd_manuscript_workflow/load_data_en.html" class="pagination-link">
-        <span class="nav-page-text">Loading data</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../qmd_data_structure/base_r_data_types_en.html" class="pagination-link">
+        <span class="nav-page-text">Base R - data types</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

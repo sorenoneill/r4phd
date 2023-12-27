@@ -135,7 +135,7 @@ In other words, 'id', 'test', 'weekday' and 'measurement' all represent informat
 
 For instance, the data id=`r df[1,1]`, test=a, weekday=`r df[1,4]` and measurement=`r df[1,2]` are related as a single observation. 
 
-The most tidy data structure is thus @tbl-two above: Each row represents an observation and each column represents one of the variables that constitutes each observation. Note however, that there is no one-single variable that is unique per observation -- instead, it is the combination of variables that constitutes a unique identifier (in this case, 'id' and 'test' in combination). This is not a problem!
+The most tidy data structure is thus @tbl-two above: Each row represents an observation and each column represents one of the variables that constitutes each observation. Note however, that there is no one-single variable that is unique per observation -- instead, it is the combination of variables that constitutes a unique identifier (in this case, 'id' and 'test' in combination). This is not necessarily a problem.
 
 @tbl-one may seem more intuitive, and probably easier to set up as a data entry interface, e.g. a spreadsheet. At first impression, it also has the benefit that each line includes a unique identifier (id). In reality however, this data structure stores some information (e.g. whether the test was 'a' and 'b') as column names, rather than as actual data in cells. @tbl-three is even more problematic, not only does it store data in the column names, it also stores multiple data points in each cell, and data of different types (numeric vs text) at that.
 

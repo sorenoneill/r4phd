@@ -38,19 +38,21 @@ df <- data.frame(subject_id = 1:10, subject_name = c("John", "Billy", "Joan", "C
 
 -------
 
-To manage your data effectively and safely, it is a good idea to know a little bit about database _normalization_: "Normalization is a process that database designers use to eliminate data redundancy, improve data integrity, and enhance the overall efficiency of the database." [^1]
+Observing a [tidy data format](qmd_data_structure/tidy_data_en) is sufficient for most purposes. 
+
+A more comprehensive way to approach data structure is called data _normalization_: "Normalization is a process that database designers use to eliminate data redundancy, improve data integrity, and enhance the overall efficiency of the database." [^1]
 
 The _normalization_ of data has nothing to do with the normal (Gaussian) distribution.
 
-Data normalization it is not a case of either/or -- data can be normalized to different levels, depending on your needs.
+Data normalization it is not a case of either/or -- data can be normalized to different levels, depending on your needs. In this text, we will deal only with levels 1 and 2.
 
 ## First Normal Form -- 1NF
 
-The First Normal Form requires that:
+The First Normal Form (of data normalization) is roughly similar to the Tidy data format and requires that:
 
 * Each column represents one variable
 * Each variable contains _atomic_ values -- i.e. the smallest (indivisible) unit of information
-* Variables to not contain arrays of atomic values
+* Variables do not contain arrays of atomic values
 * The data set does not contain repeating groups of similar variables
 
 Look at the different examples of structures of the same data on the tabs below in light of the requirements for First Normal Form data listed above:
@@ -74,6 +76,8 @@ df |>
   kable()
 ```
 
+More than one value is stored per cell. In other words, each cell consists of an array (or _a series of_) values, separated by a comma. This does not conform to 1NF.
+
 ### Example 2
 
 ```{r}
@@ -89,6 +93,8 @@ df |>
   kable()
 ```
 
+The data is not _atomic_, i.e. indivisible. The cells of columns 'test_a' and 'test_b' contain three different values (measurement, weekday, and type). This does not conform to 1NF.
+
 ### Example 3
 
 ```{r}
@@ -99,6 +105,8 @@ df |>
 
 df |> kable()
 ```
+
+The data _is_ atomic, and there _is_ only one data point per cell. However, the data set contains repeating groups of similar variables ('a' and 'b'). This does not conform to 1NF.
 
 ### Example 4
 
@@ -121,18 +129,8 @@ df |>
   kable()
 ```
 
-:::
+This data conforms to the First Normal Form (1NF) data structure.
 
-::: {.callout-note collapse=true}
-## Click to get answers..
-
-**Example 1**: More than one value is stored per cell. In other words, each cell consists of an array (or _a series of_) values, separated by a comma. 
-
-**Example 2**: The data is not _atomic_, i.e. indivisible. The cells of columns 'test_a' and 'test_b' contain two different values (measurement and weekday).
-
-**Example 3**: The data is atomic, and there is only one data point per cell. However, the data set contains repeating groups of similar variables ('a' and 'b').
-
-**Example 4**: This data conforms to the First Normal Form (1NF) data structure.
 :::
 
 ## Second Normal Form -- 2NF
@@ -164,6 +162,8 @@ df |>
   kable()
 ```
 
+The data does not contain a single-column primary key. Each observation is unique and identifiable by the (compound) primary key `subject_id` + `test_id`. 
+
 ### Example B
 
 ```{r}
@@ -187,9 +187,11 @@ df |>
   
 ```
 
+The data does contains a single-column primary key (`key`), but all non-key variables do not 'depend' on the _entire_ primary key. Specifically, the variable `type` is contingent exclusively on `test_id`. In this example, there is a very simple $1:1$ relationship between `test_id` and `type` (test 'a' is always 'Blood', and vice versa), but that need not be the case, and the test type could include other information than simply Blood versus Saliva.
+
 ### Example C
 
-#### Data frame #1
+**Data frame #1**
 
 ```{r}
 #| echo: false
@@ -212,7 +214,7 @@ df |>
   kable()
 ```
 
-#### Data frame #2
+**Data frame #2**
 
 ```{r}
 #| echo: false
@@ -234,25 +236,18 @@ df |>
   unique() |>
   kable()
 ```
+
+This data structure conforms to Second Normal Form (2NF) data structure. The data has been split into two separate tables, with no redundancy of information. The variable `test_id` in the first, larger data set, corresponds to `test_id` in the second, smaller data set. This structure makes data much easier to survey, when the amount of data grows large.
+
 :::
 
-::: {.callout-note collapse=true}
-## Click to get answers..
 
-**Example 1**: The data does not contains a single-column primary key. Each observation is unique and identifiable by the (compound) primary key `subject_id` + `test_id`. 
-
-**Example 2**: The data does contains a single-column primary key (`key`), but all non-key variables do not 'depend' on the _entire_ primary key. Specifically, the variable `type` is contingent exclusively on `test_id`. In this example, there is a very simple $1:1$ relationship between `test_id` and `type` (test 'a' is always 'Blood', and vice versa), but that need not be the case, and the test type could include other information than simply Blood versus Saliva.
-
-**Example 3**: This data structure conforms to Second Normal Form (2NF) data structure. The data has been split into two separate tables, with no redundancy of information. The variable `test_id` in the first, larger data set, corresponds to `test_id` in the second, smaller data set. This structure makes data much easier to survey, when the amount of data grows large.
-:::
 
 [^1]: [https://www.linkedin.com/pulse/understanding-normalization-databases-crucial-step-data-organization-dwnwc](https://www.linkedin.com/pulse/understanding-normalization-databases-crucial-step-data-organization-dwnwc)
 
 ## Further Normal Forms
 
-For most statistical analyses
-
-See online for further details about data normalization - e.g. [this link](https://www.linkedin.com/pulse/understanding-normalization-databases-crucial-step-data-organization-dwnwc)
+For most statistical analyses 2NF will suffice. If your data set is very large and complex, requiring a relational database system, look online for further details about data normalization - e.g. [this link](https://www.linkedin.com/pulse/understanding-normalization-databases-crucial-step-data-organization-dwnwc)
 
 <script src="https://giscus.app/client.js"
         data-repo="sorenoneill/r4phd"
