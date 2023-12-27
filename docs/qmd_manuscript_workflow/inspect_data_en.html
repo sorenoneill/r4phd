@@ -7,9 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Søren O’Neill">
-<meta name="dcterms.date" content="2023-12-27">
+<meta name="dcterms.date" content="2023-11-26">
+<meta name="description" content="Making sure your data is what you think it is">
 
-<title>R4phd - Base R - data types</title>
+<title>R4phd - Inspect your data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,8 +67,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../qmd_base_r/base_r_missing_data_en.html" rel="next">
-<link href="../qmd_rrr/reproducible_research_collaboration_en.html" rel="prev">
+<link href="../qmd_manuscript_workflow/wrangle_data_en.html" rel="next">
+<link href="../qmd_manuscript_workflow/load_data_en.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -124,7 +125,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../qmd_base_r/base_r_data_types_en.html">Base R</a></li><li class="breadcrumb-item"><a href="../qmd_base_r/base_r_data_types_en.html">Base R - data types</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../qmd_manuscript_workflow/load_data_en.html">Manuscript workflow</a></li><li class="breadcrumb-item"><a href="../qmd_manuscript_workflow/inspect_data_en.html">Inspect your data</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -253,17 +254,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Tidy data</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_data_structure/normalization_of_data_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Normalization of data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_data_structure/base_r_data_types_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Base R - data types</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_data_structure/base_r_missing_data_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Base R - missing data</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
  <span class="menu-text">Manuscript workflow</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../qmd_manuscript_workflow/load_data_en.html" class="sidebar-item-text sidebar-link">
@@ -271,8 +290,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
           <li class="sidebar-item">
- <span class="menu-text">qmd_manuscript_workflow/inspect_data_en.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_manuscript_workflow/inspect_data_en.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Inspect your data</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../qmd_manuscript_workflow/wrangle_data_en.html" class="sidebar-item-text sidebar-link">
@@ -509,29 +531,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="true">
- <span class="menu-text">Base R</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../qmd_base_r/base_r_data_types_en.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Base R - data types</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../qmd_base_r/base_r_missing_data_en.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Base R - missing data</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
@@ -542,15 +541,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#data-types---why-it-matters" id="toc-data-types---why-it-matters" class="nav-link active" data-scroll-target="#data-types---why-it-matters"><span class="header-section-number">1</span> Data types - why it matters</a>
+  <li><a href="#data-structure" id="toc-data-structure" class="nav-link active" data-scroll-target="#data-structure"><span class="header-section-number">1</span> Data structure</a>
   <ul class="collapse">
-  <li><a href="#logical-or-boolean" id="toc-logical-or-boolean" class="nav-link" data-scroll-target="#logical-or-boolean"><span class="header-section-number">1.1</span> Logical (or boolean)</a></li>
-  <li><a href="#integer" id="toc-integer" class="nav-link" data-scroll-target="#integer"><span class="header-section-number">1.2</span> Integer</a></li>
-  <li><a href="#numeric" id="toc-numeric" class="nav-link" data-scroll-target="#numeric"><span class="header-section-number">1.3</span> Numeric</a></li>
-  <li><a href="#complex" id="toc-complex" class="nav-link" data-scroll-target="#complex"><span class="header-section-number">1.4</span> Complex</a></li>
-  <li><a href="#character" id="toc-character" class="nav-link" data-scroll-target="#character"><span class="header-section-number">1.5</span> Character</a></li>
-  <li><a href="#raw" id="toc-raw" class="nav-link" data-scroll-target="#raw"><span class="header-section-number">1.6</span> Raw</a></li>
+  <li><a href="#names" id="toc-names" class="nav-link" data-scroll-target="#names"><span class="header-section-number">1.1</span> Names</a></li>
+  <li><a href="#structure" id="toc-structure" class="nav-link" data-scroll-target="#structure"><span class="header-section-number">1.2</span> Structure</a></li>
   </ul></li>
+  <li><a href="#data-content" id="toc-data-content" class="nav-link" data-scroll-target="#data-content"><span class="header-section-number">2</span> Data content</a>
+  <ul class="collapse">
+  <li><a href="#inspect-the-head-of-the-data" id="toc-inspect-the-head-of-the-data" class="nav-link" data-scroll-target="#inspect-the-head-of-the-data"><span class="header-section-number">2.1</span> Inspect the head of the data</a></li>
+  <li><a href="#look-for-missing-values" id="toc-look-for-missing-values" class="nav-link" data-scroll-target="#look-for-missing-values"><span class="header-section-number">2.2</span> Look for missing values</a></li>
+  <li><a href="#look-at-value-ranges" id="toc-look-at-value-ranges" class="nav-link" data-scroll-target="#look-at-value-ranges"><span class="header-section-number">2.3</span> Look at value ranges</a></li>
+  </ul></li>
+  <li><a href="#manually-cleaning-data" id="toc-manually-cleaning-data" class="nav-link" data-scroll-target="#manually-cleaning-data"><span class="header-section-number">3</span> Manually cleaning data</a></li>
   </ul>
 </nav>
     </div>
@@ -559,9 +561,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Base R - data types</h1>
-</div>
+<h1 class="title">Inspect your data</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">RStudio</div>
+    <div class="quarto-category">Inspection</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    <p>Making sure your data is what you think it is</p>
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -569,14 +580,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Søren O’Neill </p>
+             <p><a href="www.oneill.dk">Søren O’Neill</a> </p>
           </div>
   </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">December 27, 2023</p>
+      <p class="date">November 26, 2023</p>
     </div>
   </div>
   
@@ -586,134 +597,214 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="data-types---why-it-matters" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Data types - why it matters</h1>
-<p>R is constructed to work with a number of <em>basic</em> data types:</p>
-<ul>
-<li>logical : TRUE or FALSE</li>
-<li>integer : whole numbers</li>
-<li>numeric : decimal numbers</li>
-<li>complex : complex numbers</li>
-<li>character : alphabetic and other characters</li>
-<li>raw : byte data</li>
-</ul>
-<p>It is important to use the right data type for your data management and analyses.</p>
-<p><strong>Note</strong> The listed data types above are <em>basic</em> data types and R offers many other combined and more complex data types.</p>
-<p>It is also important to <em>know</em> the type of the data you are working with, otherwise you may get confusing output. A common mistake is to load data from an external source (e.g.&nbsp;a .csv file) and <em>assume</em> that variable <em>x</em> was loaded as a character string, but actually it was loaded as a factor. If in doubt, check out <code>class()</code> and <code>str()</code> functions.</p>
-<p>Consider the following code and resulting plot:</p>
+<hr>
+<p>Many new R users (and quite a few experienced ones, too) have spent a lot of time scratching their heads, because they <em>thought</em> they knew how their data was structured, only to find it was not.</p>
+<p>It is a very good idea, once data has been loaded into memory, to spend a little time inspecting it more carefully.</p>
+<section id="data-structure" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Data structure</h1>
+<section id="names" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="names"><span class="header-section-number">1.1</span> Names</h2>
+<p>The function <code>names()</code> provides the names of the variables in an R data.frame or a list. For instance, on this page, we make us of a simple data frame called ‘df’:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x=</span>year, <span class="at">y=</span>hwy)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "id"              "age"             "department"      "passport_stamps"</code></pre>
+</div>
+</div>
+<p>The <code>names()</code> tells us that ‘df’ contains four columns called ‘id’, ‘age’, etc. The <code>names()</code> function will not provides meaningful information about vectors, as they have no named constituents.</p>
+<p><code>names()</code> can alse be used to define the names of a data frame. What do you think the following code does?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Id"</span>, <span class="st">"Age"</span>, <span class="st">"Department"</span>, <span class="st">"Stamps"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="structure" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="structure"><span class="header-section-number">1.2</span> Structure</h2>
+<p>R also provides the function <code>str()</code> which details the structure of a variable. An example output of the <code>str()</code> function can look like this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   5 obs. of  4 variables:
+ $ id             : int  1 2 3 4 5
+ $ age            : num  23 43 32 NA 43
+ $ department     : chr  "Management" "Marketing" "Accounting" "Public relations" ...
+ $ passport_stamps:List of 5
+  ..$ : chr  "Norway" "Netherlands"
+  ..$ : NULL
+  ..$ : chr  "Uruguay" "Mexico" "Canada"
+  ..$ : chr "India"
+  ..$ : chr  "Kenya" "Botswana"</code></pre>
+</div>
+</div>
+<p>This output is somewhat more comprehensive and tells us that the variable ‘df’ is a data frame consisting of 5 observations (rows) of 4 variables (columns).</p>
+<p>Furthermore, we can see the data type and the first actual data points for each column – e.g.&nbsp;‘id’ is of type ‘int’ (integer).</p>
+<p>Perhaps, we expected the variable ‘department’ to be a factor rather than a type character. Let’s fix that:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">department =</span> <span class="fu">as.factor</span>(department))</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   5 obs. of  4 variables:
+ $ id             : int  1 2 3 4 5
+ $ age            : num  23 43 32 NA 43
+ $ department     : Factor w/ 4 levels "Accounting","Management",..: 2 3 1 4 1
+ $ passport_stamps:List of 5
+  ..$ : chr  "Norway" "Netherlands"
+  ..$ : NULL
+  ..$ : chr  "Uruguay" "Mexico" "Canada"
+  ..$ : chr "India"
+  ..$ : chr  "Kenya" "Botswana"</code></pre>
+</div>
+</div>
+<p>Notice, that the ‘department’ is now of type ‘Factor’ with 4 levels.</p>
+<p>Also notice the column ‘passport_stamps’ which is of type ‘list’.</p>
+</section>
+</section>
+<section id="data-content" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Data content</h1>
+<section id="inspect-the-head-of-the-data" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="inspect-the-head-of-the-data"><span class="header-section-number">2.1</span> Inspect the head of the data</h2>
+<p>The function <code>head()</code> simply lists the first 6 observations in a data frame or a vector. This is useful to get a first quick impression of the data at hand. The number of lines displayed can be specified in the function call, e.g.&nbsp;<code>head(data, n=10)</code>.</p>
+</section>
+<section id="look-for-missing-values" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="look-for-missing-values"><span class="header-section-number">2.2</span> Look for missing values</h2>
+<p>The function <code>is.na()</code> tests whether a given value is NA and returns TRUE or FALSE. If a data frame is passed to <code>is.na()</code> it will return a data frame of similar size with each cell being TRUE or FALSE. Look at this simple example</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df2<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">c1=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">c2=</span><span class="fu">sample</span>(LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">24</span>],<span class="dv">5</span>,<span class="cn">TRUE</span>), <span class="at">c3=</span>letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]) </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df2[<span class="dv">3</span>,<span class="dv">3</span>]<span class="ot">&lt;-</span><span class="cn">NA</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  c1 c2   c3
+1  1  B    a
+2  2  P    b
+3  3  G &lt;NA&gt;
+4  4  C    d
+5  5  K    e</code></pre>
+</div>
+</div>
+<p>We can now use the <code>is.na()</code> function to look for NA values:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(df2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        c1    c2    c3
+[1,] FALSE FALSE FALSE
+[2,] FALSE FALSE FALSE
+[3,] FALSE FALSE  TRUE
+[4,] FALSE FALSE FALSE
+[5,] FALSE FALSE FALSE</code></pre>
+</div>
+</div>
+<p>If the data frame is large and difficult to get a good overview of, we could also check for the presence of <em>any</em> NA’s and their location:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(df2) <span class="sc">|&gt;</span> <span class="fu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+<p>The code above works like this: the boolean values TRUE and FALSE will be regarded as integers 1 and 0 in any function that takes numerical input – thus the <code>sum()</code> function will add all the FALSE (0) and TRUE (1) values in the data frame and the result thus represents the number of observed NAs.</p>
+<p>If you were interested in finding the row and column of NA values, you could do it like so:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(<span class="fu">is.na</span>(df2) , <span class="at">arr.ind=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     row col
+[1,]   3   3</code></pre>
+</div>
+</div>
+<p>..or perhaps, if you want to check for NAs on a per-column basis:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="sc">|&gt;</span> <span class="fu">summarise</span>(<span class="fu">across</span>(c1<span class="sc">:</span>c3, <span class="sc">~</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(.x))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  c1 c2 c3
+1  0  0  1</code></pre>
+</div>
+</div>
+</section>
+<section id="look-at-value-ranges" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="look-at-value-ranges"><span class="header-section-number">2.3</span> Look at value ranges</h2>
+<p>Let us return to the data frame ‘df’ and look at the column ‘age’.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  23.00   29.75   37.50   35.25   43.00   43.00       1 </code></pre>
+</div>
+</div>
+<p>The function <code>summary()</code> gives us some summary statistics for the variable ‘age’, including the minimum and maximum values.</p>
+<p>Similarly, look at the output of <code>summary()</code> for the ‘department’ variable, which was a factor:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df<span class="sc">$</span>department)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Accounting       Management        Marketing Public relations 
+               2                1                1                1 </code></pre>
+</div>
+</div>
+<p>The <code>rstatix</code> package includes the function <code>get_summarys_stats</code> which will provide even more detailed summary data. Look at the ouput regarding the data frame <code>df</code> - notice, that it only includes the numerical variables/columns:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_summary_stats</span>(df) <span class="sc">|&gt;</span> <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="base_r_data_types_en_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>Now look at the revised code below and the changes it made to the plot:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">factor</span>(year), <span class="at">y=</span>hwy)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="base_r_data_types_en_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>In the first instance, the variable ‘year’ is a continuous numeric variable. That was not immediately obvious to us, but you could have used <code>str(mpg)</code> or <code>class(mpg$year)</code> to find out.</p>
-<p>In the second instance, the column <em>year</em> from the <em>mpg</em> dataframe was converted into a categorical factor using the <code>factor()</code> function.</p>
-<p>As you can see, this made quite a difference to the plot.</p>
-<section id="logical-or-boolean" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="logical-or-boolean"><span class="header-section-number">1.1</span> Logical (or boolean)</h2>
-<p>Can assumes the values of either <code>TRUE</code> or <code>FALSE</code>.</p>
-<p><strong>Note</strong> That logical values can also be regarded as <em>integer</em> values 1 and 0, corresponding to <code>TRUE</code> and <code>FALSE</code>.</p>
-<p>Look at this code and its output:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>a <span class="sc">+</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 4</code></pre>
-</div>
-</div>
-</section>
-<section id="integer" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="integer"><span class="header-section-number">1.2</span> Integer</h2>
-<p>Integers are whole natural numbers: -1, 0, 1, 2, etc.</p>
-<p>R handles data type conversions for you if necessary. So, for instance:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.integer</span>(<span class="dv">3</span>)<span class="sc">/</span><span class="fu">as.integer</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.5</code></pre>
-</div>
-</div>
-<p>Dividing the integer 3 with the integer 2 yields a decimal number (1.5) – R will handle such type conversions for you.</p>
-</section>
-<section id="numeric" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="numeric"><span class="header-section-number">1.3</span> Numeric</h2>
-<p>Numeric values are decimal points such as 2.33. In R, such numbers are stored as 64-bit values in computer memory, that means the limit for numeric values is 9,007,199,254,740,992. After than, R (and any other computer statistical program will run into trouble).</p>
-<p>Most of the time, this limit does not affect us, but take a look at this code:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">9007199254740992</span> <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span>(x, <span class="at">scientific=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "9007199254740992"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.3333333</code></pre>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Exercise # 1
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li>Why did x not come 9007199254740993 (9007199254740992 + 1)?</li>
-<li>Is 1/3 actually equal to 0.3333333?</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Exercise # 1 Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li>9007199254740992 is the largest integer R can store as a single value on a 64-bit computer. Adding one exceeds this limit.</li>
-<li>No, 1/3 is 0.33333333333333333333..[into infinity] – R can not store that many digits</li>
-</ol>
-</div>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">variable</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">n</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">min</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">max</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">median</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">q1</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">q3</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">iqr</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">mad</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">mean</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">sd</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">se</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">ci</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">id</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: right;">2.00</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2.00</td>
+<td style="text-align: right;">1.483</td>
+<td style="text-align: right;">3.00</td>
+<td style="text-align: right;">1.581</td>
+<td style="text-align: right;">0.707</td>
+<td style="text-align: right;">1.963</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">age</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">43</td>
+<td style="text-align: right;">37.5</td>
+<td style="text-align: right;">29.75</td>
+<td style="text-align: right;">43</td>
+<td style="text-align: right;">13.25</td>
+<td style="text-align: right;">8.154</td>
+<td style="text-align: right;">35.25</td>
+<td style="text-align: right;">9.674</td>
+<td style="text-align: right;">4.837</td>
+<td style="text-align: right;">15.393</td>
+</tr>
+</tbody>
+</table>
+
+
 </div>
 </div>
 </section>
-<section id="complex" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="complex"><span class="header-section-number">1.4</span> Complex</h2>
-<p>Complex numbers are implimented with the <code>complex()</code> function. Not really relevant for most statistical analyses.</p>
 </section>
-<section id="character" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="character"><span class="header-section-number">1.5</span> Character</h2>
-<p>Use for storing alpha-numerical characters, i.e.&nbsp;letters of the alphabet, special characters like ‘?’, ’*’, etc.</p>
-</section>
-<section id="raw" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="raw"><span class="header-section-number">1.6</span> Raw</h2>
-<p>The raw data type holds raw byte data, i.e.&nbsp;binary numbers of length 8-bits. Not really relevant for most statistical analyses.</p>
+<section id="manually-cleaning-data" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Manually cleaning data</h1>
+<p>If you find, that you data is not structured correctly (e.g.&nbsp;a variable is cast as a character, but should be a factor), has unexpected NA values or has some other issues with data values: <strong>You should write R code to clean and restructure the data – do not edit the raw data.</strong></p>
+<p>That way, the data cleaning remains transparent and reversible.</p>
 <script src="https://giscus.app/client.js" data-repo="sorenoneill/r4phd" data-repo-id="R_kgDOJ9etDQ" data-category="Announcements" data-category-id="DIC_kwDOJ9etDc4CYApF" data-mapping="pathname" data-strict="0" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="bottom" data-theme="cobalt" data-lang="en" crossorigin="anonymous" async="">
 </script>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -954,13 +1045,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../qmd_rrr/reproducible_research_collaboration_en.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">RRR – Collaboration</span>
+      <a href="../qmd_manuscript_workflow/load_data_en.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Loading data</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../qmd_base_r/base_r_missing_data_en.html" class="pagination-link">
-        <span class="nav-page-text">Base R - missing data</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../qmd_manuscript_workflow/wrangle_data_en.html" class="pagination-link">
+        <span class="nav-page-text">Wrangle your data into tidy data</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

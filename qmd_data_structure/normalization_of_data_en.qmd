@@ -187,7 +187,7 @@ df |>
   
 ```
 
-The data does contains a single-column primary key (`key`), but all non-key variables do not 'depend' on the _entire_ primary key. Specifically, the variable `type` is contingent exclusively on `test_id`. In this example, there is a very simple $1:1$ relationship between `test_id` and `type` (test 'a' is always 'Blood', and vice versa), but that need not be the case, and the test type could include other information than simply Blood versus Saliva.
+The data does contains a single-column primary key (`key`), but all non-key variables do not 'depend' on the _entire_ primary key. Specifically, the variable `type` is contingent exclusively on `test_id`. In this example, there is a very simple $1:1$ relationship between `test_id` and `type` (test 'a' is always 'Blood', and 'b' always 'Saliva'), but that need not be the case.
 
 ### Example C
 
@@ -237,7 +237,7 @@ df |>
   kable()
 ```
 
-This data structure conforms to Second Normal Form (2NF) data structure. The data has been split into two separate tables, with no redundancy of information. The variable `test_id` in the first, larger data set, corresponds to `test_id` in the second, smaller data set. This structure makes data much easier to survey, when the amount of data grows large.
+This data structure conforms to Second Normal Form (2NF) data structure. The data has been split into two separate tables, with no redundancy of information. The variable `test_id` in the first, larger data set, corresponds to `test_id` in the second, smaller data set. This structure makes data much easier to survey, when the amount of data grows large. Conversely, if data from datasets are needed for a given analysis, the data has to wrangled first (specifically merge with a `join` command).
 
 :::
 
