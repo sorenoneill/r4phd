@@ -87,7 +87,7 @@ You definitely do not need any assistance here...
 ::: {.callout-important  collapse="true"}
 ## Is you computer an older model?
 
-If your computer is an older model, we recomment that you get someone to help you install R well in time _before_ the R-course.
+If your computer is an older model, we recommend that you get someone to help you install R well in time _before_ the R-course.
 
 Otherwise, you risk spending all your class time wrangling your computer instead of playing with R.
 
@@ -95,7 +95,7 @@ The R-ecosystem is constantly developing and new functionality is added all the 
 
 Your computer doesn't have to be brand spanking new, but if in doubt, contact the teachers _before_ the R course starts.
 
-At the time of writting (summer 2022) we reommend you use R version4.x.x and RStudio version 2022.x.x
+At the time of writing (summer 2022) we recommend you use R version4.x.x and RStudio version 2022.x.x
 
 :::
 
@@ -116,7 +116,7 @@ Be aware that the local IT department on the Regional Hospitals and the Universi
 
 If this is the case, it will impede and slow down your installation of R.
 
-It is therefor a good idea, to get all of this sorted out _before_ the start of classes. Again, otherwise you risk spending all your class time wrnagling your computer rather than playing with R.
+It is therefor a good idea, to get all of this sorted out _before_ the start of classes. Again, otherwise you risk spending all your class time wrangling your computer rather than playing with R.
 
 ...and we (the teacher) will gladly help you with the R-ecosystem, but not necessarily your computer or your operating system.
 
@@ -135,7 +135,7 @@ Be aware that the local IT department on the Regional Hospitals and the Universi
 
 If this is the case, it will impede and slow down your installation of R.
 
-It is therefor a good idea, to get all of this sorted out _before_ the start of classes. Again, otherwise you risk spending all your class time wrnagling your computer rather than playing with R.
+It is therefor a good idea, to get all of this sorted out _before_ the start of classes. Again, otherwise you risk spending all your class time wrangling your computer rather than playing with R.
 
 ...and we (the teacher) will gladly help you with the R-ecosystem, but not necessarily your computer or your operating system.
 
@@ -146,16 +146,16 @@ It is therefor a good idea, to get all of this sorted out _before_ the start of 
 ::: {.callout-important  collapse="true"}
 ## Was your computer supplied by OUH?
 
-Some OUH employees in the past, have been advised to use a server-based R/RStudio solution, in place of a local installation on your computer -- that does **not** work well. We highly recommend a local installation on your own harddrive.
+Some OUH employees in the past, have been advised to use a server-based R/RStudio solution, in place of a local installation on your computer -- that does **not** work well. We highly recommend a local installation on your own hard drive.
 
-Be aware that the local IT department on the Regional Hospitals and the Universiy may impose certain restrictions on your ability to install software on your computer:
+Be aware that the local IT department on the Regional Hospitals and the University may impose certain restrictions on your ability to install software on your computer:
 
 -   Access to some webpages (e.g. CRAN) may be restricted, as may access to download some files from the internet.
 -   Installation of software may require particular administrative rights which you do not have as standard.
 
 If this is the case, it will impede and slow down your installation of R.
 
-It is therefor a good idea, to get all of this sorted out _before_ the start of classes. Again, otherwise you risk spending all your class time wrnagling your computer rather than playing with R.
+It is therefor a good idea, to get all of this sorted out _before_ the start of classes. Again, otherwise you risk spending all your class time wrangling your computer rather than playing with R.
 
 ...and we (the teacher) will gladly help you with the R-ecosystem, but not necessarily your computer or your operating system.
 

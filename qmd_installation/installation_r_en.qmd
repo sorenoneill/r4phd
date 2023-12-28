@@ -73,7 +73,7 @@ user@linux$ sudo apt install pandoc pandoc-citeproc texlive-base texlive-extra-u
 If you are using another distribution (Arch, Red Hat, etc) you simply need to install the same software using their package managers (yum, rpm, etc)
 :::
 
-You will find a video guide to R installation  ![here](https://learnr-examples.shinyapps.io/ex-setup-r/#section-install-r)
+You will find a video guide to R installation  [here](https://learnr-examples.shinyapps.io/ex-setup-r/#section-install-r)
 
 ## Check that R is installed and working
 
@@ -83,17 +83,9 @@ If the installation process completed as expected, you should now have a working
 
 ## Windows
 
-To confirm that R is installed and working, first open a *Terminal* on your Windows computer:
+To confirm that R is installed and working, click the Start menu, scroll to R and open the r gui interface. Check the R installation version number.
 
-Open the *Run window* dialogue by holding the *Windows* key and pressing *R*, in the window 'Execute' in the field 'Open' type *wt* (for Windows Terminal) and click *OK*.
-
-In the *Windows Terminal* type the following:
-
-```{bash}
-#| echo: true
-#| eval: false
-
-...SKAF BILLEDE FRA EN WINDOWS
+![](gfx/windows_check_installation.webm)
 ```
 
 ## MacOS

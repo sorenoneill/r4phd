@@ -42,7 +42,7 @@ In other words, R is the code you use to read data, clean and wrangle data, defi
 
 ### What is RStudio?
 
-RStudio, on the other hand, is *'just'* a graphical user interface which makes it easier to work in R. It is, in fact, perfectly possible to do without RStudio, but there are good reasons why most R users use it.
+RStudio, on the other hand, is *'just'* a graphical user interface which makes it easier to work in R. It is quite possible to manage without RStudio, but there are good reasons why most R users prefer to use it.
 
 RStudio might *for instance* look like this:
 
@@ -50,7 +50,7 @@ RStudio might *for instance* look like this:
 
 ### What is the R ecosystem?
 
-The R ecosystem, is a veritable plethora of extra functionality that can be added on to of R itself. This is first and foremost in the form of R _packages_, of which there are many thousands, but it also includes online guides, youTube videos, chat-forums, etc. No matter what problems you encounter on your R journey, you can be almost 100% certain that some has found a solution already ... it is already prepared for you, out there in the R ecosystem. 
+The R ecosystem, is a veritable plethora of extra functionality that can be added on to of R itself. This is first and foremost in the form of R _packages_, of which there are many thousands, but it also includes online guides, youTube videos, chat-forums, etc. No matter what problems you encounter on your R journey, you can be almost 100% certain that someone has found a solution already ... it is already prepared for you, out there in the R ecosystem. You just have to be able to ask the right questions, and the answers will present themselves very quickly.
 
 But before we get started with all of that, we have to install R.
 

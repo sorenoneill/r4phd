@@ -12,8 +12,7 @@ output:
 #collections:
 #  posts:
 #    disqus: reproducible-finance-with-r
-categories:
-  - Installation
+
 creative_commons: CC BY
 format: html
 editor: source
@@ -35,16 +34,18 @@ In the following pages, I will guide you to the installation of these three elee
 
 The R-ecosystem is developed and released as *Free and Open Source Software* and as such it is freely available to download from the internet at no monetary cost.
 
-That is a good thing! Not just because of the price tag (free as in 'free beer'), but most definitely also on principle (free as in 'free speech') ... principles, which ought to be of particular importance to researcher ... and you are herewith urged to read more below:
+That is a good thing! 
+
+Not just because of the price tag (free as in 'free beer'), but most definitely also on principle (free as in 'free speech') ... principles, which ought to be of particular importance to researcher ... and you are herewith urged to read more below:
 
 ::: {.callout-tip collapse="true"}
 ## More about FOSS? Click here!
 
 Free and Open Source software is developed according to the same principles as the scietific proces; knowledge (software) is developed and released in an open and transparent manner, which allows everyone to examine, criticize and improve on the results, and to develope it further.
 
-This is in contrast to closed and proprietary development processes where knowledge (software) is kept hidden behind closed formats which prevent external review, but allows for a profitable business.
+This is in contrast to closed and proprietary development processes where knowledge (software) is kept hidden behind closed formats which prevent external review, but allows for a profitable business. (FOSS does not prohibit profitable business, however)
 
-If you want to know more, you can easily find a lot information about it on the internet ... that is, the _internet_ which runs almost exclusively on *open source* software. 
+If you want to know more, you can easily find a lot information about it on the internet ... you know, the _internet_ ... which runs almost exclusively on *free and open source* software. 
 
 If you have funds set aside within your research budget for software and computer equipment, you might consider donating an amount that you find appropriate to e.g. the [R projektet](https://www.r-project.org/foundation/donations.html).
 :::

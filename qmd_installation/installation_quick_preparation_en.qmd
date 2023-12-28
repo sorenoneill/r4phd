@@ -25,7 +25,7 @@ editor: source
 
 In the following pages, we will guide your through each of these steps ... did you notice the link at the bottom right-hand side of the screen? Follow that link to the next page in the Installation section.
 
-![](gfx/navigation_link_at_bottom.gif)
+![](gfx/navigation_link_at_bottom.webm)
 
 <script src="https://giscus.app/client.js"
         data-repo="sorenoneill/r4phd"
