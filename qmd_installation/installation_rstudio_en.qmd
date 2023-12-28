@@ -49,7 +49,7 @@ CHoose the right link now: far left hand side 'RStudio Desktop Open Source Licen
 
 #### Step 2
 
-You will now be presented with several download options -- make sure yoiu choose the download appropriate for your operating system (click the blue text link in the columnd 'Download').
+You will now be presented with several download options -- make sure you choose the download appropriate for your operating system (click the blue text link in the column 'Download').
 
 Illustration of download links from [RStudios website](https://www.rstudio.com/products/rstudio/download/):
 
@@ -61,7 +61,7 @@ Illustration of download links from [RStudios website](https://www.rstudio.com/p
 Choose the right link in the column now 'Download: Windows, MacOS or your Linux distribution.
 :::
 
-Install the programme as per usual procedure for your operating system.
+Install the program as per usual procedure for your operating system.
 
 :::
 

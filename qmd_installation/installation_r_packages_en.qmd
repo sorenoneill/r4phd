@@ -22,11 +22,13 @@ editor: source
 
 ## What is an R package?
 
-The standard installation of R consists of a set of 'core' functions. In addition to those, it is possible to install a large variety of _packages_ with extra functionality. These packages are developed by the company behind RStudio (Posit), by other companies, universities and by R users ... perhaps, some day you will write and publish an R package too?
+The standard installation of R consists of a set of base, or 'core', functions. In addition to those, it is possible to install a large variety of _packages_ with extra functionality.
+
+These packages are developed by the company behind RStudio (Posit), by other companies (e.g. Google, Microsoft, IBM and others), universities and by R users ... perhaps, some day you will write and publish an R package too?
 
 Some of these packages have a very specific and narrow forus -- e.g. Steen Harsteds packages for handling _motion capture_ data called [mocapr](https://github.com/steenharsted/mocapr). Other packages er more generic and you will get to know some of them during the course. For instance:
 
-* tidyverse -- en meta-pakckage which makes it easier to work with the R syntax -- e.g. by using <abbr title="A pipe is written as: A %>% B. It is an easy and intuitive way to combine different R functions in a chain where the output of function A is used as input for the function B.">_pipes_</abbr>.
+* tidyverse -- a meta-package which makes it easier to work with the R syntax -- e.g. by using <abbr title="A pipe is written as: A %>% B. It is an easy and intuitive way to combine different R functions in a chain where the output of function A is used as input for the function B.">_pipes_</abbr>.
 * ggplot2 -- a package for constructing graphs or plots.
 * ggpubr -- a package which extends ggplot2, aiming to make it easier to produce publication ready plots.
 
@@ -34,7 +36,7 @@ There are just a few technicalities about R packages, that you need to understan
 
 ### Windows trouble ... RTools
 
-To install certain R packages on Windows operating systems, you need to install a program called _RTools_. You can read more about RTools at (this link)[https://cran.r-project.org/bin/windows/Rtools/rtools42/rtools.html] which includes links to the RTools installer and a more detailed tutorial.
+To install certain R packages on Windows operating systems, you need to install a program called _RTools_. You can read more about RTools at [this link](https://cran.r-project.org/bin/windows/Rtools/rtools42/rtools.html) which includes links to the RTools installer and a more detailed tutorial.
 
 **Please note**, that this has previously presented problems for those using SDU issued computers, thus check to see if RTools is available through the SDU IT Software Center.
 
@@ -42,15 +44,14 @@ To install certain R packages on Windows operating systems, you need to install 
 
 R packages are specific to the underlying version of R -- when a new version of R is published it may take some time for package developers to update their packages. In other words, depending on the packages you make use of, it is not always a good idea to run the absolute latest release of R, but this is mostly an issue if you used 'niche' packages.
 
-### Installating and loading packages
+### Installing and loading packages
 
 If you want to make use of an R package, you need to _install_ and _load_ it before it is available.
 
-* When you install a package, it is downloaded from the internet and stored on your harddrive.
-* When you load the package, it is read into your computeres RAM memory.
+* When you install a package, it is downloaded from the internet and stored on your hard drive.
+* When you load the package, it is read into your computers RAM memory.
 
-
-Not until the package is in your computers RAM memory will it be available to your code.
+Not until the package is in your computers RAM memory will it be available to your code. And thus, any scripts that need extra functionality, also needs to specifically load the packges.
 
 ### More than one way to install a package
 
