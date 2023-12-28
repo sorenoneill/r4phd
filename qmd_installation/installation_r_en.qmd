@@ -86,7 +86,6 @@ If the installation process completed as expected, you should now have a working
 To confirm that R is installed and working, click the Start menu, scroll to R and open the r gui interface. Check the R installation version number.
 
 ![](gfx/windows_check_installation.webm)
-```
 
 ## MacOS
 
