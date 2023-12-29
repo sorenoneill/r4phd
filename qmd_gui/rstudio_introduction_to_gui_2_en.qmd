@@ -12,8 +12,8 @@ output:
 #collections:
 #  posts:
 #    disqus: reproducible-finance-with-r
-categories:
-  - RStudio
+# categories:
+#   - RStudio
 creative_commons: CC BY
 format: html
 editor: source
@@ -31,7 +31,7 @@ library(tidyverse)
 ![](gfx/rstudio_panels_functions.png)
 
 :::{.callout-important collapse=false}
-## Important concept you need to grasp!
+## An important concept you need to grasp!
 
 You can think about your workflow in RStudio as consisting of two separate work stations: you either _talk_ to R or you _write_ for R:
 
@@ -51,7 +51,7 @@ In the text editor (blue) you can _write_ anything to be saved to a text file.
 
 It will not be read by R until you specifically ask it to.
 
-If you write something that isn't valid R code, you will not get an error (albeit RStudio may give you a hint) ... in fact, you write a shopping list in the text editor, if you want to and R won't complain.
+If you write something that isn't valid R code, you will not get an error (albeit RStudio may give you a hint) ... in fact, you can write a shopping list in the text editor and R won't complain.
 
 :::
 
@@ -60,27 +60,23 @@ If you write something that isn't valid R code, you will not get an error (albei
 :::{.callout-note collapse=false}
 ## Example 
 
-Let's say you want to use the functions `mean` and `rnorm` to calculate the mean of a sample of 100 from a normal distribution. The following code should do the trick:
+Let's say you want to use the functions `mean` and `rnorm` to calculate the mean of a sample of 100 from a normal distribution. The following code should do the trick and before using that code in you manuscript, you check it out in the console:
 
-```r
+```{r, echo = c(2)}
+set.seed(7)
 rnorm(n=100, mean=1, sd=2) |> mean()
 ```
 
-...before using that code in you manuscript, you might want to check it out in the console:
+You then realize that the result has too many digits and you amend your code:
 
-```{r}
-rnorm(n=100, mean=1, sd=2) |> mean()
-```
-
-Perhaps, you then realize, that the result has too many digits and you amend your code:
-
-```{r}
+```{r, echo = c(2)}
+set.seed(7)
 rnorm(n=100, mean=1, sd=2) |> mean() |> round(2)
 ```
 
 :::
 
-:::{.callout-note collapse=false}
+:::{.callout-note collapse=true}
 ## Exercise #1
 
 Open RStudio and create and empty R script by menu: File / New File / R Script or keyboard: CTRL-SHIFT-n
@@ -102,7 +98,7 @@ Open RStudio and create and empty R script by menu: File / New File / R Script o
 
 :::
 
-:::{.callout-note collapse=false}
+:::{.callout-note collapse=true}
 ## Exercise #2
 
 When you close an R project, RStudio will ask you whether you want to save a 'Workspace image'.

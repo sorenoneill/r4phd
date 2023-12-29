@@ -43,7 +43,7 @@ Illustration of the download link from [RStudios website](https://www.rstudio.co
 
 ## Important
 
-CHoose the right link now: far left hand side 'RStudio Desktop Open Source License Free'.
+Choose the right link now: far left hand side 'RStudio Desktop Open Source License Free'.
 
 :::
 
@@ -58,10 +58,28 @@ Illustration of download links from [RStudios website](https://www.rstudio.com/p
 :::{.callout-important}
 ## Important
 
-Choose the right link in the column now 'Download: Windows, MacOS or your Linux distribution.
+Choose the right link in the column now Download: Windows, MacOS or your Linux distribution.
 :::
 
 Install the program as per usual procedure for your operating system.
+
+:::
+
+Once you have installed RStudio, check that it is functional as expected:
+
+::: panel-tabset
+## Windows
+
+Click the Start menu button, look for RStudio and click to confirm, that RStudio is installed.
+
+## Mac
+
+..
+
+## Linux 
+
+Run the GUI app, as per your specific distribution.
+
 
 :::
 

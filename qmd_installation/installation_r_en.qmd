@@ -26,9 +26,9 @@ editor: source
 
 ## SDU
 
-If your computer was issued by the SDU IT department, you can install R via SDUs _Software Center_.
+If your computer was issued by the SDU IT department with MS Windows as the operating system, you can install R via SDUs _Software Center_.
 
-If your computer is a Windows computer, you should install RTools along with R. Ensure, that you download the version of RTools that correspond to you version of R (4.2 or 4.3, etc).
+In that case, you should install RTools along with R, if it is available. Ensure, that you download the version of RTools that correspond to you version of R (4.2 or 4.3, etc).
 
 ## Windows
 
@@ -91,7 +91,7 @@ To confirm that R is installed and working, click the Start menu, scroll to R an
 
 To confirm that R was installed and working on your MacOS, first open a *Terminal*:
 
-You cna find the *Terminal* in *Utilities* under *Applications* or your can hold down the *Command* key while pressing *space* to open *Spotlight* and enter "Terminal" -- then double click the appropriate search result.
+You can find the *Terminal* in *Utilities* under *Applications* or your can hold down the *Command* key while pressing *space* to open *Spotlight* and enter "Terminal" -- then double click the appropriate search result.
 
 In the MacOS *Terminal* type:
 
@@ -137,6 +137,9 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 ```
+
+Press CTRL-d to quit the R console and return to the Linux terminal.
+
 :::
 
 <script src="https://giscus.app/client.js"

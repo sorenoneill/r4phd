@@ -12,8 +12,8 @@ output:
 #collections:
 #  posts:
 #    disqus: reproducible-finance-with-r
-categories:
-  - RStudio
+# categories:
+#   - RStudio
 creative_commons: CC BY
 format: html
 editor: source

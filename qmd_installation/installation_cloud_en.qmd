@@ -12,8 +12,8 @@ output:
 #collections:
 #  posts:
 #    disqus: reproducible-finance-with-r
-categories:
-  - Installation
+# categories:
+#   - Installation
 creative_commons: CC BY
 format: html
 editor: source

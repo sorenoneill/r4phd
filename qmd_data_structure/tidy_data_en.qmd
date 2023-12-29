@@ -12,9 +12,9 @@ date: "2023-11-26"
 #collections:
 #  posts:
 #    disqus: reproducible-finance-with-r
-categories:
-  - RStudio
-  - Inspection
+# categories:
+#   - RStudio
+#   - Inspection
 creative_commons: CC BY
 format: html
 editor: source
@@ -41,17 +41,19 @@ Please consider the differences between:
 * Cleaned data
 * Wrangled data
     
-The **raw** data is the unadulterated version of the data as collected by what-ever-means: questionnaires, machine readings, etc. You should always keep a version of the raw data in its original form.     
+The **raw** data is the unadulterated version of the data as collected by what-ever-means you collect your data: questionnaires, machine sensor readings, etc. Within GDPR reules, you should always keep a version of the raw data in its original form.
 
-**Cleaned** data is the raw data after the minimal changes necessary to make data useful. For example, deletion of observations which are flawed due to apparatus malfunction, or data entry mistakes, and deletion of variables that were never collected. The process whereby the raw data is cleaned should be scripted (coded) to ensure, that it is repeatable and documented.
+**Cleaned** data is the raw data after you have made the minimal changes necessary to make data useful. For example, deletion of observations which are flawed due to apparatus malfunction, or data entry mistakes, deletion of variables that were never collected, and conversion of data types if necessary. The process whereby the raw data is cleaned should be scripted (coded) to ensure, that it is repeatable and documented.
 
-The cleaned data probably needs to be **wrangled** into a shape (and content) appropriate for analyses. For example, a wrangled data set may include only specific observations of specific variables relevant to a given analysis, in a format/shape suited for that analysis. This should also be scripted to ensure, that it is repeatable and documented.
+The cleaned data probably needs to be **wrangled** into a shape (and content) appropriate for specific analyses. For example, a wrangled data set may include only specific observations of specific variables relevant to a given analysis, in a format/shape suited for that analysis. This should also be scripted to ensure, that it is repeatable and documented.
 
-The link to the [tidyverse page on _tidy data_](https://tidyr.tidyverse.org/articles/tidy-data.html) provides a lot of information about _tidy data_, but the central principle is, that with _tidy data_:
+The above link to the [tidyverse page on _tidy data_](https://tidyr.tidyverse.org/articles/tidy-data.html) provides a lot of information about _tidy data_, but the central principle is, that with _tidy data_:
 
 * Every column is a variable.
 * Every row is an observation.
 * Every cell is a single value.
+
+...this sort of assumes, that data is stored in a rectangular data frame (or _tibble_).
 
 On the following three tabs, you can see three examples of the same data set, structured in different ways. Look at each of them ....
 
@@ -121,7 +123,7 @@ Which of the three structures/tables represent the most _tidy data_ structure?
 ::: {.callout-note collapse=true}
 ## Click to get a hint..
 
-Ask yourself, what different _information_ (i.e. data points) constitutes each _observation_ ... and how the _relation_ between data points specifies such an observation?
+Ask yourself, what different _units of information_ (i.e. data points) constitutes each _observation_ ... and how the _relation_ between data points specifies such an observation?
 :::
 
 ::: {.callout-note collapse=true}
@@ -131,9 +133,9 @@ It is obvious, that each of the numerical values (measurements) represent _data_
 
 It seems from the data, that each _id_ was tested on two occasions ('a' and 'b') which fell on different weekdays. 
 
-In other words, 'id', 'test', 'weekday' and 'measurement' all represent information (data points) which together constitutes an _observation_, but they are related in a non-trivial manner:
+In other words, 'id', 'test', 'weekday' and 'measurement' all represent units of information (data points) which together constitutes an _observation_, but they are related in a non-trivial manner:
 
-For instance, the data id=`r df[1,1]`, test=a, weekday=`r df[1,4]` and measurement=`r df[1,2]` are related as a single observation. 
+For instance, the data id=`r df[1,1]`, test=a, weekday=`r df[1,4]` and measurement=`r df[1,2]` are related as a single observation. Similarly, the data id=`r df[1,1]`, test=b, weekday=`r df[1,5]` and measurement=`r df[1,3]` are related as another unique observation.
 
 The most tidy data structure is thus @tbl-two above: Each row represents an observation and each column represents one of the variables that constitutes each observation. Note however, that there is no one-single variable that is unique per observation -- instead, it is the combination of variables that constitutes a unique identifier (in this case, 'id' and 'test' in combination). This is not necessarily a problem.
 

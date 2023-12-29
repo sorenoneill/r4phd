@@ -12,9 +12,9 @@ date: "2023-11-26"
 #collections:
 #  posts:
 #    disqus: reproducible-finance-with-r
-categories:
-  - RStudio
-  - Inspection
+# categories:
+#   - RStudio
+#   - Inspection
 creative_commons: CC BY
 format: html
 editor: source

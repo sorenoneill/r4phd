@@ -12,8 +12,8 @@ output:
 #collections:
 #  posts:
 #    disqus: reproducible-finance-with-r
-categories:
-  - RStudio
+# categories:
+#   - RStudio
 creative_commons: CC BY
 format: html
 editor: source
@@ -44,7 +44,7 @@ Here follows a number of practical simple hints on how to use the console:
 
 <hr>
 
-## Re-use previous commands
+## Re-use and ammend previous commands
 
 But the meaning of life is not 52, is it?[^1] So we need to fix that. 
 
@@ -72,7 +72,7 @@ But the meaning of life is not 52, is it?[^1] So we need to fix that.
 
 <hr>
 
-There is apparently no keyboard short-cut to copy/paste the current console line to the text editor.
+To copy the other way, from console to text editor, use the usual mouse-hightlight, CTRL-c and CTRL-v to copy paste.
 
 [^1]: According to the fictional supercomputer Deep Thought in Douglas Adams' sci-fi universe, The Answer to the Ultimate Question of Life, The Universe, and Everything, is 42, but you probably already knew that :-)
 

@@ -32,7 +32,7 @@ You'r going to need a computer ...
     -   MacOS10.15+
 -   A working internet connection
 
-If you are in doubt _or_ your computer was issues by SDU, SLB, or OUH, please see below:
+If you are in doubt _or_ your computer was issues by the SDU, SLB, or OUH, please see below:
 
 :::{.callout-note collapse=true}
 

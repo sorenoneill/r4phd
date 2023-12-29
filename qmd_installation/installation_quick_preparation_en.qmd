@@ -23,23 +23,8 @@ editor: source
 * A working installation of RStudio
 * A number of R packages
 
-In the following pages, we will guide your through each of these steps ... did you notice the link at the bottom right-hand side of the screen? Follow that link to the next page in the Installation section.
+In the following pages, we will guide your through each of these steps ... did you notice the link at the bottom right-hand side of the screen? Follow that link to the next page in the this section.
 
-![](gfx/navigation_link_at_bottom.webm)
+![](gfx/link_to_next_page.png)
 
-<script src="https://giscus.app/client.js"
-        data-repo="sorenoneill/r4phd"
-        data-repo-id="R_kgDOJ9etDQ"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOJ9etDc4CYApF"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="0"
-        data-emit-metadata="0"
-        data-input-position="bottom"
-        data-theme="cobalt"
-        data-lang="en"
-        crossorigin="anonymous"
-        async>
-</script>
-
+ 

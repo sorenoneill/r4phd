@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Søren O’Neill">
-<meta name="dcterms.date" content="2023-12-27">
+<meta name="dcterms.date" content="2023-12-29">
 <meta name="description" content="A quick overview of RStudios graphical user interface (GUI)">
 
 <title>R4phd - RStudios GUI #1</title>
@@ -520,10 +520,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">RStudios GUI #1</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">RStudio</div>
-  </div>
-  </div>
+</div>
 
 <div>
   <div class="description">
@@ -544,7 +541,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">December 27, 2023</p>
+      <p class="date">December 29, 2023</p>
     </div>
   </div>
   
@@ -577,21 +574,24 @@ Help! My layout does not look like that …
 <div class="callout-body-container callout-body">
 <p>If the <em>text editor</em> field is missing, it is probably just because you do not have any text files open for editing – try clicking <em>File</em> / <em>New file</em> / <em>R script</em> (CTRL+SHIFT+n).</p>
 <p>If you have accidentally hidden one or more panes, try clicking <em>View</em> / <em>Panes</em> / <em>Show all panes</em> (CTRL+SHIFT+o).</p>
+<p>If the content of one of the panes is different, it might be because a different tab is selected in that pane.</p>
 </div>
 </div>
 </div>
 </section>
 <section id="resizing-panes" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="resizing-panes"><span class="header-section-number">2</span> Resizing panes</h2>
-<p>Look at each of the three tabs below to see different ways to change the pane sizes.</p>
+<p>Look at each of these tabs to see different ways to change the pane sizes.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Click and drag…</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Icons</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Menu and keyboard shortcuts</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <p><img src="gfx/rstudio_pane_resizing.gif" class="img-fluid"></p>
+<p>Simply click-hold-and-drag the pane borders.</p>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <p><img src="gfx/rstudio_pane_min_max.gif" class="img-fluid"></p>
+<p>Click the <em>minimize</em>, <em>restore</em> and <em>maximize</em> icons to resize each pane.</p>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <div class="quarto-figure quarto-figure-center">
@@ -600,13 +600,14 @@ Help! My layout does not look like that …
 <figcaption class="figure-caption">View / Panes</figcaption>
 </figure>
 </div>
+<p>Use the <em>View</em> / <em>Panes</em> menu to maximize panes, and to restore the default layout.</p>
 </div>
 </div>
 </div>
 </section>
 <section id="rstudio-layout" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="rstudio-layout"><span class="header-section-number">3</span> RStudio layout</h2>
-<p>Want to change the layout (different colors, fonts, text size, etc) of RStudio? Click: <em>Tools</em> / <em>Global options</em> / <em>Appearance</em> … for now, do not mess with the settings in <em>General</em>, <em>Code</em>, etc.</p>
+<p>Want to change the layout (different colors, fonts, text size, etc) of RStudio? Click: <em>Tools</em> / <em>Global options</em> / <em>Appearance</em> … for now, do not mess with the other settings in <em>General</em>, <em>Code</em>, etc.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="gfx/rstudio_appearance.gif" class="img-fluid figure-img"></p>
@@ -623,7 +624,7 @@ Help! My layout does not look like that …
 <figcaption class="figure-caption">Multiple tabs in each RStudio pane</figcaption>
 </figure>
 </div>
-<p>Note, that the tabs presented in a pane may depend on the type of document you are working with. Also some extra functionality, such as Git version control, will change the available tabs.</p>
+<p>Note, that the tabs presented in a pane may change depending on the type of document you are working with. Also some extra functionality, such as Git version control, will change the available tabs.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -909,7 +910,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<script src="https://giscus.app/client.js" data-repo="sorenoneill/r4phd" data-repo-id="R_kgDOJ9etDQ" data-category="General" data-category-id="DIC_kwDOJ9etDc4CYApG" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+<script src="https://giscus.app/client.js" data-repo="sorenoneill/r4phd" data-repo-id="R_kgDOJ9etDQ" data-category="General" data-category-id="" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
