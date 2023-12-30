@@ -39,6 +39,7 @@ website:
           - qmd_gui/rstudio_introduction_to_gui_1_en.qmd
           - qmd_gui/rstudio_introduction_to_gui_2_en.qmd
           - qmd_gui/rstudio_introduction_to_gui_console_en.qmd
+          - qmd_gui/rstudio_introduction_to_gui_text_editor_en.qmd
       - section: "Data structure"
         contents:
           - qmd_data_structure/tidy_data_en.qmd

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Søren O’Neill">
-<meta name="dcterms.date" content="2023-12-29">
+<meta name="dcterms.date" content="2023-12-30">
 <meta name="description" content="Introduction to Reproducible Research with R (and RStudio).">
 
 <title>R4phd - Intro to RRR</title>
@@ -205,6 +205,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../qmd_gui/rstudio_introduction_to_gui_console_en.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">RStudios GUI – the console</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../qmd_gui/rstudio_introduction_to_gui_text_editor_en.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RStudios GUI – the text editor</span></a>
   </div>
 </li>
       </ul>
@@ -547,7 +553,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">December 29, 2023</p>
+      <p class="date">December 30, 2023</p>
     </div>
   </div>
   
@@ -581,8 +587,8 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="1.3" class="anchored" data-anchor-id="levels-of-research-reproducibility"><span class="header-section-number">1.3</span> Levels of research reproducibility</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div class="grViz html-widget html-fill-item" id="htmlwidget-675e3c4e9602cc534525" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-675e3c4e9602cc534525">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10, graph_attrs = \"rankdir = LR\"]\n\n  # several \"node\" statements\n  mm [label = \"Methods and materials\", shape = plaintext, fontcolor=\"Plum\"]\n  basic [label = \"Basic RR\", shape = plaintext, fontcolor=\"Plum\"]\n  workflow [label = \"Workflow RR using R\", shape = plaintext, fontcolor=\"MediumOrchid\"]\n  product [label = \"Product documentation (**)\", shape = plaintext, fontcolor=\"DarkViolet\"]\n  process [label = \"Process documentation\", shape = plaintext, fontcolor=\"Indigo\"]\n\n  # several \"edge\" statements\n  process -> product -> workflow -> basic -> mm [dir = \"back\"]\n\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-2f64ff731b2280e883a1" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-2f64ff731b2280e883a1">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10, graph_attrs = \"rankdir = LR\"]\n\n  # several \"node\" statements\n  mm [label = \"Methods and materials\", shape = plaintext, fontcolor=\"Plum\"]\n  basic [label = \"Basic RR\", shape = plaintext, fontcolor=\"Plum\"]\n  workflow [label = \"Workflow RR using R\", shape = plaintext, fontcolor=\"MediumOrchid\"]\n  product [label = \"Product documentation (**)\", shape = plaintext, fontcolor=\"DarkViolet\"]\n  process [label = \"Process documentation\", shape = plaintext, fontcolor=\"Indigo\"]\n\n  # several \"edge\" statements\n  process -> product -> workflow -> basic -> mm [dir = \"back\"]\n\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Aim for level four ‘Product documentation’ (**) – Level 5 ‘Process documentation’ can be quite involved and is probably only relevant when many authors collaborate on the same code/data (if it is important to know who did what when, i.e.&nbsp;who screwed up).</p>

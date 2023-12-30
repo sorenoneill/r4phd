@@ -1,0 +1,71 @@
+---
+title: "RStudios GUI -- the text editor"
+description: |
+  Hints for the RStudio text editor
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: today
+output:
+  distill::distill_article:
+    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+# categories:
+#   - RStudio
+creative_commons: CC BY
+format: html
+editor: source
+---
+
+```{r}
+#| echo: false
+#| warning: false
+
+library(tidyverse)
+```
+
+# Hints for working in the text editor 
+
+## Working in Quarto markdown documents
+
+![Highlighted areas in the text editor (quarto document)](gfx/quarto_in_text_editor.png)
+
+When working in a quarto document, the text should be divided into one (and only one) _YAML_ at the beginning of the document. The YAML is delimited by two lines consisting of `---`. 
+
+Below the YAML, the text will consist of markdown, with any number of inserted R chunks. Notice, the difference in background colour (which is contingent upon the chosen _Editor Theme_ in _Tools_ / _Global Options_ / _Appearance_).
+
+Each R chunk is delimited by lines of ```` ```{r} ```` and ```` ``` ````. 
+
+Notice the _inline_ r-code in line 15 (orange box), which is delimited by `` `r `` and `` ` ``.
+
+## Visual versus Source code
+
+Try out the buttons `Visual` and `Source` in the top left hand corner. Also note the YAML line `editor`(line 4), which sets the default choice for visual versus source editor.
+
+## Document outline
+
+Notice the icon `Outline` in the top right hand corner, which shows/hides a hierachial outline of the documents headings.
+
+## Code outline
+
+Also notice the icon in the bottom left hand corner (purple box) -- in the illustration above it is entitled 'Subheading', but this dynamically changes contingent upon where the cursor is located.
+
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
