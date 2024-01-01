@@ -34,11 +34,14 @@ library(tidyverse)
 <br><br>
 
 ### Start a new .qmd document
- File ->  New File ->  Quarto Document ->  
+
+ _File_ /  _New File_ /  _Quarto Document_   
  
  * Make sure the settings are set to "Document" and "HTML" (both are default settings), 
  * Uncheck 'Use visual markdown editor'
  * press "Create" 
+ 
+![Create a new quarto document](gfx/create_qmd_document.webm) 
  
  The document contains three types of code YAML, R, and Markdown code. Take a look at the document and see if you can recognize the sections with R code.  
  
