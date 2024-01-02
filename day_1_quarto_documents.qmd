@@ -29,21 +29,19 @@ library(tidyverse)
 
 \ \ \ 
 
-## quarto documents
-
-<br><br>
+## Quarto documents
 
 ### Start a new .qmd document
 
- _File_ /  _New File_ /  _Quarto Document_   
+From the menu click: _File_ /  _New File_ /  _Quarto Document_ [^1]
  
  * Make sure the settings are set to "Document" and "HTML" (both are default settings), 
- * Uncheck 'Use visual markdown editor'
- * press "Create" 
+ * **Uncheck** 'Use visual markdown editor'
+ * Click "Create" 
  
-![Create a new quarto document](gfx/create_qmd_document.webm) 
+![Create a new quarto document](gfx/creat_new_quarto_doc.png) 
  
- The document contains three types of code YAML, R, and Markdown code. Take a look at the document and see if you can recognize the sections with R code.  
+The document contains three types of code: YAML, R, and Markdown code. Take a look at the document and see if you can recognize the sections with R code.  [hint](qmd_gui/rstudio_introduction_to_gui_text_editor_en.qmd).
  
  * Save your file  (Important: file_name_matters).  
  * Pres "Render" and see what happens.
@@ -173,6 +171,7 @@ The iris dataset contains `` `r knitr::inline_expr("iris %>%  nrow()")` `` rows
 
 :::
 
+[^1]: Alternatively, click the green-plus icon (top-left icon -- under _File_ menu) and choose 'Quarto document' from the drop-down list
   
 <script src="https://giscus.app/client.js"
         data-repo="sorenoneill/r4phd"
