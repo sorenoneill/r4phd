@@ -40,6 +40,8 @@ If you are in doubt _or_ your computer was issues by the SDU, SLB, or OUH, pleas
 
 If you already have a working installation of R, you can use [this script](installation_check_en.qmd)  to list all the relevant information about your computer and its software.
 
+If you do not, the links below will guide you how to get glean the relevant information for your operating system:
+
 ::: panel-tabset
 ### Windows
 
