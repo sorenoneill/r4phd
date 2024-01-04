@@ -35,17 +35,7 @@ You will find the RStudio installation program for your operating system on [RSt
 
 There are four different programs, that you can download for your computer -- make sure, yoiu download the one entitled **RStudio Desktop Open Source License Free**. Click the blue 'DOWNLOAD' button.
 
-Illustration of the download link from [RStudios website](https://www.rstudio.com/products/rstudio/download/):
-
-![This is an illustration and not an active download link -- follow the link provided above to download.](gfx/download_rstudio_choose_version.png)
-
-:::{.callout-important}
-
-## Important
-
-Choose the right link now: far left hand side 'RStudio Desktop Open Source License Free'.
-
-:::
+Follow the download link to the [RStudio download website](https://posit.co/download/rstudio-desktop/):
 
 #### Step 2
 
