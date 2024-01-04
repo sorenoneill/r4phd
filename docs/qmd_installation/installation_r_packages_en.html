@@ -594,7 +594,7 @@ What’s up with RTools and Windows?
 </section>
 <section id="versions" class="level3" data-number="1.2">
 <h3 data-number="1.2" class="anchored" data-anchor-id="versions"><span class="header-section-number">1.2</span> Versions</h3>
-<p>R packages are specific to the underlying version of R – when a new version of R is published it may take some time for package developers to update their packages. In other words, depending on the packages you make use of, it is not always a good idea to run the absolute latest release of R, but this is mostly an issue if you used ‘niche’ packages.</p>
+<p>R packages are specific to the underlying version of R – when a new version of R is published it may take some time for package developers to update their packages. In other words, depending on the packages you make use of, it is not always a good idea to run the absolute latest release of R, but this is mostly an issue if you use ‘niche’ packages.</p>
 </section>
 <section id="installing-and-loading-packages" class="level3" data-number="1.3">
 <h3 data-number="1.3" class="anchored" data-anchor-id="installing-and-loading-packages"><span class="header-section-number">1.3</span> Installing and loading packages</h3>
@@ -603,12 +603,13 @@ What’s up with RTools and Windows?
 <li>When you install a package, it is downloaded from the internet and stored on your hard drive.</li>
 <li>When you load the package, it is read into your computers RAM memory.</li>
 </ul>
-<p>Not until the package is in your computers RAM memory will it be available to your code. And thus, any scripts that need extra functionality, also needs to specifically load the packges.</p>
+<p>Not until the package is in your computers RAM memory will it be available to your code. And thus, any scripts that need extra functionality, also needs to specifically load the packages.</p>
 </section>
 <section id="more-than-one-way-to-install-a-package" class="level3" data-number="1.4">
 <h3 data-number="1.4" class="anchored" data-anchor-id="more-than-one-way-to-install-a-package"><span class="header-section-number">1.4</span> More than one way to install a package</h3>
-<p>By far the majority of packages are available online through <a href="https://cran.r-project.org/">the Comprehensive R Archive Network</a> – CRAN.</p>
+<p>By far the majority of packages are available online through <a href="https://cran.r-project.org/">the Comprehensive R Archive Network</a> – CRAN, but you will not be downloading from the website. Instead, we let R handle the download and installation:</p>
 <p>If you want to install a CRAN package you can choose to do so via RStudios graphical user interface or via R in an R console. When installing via the R console, you may get some useful information about the installation process, especially if it fails.</p>
+<p><strong>Common misunderstanding</strong>: It is not sufficient to have downloaded and installed (<code>install.packages()</code>) to your computers hard drive. You must also, specifically <em>load</em> that package into memory (<code>library()</code> or <code>require()</code>) in the code where it is needed. That way, you can install many packages on your system, but only <em>load</em> the ones you actually need for a project.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -621,6 +622,7 @@ Video : Installation of R pakker
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<p>…sound in Danish – sorry!</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><video src="video/install_packages_easy.webm" class="img-fluid" controls=""><a href="video/install_packages_easy.webm">Video</a></video></p>
@@ -871,7 +873,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<script src="https://giscus.app/client.js" data-repo="sorenoneill/r4phd" data-repo-id="R_kgDOJ9etDQ" data-category="General" data-category-id="" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+<script src="https://giscus.app/client.js" data-repo="sorenoneill/r4phd" data-repo-id="R_kgDOJ9etDQ" data-category="General" data-category-id="DIC_kwDOJ9etDc4CYApG" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">

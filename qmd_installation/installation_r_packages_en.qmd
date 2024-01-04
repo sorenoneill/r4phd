@@ -47,7 +47,7 @@ Many R packages are written in, or rely upon, other programming languages such a
 
 ### Versions
 
-R packages are specific to the underlying version of R -- when a new version of R is published it may take some time for package developers to update their packages. In other words, depending on the packages you make use of, it is not always a good idea to run the absolute latest release of R, but this is mostly an issue if you used 'niche' packages.
+R packages are specific to the underlying version of R -- when a new version of R is published it may take some time for package developers to update their packages. In other words, depending on the packages you make use of, it is not always a good idea to run the absolute latest release of R, but this is mostly an issue if you use 'niche' packages.
 
 ### Installing and loading packages
 
@@ -56,16 +56,20 @@ If you want to make use of an R package, you need to _install_ and _load_ it bef
 * When you install a package, it is downloaded from the internet and stored on your hard drive.
 * When you load the package, it is read into your computers RAM memory.
 
-Not until the package is in your computers RAM memory will it be available to your code. And thus, any scripts that need extra functionality, also needs to specifically load the packges.
+Not until the package is in your computers RAM memory will it be available to your code. And thus, any scripts that need extra functionality, also needs to specifically load the packages.
 
 ### More than one way to install a package
 
-By far the majority of packages are available online through [the Comprehensive R Archive Network](https://cran.r-project.org/) -- CRAN.
+By far the majority of packages are available online through [the Comprehensive R Archive Network](https://cran.r-project.org/) -- CRAN, but you will not be downloading from the website. Instead, we let R handle the download and installation:
 
 If you want to install a CRAN package you can choose to do so via RStudios graphical user interface or via R in an R console. When installing via the R console, you may get some useful information about the installation process, especially if it fails.
 
+**Common misunderstanding**: It is not sufficient to have downloaded and installed (`install.packages()`) to your computers hard drive. You must also, specifically _load_ that package into memory (`library()` or `require()`) in the code where it is needed. That way, you can install many packages on your system, but only _load_ the ones you actually need for a project.
+
 ::: {.callout-note collapse="true"}
 ## Video : Installation of R pakker
+
+...sound in Danish -- sorry!
 
 ![Example installation of an R package](video/install_packages_easy.webm)
 :::
