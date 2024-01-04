@@ -34,6 +34,8 @@ In that case, you should install RTools along with R, if it is available. Ensure
 
 R can be downloaded from the internet via this link [CRAN](https://cran.r-project.org/):
 
+(Note, that access to the CRAN website may be restricted on the Region Syd network -- use the wireless _Gæstenet_ instead)
+
 -   Near the top, you will find the link **Download R for Windows**.
 -   Click the link and download hte file
 -   Once the file is downloaded, install as per usual procedure
@@ -44,11 +46,15 @@ You should also install RTools along with R - make sure you use the version appr
 
 R can be downloaded from the internet via this link [CRAN](https://cran.r-project.org/):
 
+(Note, that access to the CRAN website may be restricted on the Region Syd network -- use the wireless _Gæstenet_ instead)
+
 -   Near the top, you will find the link **Download R for MacOS**.
 -   Click the link and download hte file
 -   Once the file is downloaded, install as per usual procedure
 
 ## Linux
+
+(Note, that access to the CRAN website may be restricted on the Region Syd network -- use the wireless _Gæstenet_ instead)
 
 R is, in all probablity, already part of your preferred Linux distributions software repositories. If you use a Debian based distribution, it should be as simple as::
 
