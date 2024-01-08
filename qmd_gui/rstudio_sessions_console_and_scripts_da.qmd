@@ -1,0 +1,92 @@
+---
+title: "R Sessioner"
+description: |
+  Effektivt arbejde i RStudio
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: today
+output:
+  distill::distill_article:
+    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+# categories:
+#   - RStudio
+creative_commons: CC BY
+format: html
+editor: source
+---
+
+```{r}
+#| echo: false
+#| warning: false
+
+library(tidyverse)
+```
+
+## Forstå R sessioner, RStudios konsol og tekst editor
+
+Do kender allerede RStudios panel layout:
+
+![](gfx/rstudio_panels_functions.png)
+
+For at arbejde effektivt i disse fire paneller, er der fire simple pointer du skal forstå:
+
+1. Du kan køre flere _sessioner_ af R på samme tid, som er helt uafhængige af hinanden.
+2. Hver R session har et tilknyttet _workspace_ i computerens hukommelse, som indeholder variabler, værdier, funktioner, mm *specifikt* for den pågældende session.
+3. RStudio vil hjælpe dig med at eksekvere kode fra en tekst fil, i den aktuelle R session (se fanebladet 'console' for output)
+4. Når du beder RStudio om at `render` et quarto document gør den det _ikke_ i din aktuelle RStudio session, men i en ny særskilt session (se fanebladet 'Background jobs' for output)
+
+
+:::{.callout-note collapse=true}
+## Pointe 1 : Multiple samtidige R sessioner
+
+![](gfx/multiple_R_sessions.gif)
+
+Videoklippet herover illustrerer two R sessioner der kører samtidig på den samme computer. De vises her i to forskellige konsoler i stedet for i RStudio.
+
+:::
+
+
+:::{.callout-note collapse=true}
+## Pointe 2 : Sessionens workspace
+
+Bemærk, i videoen herover, at variable 'a' er ukendt (_unknown_) i den anden R session, fordi den kun er defineret i den første R session.
+
+I RStudio bliver indholdet af R sessionens workspace vist i _Environment_ fanebladet (øverste højre hjørne -- 'Short term memory'). I konsollen kan kommandoen `ls()` bruges til at vise en liste af variabler i den aktuelle R sessions workspace. 
+
+![](gfx/rstudio_environment.gif)
+:::
+
+
+:::{.callout-note collapse=true}
+## Pointe 3 : From script to current session
+
+:::
+
+
+
+:::{.callout-note collaps=true}
+## Pointe 4 : From script to rendered output
+
+:::
+
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+

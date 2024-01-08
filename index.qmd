@@ -14,6 +14,11 @@ format: html
 editor: source
 ---
 
+[![](gfx/dannebrog.png)](index_da.qmd){fig-align="left"} Klik for at skifte til dansk.
+
+> This website is available in Danish and in English.<br> Please pay attention to the _Table of content_ on the left hand side, where you will find pages organized under 'Dansk' and 'English'. 
+20
+ 
 ## Welcome to R4phd
 
 The idea behind this webpage was to form the basis for regular classroom teaching of R, RStudio and the R ecosystem. Primarily with Ph.D. courses based at the University of Southern Denmark in mind.

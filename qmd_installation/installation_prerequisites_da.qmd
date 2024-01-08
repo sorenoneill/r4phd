@@ -1,0 +1,180 @@
+---
+title: "Prerequisites"
+description: "...ting der bare _skal_ være på plads før du deltager i R-kurset."
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: today
+output:
+  distill::distill_article:
+    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+#categories:
+#  - Dansk
+#  - Installation
+creative_commons: CC BY
+format: html
+editor: source
+---
+
+## Forudsætninger
+
+...du får brug for en computer, ja du gør.
+
+-   En *nogenlunde* moderne computer
+    -   Tilstrækkeligt med plads (+500 Mb) på din harddisk til installationen
+    -   Tilstrækkeligt med RAM (+1 Gb) - jo mere, jo bedre
+-   Et *nogenlunde* moderne styresystem
+    -   Linux (Ubuntu 18+, Debian 9+, OpenSuse 15+, Fedora 19+, Redhat 7+, etc)
+    -   Windows 10+
+    -   MacOS10.15+
+-   En fungerende internetforbindelse
+
+Hvis du er i tvivl _eller_ din computer blev udleveret af SDU, SLB, eller OUH, så se venligst herunder:
+
+:::{.callout-note collapse=true}
+## Sådan kan du finde information om din computer
+
+Hvis du allerede har en fungerende installation af R kan du bruge [denne R kode](installation_check_da.qmd) til at udskrive al relevant information om din computer og dens software.
+
+::: panel-tabset
+### Windows
+
+[Windows 10](https://support.microsoft.com/en-us/windows/view-your-system-info-a965a8f2-0773-1d65-472a-1e747c9ebe00)
+
+[Windows 10](https://youtu.be/5SXXGHKJ8I4)
+
+### MacOS
+
+[MacOS](https://support.apple.com/guide/mac-help/get-system-information-about-your-mac-syspr35536/mac)
+
+### Linux
+
+Hvis du kører Linux ved du garanteret al den slags i forvejen, inklusive din RAMs clock-frekvens og ext4's blok størrelse, men hvis ikke:
+
+#### Debian baseret distribution
+
+Kør følgende i en konsol:
+
+```
+$ uname -a
+$ lscpu
+$ df -h
+```
+
+#### Red Hat baseret distribution
+
+Kør følgende i en konsol:
+
+```{} 
+$ hostnamectl
+$ lscpu
+$ df -h
+
+```
+
+#### Gentoo, Arch, mm?
+
+Du har helt sikkert ikke brug for hjælp her ...
+
+
+:::
+
+:::
+
+::: {.callout-important  collapse="true"}
+## Er din computer gammel?
+
+Hvis din computer er af ældre dato, vil det absolut være tilrådeligt at sikre dig personlig hjælp til installation i god tid *før* du deltager i et R-kursus.
+
+Ellers risikerer du at bruge al din undervisningstid på at kæmpe med computeren i stedet for at lege med R.
+
+R-økosystemet er konstant i udvikling og der kommer hele tiden nye funktioner til som du vil gå glip af med en ældre installation.
+
+Ikke fordi din computer absolut skal være sprit ny, men er du i tvivl, så kontakt underviserne *i god tid* og spørg dem til råds.
+
+Aktuelt (sommeren 2022) vil jeg anbefale at du bruger R version 4.x.x og RStudio version 2022.x.x
+
+:::
+
+::: {.callout-important  collapse="true"}
+## Er din computer forbundet til et institutions netværk drev?
+
+Bemærk, at hvis din computer er sat op til at bruge din institutions netværks drev (f.eks Microsoft OneDrive) i modsætning til at bruge dens egen lokale harddisk, så vil tingene køre langsommere ... det vil stadigvæk køre, men bare langsommere pga netværks trafikken.
+
+:::
+
+::: {.callout-important  collapse="true"}
+## Er din computer en SDU-computer?
+
+Vær særligt opmærksom på at den lokale IT afdeling på regionens sygehuse og universiteterne kan have lagt begrænsinger på dine muligheder for at installere programmer på din arbejdscomputer:
+
+-   Er der spærret for adgangen til hjemmesider eller download af programfiler?
+-   Kræver det særlige rettigheder at installere programmer på din computer?
+
+Hvis det er tilfældet kan det gøre det sværere at installere eksempelvis R på din computer.
+
+Det er en god idé at få styr på det *før* du sidder til undervisning. Igen fordi du ellers risikerer du at bruge al din undervisningstid på at kæmpe med computeren i stedet for at lege med R.
+
+...og vi (underviserne) kan hjælpe dig med R-økosystemet, men ikke nødvendigvis med din computer eller dit styresystem.
+
+På en SDU computer, er det nemmest hvis du kan installere softwaren via SDU IT Software Center.
+
+:::
+
+::: {.callout-important  collapse="true"}
+
+## Er din computer en SLB-computer?
+
+Vær særligt opmærksom på at den lokale IT afdeling på regionens sygehuse og universiteterne kan have lagt begrænsinger på dine muligheder for at installere programmer på din arbejdscomputer:
+
+-   Er der spærret for adgangen til hjemmesider eller download af programfiler?
+-   Kræver det særlige rettigheder at installere programmer på din computer?
+
+Hvis det er tilfældet kan det gøre det sværere at installere eksempelvis R på din computer.
+
+Det er en god idé at få styr på det *før* du sidder til undervisning. Igen fordi du ellers risikerer du at bruge al din undervisningstid på at kæmpe med computeren i stedet for at lege med R.
+
+...og vi (underviserne) kan hjælpe dig med R-økosystemet, men ikke nødvendigvis med din computer eller dit styresystem.
+
+Bemærk, at hvis du er på regionens netværk er der spærret for adgang til en lang række internet ressourcer -- du kan med fordel logge på "Gæstenet" i stedet.
+
+:::
+
+::: {.callout-important  collapse="true"}
+## Er din computer en OUH-computer?
+
+Enkelte OUH ansatte har tidligere fået anvist adgang til en server-baseret R/RStudio løsning, istedet for installation på din egen computer -- det fungerer **ikke** godt. Vi anbefaler klart, en lokal installation på harddisken.
+
+Vær særligt opmærksom på at den lokale IT afdeling på regionens sygehuse og universiteterne kan have lagt begrænsinger på dine muligheder for at installere programmer på din arbejdscomputer:
+
+-   Er der spærret for adgangen til hjemmesider eller download af programfiler?
+-   Kræver det særlige rettigheder at installere programmer på din computer?
+
+Hvis det er tilfældet kan det gøre det sværere at installere eksempelvis R på din computer.
+
+Det er en god idé at få styr på det *før* du sidder til undervisning. Igen fordi du ellers risikerer du at bruge al din undervisningstid på at kæmpe med computeren i stedet for at lege med R.
+
+...og vi (underviserne) kan hjælpe dig med R-økosystemet, men ikke nødvendigvis med din computer eller dit styresystem.
+
+Bemærk, at hvis du er på regionens netværk er der spærret for adgang til en lang række internet ressourcer -- du kan med fordel logge på "Gæstenet" i stedet.
+
+:::
+
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>

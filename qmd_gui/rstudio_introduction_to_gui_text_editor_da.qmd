@@ -1,0 +1,71 @@
+---
+title: "RStudios GUI -- tekst editoren"
+description: |
+  Tips til RStudios tekst editor
+author:
+  - name: Søren O'Neill
+    url: www.oneill.dk
+date: today
+output:
+  distill::distill_article:
+    self_contained: false
+#collections:
+#  posts:
+#    disqus: reproducible-finance-with-r
+# categories:
+#   - RStudio
+creative_commons: CC BY
+format: html
+editor: source
+---
+
+```{r}
+#| echo: false
+#| warning: false
+
+library(tidyverse)
+```
+
+# Tips til at arbejde i RStudios tekst editor 
+
+## Quarto markdown dokumenter
+
+![Fremhævede arealer i tekst editorer (quarto dokument)](gfx/quarto_in_text_editor.png)
+
+Når du arbejder i et quarto document, bør teksten indeholde ét (og kun ét) _YAML_ afsnit i begyndelsen af dokumentet. YAML afsnittet er afgrænset af to linjer bestående af `---`. 
+
+Under YAML afsnittet, vil teksten består af markdown med et vilkårligt antal R '_chunks_' indlejret. Bemærk forskellen i baggrundsfarven (hvilket er defineret af det valgte _Editor Theme_ i _Tools_ / _Global Options_ / _Appearance_).
+
+Hver R '_chunk_' er afgrænset af to linjer med hhv ```` ```{r} ```` og ```` ``` ````. 
+
+Bemærk, den direkte _indlejrede_ r-kode i linje 15 (orange boks), som er afgrænset af hhv `` `r `` og `` ` ``.
+
+## Visual versus Source code
+
+Afprøv knapperne `Visual` og `Source` i øverste venstre hjørne. Bemærk også YAML linjen `editor` (linje 4), som definerer opstarts valgte for hvert dokument.
+
+## Dokument struktur
+
+Bemærk ikonet `Outline` i øverste højre hjørne, som viser/skjuler en hierakisk oversigt om dokumentets overskrifter.
+
+## Kode struktur
+
+Bemærk også ikonet i nederste venstre hjørne (lilla boks) -- i illustrationen herover er det benævnt 'Subheading', men det ændrer sig dynamisk afhængigt af hvor markøren befinder sig. 
+
+<script src="https://giscus.app/client.js"
+        data-repo="sorenoneill/r4phd"
+        data-repo-id="R_kgDOJ9etDQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJ9etDc4CYApF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="cobalt"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+

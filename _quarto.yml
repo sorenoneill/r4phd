@@ -22,75 +22,122 @@ website:
     search: true
     collapse-level: 1
     contents:
-      - section: "Installation"
+      - section: "English"
         contents:
-          - href: qmd_installation/installation_quick_preparation_en.qmd
-            text: "Getting started"
-          - qmd_installation/installation_prerequisites_en.qmd
-          - qmd_installation/installation_ecosystem_en.qmd
-          - qmd_installation/installation_background_en.qmd
-          - qmd_installation/installation_r_en.qmd
-          - qmd_installation/installation_rstudio_en.qmd
-          - qmd_installation/installation_r_packages_en.qmd
-          - qmd_installation/installation_cloud_en.qmd
-          - qmd_installation/installation_check_en.qmd
-      - section: "Getting to know RStudio"
+          - section: "Installation"
+            contents:
+              - href: qmd_installation/installation_quick_preparation_en.qmd
+                text: "Getting started"
+              - qmd_installation/installation_prerequisites_en.qmd
+              - qmd_installation/installation_ecosystem_en.qmd
+              - qmd_installation/installation_background_en.qmd
+              - qmd_installation/installation_r_en.qmd
+              - qmd_installation/installation_rstudio_en.qmd
+              - qmd_installation/installation_r_packages_en.qmd
+              - qmd_installation/installation_cloud_en.qmd
+              - qmd_installation/installation_check_en.qmd
+          - section: "Getting to know RStudio"
+            contents:
+              - qmd_gui/rstudio_introduction_to_gui_1_en.qmd
+              - qmd_gui/rstudio_introduction_to_gui_2_en.qmd
+              - qmd_gui/rstudio_introduction_to_gui_console_en.qmd
+              - qmd_gui/rstudio_introduction_to_gui_text_editor_en.qmd
+          - section: "Data structure"
+            contents:
+              - qmd_data_structure/tidy_data_en.qmd
+              - qmd_data_structure/normalization_of_data_en.qmd
+              - qmd_data_structure/base_r_data_types_en.qmd
+              - qmd_data_structure/base_r_missing_data_en.qmd
+          - section: "Manuscript workflow"
+            contents:
+              - qmd_manuscript_workflow/load_data_en.qmd
+              - qmd_manuscript_workflow/inspect_data_en.qmd
+              - qmd_manuscript_workflow/wrangle_data_en.qmd
+          - section: "R course exercises"
+            contents: 
+            - section: "Day 1"
+              contents: 
+                - day_1_basics_of_Rstudio.qmd
+                - day_1_basics_of_R_code.qmd
+                - day_1_settting_up_your_course_project.qmd
+                - day_1_quarto_documents.qmd
+                - day_1_dplyr.qmd
+                - day_1_other.qmd
+            - section: "Day 2"
+              contents:
+                - day_2_ggplot2_basics.qmd
+                - day_2_ggplot2_extras.qmd
+            - section: "Day 3"
+              contents:
+                - day_3_factors.qmd
+                - day_3_data_import.qmd
+                - day_3_missings.qmd
+                - day_3_tables.qmd
+            - section: "Day 4"
+              contents: 
+                - day_4_hypothesis.qmd
+                - day_4_regression.qmd
+            - section: "RRR"
+              contents:
+                - qmd_rrr/reproducible_research_basics_exercises_en.qmd
+                - qmd_rrr/reproducible_research_intro_en.qmd
+                - qmd_rrr/reproducible_research_workflow_1_en.qmd
+                - qmd_rrr/reproducible_research_basics_comments_how_en.qmd
+                - qmd_rrr/reproducible_research_basics_comments_where_en.qmd
+                - qmd_rrr/reproducible_research_basics_comments_what_en.qmd
+                - qmd_rrr/reproducible_research_basics_white_space_en.qmd
+                - qmd_rrr/reproducible_research_basics_readme_en.qmd
+                - qmd_rrr/reproducible_research_basics_naming_stuff_en.qmd
+                - qmd_rrr/reproducible_research_basics_file_structure_en.qmd
+                - qmd_rrr/reproducible_research_workflow_2_en.qmd
+                - qmd_rrr/reproducible_research_citations_en.qmd
+                - qmd_rrr/reproducible_research_collaboration_en.qmd
+      - section: "Dansk"
         contents:
-          - qmd_gui/rstudio_introduction_to_gui_1_en.qmd
-          - qmd_gui/rstudio_introduction_to_gui_2_en.qmd
-          - qmd_gui/rstudio_introduction_to_gui_console_en.qmd
-          - qmd_gui/rstudio_introduction_to_gui_text_editor_en.qmd
-      - section: "Data structure"
-        contents:
-          - qmd_data_structure/tidy_data_en.qmd
-          - qmd_data_structure/normalization_of_data_en.qmd
-          - qmd_data_structure/base_r_data_types_en.qmd
-          - qmd_data_structure/base_r_missing_data_en.qmd
-      - section: "Manuscript workflow"
-        contents:
-          - qmd_manuscript_workflow/load_data_en.qmd
-          - qmd_manuscript_workflow/inspect_data_en.qmd
-          - qmd_manuscript_workflow/wrangle_data_en.qmd
-      - section: "R course exercises"
-        contents: 
-        - section: "Day 1"
-          contents: 
-            - day_1_basics_of_Rstudio.qmd
-            - day_1_basics_of_R_code.qmd
-            - day_1_settting_up_your_course_project.qmd
-            - day_1_quarto_documents.qmd
-            - day_1_dplyr.qmd
-            - day_1_other.qmd
-        - section: "Day 2"
-          contents:
-            - day_2_ggplot2_basics.qmd
-            - day_2_ggplot2_extras.qmd
-        - section: "Day 3"
-          contents:
-            - day_3_factors.qmd
-            - day_3_data_import.qmd
-            - day_3_missings.qmd
-            - day_3_tables.qmd
-        - section: "Day 4"
-          contents: 
-            - day_4_hypothesis.qmd
-            - day_4_regression.qmd
-        - section: "RRR"
-          contents:
-            - qmd_rrr/reproducible_research_basics_exercises_en.qmd
-            - qmd_rrr/reproducible_research_intro_en.qmd
-            - qmd_rrr/reproducible_research_workflow_1_en.qmd
-            - qmd_rrr/reproducible_research_basics_comments_how_en.qmd
-            - qmd_rrr/reproducible_research_basics_comments_where_en.qmd
-            - qmd_rrr/reproducible_research_basics_comments_what_en.qmd
-            - qmd_rrr/reproducible_research_basics_white_space_en.qmd
-            - qmd_rrr/reproducible_research_basics_readme_en.qmd
-            - qmd_rrr/reproducible_research_basics_naming_stuff_en.qmd
-            - qmd_rrr/reproducible_research_basics_file_structure_en.qmd
-            - qmd_rrr/reproducible_research_workflow_2_en.qmd
-            - qmd_rrr/reproducible_research_citations_en.qmd
-            - qmd_rrr/reproducible_research_collaboration_en.qmd
-      
+          - section: "Installation"
+            contents:
+              - qmd_installation/installation_quick_preparation_da.qmd
+              - qmd_installation/installation_prerequisites_da.qmd
+              - qmd_installation/installation_ecosystem_da.qmd
+              - qmd_installation/installation_background_da.qmd
+              - qmd_installation/installation_r_da.qmd
+              - qmd_installation/installation_rstudio_da.qmd
+              - qmd_installation/installation_r_packages_da.qmd
+              - qmd_installation/installation_cloud_da.qmd
+              - qmd_installation/installation_check_da.qmd
+          - section: "Lær RStudio at kende"
+            contents:
+              - qmd_gui/rstudio_introduction_to_gui_1_da.qmd
+              - qmd_gui/rstudio_introduction_to_gui_2_da.qmd
+              - qmd_gui/rstudio_introduction_to_gui_console_da.qmd
+              - qmd_gui/rstudio_introduction_to_gui_text_editor_da.qmd
+          - section: "Data structure"
+            contents:
+              - qmd_data_structure/tidy_data_en.qmd # TRANSLATE!!
+              - qmd_data_structure/normalization_of_data_en.qmd # TRANSLATE!!
+              - qmd_data_structure/base_r_data_types_en.qmd # TRANSLATE!!
+              - qmd_data_structure/base_r_missing_data_en.qmd # TRANSLATE!!
+          - section: "Manuscript workflow"
+            contents:
+              - qmd_manuscript_workflow/load_data_en.qmd # TRANSLATE!!
+              - qmd_manuscript_workflow/inspect_data_en.qmd # TRANSLATE!!
+              - qmd_manuscript_workflow/wrangle_data_en.qmd # TRANSLATE!!
+          - section: "RRR"
+            contents:
+              - qmd_rrr/reproducible_research_basics_exercises_da.qmd
+              - qmd_rrr/reproducible_research_intro_da.qmd
+              - qmd_rrr/reproducible_research_workflow_1_da.qmd
+              - qmd_rrr/reproducible_research_basics_comments_how_da.qmd
+              - qmd_rrr/reproducible_research_basics_comments_where_da.qmd
+              - qmd_rrr/reproducible_research_basics_comments_what_da.qmd
+              - qmd_rrr/reproducible_research_basics_white_space_da.qmd
+              - qmd_rrr/reproducible_research_basics_readme_da.qmd
+              - qmd_rrr/reproducible_research_basics_naming_stuff_da.qmd
+              - qmd_rrr/reproducible_research_basics_file_structure_da.qmd
+              - qmd_rrr/reproducible_research_workflow_2_da.qmd
+              - qmd_rrr/reproducible_research_citations_da.qmd
+              - qmd_rrr/reproducible_research_collaboration_da.qmd
+        
 format:
   html:
     theme: cosmo
