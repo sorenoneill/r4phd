@@ -37,6 +37,13 @@ if (r_version_major >= "4") {
 
 ### RStudio version
 
+all_installed_packages <- .packages(all.available = TRUE)
+
+if (!"rstudioapi" %in% all_installed_packages | TRUE) {
+  print(paste0("[WARNING] 'rstudioapi' (package) is NOT installed. Run: install.packages('rstudioapi') from console command line and then re-run script"))
+  quit()
+}
+
 rstudio_type <- rstudioapi::versionInfo()$mode
 rstudio_version <- rstudioapi::versionInfo()$version
 
@@ -52,7 +59,7 @@ if (rstudio_version > "2023") {
   print(paste0("[WARNING] The RStudio version is ",rstudio_version, ". Version 2023+ was expected."))
 }
 
-all_installed_packages <- .packages(all.available = TRUE)
+
 recommended_packages <- c("tidyverse", "here", "skimr", "gt", "gtExtras", "gtsummary", "patchwork", "naniar", "reprex", "ggstatsplot", "easystats", "vroom")
 
 for (p in recommended_packages) {
