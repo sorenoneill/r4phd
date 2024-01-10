@@ -39,7 +39,7 @@ From the menu click: _File_ /  _New File_ /  _Quarto Document_ [^1]
  * **Uncheck** 'Use visual markdown editor'
  * Click "Create" 
  
-![Create a new quarto document](gfx/creat_new_quarto_doc.png) 
+![Create a new quarto document](gfx/create_new_quarto_doc.png) 
  
 The document contains three types of code: YAML, R, and Markdown code. Take a look at the document and see if you can recognize the sections with R code.  [hint](qmd_gui/rstudio_introduction_to_gui_text_editor_en.qmd).
  
