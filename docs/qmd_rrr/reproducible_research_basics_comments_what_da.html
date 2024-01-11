@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Søren O’Neill">
-<meta name="dcterms.date" content="2024-01-10">
+<meta name="dcterms.date" content="2024-01-11">
 
 <title>R4phd - Comments - what to</title>
 <style>
@@ -850,7 +850,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 10, 2024</p>
+      <p class="date">January 11, 2024</p>
     </div>
   </div>
   
@@ -891,8 +891,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># set 's' to F(emale) or M(ale) depending on odd/even id number in CPR</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> d <span class="sc">%&gt;%</span> </span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">s=</span><span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"F"</span>))[<span class="fu">as.numeric</span>(<span class="fu">substr</span>(id,<span class="fu">nchar</span>(id),<span class="fu">nchar</span>(id))) <span class="sc">%%</span> <span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">s=</span><span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"F"</span>, <span class="st">"M"</span>))[<span class="fu">as.numeric</span>(<span class="fu">substr</span>(id,<span class="fu">nchar</span>(id),<span class="fu">nchar</span>(id))) <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">1</span> ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Bemærkninger til løsningen
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>I forhold til de tre linjer kode i øvelsen herover:</p>
+<ol type="1">
+<li>unødvendigt med en kommentar til den første linje – koden er selv-forklarende</li>
+<li>en god ide med en kommentar til anden linje der forklarer <em>hvorfor</em> man sletter det pågældende CPR nummer</li>
+<li>en god iden med en kommentar til tredje linje derforklarer hvad koden <em>gør</em> for det er ikke indlysende!</li>
+</ol>
+<p>Kode linje 3 er lidt kompliceret (med vilje) men kort fortalt: Den beregner en ny variable <code>s</code> som enten er ‘M’ eller ‘F’ for hhv ulige og lige CPR numre. Hvis du gerne vil forstå kode:</p>
+<blockquote class="blockquote">
+<p>Hvis <code>id</code> er en tekst-string for et CPR nummer, kigger koden to det sidste tegn (<code>substr(id,nchar(id),nchar(id))</code>), konverterer det til en talværdi (<code>as.numeric</code>) og beregner <em>modulus 2</em> (<code>%% 2</code>), altså heltals-resten ved division med to (som bliver <code>0</code> for lige tal og <code>1</code> for ulige tal), så lægger den 1 til (<code>+1</code>) og bruger tallet (som altså nu er <code>1</code> for CPR numre med lige tal og <code>2</code> for CPR numre med ulige tal), og sætter <code>s</code> til index 1 eller 2 af faktoren <code>factor(c("F", "M"))</code> – det fungerer fint, men det var ikke selv-indlysende, vel?.</p>
+</blockquote>
 </div>
 </div>
 </div>
@@ -901,7 +926,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Hovedpointer</strong></p>
 <ul>
 <li><strong>Altid</strong> føj kommentarer til din kode</li>
-<li>Kommentarer skulle forklare ‘hvorfor’ (din rationale)</li>
+<li>Kommentarer skulle forklare ‘hvorfor’ (dit rationale)</li>
 <li>Med god kode, bliver ‘hvordan’ selv-indlysende
 <ul>
 <li>..men hvis din kode ikke kan være selv-indlysende: så forklar hvordan den fungerer i kommentarer</li>

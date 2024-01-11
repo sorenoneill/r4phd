@@ -41,9 +41,6 @@ Skal indeholde
 * Dine quarto scripts
 * Relevante underfolders (/custom_functions, /gfx, /data, etc)
 
-## <!-- -->
-
-![](gfx/phdcomics.1531.png){height=90%}
 
 ## Filer or foldere under-foldere til nye projekter
 
@@ -55,18 +52,13 @@ Skal indeholde
 * Markup filer (HTML, XML, etc) kan læses men er komplekse
 * Program filer (.odt, .docx) er som oftest enten binære filer eller meget komplekse markup filer
 
-gfx/prefer_text_files.pdf
-
-gfx/prefer_text_files.pdf
-
-gfx/prefer_text_files.xml
 
 
 ## Fil typer
 
 **Hold dig til simple menneske-læsevenlige filer som R scripts, markdown, csv etc så langt i arbejdsprocessen som muligt. Skift kun til pdf, word, tiff, jpeg etc som sidste trin i processen.**
 
-Hvis et tegn ser mrækeligt ud i en simpel tekst fil er det sikkert et problem med karakter-sættet -- bare hold dig til UTF8/UTF16.
+Hvis et tegn ser mærkeligt ud i en simpel tekst fil er det sikkert et problem med karakter-sættet -- bare hold dig til UTF8/UTF16.
 
 >- _Forresten_, hvad tror du der sker som det første, når typografen i Springer modtager dig manuskript?
 

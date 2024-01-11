@@ -77,7 +77,6 @@ If any characters look weird in a simple txt file (it _does_ happen) -- it's pro
 * Use human-readable files only if possible (txt, md, Rmd, csv, etc)
 * Only use non-human readable files for '_final output_' (pdf, docx, xlsx, etc)
 
-
 <script src="https://giscus.app/client.js"
         data-repo="sorenoneill/r4phd"
         data-repo-id="R_kgDOJ9etDQ"

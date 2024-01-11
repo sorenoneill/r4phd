@@ -61,17 +61,31 @@ d <- d %>% filter(id != "2321369-1212")
 
 # set 's' to F(emale) or M(ale) depending on odd/even id number in CPR
 d <- d %>% 
-  mutate(s=factor(c("M", "F"))[as.numeric(substr(id,nchar(id),nchar(id))) %% 2])
+  mutate(s=factor(c("F", "M"))[as.numeric(substr(id,nchar(id),nchar(id))) %% 2 + 1 ])
 
 ```
 ::::
+
+::: {.callout-note collapse=true}
+## Bemærkninger til løsningen
+
+I forhold til de tre linjer kode i øvelsen herover:
+
+1. unødvendigt med en kommentar til den første linje -- koden er selv-forklarende
+2. en god ide med en kommentar til anden linje der forklarer _hvorfor_ man sletter det pågældende CPR nummer
+3. en god iden med en kommentar til tredje linje derforklarer hvad koden _gør_ for det er ikke indlysende! 
+
+Kode linje 3 er lidt kompliceret (med vilje) men kort fortalt: Den beregner en ny variable `s` som enten er 'M' eller 'F' for hhv ulige og lige CPR numre. Hvis du gerne vil forstå kode:
+
+> Hvis `id` er en tekst-string for et CPR nummer, kigger koden to det sidste tegn (`substr(id,nchar(id),nchar(id))`), konverterer det til en talværdi (`as.numeric`) og beregner _modulus 2_ (`%% 2`), altså heltals-resten ved division med to (som bliver `0` for lige tal og `1` for ulige tal), så lægger den 1 til (`+1`) og bruger tallet (som altså nu er `1` for CPR numre med lige tal og `2` for CPR numre med ulige tal), og sætter `s` til index 1 eller 2 af faktoren `factor(c("F", "M"))` -- det fungerer fint, men det var ikke selv-indlysende, vel?. 
+:::
 
 ## Kommentér din kode
 
 **Hovedpointer**
 
 * **Altid** føj kommentarer til din kode
-* Kommentarer skulle forklare 'hvorfor' (din rationale)
+* Kommentarer skulle forklare 'hvorfor' (dit rationale)
 * Med god kode, bliver 'hvordan' selv-indlysende
     - ..men hvis din kode ikke kan være selv-indlysende: så forklar hvordan den fungerer i kommentarer
 

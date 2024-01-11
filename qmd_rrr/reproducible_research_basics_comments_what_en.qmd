@@ -43,7 +43,7 @@ d <- d %>% filter(id != "241269-1212")
 
 # 3
 d <- d %>% 
-  mutate(s=factor(c("M", "F"))[as.numeric(substr(id,nchar(id),nchar(id))) %% 2])
+  mutate(s=factor(c("F", "M"))[as.numeric(substr(id,nchar(id),nchar(id))) %% 2 + 1 ])
 
 ```
 
@@ -65,6 +65,20 @@ d <- d %>%
 
 ```
 ::::
+
+::: {.callout-note collapse=true}
+## Notes for the solution
+
+In relation to each of the three lines of code in the exercise above:
+
+1. it is unnecessary to comment this line -- the code is self-explanatory
+2. it's a good idea to comment line two to explain _why_ the CPR number in question was deleted.
+3. it's a good idea to comment line three to explain _what_ the code does, as it is not self-explanatory! 
+
+The code in line 3 is a little complicated (on purpose), but basically, it creates a new variable `s` which is either 'M' or 'F' for odd and even CPR numbers. If you want to understand the code:
+
+> If `id` is a text string representation of a CPR number, the code evaluates the last character in the string (`substr(id,nchar(id),nchar(id))`), converts it into a numerical value (`as.numeric`) and calculates the _modulus 2_ (`%% 2`), i.e. the integer remainder of division by 2 (which becomes `0` for even numbers and `1` for odd numbers), it then adds 1 (`+1`) and uses that numbers (which is now `1` for even CPR numbers and `2` for odd CPR numbers), and sets `s` to be index 1 or 2 of the factor `factor(c("F", "M"))` -- this works just fine, but it is not self-explanatory, is it?
+:::
 
 ## Commenting your code
 
