@@ -28,10 +28,13 @@ library(tidyverse)
 * Download this [RRR example project](RR_example.zip)
 * Unzip the file in a new folder somewhere appropriate
 * In RStudio, create a new R-project and choose that as _existing directory_
+    - Click _File_ / _New project_
+    - In the dialogue, select _Existing project_
+    - Use _Browse_ to select the appropriate folder
 
 :::{.callout-note collapse=true}
 ## Show me how
-![](gfx/new_project_existing_directory.gif)
+![](gfx/new_project_existing_directory.webm)
 :::
 
 **These exercises are best done in pairs.**
