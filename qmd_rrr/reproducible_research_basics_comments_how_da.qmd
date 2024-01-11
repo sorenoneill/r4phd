@@ -121,7 +121,7 @@ Okay så. Line 16 var ikke valid R kode. Linjen var faktisk en _enkelt-linje mar
 
 Hvis vi kommenterer linjen væk med et \# så har vi en valid R kode og vi får følgende output:
 
-![OBS Engelsk version](gfx/RR/comments_r_vs_quarto_output.png)
+![OBS Engelsk version](gfx/comments_r_vs_quarto_output.png)
 
 Med andre ord, kun linjerne 10 og 15 er valide kommentarer.
 

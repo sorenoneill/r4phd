@@ -122,7 +122,7 @@ Okay so. Line 16 was not valid R code. The line was actually a _single-line mark
 
 If we comment out that line with a hashtag \# as appropriate for valid R code, we get the following output:
 
-![](gfx/RR/comments_r_vs_quarto_output.png)
+![](gfx/comments_r_vs_quarto_output.png)
 
 In other words, only lines 10 and 15 were valid comments.
 
